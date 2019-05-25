@@ -1,0 +1,3 @@
+[[Problems]]
+    Name = 'unionfind'
+    Dir = 'datastructure/unionfind'

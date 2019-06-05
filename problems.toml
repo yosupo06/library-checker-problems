@@ -1,6 +1,6 @@
 [[Problems]]
     Name = 'a+b'
-    Dir = 'sample/aplus'
+    Dir = 'sample/aplusb'
 
 [[Problems]]
     Name = 'unionfind'

@@ -1,3 +1,7 @@
 [[Problems]]
+    Name = 'a+b'
+    Dir = 'sample/aplus'
+
+[[Problems]]
     Name = 'unionfind'
     Dir = 'datastructure/unionfind'

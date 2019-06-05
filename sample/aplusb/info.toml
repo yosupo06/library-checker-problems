@@ -1,0 +1,7 @@
+solution = "correct.cpp"
+verify = 'verify.cpp'
+timeLimit = 2.0
+
+[[tests]]
+    Name = "random.cpp"
+    Number = 10

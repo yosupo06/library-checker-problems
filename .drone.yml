@@ -23,6 +23,8 @@ steps:
   when:
     branch:
     - master
-
+    event:
+    - push
+    
 image_pull_secrets:
 - google_credentials

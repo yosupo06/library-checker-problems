@@ -1,0 +1,13 @@
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: plugins/gcr
+  settings:
+    repo: develop-156705/library-checker-problem-env
+    tags: latest
+    json_key:
+      from_secret: google_credentials
+  commands:
+  - echo 'OK!'

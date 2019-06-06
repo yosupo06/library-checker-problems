@@ -61,8 +61,12 @@ for problem in problems['Problems']:
             statement = markdown.markdown(f.read(), extensions = ['markdown.extensions.fenced_code'])
 
         with conn.cursor() as cursor:
-            cursor.execute(
-                'insert into problems (name, statement, testhash, testzip) values ( % s, % s, % s, % s)',
+            cursor.execute('''
+                insert into problems (name, statement, testhash, testzip) values (%s, %s, %s, %s)
+                on conflict(name) do update
+                set (statement, testhash, testzip)
+                = (EXCLUDED.statement, EXCLUDED.testhash, EXCLUDED.testzip) 
+                ''',
                 (name, statement, datahash, data))
         conn.commit()
 conn.close()

@@ -1,9 +1,11 @@
 *
 
-!.drone.yml
 !.gitignore
+!Dockerfile
 
 !*/
+!*.sh
+!*.yml
 !*.toml
 !*.cpp
 !*.h

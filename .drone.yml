@@ -20,7 +20,9 @@ steps:
       from_secret: pg_user
     POSTGRE_PASS:
       from_secret: pg_pass
-
+  when:
+    branch:
+    - master
 
 image_pull_secrets:
 - google_credentials

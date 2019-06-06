@@ -1,0 +1,11 @@
+*
+
+!.drone.yml
+!.gitignore
+
+!*/
+!*.toml
+!*.cpp
+!*.h
+!*.md
+!*.py

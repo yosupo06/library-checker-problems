@@ -11,7 +11,7 @@
 struct Random {
   private:
     // Use xoshiro256**
-    // Refereces: http://xoshiro.di.unimi.it/xoshiro256starstar.c
+    // References: http://xoshiro.di.unimi.it/xoshiro256starstar.c
     static uint64_t rotl(const uint64_t x, int k) {
         return (x << k) | (x >> (64 - k));
     }

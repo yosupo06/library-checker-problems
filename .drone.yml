@@ -3,11 +3,10 @@ name: default
 
 steps:
 - name: build
-  image: plugins/gcr
-  settings:
-    repo: develop-156705/library-checker-problem-env
-    tags: latest
-    json_key:
-      from_secret: google_credentials
+  image: gcr.io/develop-156705/library-checker-problem-env
   commands:
   - ./generate.py
+
+
+image_pull_secrets:
+- google_credentials

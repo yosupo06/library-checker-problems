@@ -5,7 +5,7 @@ steps:
 - name: build
   image: gcr.io/develop-156705/library-checker-problem-env
   commands:
-  - ./generate.py
+  - ./generate.py problems.toml
 
 
 image_pull_secrets:

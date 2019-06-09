@@ -1,15 +1,16 @@
-ケース生成
+# ケース生成
 
 ```
 ./generate.py problems.toml
 ```
 
-問題の作り方
+# 問題の追加
 
 - problems.tomlにいい感じに追加する
 - sample/aplusbディレクトリを参考に、いい感じに
 
-TODO
+# library-checker-project
 
-- ローカルで自分のソースコード群に対してテストできるように(本質)
-- output_checker
+- problems: [library-checker-problems](https://github.com/yosupo06/library-checker-problems)
+- judge: [library-checker-judge](https://github.com/yosupo06/library-checker-judge)
+- frontend: [library-checker-frontend](https://github.com/yosupo06/library-checker-frontend)

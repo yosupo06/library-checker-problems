@@ -1,22 +1,24 @@
 #!/usr/bin/env python3
 
-import os, toml, glob
-import tempfile, zipfile
 import hashlib
+import os
 import subprocess
+import tempfile
+import zipfile
+from pathlib import Path
+
 import markdown
 import markdown.extensions
-import psycopg2 #pip3 install psycopg2
+import psycopg2  # pip3 install psycopg2
+import toml
 
+problems = toml.load('problems.toml')
 
 print('[*] deploy problem to SQL')
 
 print('[*] generate case')
 # generate case
-tomlpath = os.path.abspath('./problems.toml')
-tomldir = os.path.dirname(tomlpath)
-subprocess.check_call(['./generate.py', tomlpath])
-problems = toml.load(tomlpath)
+subprocess.check_call(['./generate.py', 'problems.toml'])
 
 print('[*] connect SQL')
 # connect sql
@@ -36,23 +38,23 @@ conn = psycopg2.connect(
 
 
 for problem in problems['Problems']:
-    probdir = os.path.join(tomldir, problem['Dir'])
-    _, name = os.path.split(probdir)
+    probdir = Path(problem['Dir'])
+    name = probdir.name
     title = problem['Title']
 
     print('[*] deploy {}'.format(name))
     with tempfile.NamedTemporaryFile(suffix='.zip') as tmp:
         with zipfile.ZipFile(tmp.name, 'w') as newzip:
-            newzip.write(probdir + '/checker.cpp', arcname='checker.cpp')
-            for f in sorted(glob.glob(probdir + '/in/*.in')):
-                print(os.path.relpath(f, probdir))
-                newzip.write(f, arcname=os.path.relpath(f, probdir))
-            for f in sorted(glob.glob(probdir + '/out/*.out')):
-                print(os.path.relpath(f, probdir))
-                newzip.write(f, arcname=os.path.relpath(f, probdir))
+            newzip.write(probdir / 'checker.cpp', arcname='checker.cpp')
+            for f in sorted(probdir.glob('in/*.in')):
+                print(f)
+                newzip.write(f, arcname=f.relative_to(probdir))
+            for f in sorted(probdir.glob('out/*.out')):
+                print(f)
+                newzip.write(f, arcname=f.relative_to(probdir))
 
         tmp.seek(0)
-        
+
         data = tmp.read()
         m = hashlib.sha256()
         m.update(data)
@@ -60,18 +62,18 @@ for problem in problems['Problems']:
 
         # convert task
         statement = ''
-        with open(os.path.join(probdir, 'task.md')) as f:
-            statement = markdown.markdown(f.read(), extensions = ['markdown.extensions.fenced_code'])
+        with probdir / 'task.md' as f:
+            statement = markdown.markdown(
+                f.read(), extensions=['markdown.extensions.fenced_code'])
 
         with conn.cursor() as cursor:
             cursor.execute('''
-                insert into problems (name, title, statement, testhash, testzip) values (%s, %s, %s, %s, %s)
+                insert into problems (name, title, statement, testhash, testzip)
+                values (%s, %s, %s, %s, %s)
                 on conflict(name) do update
                 set (title, statement, testhash, testzip)
-                = (EXCLUDED.title, EXCLUDED.statement, EXCLUDED.testhash, EXCLUDED.testzip) 
-                ''',
-                (name, title, statement, datahash, data))
+                = (EXCLUDED.title, EXCLUDED.statement,
+                   EXCLUDED.testhash, EXCLUDED.testzip) 
+                ''', (name, title, statement, datahash, data))
         conn.commit()
 conn.close()
-
-# upload problems

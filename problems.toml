@@ -1,7 +1,11 @@
 [[Problems]]
-    Name = 'a+b'
+    Name = 'A + B'
     Dir = 'sample/aplusb'
 
 [[Problems]]
-    Name = 'unionfind'
+    Name = 'Unionfind'
     Dir = 'datastructure/unionfind'
+
+[[Problems]]
+    Name = 'Z-algorithm'
+    Dir = 'string/zalgo'

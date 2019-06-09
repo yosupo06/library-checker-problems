@@ -39,7 +39,7 @@ for problem in problems['Problems']:
     probdir = os.path.join(tomldir, problem['Dir'])
     _, name = os.path.split(probdir)
     title = problem['Title']
-    
+
     print('[*] deploy {}'.format(name))
     with tempfile.NamedTemporaryFile(suffix='.zip') as tmp:
         with zipfile.ZipFile(tmp.name, 'w') as newzip:
@@ -66,8 +66,8 @@ for problem in problems['Problems']:
             cursor.execute('''
                 insert into problems (name, title, statement, testhash, testzip) values (%s, %s, %s, %s, %s)
                 on conflict(name) do update
-                set (statement, testhash, testzip)
-                = (EXCLUDED.statement, EXCLUDED.testhash, EXCLUDED.testzip) 
+                set (title, statement, testhash, testzip)
+                = (EXCLUDED.title, EXCLUDED.statement, EXCLUDED.testhash, EXCLUDED.testzip) 
                 ''',
                 (name, title, statement, datahash, data))
         conn.commit()

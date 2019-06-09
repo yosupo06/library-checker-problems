@@ -36,8 +36,9 @@ conn = psycopg2.connect(
 
 
 for problem in problems['Problems']:
-    print('[*] deploy {}'.format(problem['Name']))
     probdir = os.path.join(tomldir, problem['Dir'])
+    _, name = os.path.split(probdir)
+    print('[*] deploy {}'.format(name))
     with tempfile.NamedTemporaryFile(suffix='.zip') as tmp:
         with zipfile.ZipFile(tmp.name, 'w') as newzip:
             for f in sorted(glob.glob(probdir + '/in/*.in')):
@@ -49,7 +50,6 @@ for problem in problems['Problems']:
 
         tmp.seek(0)
 
-        name = problem['Name']
         data = tmp.read()
         m = hashlib.sha256()
         m.update(data)

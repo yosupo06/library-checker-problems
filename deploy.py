@@ -38,6 +38,8 @@ conn = psycopg2.connect(
 for problem in problems['Problems']:
     probdir = os.path.join(tomldir, problem['Dir'])
     _, name = os.path.split(probdir)
+    title = problem['Title']
+    
     print('[*] deploy {}'.format(name))
     with tempfile.NamedTemporaryFile(suffix='.zip') as tmp:
         with zipfile.ZipFile(tmp.name, 'w') as newzip:
@@ -49,7 +51,7 @@ for problem in problems['Problems']:
                 newzip.write(f, arcname=os.path.relpath(f, probdir))
 
         tmp.seek(0)
-
+        
         data = tmp.read()
         m = hashlib.sha256()
         m.update(data)
@@ -62,12 +64,12 @@ for problem in problems['Problems']:
 
         with conn.cursor() as cursor:
             cursor.execute('''
-                insert into problems (name, statement, testhash, testzip) values (%s, %s, %s, %s)
+                insert into problems (name, title, statement, testhash, testzip) values (%s, %s, %s, %s, %s)
                 on conflict(name) do update
                 set (statement, testhash, testzip)
                 = (EXCLUDED.statement, EXCLUDED.testhash, EXCLUDED.testzip) 
                 ''',
-                (name, statement, datahash, data))
+                (name, title, statement, datahash, data))
         conn.commit()
 conn.close()
 

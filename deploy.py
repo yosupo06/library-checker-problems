@@ -43,11 +43,12 @@ for problem in problems['Problems']:
     print('[*] deploy {}'.format(name))
     with tempfile.NamedTemporaryFile(suffix='.zip') as tmp:
         with zipfile.ZipFile(tmp.name, 'w') as newzip:
+            newzip.write(probdir + '/checker.cpp', arcname='checker.cpp')
             for f in sorted(glob.glob(probdir + '/in/*.in')):
-                print(f, ' ', os.path.relpath(f, probdir))
+                print(os.path.relpath(f, probdir))
                 newzip.write(f, arcname=os.path.relpath(f, probdir))
             for f in sorted(glob.glob(probdir + '/out/*.out')):
-                print(f, ' ', os.path.relpath(f, probdir))
+                print(os.path.relpath(f, probdir))
                 newzip.write(f, arcname=os.path.relpath(f, probdir))
 
         tmp.seek(0)

@@ -22,8 +22,6 @@ $S$
 出力
 ---------
 
-末尾に空白を付けると落ちます [Issue #2](https://github.com/yosupo06/library-checker-problems/issues/2)
-
 ~~~
 $a_0$ $a_1$ $a_2$ ... $a_N$
 ~~~

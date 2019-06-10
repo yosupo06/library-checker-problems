@@ -3,6 +3,7 @@
 import argparse
 from sys import argv, exit
 import os, shutil
+from pathlib import Path
 from os import path, chdir, makedirs
 from binascii import crc32
 from subprocess import run, call, check_call, TimeoutExpired, CalledProcessError, DEVNULL
@@ -10,96 +11,106 @@ from datetime import datetime
 from termcolor import colored, cprint
 import toml
 
+# (random, 1) -> random_01
+def casename(name: str, i: int):
+	return Path(name).stem + '_' + str(i).zfill(2)
+
+class UnknownTypeFile(Exception):
+	def __init__(self, message):
+		super().__init__()
+		self.message = message
+
+def compile(src: Path):
+	if src.suffix == '.cpp':
+		check_call(['g++', '-O2', '-std=c++14',
+			'-I', Path.cwd() / 'common',
+			'-o', src.with_suffix(''),
+			src])
+	elif src.suffix == '.in':
+		pass
+	else:
+		print('Unknown type of file {}'.format(src))
+		raise UnknownTypeFile('Unknown file: {}'.format(src))
+
+def execcmd(src: Path, arg: [str] = []):
+	if src.suffix == '.cpp':
+		cmd = [src.with_suffix('')]
+		cmd.extend(arg)
+		return cmd
+	elif src.suffix == '.in':
+		inpath = src.with_name(casename(src, int(arg[0])) + '.in')
+		cmd = ['cat', inpath]
+		return cmd
+	else:
+		raise UnknownTypeFile('Unknown file: {} {}'.format(src, arg))
+
+class Problem:
+	basedir: Path()
+	config = None	
+	def __init__(self, basedir: Path):
+		self.basedir = basedir
+		self.config = toml.load(basedir / 'info.toml')
+	
+	def make_inputs(self):
+		indir = self.basedir / 'in'
+		gendir = self.basedir / 'gen'
+
+		print('[#] clear input {}'.format(indir))
+		if indir.exists():
+			shutil.rmtree(indir)
+		indir.mkdir()
+		
+		print('[#] compile verify')
+		compile(gendir / self.config['verify'])
+
+		for test in self.config['tests']:
+			name = test['Name']
+			num = test['Number']
+
+			print('[#] case {} {}cases'.format(name, num))
+			print('[#] compile')
+			compile(gendir / name)
+
+			for i in range(num):
+				# output filename
+				inpath = indir / (casename(name, i) + '.in')
+				check_call(execcmd(gendir / name, [str(i)]), stdout=open(inpath, 'w'))
+				check_call(execcmd(gendir / self.config['verify']), stdin=open(inpath, 'r'))
+
+	def make_outputs(self):
+		indir = self.basedir / 'in'
+		outdir = self.basedir / 'out'
+		soldir = self.basedir / 'sol'
+
+		print('[#] clear output {}'.format(outdir))
+		if outdir.exists():
+			shutil.rmtree(outdir)
+		outdir.mkdir()
+
+		print('[#] compile sol')
+		compile(soldir / self.config['solution'])
+
+		for test in self.config['tests']:
+			name = test['Name']
+			num = test['Number']
+
+			for i in range(num):
+				inpath = indir / (casename(name, i) + '.in')
+				outpath = outdir / (casename(name, i) + '.out')
+				print('# start ' + casename(name, i) + '...')
+				check_call(execcmd(soldir / self.config['solution']),
+								stdin=open(inpath, 'r'), stdout=open(outpath, 'w'))
+
+
 parser = argparse.ArgumentParser(description='Testcase Generator')
 parser.add_argument('toml', help='Toml File')
-
 args = parser.parse_args()
 
-tomlpath = os.path.abspath(args.toml)
-problems = toml.load(tomlpath)
+problems = toml.load(args.toml)
 
-curdir = os.path.dirname(tomlpath)
+for probinfo in problems['Problems']:
+	print('[*] Start {}'.format(probinfo['Dir']))
+	problem = Problem(Path.cwd() / probinfo['Dir'])
 
-def casename(testname, i):
-	testtitle, _ = os.path.splitext(testname)
-	return testtitle + '_' + str(i).zfill(2)
-
-# source must be abspath
-def compilecxx(srcpath):
-	dirname, srcname = os.path.split(srcpath)
-	srctitle, _ = os.path.splitext(srcname)
-	chdir(dirname)
-	check_call(['g++', '-O2', '-std=c++14',
-		'-I', os.path.join(curdir, 'common'),
-		srcname, '-o', srctitle])
-
-def execcmdcxx(srcpath):
-	srctitle, _ = os.path.splitext(srcpath)
-	return srctitle
-
-def casemake(problemdir, config):
-	# clear in
-	indir = os.path.join(problemdir, 'in')
-	print('[#] clear {}'.format(indir))
-	if os.path.exists(indir):
-		shutil.rmtree(indir)
-	makedirs(indir, exist_ok=True)
-
-	# make verify
-	gendir = os.path.join(problemdir, 'gen')
-	print('[#] compile verify')
-	compilecxx(os.path.join(gendir, config['verify']))
-	
-	for test in config['tests']:
-		testname = test['Name']
-		testnum = test['Number']
-		istext = ('Text' in test) and test['Text']
-
-		print('[#] case {} {}cases'.format(testname, testnum))
-
-		if not istext:
-			# make gen
-			compilecxx(os.path.join(gendir, testname))
-			print('[#] compile {}'.format(testname))
-
-		for i in range(testnum):
-			# output filename
-			casepath = os.path.join(indir, casename(testname, i) + '.in')
-
-			if istext:
-				# input filename
-				textpath = os.path.join(gendir, casename(testname, i) + '.in')
-				shutil.copy(textpath, casepath)
-			else:
-				check_call([execcmdcxx(os.path.join(gendir, testname)), str(i)], stdout=open(casepath, 'w'))
-			# run verify
-			check_call([execcmdcxx(os.path.join(gendir, config['verify']))], stdin=open(casepath, 'r'))
-
-def solmake(problemdir, config):
-	# clear out
-	outdir = os.path.join(problemdir, 'out')
-	print('[#] clear {}'.format(outdir))
-	if os.path.exists(outdir):
-		shutil.rmtree(outdir)
-	makedirs(outdir, exist_ok=True)
-
-	# make answer
-	soldir = os.path.join(problemdir, 'sol')
-	print('[#] compile sol')
-	compilecxx(os.path.join(soldir, config['solution']))
-
-	for test in config['tests']:
-		testname = test['Name']
-		testnum = test['Number']
-		for i in range(testnum):
-			infile = os.path.join(problemdir, 'in', casename(testname, i) + '.in')
-			outfile = os.path.join(problemdir, 'out', casename(testname, i) + '.out')
-			print('# start ' + casename(testname, i) + '...')
-			check_call([execcmdcxx(os.path.join(soldir, config['solution']))],
-				stdin=open(infile, 'r'), stdout=open(outfile, 'w'))
-
-for problem in problems['Problems']:
-	problemdir = os.path.join(curdir, problem['Dir'])
-	config = toml.load(os.path.join(problemdir, 'info.toml'))
-	casemake(problemdir, config)
-	solmake(problemdir, config)
+	problem.make_inputs()
+	problem.make_outputs()

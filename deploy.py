@@ -1,16 +1,63 @@
 #!/usr/bin/env python3
 
 import hashlib
-import os
+from os import environ
 import subprocess
 import tempfile
 import zipfile
 from pathlib import Path
 
-import markdown
+from markdown import markdown, Extension
 import markdown.extensions
+from markdown.preprocessors import Preprocessor
+
 import psycopg2  # pip3 install psycopg2
 import toml
+
+import re
+
+class ExampreExpander(Preprocessor):
+    base_path = ''
+    def __init__(self, base_path):
+        self.base_path = Path(base_path[0])
+
+    def run(self, lines):        
+        new_lines = []
+        counter = 1
+        for line in lines:
+            start = '{{example '
+            end = '}}'
+            if line.startswith(start) and line.endswith(end):
+                name = line[len(start):-len(end)]
+
+                infile = open(self.base_path / 'in' / (name + '.in'), 'r').read()
+                outfile = open(self.base_path / 'out' / (name + '.out'), 'r').read()
+                
+                new_lines.append('\# {}'.format(counter))
+                new_lines.append('------')
+
+            
+                new_lines.extend('''
+<div class="uk-grid-small uk-child-width-1-2@s" uk-grid>
+    <div><pre>{}</pre></div>
+    <div><pre>{}</pre></div>
+</div>
+                '''.format(infile, outfile).splitlines())
+
+                counter += 1
+            else:
+                new_lines.append(line)
+        return new_lines
+
+class ExampleExtension(Extension):
+    def __init__(self, **kwargs):        
+        self.config = {
+            'base_path': ['.', 'Base path']
+        }
+        super(ExampleExtension, self).__init__(**kwargs)
+
+    def extendMarkdown(self, md):
+        md.preprocessors.register(ExampreExpander(self.config['base_path']), 'example', 100)
 
 problems = toml.load('problems.toml')
 
@@ -18,14 +65,15 @@ print('[*] deploy problem to SQL')
 
 print('[*] generate case')
 # generate case
-subprocess.check_call(['./generate.py', 'problems.toml'])
+
+# subprocess.check_call(['./generate.py', 'problems.toml'])
 
 print('[*] connect SQL')
 # connect sql
-hostname = os.environ.get('POSTGRE_HOST', '127.0.0.1')
-port = int(os.environ.get('POSTGRE_PORT', '5432'))
-user = os.environ.get('POSTGRE_USER', 'postgres')
-password = os.environ.get('POSTGRE_PASS', 'passwd')
+hostname = environ.get('POSTGRE_HOST', '127.0.0.1')
+port = int(environ.get('POSTGRE_PORT', '5432'))
+user = environ.get('POSTGRE_USER', 'postgres')
+password = environ.get('POSTGRE_PASS', 'passwd')
 
 
 conn = psycopg2.connect(
@@ -47,10 +95,8 @@ for problem in problems['Problems']:
         with zipfile.ZipFile(tmp.name, 'w') as newzip:
             newzip.write(probdir / 'checker.cpp', arcname='checker.cpp')
             for f in sorted(probdir.glob('in/*.in')):
-                print(f)
                 newzip.write(f, arcname=f.relative_to(probdir))
             for f in sorted(probdir.glob('out/*.out')):
-                print(f)
                 newzip.write(f, arcname=f.relative_to(probdir))
 
         tmp.seek(0)
@@ -62,9 +108,14 @@ for problem in problems['Problems']:
 
         # convert task
         statement = ''
-        with probdir / 'task.md' as f:
+        with open(probdir / 'task.md') as f:
             statement = markdown.markdown(
-                f.read(), extensions=['markdown.extensions.fenced_code'])
+                f.read(), extensions=[
+                    'markdown.extensions.fenced_code',
+                    'markdown.extensions.tables',
+                    ExampleExtension(base_path = str(probdir))
+                ],
+            )
 
         with conn.cursor() as cursor:
             cursor.execute('''

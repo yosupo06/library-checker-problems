@@ -63,11 +63,6 @@ problems = toml.load('problems.toml')
 
 print('[*] deploy problem to SQL')
 
-print('[*] generate case')
-# generate case
-
-subprocess.check_call(['./generate.py', 'problems.toml'])
-
 print('[*] connect SQL')
 # connect sql
 hostname = environ.get('POSTGRE_HOST', '127.0.0.1')

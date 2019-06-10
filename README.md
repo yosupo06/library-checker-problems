@@ -1,3 +1,5 @@
+[![Build Status](https://drone.yosupo.jp/api/badges/yosupo06/library-checker-problems/status.svg)](https://drone.yosupo.jp/yosupo06/library-checker-problems)
+
 # ケース生成
 
 ```

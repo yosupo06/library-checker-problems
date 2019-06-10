@@ -66,7 +66,7 @@ print('[*] deploy problem to SQL')
 print('[*] generate case')
 # generate case
 
-# subprocess.check_call(['./generate.py', 'problems.toml'])
+subprocess.check_call(['./generate.py', 'problems.toml'])
 
 print('[*] connect SQL')
 # connect sql

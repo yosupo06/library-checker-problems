@@ -9,3 +9,8 @@
 [[Problems]]
     Title = 'Z-algorithm'
     Dir = 'string/zalgorithm'
+
+
+[[Problems]]
+    Title = 'Run-enumerate'
+    Dir = 'string/runenumerate'

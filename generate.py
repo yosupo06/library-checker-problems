@@ -104,13 +104,16 @@ class Problem:
 
 parser = argparse.ArgumentParser(description='Testcase Generator')
 parser.add_argument('toml', help='Toml File')
+parser.add_argument('-p', '--problem', help='Generate problem', default='')
 args = parser.parse_args()
 
 problems = toml.load(args.toml)
 
 for probinfo in problems['Problems']:
-	print('[*] Start {}'.format(probinfo['Dir']))
 	problem = Problem(Path.cwd() / probinfo['Dir'])
+	if args.problem and args.problem != problem.basedir.name:
+		continue
+	print('[*] Start {}'.format(probinfo['Dir']))
 
 	problem.make_inputs()
 	problem.make_outputs()

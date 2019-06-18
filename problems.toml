@@ -10,7 +10,10 @@
     Title = 'Z-algorithm'
     Dir = 'string/zalgorithm'
 
-
 [[Problems]]
     Title = 'Run-enumerate'
     Dir = 'string/runenumerate'
+
+[[Problems]]
+    Title = 'Convolution(Mod 998244353)'
+    Dir = 'math/convolution_mod'

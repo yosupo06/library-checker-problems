@@ -4,6 +4,7 @@
 
 ```
 ./generate.py problems.toml
+./generate.py problems.toml -p unionfind # 問題指定
 ```
 
 # 問題の追加

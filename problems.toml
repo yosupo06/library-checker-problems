@@ -19,5 +19,9 @@
     Dir = 'math/matrix_det'
 
 [[Problems]]
+    Title = 'Determinant of Sparse Matrix(Mod 998244353)'
+    Dir = 'math/sparse_matrix_det'
+
+[[Problems]]
     Title = 'Convolution(Mod 998244353)'
     Dir = 'math/convolution_mod'

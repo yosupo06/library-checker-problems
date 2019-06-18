@@ -15,5 +15,9 @@
     Dir = 'string/runenumerate'
 
 [[Problems]]
+    Title = 'Determinant of Matrix(Mod 998244353)'
+    Dir = 'math/matrix_det'
+
+[[Problems]]
     Title = 'Convolution(Mod 998244353)'
     Dir = 'math/convolution_mod'

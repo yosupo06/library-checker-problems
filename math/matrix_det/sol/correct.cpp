@@ -90,7 +90,7 @@ template <class Mint> Mint calc_det(Mat<Mint> a) {
         if (my == -1) return 0;
         if (x != my) {
             swap(a[x], a[my]);
-            if ((x - my) % 2) flip = !flip;
+            flip = !flip;
         }
         for (int y = x + 1; y < n; y++) {
             if (!a[y][x]) continue;

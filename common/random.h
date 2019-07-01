@@ -85,7 +85,7 @@ struct Random {
             a = uniform(lower, upper);
             b = uniform(lower, upper);
         } while (a == b);
-        if (a > b) swap(a, b);
+        if (a > b) std::swap(a, b);
         return {a, b};
     }
 

@@ -7,11 +7,15 @@
     Dir = 'datastructure/unionfind'
 
 [[Problems]]
-    Title = 'Z-algorithm'
+    Title = 'Static RMQ'
+    Dir = 'datastructure/staticrmq'
+
+[[Problems]]
+    Title = 'Z Algorithm'
     Dir = 'string/zalgorithm'
 
 [[Problems]]
-    Title = 'Run-enumerate'
+    Title = 'Run Enumerate'
     Dir = 'string/runenumerate'
 
 [[Problems]]

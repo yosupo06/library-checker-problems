@@ -71,15 +71,23 @@ struct RunExec {
         reverse(a.begin(), a.end());
         run(0, n, 1);
 
+        set<pair<int, int>> vis;
         for (int ph = 1; ph <= n / 2; ph++) {
             auto& run = runs[ph];
-            sort(run.begin(), run.end());
+            sort(run.begin(), run.end(), [&](pair<int, int> lhs, pair<int, int> rhs) {
+                if (lhs.first != rhs.first) return lhs.first < rhs.first;
+                return lhs.second > rhs.second;
+            });
             V<pair<int, int>> res;
             for (auto p: run) {
-                if (!res.empty() && p.first <= res.back().second - ph) {
-                    res.back().second = max(res.back().second, p.second);
-                    continue;
-                }
+                if (!res.empty() && p.second <= res.back().second) continue;
+                res.push_back(p);
+            }
+            run = res;
+            res.clear();
+            for (auto p: run) {
+                if (vis.count(p)) continue;
+                vis.insert(p);
                 res.push_back(p);
             }
             run = res;

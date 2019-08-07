@@ -80,10 +80,10 @@ conn = psycopg2.connect(
 )
 
 
-for problem in problems['Problems']:
-    probdir = Path(problem['Dir'])
+for problem in problems['problems']:
+    probdir = Path(problem['dir'])
     name = probdir.name
-    title = problem['Title']
+    title = problem['title']
 
     print('[*] deploy {}'.format(name))
     with tempfile.NamedTemporaryFile(suffix='.zip') as tmp:

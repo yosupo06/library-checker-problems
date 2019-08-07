@@ -1,31 +1,31 @@
-[[Problems]]
-    Title = 'A + B'
-    Dir = 'sample/aplusb'
+[[problems]]
+    title = 'A + B'
+    dir = 'sample/aplusb'
 
-[[Problems]]
-    Title = 'Unionfind'
-    Dir = 'datastructure/unionfind'
+[[problems]]
+    title = 'Unionfind'
+    dir = 'datastructure/unionfind'
 
-[[Problems]]
-    Title = 'Static RMQ'
-    Dir = 'datastructure/staticrmq'
+[[problems]]
+    title = 'Static RMQ'
+    dir = 'datastructure/staticrmq'
 
-[[Problems]]
-    Title = 'Z Algorithm'
-    Dir = 'string/zalgorithm'
+[[problems]]
+    title = 'Z Algorithm'
+    dir = 'string/zalgorithm'
 
-[[Problems]]
-    Title = 'Run Enumerate'
-    Dir = 'string/runenumerate'
+[[problems]]
+    title = 'Run Enumerate'
+    dir = 'string/runenumerate'
 
-[[Problems]]
-    Title = 'Determinant of Matrix(Mod 998244353)'
-    Dir = 'math/matrix_det'
+[[problems]]
+    title = 'Determinant of Matrix(Mod 998244353)'
+    dir = 'math/matrix_det'
 
-[[Problems]]
-    Title = 'Determinant of Sparse Matrix(Mod 998244353)'
-    Dir = 'math/sparse_matrix_det'
+[[problems]]
+    title = 'Determinant of Sparse Matrix(Mod 998244353)'
+    dir = 'math/sparse_matrix_det'
 
-[[Problems]]
-    Title = 'Convolution(Mod 998244353)'
-    Dir = 'math/convolution_mod'
+[[problems]]
+    title = 'Convolution(Mod 998244353)'
+    dir = 'math/convolution_mod'

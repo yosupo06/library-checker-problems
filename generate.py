@@ -109,11 +109,11 @@ args = parser.parse_args()
 
 problems = toml.load(args.toml)
 
-for probinfo in problems['Problems']:
-	problem = Problem(Path.cwd() / probinfo['Dir'])
+for probinfo in problems['problems']:
+	problem = Problem(Path.cwd() / probinfo['dir'])
 	if args.problem and args.problem != problem.basedir.name:
 		continue
-	print('[*] Start {}'.format(probinfo['Dir']))
+	print('[*] Start {}'.format(probinfo['dir']))
 
 	problem.make_inputs()
 	problem.make_outputs()

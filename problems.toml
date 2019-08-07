@@ -15,6 +15,10 @@
     dir = 'string/zalgorithm'
 
 [[problems]]
+    title = 'Suffix Array'
+    dir = 'string/suffixarray'
+
+[[problems]]
     title = 'Run Enumerate'
     dir = 'string/runenumerate'
 

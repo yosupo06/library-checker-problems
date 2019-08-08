@@ -1,35 +1,35 @@
-[[problems]]
+[problems.aplusb]
     title = 'A + B'
     dir = 'sample/aplusb'
 
-[[problems]]
+[problems.unionfind]
     title = 'Unionfind'
     dir = 'datastructure/unionfind'
 
-[[problems]]
+[problems.staticrmq]
     title = 'Static RMQ'
     dir = 'datastructure/staticrmq'
 
-[[problems]]
+[problems.zalgorithm]
     title = 'Z Algorithm'
     dir = 'string/zalgorithm'
 
-[[problems]]
+[problems.suffixarray]
     title = 'Suffix Array'
     dir = 'string/suffixarray'
 
-[[problems]]
+[problems.runenumerate]
     title = 'Run Enumerate'
     dir = 'string/runenumerate'
 
-[[problems]]
+[problems.matrix_det]
     title = 'Determinant of Matrix(Mod 998244353)'
     dir = 'math/matrix_det'
 
-[[problems]]
+[problems.sparse_matrix_det]
     title = 'Determinant of Sparse Matrix(Mod 998244353)'
     dir = 'math/sparse_matrix_det'
 
-[[problems]]
+[problems.convolution_mod]
     title = 'Convolution(Mod 998244353)'
     dir = 'math/convolution_mod'

@@ -18,6 +18,10 @@
     title = 'Matching on Bipartite Graph'
     dir = 'graph/bipartitematching'
 
+[problems.assignment]
+    title = 'Assignment Problem'
+    dir = 'graph/assignment'
+
 [problems.zalgorithm]
     title = 'Z Algorithm'
     dir = 'string/zalgorithm'

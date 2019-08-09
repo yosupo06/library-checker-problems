@@ -10,6 +10,10 @@
     title = 'Static RMQ'
     dir = 'datastructure/staticrmq'
 
+[problems.lca]
+    title = 'Lowest Common Ancestor'
+    dir = 'graph/lca'
+
 [problems.zalgorithm]
     title = 'Z Algorithm'
     dir = 'string/zalgorithm'

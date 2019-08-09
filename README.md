@@ -36,3 +36,7 @@ sample/aplusbを参考にしてください
 新規問題の提案もとりあえずIssueを立ててくれると嬉しいです。
 
 細かい修正(嘘解法, ケース追加, typo)は、Issueを立ててくれると嬉しいですし、Pull Requestを送ってくれるともっと嬉しいです。
+
+# Thanks
+
+checker, validatorなどにtestlib(https://github.com/MikeMirzayanov/testlib)を使用しています。

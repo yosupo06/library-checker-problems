@@ -34,6 +34,10 @@
     title = 'Run Enumerate'
     dir = 'string/runenumerate'
 
+[problems.factorize]
+    title = 'Factorize'
+    dir = 'math/factorize'
+
 [problems.matrix_det]
     title = 'Determinant of Matrix(Mod 998244353)'
     dir = 'math/matrix_det'

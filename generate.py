@@ -174,7 +174,7 @@ for name, probinfo in problems['problems'].items():
     problem.make_inputs()
     problem.make_outputs()
 
-    for wrong in problem.config['wrongs']:
+    for wrong in problem.config.get('wrongs', []):
         results = problem.judge(problem.basedir / 'sol' / wrong['name'])
         if results == {'AC'}:
             print("{} is expected to fail, but AC".format(wrong['name']))

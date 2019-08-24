@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 using uint = unsigned int;
@@ -11,7 +12,7 @@ template <class T> using VV = V<V<T>>;
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    cout << fixed << setprecision(20);
+
 
     int n, q;
     cin >> n >> q;

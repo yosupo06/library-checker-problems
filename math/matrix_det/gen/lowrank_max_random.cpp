@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 #include "random.h"
 
 using namespace std;
@@ -9,7 +9,7 @@ const ll Mod = 998244353;
 int main(int argc, char* argv[]) {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    cout << fixed << setprecision(20);
+
 
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);

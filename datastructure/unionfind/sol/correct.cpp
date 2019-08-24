@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
 
 using namespace std;
 using uint = unsigned int;
@@ -33,7 +34,7 @@ struct UnionFind {
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    cout << fixed << setprecision(20);
+
 
     int n, q;
     cin >> n >> q;

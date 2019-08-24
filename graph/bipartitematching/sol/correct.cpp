@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <queue>
 
 using namespace std;
 using uint = unsigned int;
@@ -77,7 +79,7 @@ MaxFlow<C> get_mf(VV<E>& g, int s, int t, C eps) {
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    cout << fixed << setprecision(20);
+
     int L, R, M;
     cin >> L >> R >> M;
 

@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 #include "random.h"
 
 using namespace std;
@@ -21,7 +21,7 @@ vector<long long> enum_prime(long long st, long long ed) {
 int main(int argc, char* argv[]) {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    cout << fixed << setprecision(20);
+
 
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);

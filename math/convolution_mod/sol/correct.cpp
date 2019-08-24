@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 using uint = unsigned int;
@@ -92,7 +93,7 @@ template <class Mint> V<Mint> multiply(const V<Mint>& a, const V<Mint>& b) {
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    cout << fixed << setprecision(20);
+
     int n, m;
     cin >> n >> m;
     V<Mint> a(n), b(m);

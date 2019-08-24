@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 using uint = unsigned int;
@@ -108,7 +109,7 @@ template <class Mint> Mint calc_det(Mat<Mint> a) {
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    cout << fixed << setprecision(20);
+
 
     int n;
     cin >> n;

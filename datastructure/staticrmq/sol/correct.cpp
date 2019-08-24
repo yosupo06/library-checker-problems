@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 using uint = unsigned int;
@@ -50,7 +51,7 @@ SparseTable<D, OP> get_sparse_table(V<D> v, D e, OP op) {
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    cout << fixed << setprecision(20);
+
 
     int n, q;
     cin >> n >> q;

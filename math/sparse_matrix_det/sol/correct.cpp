@@ -1,4 +1,12 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+#include <array>
+#include <cassert>
+#include <cstdint>
+#include <numeric>
+#include <random>
+#include <set>
+#include <vector>
 
 using namespace std;
 using uint = unsigned int;
@@ -7,14 +15,6 @@ using ull = unsigned long long;
 constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }
 template <class T> using V = vector<T>;
 template <class T> using VV = V<V<T>>;
-
-#include <algorithm>
-#include <array>
-#include <cassert>
-#include <cstdint>
-#include <numeric>
-#include <random>
-#include <set>
 
 struct Random {
   private:
@@ -424,7 +424,7 @@ Mint sparse_det(const VV<E>& g, int cnt = 2) {
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    cout << fixed << setprecision(20);
+
 
     int n, k;
     cin >> n >> k;

@@ -8,3 +8,7 @@ timeLimit = 2.0
 [[tests]]
     Name = "random.cpp"
     Number = 10
+
+[[wrongs]]
+    name = "wa.cpp"
+    expect = ['WA']

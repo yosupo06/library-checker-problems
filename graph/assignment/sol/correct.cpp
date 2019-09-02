@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
+#include <limits>
 
 using namespace std;
 using uint = unsigned int;

@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <set>
+#include <algorithm>
+#include <tuple>
 
 using namespace std;
 using uint = unsigned int;

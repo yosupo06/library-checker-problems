@@ -1,0 +1,13 @@
+solution = "correct.cpp"
+verify = 'verify.cpp'
+timeLimit = 2.0
+
+[[tests]]
+    Name = "example.in"
+    Number = 1
+[[tests]]
+    Name = "random.cpp"
+    Number = 5
+[[tests]]
+    Name = "line.cpp"
+    Number = 5

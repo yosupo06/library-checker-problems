@@ -166,13 +166,13 @@ class Problem:
 
 parser = argparse.ArgumentParser(description='Testcase Generator')
 parser.add_argument('toml', type=argparse.FileType('r'), help='Toml File')
-parser.add_argument('-p', '--problem', nargs='*', help='Generate problem')
-parser.add_argument('-s', '--solution', nargs='*', help='Solution Toml')
+parser.add_argument('-p', '--problem', nargs='*', help='Generate problem', default=[])
+parser.add_argument('-s', '--solution', nargs='*', help='Solution Toml', default=[])
 args = parser.parse_args()
 
 problems = toml.load(args.toml)
 libdir = Path(args.toml.name).parent
-targetprobs = set(args.problem) if args.problem else None
+targetprobs = set(args.problem)
 
 probs = dict()
 

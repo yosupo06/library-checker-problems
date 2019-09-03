@@ -158,9 +158,9 @@ class Problem:
                     result, usemsec, case, checker_output))
         
         expectaccept = not config.get('wrong', False)
-        actualaccept = (result == {'AC'})
+        actualaccept = (results == {'AC'})
         if expectaccept != actualaccept:
-            print("Fail {} : expect_accept = {}".format(src, expectaccept))
+            print("Fail {} : expect_accept = {} : results = {}".format(src, expectaccept, results))
             exit(1)
 
 

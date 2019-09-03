@@ -49,3 +49,7 @@
 [problems.convolution_mod]
     title = 'Convolution(Mod 998244353)'
     dir = 'math/convolution_mod'
+
+[problems.multipoint_evaluation]
+    title = 'Multipoint Evaluation(Mod 998244353)'
+    dir = 'math/multipoint_evaluation'

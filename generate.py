@@ -8,7 +8,6 @@ from datetime import datetime
 import toml
 from tempfile import TemporaryDirectory
 
-
 def casename(name: str, i: int) -> str:
     # (random, 1) -> random_01
     return Path(name).stem + '_' + str(i).zfill(2)
@@ -20,10 +19,10 @@ class UnknownTypeFile(Exception):
         self.message = message
 
 
-def compile(src: Path):
+def compile(src: Path, libdir: Path):
     if src.suffix == '.cpp':
         check_call(['g++', '-O2', '-std=c++14',
-                    '-I', Path.cwd() / 'common',
+                    '-I', libdir / 'common',
                     '-o', src.with_suffix(''),
                     src])
     elif src.suffix == '.in':
@@ -49,10 +48,12 @@ def execcmd(src: Path, arg: [str] = []) -> [str]:
 
 
 class Problem:
+    libdir: Path()
     basedir: Path()
     config = None
 
-    def __init__(self, basedir: Path):
+    def __init__(self, libdir: Path, basedir: Path):
+        self.libdir = libdir
         self.basedir = basedir
         self.config = toml.load(basedir / 'info.toml')
 
@@ -66,7 +67,7 @@ class Problem:
         indir.mkdir()
 
         print('[#] compile verify')
-        compile(gendir / self.config['verify'])
+        compile(gendir / self.config['verify'], self.libdir)
 
         for test in self.config['tests']:
             name = test['Name']
@@ -74,7 +75,7 @@ class Problem:
 
             print('[#] case {} {}cases'.format(name, num))
             print('[#] compile')
-            compile(gendir / name)
+            compile(gendir / name, self.libdir)
 
             for i in range(num):
                 # output filename
@@ -95,7 +96,7 @@ class Problem:
         outdir.mkdir()
 
         print('[#] compile sol')
-        compile(soldir / self.config['solution'])
+        compile(soldir / self.config['solution'], self.libdir)
 
         for test in self.config['tests']:
             name = test['Name']
@@ -108,16 +109,16 @@ class Problem:
                 check_call(execcmd(soldir / self.config['solution']),
                            stdin=open(inpath, 'r'), stdout=open(outpath, 'w'))
 
-    def judge(self, src: Path):
+    def judge(self, src: Path, config: dict):
         indir = self.basedir / 'in'
         outdir = self.basedir / 'out'
         _tmpdir = TemporaryDirectory()
         tmpdir = _tmpdir.name
         print('[#] compile source {} dir = {}'.format(src, tmpdir))
-        compile(src)
+        compile(src, self.libdir)
         checker = self.basedir / 'checker.cpp'
         print('[#] compile checker')
-        compile(checker)
+        compile(checker, self.libdir)
         results = set()
 
         for test in self.config['tests']:
@@ -155,27 +156,47 @@ class Problem:
                     (end - start).microseconds // 1000
                 print('{:>3s} {:6d} msecs : {} : {}'.format(
                     result, usemsec, case, checker_output))
-        return results
+        
+        expectaccept = not config.get('wrong', False)
+        actualaccept = (result == {'AC'})
+        if expectaccept != actualaccept:
+            print("Fail {} : expect_accept = {}".format(src, expectaccept))
+            exit(1)
 
 
 parser = argparse.ArgumentParser(description='Testcase Generator')
-parser.add_argument('toml', help='Toml File')
-parser.add_argument('-p', '--problem', help='Generate problem', default='')
+parser.add_argument('toml', type=argparse.FileType('r'), help='Toml File')
+parser.add_argument('-p', '--problem', nargs='*', help='Generate problem')
+parser.add_argument('-s', '--solution', nargs='*', help='Solution Toml')
 args = parser.parse_args()
 
 problems = toml.load(args.toml)
+libdir = Path(args.toml.name).parent
+targetprobs = set(args.problem) if args.problem else None
+
+probs = dict()
 
 for name, probinfo in problems['problems'].items():
-    problem = Problem(Path.cwd() / probinfo['dir'])
-    if args.problem and args.problem != name:
+    if targetprobs and name not in targetprobs:
         continue
+
+    problem = Problem(libdir, libdir / probinfo['dir'])
+    probs[name] = problem
+
     print('[*] Start {}'.format(probinfo['dir']))
 
     problem.make_inputs()
     problem.make_outputs()
 
-    for wrong in problem.config.get('wrongs', []):
-        results = problem.judge(problem.basedir / 'sol' / wrong['name'])
-        if results == {'AC'}:
-            print("{} is expected to fail, but AC".format(wrong['name']))
-            exit(0)
+    for sol in problem.config.get('solutions', []):
+        problem.judge(problem.basedir / 'sol' / sol['name'], sol)
+
+for solpath in args.solution:
+    soldir = Path(solpath).parent
+    for name, sols in toml.load(solpath)['solutions'].items():
+        if name not in probs:
+            continue
+        problem = probs[name]
+        for sol in sols:
+            results = problem.judge(soldir / sol['source'], sol)
+

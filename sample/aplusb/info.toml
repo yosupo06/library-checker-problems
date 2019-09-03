@@ -9,6 +9,6 @@ timeLimit = 2.0
     Name = "random.cpp"
     Number = 10
 
-[[wrongs]]
+[[solutions]]
     name = "wa.cpp"
-    expect = ['WA']
+    wrong = true

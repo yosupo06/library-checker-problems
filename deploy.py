@@ -124,6 +124,6 @@ for name, probinfo in problems['problems'].items():
                 set (title, statement, timelimit, testhash, testzip)
                 = (EXCLUDED.title, EXCLUDED.statement, EXCLUDED.timelimit,
                    EXCLUDED.testhash, EXCLUDED.testzip) 
-                ''', (name, title, statement, timelimit, datahash, data))
+                ''', (name, title, statement, int(timelimit * 1000), datahash, data))
         conn.commit()
 conn.close()

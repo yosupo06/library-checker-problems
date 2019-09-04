@@ -136,7 +136,7 @@ class Problem:
                 checker_output = ''
                 try:
                     check_call(execcmd(src), stdin=open(infile, 'r'), stdout=open(
-                        actual, 'w'), timeout=self.config['timeLimit'])
+                        actual, 'w'), timeout=self.config['timelimit'])
                 except TimeoutExpired:
                     result = 'TLE'
                 except CalledProcessError:

@@ -13,6 +13,7 @@ from markdown.preprocessors import Preprocessor
 
 import psycopg2  # pip3 install psycopg2
 import toml
+from generate import Problem
 
 import re
 
@@ -79,10 +80,14 @@ conn = psycopg2.connect(
     database='librarychecker'
 )
 
+libdir = Path.cwd()
 
-for name, value in problems['problems'].items():
-    probdir = Path(value['dir'])
-    title = value['title']
+for name, probinfo in problems['problems'].items():
+    title = probinfo['title']
+    problem = Problem(libdir, libdir / probinfo['dir'])
+    probdir = problem.basedir
+    timelimit = problem.config['timelimit']
+    
 
     print('[*] deploy {}'.format(name))
     with tempfile.NamedTemporaryFile(suffix='.zip') as tmp:
@@ -113,12 +118,12 @@ for name, value in problems['problems'].items():
 
         with conn.cursor() as cursor:
             cursor.execute('''
-                insert into problems (name, title, statement, testhash, testzip)
-                values (%s, %s, %s, %s, %s)
+                insert into problems (name, title, statement, timelimit, testhash, testzip)
+                values (%s, %s, %s, %s, %s, %s)
                 on conflict(name) do update
-                set (title, statement, testhash, testzip)
-                = (EXCLUDED.title, EXCLUDED.statement,
+                set (title, statement, timelimit, testhash, testzip)
+                = (EXCLUDED.title, EXCLUDED.statement, EXCLUDED.timelimit,
                    EXCLUDED.testhash, EXCLUDED.testzip) 
-                ''', (name, title, statement, datahash, data))
+                ''', (name, title, statement, timelimit, datahash, data))
         conn.commit()
 conn.close()

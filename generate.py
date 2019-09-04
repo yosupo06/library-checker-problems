@@ -164,39 +164,40 @@ class Problem:
             exit(1)
 
 
-parser = argparse.ArgumentParser(description='Testcase Generator')
-parser.add_argument('toml', type=argparse.FileType('r'), help='Toml File')
-parser.add_argument('-p', '--problem', nargs='*', help='Generate problem', default=[])
-parser.add_argument('-s', '--solution', nargs='*', help='Solution Toml', default=[])
-args = parser.parse_args()
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Testcase Generator')
+    parser.add_argument('toml', type=argparse.FileType('r'), help='Toml File')
+    parser.add_argument('-p', '--problem', nargs='*', help='Generate problem', default=[])
+    parser.add_argument('-s', '--solution', nargs='*', help='Solution Toml', default=[])
+    args = parser.parse_args()
 
-problems = toml.load(args.toml)
-libdir = Path(args.toml.name).parent
-targetprobs = set(args.problem)
+    problems = toml.load(args.toml)
+    libdir = Path(args.toml.name).parent
+    targetprobs = set(args.problem)
 
-probs = dict()
+    probs = dict()
 
-for name, probinfo in problems['problems'].items():
-    if targetprobs and name not in targetprobs:
-        continue
-
-    problem = Problem(libdir, libdir / probinfo['dir'])
-    probs[name] = problem
-
-    print('[*] Start {}'.format(probinfo['dir']))
-
-    problem.make_inputs()
-    problem.make_outputs()
-
-    for sol in problem.config.get('solutions', []):
-        problem.judge(problem.basedir / 'sol' / sol['name'], sol)
-
-for solpath in args.solution:
-    soldir = Path(solpath).parent
-    for name, sols in toml.load(solpath)['solutions'].items():
-        if name not in probs:
+    for name, probinfo in problems['problems'].items():
+        if targetprobs and name not in targetprobs:
             continue
-        problem = probs[name]
-        for sol in sols:
-            results = problem.judge(soldir / sol['source'], sol)
+
+        problem = Problem(libdir, libdir / probinfo['dir'])
+        probs[name] = problem
+
+        print('[*] Start {}'.format(probinfo['dir']))
+
+        problem.make_inputs()
+        problem.make_outputs()
+
+        for sol in problem.config.get('solutions', []):
+            problem.judge(problem.basedir / 'sol' / sol['name'], sol)
+
+    for solpath in args.solution:
+        soldir = Path(solpath).parent
+        for name, sols in toml.load(solpath)['solutions'].items():
+            if name not in probs:
+                continue
+            problem = probs[name]
+            for sol in sols:
+                results = problem.judge(soldir / sol['source'], sol)
 

@@ -39,4 +39,4 @@ sample/aplusbを参考にしてください
 
 # Thanks
 
-checker, validatorなどにtestlib(https://github.com/MikeMirzayanov/testlib)を使用しています。
+checker, validatorなどにtestlib (https://github.com/MikeMirzayanov/testlib) を使用しています。

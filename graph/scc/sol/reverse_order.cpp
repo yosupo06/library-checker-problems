@@ -98,7 +98,7 @@ int main() {
 
     auto scc = get_scc(g);
 
-
+    reverse(scc.groups.begin(), scc.groups.end()); // !!Incorrect!!
     cout << scc.groups.size() << endl;
     for (auto v: scc.groups) {
         int l = int(v.size());

@@ -14,6 +14,10 @@
     title = 'Lowest Common Ancestor'
     dir = 'graph/lca'
 
+[problems.scc]
+    title = 'Strong Connected Components'
+    dir = 'graph/scc'
+
 [problems.bipartitematching]
     title = 'Matching on Bipartite Graph'
     dir = 'graph/bipartitematching'

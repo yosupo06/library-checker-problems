@@ -1,6 +1,6 @@
 solution = "correct.cpp"
 verify = 'verify.cpp'
-timeLimit = 2.0
+timelimit = 5.0
 
 [[tests]]
     Name = "example.in"
@@ -9,5 +9,11 @@ timeLimit = 2.0
     Name = "random.cpp"
     Number = 5
 [[tests]]
-    Name = "line.cpp"
+    Name = "max_random.cpp"
     Number = 5
+
+[[solutions]]
+    name = 'correct.cpp'
+[[solutions]]
+    name = 'reverse_order.cpp'    
+    wrong = true

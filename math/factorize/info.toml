@@ -1,6 +1,6 @@
 solution = "correct.cpp"
 verify = 'verify.cpp'
-timelimit = 5.0
+timelimit = 10.0
 
 [[tests]]
     Name = "example.in"

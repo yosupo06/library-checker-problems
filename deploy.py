@@ -95,7 +95,6 @@ for name, probinfo in problems['problems'].items():
             def zip_write(filename, arcname):
                 newzip.write(filename, arcname)
                 m.update(pack('q', path.getsize(filename)))
-                m.update(b'1')
                 with open(filename, 'rb') as f:
                     m.update(f.read())
             zip_write(probdir / 'checker.cpp', arcname='checker.cpp')

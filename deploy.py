@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 import hashlib
-from os import environ
+from os import environ, path
 import subprocess
 import tempfile
 import zipfile
 from pathlib import Path
-
+from struct import pack
 from markdown import markdown, Extension
 import markdown.extensions
 from markdown.preprocessors import Preprocessor
@@ -88,22 +88,27 @@ for name, probinfo in problems['problems'].items():
     probdir = problem.basedir
     timelimit = problem.config['timelimit']
     
-
-    print('[*] deploy {}'.format(name))
     with tempfile.NamedTemporaryFile(suffix='.zip') as tmp:
+        m = hashlib.sha256()
+
         with zipfile.ZipFile(tmp.name, 'w') as newzip:
-            newzip.write(probdir / 'checker.cpp', arcname='checker.cpp')
+            def zip_write(filename, arcname):
+                newzip.write(filename, arcname)
+                m.update(pack('q', path.getsize(filename)))
+                m.update(b'1')
+                with open(filename, 'rb') as f:
+                    m.update(f.read())
+            zip_write(probdir / 'checker.cpp', arcname='checker.cpp')
             for f in sorted(probdir.glob('in/*.in')):
-                newzip.write(f, arcname=f.relative_to(probdir))
+                zip_write(f, arcname=f.relative_to(probdir))
             for f in sorted(probdir.glob('out/*.out')):
-                newzip.write(f, arcname=f.relative_to(probdir))
+                zip_write(f, arcname=f.relative_to(probdir))
 
         tmp.seek(0)
-
         data = tmp.read()
-        m = hashlib.sha256()
-        m.update(data)
         datahash = m.hexdigest()
+
+        print('[*] deploy {} {}'.format(name, datahash))
 
         # convert task
         statement = ''
@@ -117,13 +122,21 @@ for name, probinfo in problems['problems'].items():
             )
 
         with conn.cursor() as cursor:
+            cursor.execute('select testhash from problems where name = %s', (name, ))
+            prevhash = cursor.fetchone()
+            prevhash = prevhash[0] if prevhash else None
             cursor.execute('''
-                insert into problems (name, title, statement, timelimit, testhash, testzip)
-                values (%s, %s, %s, %s, %s, %s)
+                insert into problems (name, title, statement, timelimit)
+                values (%s, %s, %s, %s)
                 on conflict(name) do update
-                set (title, statement, timelimit, testhash, testzip)
-                = (EXCLUDED.title, EXCLUDED.statement, EXCLUDED.timelimit,
-                   EXCLUDED.testhash, EXCLUDED.testzip) 
-                ''', (name, title, statement, int(timelimit * 1000), datahash, data))
+                set (title, statement, timelimit)
+                = (EXCLUDED.title, EXCLUDED.statement, EXCLUDED.timelimit)
+                ''', (name, title, statement, int(timelimit * 1000)))
+            if prevhash != datahash:
+                print('[!] upload data')
+                cursor.execute('''
+                    update problems set (testhash, testzip) = (%s, %s) where name = %s
+                    ''', (datahash, data, name))
+
         conn.commit()
 conn.close()

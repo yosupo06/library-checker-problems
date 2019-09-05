@@ -15,7 +15,7 @@
     dir = 'graph/lca'
 
 [problems.scc]
-    title = 'Strong Connected Components'
+    title = 'Strongly Connected Components'
     dir = 'graph/scc'
 
 [problems.bipartitematching]

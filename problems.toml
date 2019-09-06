@@ -57,3 +57,7 @@
 [problems.multipoint_evaluation]
     title = 'Multipoint Evaluation(Mod 998244353)'
     dir = 'math/multipoint_evaluation'
+
+[problems.sum_of_floor_of_linear]
+    title = 'Sum of Floor of Linear'
+    dir = 'math/sum_of_floor_of_linear'

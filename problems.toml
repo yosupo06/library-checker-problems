@@ -2,6 +2,7 @@
     title = 'A + B'
     dir = 'sample/aplusb'
 
+# Data Structure
 [problems.unionfind]
     title = 'Unionfind'
     dir = 'datastructure/unionfind'
@@ -10,6 +11,7 @@
     title = 'Static RMQ'
     dir = 'datastructure/staticrmq'
 
+# Graph
 [problems.lca]
     title = 'Lowest Common Ancestor'
     dir = 'graph/lca'
@@ -26,6 +28,11 @@
     title = 'Assignment Problem'
     dir = 'graph/assignment'
 
+[problems.directedmst]
+    title = 'Directed MST'
+    dir = 'graph/directedmst'
+
+# String
 [problems.zalgorithm]
     title = 'Z Algorithm'
     dir = 'string/zalgorithm'
@@ -38,6 +45,7 @@
     title = 'Run Enumerate'
     dir = 'string/runenumerate'
 
+# Math
 [problems.factorize]
     title = 'Factorize'
     dir = 'math/factorize'

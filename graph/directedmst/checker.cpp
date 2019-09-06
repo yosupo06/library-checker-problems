@@ -1,5 +1,4 @@
 #include "testlib.h"
-#include <iostream>
 #include <vector>
 #include <map>
 
@@ -44,9 +43,9 @@ int main(int argc, char *argv[]) {
     int m = inf.readInt();
     map<P, long long> edges;
     for (int i = 0; i < m; i++) {
-        int a, b;
-        long long c;
-        cin >> a >> b >> c;
+        int a = inf.readInt();
+        int b = inf.readInt();
+        long long c = inf.readLong();
         edges[{a, b}] = c;
     }
 

@@ -1,6 +1,7 @@
 #include "testlib.h"
 #include <iostream>
 #include <vector>
+#include <map>
 
 using namespace std;
 
@@ -34,7 +35,7 @@ int main(int argc, char *argv[]) {
     long long x_ouf = ouf.readLong();
 
     if (x_ans != x_ouf) {
-        quitf(_wa, "Value is differ - expected '%d', found '%d'", x_ans, x_ouf);
+        quitf(_wa, "Value is differ - expected '%lld', found '%lld'", x_ans, x_ouf);
     }
 
     // input
@@ -52,7 +53,7 @@ int main(int argc, char *argv[]) {
     long long sum = 0;
     UnionFind uf(n);
     for (int i = 1; i < n; i++) {
-        int p = ouf.readLong(0, n - 1);
+        int p = ouf.readInt(0, n - 1);
         ensure(!uf.same(p, i));
         sum += edges[{p, i}];
     }

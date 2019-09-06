@@ -8,3 +8,9 @@ timelimit = 5.0
 [[tests]]
     Name = "random.cpp"
     Number = 5
+
+[[solutions]]
+    name = 'correct.cpp'
+[[solutions]]
+    name = 'invalid.cpp'    
+    wrong = true

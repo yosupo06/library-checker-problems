@@ -143,7 +143,7 @@ class Problem:
                     result = 'RE'
                 else:
                     process = run(
-                        execcmd(checker, [infile, expected, actual]), stdout=PIPE, stderr=STDOUT)
+                        execcmd(checker, [infile, actual, expected]), stdout=PIPE, stderr=STDOUT)
                     checker_output = process.stdout
                     if process.returncode:
                         result = 'WA'

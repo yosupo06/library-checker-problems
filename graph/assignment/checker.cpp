@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
     long long x_ouf = ouf.readLong();
 
     if (x_ans != x_ouf) {
-        quitf(_wa, "Value is differ - expected '%d', found '%d'", x_ans, x_ouf);
+        quitf(_wa, "Value is differ - expected '%lld', found '%lld'", x_ans, x_ouf);
     }
 
     // input

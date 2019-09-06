@@ -9,9 +9,9 @@ using namespace std;
 int main() {
     registerValidation();
 
-    int n = inf.readInt(1, 100'000);
+    int n = inf.readInt(1, 200'000);
     inf.readSpace();
-    int m = inf.readInt(n - 1, 100'000);
+    int m = inf.readInt(n - 1, 200'000);
     inf.readEoln();
 
     using P = pair<int, int>;

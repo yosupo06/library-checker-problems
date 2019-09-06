@@ -15,8 +15,8 @@ int main(int argc, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = gen.uniform(1, 100'000);
-    int m = gen.uniform(n - 1, (int)min(100'000LL, (long long)n * (n - 1)));
+    int n = gen.uniform(1, 200'000);
+    int m = gen.uniform(n - 1, (int)min(200'000LL, (long long)n * (n - 1)));
 
     using P = pair<int, int>;
     set<P> used;

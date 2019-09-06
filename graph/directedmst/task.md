@@ -9,8 +9,8 @@ $N$ 頂点 $M$ 辺の単純な重み付き有向グラフが与えられる。$i
 制約
 =========
 
-- $1 \leq N \leq 100,000$
-- $N - 1 \leq M \leq 100,000$
+- $1 \leq N \leq 200,000$
+- $N - 1 \leq M \leq 200,000$
 - $0 \leq a_i, b_i < N$
 - $a_i \neq b_i$
 - $(a_i, b_i) \neq (a_j, b_j) (i \neq j)$

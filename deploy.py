@@ -132,7 +132,7 @@ for name, probinfo in problems['problems'].items():
                 = (EXCLUDED.title, EXCLUDED.statement, EXCLUDED.timelimit)
                 ''', (name, title, statement, int(timelimit * 1000)))
             if prevhash != datahash:
-                print('[!] upload data')
+                print('[!] upload data {} -> {}'.format(prevhash, datahash))
                 cursor.execute('''
                     update problems set (testhash, testzip) = (%s, %s) where name = %s
                     ''', (datahash, data, name))

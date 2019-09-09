@@ -36,7 +36,7 @@ def execcmd(src: Path, arg: [str] = []) -> [str]:
     # main.cpp -> ['main']
     # example.in -> ['cat', 'example_00.in']
     if src.suffix == '.cpp':
-        cmd = [src.with_suffix('')]
+        cmd = [src.with_suffix('').resolve()]
         cmd.extend(arg)
         return cmd
     elif src.suffix == '.in':

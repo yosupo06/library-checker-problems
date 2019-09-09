@@ -32,6 +32,10 @@
     title = 'Directed MST'
     dir = 'graph/directedmst'
 
+[problems.dominatortree]
+    title = 'Dominator Tree'
+    dir = 'graph/dominatortree'
+
 # String
 [problems.zalgorithm]
     title = 'Z Algorithm'

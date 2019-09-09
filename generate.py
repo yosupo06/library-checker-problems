@@ -70,8 +70,8 @@ class Problem:
         compile(gendir / self.config['verify'], self.libdir)
 
         for test in self.config['tests']:
-            name = test['Name']
-            num = test['Number']
+            name = test['name']
+            num = test['number']
 
             print('[#] case {} {}cases'.format(name, num))
             print('[#] compile')
@@ -99,8 +99,8 @@ class Problem:
         compile(soldir / self.config['solution'], self.libdir)
 
         for test in self.config['tests']:
-            name = test['Name']
-            num = test['Number']
+            name = test['name']
+            num = test['number']
 
             for i in range(num):
                 inpath = indir / (casename(name, i) + '.in')
@@ -122,8 +122,8 @@ class Problem:
         results = set()
 
         for test in self.config['tests']:
-            name = test['Name']
-            num = test['Number']
+            name = test['name']
+            num = test['number']
 
             for i in range(num):
                 case = casename(name, i)

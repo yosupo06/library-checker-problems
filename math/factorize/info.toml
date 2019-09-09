@@ -1,16 +1,16 @@
 solution = "correct.cpp"
-verify = 'verify.cpp'
+verify = "verify.cpp"
 timelimit = 10.0
 
 [[tests]]
-    Name = "example.in"
-    Number = 1
+    name = "example.in"
+    number = 1
 [[tests]]
-    Name = "small.cpp"
-    Number = 3
+    name = "small.cpp"
+    number = 3
 [[tests]]
-    Name = "random.cpp"
-    Number = 3
+    name = "random.cpp"
+    number = 3
 [[tests]]
-    Name = "big2.cpp"
-    Number = 3
+    name = "big2.cpp"
+    number = 3

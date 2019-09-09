@@ -1,23 +1,23 @@
 solution = "correct.cpp"
-verify = 'verify.cpp'
+verify = "verify.cpp"
 timelimit = 5.0
 
 [[tests]]
-    Name = "example.in"
-    Number = 4
+    name = "example.in"
+    number = 4
 
 [[tests]]
-    Name = "random.cpp"
-    Number = 5
+    name = "random.cpp"
+    number = 5
 
 [[tests]]
-    Name = "max_random.cpp"
-    Number = 5
+    name = "max_random.cpp"
+    number = 5
 
 [[tests]]
-    Name = "all_same.cpp"
-    Number = 5
+    name = "all_same.cpp"
+    number = 5
 
 [[tests]]
-    Name = "fib_str.cpp"
-    Number = 5
+    name = "fib_str.cpp"
+    number = 5

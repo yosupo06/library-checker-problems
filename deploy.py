@@ -34,10 +34,7 @@ class ExampreExpander(Preprocessor):
                 infile = open(self.base_path / 'in' / (name + '.in'), 'r').read()
                 outfile = open(self.base_path / 'out' / (name + '.out'), 'r').read()
                 
-                new_lines.append('\# {}'.format(counter))
-                new_lines.append('------')
-
-            
+                new_lines.append('### \# {}'.format(counter))
                 new_lines.extend('''
 <div class="uk-grid-small uk-child-width-1-2@s" uk-grid>
     <div><pre>{}</pre></div>

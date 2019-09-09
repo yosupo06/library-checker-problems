@@ -41,6 +41,7 @@ int main(int argc, char *argv[]) {
     using P = pair<int, int>;
     int n = inf.readInt();
     int m = inf.readInt();
+    int s = inf.readInt();
     map<P, long long> edges;
     for (int i = 0; i < m; i++) {
         int a = inf.readInt();
@@ -51,8 +52,12 @@ int main(int argc, char *argv[]) {
 
     long long sum = 0;
     UnionFind uf(n);
-    for (int i = 1; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         int p = ouf.readInt(0, n - 1);
+        if (i == s) {
+            ensure(p == s);
+            continue;
+        }
         ensure(!uf.same(p, i));
         sum += edges[{p, i}];
     }

@@ -40,9 +40,11 @@ int main(int argc, char* argv[]) {
         add_edge(a, b, c);
     }
 
-    cout << n << " " << m << "\n";
+    auto idx = gen.perm<int>(n);
+    int s = idx[0];
+    cout << n << " " << m << " " << s << "\n";
     for (auto e: edges) {
-        cout << e.from << " " << e.to << " " << e.cost << "\n";
+        cout << idx[e.from] << " " << idx[e.to] << " " << e.cost << "\n";
     }
     return 0;
 }

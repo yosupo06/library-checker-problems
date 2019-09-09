@@ -12,6 +12,8 @@ int main() {
     int n = inf.readInt(1, 200'000);
     inf.readSpace();
     int m = inf.readInt(n - 1, 200'000);
+    inf.readSpace();
+    int s = inf.readInt(0, n - 1);
     inf.readEoln();
 
     using P = pair<int, int>;
@@ -35,7 +37,7 @@ int main() {
 
     queue<int> q;
     vector<bool> visited(n);
-    q.push(0);
+    q.push(s);
     while (!q.empty()) {
         int i = q.front(); q.pop();
         if (visited[i]) continue;

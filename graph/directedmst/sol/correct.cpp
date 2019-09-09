@@ -187,8 +187,8 @@ int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
 
-    int n, m;
-    cin >> n >> m;
+    int n, m, s;
+    cin >> n >> m >> s;
 
     VV<E> g(n);
     for (int i = 0; i < m; i++) {
@@ -198,11 +198,11 @@ int main() {
         g[a].push_back({a, b, c});
     }
 
-    auto res = directedMST(g, 0);
+    auto res = directedMST(g, s);
 
     cout << res.cost << endl;
-    for (int i = 1; i < n; i++) {
-        cout << res.res[i].from;
+    for (int i = 0; i < n; i++) {
+        cout << (i == s ? s : res.res[i].from);
         if (i != n - 1) cout << " ";
     }
     cout << endl;

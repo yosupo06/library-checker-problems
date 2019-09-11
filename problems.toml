@@ -74,6 +74,10 @@
     title = 'Polynomial Interpolation'
     dir = 'math/polynomial_interpolation'
 
+[problems.partition_function]
+    title = 'K-th of Partition Function'
+    dir = 'math/partition_function'
+
 [problems.sum_of_floor_of_linear]
     title = 'Sum of Floor of Linear'
     dir = 'math/sum_of_floor_of_linear'

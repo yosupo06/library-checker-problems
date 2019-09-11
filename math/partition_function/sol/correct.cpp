@@ -258,6 +258,10 @@ int main() {
     auto pol = Poly<Mint>(v);
     pol = pol.exp(n + 1);
 
-    cout << pol.freq(n) << endl;
+    for (int i = 0; i <= n; i++) {
+        cout << pol.freq(i);
+        if (i != n) cout << " ";
+    }
+    cout << endl;
     return 0;
 }

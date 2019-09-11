@@ -59,7 +59,9 @@ int main(int argc, char *argv[]) {
             continue;
         }
         ensure(!uf.same(p, i));
-        sum += edges[{p, i}];
+        uf.merge(p, i);
+        ensure(edges.count({p, i}));
+        sum += edges[{p, i}];        
     }
 
     ensure(x_ouf == sum);

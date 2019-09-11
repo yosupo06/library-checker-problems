@@ -169,7 +169,7 @@ DirectedMSTInfo directedMST(VV<E> g, int r) {
 
     auto info = DirectedMSTInfo(n);
     V<bool> vis(pc);
-    for (int i = 0; i < pc; i++) {
+    for (int i = pc - 1; i >= 0; i--) {
         if (i == r) continue;
         if (vis[i]) continue;
         int f = res[i].to;

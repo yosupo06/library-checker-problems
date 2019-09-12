@@ -54,6 +54,10 @@
     title = 'Factorize'
     dir = 'math/factorize'
 
+[problems.sqrt_mod]
+    title = 'Sqrt Mod'
+    dir = 'math/sqrt_mod'
+
 [problems.matrix_det]
     title = 'Determinant of Matrix'
     dir = 'math/matrix_det'

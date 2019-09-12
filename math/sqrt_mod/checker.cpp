@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
             quitf(_wa, "invalid x");
         }
         bool actual = (x != -1);
-        bool expected = pow_mod(y, (p - 1) / 2, p) == 1;
+        bool expected = (y == 0 || pow_mod(y, (p - 1) / 2, p) == 1);
         if (expected && !actual) {
             quitf(_wa, "you cann't find x");
         }

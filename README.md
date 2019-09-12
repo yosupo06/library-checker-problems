@@ -52,6 +52,14 @@ sample/aplusbを参考にしてください
 精査待ちに欲しい問題が入っているがもう待ちきれない！
 - ゆるして
 
+judge.yosupo.jpにこんな機能が欲しい！
+- https://github.com/yosupo06/library-checker-frontend のissueに書いてくれると嬉しいです
+
+ジャッジサーバーに攻撃完了です
+- https://github.com/yosupo06/library-checker-judge のissueには書かずに、https://twitter.com/yosupot までこっそり教えてね
+
+
+
 # Thanks
 
 checker, validatorなどにtestlib (https://github.com/MikeMirzayanov/testlib) を使用しています。

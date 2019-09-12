@@ -40,10 +40,7 @@ sample/aplusbを参考にしてください
 - https://github.com/yosupo06/library-checker-problems/issues/3 に書いてくれると嬉しいです
 
 こんな感じの問題が欲しい!
-- https://github.com/yosupo06/library-checker-problems/projects/1 の精査待ちを参考に issue を立てて、精査待ちに追加してくれると嬉しいです(クッソ雑でいいです)
-
-この問題が欲しい！
-- https://github.com/yosupo06/library-checker-problems/projects/1 の作業待ちを参考に issue を立てて、精査待ちに追加してくれると嬉しいです 制約は https://github.com/yosupo06/library-checker-problems/blob/master/GUILDLINE.md も参考にしてください
+- https://github.com/yosupo06/library-checker-problems/projects/1 の精査待ちを参考に issue を立ててくれると嬉しいです(クッソ雑でいいです)
 
 精査待ち, 作業待ちの問題について、ここがおかしくない？ / ここはこうしたほうが良くない？
 - お気軽に(その問題に対応するissueへ)コメントください

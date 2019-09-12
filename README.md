@@ -32,12 +32,20 @@ sample/aplusbを参考にしてください
 
 # Contribution
 
-落ちるはずなんだけど落ちない→教えてくれると嬉しいです こんなケースで落ちるもあるととても嬉しいです
+細かい修正(嘘解法, typo, この解答落ちるはずなんだけど！) -> issueを立ててくれると嬉しいです pull requestを送ってくれるともっと嬉しいです
 
-何かバグなどに気づいたらIssueを立ててくれると嬉しいです。
-新規問題の提案もとりあえずIssueを立ててくれると嬉しいです。
+このライブラリをベリファイしたいんだけど！ -> https://github.com/yosupo06/library-checker-problems/issues/3 に書いてくれると嬉しいです
 
-細かい修正(嘘解法, ケース追加, typo)は、Issueを立ててくれると嬉しいですし、Pull Requestを送ってくれるともっと嬉しいです。
+こんな感じの問題が欲しい! -> https://github.com/yosupo06/library-checker-problems/projects/1 の精査待ちを参考に issue を立てて、精査待ちに追加してくれると嬉しいです
+
+この問題が欲しい！ -> https://github.com/yosupo06/library-checker-problems/projects/1 の作業待ちを参考に issue を立てて、精査待ちに追加してくれると嬉しいです 制約は https://github.com/yosupo06/library-checker-problems/blob/master/GUILDLINE.md も参考にしてください
+
+精査待ち, 作業待ちの問題について、ここがおかしくない？ / ここはこうしたほうが良くない？ -> お気軽にコメントください
+
+作業待ちに欲しい問題が入っているがもう待ちきれない！ -> ゆるして / https://github.com/yosupo06/library-checker-problems/blob/master/GUILDLINE.md と sample/aplusb を参考に準備してpull requestを送ってくれると嬉しいです
+
+精査待ちに欲しい問題が入っているがもう待ちきれない！ -> ゆるして
+
 
 # Thanks
 

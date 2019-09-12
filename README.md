@@ -33,7 +33,8 @@ sample/aplusbを参考にしてください
 # Contribution
 
 細かい修正(嘘解法, typo, この解答落ちるはずなんだけど！)
-- issueを立ててくれると嬉しいです pull requestを送ってくれるともっと嬉しいです
+- issueを立ててくれると嬉しいです
+- pull requestを送ってくれるともっと嬉しいです
 
 このライブラリをベリファイしたいんだけど！
 - https://github.com/yosupo06/library-checker-problems/issues/3 に書いてくれると嬉しいです
@@ -48,7 +49,8 @@ sample/aplusbを参考にしてください
 - お気軽に(その問題に対応するissueへ)コメントください
 
 作業待ちに欲しい問題が入っているがもう待ちきれない！
-- ゆるして / https://github.com/yosupo06/library-checker-problems/blob/master/GUILDLINE.md と sample/aplusb を参考に準備してpull requestを送ってくれると嬉しいです
+- ゆるして
+- https://github.com/yosupo06/library-checker-problems/blob/master/GUILDLINE.md と sample/aplusb を参考に準備してpull requestを送ってくれると嬉しいです
 
 精査待ちに欲しい問題が入っているがもう待ちきれない！
 - ゆるして

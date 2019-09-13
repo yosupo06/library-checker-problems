@@ -9,5 +9,4 @@ jobs:
           password: $GCR_KEY
     steps:
       - checkout
-      - run: ls
       - run: ./generate.py problems.toml

@@ -8,6 +8,11 @@ from datetime import datetime
 import toml
 from tempfile import TemporaryDirectory
 
+from os import getenv
+from logging import Logger, basicConfig, getLogger
+
+logger: Logger = getLogger(__name__)
+
 def casename(name: str, i: int) -> str:
     # (random, 1) -> random_01
     return Path(name).stem + '_' + str(i).zfill(2)
@@ -28,7 +33,7 @@ def compile(src: Path, libdir: Path):
     elif src.suffix == '.in':
         pass
     else:
-        print('Unknown type of file {}'.format(src))
+        logger.error('Unknown type of file {}'.format(src))
         raise UnknownTypeFile('Unknown file: {}'.format(src))
 
 
@@ -61,20 +66,20 @@ class Problem:
         indir = self.basedir / 'in'
         gendir = self.basedir / 'gen'
 
-        print('[#] clear input {}'.format(indir))
+        logger.info('clear input {}'.format(indir))
         if indir.exists():
             shutil.rmtree(indir)
         indir.mkdir()
 
-        print('[#] compile verify')
+        logger.info('compile verify')
         compile(gendir / self.config['verify'], self.libdir)
 
         for test in self.config['tests']:
             name = test['name']
             num = test['number']
 
-            print('[#] case {} {}cases'.format(name, num))
-            print('[#] compile')
+            logger.info('case {} {}cases'.format(name, num))
+            logger.info('compile')
             compile(gendir / name, self.libdir)
 
             for i in range(num):
@@ -90,12 +95,12 @@ class Problem:
         outdir = self.basedir / 'out'
         soldir = self.basedir / 'sol'
 
-        print('[#] clear output {}'.format(outdir))
+        logger.info('clear output {}'.format(outdir))
         if outdir.exists():
             shutil.rmtree(outdir)
         outdir.mkdir()
 
-        print('[#] compile sol')
+        logger.info('compile sol')
         compile(soldir / self.config['solution'], self.libdir)
 
         for test in self.config['tests']:
@@ -105,7 +110,7 @@ class Problem:
             for i in range(num):
                 inpath = indir / (casename(name, i) + '.in')
                 outpath = outdir / (casename(name, i) + '.out')
-                print('# start ' + casename(name, i) + '...')
+                logger.info('start ' + casename(name, i) + '...')
                 check_call(execcmd(soldir / self.config['solution']),
                            stdin=open(inpath, 'r'), stdout=open(outpath, 'w'))
 
@@ -114,10 +119,10 @@ class Problem:
         outdir = self.basedir / 'out'
         _tmpdir = TemporaryDirectory()
         tmpdir = _tmpdir.name
-        print('[#] compile source {} dir = {}'.format(src, tmpdir))
+        logger.info('compile source {} dir = {}'.format(src, tmpdir))
         compile(src, self.libdir)
         checker = self.basedir / 'checker.cpp'
-        print('[#] compile checker')
+        logger.info('compile checker')
         compile(checker, self.libdir)
         results = set()
 
@@ -154,17 +159,21 @@ class Problem:
                 results.add(result)
                 usemsec = (end - start).seconds*1000 + \
                     (end - start).microseconds // 1000
-                print('{:>3s} {:6d} msecs : {} : {}'.format(
+                logger.info('{:>3s} {:6d} msecs : {} : {}'.format(
                     result, usemsec, case, checker_output))
         
         expectaccept = not config.get('wrong', False)
         actualaccept = (results == {'AC'})
         if expectaccept != actualaccept:
-            print("Fail {} : expect_accept = {} : results = {}".format(src, expectaccept, results))
+            logger.error('Fail {} : expect_accept = {} : results = {}'.format(src, expectaccept, results))
             exit(1)
 
 
 if __name__ == '__main__':
+    basicConfig(
+        level=getenv('LOG_LEVEL', 'DEBUG'),
+        format="%(asctime)s %(levelname)s %(name)s : %(message)s"
+    )
     parser = argparse.ArgumentParser(description='Testcase Generator')
     parser.add_argument('toml', type=argparse.FileType('r'), help='Toml File')
     parser.add_argument('-p', '--problem', nargs='*', help='Generate problem', default=[])
@@ -184,7 +193,7 @@ if __name__ == '__main__':
         problem = Problem(libdir, libdir / probinfo['dir'])
         probs[name] = problem
 
-        print('[*] Start {}'.format(probinfo['dir']))
+        logger.info('Start {}'.format(probinfo['dir']))
 
         problem.make_inputs()
         problem.make_outputs()

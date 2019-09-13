@@ -7,7 +7,7 @@ steps:
   commands:
     - ./generate.py problems.toml --compileonly
   environment:
-    CXX: clang
+    CXX: clang++
 
 - name: generate
   image: gcr.io/develop-156705/library-checker-problem-env

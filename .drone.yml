@@ -2,15 +2,24 @@ kind: pipeline
 name: default
 
 steps:
-- name: build
+- name: compiletest_clang
   image: gcr.io/develop-156705/library-checker-problem-env
   commands:
-  - ./generate.py problems.toml
+    - ./generate.py problems.toml --compileonly
+  environment:
+    CXX: clang++
+    CXXFLAGS: -std=c++14 -stdlib=libc++ -Wall -Wextra
+
+- name: generate
+  image: gcr.io/develop-156705/library-checker-problem-env
+  commands:
+    - ./generate.py problems.toml
+  depend_on: [buildtest_clang]
 
 - name: deploy
   image: gcr.io/develop-156705/library-checker-problem-env
   commands:
-  - ./deploy.py
+    - ./deploy.py
   environment:
     POSTGRE_HOST:
       from_secret: pg_host
@@ -20,6 +29,7 @@ steps:
       from_secret: pg_user
     POSTGRE_PASS:
       from_secret: pg_pass
+  depend_on: [generate]
   when:
     branch:
     - master

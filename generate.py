@@ -26,10 +26,10 @@ class UnknownTypeFile(Exception):
 
 def compile(src: Path, libdir: Path):
     if src.suffix == '.cpp':
-        check_call(['g++', '-O2', '-std=c++14',
-                    '-I', libdir / 'common',
-                    '-o', src.with_suffix(''),
-                    src])
+        cxx = getenv('CXX', 'g++')
+        cxxflags = getenv('CXXFLAGS', '-O2 -std=c++14 -Wall -Wextra').split()
+        cxxflags.extend(['-I', libdir / 'common'])
+        check_call([cxx] + cxxflags + ['-o', src.with_suffix('')] + [src])
     elif src.suffix == '.in':
         pass
     else:
@@ -62,6 +62,34 @@ class Problem:
         self.basedir = basedir
         self.config = toml.load(basedir / 'info.toml')
 
+    def compile(self):
+        logger.info('compile files')
+
+        logger.info('compile solution')
+        compile(self.basedir / 'sol' / self.config['solution'], self.libdir)
+        logger.info('compile checker')
+        compile(self.basedir / 'checker.cpp', self.libdir)
+
+        logger.info('compile verify')
+        compile(self.basedir / 'gen' / self.config['verify'], self.libdir)
+
+        logger.info('compile generators')
+        for test in self.config['tests']:
+            name = test['name']
+            logger.info('compile {}'.format(name))
+            compile(self.basedir / 'gen' / name, self.libdir)
+
+        logger.info('compile (default) solutions')
+        for test in self.config['tests']:
+            name = test['name']
+            logger.info('compile {}'.format(name))
+            compile(self.basedir / 'gen' / name, self.libdir)
+
+        for sol in self.config.get('solutions', []):
+            name = sol['name']
+            compile(self.basedir / 'sol' / name, self.libdir)
+
+
     def make_inputs(self):
         indir = self.basedir / 'in'
         gendir = self.basedir / 'gen'
@@ -71,16 +99,16 @@ class Problem:
             shutil.rmtree(indir)
         indir.mkdir()
 
-        logger.info('compile verify')
-        compile(gendir / self.config['verify'], self.libdir)
+#        logger.info('compile verify')
+#        compile(gendir / self.config['verify'], self.libdir)
 
         for test in self.config['tests']:
             name = test['name']
             num = test['number']
 
             logger.info('case {} {}cases'.format(name, num))
-            logger.info('compile')
-            compile(gendir / name, self.libdir)
+#            logger.info('compile')
+#            compile(gendir / name, self.libdir)
 
             for i in range(num):
                 # output filename
@@ -100,8 +128,10 @@ class Problem:
             shutil.rmtree(outdir)
         outdir.mkdir()
 
-        logger.info('compile sol')
-        compile(soldir / self.config['solution'], self.libdir)
+#        logger.info('compile sol')
+#        compile(soldir / self.config['solution'], self.libdir)
+#        checker = self.basedir / 'checker.cpp'
+#        compile(checker, self.libdir)
 
         for test in self.config['tests']:
             name = test['name']
@@ -119,11 +149,11 @@ class Problem:
         outdir = self.basedir / 'out'
         _tmpdir = TemporaryDirectory()
         tmpdir = _tmpdir.name
-        logger.info('compile source {} dir = {}'.format(src, tmpdir))
-        compile(src, self.libdir)
+#        logger.info('compile source {} dir = {}'.format(src, tmpdir))
+#        compile(src, self.libdir)
         checker = self.basedir / 'checker.cpp'
-        logger.info('compile checker')
-        compile(checker, self.libdir)
+#        logger.info('compile checker')
+#        compile(checker, self.libdir)
         results = set()
 
         for test in self.config['tests']:
@@ -178,6 +208,7 @@ if __name__ == '__main__':
     parser.add_argument('toml', type=argparse.FileType('r'), help='Toml File')
     parser.add_argument('-p', '--problem', nargs='*', help='Generate problem', default=[])
     parser.add_argument('-s', '--solution', nargs='*', help='Solution Toml', default=[])
+    parser.add_argument('--compileonly', action='store_true', help='Compile Test')
     args = parser.parse_args()
 
     problems = toml.load(args.toml)
@@ -191,9 +222,15 @@ if __name__ == '__main__':
             continue
 
         problem = Problem(libdir, libdir / probinfo['dir'])
+
         probs[name] = problem
 
         logger.info('Start {}'.format(probinfo['dir']))
+
+        problem.compile()
+
+        if args.compileonly:
+            continue
 
         problem.make_inputs()
         problem.make_outputs()
@@ -208,5 +245,8 @@ if __name__ == '__main__':
                 continue
             problem = probs[name]
             for sol in sols:
+                compile(soldir / sol['source'], problems.libdir)
+                if args.compileonly:
+                    continue
                 results = problem.judge(soldir / sol['source'], sol)
 

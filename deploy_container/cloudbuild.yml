@@ -8,3 +8,4 @@ steps:
 images:
 - 'gcr.io/$PROJECT_ID/library-checker-problem-env:latest'
 
+timeout: 1200s

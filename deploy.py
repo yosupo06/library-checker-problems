@@ -108,7 +108,7 @@ for name, probinfo in problems['problems'].items():
 
         # convert task
         statement = ''
-        with open(probdir / 'task.md') as f:
+        with open(probdir / 'task.md', encoding='utf-8') as f:
             statement = markdown.markdown(
                 f.read(), extensions=[
                     'markdown.extensions.fenced_code',

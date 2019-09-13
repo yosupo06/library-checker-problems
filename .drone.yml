@@ -8,6 +8,7 @@ steps:
     - ./generate.py problems.toml --compileonly
   environment:
     CXX: clang++
+    CXXFLAGS: -std=c++14 -stdlib=libc++ -Wall -Wextra
 
 - name: generate
   image: gcr.io/develop-156705/library-checker-problem-env

@@ -1,0 +1,5 @@
+docker:
+  - image: gcr.io/$PROJECT_ID/library-checker-problem-env
+    auth:
+      username: _json_key
+      password: $GCR_KEY

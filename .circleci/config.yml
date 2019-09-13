@@ -8,4 +8,4 @@ jobs:
           username: _json_key
           password: $GCR_KEY
     steps:
-      - run: ./generator.py problems.toml
+      - run: ./generate.py problems.toml

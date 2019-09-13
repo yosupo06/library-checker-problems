@@ -1,0 +1,30 @@
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: gcr.io/develop-156705/library-checker-problem-env
+  commands:
+  - ./generate.py problems.toml
+
+- name: deploy
+  image: gcr.io/develop-156705/library-checker-problem-env
+  commands:
+  - ./deploy.py
+  environment:
+    POSTGRE_HOST:
+      from_secret: pg_host
+    POSTGRE_PORT:
+      from_secret: pg_port
+    POSTGRE_USER:
+      from_secret: pg_user
+    POSTGRE_PASS:
+      from_secret: pg_pass
+  when:
+    branch:
+    - master
+    event:
+    - push
+    
+image_pull_secrets:
+- google_credentials

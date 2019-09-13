@@ -9,9 +9,9 @@ using std::vector;
 using Int = long long;
 
 // xorshift
-uint xrand() {
-  static uint x = 314159265, y = 358979323, z = 846264338, w = 327950288;
-  uint t = x ^ x << 11; x = y; y = z; z = w; return w = w ^ w >> 19 ^ t ^ t >> 8;
+unsigned xrand() {
+  static unsigned x = 314159265, y = 358979323, z = 846264338, w = 327950288;
+  unsigned t = x ^ x << 11; x = y; y = z; z = w; return w = w ^ w >> 19 ^ t ^ t >> 8;
 }
 
 // a^-1 (mod m)

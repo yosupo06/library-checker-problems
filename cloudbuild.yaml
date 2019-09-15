@@ -1,8 +1,25 @@
 steps:
-- name: gcr.io/library-checker-project/library-checker-problem-env
-  args: ['./generate.py', 'problems.toml']
-- name: gcr.io/library-checker-project/library-checker-problem-env
-  args: ['./deploy.py']
-  env: ['POSTGRE_HOST=$_PG_HOST', 'POSTGRE_PASS=$_PG_PASS']
+  # until the db migration step is finished
+  # https://cloud.google.com/sql/docs/postgres/sql-proxy
+  - id: proxy
+    name: gcr.io/cloudsql-docker/gce-proxy
+    entrypoint: sh
+    args:
+      - '-c'
+      - '/cloud_sql_proxy -dir=/cloudsql -instances=library-checker-project:asia-northeast1:library-checker-sql & while [ ! -f /cloudsql/stop ]; do sleep 2; done'
+    waitFor: ['-']
+    volumes:
+      - name: db
+        path: /cloudsql
+
+  - id: generate_and_deploy
+    name: gcr.io/library-checker-project/library-checker-problem-env
+    entrypoint: sh
+    args:
+      - '-c'
+      - './generate.py problems.toml && ./deploy.py'
+    volumes:
+      - name: db
+        path: /cloudsql
 
 timeout: 1800s

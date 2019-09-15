@@ -3,7 +3,7 @@ version: 2
 jobs:
   clang-compile:
     docker:
-      - image: gcr.io/$PROJECT_ID/library-checker-problem-env
+      - image: gcr.io/library-checker-project/library-checker-problem-env
     steps:
       - checkout
       - run:
@@ -13,7 +13,7 @@ jobs:
             CXXFLAGS: -std=c++14 -stdlib=libc++ -Wall -Wextra
   generate:
     docker:
-      - image: gcr.io/$PROJECT_ID/library-checker-problem-env
+      - image: gcr.io/library-checker-project/library-checker-problem-env
     steps:
       - checkout
       - run: ./generate.py problems.toml

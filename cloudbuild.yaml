@@ -6,7 +6,7 @@ steps:
     entrypoint: sh
     args:
       - '-c'
-      - '/cloud_sql_proxy -dir=/cloudsql -instances=library-checker-project:asia-northeast1:library-checker-sql & while [ ! -f /cloudsql/stop ]; do sleep 2; done'
+      - '/cloud_sql_proxy -dir=/cloudsql -instances=$_PG_NAME & while [ ! -f /cloudsql/stop ]; do sleep 2; done'
     waitFor: ['-']
     volumes:
       - name: db
@@ -18,7 +18,7 @@ steps:
     args:
       - '-c'
       - './generate.py problems.toml && ./deploy.py'
-    env: ['POSTGRE_HOST=127.0.0.1', 'POSTGRE_PASS=$_PG_PASS']
+    env: ['POSTGRE_HOST=/cloudsql/$_PG_NAME', 'POSTGRE_PASS=$_PG_PASS']
     volumes:
       - name: db
         path: /cloudsql

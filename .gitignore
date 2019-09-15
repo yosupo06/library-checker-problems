@@ -7,7 +7,6 @@
 !*/
 !*.sh
 !*.yml
-!*.yaml
 !*.toml
 !*.cpp
 !*.h

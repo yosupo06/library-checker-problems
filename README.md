@@ -1,4 +1,4 @@
-[![Build Status](https://drone.yosupo.jp/api/badges/yosupo06/library-checker-problems/status.svg)](https://drone.yosupo.jp/yosupo06/library-checker-problems)
+[![CircleCI](https://circleci.com/gh/yosupo06/library-checker-problems/tree/master.svg?style=svg)](https://circleci.com/gh/yosupo06/library-checker-problems/tree/master)
 
 # ケース生成
 

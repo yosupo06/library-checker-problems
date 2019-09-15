@@ -17,10 +17,17 @@ steps:
     entrypoint: sh
     args:
       - '-c'
-      - './generate.py problems.toml && ./deploy.py && touch /cloudsql/stop'
+      - './generate.py problems.toml && ./deploy.py'
     env: ['POSTGRE_HOST=127.0.0.1', 'POSTGRE_PASS=$_PG_PASS']
     volumes:
       - name: db
         path: /cloudsql
+    waitFor: ['-']
+  - name: gcr.io/library-checker-project/library-checker-problem-env
+    args: ['touch', '/cloudsql/stop']
+    volumes:
+      - name: db
+        path: /cloudsql
+    waitFor: ['generate_and_deploy']
 
 timeout: 1800s

@@ -4,57 +4,41 @@
 using namespace std;
 using ll = long long;
 
-template<class T, class U>
-T pow_mod(T x, U n, T md) {
-    T r = 1 % md;
-    x %= md;
-    while (n) {
-        if (n & 1) r = (r * x) % md;
-        x = (x * x) % md;
-        n >>= 1;
-    }
-    return r;
-}
-
-bool is_prime(ll n) {
-    if (n <= 1) return false;
-    if (n == 2) return true;
-    if (n % 2 == 0) return false;
-    ll d = n - 1;
-    while (d % 2 == 0) d /= 2;
-    for (ll a : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}) {
-        if (n <= a) break;
-        ll t = d;
-        ll y = pow_mod<__int128_t>(a, t, n);  // over
-        while (t != n - 1 && y != 1 && y != n - 1) {
-            y = __int128_t(y) * y % n;  // flow
-            t <<= 1;
-        }
-        if (y != n - 1 && t % 2 == 0) {
-            return false;
+vector<ll> enum_prime(ll l, ll r) {
+    vector<int> is_prime(r - l + 1, true);
+    for (ll i = 2; i * i <= r; i++) {
+        for (ll j = max(2 * i, (l + i - 1) / i * i); j <= r; j += i) {
+            assert(l <= j && j <= r);
+            is_prime[j - l] = false;
         }
     }
-    return true;
+    vector<ll> res;
+    for (ll i = l; i <= r; i++) {
+        if (2 <= i && is_prime[i - l]) res.push_back(i);
+    }
+    return res;
 }
 
 int main(int argc, char* argv[]) {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
 
-
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    vector<ll> primes;
-    while (primes.size() <= 100'000) {
-        ll p = gen.uniform(2, 1'000'000'000);
-        if (is_prime(p)) primes.push_back(p);
-    }
+    ll up = gen.uniform(5'000'000, 1'000'000'000);
+    vector<ll> primes = enum_prime(up - 5'000'000, up);
+    vector<ll> small_primes = enum_prime(2, 1000);
 
     int t = 100'000;
     cout << t << "\n";
     for (int i = 0; i < t; i++) {
-        ll p = primes[gen.uniform<ll>(0LL, primes.size() - 1)];
+        ll p;
+        if (gen.uniform_bool())
+            p = primes[gen.uniform<ll>(0LL, primes.size() - 1)];
+        else
+            p = small_primes[gen.uniform<ll>(0LL, small_primes.size() - 1)];
+
         ll y = gen.uniform(0LL, p - 1);
 
         cout << y << " " << p << endl;

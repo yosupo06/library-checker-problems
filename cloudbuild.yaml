@@ -4,3 +4,5 @@ steps:
 - name: gcr.io/library-checker-project/library-checker-problem-env
   args: ['./deploy.py']
   env: ['POSTGRE_HOST=$_PG_HOST', 'POSTGRE_PASS=$_PG_PASS']
+
+timeout: 1800s

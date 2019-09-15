@@ -17,7 +17,8 @@ steps:
     entrypoint: sh
     args:
       - '-c'
-      - './generate.py problems.toml && ./deploy.py'
+      - './generate.py problems.toml && ./deploy.py && touch /cloudsql/stop'
+    env: ['POSTGRE_HOST=127.0.0.1', 'POSTGRE_PASS=$_PG_PASS']
     volumes:
       - name: db
         path: /cloudsql

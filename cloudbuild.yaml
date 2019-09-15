@@ -1,4 +1,6 @@
 steps:
 - name: gcr.io/library-checker-project/library-checker-problem-env
   args: ['./generate.py', 'problems.toml']
+- name: gcr.io/library-checker-project/library-checker-problem-env
+  args: ['./deploy.py']
   env: ['POSTGRE_HOST=$_PG_HOST', 'POSTGRE_PASS=$_PG_PASS']

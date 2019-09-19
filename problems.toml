@@ -85,3 +85,7 @@
 [problems.sum_of_floor_of_linear]
     title = 'Sum of Floor of Linear'
     dir = 'math/sum_of_floor_of_linear'
+
+[problems.two_sat]
+    title = '2 Sat'
+    dir = 'math/two_sat'

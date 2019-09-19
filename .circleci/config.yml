@@ -16,6 +16,7 @@ jobs:
       - image: gcr.io/library-checker-project/library-checker-problem-env
     steps:
       - checkout
+      - run: ulimit -s unlimited
       - run: ./generate.py problems.toml
 
 workflows:

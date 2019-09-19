@@ -17,7 +17,7 @@ steps:
     entrypoint: sh
     args:
       - '-c'
-      - './generate.py problems.toml && ./deploy.py'
+      - 'ulimit -s unlimited && ./generate.py problems.toml && ./deploy.py'
     env: ['POSTGRE_HOST=/cloudsql/$_PG_NAME', 'POSTGRE_PASS=$_PG_PASS']
     volumes:
       - name: db

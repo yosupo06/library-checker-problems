@@ -11,8 +11,8 @@
   - o: Factorize, Assignment
 - タイトルID: snake_case 既に守ってないのがありますが…
 - タイトル: Title Case 接続詞(on, in, of) とか以外の単語は先頭を大文字にする奴
-- 明確な基準は無いが、さすがに有名だろうという物は略称
-  - lca, rmq, scc, sat, ...
+- 明確な基準は無いが、さすがに有名だろうという物は略称でもOK
+  - lca, rmq, scc, sat, mst, ...
 
 ### 問題文(変更可能)
 

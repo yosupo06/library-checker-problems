@@ -41,6 +41,6 @@ workflows:
     jobs:
       - clang-compile
       - generate
-      - genhtml
+      - genhtml:
           requires:
             - generate

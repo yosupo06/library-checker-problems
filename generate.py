@@ -14,6 +14,7 @@ import toml
 
 logger: Logger = getLogger(__name__)
 
+
 def casename(name: str, i: int) -> str:
     # (random, 1) -> random_01
     return Path(name).stem + '_' + str(i).zfill(2)
@@ -81,15 +82,9 @@ class Problem:
             compile(self.basedir / 'gen' / name, self.libdir)
 
         logger.info('compile (default) solutions')
-        for test in self.config['tests']:
-            name = test['name']
-            logger.info('compile {}'.format(name))
-            compile(self.basedir / 'gen' / name, self.libdir)
-
         for sol in self.config.get('solutions', []):
             name = sol['name']
             compile(self.basedir / 'sol' / name, self.libdir)
-
 
     def make_inputs(self):
         indir = self.basedir / 'in'
@@ -100,17 +95,11 @@ class Problem:
             shutil.rmtree(indir)
         indir.mkdir()
 
-#        logger.info('compile verify')
-#        compile(gendir / self.config['verify'], self.libdir)
-
         for test in self.config['tests']:
             name = test['name']
             num = test['number']
 
             logger.info('case {} {}cases'.format(name, num))
-#            logger.info('compile')
-#            compile(gendir / name, self.libdir)
-
             for i in range(num):
                 # output filename
                 inpath = indir / (casename(name, i) + '.in')
@@ -129,11 +118,6 @@ class Problem:
             shutil.rmtree(outdir)
         outdir.mkdir()
 
-#        logger.info('compile sol')
-#        compile(soldir / self.config['solution'], self.libdir)
-#        checker = self.basedir / 'checker.cpp'
-#        compile(checker, self.libdir)
-
         for test in self.config['tests']:
             name = test['name']
             num = test['number']
@@ -150,11 +134,7 @@ class Problem:
         outdir = self.basedir / 'out'
         _tmpdir = TemporaryDirectory()
         tmpdir = _tmpdir.name
-#        logger.info('compile source {} dir = {}'.format(src, tmpdir))
-#        compile(src, self.libdir)
         checker = self.basedir / 'checker.cpp'
-#        logger.info('compile checker')
-#        compile(checker, self.libdir)
         results = set()
 
         for test in self.config['tests']:
@@ -192,11 +172,12 @@ class Problem:
                     (end - start).microseconds // 1000
                 logger.info('{:>3s} {:6d} msecs : {} : {}'.format(
                     result, usemsec, case, checker_output))
-        
+
         expectaccept = not config.get('wrong', False)
         actualaccept = (results == {'AC'})
         if expectaccept != actualaccept:
-            logger.error('Fail {} : expect_accept = {} : results = {}'.format(src, expectaccept, results))
+            logger.error('Fail {} : expect_accept = {} : results = {}'.format(
+                src, expectaccept, results))
             exit(1)
 
 
@@ -207,9 +188,12 @@ if __name__ == '__main__':
     )
     parser = argparse.ArgumentParser(description='Testcase Generator')
     parser.add_argument('toml', type=argparse.FileType('r'), help='Toml File')
-    parser.add_argument('-p', '--problem', nargs='*', help='Generate problem', default=[])
-    parser.add_argument('-s', '--solution', nargs='*', help='Solution Toml', default=[])
-    parser.add_argument('--compileonly', action='store_true', help='Compile Test')
+    parser.add_argument('-p', '--problem', nargs='*',
+                        help='Generate problem', default=[])
+    parser.add_argument('-s', '--solution', nargs='*',
+                        help='Solution Toml', default=[])
+    parser.add_argument(
+        '--compileonly', action='store_true', help='Compile Test')
     args = parser.parse_args()
 
     problems = toml.load(args.toml)
@@ -223,8 +207,8 @@ if __name__ == '__main__':
             continue
 
         problem = Problem(libdir, libdir / probinfo['dir'])
-
         probs[name] = problem
+
 
         logger.info('Start {}'.format(probinfo['dir']))
 

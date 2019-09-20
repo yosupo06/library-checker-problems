@@ -2,14 +2,15 @@
 
 import argparse
 import shutil
-from pathlib import Path
-from subprocess import run, call, check_call, check_output, TimeoutExpired, CalledProcessError, DEVNULL, PIPE, STDOUT
 from datetime import datetime
-import toml
+from logging import Logger, basicConfig, getLogger
+from os import getenv
+from pathlib import Path
+from subprocess import (DEVNULL, PIPE, STDOUT, CalledProcessError,
+                        TimeoutExpired, call, check_call, check_output, run)
 from tempfile import TemporaryDirectory
 
-from os import getenv
-from logging import Logger, basicConfig, getLogger
+import toml
 
 logger: Logger = getLogger(__name__)
 
@@ -249,4 +250,3 @@ if __name__ == '__main__':
                 if args.compileonly:
                     continue
                 results = problem.judge(soldir / sol['source'], sol)
-

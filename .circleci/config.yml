@@ -29,7 +29,7 @@ jobs:
       - image: gcr.io/library-checker-project/library-checker-problem-env
     steps:
       - attach_workspace:
-        at: .
+          at: .
       - checkout
       - run: ./deploy.py --htmldir /tmp/html --htmlonly
       - store_artifacts:

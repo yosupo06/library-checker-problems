@@ -86,6 +86,10 @@
     title = 'Sum of Floor of Linear'
     dir = 'math/sum_of_floor_of_linear'
 
+[problems.exp_of_formal_power_series]
+    title = 'Exp of Formal Power Series'
+    dir = 'math/exp_of_formal_power_series'
+
 [problems.two_sat]
     title = '2 Sat'
     dir = 'math/two_sat'

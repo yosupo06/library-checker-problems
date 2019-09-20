@@ -144,7 +144,7 @@ def gen_docs(problems, libdir, docdir: Path):
 
         # convert task
         html = ToHTMLConverter(probdir)
-        with open(docdir / (name + '.html'), 'w') as f:
+        with open(docdir / (name + '.html'), 'w', encoding='utf-8') as f:
             f.write(html.html)
 
 

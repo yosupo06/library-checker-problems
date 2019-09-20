@@ -209,7 +209,6 @@ if __name__ == '__main__':
         problem = Problem(libdir, libdir / probinfo['dir'])
         probs[name] = problem
 
-
         logger.info('Start {}'.format(probinfo['dir']))
 
         problem.compile()

@@ -28,15 +28,9 @@ jobs:
     docker:
       - image: gcr.io/library-checker-project/library-checker-problem-env
     steps:
-<<<<<<< HEAD
-      - attach_workspace:
-        at: .
-      - checkout
-=======
       - checkout
       - attach_workspace:
           at: .
->>>>>>> master
       - run: ./deploy.py --htmldir /tmp/html --htmlonly
       - store_artifacts:
           path: /tmp/html

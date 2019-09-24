@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/yosupo06/library-checker-problems/tree/master.svg?style=svg)](https://circleci.com/gh/yosupo06/library-checker-problems/tree/master)
+[![Gitter](https://badges.gitter.im/library-checker-problems/community.svg)](https://gitter.im/library-checker-problems/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # ケース生成
 
@@ -31,6 +32,9 @@ sample/aplusbを参考にしてください
 - frontend: [library-checker-frontend](https://github.com/yosupo06/library-checker-frontend)
 
 # Contribution
+
+issueを立てるほどじゃないけどちょっと気になるとか
+- gitter(このREADMEの先頭の、chat on gitter ってやつをクリックすると飛べます)というチャットルームがあります
 
 細かい修正(嘘解法, typo, この解答落ちるはずなんだけど！)
 - issueを立ててくれると嬉しいです

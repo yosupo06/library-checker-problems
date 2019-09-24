@@ -26,7 +26,6 @@ sample/aplusbを参考にしてください
 
 # library-checker-project
 
-- website: [judge.yosupo.jp](https://judge.yosupo.jp/)
 - problems: [library-checker-problems](https://github.com/yosupo06/library-checker-problems)
 - judge: [library-checker-judge](https://github.com/yosupo06/library-checker-judge)
 - frontend: [library-checker-frontend](https://github.com/yosupo06/library-checker-frontend)

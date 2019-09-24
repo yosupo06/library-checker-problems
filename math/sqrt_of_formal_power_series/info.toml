@@ -1,0 +1,22 @@
+solution = "correct.cpp"
+verify = "verify.cpp"
+timelimit = 10.0
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "lower_deg_zero.cpp"
+    number = 8
+[[tests]]
+    name = "all_zero.cpp"
+    number = 2
+
+[[solutions]]
+    name = "correct.cpp"

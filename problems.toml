@@ -94,6 +94,10 @@
     title = 'Log of Formal Power Series'
     dir = 'math/log_of_formal_power_series'
 
+[problems.sqrt_of_formal_power_series]
+    title = 'Sqrt of Formal Power Series'
+    dir = 'math/sqrt_of_formal_power_series'
+
 [problems.two_sat]
     title = '2 Sat'
     dir = 'math/two_sat'

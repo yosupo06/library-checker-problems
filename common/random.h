@@ -125,7 +125,7 @@ struct Random {
 
     template <class T>
     std::vector<T> choice(size_t n, T lower, T upper) {
-        assert(n <= upper - lower + 1);
+        assert(T(n) <= upper - lower + 1);
         std::set<T> res;
         while (res.size() < n) res.insert(uniform(lower, upper));
         return {res.begin(), res.end()};

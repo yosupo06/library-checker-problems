@@ -23,7 +23,7 @@ struct SCCExec : SCC
     const VV<E> &g;
     int tm = 0;
     V<bool> flag;
-    V<int> low, ord, st;
+    V<int> low, ord, st, gr;
     void dfs(int v)
     {
         low[v] = ord[v] = tm++;
@@ -43,7 +43,7 @@ struct SCCExec : SCC
         }
         if (low[v] == ord[v])
         {
-            V<int> gr;
+            gr.clear();
             while (true)
             {
                 int u = st.back();

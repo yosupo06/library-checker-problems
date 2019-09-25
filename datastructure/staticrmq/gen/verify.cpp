@@ -16,7 +16,7 @@ int main() {
     for (int i = 0; i < q; i++) {
         int a = inf.readInt(0, n - 1);
         inf.readSpace();
-        int b = inf.readInt(a + 1, n);
+        inf.readInt(a + 1, n);
         inf.readEoln();
     }    
     inf.readEof();

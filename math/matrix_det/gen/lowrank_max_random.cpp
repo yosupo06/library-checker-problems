@@ -6,7 +6,7 @@ using namespace std;
 using ll = long long;
 const ll Mod = 998244353;
 
-int main(int argc, char* argv[]) {
+int main(int, char* argv[]) {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
 

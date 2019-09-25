@@ -3,13 +3,12 @@
 
 using namespace std;
 
-int main(int argc, char* argv[]) {
+int main(int, char* argv[]) {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
 
 
     long long seed = atoll(argv[1]);
-    auto gen = Random(seed);
 
     int q = 100;
     vector<long long> a(q);

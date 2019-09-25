@@ -19,7 +19,7 @@ vector<ll> enum_prime(ll l, ll r) {
     return res;
 }
 
-int main(int argc, char* argv[]) {
+int main(int, char* argv[]) {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
 

@@ -13,10 +13,14 @@ jobs:
             CXXFLAGS: -std=c++14 -stdlib=libc++ -Wall -Wextra
   generate:
     docker:
-      - image: gcr.io/library-checker-project/library-checker-problem-env
+      - image: gcr.io/library-checker-project/library-checker-problem-env-new
     steps:
       - checkout
-      - run: ulimit -s unlimited && ./generate.py problems.toml
+      - run:
+          command: |
+            pip install -r requirements.txt
+            ulimit -s unlimited
+            ./generate.py problems.toml
       - persist_to_workspace:
           root: .
           paths:

@@ -13,7 +13,7 @@ steps:
         path: /cloudsql
 
   - id: generate_and_deploy
-    name: gcr.io/library-checker-project/library-checker-problem-env
+    name: yosupo/library-checker-problems-deploy
     entrypoint: sh
     args:
       - '-c'
@@ -23,7 +23,7 @@ steps:
       - name: db
         path: /cloudsql
     waitFor: ['-']
-  - name: gcr.io/library-checker-project/library-checker-problem-env
+  - name: yosupo/library-checker-problems-deploy
     args: ['touch', '/cloudsql/stop']
     volumes:
       - name: db

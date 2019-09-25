@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import platform
 import shutil
 from datetime import datetime
 from logging import Logger, basicConfig, getLogger
@@ -29,7 +30,10 @@ class UnknownTypeFile(Exception):
 def compile(src: Path, libdir: Path):
     if src.suffix == '.cpp':
         cxx = getenv('CXX', 'g++')
-        cxxflags = getenv('CXXFLAGS', '-O2 -std=c++14 -Wall -Wextra').split()
+        cxxflags_default = '-O2 -std=c++14 -Wall -Wextra'
+        if platform.system() == 'Darwin':
+            cxxflags_default += ' -Wl,-stack_size,0x10000000' # 256MB
+        cxxflags = getenv('CXXFLAGS', cxxflags_default).split()
         cxxflags.extend(['-I', libdir / 'common'])
         check_call([cxx] + cxxflags + ['-o', src.with_suffix('')] + [src])
     elif src.suffix == '.in':

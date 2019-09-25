@@ -121,7 +121,6 @@ int main() {
         }
     }
     auto answer = calc_det(mat);
-    cerr << "ANSWER: " << answer << endl;
     cout << answer << endl;
     return 0;
 }

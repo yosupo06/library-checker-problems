@@ -3,7 +3,7 @@ version: 2
 jobs:
   clang-compile:
     docker:
-      - image: gcr.io/library-checker-project/library-checker-problem-env-new
+      - image: library-checker-problems-generate
     steps:
       - checkout
       - run:
@@ -15,7 +15,7 @@ jobs:
             CXXFLAGS: -std=c++14 -stdlib=libc++ -Wall -Wextra
   generate:
     docker:
-      - image: gcr.io/library-checker-project/library-checker-problem-env-new
+      - image: library-checker-problems-generate
     steps:
       - checkout
       - run:
@@ -31,7 +31,7 @@ jobs:
             - '*/*/out/*'            
   genhtml:
     docker:
-      - image: gcr.io/library-checker-project/library-checker-problem-env
+      - image: library-checker-problems-deploy
     steps:
       - checkout
       - attach_workspace:

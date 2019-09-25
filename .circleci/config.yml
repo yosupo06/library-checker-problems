@@ -3,7 +3,7 @@ version: 2
 jobs:
   clang-compile:
     docker:
-      - image: gcr.io/library-checker-project/library-checker-problem-env
+      - image: gcr.io/library-checker-project/library-checker-problem-env-new
     steps:
       - checkout
       - run:

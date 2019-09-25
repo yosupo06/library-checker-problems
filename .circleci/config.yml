@@ -21,30 +21,13 @@ jobs:
             pip install -r requirements.txt
             ulimit -s unlimited
             ./generate.py problems.toml
-      - persist_to_workspace:
-          root: .
-          paths:
-            # sample/aplusb/
-            - '*/*/in/*'
-            - '*/*/out/*'
-          
-  genhtml:
-    docker:
-      - image: gcr.io/library-checker-project/library-checker-problem-env
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run: ./deploy.py --htmldir /tmp/html --htmlonly
+            ./deploy.py --htmldir /tmp/html --htmlonly
       - store_artifacts:
           path: /tmp/html
-
+          
 workflows:
   version: 2
   build:
     jobs:
       - clang-compile
       - generate
-      - genhtml:
-          requires:
-            - generate

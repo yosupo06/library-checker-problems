@@ -15,4 +15,6 @@
 !*.py
 !*.in
 
+!requirements.txt
+
 in/

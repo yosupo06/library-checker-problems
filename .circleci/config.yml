@@ -3,27 +3,32 @@ version: 2
 jobs:
   clang-compile:
     docker:
-      - image: gcr.io/library-checker-project/library-checker-problem-env
+      - image: gcr.io/library-checker-project/library-checker-problem-env-new
     steps:
       - checkout
       - run:
-          command: ./generate.py problems.toml --compileonly
-          environment:
+          command: |
+            pip install -r requirements.txt
+            ./generate.py problems.toml --compileonly
+          environment:           
             CXX: clang++
             CXXFLAGS: -std=c++14 -stdlib=libc++ -Wall -Wextra
   generate:
     docker:
-      - image: gcr.io/library-checker-project/library-checker-problem-env
+      - image: gcr.io/library-checker-project/library-checker-problem-env-new
     steps:
       - checkout
-      - run: ulimit -s unlimited && ./generate.py problems.toml
+      - run:
+          command: |
+            pip install -r requirements.txt
+            ulimit -s unlimited
+            ./generate.py problems.toml
       - persist_to_workspace:
           root: .
           paths:
             # sample/aplusb/
             - '*/*/in/*'
-            - '*/*/out/*'
-          
+            - '*/*/out/*'            
   genhtml:
     docker:
       - image: gcr.io/library-checker-project/library-checker-problem-env

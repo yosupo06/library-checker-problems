@@ -4,6 +4,7 @@
 #include "testlib.h"
 
 using namespace std;
+using uint = unsigned int;
 using ll = long long;
 using ull = unsigned long long;
 template <class T> using V = vector<T>;

@@ -5,7 +5,7 @@
 
 Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp)
 
-このリポジトリのコードを動かすことで、問題のテストケースを生成することができます。
+このリポジトリのコードを動かすことで、問題のテストケースを手元に生成することができます。
 
 ## Requirements
 
@@ -31,7 +31,18 @@ pip3 install toml markdown
 ulimit -s unlimited # for linux (don't need for os x)
 ./generate.py problems.toml # generate testcase of all problems
 ./generate.py problems.toml -p unionfind # generate testcase of unionfind
+ls datastructure/unionfind/in/ # testcases of unionfind
+ls datastructure/unionfind/out/ # solutions of unionfind
 ```
+
+## ローカルでのテスト
+
+手元でジャッジをしたい場合, [online-judge-tools](https://github.com/kmyk/online-judge-tools) がサポートしてくれています
+
+また、CIに組み込みたい場合は
+
+- [How to run CI on your library for competitive programming (Japanese)](https://online-judge-tools.readthedocs.io/en/master/run-ci-on-your-library.html) (同じく [online-judge-tools](https://github.com/kmyk/online-judge-tools)) が役に立つでしょう。
+- 実際にCIに組み込む例として、[library-checker-ci-example](https://github.com/yosupo06/library-checker-ci-example) を用意しています
 
 ## Contributing(バグ報告などしていただける方へ)
 

@@ -1,10 +1,10 @@
 #include <assert.h>
 #include <stdint.h>
-#include <stdio.h>
+#include <iostream>
 #include <algorithm>
 #include <vector>
 
-using std::vector;
+using namespace std;
 
 using Int = long long;
 
@@ -99,15 +99,17 @@ void unittest() {
 
 // https://judge.yosupo.jp/problem/sqrt_mod
 int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
   // unittest();
 
   int numCases;
-  scanf("%d", &numCases);
+  cin >> numCases;
   for (int caseId = 0; caseId < numCases; ++caseId) {
     Int Y, P;
-    scanf("%lld%lld", &Y, &P);
+    cin >> Y >> P;
     const vector<Int> res = modSqrt(Y, P);
-    printf("%lld\n", res.empty() ? -1 : res[0]);
+    cout << (res.empty() ? -1 : res[0]) << "\n";
   }
   return 0;
 }

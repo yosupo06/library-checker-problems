@@ -12,7 +12,16 @@ jobs:
             ./generate.py problems.toml --compileonly
           environment:           
             CXX: clang++
-            CXXFLAGS: -std=c++14 -stdlib=libc++ -Wall -Wextra
+            CXXFLAGS: -std=c++14 -stdlib=libc++ -Wall -Wextra -Werror
+  ubuntu18-compile:
+    docker:
+      - image: yosupo/library-checker-problems-deploy
+    steps:
+      - checkout
+      - run:
+          command: |
+            pip install -r requirements.txt
+            ./generate.py problems.toml --compileonly
   generate:
     docker:
       - image: yosupo/library-checker-problems-generate
@@ -45,6 +54,7 @@ workflows:
   build:
     jobs:
       - clang-compile
+      - ubuntu18-compile
       - generate
       - genhtml:
           requires:

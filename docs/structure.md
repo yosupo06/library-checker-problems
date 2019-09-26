@@ -47,7 +47,7 @@ problems.tomlのdirで指定されたディレクトリ以下は、以下のよ�
   - out/ デフォルトでは存在しない、生成された出力ファイルが入る
     - example_00.out
 
-### info.toml
+### aplusb/info.toml
 
 問題の様々な情報が入る
 
@@ -79,29 +79,29 @@ timelimit = 2.0
   - `wrong`: WAが想定かどうか 指定しない場合もあり、false(=正しい解答)として扱う
 - `task.md`: 問題文
 
-### sol/correct.cpp
+### aplusb/sol/correct.cpp
 
 - 想定解
 - aplusb/correct.cpp への移動を検討中
 
-### gen/verify.cpp
+### aplusb/gen/verify.cpp
 
 - input checker(入力ファイルが制約を満たしているか確認する)
 - [https://codeforces.com/blog/entry/18426](https://codeforces.com/blog/entry/18426) に従って書かれている
 - aplusb/verify.cpp への移動を検討中
 
-### gen/example_0*.in
+### aplusb/gen/example_0*.in
 
 - サンプルファイル
 - 名前は`example_00.in, example_01.in, example_02.in, ...`であることを仮定していい
 
-### gen/random.cpp(など)
+### aplusb/gen/random.cpp(など)
 
 - テストケースジェネレーター
 - 引数にケース番号を取る `./random 3` -> random_03.in
 - 環境依存性はない(=どの環境で動かしても同じケースが出てくる)ことを仮定していい
 
-### checker.cpp
+### aplusb/checker.cpp
 
 - output checker(ユーザーの出力が条件を満たしているか確認する)
 - [https://codeforces.com/blog/entry/18431](https://codeforces.com/blog/entry/18431) に従って書かれている

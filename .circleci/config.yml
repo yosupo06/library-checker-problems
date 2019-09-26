@@ -12,7 +12,7 @@ jobs:
             ./generate.py problems.toml --compileonly
           environment:           
             CXX: clang++
-            CXXFLAGS: -std=c++14 -stdlib=libc++ -Wall -Wextra
+            CXXFLAGS: -std=c++14 -stdlib=libc++ -Wall -Wextra -Werror -Wanything
   generate:
     docker:
       - image: yosupo/library-checker-problems-generate

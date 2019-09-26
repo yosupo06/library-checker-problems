@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <vector>
 
-using std::vector;
+using namespace std;
 
 using Int = long long;
 

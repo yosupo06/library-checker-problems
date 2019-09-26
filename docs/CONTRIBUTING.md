@@ -1,35 +1,38 @@
 # Contributing
 
-細かい修正(嘘解法, typo, この解答落ちるはずなんだけど！)
+## Issue
 
-- issueを立ててくれると嬉しいです
-- pull requestを送ってくれるともっと嬉しいです
+どんな内容で立ててくれても大丈夫です。なんなら困ったらissueを立てておけばOKというぐらいです。
 
-このライブラリをベリファイしたいんだけど！
+## Pull Requests
 
-- https://github.com/yosupo06/library-checker-problems/issues/3 に書いてくれると嬉しいです
+typoや既存問題のテストケース追加は、いきなりpull requestを送ってもらって大丈夫です。もちろん Issue を立てて相談してくれても大丈夫です。
 
-こんな感じの問題が欲しい!
+- テストケースの追加については、[テストケースの追加の仕方](generator.md) が役にたつと思います
 
-- https://github.com/yosupo06/library-checker-problems/projects/1 の精査待ちを参考に issue を立ててくれると嬉しいです(雑で大丈夫です)
+それ以外のことに関しては、まずIssueを立てて相談していただくようお願いします。
 
-精査待ち, 作業待ちの問題について、ここがおかしくない？ / ここはこうしたほうが良くない？
+## 新規問題
 
-- その問題に対応するissueへ, お気軽にコメントください
+追加する問題は [問題リスト](projects/1) で管理しています。
 
-作業待ちに欲しい問題が入っているがもう待ちきれない！
+- 精査待ち
+  - 色々と調査したり、制約を検討したりしている段階です。
+- 作業待ち
+  - ここにある問題は、調査が終わっており、後は準備をするだけという段階です。
 
-- ゆるして
-- [GUILDLINE](GUILDLINE.md) と sample/aplusb を参考に準備してpull requestを送ってくれると嬉しいです
+どちらの問題群に対しても、何か気になったら気軽にコメントしてくれると嬉しいです。
 
-精査待ちに欲しい問題が入っているがもう待ちきれない！
+新規問題の提案については、
 
-- ゆるして
+- 問題の形にはなっていないが、チェックしたいライブラリがある: [チェックしたいライブラリ](https://github.com/yosupo06/library-checker-problems/issues/3) に書いてくれると嬉しいです
+- 入れて欲しい問題がある: 精査待ちの問題を参考に、issue を立ててくれると嬉しいです。雑で大丈夫です
+  - [GUILDLINE](GUILDLINE.md) も参考にしてください
 
-judge.yosupo.jpにこんな機能が欲しい！
+## judge.yosupo.jpへの機能要望
 
-- https://github.com/yosupo06/library-checker-frontend のissueに書いてくれると嬉しいです
+- [library-checker-frontend](https://github.com/yosupo06/library-checker-frontend) のissueを立ててくれると嬉しいです
 
-ジャッジサーバーに攻撃完了です
+## ジャッジサーバーに攻撃完了です
 
-- issueには書かずに、https://twitter.com/yosupot までこっそり教えていただけると助かります
+- issueには書かずに、[@yosupot](https://twitter.com/yosupot) までこっそり教えていただけると助かります

@@ -43,28 +43,17 @@ ulimit -s unlimited # for linux (don't need for os x)
   - [twitter](https://twitter.com/yosupot) でも大丈夫です
 - issueの立て方がわかる！
   - issueを立ててくれると助かります。適当で大丈夫です
-  - [CONTRIBUTING](docs/CONTRIBUTING.md) を参考にしていただけるともっと助かりますが、熱意がある場合のみで大丈夫です
+  - [CONTRIBUTING](docs/CONTRIBUTING.md) を参考にしていただけるともっと助かります(熱意がある人向け)
+
+## フォルダ構成
+
+各種コンフィグファイルの仕様などは、[structure](docs/structure.md) にまとまっています
 
 ## library-checker-project
 
 - problems: [library-checker-problems](https://github.com/yosupo06/library-checker-problems)
 - judge: [library-checker-judge](https://github.com/yosupo06/library-checker-judge)
 - frontend: [library-checker-frontend](https://github.com/yosupo06/library-checker-frontend)
-
-## ディレクトリ構成
-
-sample/aplusbを参考にしてください
-
-- info.toml: 問題のさまざまな情報
-- gen/: ケース生成スクリプト
-- sol/: 回答コード
-- checker.cpp: output_checker
-- task.md: 問題文
-
-## 問題の追加
-
-- problems.tomlにいい感じに追加する
-- sample/aplusbディレクトリを参考に、いい感じに
 
 ## Thanks
 

@@ -1,4 +1,4 @@
-# Contribution
+# Contributing
 
 細かい修正(嘘解法, typo, この解答落ちるはずなんだけど！)
 

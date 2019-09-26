@@ -5,17 +5,13 @@
 
 Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp)
 
-## library-checker-project
-
-- problems: [library-checker-problems](https://github.com/yosupo06/library-checker-problems)
-- judge: [library-checker-judge](https://github.com/yosupo06/library-checker-judge)
-- frontend: [library-checker-frontend](https://github.com/yosupo06/library-checker-frontend)
+このリポジトリのコードを動かすことで、問題のテストケースを手元に生成することができます。
 
 ## Requirements
 
 - Linux / OS X
 - python3.6+
-- g++ or clang++ (--std=c++14, __int128_tが使える必要あり)
+- g++ / clang++ (--std=c++14, __int128_tが使える必要あり)
 
 ### (需要と余力があれば)対応予定
 
@@ -32,64 +28,43 @@ cd /path/to/library-checker-problems
 pip3 install toml markdown
 # or pip3 install -r requirements.txt
 
+ulimit -s unlimited # for linux (don't need for os x)
 ./generate.py problems.toml # generate testcase of all problems
 ./generate.py problems.toml -p unionfind # generate testcase of unionfind
+ls datastructure/unionfind/in/ # testcases of unionfind
+ls datastructure/unionfind/out/ # solutions of unionfind
 ```
 
-## Contribution
+## ローカルでのテスト
 
-issueを立てるほどじゃないけどちょっと気になるとか
+手元でジャッジをしたい場合, [online-judge-tools](https://github.com/kmyk/online-judge-tools) がサポートしてくれています
 
-- gitter(このREADMEの先頭の、chat on gitter ってやつをクリックすると飛べます)というチャットルームがあります
+また、CIに組み込みたい場合は
 
-細かい修正(嘘解法, typo, この解答落ちるはずなんだけど！)
+- [How to run CI on your library for competitive programming (Japanese)](https://online-judge-tools.readthedocs.io/en/master/run-ci-on-your-library.html) (同じく [online-judge-tools](https://github.com/kmyk/online-judge-tools)) が役に立つでしょう。
+- 実際にCIに組み込む例として、[library-checker-ci-example](https://github.com/yosupo06/library-checker-ci-example) を用意しています
 
-- issueを立ててくれると嬉しいです
-- pull requestを送ってくれるともっと嬉しいです
+## Contributing(バグ報告などしていただける方へ)
 
-このライブラリをベリファイしたいんだけど！
+不具合(テストケースが弱い, ジャッジが異常な挙動をする, 問題文にtypoを発見, などなど)を発見したとき、報告していただけるととっても助かります。
+機能の追加要望などもなんでも歓迎です。
 
-- https://github.com/yosupo06/library-checker-problems/issues/3 に書いてくれると嬉しいです
+- githubはよくわからない！ / issueを立てるのがめんどくさい
+  - [gitter](https://gitter.im/library-checker-problems/community) に書き込んでいただけると助かります
+  - [twitter](https://twitter.com/yosupot) でも大丈夫です
+- issueの立て方がわかる！
+  - issueを立ててくれると助かります。適当で大丈夫です
+  - [CONTRIBUTING](docs/CONTRIBUTING.md) を参考にしていただけるともっと助かります(熱意がある人向け)
 
-こんな感じの問題が欲しい!
+## フォルダ構成
 
-- https://github.com/yosupo06/library-checker-problems/projects/1 の精査待ちを参考に issue を立ててくれると嬉しいです(クッソ雑でいいです)
+各種コンフィグファイルの仕様などは、[structure](docs/structure.md) にまとまっています
 
-精査待ち, 作業待ちの問題について、ここがおかしくない？ / ここはこうしたほうが良くない？
+## library-checker-project
 
-- お気軽に(その問題に対応するissueへ)コメントください
-
-作業待ちに欲しい問題が入っているがもう待ちきれない！
-
-- ゆるして
-- https://github.com/yosupo06/library-checker-problems/blob/master/GUILDLINE.md と sample/aplusb を参考に準備してpull requestを送ってくれると嬉しいです
-
-精査待ちに欲しい問題が入っているがもう待ちきれない！
-
-- ゆるして
-
-judge.yosupo.jpにこんな機能が欲しい！
-
-- https://github.com/yosupo06/library-checker-frontend のissueに書いてくれると嬉しいです
-
-ジャッジサーバーに攻撃完了です
-
-- https://github.com/yosupo06/library-checker-judge のissueには書かずに、https://twitter.com/yosupot までこっそり教えてね
-
-## ディレクトリ構成
-
-sample/aplusbを参考にしてください
-
-- info.toml: 問題のさまざまな情報
-- gen/: ケース生成スクリプト
-- sol/: 回答コード
-- checker.cpp: output_checker
-- task.md: 問題文
-
-## 問題の追加
-
-- problems.tomlにいい感じに追加する
-- sample/aplusbディレクトリを参考に、いい感じに
+- problems: [library-checker-problems](https://github.com/yosupo06/library-checker-problems)
+- judge: [library-checker-judge](https://github.com/yosupo06/library-checker-judge)
+- frontend: [library-checker-frontend](https://github.com/yosupo06/library-checker-frontend)
 
 ## Thanks
 

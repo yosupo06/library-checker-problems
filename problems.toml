@@ -58,6 +58,10 @@
     title = 'Sqrt Mod'
     dir = 'math/sqrt_mod'
 
+[problems.kth_root_integer]
+    title = 'Kth Root(Integer)'
+    dir = 'math/kth_root_integer'
+
 [problems.matrix_det]
     title = 'Determinant of Matrix'
     dir = 'math/matrix_det'

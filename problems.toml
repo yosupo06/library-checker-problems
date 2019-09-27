@@ -66,6 +66,10 @@
     title = 'Determinant of Sparse Matrix'
     dir = 'math/sparse_matrix_det'
 
+[problems.system_of_linear_equations]
+    title = 'System of Linear Equations'
+    dir = 'math/system_of_linear_equations'
+
 [problems.convolution_mod]
     title = 'Convolution'
     dir = 'math/convolution_mod'

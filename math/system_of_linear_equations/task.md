@@ -47,7 +47,3 @@ $d_{R-1,0}$ $d_{R-1,1}$ ... $d_{R-1,M-1}$
 ---------
 
 {{example example_00}}
-
-{{example example_01}}
-
-{{example example_02}}

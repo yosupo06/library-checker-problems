@@ -8,6 +8,9 @@ timelimit = 5.0
 [[tests]]
     name = "random.cpp"
     number = 5
+[[tests]]
+    name = "lowrank.cpp"
+    number = 6
 
 [[solutions]]
     name = "correct.cpp"

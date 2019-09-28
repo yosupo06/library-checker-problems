@@ -29,10 +29,27 @@ pip3 install toml markdown
 # or pip3 install -r requirements.txt
 
 ulimit -s unlimited # for linux (don't need for os x)
-./generate.py problems.toml # generate testcase of all problems
-./generate.py problems.toml -p unionfind # generate testcase of unionfind
+
+# generate testcase
+./generate.py problems.toml # generate testcases of all problems
+./generate.py problems.toml -p unionfind # generate testcases of unionfind
 ls datastructure/unionfind/in/ # testcases of unionfind
 ls datastructure/unionfind/out/ # solutions of unionfind
+
+# verify
+./generate.py problems.toml --verify # generate testcases & run input checker
+./generate.py problems.toml --nogen --verify # run input checker(without generate testcases, you must generate already)
+./generate.py problems.toml --nogen --verify -p unionfind # off cource, it is ok
+
+# other solutions check
+./generate.py problems.toml --sol # generate testcases & run other solution
+./generate.py problems.toml --nogen --sol
+./generate.py problems.toml --nogen --sol -p unionfind
+
+# generate statement
+./generate.py problems.toml --html # generate testcases & generate html
+./generate.py problems.toml --nogen --html
+ls datastructure/unionfind/task.html # statement
 ```
 
 ## ローカルでのテスト

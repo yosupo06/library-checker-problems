@@ -258,4 +258,4 @@ if __name__ == '__main__':
                 problem.judge(problem.basedir / 'sol' / sol['name'], sol)
 
         if args.html:
-            problem.gen_html(Path(args.htmldir))
+            problem.gen_html(Path(args.htmldir) if args.htmldir else None)

@@ -32,7 +32,7 @@ def compile(src: Path, libdir: Path):
         cxx = getenv('CXX', 'g++')
         cxxflags_default = '-O2 -std=c++14 -Wall -Wextra -Werror'
         if platform.system() == 'Darwin':
-            cxxflags_default += ' -Wl,-stack_size,0x10000000' # 256MB
+            cxxflags_default += ' -Wl,-stack_size,0x10000000'  # 256MB
         cxxflags = getenv('CXXFLAGS', cxxflags_default).split()
         cxxflags.extend(['-I', libdir / 'common'])
         check_call([cxx] + cxxflags + ['-o', src.with_suffix('')] + [src])
@@ -68,24 +68,26 @@ class Problem:
         self.basedir = basedir
         self.config = toml.load(basedir / 'info.toml')
 
-    def compile(self):
-        logger.info('compile files')
-
+    def compile_correct(self):
         logger.info('compile solution')
-        compile(self.basedir / 'sol' / self.config['solution'], self.libdir)
-        logger.info('compile checker')
-        compile(self.basedir / 'checker.cpp', self.libdir)
+        compile(self.basedir / 'sol' / 'correct.cpp', self.libdir)
 
+    def compile_verify(self):
         logger.info('compile verify')
-        compile(self.basedir / 'gen' / self.config['verify'], self.libdir)
+        compile(self.basedir / 'gen' / 'verify.cpp', self.libdir)
 
+    def compile_gens(self):
         logger.info('compile generators')
         for test in self.config['tests']:
             name = test['name']
             logger.info('compile {}'.format(name))
             compile(self.basedir / 'gen' / name, self.libdir)
 
-        logger.info('compile (default) solutions')
+    def compile_checker(self):
+        logger.info('compile checker')
+        compile(self.basedir / 'checker.cpp', self.libdir)
+
+    def compile_solutions(self):
         for sol in self.config.get('solutions', []):
             name = sol['name']
             compile(self.basedir / 'sol' / name, self.libdir)
@@ -105,10 +107,20 @@ class Problem:
 
             logger.info('case {} {}cases'.format(name, num))
             for i in range(num):
-                # output filename
                 inpath = indir / (casename(name, i) + '.in')
                 check_call(
                     execcmd(gendir / name, [str(i)]), stdout=open(inpath, 'w'))
+
+    def verify_inputs(self):
+        indir = self.basedir / 'in'
+        gendir = self.basedir / 'gen'
+
+        for test in self.config['tests']:
+            name = test['name']
+            num = test['number']
+            logger.info('case {} {}cases'.format(name, num))
+            for i in range(num):
+                inpath = indir / (casename(name, i) + '.in')
                 check_call(
                     execcmd(gendir / self.config['verify']), stdin=open(inpath, 'r'))
 
@@ -184,6 +196,15 @@ class Problem:
                 src, expectaccept, results))
             exit(1)
 
+    def gen_html(self, htmldir: Path):
+        from htmlgen import ToHTMLConverter
+        # convert task
+        logger.info('generate doc')
+        html = ToHTMLConverter(self.basedir)
+        path = self.basedir / 'task.html' if not htmldir else htmldir / (self.basedir.name + '.html')
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(html.html)
+
 
 if __name__ == '__main__':
     basicConfig(
@@ -194,10 +215,11 @@ if __name__ == '__main__':
     parser.add_argument('toml', type=argparse.FileType('r'), help='Toml File')
     parser.add_argument('-p', '--problem', nargs='*',
                         help='Generate problem', default=[])
-    parser.add_argument('-s', '--solution', nargs='*',
-                        help='Solution Toml', default=[])
-    parser.add_argument(
-        '--compileonly', action='store_true', help='Compile Test')
+    parser.add_argument('--nogen', action='store_true', help='Skip Generate')
+    parser.add_argument('--verify', action='store_true', help='Verify Inputs')
+    parser.add_argument('--sol', action='store_true', help='Solution Test')
+    parser.add_argument('--html', action='store_true', help='Generate HTML')
+    parser.add_argument('--htmldir', help='Generate HTML', default=None)
     args = parser.parse_args()
 
     problems = toml.load(args.toml)
@@ -205,6 +227,10 @@ if __name__ == '__main__':
     targetprobs = set(args.problem)
 
     probs = dict()
+
+    if args.htmldir:
+        logger.info('mkdir htmldir')
+        Path(args.htmldir).mkdir(exist_ok=True)
 
     for name, probinfo in problems['problems'].items():
         if targetprobs and name not in targetprobs:
@@ -215,25 +241,21 @@ if __name__ == '__main__':
 
         logger.info('Start {}'.format(probinfo['dir']))
 
-        problem.compile()
+        if not args.nogen:
+            problem.compile_correct()
+            problem.compile_gens()
+            problem.make_inputs()
+            problem.make_outputs()
 
-        if args.compileonly:
-            continue
+        if args.verify:
+            problem.compile_verify()
+            problem.verify_inputs()
 
-        problem.make_inputs()
-        problem.make_outputs()
+        if args.sol:
+            problem.compile_checker()
+            problem.compile_solutions()
+            for sol in problem.config.get('solutions', []):
+                problem.judge(problem.basedir / 'sol' / sol['name'], sol)
 
-        for sol in problem.config.get('solutions', []):
-            problem.judge(problem.basedir / 'sol' / sol['name'], sol)
-
-    for solpath in args.solution:
-        soldir = Path(solpath).parent
-        for name, sols in toml.load(solpath)['solutions'].items():
-            if name not in probs:
-                continue
-            problem = probs[name]
-            for sol in sols:
-                compile(soldir / sol['source'], problems.libdir)
-                if args.compileonly:
-                    continue
-                results = problem.judge(soldir / sol['source'], sol)
+        if args.html:
+            problem.gen_html(Path(args.htmldir))

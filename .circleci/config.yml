@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  clang-compile:
+  clang:
     docker:
       - image: yosupo/library-checker-problems-generate
     steps:
@@ -9,11 +9,12 @@ jobs:
       - run:
           command: |
             pip install -r requirements.txt
-            ./generate.py problems.toml --compileonly
+            ulimit -s unlimited
+            ./generate.py problems.toml --verify --sol
           environment:           
             CXX: clang++
             CXXFLAGS: -std=c++14 -stdlib=libc++ -Wall -Wextra -Werror
-  ubuntu18-compile:
+  ubuntu18:
     docker:
       - image: yosupo/library-checker-problems-deploy
     steps:
@@ -21,7 +22,8 @@ jobs:
       - run:
           command: |
             pip install -r requirements.txt
-            ./generate.py problems.toml --compileonly
+            ulimit -s unlimited
+            ./generate.py problems.toml --verify --sol
   generate:
     docker:
       - image: yosupo/library-checker-problems-generate
@@ -31,13 +33,9 @@ jobs:
           command: |
             pip install -r requirements.txt
             ulimit -s unlimited
-            ./generate.py problems.toml
-      - persist_to_workspace:
-          root: .
-          paths:
-            # sample/aplusb/
-            - '*/*/in/*'
-            - '*/*/out/*'            
+            ./generate.py problems.toml --verify --sol --html --htmldir=/tmp/html
+      - store_artifacts:
+          path: /tmp/html
   genhtml:
     docker:
       - image: yosupo/library-checker-problems-deploy
@@ -46,8 +44,6 @@ jobs:
       - attach_workspace:
           at: .
       - run: ./deploy.py --htmldir /tmp/html --htmlonly
-      - store_artifacts:
-          path: /tmp/html
 
 workflows:
   version: 2
@@ -56,6 +52,3 @@ workflows:
       - clang-compile
       - ubuntu18-compile
       - generate
-      - genhtml:
-          requires:
-            - generate

@@ -13,7 +13,7 @@ jobs:
             ./generate.py problems.toml --verify --sol
           environment:           
             CXX: clang++
-            CXXFLAGS: -std=c++14 -stdlib=libc++ -Wall -Wextra -Werror
+            CXXFLAGS: -O2 -std=c++14 -stdlib=libc++ -Wall -Wextra -Werror
   ubuntu18:
     docker:
       - image: yosupo/library-checker-problems-deploy

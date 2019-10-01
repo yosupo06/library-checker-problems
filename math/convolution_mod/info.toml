@@ -11,3 +11,6 @@ timelimit = 5.0
 [[tests]]
     name = "max_random.cpp"
     number = 2
+[[tests]]
+    name = "fft_killer.cpp"
+    number = 2

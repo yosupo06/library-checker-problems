@@ -14,7 +14,7 @@ typoや既存問題のテストケース追加は、いきなりpull requestを�
 
 ## 新規問題
 
-追加する問題は [問題リスト](projects/1) で管理しています。
+追加する問題は [問題リスト](https://github.com/yosupo06/library-checker-problems/projects/1) で管理しています。
 
 - 精査待ち
   - 色々と調査したり、制約を検討したりしている段階です。

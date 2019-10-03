@@ -1,0 +1,37 @@
+solution = "correct.cpp"
+verify = "verify.cpp"
+timelimit = 10.0
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "0.in"
+    number = 1
+[[tests]]
+    name = "1.in"
+    number = 1
+[[tests]]
+    name = "100.in"
+    number = 1
+[[tests]]
+    name = "1000.in"
+    number = 1
+[[tests]]
+    name = "10000.in"
+    number = 1
+[[tests]]
+    name = "100000.in"
+    number = 1
+[[tests]]
+    name = "200000.in"
+    number = 1
+[[tests]]
+    name = "300000.in"
+    number = 1
+[[tests]]
+    name = "400000.in"
+    number = 1
+[[tests]]
+    name = "500000.in"
+    number = 1

@@ -90,6 +90,10 @@
     title = 'K-th of Partition Function'
     dir = 'math/partition_function'
 
+[problems.bernoulli_number]
+    title = 'Bernoulli Number'
+    dir = 'math/bernoulli_number'
+
 [problems.sum_of_floor_of_linear]
     title = 'Sum of Floor of Linear'
     dir = 'math/sum_of_floor_of_linear'

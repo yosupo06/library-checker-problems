@@ -11,6 +11,10 @@
     title = 'Static RMQ'
     dir = 'datastructure/staticrmq'
 
+[problems.point_add_range_sum]
+    title = 'Point Add Range Sum'
+    dir = 'datastructure/point_add_range_sum'
+
 # Graph
 [problems.lca]
     title = 'Lowest Common Ancestor'

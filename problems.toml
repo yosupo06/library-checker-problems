@@ -49,6 +49,10 @@
     title = 'Suffix Array'
     dir = 'string/suffixarray'
 
+[problems.number_of_substrings]
+    title = 'Number of Substrings'
+    dir = 'string/number_of_substrings'
+
 [problems.runenumerate]
     title = 'Run Enumerate'
     dir = 'string/runenumerate'

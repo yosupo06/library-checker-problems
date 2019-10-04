@@ -14,9 +14,9 @@ int main(int, char* argv[]) {
     int n = gen.uniform(1, 500'000);
 
     cout << n << endl;
-    cout << 1;
-    for (int i = 1; i < n; i++) {
-        cout << " " << gen.uniform(0, 998244353);
+    for (int i = 0; i < n; i++) {
+        cout << gen.uniform((i == 0) ? 1 : 0, 998244353);
+        if (i != n - 1) cout << " ";
     }
     cout << endl;
     return 0;

@@ -102,6 +102,10 @@
     title = 'Sum of Floor of Linear'
     dir = 'math/sum_of_floor_of_linear'
 
+[problems.inv_of_formal_power_series]
+    title = 'Inv of Formal Power Series'
+    dir = 'math/inv_of_formal_power_series'
+
 [problems.exp_of_formal_power_series]
     title = 'Exp of Formal Power Series'
     dir = 'math/exp_of_formal_power_series'

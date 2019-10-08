@@ -10,13 +10,12 @@ Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp)
 ## Requirements
 
 - Linux / OS X
-- python3.6+
+- python3.5+
 - g++ / clang++ (--std=c++14, __int128_tが使える必要あり)
 
 ### (需要と余力があれば)対応予定
 
 - Windows
-- python3.5
 - MSVC++
 - __int128_tの除去
 

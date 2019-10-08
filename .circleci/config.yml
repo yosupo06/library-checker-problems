@@ -26,14 +26,6 @@ jobs:
             ./generate.py problems.toml --verify --sol --html --htmldir=/tmp/html
       - store_artifacts:
           path: /tmp/html
-  genhtml:
-    docker:
-      - image: yosupo/library-checker-problems-deploy
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run: ./deploy.py --htmldir /tmp/html --htmlonly
 
 workflows:
   version: 2

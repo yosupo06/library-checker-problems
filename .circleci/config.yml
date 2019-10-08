@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           command: |
-            pip install -r requirements.txt
+            pip install --user -r requirements.txt
             ulimit -s unlimited
             ./generate.py problems.toml --verify --sol
           environment:           
@@ -21,7 +21,7 @@ jobs:
       - checkout
       - run:
           command: |
-            pip install -r requirements.txt
+            pip install --user -r requirements.txt
             ulimit -s unlimited
             ./generate.py problems.toml --verify --sol --html --htmldir=/tmp/html
       - store_artifacts:

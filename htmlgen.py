@@ -21,7 +21,7 @@ import toml
 from markdown import Extension, markdown
 from markdown.preprocessors import Preprocessor
 
-logger: Logger = getLogger(__name__)
+logger = getLogger(__name__)  # type: Logger
 
 
 class ExampreExpander(Preprocessor):
@@ -45,10 +45,10 @@ class ExampreExpander(Preprocessor):
             if line.startswith(start) and line.endswith(end):
                 name = line[len(start):-len(end)]
 
-                infile = open(self.base_path / 'in' /
-                              (name + '.in'), 'r').read()
-                outfile = open(self.base_path / 'out' /
-                               (name + '.out'), 'r').read()
+                infile = open(str(self.base_path / 'in' /
+                              (name + '.in')), 'r').read()
+                outfile = open(str(self.base_path / 'out' /
+                               (name + '.out')), 'r').read()
 
                 new_lines.append(r'### # {}'.format(counter))
                 new_lines.extend(self.sample_template.format(
@@ -117,16 +117,14 @@ class ToHTMLConverter:
 </body>
 </html>
 '''
-    html: str
-    statement: str
 
     def __init__(self, probdir: Path):
-        with open(probdir / 'task.md', encoding='utf-8') as f:
+        with open(str(probdir / 'task.md'), encoding='utf-8') as f:
             self.statement = markdown(
                 f.read(), extensions=[
                     'markdown.extensions.fenced_code',
                     'markdown.extensions.tables',
                     ExampleExtension(base_path=str(probdir))
                 ],
-            )
-            self.html = self.header + self.body_template.format(self.statement)
+            )  # type: str
+            self.html = self.header + self.body_template.format(self.statement)  # type: str

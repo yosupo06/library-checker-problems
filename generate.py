@@ -13,7 +13,7 @@ from tempfile import TemporaryDirectory
 
 import toml
 
-logger: Logger = getLogger(__name__)
+logger = getLogger(__name__)  # type: Logger
 
 
 def casename(name: str, i: int) -> str:
@@ -34,8 +34,8 @@ def compile(src: Path, libdir: Path):
         if platform.system() == 'Darwin':
             cxxflags_default += ' -Wl,-stack_size,0x10000000'  # 256MB
         cxxflags = getenv('CXXFLAGS', cxxflags_default).split()
-        cxxflags.extend(['-I', libdir / 'common'])
-        check_call([cxx] + cxxflags + ['-o', src.with_suffix('')] + [src])
+        cxxflags.extend(['-I', str(libdir / 'common')])
+        check_call([cxx] + cxxflags + ['-o', str(src.with_suffix(''))] + [str(src)])
     elif src.suffix == '.in':
         pass
     else:
@@ -47,25 +47,23 @@ def execcmd(src: Path, arg: [str] = []) -> [str]:
     # main.cpp -> ['main']
     # example.in -> ['cat', 'example_00.in']
     if src.suffix == '.cpp':
-        cmd = [src.with_suffix('').resolve()]
+        cmd = [str(src.with_suffix('').resolve())]
         cmd.extend(arg)
         return cmd
     elif src.suffix == '.in':
         inpath = src.with_name(casename(src, int(arg[0])) + '.in')
-        cmd = ['cat', inpath]
+        cmd = ['cat', str(inpath)]
         return cmd
     else:
         raise UnknownTypeFile('Unknown file: {} {}'.format(src, arg))
 
 
 class Problem:
-    libdir: Path()
-    basedir: Path()
     config = None
 
     def __init__(self, libdir: Path, basedir: Path):
-        self.libdir = libdir
-        self.basedir = basedir
+        self.libdir = libdir  # type: Path
+        self.basedir = basedir  # type: Path
         self.config = toml.load(basedir / 'info.toml')
 
     def compile_correct(self):
@@ -98,7 +96,7 @@ class Problem:
 
         logger.info('clear input {}'.format(indir))
         if indir.exists():
-            shutil.rmtree(indir)
+            shutil.rmtree(str(indir))
         indir.mkdir()
 
         for test in self.config['tests']:
@@ -109,7 +107,7 @@ class Problem:
             for i in range(num):
                 inpath = indir / (casename(name, i) + '.in')
                 check_call(
-                    execcmd(gendir / name, [str(i)]), stdout=open(inpath, 'w'))
+                    execcmd(gendir / name, [str(i)]), stdout=open(str(inpath), 'w'))
 
     def verify_inputs(self):
         indir = self.basedir / 'in'
@@ -122,7 +120,7 @@ class Problem:
             for i in range(num):
                 inpath = indir / (casename(name, i) + '.in')
                 check_call(
-                    execcmd(gendir / self.config['verify']), stdin=open(inpath, 'r'))
+                    execcmd(gendir / self.config['verify']), stdin=open(str(inpath), 'r'))
 
     def make_outputs(self):
         indir = self.basedir / 'in'
@@ -131,7 +129,7 @@ class Problem:
 
         logger.info('clear output {}'.format(outdir))
         if outdir.exists():
-            shutil.rmtree(outdir)
+            shutil.rmtree(str(outdir))
         outdir.mkdir()
 
         for test in self.config['tests']:
@@ -143,7 +141,7 @@ class Problem:
                 outpath = outdir / (casename(name, i) + '.out')
                 logger.info('start ' + casename(name, i) + '...')
                 check_call(execcmd(soldir / self.config['solution']),
-                           stdin=open(inpath, 'r'), stdout=open(outpath, 'w'))
+                           stdin=open(str(inpath), 'r'), stdout=open(str(outpath), 'w'))
 
     def judge(self, src: Path, config: dict):
         indir = self.basedir / 'in'
@@ -167,15 +165,15 @@ class Problem:
                 result = ''
                 checker_output = ''
                 try:
-                    check_call(execcmd(src), stdin=open(infile, 'r'), stdout=open(
-                        actual, 'w'), timeout=self.config['timelimit'])
+                    check_call(execcmd(src), stdin=open(str(infile), 'r'), stdout=open(
+                        str(actual), 'w'), timeout=self.config['timelimit'])
                 except TimeoutExpired:
                     result = 'TLE'
                 except CalledProcessError:
                     result = 'RE'
                 else:
                     process = run(
-                        execcmd(checker, [infile, actual, expected]), stdout=PIPE, stderr=STDOUT)
+                        execcmd(checker, [str(infile), str(actual), str(expected)]), stdout=PIPE, stderr=STDOUT)
                     checker_output = process.stdout
                     if process.returncode:
                         result = 'WA'
@@ -202,7 +200,7 @@ class Problem:
         logger.info('generate doc')
         html = ToHTMLConverter(self.basedir)
         path = self.basedir / 'task.html' if not htmldir else htmldir / (self.basedir.name + '.html')
-        with open(path, 'w', encoding='utf-8') as f:
+        with open(str(path), 'w', encoding='utf-8') as f:
             f.write(html.html)
 
 

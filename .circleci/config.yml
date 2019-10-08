@@ -3,12 +3,11 @@ version: 2
 jobs:
   clang:
     docker:
-      - image: circleci/python:3.5.7-stretch
+      - image: yosupo/library-checker-problems-generate
     steps:
       - checkout
       - run:
           command: |
-            apt-get install -y g++ clang libc++-dev libc++abi-dev
             pip install --user -r requirements.txt
             ulimit -s unlimited
             ./generate.py problems.toml --verify --sol

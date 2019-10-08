@@ -10,13 +10,14 @@ from pathlib import Path
 from subprocess import (DEVNULL, PIPE, STDOUT, CalledProcessError,
                         TimeoutExpired, call, check_call, check_output, run)
 from tempfile import TemporaryDirectory
+from typing import Any, List, MutableMapping, Union
 
 import toml
 
 logger = getLogger(__name__)  # type: Logger
 
 
-def casename(name: str, i: int) -> str:
+def casename(name: Union[str, Path], i: int) -> str:
     # (random, 1) -> random_01
     return Path(name).stem + '_' + str(i).zfill(2)
 
@@ -43,7 +44,7 @@ def compile(src: Path, libdir: Path):
         raise UnknownTypeFile('Unknown file: {}'.format(src))
 
 
-def execcmd(src: Path, arg: [str] = []) -> [str]:
+def execcmd(src: Path, arg: List[str] = []) -> List[str]:
     # main.cpp -> ['main']
     # example.in -> ['cat', 'example_00.in']
     if src.suffix == '.cpp':
@@ -59,12 +60,10 @@ def execcmd(src: Path, arg: [str] = []) -> [str]:
 
 
 class Problem:
-    config = None
-
     def __init__(self, libdir: Path, basedir: Path):
         self.libdir = libdir  # type: Path
         self.basedir = basedir  # type: Path
-        self.config = toml.load(basedir / 'info.toml')
+        self.config = toml.load(basedir / 'info.toml')  # type: MutableMapping[str, Any]
 
     def compile_correct(self):
         logger.info('compile solution')

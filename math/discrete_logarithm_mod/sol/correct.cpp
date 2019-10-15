@@ -1,7 +1,6 @@
-//#pragma GCC optimize("Ofast")
-//#pragma GCC target("avx")
-//#undef LOCAL
-#include <bits/stdc++.h>
+#include <unordered_map>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 using uint = unsigned int;
@@ -42,7 +41,6 @@ ll discrete_logarithm(ll x, ll y, ll m) {
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    cout << fixed << setprecision(20);
 
     int t;
     cin >> t;

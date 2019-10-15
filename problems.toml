@@ -70,7 +70,7 @@
     title = 'Kth Root(Integer)'
     dir = 'math/kth_root_integer'
 
-[problems.discrete_logarithm]
+[problems.discrete_logarithm_mod]
     title = 'Discrete Logarithm'
     dir = 'math/discrete_logarithm_mod'
 

@@ -2,7 +2,7 @@ steps:
   # until the db migration step is finished
   # https://cloud.google.com/sql/docs/postgres/sql-proxy
   - id: proxy
-    name: gcr.io/cloudsql-docker/gce-proxy
+    name: gcr.io/cloudsql-docker/gce-proxy:1.15
     entrypoint: sh
     args:
       - '-c'

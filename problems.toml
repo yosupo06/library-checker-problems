@@ -16,7 +16,7 @@
     dir = 'datastructure/point_add_range_sum'
 
 [problems.rectangle_sum]
-    title = 'Point Add Range Sum'
+    title = 'Rectangle Sum'
     dir = 'datastructure/rectangle_sum'
 
 # Graph

@@ -70,6 +70,10 @@
     title = 'Kth Root(Integer)'
     dir = 'math/kth_root_integer'
 
+[problems.discrete_logarithm]
+    title = 'Discrete Logarithm'
+    dir = 'math/discrete_logarithm_mod'
+
 [problems.matrix_det]
     title = 'Determinant of Matrix'
     dir = 'math/matrix_det'

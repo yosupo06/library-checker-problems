@@ -17,6 +17,9 @@ timelimit = 10.0
 [[tests]]
     name = "all_zero.cpp"
     number = 2
+[[tests]]
+    name = "monomial.cpp"
+    number = 4
 
 [[solutions]]
     name = "correct.cpp"

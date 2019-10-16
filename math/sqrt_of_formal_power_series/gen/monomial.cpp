@@ -12,7 +12,7 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     int n = 500'000;
-    int k = gen.uniform(0, (n - 1) / 2);
+    int k = gen.uniform(0, (n - 1) / 2) * 2;
     k += seed % 2;
     cout << n << endl;
     for (int i = 0; i < n; i++) {

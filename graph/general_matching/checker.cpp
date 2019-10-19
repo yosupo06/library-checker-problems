@@ -10,7 +10,7 @@ int read_ans(int n, set<P> edges, InStream& stream) {
     for (int i = 0; i < x; i++) {
         int u = stream.readInt(0, n - 1);
         int v = stream.readInt(0, n - 1);
-        if (!edges.count({u, v}) && edges.count({v, u})) {
+        if (!edges.count({u, v}) && !edges.count({v, u})) {
             stream.quitf(_wa, "there isn't edge (%d, %d)", u, v);
         }
         if (used[u]) {

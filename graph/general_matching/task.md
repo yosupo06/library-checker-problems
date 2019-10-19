@@ -40,3 +40,5 @@ $X$ は最大マッチングのサイズ
 ---------
 
 {{example example_00}}
+
+{{example example_00}}

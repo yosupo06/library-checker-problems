@@ -36,6 +36,10 @@
     title = 'Matching on Bipartite Graph'
     dir = 'graph/bipartitematching'
 
+[problems.general_matching]
+    title = 'Matching on General Graph'
+    dir = 'graph/general_matching'
+
 [problems.assignment]
     title = 'Assignment Problem'
     dir = 'graph/assignment'

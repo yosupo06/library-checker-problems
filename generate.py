@@ -36,7 +36,8 @@ def compile(src: Path, libdir: Path):
             cxxflags_default += ' -Wl,-stack_size,0x10000000'  # 256MB
         cxxflags = getenv('CXXFLAGS', cxxflags_default).split()
         cxxflags.extend(['-I', str(libdir / 'common')])
-        check_call([cxx] + cxxflags + ['-o', str(src.with_suffix(''))] + [str(src)])
+        check_call([cxx] + cxxflags +
+                   ['-o', str(src.with_suffix(''))] + [str(src)])
     elif src.suffix == '.in':
         pass
     else:
@@ -59,11 +60,19 @@ def execcmd(src: Path, arg: List[str] = []) -> List[str]:
         raise UnknownTypeFile('Unknown file: {} {}'.format(src, arg))
 
 
+def logging_result(result: str, start: datetime, end: datetime, message: str):
+    usemsec = (end - start).seconds*1000 + \
+        (end - start).microseconds // 1000
+    logger.info('{:>3s} {:6d} msecs : {}'.format(
+        result, usemsec, message))
+
+
 class Problem:
     def __init__(self, libdir: Path, basedir: Path):
         self.libdir = libdir  # type: Path
         self.basedir = basedir  # type: Path
-        self.config = toml.load(basedir / 'info.toml')  # type: MutableMapping[str, Any]
+        # type: MutableMapping[str, Any]
+        self.config = toml.load(basedir / 'info.toml')
 
     def compile_correct(self):
         logger.info('compile solution')
@@ -138,9 +147,11 @@ class Problem:
             for i in range(num):
                 inpath = indir / (casename(name, i) + '.in')
                 outpath = outdir / (casename(name, i) + '.out')
-                logger.info('start ' + casename(name, i) + '...')
+                start = datetime.now()
                 check_call(execcmd(soldir / self.config['solution']),
                            stdin=open(str(inpath), 'r'), stdout=open(str(outpath), 'w'))
+                end = datetime.now()
+                logging_result('ANS', start, end, '{}'.format(casename(name, i)))
 
     def judge(self, src: Path, config: dict):
         indir = self.basedir / 'in'
@@ -162,7 +173,7 @@ class Problem:
 
                 start = datetime.now()
                 result = ''
-                checker_output = ''
+                checker_output = bytes()
                 try:
                     check_call(execcmd(src), stdin=open(str(infile), 'r'), stdout=open(
                         str(actual), 'w'), timeout=self.config['timelimit'])
@@ -181,10 +192,8 @@ class Problem:
                 end = datetime.now()
 
                 results.add(result)
-                usemsec = (end - start).seconds*1000 + \
-                    (end - start).microseconds // 1000
-                logger.info('{:>3s} {:6d} msecs : {} : {}'.format(
-                    result, usemsec, case, checker_output))
+                logging_result(result, start, end,
+                               '{} : {}'.format(case, checker_output))
 
         expectaccept = not config.get('wrong', False)
         actualaccept = (results == {'AC'})
@@ -198,7 +207,8 @@ class Problem:
         # convert task
         logger.info('generate doc')
         html = ToHTMLConverter(self.basedir)
-        path = self.basedir / 'task.html' if not htmldir else htmldir / (self.basedir.name + '.html')
+        path = self.basedir / 'task.html' if not htmldir else htmldir / \
+            (self.basedir.name + '.html')
         with open(str(path), 'w', encoding='utf-8') as f:
             f.write(html.html)
 
@@ -242,11 +252,13 @@ if __name__ == '__main__':
             problem.compile_correct()
             problem.compile_gens()
             problem.make_inputs()
-            problem.make_outputs()
 
         if args.verify:
             problem.compile_verify()
             problem.verify_inputs()
+
+        if not args.nogen:
+            problem.make_outputs()
 
         if args.sol:
             problem.compile_checker()
@@ -255,4 +267,5 @@ if __name__ == '__main__':
                 problem.judge(problem.basedir / 'sol' / sol['name'], sol)
 
         if args.html:
-            problem.gen_html(Path(args.htmldir) if args.htmldir else problem.basedir)
+            problem.gen_html(Path(args.htmldir)
+                             if args.htmldir else problem.basedir)

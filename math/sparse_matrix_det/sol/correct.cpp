@@ -379,7 +379,7 @@ template <class Mint> Poly<Mint> berlekamp_massey(const V<Mint>& s) {
 }
 
 template <class E, class Mint = decltype(E().f)>
-Mint sparse_det(const VV<E>& g, int cnt = 2) {
+Mint sparse_det(const VV<E>& g) {
     int n = int(g.size());
     if (n == 0) return 1;
     auto rand_v = [&]() {
@@ -408,10 +408,8 @@ Mint sparse_det(const VV<E>& g, int cnt = 2) {
         r = tmp;
     }
     auto u = berlekamp_massey(buf);
-    if (u.size() != n + 1) {
-        if (cnt) return sparse_det(g, cnt - 1);
-        return 0;
-    }
+    if (!u.freq(0)) return 0;
+    if (u.size() != n + 1) return sparse_det(g);
     auto acdet = u.freq(0) * Mint(-1);
     if (n % 2) acdet *= Mint(-1);
     assert(acdet);
@@ -430,7 +428,7 @@ int main() {
     cin >> n >> k;
     struct E { int to; Mint f; };
     VV<E> edges(n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < k; i++) {
         int a, b; Mint c;
         cin >> a >> b >> c.v;
         edges[a].push_back({b, c});

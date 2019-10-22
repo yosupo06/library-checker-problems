@@ -119,7 +119,6 @@ class Problem:
 
     def verify_inputs(self):
         indir = self.basedir / 'in'
-        gendir = self.basedir / 'gen'
 
         for test in self.config['tests']:
             name = test['name']
@@ -128,7 +127,7 @@ class Problem:
             for i in range(num):
                 inpath = indir / (casename(name, i) + '.in')
                 check_call(
-                    execcmd(gendir / self.config['verify']), stdin=open(str(inpath), 'r'))
+                    execcmd(self.basedir / 'verify'), stdin=open(str(inpath), 'r'))
 
     def make_outputs(self):
         indir = self.basedir / 'in'

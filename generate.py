@@ -127,7 +127,7 @@ class Problem:
             for i in range(num):
                 inpath = indir / (casename(name, i) + '.in')
                 check_call(
-                    execcmd(self.basedir / 'verify'), stdin=open(str(inpath), 'r'))
+                    execcmd(self.basedir / 'verify.cpp'), stdin=open(str(inpath), 'r'))
 
     def make_outputs(self):
         indir = self.basedir / 'in'

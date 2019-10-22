@@ -18,6 +18,3 @@ timelimit = 10.0
 [[tests]]
     name = "even_mod_impossible.cpp"
     number = 2
-
-[[solutions]]
-    name = "correct.cpp"

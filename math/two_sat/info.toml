@@ -12,6 +12,3 @@ timelimit = 5.0
 [[tests]]
     name = "cycle_unsat.cpp"
     number = 2
-
-[[solutions]]
-    name = 'correct.cpp'

@@ -15,6 +15,3 @@ timelimit = 10.0
 [[tests]]
     name = "near_border.cpp"
     number = 3
-
-[[solutions]]
-    name = "correct.cpp"

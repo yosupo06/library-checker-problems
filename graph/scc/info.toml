@@ -11,7 +11,5 @@ timelimit = 5.0
     number = 5
 
 [[solutions]]
-    name = 'correct.cpp'
-[[solutions]]
     name = 'reverse_order.cpp'    
     wrong = true

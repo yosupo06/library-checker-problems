@@ -12,6 +12,3 @@ timelimit = 5.0
 [[tests]]
     name = "sparse.cpp"
     number = 5
-
-[[solutions]]
-    name = "correct.cpp"

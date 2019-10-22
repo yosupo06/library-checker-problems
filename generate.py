@@ -147,7 +147,7 @@ class Problem:
                 inpath = indir / (casename(name, i) + '.in')
                 outpath = outdir / (casename(name, i) + '.out')
                 start = datetime.now()
-                check_call(execcmd(soldir / self.config['solution']),
+                check_call(execcmd(soldir / 'correct.cpp'),
                            stdin=open(str(inpath), 'r'), stdout=open(str(outpath), 'w'))
                 end = datetime.now()
                 logging_result('ANS', start, end, '{}'.format(casename(name, i)))

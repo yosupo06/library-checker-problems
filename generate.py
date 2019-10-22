@@ -128,10 +128,11 @@ class Problem:
                 check_call(
                     execcmd(self.basedir / 'verifier.cpp'), stdin=open(str(inpath), 'r'))
 
-    def make_outputs(self):
+    def make_outputs(self, check):
         indir = self.basedir / 'in'
         outdir = self.basedir / 'out'
         soldir = self.basedir / 'sol'
+        checker = self.basedir / 'checker.cpp'
 
         logger.info('clear output {}'.format(outdir))
         if outdir.exists():
@@ -143,13 +144,21 @@ class Problem:
             num = test['number']
 
             for i in range(num):
-                inpath = indir / (casename(name, i) + '.in')
-                outpath = outdir / (casename(name, i) + '.out')
+                case = casename(name, i)
+                infile = indir / (case + '.in')
+                expected = outdir / (case + '.out')
                 start = datetime.now()
                 check_call(execcmd(soldir / 'correct.cpp'),
-                           stdin=open(str(inpath), 'r'), stdout=open(str(outpath), 'w'))
+                           stdin=open(str(infile), 'r'), stdout=open(str(expected), 'w'))
                 end = datetime.now()
-                logging_result('ANS', start, end, '{}'.format(casename(name, i)))
+                checker_output = bytes()
+                if check:
+                    process = run(
+                        execcmd(checker, [str(infile), str(expected), str(expected)]), stdout=PIPE, stderr=STDOUT, check=True)
+                    checker_output = process.stdout
+
+                logging_result('ANS', start, end,
+                               '{} : {}'.format(case, checker_output))
 
     def judge(self, src: Path, config: dict):
         indir = self.basedir / 'in'
@@ -158,6 +167,8 @@ class Problem:
         tmpdir = _tmpdir.name
         checker = self.basedir / 'checker.cpp'
         results = set()
+
+        logger.info('Start {}'.format(src.name))
 
         for test in self.config['tests']:
             name = test['name']
@@ -255,11 +266,13 @@ if __name__ == '__main__':
             problem.compile_verifier()
             problem.verify_inputs()
 
-        if not args.nogen:
-            problem.make_outputs()
-
         if args.sol:
             problem.compile_checker()
+
+        if not args.nogen:
+            problem.make_outputs(args.sol)
+
+        if args.sol:
             problem.compile_solutions()
             for sol in problem.config.get('solutions', []):
                 problem.judge(problem.basedir / 'sol' / sol['name'], sol)

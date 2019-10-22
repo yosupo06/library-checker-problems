@@ -80,7 +80,7 @@ class Problem:
 
     def compile_verify(self):
         logger.info('compile verify')
-        compile(self.basedir / 'gen' / 'verify.cpp', self.libdir)
+        compile(self.basedir / 'verify.cpp', self.libdir)
 
     def compile_gens(self):
         logger.info('compile generators')

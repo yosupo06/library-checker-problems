@@ -5,7 +5,7 @@
 - フォルダの作成と、/problems.tomlへの登録
 - task.md(問題文)
 - sol/correct.cpp(想定解)
-- gen/verify.cpp(input checker)
+- verifier.cpp(input checker)
 - checker.cpp(output checker)
 - gen/example_00.in, gen/example_01.in, gen/random.cppなど(ジェネレーター)
 - info.toml
@@ -36,11 +36,11 @@ markdown + mathjax 形式です。他のtask.mdをコピペして弄ればいい
 - bits/stdc++.hを使わない
 - 警告を無視しない
 
-## gen/verify.cpp(input checker)
+## verifier.cpp(input checker)
 
 入力が、制約を満たしているかを確認するコードです。
 [https://codeforces.com/blog/entry/18426](https://codeforces.com/blog/entry/18426) と同じように書けば大丈夫です。
-他の問題のverify.cppも参考にやれば、よっぽど変な制約じゃ無い場合大丈夫だと思います。
+他の問題のverifier.cppも参考にやれば、よっぽど変な制約じゃ無い場合大丈夫だと思います。
 
 ## checker.cpp(output checker)
 

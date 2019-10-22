@@ -32,6 +32,7 @@ problems.tomlのdirで指定されたディレクトリ以下は、以下のよ�
 - aplusb/
   - info.toml 問題の情報
   - checker.cpp 出力チェッカー
+  - verifier.cpp 入力チェッカー
   - sol/
     - correct.cpp 想定解
     - wa.cpp
@@ -52,8 +53,6 @@ problems.tomlのdirで指定されたディレクトリ以下は、以下のよ�
 問題の様々な情報が入る
 
 ```toml
-solution = "correct.cpp"
-verify = "verify.cpp"
 timelimit = 2.0
 
 [[tests]]
@@ -68,8 +67,6 @@ timelimit = 2.0
     wrong = true
 ```
 
-- `solution`: **廃止の可能性あり** 想定解の名前で、内容が `correct.cpp` であることを仮定していい
-- `verify`: **廃止の可能性あり** input checkerの名前で、内容が `verify.cpp` であることを仮定していい
 - `timelimit`: 時間制限(秒)
 - `[[tests]]`: それぞれが1つのテストケースジェネレーターに対応する
   - `name`: ファイル名　拡張子が`.in`のものは生ファイルに対応する
@@ -84,11 +81,10 @@ timelimit = 2.0
 - 想定解
 - aplusb/correct.cpp への移動を検討中
 
-### aplusb/gen/verify.cpp
+### aplusb/verifier.cpp
 
 - input checker(入力ファイルが制約を満たしているか確認する)
 - [https://codeforces.com/blog/entry/18426](https://codeforces.com/blog/entry/18426) に従って書かれている
-- aplusb/verify.cpp への移動を検討中
 
 ### aplusb/gen/example_0*.in
 

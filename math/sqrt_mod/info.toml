@@ -12,6 +12,3 @@ timelimit = 10.0
 [[tests]]
     name = "mod_998244353.cpp"
     number = 2
-
-[[solutions]]
-    name = "correct.cpp"

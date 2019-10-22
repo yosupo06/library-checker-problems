@@ -9,6 +9,3 @@ timelimit = 5.0
 [[tests]]
     name = "lowrank.cpp"
     number = 6
-
-[[solutions]]
-    name = "correct.cpp"

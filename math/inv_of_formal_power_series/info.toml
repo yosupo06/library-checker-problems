@@ -1,5 +1,4 @@
 solution = "correct.cpp"
-verify = "verify.cpp"
 timelimit = 10.0
 
 [[tests]]

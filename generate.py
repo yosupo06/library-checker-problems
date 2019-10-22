@@ -71,16 +71,15 @@ class Problem:
     def __init__(self, libdir: Path, basedir: Path):
         self.libdir = libdir  # type: Path
         self.basedir = basedir  # type: Path
-        # type: MutableMapping[str, Any]
-        self.config = toml.load(basedir / 'info.toml')
-
+        self.config = toml.load(basedir / 'info.toml')  # type: MutableMapping[str, Any]
+        
     def compile_correct(self):
         logger.info('compile solution')
         compile(self.basedir / 'sol' / 'correct.cpp', self.libdir)
 
-    def compile_verify(self):
-        logger.info('compile verify')
-        compile(self.basedir / 'verify.cpp', self.libdir)
+    def compile_verifier(self):
+        logger.info('compile verifier')
+        compile(self.basedir / 'verifier.cpp', self.libdir)
 
     def compile_gens(self):
         logger.info('compile generators')
@@ -127,7 +126,7 @@ class Problem:
             for i in range(num):
                 inpath = indir / (casename(name, i) + '.in')
                 check_call(
-                    execcmd(self.basedir / 'verify.cpp'), stdin=open(str(inpath), 'r'))
+                    execcmd(self.basedir / 'verifier.cpp'), stdin=open(str(inpath), 'r'))
 
     def make_outputs(self):
         indir = self.basedir / 'in'
@@ -253,7 +252,7 @@ if __name__ == '__main__':
             problem.make_inputs()
 
         if args.verify:
-            problem.compile_verify()
+            problem.compile_verifier()
             problem.verify_inputs()
 
         if not args.nogen:

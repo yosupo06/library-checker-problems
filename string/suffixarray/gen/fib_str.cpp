@@ -14,7 +14,7 @@ int main(int, char* argv[]) {
     string a = gen.lower_string(gen.uniform(1, 5));
     string b = gen.lower_string(gen.uniform(1, 5));
 
-    while (a.size() + b.size() <= 200'000) {
+    while (a.size() + b.size() <= 500'000) {
         string c = a + b;
         a = b;
         b = c;

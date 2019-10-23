@@ -11,7 +11,7 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = gen.uniform(190'000, 200'000);
+    int n = gen.uniform(490'000, 500'000);
 
     string s = gen.lower_string(n);
 

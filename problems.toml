@@ -52,6 +52,10 @@
     title = 'Dominator Tree'
     dir = 'graph/dominatortree'
 
+[problems.maximum_independent_set]
+    title = 'Maximum Independent Set'
+    dir = 'graph/maximum_independent_set'
+
 # String
 [problems.zalgorithm]
     title = 'Z Algorithm'

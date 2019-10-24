@@ -39,3 +39,5 @@ $X$ は最大独立点集合のサイズ、$p_i$ は最大独立点集合
 ---------
 
 {{example example_00}}
+
+{{example example_01}}

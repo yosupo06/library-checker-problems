@@ -19,6 +19,10 @@
     title = 'Vertex Add Path Sum'
     dir = 'datastructure/vertex_add_path_sum'
 
+[problems.vertex_add_subtree_sum]
+    title = 'Vertex Add Subtree Sum'
+    dir = 'datastructure/vertex_add_subtree_sum'
+
 [problems.rectangle_sum]
     title = 'Rectangle Sum'
     dir = 'datastructure/rectangle_sum'

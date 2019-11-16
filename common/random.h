@@ -102,10 +102,10 @@ struct Random {
     template <class Iter>
     void shuffle(Iter first, Iter last) {
         if (first == last) return;
-        int len = 0;
         // Reference and edit:
         // cpprefjp - C++日本語リファレンス
         // (https://cpprefjp.github.io/reference/algorithm/shuffle.html)
+        int len = 1;
         for (auto it = first + 1; it != last; it++) {
             len++;
             int j = uniform(0, len - 1);

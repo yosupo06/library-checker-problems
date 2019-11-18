@@ -1,0 +1,21 @@
+timelimit = 5.0
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "small.cpp"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "enclosed.cpp"
+    number = 3
+
+[[solutions]]
+    name = "naive.cpp"
+    wrong = true

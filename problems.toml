@@ -52,6 +52,10 @@
     title = 'Directed MST'
     dir = 'graph/directedmst'
 
+[problems.manhattanmst]
+    title = 'Manhattan MST'
+    dir = 'graph/manhattanmst'
+
 [problems.dominatortree]
     title = 'Dominator Tree'
     dir = 'graph/dominatortree'

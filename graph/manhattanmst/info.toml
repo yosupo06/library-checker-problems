@@ -13,6 +13,9 @@ timelimit = 5.0
     name = "max_random.cpp"
     number = 3
 [[tests]]
+    name = "many_cluster.cpp"
+    number = 3
+[[tests]]
     name = "enclosed.cpp"
     number = 3
 

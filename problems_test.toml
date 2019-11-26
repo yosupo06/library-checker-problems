@@ -1,0 +1,3 @@
+[problems.failed_verify]
+    title = 'Failed Verify'
+    dir = 'test/failed_verify'

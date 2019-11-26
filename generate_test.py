@@ -10,11 +10,20 @@ logger = getLogger(__name__)
 
 class TestVerify(unittest.TestCase):
     def test_no_verify(self):
-        proc = run(['./generate.py', 'problems_test.toml', '-p', 'failed_verify'])
+        proc = run(
+            ['./generate.py', 'problems_test.toml', '-p', 'failed_verify'])
         self.assertEqual(proc.returncode, 0)
 
     def test_failed_verify(self):
-        proc = run(['./generate.py', 'problems_test.toml', '-p', 'failed_verify', '--verify'])
+        proc = run(['./generate.py', 'problems_test.toml',
+                    '-p', 'failed_verify', '--verify'])
+        self.assertNotEqual(proc.returncode, 0)
+
+
+class TestNonExistProblem(unittest.TestCase):
+    def test_non_exist_problem(self):
+        proc = run(
+            ['./generate.py', 'problems_test.toml', '-p', 'dummy_problem'])
         self.assertNotEqual(proc.returncode, 0)
 
 

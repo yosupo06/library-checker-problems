@@ -247,6 +247,11 @@ if __name__ == '__main__':
     if args.htmldir:
         logger.info('mkdir htmldir')
         Path(args.htmldir).mkdir(exist_ok=True)
+    
+    for name in targetprobs:
+        if name not in problems['problems']:
+            logger.error('There is not problem {}'.format(name))
+            exit(1)
 
     for name, probinfo in problems['problems'].items():
         if targetprobs and name not in targetprobs:

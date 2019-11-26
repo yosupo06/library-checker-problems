@@ -1,0 +1,5 @@
+timelimit = 2.0
+
+[[tests]]
+    name = "example.in"
+    number = 2

@@ -37,6 +37,7 @@ class ExampreExpander(Preprocessor):
         self.base_path = Path(base_path[0])
 
     def run(self, lines):
+        used_examples = []
         new_lines = []
         counter = 1
         for line in lines:
@@ -44,9 +45,10 @@ class ExampreExpander(Preprocessor):
             end = '}}'
             if line.startswith(start) and line.endswith(end):
                 name = line[len(start):-len(end)]
+                inpath = str(self.base_path / 'in' / (name + '.in'))
+                used_examples.append(inpath)
 
-                infile = open(str(self.base_path / 'in' /
-                              (name + '.in')), 'r').read()
+                infile = open(inpath).read()
                 outfile = open(str(self.base_path / 'out' /
                                (name + '.out')), 'r').read()
 
@@ -57,6 +59,12 @@ class ExampreExpander(Preprocessor):
                 counter += 1
             else:
                 new_lines.append(line)
+        
+        for name in Path(self.base_path).glob('in/example_*.in'):
+            if str(name) not in used_examples:
+                logger.error('Not use {} for task'.format(name))
+                exit(1)
+                
         return new_lines
 
 

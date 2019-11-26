@@ -71,8 +71,31 @@ class Problem:
     def __init__(self, libdir: Path, basedir: Path):
         self.libdir = libdir  # type: Path
         self.basedir = basedir  # type: Path
-        self.config = toml.load(basedir / 'info.toml')  # type: MutableMapping[str, Any]
-        
+        # type: MutableMapping[str, Any]
+        self.config = toml.load(basedir / 'info.toml')
+
+    def health_check(self):
+        gendir = self.basedir / 'gen'
+        gens = []
+        for test in self.config['tests']:
+            gen = gendir / test['name']
+            if gen.suffix == '.cpp':
+                gens.append(str(gen))
+            elif gen.suffix == '.in':
+                for i in range(test['number']):
+                    cn = casename(test['name'], i) + '.in'
+                    gens.append(str(gendir / cn))
+            else:
+                raise UnknownTypeFile('Unknown file: {}'.format(test['name']))
+        for name in self.basedir.glob('gen/*.cpp'):
+            if str(name) not in gens:
+                logger.error('Unused .cpp gen file: {}'.format(name))
+                exit(1)
+        for name in self.basedir.glob('gen/*.in'):
+            if str(name) not in gens:
+                logger.error('Unused .in gen file: {}'.format(name))
+                exit(1)
+
     def compile_correct(self):
         logger.info('compile solution')
         compile(self.basedir / 'sol' / 'correct.cpp', self.libdir)
@@ -248,12 +271,20 @@ if __name__ == '__main__':
         logger.info('mkdir htmldir')
         Path(args.htmldir).mkdir(exist_ok=True)
 
+    for name in targetprobs:
+        if name not in problems['problems']:
+            logger.error('There is not problem {}'.format(name))
+            exit(1)
+
     for name, probinfo in problems['problems'].items():
         if targetprobs and name not in targetprobs:
             continue
 
         problem = Problem(libdir, libdir / probinfo['dir'])
         probs[name] = problem
+
+        # health check
+        problem.health_check()
 
         logger.info('Start {}'.format(probinfo['dir']))
 

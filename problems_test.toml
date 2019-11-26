@@ -9,3 +9,7 @@
 [problems.unuse_example]
     title = 'Unuse Example'
     dir = 'test/unuse_example'
+
+[problems.unuse_gen]
+    title = 'Unuse Gen'
+    dir = 'test/unuse_gen'

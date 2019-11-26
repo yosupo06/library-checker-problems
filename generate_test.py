@@ -40,6 +40,13 @@ class TestUnuseExample(unittest.TestCase):
             ['./generate.py', 'problems_test.toml', '-p', 'unuse_example', '--html'])
         self.assertNotEqual(proc.returncode, 0)
 
+
+class TestUnuseGen(unittest.TestCase):
+    def test_unuse_gen(self):
+        proc = run(
+            ['./generate.py', 'problems_test.toml', '-p', 'unuse_gen'])
+        self.assertNotEqual(proc.returncode, 0)
+
 if __name__ == "__main__":
     basicConfig(
         level=getenv('LOG_LEVEL', 'DEBUG'),

@@ -6,10 +6,10 @@
     title = 'Failed Verify'
     dir = 'test/failed_verify'
 
-[problems.unuse_example]
-    title = 'Unuse Example'
-    dir = 'test/unuse_example'
+[problems.unused_example]
+    title = 'Unused Example'
+    dir = 'test/unused_example'
 
-[problems.unuse_gen]
-    title = 'Unuse Gen'
-    dir = 'test/unuse_gen'
+[problems.unused_gen]
+    title = 'Unused Gen'
+    dir = 'test/unused_gen'

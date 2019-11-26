@@ -34,17 +34,22 @@ class TestNonExistProblem(unittest.TestCase):
         self.assertNotEqual(proc.returncode, 0)
 
 
-class TestUnuseExample(unittest.TestCase):
-    def test_unuse_example(self):
+class TestUnusedExample(unittest.TestCase):
+    def test_no_html(self):
         proc = run(
-            ['./generate.py', 'problems_test.toml', '-p', 'unuse_example', '--html'])
+            ['./generate.py', 'problems_test.toml', '-p', 'unused_example'])
+        self.assertEqual(proc.returncode, 0)
+
+    def test_unused_example(self):
+        proc = run(
+            ['./generate.py', 'problems_test.toml', '-p', 'unused_example', '--html'])
         self.assertNotEqual(proc.returncode, 0)
 
 
-class TestUnuseGen(unittest.TestCase):
-    def test_unuse_gen(self):
+class TestUnusedGen(unittest.TestCase):
+    def test_unused_gen(self):
         proc = run(
-            ['./generate.py', 'problems_test.toml', '-p', 'unuse_gen'])
+            ['./generate.py', 'problems_test.toml', '-p', 'unused_gen'])
         self.assertNotEqual(proc.returncode, 0)
 
 if __name__ == "__main__":

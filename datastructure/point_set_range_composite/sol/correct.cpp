@@ -78,7 +78,7 @@ int main() {
     auto segtree = get_simple_seg(f, {1, 0}, [&](F l, F r) {
         // x -> l.a * x + l.b -> r.a(l.a * x + l.b) + r.b
         ll na = l.a * r.a % MOD;
-        ll nb = l.b * r.a + r.b % MOD;
+        ll nb = (l.b * r.a + r.b) % MOD;
         return F{na, nb};
     });
 

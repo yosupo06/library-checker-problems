@@ -8,6 +8,13 @@ from subprocess import PIPE, run
 logger = getLogger(__name__)
 
 
+class TestSuccess(unittest.TestCase):
+    def test_success(self):
+        proc = run(
+            ['./generate.py', 'problems_test.toml', '-p', 'simple_aplusb', '--verify', '--sol', '--html'])
+        self.assertEqual(proc.returncode, 0)
+
+
 class TestVerify(unittest.TestCase):
     def test_no_verify(self):
         proc = run(
@@ -26,6 +33,12 @@ class TestNonExistProblem(unittest.TestCase):
             ['./generate.py', 'problems_test.toml', '-p', 'dummy_problem'])
         self.assertNotEqual(proc.returncode, 0)
 
+
+class TestUnuseExample(unittest.TestCase):
+    def test_unuse_example(self):
+        proc = run(
+            ['./generate.py', 'problems_test.toml', '-p', 'unuse_example', '--html'])
+        self.assertNotEqual(proc.returncode, 0)
 
 if __name__ == "__main__":
     basicConfig(

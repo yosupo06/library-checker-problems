@@ -1,4 +1,5 @@
 timelimit = 2.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/32"
 
 [[tests]]
     name = "example.in"
@@ -10,3 +11,4 @@ timelimit = 2.0
 [[solutions]]
     name = "wa.cpp"
     wrong = true
+

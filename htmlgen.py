@@ -50,7 +50,7 @@ class ExampreExpander(Preprocessor):
 
                 infile = open(inpath).read()
                 outfile = open(str(self.base_path / 'out' /
-                               (name + '.out')), 'r').read()
+                                   (name + '.out')), 'r').read()
 
                 new_lines.append(r'### # {}'.format(counter))
                 new_lines.extend(self.sample_template.format(
@@ -59,12 +59,12 @@ class ExampreExpander(Preprocessor):
                 counter += 1
             else:
                 new_lines.append(line)
-        
+
         for name in Path(self.base_path).glob('in/example_*.in'):
             if str(name) not in used_examples:
                 logger.error('Not use {} for task'.format(name))
                 exit(1)
-                
+
         return new_lines
 
 
@@ -78,6 +78,39 @@ class ExampleExtension(Extension):
     def extendMarkdown(self, md):
         md.preprocessors.register(ExampreExpander(
             self.config['base_path']), 'example', 100)
+
+
+class ForumExpander(Preprocessor):
+    forum_template = '''
+<a class="uk-button uk-button-default" href={url}>Forum <span uk-icon="icon: link"></span></a>
+'''
+
+    def __init__(self, url):
+        self.url = url[0]
+
+    def run(self, lines):
+        new_lines = []
+        for line in lines:
+            new_lines.append(line)
+        if self.url:
+            new_lines.append('')
+            new_lines.append('---')
+            new_lines.append('')
+            new_lines.append(self.forum_template.format(url=self.url))
+            new_lines.append('')
+        return new_lines
+
+
+class ForumExtension(Extension):
+    def __init__(self, **kwargs):
+        self.config = {
+            'url': ['dummy issue URL', 'URL'],
+        }
+        super(ForumExtension, self).__init__(**kwargs)
+
+    def extendMarkdown(self, md):
+        md.preprocessors.register(ForumExpander(
+            self.config['url']), 'forum', 101)
 
 
 class ToHTMLConverter:
@@ -126,13 +159,15 @@ class ToHTMLConverter:
 </html>
 '''
 
-    def __init__(self, probdir: Path):
+    def __init__(self, probdir: Path, config):
         with open(str(probdir / 'task.md'), encoding='utf-8') as f:
             self.statement = markdown(
                 f.read(), extensions=[
                     'markdown.extensions.fenced_code',
                     'markdown.extensions.tables',
-                    ExampleExtension(base_path=str(probdir))
+                    ExampleExtension(base_path=str(probdir)),
+                    ForumExtension(url=config.get('forum', ''))
                 ],
             )  # type: str
-            self.html = self.header + self.body_template.format(self.statement)  # type: str
+            self.html = self.header + \
+                self.body_template.format(self.statement)  # type: str

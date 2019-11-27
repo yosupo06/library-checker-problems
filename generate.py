@@ -71,8 +71,8 @@ class Problem:
     def __init__(self, libdir: Path, basedir: Path):
         self.libdir = libdir  # type: Path
         self.basedir = basedir  # type: Path
-        # type: MutableMapping[str, Any]
-        self.config = toml.load(basedir / 'info.toml')
+        tomlpath = basedir / 'info.toml'
+        self.config = toml.load(tomlpath)  # type: MutableMapping[str, Any]
 
     def health_check(self):
         gendir = self.basedir / 'gen'
@@ -234,11 +234,15 @@ class Problem:
                 src, expectaccept, results))
             exit(1)
 
-    def gen_html(self, htmldir: Path):
+    def gen_html(self):
         from htmlgen import ToHTMLConverter
         # convert task
-        logger.info('generate doc')
-        html = ToHTMLConverter(self.basedir)
+        return ToHTMLConverter(self.basedir, self.config)
+
+    def write_html(self, htmldir: Path):
+        from htmlgen import ToHTMLConverter
+        # convert task
+        html = self.gen_html()
         path = self.basedir / 'task.html' if not htmldir else htmldir / \
             (self.basedir.name + '.html')
         with open(str(path), 'w', encoding='utf-8') as f:
@@ -309,5 +313,5 @@ if __name__ == '__main__':
                 problem.judge(problem.basedir / 'sol' / sol['name'], sol)
 
         if args.html:
-            problem.gen_html(Path(args.htmldir)
-                             if args.htmldir else problem.basedir)
+            problem.write_html(Path(args.htmldir)
+                               if args.htmldir else problem.basedir)

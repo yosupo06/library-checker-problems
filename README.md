@@ -38,7 +38,7 @@ ls datastructure/unionfind/out/ # solutions of unionfind
 # verify
 ./generate.py problems.toml --verify # generate testcases & run input checker
 ./generate.py problems.toml --nogen --verify # run input checker(without generate testcases, you must generate already)
-./generate.py problems.toml --nogen --verify -p unionfind # off cource, it is ok
+./generate.py problems.toml --nogen --verify -p unionfind # of cource, it is ok
 
 # other solutions check
 ./generate.py problems.toml --sol # generate testcases & run other solution

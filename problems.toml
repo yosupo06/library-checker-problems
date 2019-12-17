@@ -94,6 +94,10 @@
     title = 'Sqrt Mod'
     dir = 'math/sqrt_mod'
 
+[problems.tetration_mod]
+    title = 'Tetration Mod'
+    dir = 'math/tetration_mod'
+
 [problems.kth_root_integer]
     title = 'Kth Root(Integer)'
     dir = 'math/kth_root_integer'

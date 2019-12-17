@@ -1,0 +1,8 @@
+timelimit = 10.0
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 5

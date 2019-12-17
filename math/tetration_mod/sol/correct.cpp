@@ -51,6 +51,12 @@ T tetration(T a,T n,T m,T &f){
   return r+f*m;
 }
 
+template<typename T>
+T tetration(T a,T n,T m){
+  T f=0;
+  return tetration(a,n,m,f)%m;
+}
+
 // https://judge.yosupo.jp/problem/tetration_mod
 int main() {
   ios::sync_with_stdio(false);
@@ -59,9 +65,9 @@ int main() {
   int numCases;
   cin >> numCases;
   for (int caseId = 0; caseId < numCases; ++caseId) {
-    long long A, B, M, F;
+    long long A, B, M;
     cin >> A >> B >> M;
-    cout << tetration(A, B, M, F) % M << "\n";
+    cout << tetration(A, B, M) << "\n";
   }
   return 0;
 }

@@ -1,8 +1,11 @@
 #include "testlib.h"
 #include <vector>
 #include <map>
+#include <utility>
 
 using namespace std;
+using ll = long long;
+using P = pair<int, int>;
 
 struct UnionFind {
     vector<int> p, r;
@@ -26,44 +29,59 @@ struct UnionFind {
     bool same(int a, int b) { return group(a) == group(b); }
 };
 
+ll read_ans(int n, int s, map<P, ll> edges, InStream& stream) {
+    ll x = stream.readLong();
+    ll sum = 0;
+    UnionFind uf(n);
+    for (int i = 0; i < n; i++) {
+        int p = stream.readInt(0, n - 1);
+        if (i == s) {
+            if (p != s) {
+                stream.quitf(_wa, "p_%d(root) must be %d", s, s);
+            }
+            continue;
+        }
+        if (uf.same(p, i)) {
+            stream.quit(_wa, "input isn't tree");
+        }
+        uf.merge(p, i);
+        if (!edges.count({p, i})) {
+            stream.quitf(_wa, "there isn't edge (%d, %d)", p, i);
+        }
+        sum += edges[{p, i}];        
+    }
+
+    if (x != sum) {
+        stream.quitf(_wa, "X(%lld) isn't correct, sum = %lld", x, sum);
+    }
+    return x;
+}
+
 int main(int argc, char *argv[]) {
     setName("compare directed mst");
     registerTestlibCmd(argc, argv);
-
-    long long x_ans = ans.readLong();
-    long long x_ouf = ouf.readLong();
-
-    if (x_ans != x_ouf) {
-        quitf(_wa, "Value is differ - expected '%lld', found '%lld'", x_ans, x_ouf);
-    }
 
     // input
     using P = pair<int, int>;
     int n = inf.readInt();
     int m = inf.readInt();
     int s = inf.readInt();
-    map<P, long long> edges;
+    map<P, ll> edges;
     for (int i = 0; i < m; i++) {
         int a = inf.readInt();
         int b = inf.readInt();
-        long long c = inf.readLong();
+        ll c = inf.readLong();
         edges[{a, b}] = c;
     }
 
-    long long sum = 0;
-    UnionFind uf(n);
-    for (int i = 0; i < n; i++) {
-        int p = ouf.readInt(0, n - 1);
-        if (i == s) {
-            ensure(p == s);
-            continue;
-        }
-        ensure(!uf.same(p, i));
-        uf.merge(p, i);
-        ensure(edges.count({p, i}));
-        sum += edges[{p, i}];        
-    }
+    ll x_ans = read_ans(n, s, edges, ans);
+    ll x_ouf = read_ans(n, s, edges, ouf);
 
-    ensure(x_ouf == sum);
-    quitf(_ok, "OK");
+    if (x_ans < x_ouf) {
+        quitf(_wa, "There is the better solution");
+    }
+    if (x_ans > x_ouf) {
+        quitf(_fail, "Participate find better answer");
+    }
+    quitf(_ok, "OK: %lld", x_ouf);
 }

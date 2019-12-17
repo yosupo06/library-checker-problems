@@ -1,0 +1,20 @@
+timelimit = 10.0
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "small.cpp"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "even_mod.cpp"
+    number = 2
+[[tests]]
+    name = "even_mod_impossible.cpp"
+    number = 2

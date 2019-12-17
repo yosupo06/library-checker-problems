@@ -1,0 +1,20 @@
+timelimit = 10.0
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "lower_deg_zero.cpp"
+    number = 8
+[[tests]]
+    name = "all_zero.cpp"
+    number = 2
+[[tests]]
+    name = "monomial.cpp"
+    number = 4

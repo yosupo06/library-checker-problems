@@ -1,5 +1,3 @@
-solution = "correct.cpp"
-verify = "verify.cpp"
 timelimit = 5.0
 
 [[tests]]
@@ -10,4 +8,7 @@ timelimit = 5.0
     number = 3
 [[tests]]
     name = "max_random.cpp"
+    number = 2
+[[tests]]
+    name = "fft_killer.cpp"
     number = 2

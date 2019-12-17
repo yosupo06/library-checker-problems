@@ -7,11 +7,14 @@
 !*/
 !*.sh
 !*.yml
+!*.yaml
 !*.toml
 !*.cpp
 !*.h
 !*.md
 !*.py
 !*.in
+
+!requirements.txt
 
 in/

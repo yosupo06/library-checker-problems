@@ -1,0 +1,11 @@
+# gcloud builds submit . --config=cloudbuild.yml --async
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '--tag=gcr.io/$PROJECT_ID/library-checker-problem-env-new'
+  - '.'
+images:
+- 'gcr.io/$PROJECT_ID/library-checker-problem-env-new:latest'
+
+timeout: 1200s

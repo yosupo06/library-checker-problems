@@ -1,0 +1,46 @@
+version: 2
+
+jobs:
+  generate_test:
+    docker:
+      - image: circleci/python:3.5.7-stretch
+    steps:
+      - checkout
+      - run:
+          command: |
+            pip install --user -r requirements.txt
+            ulimit -s unlimited
+            ./generate_test.py
+  clang:
+    docker:
+      - image: yosupo/library-checker-problems-generate
+    steps:
+      - checkout
+      - run:
+          command: |
+            pip install --user -r requirements.txt
+            ulimit -s unlimited
+            ./generate.py problems.toml --verify --sol
+          environment:           
+            CXX: clang++
+            CXXFLAGS: -O2 -std=c++14 -stdlib=libc++ -Wall -Wextra -Werror
+  generate:
+    docker:
+      - image: circleci/python:3.5.7-stretch
+    steps:
+      - checkout
+      - run:
+          command: |
+            pip install --user -r requirements.txt
+            ulimit -s unlimited
+            ./generate.py problems.toml --verify --sol --html --htmldir=/tmp/html
+      - store_artifacts:
+          path: /tmp/html
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - generate_test
+      - clang
+      - generate

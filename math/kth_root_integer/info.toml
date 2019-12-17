@@ -1,0 +1,17 @@
+timelimit = 10.0
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 2
+[[tests]]
+    name = "all_k2.cpp"
+    number = 2
+[[tests]]
+    name = "all_k3.cpp"
+    number = 2
+[[tests]]
+    name = "near_border.cpp"
+    number = 3

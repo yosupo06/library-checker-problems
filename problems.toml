@@ -11,6 +11,26 @@
     title = 'Static RMQ'
     dir = 'datastructure/staticrmq'
 
+[problems.point_add_range_sum]
+    title = 'Point Add Range Sum'
+    dir = 'datastructure/point_add_range_sum'
+
+[problems.point_set_range_composite]
+    title = 'Point Set Range Composite'
+    dir = 'datastructure/point_set_range_composite'
+
+[problems.vertex_add_path_sum]
+    title = 'Vertex Add Path Sum'
+    dir = 'datastructure/vertex_add_path_sum'
+
+[problems.vertex_add_subtree_sum]
+    title = 'Vertex Add Subtree Sum'
+    dir = 'datastructure/vertex_add_subtree_sum'
+
+[problems.rectangle_sum]
+    title = 'Rectangle Sum'
+    dir = 'datastructure/rectangle_sum'
+
 # Graph
 [problems.lca]
     title = 'Lowest Common Ancestor'
@@ -24,6 +44,10 @@
     title = 'Matching on Bipartite Graph'
     dir = 'graph/bipartitematching'
 
+[problems.general_matching]
+    title = 'Matching on General Graph'
+    dir = 'graph/general_matching'
+
 [problems.assignment]
     title = 'Assignment Problem'
     dir = 'graph/assignment'
@@ -32,9 +56,17 @@
     title = 'Directed MST'
     dir = 'graph/directedmst'
 
+[problems.manhattanmst]
+    title = 'Manhattan MST'
+    dir = 'graph/manhattanmst'
+
 [problems.dominatortree]
     title = 'Dominator Tree'
     dir = 'graph/dominatortree'
+
+[problems.maximum_independent_set]
+    title = 'Maximum Independent Set'
+    dir = 'graph/maximum_independent_set'
 
 # String
 [problems.zalgorithm]
@@ -44,6 +76,10 @@
 [problems.suffixarray]
     title = 'Suffix Array'
     dir = 'string/suffixarray'
+
+[problems.number_of_substrings]
+    title = 'Number of Substrings'
+    dir = 'string/number_of_substrings'
 
 [problems.runenumerate]
     title = 'Run Enumerate'
@@ -58,6 +94,14 @@
     title = 'Sqrt Mod'
     dir = 'math/sqrt_mod'
 
+[problems.kth_root_integer]
+    title = 'Kth Root(Integer)'
+    dir = 'math/kth_root_integer'
+
+[problems.discrete_logarithm_mod]
+    title = 'Discrete Logarithm'
+    dir = 'math/discrete_logarithm_mod'
+
 [problems.matrix_det]
     title = 'Determinant of Matrix'
     dir = 'math/matrix_det'
@@ -65,6 +109,10 @@
 [problems.sparse_matrix_det]
     title = 'Determinant of Sparse Matrix'
     dir = 'math/sparse_matrix_det'
+
+[problems.system_of_linear_equations]
+    title = 'System of Linear Equations'
+    dir = 'math/system_of_linear_equations'
 
 [problems.convolution_mod]
     title = 'Convolution'
@@ -79,9 +127,33 @@
     dir = 'math/polynomial_interpolation'
 
 [problems.partition_function]
-    title = 'K-th of Partition Function'
+    title = 'Partition Function'
     dir = 'math/partition_function'
+
+[problems.bernoulli_number]
+    title = 'Bernoulli Number'
+    dir = 'math/bernoulli_number'
 
 [problems.sum_of_floor_of_linear]
     title = 'Sum of Floor of Linear'
     dir = 'math/sum_of_floor_of_linear'
+
+[problems.inv_of_formal_power_series]
+    title = 'Inv of Formal Power Series'
+    dir = 'math/inv_of_formal_power_series'
+
+[problems.exp_of_formal_power_series]
+    title = 'Exp of Formal Power Series'
+    dir = 'math/exp_of_formal_power_series'
+
+[problems.log_of_formal_power_series]
+    title = 'Log of Formal Power Series'
+    dir = 'math/log_of_formal_power_series'
+
+[problems.sqrt_of_formal_power_series]
+    title = 'Sqrt of Formal Power Series'
+    dir = 'math/sqrt_of_formal_power_series'
+
+[problems.two_sat]
+    title = '2 Sat'
+    dir = 'math/two_sat'

@@ -1,4 +1,5 @@
 timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/166"
 
 [[tests]]
     name = "example.in"
@@ -6,3 +7,6 @@ timelimit = 10.0
 [[tests]]
     name = "random.cpp"
     number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 2

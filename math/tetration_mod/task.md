@@ -7,10 +7,12 @@ $A, B, M$ が与えられます。
 
 ${A \uparrow \uparrow B} (\bmod M)$ を求めてください。
 
+なお、$0^0$ は $1$ とします。
+
 制約
 ---------
 
-- $1 \leq T \leq 100
+- $1 \leq T \leq 100$
 - $0 \leq A < M$
 - $0 \leq B \leq 10^9$
 - $1 \leq M \leq 10^9$

@@ -12,8 +12,7 @@ ${A \uparrow \uparrow B} (\bmod M)$ を求めてください。
 ---------
 
 - $1 \leq T \leq 100$
-- $0 \leq A < M$
-- $0 \leq B \leq 10^9$
+- $0 \leq A, B \leq 10^9$
 - $1 \leq M \leq 10^9$
 
 入力

@@ -1,5 +1,5 @@
 timelimit = 5.0
-
+forum = "https://github.com/yosupo06/library-checker-problems/issues/122"
 [[tests]]
     name = "example.in"
     number = 1

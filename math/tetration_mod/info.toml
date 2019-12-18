@@ -1,4 +1,5 @@
 timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/166"
 
 [[tests]]
     name = "example.in"
@@ -8,10 +9,10 @@ timelimit = 10.0
     number = 5
 [[tests]]
     name = "max.cpp"
-    number = 5
+    number = 3
 [[tests]]
     name = "max_998244353.cpp"
-    number = 5
+    number = 3
 [[tests]]
     name = "max_1000000000.cpp"
-    number = 5
+    number = 3

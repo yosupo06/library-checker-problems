@@ -6,3 +6,12 @@ timelimit = 10.0
 [[tests]]
     name = "random.cpp"
     number = 5
+[[tests]]
+    name = "max.cpp"
+    number = 5
+[[tests]]
+    name = "max_998244353.cpp"
+    number = 5
+[[tests]]
+    name = "max_1000000000.cpp"
+    number = 5

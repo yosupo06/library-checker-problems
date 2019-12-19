@@ -6,7 +6,7 @@ using namespace std;
 int main() {
     registerValidation();
 
-    int t = inf.readInt(1, 100);
+    int t = inf.readInt(1, 10'000);
     inf.readEoln();
 
     set<long long> trusted;

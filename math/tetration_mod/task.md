@@ -11,7 +11,7 @@ ${A \uparrow \uparrow B} (\bmod M)$ を求めてください。
 制約
 ---------
 
-- $1 \leq T \leq 100$
+- $1 \leq T \leq 1000$
 - $0 \leq A, B \leq 10^9$
 - $1 \leq M \leq 10^9$
 
@@ -35,3 +35,5 @@ $A_{T-1}$ $B_{T-1}$ $M_{T-1}$
 ---------
 
 {{example example_00}}
+
+{{example example_01}}

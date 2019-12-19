@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import os
 import platform
 import shutil
 from datetime import datetime
@@ -187,7 +188,7 @@ class Problem:
         indir = self.basedir / 'in'
         outdir = self.basedir / 'out'
 
-        # get the datetime when generate.py was last run
+        # get the timestamp when generate.py was last run
         testcases = set()
         for test in self.config['tests']:
             name = test['name']
@@ -202,13 +203,20 @@ class Problem:
                 testcases.add(infile)
                 testcases.add(expected)
 
-        latest_timestamp = max(datetime.fromtimestamp(path.stat().st_mtime) for path in testcases)
+        latest_timestamp = min(datetime.fromtimestamp(path.stat().st_mtime) for path in testcases)
 
-        # compare the datetime with other files
+        # compare the timestamp with other files
         for path in self.basedir.glob('**/*'):
-            if path not in testcases:
-                if latest_timestamp < datetime.fromtimestamp(path.stat().st_mtime):
-                    return False
+            if path in testcases:
+                continue
+            if not path.is_file():
+                continue
+            if os.access(str(path), os.X_OK):
+                continue  # ignore directries and compiled binaries
+            if path.name.endswith('.html'):
+                continue  # ignore generated HTML files
+            if latest_timestamp < datetime.fromtimestamp(path.stat().st_mtime):
+                return False
         logger.info('Test cases are already generated')
         return True
 

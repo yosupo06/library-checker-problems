@@ -16,6 +16,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/118"
 [[tests]]
     name = "xy_concentrate.cpp"
     number = 3
+[[tests]]
+    name = "n_131072.cpp"
+    number = 1
 
 [[solutions]]
     name = "naive.cpp"

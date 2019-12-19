@@ -183,6 +183,35 @@ class Problem:
                 logging_result('ANS', start, end,
                                '{} : {}'.format(case, checker_output))
 
+    def is_already_generated(self) -> bool:
+        indir = self.basedir / 'in'
+        outdir = self.basedir / 'out'
+
+        # get the datetime when generate.py was last run
+        testcases = set()
+        for test in self.config['tests']:
+            name = test['name']
+            num = test['number']
+
+            for i in range(num):
+                case = casename(name, i)
+                infile = indir / (case + '.in')
+                expected = outdir / (case + '.out')
+                if not infile.exists() or not expected.exists():
+                    return False
+                testcases.add(infile)
+                testcases.add(expected)
+
+        latest_timestamp = max(datetime.fromtimestamp(path.stat().st_mtime) for path in testcases)
+
+        # compare the datetime with other files
+        for path in self.basedir.glob('**/*'):
+            if path not in testcases:
+                if latest_timestamp < datetime.fromtimestamp(path.stat().st_mtime):
+                    return False
+        logger.info('Test cases are already generated')
+        return True
+
     def judge(self, src: Path, config: dict):
         indir = self.basedir / 'in'
         outdir = self.basedir / 'out'
@@ -263,6 +292,7 @@ if __name__ == '__main__':
     parser.add_argument('--sol', action='store_true', help='Solution Test')
     parser.add_argument('--html', action='store_true', help='Generate HTML')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
+    parser.add_argument('--ignore-cache', action='store_true', help='Ignore cache')
     args = parser.parse_args()
 
     problems = toml.load(args.toml)
@@ -292,7 +322,9 @@ if __name__ == '__main__':
 
         logger.info('Start {}'.format(probinfo['dir']))
 
-        if not args.nogen:
+        is_already_generated = problem.is_already_generated()
+
+        if not args.nogen and (not is_already_generated or args.ignore_cache):
             problem.compile_correct()
             problem.compile_gens()
             problem.make_inputs()
@@ -304,7 +336,7 @@ if __name__ == '__main__':
         if args.sol:
             problem.compile_checker()
 
-        if not args.nogen:
+        if not args.nogen and (args.sol or not is_already_generated or args.ignore_cache):
             problem.make_outputs(args.sol)
 
         if args.sol:

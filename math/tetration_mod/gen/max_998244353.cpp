@@ -11,7 +11,7 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int t = 10000;
+    int t = 1000;
     cout << t << "\n";
     for (int i = 0; i < t; i++) {
         ll a = gen.uniform(0LL, 1'000'000'000LL);

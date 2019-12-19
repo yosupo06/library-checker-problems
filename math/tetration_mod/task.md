@@ -11,7 +11,7 @@ ${A \uparrow \uparrow B} (\bmod M)$ を求めてください。
 制約
 ---------
 
-- $1 \leq T \leq 10^4$
+- $1 \leq T \leq 1000$
 - $0 \leq A, B \leq 10^9$
 - $1 \leq M \leq 10^9$
 

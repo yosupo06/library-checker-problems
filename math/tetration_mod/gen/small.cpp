@@ -8,7 +8,7 @@ int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
 
-    int l = 20;
+    int l = 10;
     int t = l * l * l;
     cout << t << "\n";
     for (int a = 0; a < l; a++) {

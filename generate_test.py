@@ -4,6 +4,7 @@ import unittest
 from logging import basicConfig, getLogger
 from os import getenv
 from subprocess import PIPE, run
+from pathlib import Path
 
 logger = getLogger(__name__)
 
@@ -13,6 +14,7 @@ class TestSuccess(unittest.TestCase):
         proc = run(
             ['./generate.py', 'problems_test.toml', '-p', 'simple_aplusb', '--verify', '--sol', '--html'])
         self.assertEqual(proc.returncode, 0)
+        self.assertTrue(Path("test", "simple_aplusb", "gen", "random").exists())
 
 
 class TestVerify(unittest.TestCase):

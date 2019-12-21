@@ -206,7 +206,7 @@ class Problem:
         latest_timestamp = min(datetime.fromtimestamp(path.stat().st_mtime) for path in testcases)
 
         # compare the timestamp with other files
-        for path in list(self.basedir.glob('**/*')) + list(self.libdir.glob('**/*')):
+        for path in list(self.basedir.glob('**/*')) + list(self.libdir.glob('common/**/*')):
             if path in testcases:
                 continue
             if not path.is_file():

@@ -15,6 +15,7 @@ class TestSuccess(unittest.TestCase):
             ['./generate.py', 'problems_test.toml', '-p', 'simple_aplusb', '--verify', '--sol', '--html'])
         self.assertEqual(proc.returncode, 0)
         self.assertTrue(Path("test", "simple_aplusb", "gen", "random").exists())
+        self.assertTrue(Path("test", "simple_aplusb", "sol", "correct").exists())
 
 
 class TestVerify(unittest.TestCase):

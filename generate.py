@@ -203,9 +203,9 @@ class Problem:
                 testcases.add(infile)
                 testcases.add(expected)
 
-        latest_timestamp = min(datetime.fromtimestamp(path.stat().st_mtime) for path in testcases)
+        latest_timestamp = min(datetime.fromtimestamp(path.stat().st_mtime) for path in testcases)  # Here you should use min, not max. We want ensure that all testcases are newer than all source files.
 
-        # compare the timestamp with other files
+        # compare the timestamp with other files (including header files in common/)
         for path in list(self.basedir.glob('**/*')) + list(self.libdir.glob('common/**/*')):
             if path in testcases:
                 continue

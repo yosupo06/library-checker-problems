@@ -98,6 +98,10 @@
     title = 'Tetration Mod'
     dir = 'math/tetration_mod'
 
+[problems.montmort_number_mod]
+    title = 'Montmort Number'
+    dir = 'math/montmort_number_mod'
+
 [problems.kth_root_integer]
     title = 'Kth Root(Integer)'
     dir = 'math/kth_root_integer'

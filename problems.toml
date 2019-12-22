@@ -27,6 +27,10 @@
     title = 'Vertex Add Subtree Sum'
     dir = 'datastructure/vertex_add_subtree_sum'
 
+[problems.line_add_get_min]
+    title = 'Line Add Get Min'
+    dir = 'datastructure/line_add_get_min'
+
 [problems.rectangle_sum]
     title = 'Rectangle Sum'
     dir = 'datastructure/rectangle_sum'

@@ -1,6 +1,7 @@
 #include <cassert>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 using uint = unsigned int;

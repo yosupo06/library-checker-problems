@@ -33,7 +33,7 @@ int main() {
   cin >> N >> M;
 
   Montmort<int> mm(N, M);
-  for(int i=0;i<=N;i++){
+  for(int i=1;i<=N;i++){
     if(i) cout << " ";
     cout << mm[i];
   }

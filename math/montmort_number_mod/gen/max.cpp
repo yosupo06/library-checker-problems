@@ -11,7 +11,7 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    ll n = 1000'000;
+    ll n = 1'000'000;
     ll m = gen.uniform(1LL, 1'000'000'000LL);
     cout << n  << " " << m << endl;
     return 0;

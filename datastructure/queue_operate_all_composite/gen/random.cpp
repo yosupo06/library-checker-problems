@@ -4,7 +4,7 @@
 using namespace std;
 
 const int MOD = 998244353;
-const int Q_MAX = 200000;
+const int Q_MAX = 500'000;
 
 int main(int, char* argv[]) {
     cin.tie(nullptr);

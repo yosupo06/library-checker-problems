@@ -35,9 +35,9 @@
     title = 'Rectangle Sum'
     dir = 'datastructure/rectangle_sum'
 
-[problems.push_back_pop_front_all_composite]
-    title = 'Push Back Pop Front All Composite'
-    dir = 'datastructure/push_back_pop_front_all_composite'
+[problems.queue_operate_all_composite]
+    title = 'Queue Operate All Composite'
+    dir = 'datastructure/queue_operate_all_composite'
 
 # Graph
 [problems.lca]

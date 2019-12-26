@@ -55,9 +55,9 @@ int main() {
     struct F {
         ll a, b;
     };
-    auto op = [&](F f, F g) -> F {
-        ll na = f.a * g.a % MOD;
-        ll nb = (f.a * g.b + f.b) % MOD;
+    auto op = [&](F l, F r) -> F {
+        ll na = l.a * r.a % MOD;
+        ll nb = (l.b * r.a + r.b) % MOD;
         return F{na, nb};
     };
     SWAG<F, decltype(op)> swag({1, 0}, op);

@@ -30,7 +30,7 @@ int main() {
         } else {
             ll x;
             cin >> x;
-            for (int i = (int)que.size() - 1; i >= 0; i--) {
+            for (int i = 0; i < (int)que.size(); i++) {
                 ll a, b;
                 tie(a, b) = que[i];
                 x = (a * x + b) % MOD;

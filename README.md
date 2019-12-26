@@ -57,8 +57,8 @@ ls datastructure/unionfind/task.html # statement
 
 また、CIに組み込みたい場合は
 
-- [How to run CI on your library for competitive programming (Japanese)](https://online-judge-tools.readthedocs.io/en/master/run-ci-on-your-library.ja.html) (同じく [online-judge-tools](https://github.com/kmyk/online-judge-tools)) が役に立つでしょう。
-- 実際にCIに組み込む例として、[library-checker-ci-example](https://github.com/yosupo06/library-checker-ci-example) を用意しています
+- [How to run CI on your library for competitive programming (Japanese)](https://online-judge-tools.readthedocs.io/en/master/run-ci-on-your-library.ja.html) (同じく [online-judge-tools](https://github.com/kmyk/online-judge-tools)) が役に立つでしょう。実際にCIに組み込む例として、[library-checker-ci-example](https://github.com/yosupo06/library-checker-ci-example) を用意しています
+- 簡単にCIに組み込むためのスクリプトとして [online-judge-verify-helper](https://github.com/kmyk/online-judge-verify-helper) が開発されています
 
 ## Contributing(バグ報告などしていただける方へ)
 

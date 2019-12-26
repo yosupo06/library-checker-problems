@@ -35,6 +35,10 @@
     title = 'Rectangle Sum'
     dir = 'datastructure/rectangle_sum'
 
+[problems.push_back_pop_front_all_composite]
+    title = 'Push Back Pop Front All Composite'
+    dir = 'datastructure/push_back_pop_front_all_composite'
+
 # Graph
 [problems.lca]
     title = 'Lowest Common Ancestor'

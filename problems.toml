@@ -35,6 +35,10 @@
     title = 'Rectangle Sum'
     dir = 'datastructure/rectangle_sum'
 
+[problems.queue_operate_all_composite]
+    title = 'Queue Operate All Composite'
+    dir = 'datastructure/queue_operate_all_composite'
+
 # Graph
 [problems.lca]
     title = 'Lowest Common Ancestor'

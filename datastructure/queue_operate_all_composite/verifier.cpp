@@ -12,7 +12,7 @@ int main() {
         int t = inf.readInt(0, 2, "t");
         if (t == 0) {
             inf.readSpace();
-            inf.readInt(0, MOD - 1, "a");
+            inf.readInt(1, MOD - 1, "a");
             inf.readSpace();
             inf.readInt(0, MOD - 1, "b");
             length++;

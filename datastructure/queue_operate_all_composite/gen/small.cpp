@@ -25,7 +25,7 @@ int main(int, char* argv[]) {
         }
         cout << t;
         if (t == 0) {
-            int a = gen.uniform(0, 10);
+            int a = gen.uniform(1, 10);
             int b = gen.uniform(0, 10);
             cout << ' ' << a << ' ' << b;
             length++;

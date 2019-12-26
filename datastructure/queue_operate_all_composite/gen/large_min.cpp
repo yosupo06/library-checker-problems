@@ -28,7 +28,7 @@ int main(int, char* argv[]) {
         }
         cout << t;
         if (t == 0) {
-            int a = gen.uniform(0, MOD - 1);
+            int a = gen.uniform(1, MOD - 1);
             int b = gen.uniform(0, MOD - 1);
             cout << ' ' << a << ' ' << b;
             length++;

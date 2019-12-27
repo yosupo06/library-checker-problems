@@ -39,7 +39,7 @@ jobs:
           pip install --user -r requirements.txt
       - name: Install libc++-abi
         run: |
-          apt-get install -y libc++-dev libc++abi-dev
+          sudo apt-get install -y libc++-dev libc++abi-dev
       - name: Run generate.py on clang
         run: |
           ulimit -s unlimited

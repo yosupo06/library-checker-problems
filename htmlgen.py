@@ -24,7 +24,7 @@ from markdown.preprocessors import Preprocessor
 logger = getLogger(__name__)  # type: Logger
 
 
-class ExampreExpander(Preprocessor):
+class ExampleExpander(Preprocessor):
     base_path = ''
     sample_template = '''
 <div class="uk-grid-small uk-child-width-1-2@s" uk-grid>
@@ -76,7 +76,7 @@ class ExampleExtension(Extension):
         super(ExampleExtension, self).__init__(**kwargs)
 
     def extendMarkdown(self, md):
-        md.preprocessors.register(ExampreExpander(
+        md.preprocessors.register(ExampleExpander(
             self.config['base_path']), 'example', 100)
 
 

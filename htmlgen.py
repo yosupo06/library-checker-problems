@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import re
+import math
 import shutil
 import subprocess
 import tempfile
@@ -22,6 +23,52 @@ from markdown import Extension, markdown
 from markdown.preprocessors import Preprocessor
 
 logger = getLogger(__name__)  # type: Logger
+
+
+class ParamsExpander(Preprocessor):
+    def __init__(self, params):
+        self.params = params
+
+        self.patterns = []
+        for key, value in self.params[0].items():
+            a = re.compile(r'{{{{\s*param\s+{}\s*}}}}'.format(key))
+            if isinstance(value, int):
+                if str(value).endswith('000000'):
+                    k = math.floor(math.log10(value))
+                    if value == 10 ** k:
+                        b = r'10^{{{}}}'.format(k)
+                    else:
+                        b = r'{} \times 10^{{{}}}'.format(value / 10 ** k, k)
+                else:
+                    b = format(value, ',')
+            else:
+                b = str(value)
+            self.patterns.append((a, b))
+        self.failure = re.compile(r'{{\s*param\s+\w+\s*}}')
+
+    def run(self, lines):
+        new_lines = []
+        for line in lines:
+            for a, b in self.patterns:
+                line = re.sub(a, b, line)
+            m = re.search(self.failure, line)
+            if m:
+                logger.error('The template {} is not replaced'.format(repr(m.group(0))))
+                exit(1)
+            new_lines.append(line)
+        return new_lines
+
+
+class ParamsExtension(Extension):
+    def __init__(self, **kwargs):
+        self.config = {
+            'params': [{}, 'Parameters'],
+        }
+        super(ParamsExtension, self).__init__(**kwargs)
+
+    def extendMarkdown(self, md):
+        md.preprocessors.register(ParamsExpander(
+            self.config['params']), 'params', 99)
 
 
 class ExampleExpander(Preprocessor):
@@ -165,6 +212,7 @@ class ToHTMLConverter:
                 f.read(), extensions=[
                     'markdown.extensions.fenced_code',
                     'markdown.extensions.tables',
+                    ParamsExtension(params=config.get('params', {})),
                     ExampleExtension(base_path=str(probdir)),
                     ForumExtension(url=config.get('forum', ''))
                 ],

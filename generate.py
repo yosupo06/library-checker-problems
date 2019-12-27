@@ -97,6 +97,20 @@ class Problem:
                 logger.error('Unused .in gen file: {}'.format(name))
                 exit(1)
 
+    def generate_params_h(self):
+        logger.info('generate params.h')
+        with open(str(self.basedir / 'params.h'), 'w') as fh:
+            for key, value in self.config.get('params', {}).items():
+                if isinstance(value, int):
+                    fh.write('#define {} (long long){}\n'.format(key, value))
+                elif isinstance(value, float):
+                    fh.write('#define {} {}\n'.format(key, value))
+                elif isinstance(value, str):
+                    fh.write('#define {} "{}"\n'.format(key, value))  # NOTE: this fails if value contains some chars like double quotations
+                else:
+                    logger.error('Unsupported type of params: {}'.format(key))
+                    exit(1)
+
     def compile_correct(self):
         logger.info('compile solution')
         compile(self.basedir / 'sol' / 'correct.cpp', self.libdir)
@@ -215,6 +229,8 @@ class Problem:
                 continue  # ignore directries and compiled binaries
             if path.name.endswith('.html'):
                 continue  # ignore generated HTML files
+            if path.name == 'params.h':
+                continue  # ignore generated params.h
             if latest_timestamp < datetime.fromtimestamp(path.stat().st_mtime):
                 return False
         logger.info('Test cases are already generated')
@@ -335,6 +351,8 @@ if __name__ == '__main__':
         logger.info('Start {}'.format(probinfo['dir']))
 
         is_already_generated = problem.is_already_generated()
+
+        problem.generate_params_h()
 
         if not args.nogen and (not is_already_generated or args.ignore_cache):
             problem.compile_correct()

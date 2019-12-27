@@ -38,7 +38,7 @@ class ParamsExpander(Preprocessor):
                     if value == 10 ** k:
                         b = r'10^{{{}}}'.format(k)
                     else:
-                        b = r'{} \times 10^{{{}}}'.format(value / 10 ** k, k)
+                        b = r'{} \\times 10^{{{}}}'.format(value / 10 ** k, k)
                 else:
                     b = format(value, ',')
             else:

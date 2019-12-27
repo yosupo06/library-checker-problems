@@ -18,3 +18,8 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/20"
     name = "naive.cpp"
     wrong = true
 
+[params]
+    N_AND_Q_MIN = 1
+    N_AND_Q_MAX = 200_000
+    A_ABS_MAX = 1_000_000_000
+    B_ABS_MAX = 1_000_000_000_000_000_000

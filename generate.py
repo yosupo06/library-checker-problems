@@ -323,6 +323,7 @@ class Problem:
             exit(1)
         expect = json.load(open(str(self.basedir / 'hash.json'), 'r'))
         actual = self.calc_hashes()
+        print(type(expect), type(actual))
         if expect != actual:
             logger.error('hashes are different')
             logger.error('your hash: {}'.format(json.dumps(actual, indent=2, sort_keys=True)))
@@ -389,9 +390,6 @@ if __name__ == '__main__':
             problem.compile_gens()
             problem.make_inputs()
 
-        if not args.refhash:
-            problem.check_hashes()
-
         if args.verify:
             problem.compile_verifier()
             problem.verify_inputs()
@@ -402,6 +400,7 @@ if __name__ == '__main__':
         if not args.nogen and (args.sol or not is_already_generated or args.ignore_cache):
             problem.make_outputs(args.sol)
 
+
         if args.sol:
             problem.compile_solutions()
             for sol in problem.config.get('solutions', []):
@@ -409,6 +408,8 @@ if __name__ == '__main__':
 
         if args.refhash:
             problem.write_hashes()
+        else:
+            problem.check_hashes()
 
         if args.html:
             problem.write_html(Path(args.htmldir)

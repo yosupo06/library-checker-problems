@@ -52,6 +52,12 @@ class TestUnusedGen(unittest.TestCase):
             ['./generate.py', 'problems_test.toml', '-p', 'unused_gen'])
         self.assertNotEqual(proc.returncode, 0)
 
+class TestDifferID(unittest.TestCase):
+    def test_unused_gen(self):
+        proc = run(
+            ['./generate.py', 'problems_test.toml', '-p', 'this_is_differ_id'])
+        self.assertNotEqual(proc.returncode, 0)
+
 if __name__ == "__main__":
     basicConfig(
         level=getenv('LOG_LEVEL', 'DEBUG'),

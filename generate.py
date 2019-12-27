@@ -325,6 +325,10 @@ if __name__ == '__main__':
         problem = Problem(libdir, libdir / probinfo['dir'])
         probs[name] = problem
 
+        if name != problem.basedir.name:
+            logger.error('Different ID({}) vs dir({})'.format(name, problem.basedir.name))
+            exit(1)
+
         # health check
         problem.health_check()
 

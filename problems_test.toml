@@ -13,3 +13,7 @@
 [problems.unused_gen]
     title = 'Unused Gen'
     dir = 'test/unused_gen'
+
+[problems.this_is_differ_id]
+    title = 'Differ ID'
+    dir = 'test/differ_id'

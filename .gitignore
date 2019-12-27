@@ -16,6 +16,7 @@
 !*.in
 
 !requirements.txt
+!hash.json
 
 params.h
 in/

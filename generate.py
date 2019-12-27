@@ -309,11 +309,11 @@ class Problem:
         hashes = dict()  # type: MutableMapping[str, str]
         for name in self.basedir.glob('in/*.in'):
             m = hashlib.sha256()
-            m.update(open(name, 'rb').read())
+            m.update(open(str(name), 'rb').read())
             hashes[name.name] = m.hexdigest()
         for name in self.basedir.glob('out/*.out'):
             m = hashlib.sha256()
-            m.update(open(name, 'rb').read())
+            m.update(open(str(name), 'rb').read())
             hashes[name.name] = m.hexdigest()
         return hashes
 

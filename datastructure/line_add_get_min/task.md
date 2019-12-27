@@ -9,9 +9,9 @@ $N$ 本の直線 $y = a_i x + b_i$ が存在します。 $Q$ 個のクエリを�
 制約
 ---------
 
-- $1 \leq N, Q \leq 200,000$
-- $|a_i|, |p| \leq 10^9$
-- $|b_i| \leq 10^{18}$
+- ${{param N_AND_Q_MIN}} \leq N, Q \leq {{param N_AND_Q_MAX}}$
+- $|a_i|, |p| \leq {{param A_ABS_MAX}}$
+- $|b_i| \leq {{param B_ABS_MAX}}$
 
 入力
 ---------

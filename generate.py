@@ -325,7 +325,7 @@ class Problem:
         actual = self.calc_hashes()
         if expect != actual:
             logger.error('hashes are different')
-            logger.error('your hash: {}'.format(json.dumps(actual)))
+            logger.error('your hash: {}'.format(json.dumps(actual, indent=2, sort_keys=True)))
             exit(1)
 
     def write_hashes(self):

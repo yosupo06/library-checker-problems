@@ -321,7 +321,7 @@ class Problem:
         if not Path(self.basedir, 'hash.json').exists():
             logger.error("hash.json doesn't exist")
             exit(1)
-        expect = json.load(open(self.basedir / 'hash.json', 'r'))
+        expect = json.load(open(str(self.basedir / 'hash.json'), 'r'))
         actual = self.calc_hashes()
         if expect != actual:
             logger.error('hashes are different')
@@ -329,7 +329,7 @@ class Problem:
             exit(1)
 
     def write_hashes(self):
-        json.dump(self.calc_hashes(), open(self.basedir / 'hash.json', 'w'), indent=2)
+        json.dump(self.calc_hashes(), open(str(self.basedir / 'hash.json'), 'w'), indent=2, sort_keys=True)
 
 if __name__ == '__main__':
     basicConfig(

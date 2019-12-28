@@ -5,7 +5,7 @@
 using namespace std;
 
 
-const int N_AND_Q_MIN = 1;
+//const int N_AND_Q_MIN = 1;
 const int N_AND_Q_MAX = 200'000;
 const int A_AND_X_MIN = 0;
 const int A_AND_X_MAX = 1'000'000'000;

@@ -13,7 +13,7 @@ int main(int, char* argv[]) {
     
     printf("%d\n", n);
     for (int i = 0; i < n; i++) {
-        printf("%d\n", 0);
+        printf("%d", 0);
         if (i != n - 1) printf(" ");
     }
     printf("\n");

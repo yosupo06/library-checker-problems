@@ -22,7 +22,7 @@ int main(int, char* argv[]) {
             cout << a[i][j];
             if (j + 1 != n) cout << " ";
         }
-        cout << endl;
+        printf("\n");
     }
     return 0;
 }

@@ -16,6 +16,6 @@ int main(int, char* argv[]) {
         cout << 0;
         if (i != n - 1) cout << " ";
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

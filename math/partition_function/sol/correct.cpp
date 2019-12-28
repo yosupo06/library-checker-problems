@@ -260,6 +260,6 @@ int main() {
         cout << pol.freq(i);
         if (i != n) cout << " ";
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

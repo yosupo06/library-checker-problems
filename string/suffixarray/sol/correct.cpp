@@ -142,6 +142,6 @@ int main() {
         cout << sa.sa[i];
         if (i != n) cout << " ";
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

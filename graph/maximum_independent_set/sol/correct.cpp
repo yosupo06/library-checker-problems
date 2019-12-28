@@ -101,6 +101,6 @@ int main() {
         cout << answer[i];
         if (i != x - 1) cout << " ";
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

@@ -20,11 +20,11 @@ int main(int, char* argv[]) {
         cout << x[i];
         if (i != n - 1) cout << " ";
     }
-    cout << endl;
+    printf("\n");
     for (int i = 0; i < n; i++) {
         cout << y[i];
         if (i != n - 1) cout << " ";
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

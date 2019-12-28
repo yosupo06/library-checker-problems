@@ -115,6 +115,6 @@ int main() {
         cout << domi.idom[i];
         if (i != n - 1) cout << " ";
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

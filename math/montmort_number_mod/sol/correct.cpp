@@ -35,6 +35,6 @@ int main() {
     if(i) cout << " ";
     cout << mm[i];
   }
-  cout << endl;
+  printf("\n");
   return 0;
 }

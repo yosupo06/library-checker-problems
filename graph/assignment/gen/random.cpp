@@ -24,7 +24,7 @@ int main(int, char* argv[]) {
             cout << a[i][j];
             if (j != n - 1) cout << " ";
         }
-        cout << endl;
+        printf("\n");
     }
     return 0;
 }

@@ -334,6 +334,6 @@ int main() {
         cout << pol.freq(i);
         if (i + 1 != n) cout << " ";
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

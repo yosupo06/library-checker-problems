@@ -16,7 +16,7 @@ int main(int, char* argv[]) {
         cout << gen.uniform(0, i - 1);
         if (i != n - 1) cout << " ";
     }
-    cout << endl;
+    printf("\n");
     for (int i = 0; i < q; i++) {
         int u, v;
         do {

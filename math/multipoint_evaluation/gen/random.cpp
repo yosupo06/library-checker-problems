@@ -25,11 +25,11 @@ int main(int, char* argv[]) {
         cout << a[i];
         if (i != n - 1) cout << " ";
     }
-    cout << endl;
+    printf("\n");
     for (int i = 0; i < m; i++) {
         cout << b[i];
         if (i != m - 1) cout << " ";
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

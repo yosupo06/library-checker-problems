@@ -30,13 +30,13 @@ int main(int, char* argv[]) {
             cout << a[i][j];
             if (j + 1 != m) cout << " ";
         }
-        cout << endl;
+        printf("\n");
     }
     for (int i = 0; i < n; i++) {
         cout << b[i];
         if (i + 1 != n) cout << " ";
     }
-    cout << endl;
+    printf("\n");
 
     return 0;
 }

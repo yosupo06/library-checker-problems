@@ -105,7 +105,7 @@ int main() {
         sort(v.begin(), v.end());
         cout << int(v.size());
         for (auto d: v) cout << " " << d;
-        cout << endl;
+        printf("\n");
     }
     return 0;
 }

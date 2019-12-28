@@ -32,7 +32,7 @@ int main(int, char* argv[]) {
             int x = gen.uniform(0, MOD - 1);
             cout << ' ' << x;
         }
-        cout << endl;
+        printf("\n");
     }
     return 0;
 }

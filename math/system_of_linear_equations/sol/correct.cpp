@@ -165,7 +165,7 @@ int main() {
             cout << v[i];
             if (i != m - 1) cout << " ";
         }
-        cout << endl;
+        printf("\n");
     }
     return 0;
 }

@@ -33,7 +33,7 @@ int main(int, char* argv[]) {
             int x = gen.uniform(0, MOD - 1);
             cout << ' ' << x;
         }
-        cout << endl;
+        printf("\n");
         int x = gen.uniform(0, 10);
         cout << 2 << ' ' << x << endl;
     }

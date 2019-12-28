@@ -286,6 +286,6 @@ int main() {
         cout << answer[i];
         if (i + 1 != m) cout << " ";
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

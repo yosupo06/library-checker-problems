@@ -31,6 +31,10 @@
     title = 'Line Add Get Min'
     dir = 'datastructure/line_add_get_min'
 
+[problems.segment_add_get_min]
+    title = 'Segment Add Get Min'
+    dir = 'datastructure/segment_add_get_min'
+
 [problems.rectangle_sum]
     title = 'Rectangle Sum'
     dir = 'datastructure/rectangle_sum'

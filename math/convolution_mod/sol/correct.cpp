@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cstdio>
 #include <vector>
 #include <cassert>
 
@@ -96,15 +96,15 @@ int main() {
     ios::sync_with_stdio(false);
 
     int n, m;
-    cin >> n >> m;
+    scanf("%d %d", &n, &m);
     V<Mint> a(n), b(m);
-    for (int i = 0; i < n; i++) cin >> a[i].v;
-    for (int i = 0; i < m; i++) cin >> b[i].v;
+    for (int i = 0; i < n; i++) scanf("%d", &a[i].v);
+    for (int i = 0; i < m; i++) scanf("%d", &b[i].v);
     auto c = multiply(a, b);
     for (int i = 0; i < n + m - 1; i++) {
-        cout << c[i];
-        if (i + 1 != n + m - 1) cout << " ";
+        printf("%d", c[i].v);
+        if (i + 1 != n + m - 1) printf(" ");
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

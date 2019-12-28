@@ -26,12 +26,9 @@ template <class S> V<int> z_algo(const S& s) {
 
 int main() {
     string s;
-    {
-        char* _s = nullptr;
-        printf("%d\n", scanf("%ms", &_s));
-        s = _s;
-        free(_s);
-    }
+    static char buf[1'000'000];
+    scanf("%s", buf);
+    s = buf;
     int n = int(s.size());
     auto z = z_algo(s);
 

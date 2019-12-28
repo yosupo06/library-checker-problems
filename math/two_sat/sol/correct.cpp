@@ -110,16 +110,9 @@ struct TwoSat {
 };
 
 int main() {
-    {
-        char* dummy = nullptr;
-        scanf("%ms", &dummy);
-        free(dummy);
-    }
-    {
-        char* dummy = nullptr;
-        scanf("%ms", &dummy);
-        free(dummy);
-    }
+    static char buf[1'000'000];
+    scanf("%s", buf);
+    scanf("%s", buf);
 
     int n, m;
     scanf("%d %d", &n, &m);

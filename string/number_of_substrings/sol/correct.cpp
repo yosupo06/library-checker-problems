@@ -132,13 +132,10 @@ template <class Str> V<int> sa_is(Str s, int B = 200) {
 
 
 int main() {
+    static char buf[1'000'000];
     string s;
-    {
-        char* _s = nullptr;
-        scanf("%ms", &_s);
-        s = _s;
-        free(_s);
-    }
+    scanf("%s", buf);
+    s = buf;
     SA<string> sa(s, sa_is(s));
     ll n = ll(s.size());
     ll sm = n * (n + 1) / 2;

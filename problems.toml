@@ -177,3 +177,7 @@
 [problems.two_sat]
     title = '2 Sat'
     dir = 'math/two_sat'
+
+[problems.dynamic_tree_vertex_add_path_sum]
+    title = 'Dynamic Tree Vertex Add Path Sum'
+    dir = 'datastructure/dynamic_tree_vertex_add_path_sum'

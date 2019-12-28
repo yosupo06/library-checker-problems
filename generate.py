@@ -323,7 +323,6 @@ class Problem:
             exit(1)
         expect = json.load(open(str(self.basedir / 'hash.json'), 'r'))
         actual = self.calc_hashes()
-        print(type(expect), type(actual))
         if expect != actual:
             logger.error('hashes are different')
             logger.error('your hash: {}'.format(json.dumps(actual, indent=2, sort_keys=True)))

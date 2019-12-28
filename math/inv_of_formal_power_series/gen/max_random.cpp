@@ -10,7 +10,7 @@ int main(int, char* argv[]) {
 
     int n = 500'000;
 
-    printf("%d", n);
+    printf("%d\n", n);
     for (int i = 0; i < n; i++) {
         printf("%d", gen.uniform((i == 0) ? 1 : 0, 998244353));
         if (i != n - 1) printf(" ");

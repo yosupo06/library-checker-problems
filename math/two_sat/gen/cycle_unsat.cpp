@@ -26,8 +26,8 @@ int main(int, char* argv[]) {
     int b = gen.uniform(1, n);
     cout << a << " " << b << " 0\n";
     // some pair, both false(= all false)
-    int a = gen.uniform(-n, -1);
-    int b = gen.uniform(-n, -1);
+    a = gen.uniform(-n, -1);
+    b = gen.uniform(-n, -1);
     cout << a << " " << b << " 0\n";
     return 0;
 }

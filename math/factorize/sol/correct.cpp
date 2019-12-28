@@ -97,10 +97,10 @@ V<ll> pollard(ll n) {
 int main() {
 
     int q;
-    cin >> q;
+    scanf("%d", &q);
     for (int i = 0; i < q; i++) {
         ll a;
-        cin >> a;
+        scanf("%lld", &a);
         auto v = pollard(a);
         sort(v.begin(), v.end());
         cout << int(v.size());

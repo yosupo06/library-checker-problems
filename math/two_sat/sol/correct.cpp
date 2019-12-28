@@ -110,17 +110,24 @@ struct TwoSat {
 };
 
 int main() {
-
-    string dummy;
-    cin >> dummy >> dummy;
+    {
+        char* dummy = nullptr;
+        scanf("%ms", &dummy);
+        free(dummy);
+    }
+    {
+        char* dummy = nullptr;
+        scanf("%ms", &dummy);
+        free(dummy);
+    }
 
     int n, m;
-    cin >> n >> m;
+    scanf("%d %d", &n, &m);
 
     TwoSat sat(n);
     for (int i = 0; i < m; i++) {
         int a, b, zero;
-        cin >> a >> b >> zero;
+        scanf("%d %d %d", &a, &b, &zero);
 
         bool a_pos = a > 0, b_pos = b > 0;
         a = abs(a) - 1;

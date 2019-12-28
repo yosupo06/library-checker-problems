@@ -140,16 +140,16 @@ int main() {
 
 
     int n, m;
-    cin >> n >> m;
+    scanf("%d %d", &n, &m);
     Mat<Mint> mat(n, V<Mint>(m));
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            cin >> mat[i][j].v;
+            scanf("%d", &mat[i][j].v);
         }
     }
     V<Mint> vec(n);
     for (int i = 0; i < n; i++) {
-        cin >> vec[i].v;
+        scanf("%d", &vec[i].v);
     }
     auto answer = solve_linear(mat, vec);
     if (answer.empty()) {

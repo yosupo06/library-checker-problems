@@ -52,17 +52,17 @@ void dfs(int u) {
 int main() {
     
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
     g = VV<int>(n);
 
     V<ll> a(n);
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
+        scanf("%lld", &a[i]);
     }
 
     for (int i = 1; i < n; i++) {
         int p;
-        cin >> p;
+        scanf("%d", &p);
         g[p].push_back(i);
     }
     lord = V<int>(n);
@@ -78,14 +78,14 @@ int main() {
 
     for (int i = 0; i < q; i++) {
         int ty;
-        cin >> ty;
+        scanf("%d", &ty);
         if (ty == 0) {
             int u; ll x;
-            cin >> u >> x;
+            scanf("%d %lld", &u, &x);
             fw.add(lord[u], x);
         } else {
             int u;
-            cin >> u;
+            scanf("%d", &u);
             cout << fw.sum(lord[u], rord[u]) << "\n";
         }
     }

@@ -35,11 +35,11 @@ int main() {
 
 
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
     UnionFind uf(n);
     for (int i = 0; i < q; i++) {
         int ty, a, b;
-        cin >> ty >> a >> b;
+        scanf("%d %d %d", &ty, &a, &b);
         if (ty == 0) {
             uf.merge(a, b);
         } else {

@@ -186,13 +186,13 @@ DirectedMSTInfo directedMST(VV<E> g, int r) {
 int main() {
 
     int n, m, s;
-    cin >> n >> m >> s;
+    scanf("%d %d %d", &n, &m, &s);
 
     VV<E> g(n);
     for (int i = 0; i < m; i++) {
         int a, b;
         ll c;
-        cin >> a >> b >> c;
+        scanf("%d %d %lld", &a, &b, &c);
         g[a].push_back({a, b, c});
     }
 

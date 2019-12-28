@@ -111,11 +111,11 @@ int main() {
 
 
     int n;
-    cin >> n;
+    scanf("%d", &n);
     Mat<Mint> mat(n, V<Mint>(n, n));
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            cin >> mat[i][j].v;
+            scanf("%d", &mat[i][j].v);
         }
     }
     auto answer = calc_det(mat);

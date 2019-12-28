@@ -102,10 +102,10 @@ int main() {
   // unittest();
 
   int numCases;
-  cin >> numCases;
+  scanf("%d", &numCases);
   for (int caseId = 0; caseId < numCases; ++caseId) {
     Int Y, P;
-    cin >> Y >> P;
+    scanf("%lld %lld", &Y, &P);
     const vector<Int> res = modSqrt(Y, P);
     cout << (res.empty() ? -1 : res[0]) << "\n";
   }

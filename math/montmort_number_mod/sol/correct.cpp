@@ -28,7 +28,7 @@ struct Montmort{
 int main() {
 
   int N, M;
-  cin >> N >> M;
+  scanf("%d %d", &N, &M);
 
   Montmort<int> mm(N, M);
   for(int i=1;i<=N;i++){

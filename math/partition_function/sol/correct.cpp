@@ -235,7 +235,7 @@ template <class D> struct Poly {
 int main() {
 
     int n;
-    cin >> n;
+    scanf("%d", &n);
     V<Mint> fact(n + 1), iFac(n + 1);
     fact[0] = Mint(1);
     for (int i = 1; i <= n; i++) fact[i] = fact[i - 1] * Mint(i);

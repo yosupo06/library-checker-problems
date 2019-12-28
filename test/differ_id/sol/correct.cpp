@@ -12,7 +12,7 @@ template <class T> using VV = V<V<T>>;
 int main() {
 
     int a, b;
-    cin >> a >> b;
+    scanf("%d %d", &a, &b);
     cout << a + b << endl;
     return 0;
 }

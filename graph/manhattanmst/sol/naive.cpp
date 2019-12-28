@@ -43,11 +43,11 @@ struct E {
 int main() {
 
     int n;
-    cin >> n;
+    scanf("%d", &n);
     assert(n <= 1000);
     V<ll> x(n), y(n);
     for (int i = 0; i < n; i++) {
-        cin >> x[i] >> y[i];
+        scanf("%lld %lld", &x[i], &y[i]);
     }
     vector<E> edges;
     for (int i = 0; i < n; i++) {

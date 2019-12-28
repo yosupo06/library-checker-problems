@@ -104,11 +104,11 @@ template <class T> V<pair<int, int>> manhattan_mst(V<pair<T, T>> ps, T inf = num
 int main() {
 
     int n;
-    cin >> n;
+    scanf("%d", &n);
 
     V<pair<ll, ll>> ps(n);
     for (int i = 0; i < n; i++) {
-        cin >> ps[i].first >> ps[i].second;
+        scanf("%lld %lld", &ps[i].first, &ps[i].second);
     }
 
     auto res = manhattan_mst(ps);

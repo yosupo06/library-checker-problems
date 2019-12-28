@@ -100,10 +100,14 @@ struct RunExec {
 };
 
 int main() {
-
-
     string s;
-    cin >> s;
+    {
+        char* _s = nullptr;
+        scanf("%ms", &_s);
+        s = _s;
+        free(_s);
+    }
+
     V<int> _s;
     for (char c : s) _s.push_back(c);
     RunExec runexec(_s);

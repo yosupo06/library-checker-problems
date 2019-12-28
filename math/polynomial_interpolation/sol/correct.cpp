@@ -317,13 +317,13 @@ template <class Mint> struct InterPol {
 int main() {
 
     int n;
-    cin >> n;
+    scanf("%d", &n);
     V<Mint> x(n), y(n);
     for (int i = 0; i < n; i++) {
-        cin >> x[i].v;
+        scanf("%d", &x[i].v);
     }
     for (int i = 0; i < n; i++) {
-        cin >> y[i].v;
+        scanf("%d", &y[i].v);
     }
 
     auto pol = InterPol<Mint>(x).query(y);

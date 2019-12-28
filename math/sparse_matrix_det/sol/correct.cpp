@@ -423,12 +423,12 @@ int main() {
 
 
     int n, k;
-    cin >> n >> k;
+    scanf("%d %d", &n, &k);
     struct E { int to; Mint f; };
     VV<E> edges(n);
     for (int i = 0; i < k; i++) {
         int a, b; Mint c;
-        cin >> a >> b >> c.v;
+        scanf("%d %d %d", &a, &b, &c.v);
         edges[a].push_back({b, c});
     }
     auto answer = sparse_det(edges);

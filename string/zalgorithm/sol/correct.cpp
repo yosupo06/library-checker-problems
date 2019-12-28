@@ -25,10 +25,13 @@ template <class S> V<int> z_algo(const S& s) {
 }
 
 int main() {
-
-
     string s;
-    cin >> s;
+    {
+        char* _s = nullptr;
+        scanf("%ms", &_s);
+        s = _s;
+        free(_s);
+    }
     int n = int(s.size());
     auto z = z_algo(s);
 

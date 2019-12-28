@@ -61,10 +61,10 @@ T tetration(T a,T n,T m){
 int main() {
 
   int numCases;
-  cin >> numCases;
+  scanf("%d", numCases);
   for (int caseId = 0; caseId < numCases; ++caseId) {
     long long A, B, M;
-    cin >> A >> B >> M;
+    scanf("%lld %lld %lld", &A, &B, &M);
     cout << tetration(A, B, M) << "\n";
   }
   return 0;

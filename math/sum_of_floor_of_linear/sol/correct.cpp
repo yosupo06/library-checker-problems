@@ -48,10 +48,10 @@ ll sum_of_floor(ll n, ll m, ll a, ll b) {
 int main() {
 
     int t;
-    cin >> t;
+    scanf("%d", &t);
     for (int i = 0; i < t; i++) {
         ll n, m, a, b;
-        cin >> n >> m >> a >> b;
+        scanf("%lld %lld %lld %lld", &n, &m, &a, &b);
         cout << sum_of_floor(n, m, a, b) << "\n";
     }
     return 0;

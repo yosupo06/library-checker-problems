@@ -272,7 +272,7 @@ template <class Mint> struct MultiEval {
 int main() {
 
     int n, m;
-    cin >> n >> m;    
+    scanf("%d %d", &n, &m);    
     V<Mint> c(n), p(m);
     for (int i = 0; i < n; i++) cin >> c[i].v;
     for (int i = 0; i < m; i++) cin >> p[i].v;

@@ -80,7 +80,7 @@ MaxFlow<C> get_mf(VV<E>& g, int s, int t, C eps) {
 int main() {
 
     int L, R, M;
-    cin >> L >> R >> M;
+    scanf("%d %d %d", &L, &R, &M);
 
     struct E {
         int to, rev, cap;
@@ -100,7 +100,7 @@ int main() {
     }
     for (int i = 0; i < M; i++) {
         int a, b;
-        cin >> a >> b;
+        scanf("%d %d", &a, &b);
         add_edge(a, L + b, 1);
     }
 

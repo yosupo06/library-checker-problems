@@ -87,11 +87,11 @@ struct E {
 int main() {
 
     int n, m;
-    cin >> n >> m;
+    scanf("%d %d", &n, &m);
     VV<E> g(n);
     for (int i = 0; i < m; i++) {
         int a, b;
-        cin >> a >> b;
+        scanf("%d %d", &a, &b);
         g[a].push_back({b});
     }
 

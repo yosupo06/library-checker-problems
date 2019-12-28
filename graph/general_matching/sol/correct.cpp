@@ -100,12 +100,12 @@ template <class E> struct MaxMatching {
 int main() {
 
     int n, m;
-    cin >> n >> m;
+    scanf("%d %d", &n, &m);
     struct E { int to; };
     VV<E> g(n);
     for (int i = 0; i < m; i++) {
         int u, v;
-        cin >> u >> v;
+        scanf("%d %d", &u, &v);
         g[u].push_back({v});
         g[v].push_back({u});
     }

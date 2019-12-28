@@ -61,9 +61,8 @@ SimpleSeg<D, Op> get_simple_seg(V<D> v, D e, Op op) {
 const ll MOD = 998244353;
 
 int main() {
-
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
     struct F {
         ll a, b;
     };
@@ -71,7 +70,7 @@ int main() {
 
     vector<F> f(n);
     for (int i = 0; i < n; i++) {
-        cin >> f[i].a >> f[i].b;
+        scanf("%lld %lld", &f[i].a, &f[i].b);
     }
     auto segtree = get_simple_seg(f, {1, 0}, [&](F l, F r) {
         // x -> l.a * x + l.b -> r.a(l.a * x + l.b) + r.b
@@ -82,16 +81,16 @@ int main() {
 
     for (int ph = 0; ph < q; ph++) {
         int ty;
-        cin >> ty;
+        scanf("%d", &ty);
         if (ty == 0) {
             int p;
             ll c, d;
-            cin >> p >> c >> d;
+            scanf("%d %lld %lld", &p, &c, &d);
             segtree.set(p, {c, d});
         } else {
             int l, r;
             ll x;
-            cin >> l >> r >> x;
+            scanf("%d %d %lld", &l, &r, &x);
             auto f = segtree.sum(l, r);
             cout << (f.a * x + f.b) % MOD << "\n";
         }

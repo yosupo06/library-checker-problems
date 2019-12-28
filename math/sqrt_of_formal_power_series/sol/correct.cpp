@@ -326,10 +326,10 @@ template <class D> struct Poly {
 int main() {
 
     int n;
-    cin >> n;
+    scanf("%d", &n);
     V<Mint> x(n);
     for (int i = 0; i < n; i++) {
-        cin >> x[i].v;
+        scanf("%d", &x[i].v);
     }
     auto pol = Poly<Mint>(x);
 

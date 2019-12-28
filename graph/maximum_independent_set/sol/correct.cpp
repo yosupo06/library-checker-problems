@@ -73,14 +73,14 @@ template <int N, class E> struct MaxClique {
 int main() {
 
     int n, m;
-    cin >> n >> m;    
+    scanf("%d %d", &n, &m);    
     VV<int> graph(n, V<int>(n, 1));
     for (int i = 0; i < n; i++) {
         graph[i][i] = 0;
     }
     for (int i = 0; i < m; i++) {
         int a, b;
-        cin >> a >> b;
+        scanf("%d %d", &a, &b);
         graph[a][b] = graph[b][a] = 0;
     }
 

@@ -12,22 +12,22 @@ int main() {
     constexpr char endl = '\n';
 
     int q;
-    cin >> q;
+    scanf("%d", &q);
 
     deque<pair<ll, ll> > que;
 
     for (int i = 0; i < q; i++) {
         int ty;
-        cin >> ty;
+        scanf("%d", &ty);
         if (ty == 0) {
             ll a, b;
-            cin >> a >> b;
+            scanf("%lld %lld", &a, &b);
             que.emplace_back(a, b);
         } else if (ty == 1) {
             que.pop_front();
         } else {
             ll x;
-            cin >> x;
+            scanf("%lld", &x);
             for (int i = 0; i < (int)que.size(); i++) {
                 ll a, b;
                 tie(a, b) = que[i];

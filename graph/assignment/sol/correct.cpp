@@ -95,11 +95,11 @@ int main() {
 
 
     int n;
-    cin >> n;
+    scanf("%d", &n);
     VV<ll> a(n, V<ll>(n));
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            cin >> a[i][j];
+            scanf("%lld", &a[i][j]);
         }
     }
     auto hungarian = Hungarian<ll>(a);

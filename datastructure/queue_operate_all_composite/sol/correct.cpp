@@ -48,7 +48,7 @@ int main() {
     constexpr char endl = '\n';
 
     int q;
-    cin >> q;
+    scanf("%d", &q);
 
     struct F {
         ll a, b;
@@ -62,16 +62,16 @@ int main() {
 
     for (int i = 0; i < q; i++) {
         int ty;
-        cin >> ty;
+        scanf("%d", &ty);
         if (ty == 0) {
             ll a, b;
-            cin >> a >> b;
+            scanf("%lld %lld", &a, &b);
             swag.push({a, b});
         } else if (ty == 1) {
             swag.pop();
         } else {
             ll x;
-            cin >> x;
+            scanf("%lld", &x);
             F f = swag.sum();
             cout << (f.a * x + f.b) % MOD << endl;
         }

@@ -40,10 +40,10 @@ ull solve(ull a, int k) {
 
 int main() {
     int t;
-    cin >> t;
+    scanf("%d", &t);
     for (int i = 0; i < t; i++) {
         ull a; int k;
-        cin >> a >> k;
+        scanf("%ulld %d", &a, &k);
         cout << solve(a, k) << "\n";
     }
     return 0;

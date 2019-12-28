@@ -104,7 +104,7 @@ int main() {
         auto v = pollard(a);
         sort(v.begin(), v.end());
         printf("%d\n", int(v.size()));
-        for (auto d: v) printf(" ") << d;
+        for (auto d: v) printf(" %lld", d);
         printf("\n");
     }
     return 0;

@@ -4,6 +4,9 @@
 
 using namespace std;
 
+const int A_AND_X_MIN = 0;
+const int A_AND_X_MAX = 1'000'000'000;
+
 int main(int, char* argv[]) {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
@@ -15,7 +18,7 @@ int main(int, char* argv[]) {
     int q = gen.uniform(0, 1000);
     cout << n << " " << q << "\n";
     for (int i = 0; i < n; i++) {
-        cout << gen.uniform(0, 100);
+        cout << gen.uniform(A_AND_X_MIN, A_AND_X_MAX);
         if (i != n - 1) cout << " ";
     }
     cout << "\n";
@@ -55,7 +58,7 @@ int main(int, char* argv[]) {
         }
         else if (t == 1) {
             int p = gen.uniform(0, n - 1);
-            int x = gen.uniform(0, 100);
+            int x = gen.uniform(A_AND_X_MIN, A_AND_X_MAX);
             cout << p << " " << x << "\n";
         } else {
             auto u = gen.uniform(0, n - 1);

@@ -112,7 +112,7 @@ int main() {
     domi.idom[s] = s;
 
     for (int i = 0; i < n; i++) {
-        printf("%d\n", domi.idom[i]);
+        printf("%d", domi.idom[i]);
         if (i != n - 1) printf(" ");
     }
     printf("\n");

@@ -35,6 +35,9 @@ markdown + mathjax 形式です。他のtask.mdをコピペして弄ればいい
 - 言語はC++
 - bits/stdc++.hを使わない
 - 警告を無視しない
+- 出力ファイルが手元とCIで全く同じ、以下のことに注意するといいです
+  - 乱数: rand(), uniform_int_distribution, shuffleを使わない
+  - 構築: sortで同率の要素の順序によって出力が変わらないか(stable_sortにする必要があるかも？)
 
 ## verifier.cpp(input checker)
 

@@ -4,6 +4,8 @@ import argparse
 import os
 import platform
 import shutil
+import hashlib
+import json
 from datetime import datetime
 from logging import Logger, basicConfig, getLogger
 from os import getenv
@@ -95,7 +97,7 @@ class Problem:
         for name in self.basedir.glob('gen/*.in'):
             if str(name) not in gens:
                 logger.error('Unused .in gen file: {}'.format(name))
-                exit(1)
+                exit(1)        
 
     def generate_params_h(self):
         logger.info('generate params.h')
@@ -106,7 +108,8 @@ class Problem:
                 elif isinstance(value, float):
                     fh.write('#define {} {}\n'.format(key, value))
                 elif isinstance(value, str):
-                    fh.write('#define {} "{}"\n'.format(key, value))  # NOTE: this fails if value contains some chars like double quotations
+                    # NOTE: this fails if value contains some chars like double quotations
+                    fh.write('#define {} "{}"\n'.format(key, value))
                 else:
                     logger.error('Unsupported type of params: {}'.format(key))
                     exit(1)
@@ -217,7 +220,8 @@ class Problem:
                 testcases.add(infile)
                 testcases.add(expected)
 
-        latest_timestamp = min(datetime.fromtimestamp(path.stat().st_mtime) for path in testcases)  # Here you should use min, not max. We want ensure that all testcases are newer than all source files.
+        # Here you should use min, not max. We want ensure that all testcases are newer than all source files.
+        latest_timestamp = min(datetime.fromtimestamp(path.stat().st_mtime) for path in testcases)
 
         # compare the timestamp with other files (including header files in common/)
         for path in list(self.basedir.glob('**/*')) + list(self.libdir.glob('common/**/*')):
@@ -301,6 +305,31 @@ class Problem:
         with open(str(path), 'w', encoding='utf-8') as f:
             f.write(html.html)
 
+    def calc_hashes(self) -> MutableMapping[str, str]:
+        hashes = dict()  # type: MutableMapping[str, str]
+        for name in self.basedir.glob('in/*.in'):
+            m = hashlib.sha256()
+            m.update(open(str(name), 'rb').read())
+            hashes[name.name] = m.hexdigest()
+        for name in self.basedir.glob('out/*.out'):
+            m = hashlib.sha256()
+            m.update(open(str(name), 'rb').read())
+            hashes[name.name] = m.hexdigest()
+        return hashes
+
+    def check_hashes(self):
+        if not Path(self.basedir, 'hash.json').exists():
+            logger.error("hash.json doesn't exist")
+            exit(1)
+        expect = json.load(open(str(self.basedir / 'hash.json'), 'r'))
+        actual = self.calc_hashes()
+        if expect != actual:
+            logger.error('hashes are different')
+            logger.error('your hash: {}'.format(json.dumps(actual, indent=2, sort_keys=True)))
+            exit(1)
+
+    def write_hashes(self):
+        json.dump(self.calc_hashes(), open(str(self.basedir / 'hash.json'), 'w'), indent=2, sort_keys=True)
 
 if __name__ == '__main__':
     basicConfig(
@@ -316,6 +345,7 @@ if __name__ == '__main__':
     parser.add_argument('--sol', action='store_true', help='Solution Test')
     parser.add_argument('--html', action='store_true', help='Generate HTML')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
+    parser.add_argument('--refhash', action='store_true', help='Refresh Hash')
     parser.add_argument('--ignore-cache', action='store_true', help='Ignore cache')
     args = parser.parse_args()
 
@@ -369,10 +399,16 @@ if __name__ == '__main__':
         if not args.nogen and (args.sol or not is_already_generated or args.ignore_cache):
             problem.make_outputs(args.sol)
 
+
         if args.sol:
             problem.compile_solutions()
             for sol in problem.config.get('solutions', []):
                 problem.judge(problem.basedir / 'sol' / sol['name'], sol)
+
+        if args.refhash:
+            problem.write_hashes()
+        else:
+            problem.check_hashes()
 
         if args.html:
             problem.write_html(Path(args.htmldir)

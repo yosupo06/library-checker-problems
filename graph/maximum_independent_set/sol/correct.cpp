@@ -26,7 +26,7 @@ template <int N, class E> struct MaxClique {
     void dfs(int dps = 0) {
         if (clique.size() < now.size()) clique = now;
         auto& rem = rems[dps];
-        sort(rem.begin(), rem.end(), [&](P a, P b) { return a.deg > b.deg; });
+        stable_sort(rem.begin(), rem.end(), [&](P a, P b) { return a.deg > b.deg; });
         int max_c = 1;
         for (auto& p : rem) {
             p.col = 0;
@@ -35,7 +35,7 @@ template <int N, class E> struct MaxClique {
             col_buf[p.col].set(p.id);
         }
         for (int i = 0; i < max_c; i++) col_buf[i].reset();
-        sort(rem.begin(), rem.end(), [&](P a, P b) { return a.col < b.col; });
+        stable_sort(rem.begin(), rem.end(), [&](P a, P b) { return a.col < b.col; });
 
         while (!rem.empty()) {
             auto p = rem.back();

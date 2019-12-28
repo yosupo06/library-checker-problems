@@ -28,7 +28,7 @@ int main() {
     string s;
     {
         char* _s = nullptr;
-        scanf("%ms", &_s);
+        printf("%d\n", scanf("%ms", &_s));
         s = _s;
         free(_s);
     }

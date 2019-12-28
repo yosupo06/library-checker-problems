@@ -33,7 +33,7 @@ int main() {
   Montmort<int> mm(N, M);
   for(int i=1;i<=N;i++){
     if(i) printf(" ");
-    printf("%d\n", mm[i]);
+    printf("%d", mm[i]);
   }
   printf("\n");
   return 0;

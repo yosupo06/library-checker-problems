@@ -17,12 +17,12 @@ int main(int, char* argv[]) {
 
     printf("%d\n", n);
     for (int i = 0; i < n; i++) {
-        printf("%d\n", x[i]);
+        printf("%d ", x[i]);
         if (i != n - 1) printf(" ");
     }
     printf("\n");
     for (int i = 0; i < n; i++) {
-        printf("%d\n", y[i]);
+        printf("%d ", y[i]);
         if (i != n - 1) printf(" ");
     }
     printf("\n");

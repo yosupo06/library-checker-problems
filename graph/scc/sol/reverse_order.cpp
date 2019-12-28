@@ -101,8 +101,8 @@ int main() {
     printf("%d\n", int(scc.groups.size()));
     for (auto v: scc.groups) {
         int l = int(v.size());
-        printf("%d\n", l);
-        for (auto d: v) printf(" ") << d;
+        printf("%d", l);
+        for (auto d: v) printf(" %d", d);
         printf("\n");
     }
     return 0;

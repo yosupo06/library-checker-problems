@@ -109,9 +109,9 @@ int main() {
         sm += hungarian.le[i] + hungarian.ri[i];
     }
 
-    printf("%lld", -sm);
+    printf("%lld\n", -sm);
     for (int i = 0; i < n; i++) {
-        printf("%d\n", hungarian.perm[i]);
+        printf("%d", hungarian.perm[i]);
         if (i != n - 1) printf(" ");
     }
     printf("\n");

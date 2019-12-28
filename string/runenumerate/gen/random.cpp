@@ -13,6 +13,6 @@ int main(int, char* argv[]) {
 
     string s = gen.lower_string(n);
 
-    printf("%s", s.c_str());
+    printf("%s\n", s.c_str());
     return 0;
 }

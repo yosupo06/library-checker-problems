@@ -20,6 +20,6 @@ int main(int, char* argv[]) {
    
     string s = b;
 
-    printf("%s", s.c_str());
+    printf("%s\n", s.c_str());
     return 0;
 }

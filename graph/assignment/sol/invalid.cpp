@@ -113,7 +113,7 @@ int main() {
     printf("%lld\n", -sm);
     reverse(hungarian.perm.begin(), hungarian.perm.end());
     for (int i = 0; i < n; i++) {
-        printf("%d\n", hungarian.perm[i]);
+        printf("%d", hungarian.perm[i]);
         if (i != n - 1) printf(" ");
     }
     printf("\n");

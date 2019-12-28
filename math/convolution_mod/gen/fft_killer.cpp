@@ -26,12 +26,12 @@ int main(int, char* argv[]) {
     printf("%d %d\n", n, m);
 
     for (int i = 0; i < n; i++) {
-        printf("%d\n", a[i]);
+        printf("%d", a[i]);
         if (i != n - 1) printf(" ");
     }
     printf("\n");
     for (int i = 0; i < m; i++) {
-        printf("%d\n", b[i]);
+        printf("%d", b[i]);
         if (i != m - 1) printf(" ");
     }
     printf("\n");

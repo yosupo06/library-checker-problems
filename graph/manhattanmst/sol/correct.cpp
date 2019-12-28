@@ -43,13 +43,13 @@ template <class T> V<pair<int, int>> manhattan_mst(V<pair<T, T>> ps, T inf = num
     V<int> ids(n);
     iota(ids.begin(), ids.end(), 0);
     for (int ph = 0; ph < 4; ph++) {
-        sort(ids.begin(), ids.end(), [&](auto i, auto j) {
+        stable_sort(ids.begin(), ids.end(), [&](auto i, auto j) {
             T ixy = (ps[i].first + ps[i].second), jxy = (ps[j].first + ps[j].second);
             return tie(ixy, ps[i].second) > tie(jxy, ps[j].second);
         });
         V<T> xv;
         for (int i = 0; i < n; i++) xv.push_back(ps[i].first);
-        sort(xv.begin(), xv.end());
+        stable_sort(xv.begin(), xv.end());
         xv.erase(unique(xv.begin(), xv.end()), xv.end());
         using P = pair<T, int>;
         V<P> fen(n, P(-inf, -1));
@@ -88,7 +88,7 @@ template <class T> V<pair<int, int>> manhattan_mst(V<pair<T, T>> ps, T inf = num
         return abs(ps[i].first - ps[j].first) +
                abs(ps[i].second - ps[j].second);
     };
-    sort(edges.begin(), edges.end(), [&](auto x, auto y) {
+    stable_sort(edges.begin(), edges.end(), [&](auto x, auto y) {
         return dist(x.first, x.second) < dist(y.first, y.second);
     });
     auto uf = UnionFind(n);

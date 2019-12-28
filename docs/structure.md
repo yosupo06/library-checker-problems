@@ -33,6 +33,7 @@ problems.tomlのdirで指定されたディレクトリ以下は、以下のよ�
   - info.toml 問題の情報
   - checker.cpp 出力チェッカー
   - verifier.cpp 入力チェッカー
+  - hash.json 入出力ファイルのハッシュ
   - sol/
     - correct.cpp 想定解
     - wa.cpp
@@ -101,3 +102,17 @@ timelimit = 2.0
 
 - output checker(ユーザーの出力が条件を満たしているか確認する)
 - [https://codeforces.com/blog/entry/18431](https://codeforces.com/blog/entry/18431) に従って書かれている
+
+### aplusb/hash.json
+
+```json
+{
+  "example_00.in": "346a847f5875beb74d494de0680a81fc2ff840b12f79de30dc7ef3a798d23c28",
+  "example_00.out": "d6e0da7b83d84fac4d6a6bd11ad0b0e6ea72351748b4f6a277b9762d9d0eb159",
+  "example_01.in": "0073cf03577a737756752129cc3abcb9f5a4069c705321ee2115574cc31c59f9",
+  "example_01.out": "6f2264250160ee91b20af64f30128e3787fcf641f1c504f7ac752597e7d2cc09"
+}
+```
+
+- 上記のようなjsonファイル
+- テストケース名とそのテストケースのsha256が格納されている

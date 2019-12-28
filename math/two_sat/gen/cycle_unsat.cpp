@@ -22,8 +22,12 @@ int main(int, char* argv[]) {
     cout << n << " " << - 1 << " 0\n";
 
     // some pair, both true(= all true)
-    cout << gen.uniform(1, n) << " " << gen.uniform(1, n) << " 0\n";
+    int a = gen.uniform(1, n);
+    int b = gen.uniform(1, n);
+    cout << a << " " << b << " 0\n";
     // some pair, both false(= all false)
-    cout << gen.uniform(-n, -1) << " " << gen.uniform(-n, -1) << " 0\n";
+    a = gen.uniform(-n, -1);
+    b = gen.uniform(-n, -1);
+    cout << a << " " << b << " 0\n";
     return 0;
 }

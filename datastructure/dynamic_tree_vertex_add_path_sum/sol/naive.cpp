@@ -38,12 +38,12 @@ int main() {
     i64 q, a, b;
     scanf("%lld%lld%lld", &q, &a, &b);
     if(q == 0) {
-      i64 c;
-      scanf("%lld", &c);
+      i64 c, d;
+      scanf("%lld%lld", &c, &d);
       G[a].erase(b);
       G[b].erase(a);
-      G[b].insert(c);
-      G[c].insert(b);
+      G[c].insert(d);
+      G[d].insert(c);
     }
     else if(q == 1) {
       A[a] += b;

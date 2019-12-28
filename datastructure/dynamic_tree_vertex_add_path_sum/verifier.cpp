@@ -1,5 +1,6 @@
 #include <cassert>
 #include <utility>
+#include "params.h"
 using namespace std;
 
 struct LinkCutTree {
@@ -173,11 +174,6 @@ struct UnionFind {
     bool same(int a, int b) { return group(a) == group(b); }
 };
 
-const int N_AND_Q_MIN = 1;
-const int N_AND_Q_MAX = 200'000;
-const int A_AND_X_MIN = 0;
-const int A_AND_X_MAX = 1'000'000'000;
-
 int main() {
     registerValidation();
 
@@ -222,13 +218,15 @@ int main() {
             int v = inf.readInt(0, n - 1, "v");
             inf.readSpace();
             int w = inf.readInt(0, n - 1, "w");
+            inf.readSpace();
+            int x = inf.readInt(0, n - 1, "x");
 
             tree.evert(ns[u]);
             tree.cut(ns[v]);
 
-            ensure(!tree.same_tree(ns[v], ns[w]));
-            tree.evert(ns[v]);
-            tree.link(ns[v], ns[w]);
+            ensure(!tree.same_tree(ns[w], ns[x]));
+            tree.evert(ns[w]);
+            tree.link(ns[w], ns[x]);
         }
         else if (t == 1) {
             inf.readInt(0, n - 1, "p");

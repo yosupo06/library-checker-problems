@@ -1,14 +1,9 @@
 #include "random.h"
 #include "toptree.hpp"
+#include "../params.h"
 #include <iostream>
 
 using namespace std;
-
-
-//const int N_AND_Q_MIN = 1;
-const int N_AND_Q_MAX = 200'000;
-const int A_AND_X_MIN = 0;
-const int A_AND_X_MAX = 1'000'000'000;
 
 int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
@@ -18,7 +13,7 @@ int main(int, char* argv[]) {
     int q = N_AND_Q_MAX;
     printf("%d %d\n", n, q);
     for (int i = 0; i < n; i++) {
-        printf("%d", gen.uniform(A_AND_X_MIN, A_AND_X_MAX));
+        printf("%lld", gen.uniform(A_AND_X_MIN, A_AND_X_MAX));
         if (i != n - 1) printf(" ");
     }
     printf("\n");
@@ -53,8 +48,9 @@ int main(int, char* argv[]) {
           int u = p.first;
           int v = p.second;
           int w = tree.random_vertex(gen, u);
-          tree.link(v, w);
-          printf("%d %d %d\n", u, v, w);
+          int x = tree.random_vertex(gen, v);
+          tree.link(w, x);
+          printf("%d %d %d %d\n", u, v, w, x);
         }
         else if (t == 1) {
             int p = gen.uniform(0, n - 1);

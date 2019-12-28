@@ -681,10 +681,10 @@ int main() {
     i64 c, a, b;
     fin >> c >> a >> b;
     if(c == 0) {
-      i64 d;
-      fin >> d;
+      i64 d, e;
+      fin >> d >> e;
       cut(vs[a], vs[b]);
-      link(vs[b], vs[d], cluster::identity());
+      link(vs[d], vs[e], cluster::identity());
     }
     else if(c == 1) {
       auto node = expose(vs[a]);

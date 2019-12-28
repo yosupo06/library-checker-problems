@@ -117,9 +117,9 @@ int main() {
         sm += abs(ps[e.first].first - ps[e.second].first);
         sm += abs(ps[e.first].second - ps[e.second].second);
     }
-    cout << sm << "\n";
+    printf("%lld\n", sm);
     for (auto e: res) {
-        cout << e.first << " " << e.second << "\n";
+        printf("%d %d\n", e.first, e.second);
     }
     return 0;
 }

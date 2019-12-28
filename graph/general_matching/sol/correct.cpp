@@ -121,9 +121,9 @@ int main() {
     }
 
     int x = int(u.size());
-    cout << x << "\n";
+    printf("%d\n", x);
     for (int i = 0; i < x; i++) {
-        cout << u[i] << " " << v[i] << "\n";
+        printf("%d %d\n", u[i], v[i]);
     }
     return 0;
 }

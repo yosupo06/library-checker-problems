@@ -11,6 +11,6 @@ int main(int, char* argv[]) {
 
     ll n = gen.uniform(1LL, 1'000'000LL);
     ll m = gen.uniform(1LL, 1'000'000'000LL);
-    cout << n << " " << m << endl;
+    printf("%lld %lld\n", n, m);
     return 0;
 }

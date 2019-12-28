@@ -57,7 +57,7 @@ int main() {
                 u = parent[u];
             }
             sum += a[u];
-            cout << sum << "\n";
+            printf("%lld\n", sum);
         }
     }
     return 0;

@@ -10,12 +10,12 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     int t = 100'000;
-    cout << t << "\n";
+    printf("%d\n", t);
     for (int i = 0; i < t; i++) {
         ll p = 998244353;
         ll y = gen.uniform(0LL, p - 1);
 
-        cout << y << " " << p << endl;
+        printf("%lld %lld\n", y, p);
     }
     return 0;
 }

@@ -115,12 +115,12 @@ int main() {
     int n = 0;
     for (auto v : runexec.runs) n += int(v.size());
 
-    cout << n << endl;
+    printf("%d\n", n);
     for (int i = 0; i < m; i++) {
         auto v = runexec.runs[i];
         sort(v.begin(), v.end());
         for (auto p : v) {
-            cout << i << " " << p.first << " " << p.second << endl;
+            printf("%d %d %d\n", i, p.first, p.second);
         }
     }
     return 0;

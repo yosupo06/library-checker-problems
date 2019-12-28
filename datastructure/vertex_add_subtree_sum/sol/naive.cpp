@@ -46,7 +46,7 @@ int main() {
                 }
                 return sum;
             };
-            cout << dfs(dfs, u) << "\n";
+            printf("%lld\n", dfs(dfs, u));
         }
     }
     return 0;

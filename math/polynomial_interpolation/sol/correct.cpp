@@ -331,8 +331,8 @@ int main() {
     //assert(MultiEval<Mint>(x).query(pol) == y);
 
     for (int i = 0; i < n; i++) {
-        cout << pol.freq(i);
-        if (i + 1 != n) cout << " ";
+        printf("%d\n", pol.freq(i).v);
+        if (i + 1 != n) printf(" ");
     }
     printf("\n");
     return 0;

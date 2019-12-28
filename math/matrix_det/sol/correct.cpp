@@ -119,6 +119,6 @@ int main() {
         }
     }
     auto answer = calc_det(mat);
-    cout << answer << endl;
+    printf("%d\n", answer.v);
     return 0;
 }

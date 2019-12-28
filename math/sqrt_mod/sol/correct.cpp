@@ -107,7 +107,7 @@ int main() {
     Int Y, P;
     scanf("%lld %lld", &Y, &P);
     const vector<Int> res = modSqrt(Y, P);
-    cout << (res.empty() ? -1 : res[0]) << "\n";
+    printf("%lld\n", (res.empty() ? -1 : res[0]));
   }
   return 0;
 }

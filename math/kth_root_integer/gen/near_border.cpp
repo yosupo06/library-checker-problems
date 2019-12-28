@@ -51,7 +51,7 @@ int main(int, char* argv[]) {
     auto up = get_up();
 
     int t = gen.uniform(490'000, 500'000);
-    cout << t << "\n";
+    printf("%d\n", t);
     for (int i = 0; i < t; i++) {
         int k = gen.uniform(1, 64);
         ull x = gen.uniform(0ULL, up[k]);
@@ -62,7 +62,7 @@ int main(int, char* argv[]) {
 
         ull a = gen.uniform(lw, up);
         
-        cout << a << " " << k << "\n";
+        printf("%llu %d\n", a, k);
     }
     return 0;
 }

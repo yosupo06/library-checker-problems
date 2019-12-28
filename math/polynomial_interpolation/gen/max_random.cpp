@@ -15,15 +15,15 @@ int main(int, char* argv[]) {
         y[i] = gen.uniform(0, 998244353);
     }
 
-    cout << n << endl;
+    printf("%d\n", n);
     for (int i = 0; i < n; i++) {
-        cout << x[i];
-        if (i != n - 1) cout << " ";
+        printf("%d\n", x[i]);
+        if (i != n - 1) printf(" ");
     }
     printf("\n");
     for (int i = 0; i < n; i++) {
-        cout << y[i];
-        if (i != n - 1) cout << " ";
+        printf("%d\n", y[i]);
+        if (i != n - 1) printf(" ");
     }
     printf("\n");
     return 0;

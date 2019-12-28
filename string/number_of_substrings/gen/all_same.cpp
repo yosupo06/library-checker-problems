@@ -15,6 +15,6 @@ int main(int, char* argv[]) {
 
     string s(n, c);
 
-    cout << s << endl;
+    printf("%s", s.c_str());
     return 0;
 }

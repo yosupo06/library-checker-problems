@@ -43,7 +43,7 @@ int main() {
                     ans = min(ans, s.a * x + s.b);
                 }
             }
-            cout << (ans == INF ? "INFINITY" : to_string(ans)) << "\n";
+            printf("%s\n", (ans == INF ? "INFINITY" : to_string(ans).c_str()));
         }
     }
     return 0;

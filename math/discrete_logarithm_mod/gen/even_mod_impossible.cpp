@@ -10,13 +10,13 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     int t = 100;
-    cout << t << "\n";
+    printf("%d\n", t);
     for (int i = 0; i < t; i++) {
         int x, y, m;
         m = gen.uniform(800'000'000 / 2, 1'000'000'000 / 2) * 2;
         x = gen.uniform(0, m / 2 - 1) * 2;
         y = gen.uniform(0, m / 2 - 1) * 2 + 1;
-        cout << x << " " << y << " " << m << "\n";
+        printf("%d %d %d\n", x, y, m);
     }
     return 0;
 }

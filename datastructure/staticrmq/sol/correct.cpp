@@ -62,7 +62,7 @@ int main() {
     for (int i = 0; i < q; i++) {
         int a, b;
         scanf("%d %d", &a, &b);
-        cout << sparse_table.query(a, b) << "\n";
+        printf("%d\n", sparse_table.query(a, b));
     }
     return 0;
 }

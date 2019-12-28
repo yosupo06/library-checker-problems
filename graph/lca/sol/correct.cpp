@@ -50,7 +50,7 @@ int main() {
     for (int i = 0; i < q; i++) {
         int u, v;
         scanf("%d %d", &u, &v);
-        cout << query(u, v) << endl;
+        printf("%d\n", query(u, v));
     }
     return 0;
 }

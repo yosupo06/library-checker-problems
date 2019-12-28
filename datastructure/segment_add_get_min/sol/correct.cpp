@@ -114,7 +114,7 @@ int main() {
             tr.add({qu.a, qu.b}, qu.l, qu.r);
         } else {
             ll ans = tr.query(qu.p);
-            cout << (ans == INF ? "INFINITY" : to_string(ans)) << "\n";
+            printf("%s\n", (ans == INF ? "INFINITY" : to_string(ans).c_str()));
         }
     }
     return 0;

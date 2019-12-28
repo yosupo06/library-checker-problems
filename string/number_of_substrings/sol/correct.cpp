@@ -145,6 +145,6 @@ int main() {
     for (auto d : sa.lcp) {
         sm -= d;
     }
-    cout << sm << endl;
+    printf("%lld\n", sm);
     return 0;
 }

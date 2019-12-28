@@ -16,11 +16,11 @@ int main(int, char* argv[]) {
         a[i][p[i]] = gen.uniform(0, 998244353 - 1);
     }
 
-    cout << n << endl;
+    printf("%d\n", n);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            cout << a[i][j];
-            if (j + 1 != n) cout << " ";
+            printf("%d", a[i][j]);
+            if (j + 1 != n) printf(" ");
         }
         printf("\n");
     }

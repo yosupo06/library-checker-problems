@@ -52,7 +52,7 @@ int main() {
     for (int i = 0; i < t; i++) {
         ll n, m, a, b;
         scanf("%lld %lld %lld %lld", &n, &m, &a, &b);
-        cout << sum_of_floor(n, m, a, b) << "\n";
+        printf("%lld\n", sum_of_floor(n, m, a, b));
     }
     return 0;
 }

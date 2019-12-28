@@ -432,6 +432,6 @@ int main() {
         edges[a].push_back({b, c});
     }
     auto answer = sparse_det(edges);
-    cout << answer << endl;
+    printf("%d\n", answer.v);
     return 0;
 }

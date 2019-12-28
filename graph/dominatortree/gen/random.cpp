@@ -17,12 +17,12 @@ int main(int, char* argv[]) {
     int m = gen.uniform(0, n - 1);
     int s = gen.uniform(0, n - 1);
 
-    cout << n << " " << m << " " << s << endl;
+    printf("%d %d %d\n", n, m, s);
 
     for (int i = 0; i < m; i++) {
         int a = gen.uniform(0, n - 1);
         int b = gen.uniform(0, n - 1);
-        cout << a << " " << b << "\n";
+        printf("%d %d\n", a, b);
     }
 
     return 0;

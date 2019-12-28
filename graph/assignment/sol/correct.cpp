@@ -109,10 +109,10 @@ int main() {
         sm += hungarian.le[i] + hungarian.ri[i];
     }
 
-    cout << -sm << endl;
+    printf("%lld", -sm);
     for (int i = 0; i < n; i++) {
-        cout << hungarian.perm[i];
-        if (i != n - 1) cout << " ";
+        printf("%d\n", hungarian.perm[i]);
+        if (i != n - 1) printf(" ");
     }
     printf("\n");
     return 0;

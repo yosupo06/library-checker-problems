@@ -9,8 +9,6 @@ using ll = long long;
 const ll MOD = 998244353;
 
 int main() {
-    constexpr char endl = '\n';
-
     int q;
     scanf("%d", &q);
 
@@ -33,7 +31,7 @@ int main() {
                 tie(a, b) = que[i];
                 x = (a * x + b) % MOD;
             }
-            cout << x << endl;
+            printf("%lld\n", x);
         }
     }
     return 0;

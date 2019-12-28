@@ -205,7 +205,7 @@ int main() {
             hl.get_path(lca, v, [&](int a, int b) {
                 sm += fw.sum(a, b + 1);
             });
-            cout << sm << "\n";
+            printf("%lld\n", sm);
         }
     }
     return 0;

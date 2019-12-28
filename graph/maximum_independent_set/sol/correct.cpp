@@ -96,10 +96,10 @@ int main() {
 
     
     int x = int(answer.size());
-    cout << x << endl;
+    printf("%d\n", x);
     for (int i = 0; i < x; i++) {
-        cout << answer[i];
-        if (i != x - 1) cout << " ";
+        printf("%d\n", answer[i]);
+        if (i != x - 1) printf(" ");
     }
     printf("\n");
     return 0;

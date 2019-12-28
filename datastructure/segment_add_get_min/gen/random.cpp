@@ -12,7 +12,7 @@ int main(int, char* argv[]) {
 
     int n = gen.uniform(N_AND_Q_MIN, N_AND_Q_MAX);
     int q = gen.uniform(N_AND_Q_MIN, N_AND_Q_MAX);
-    cout << n << " " << q << "\n";
+    printf("%d %d\n", n, q);
     for (int i = 0; i < n; i++) {
         int l, r;
         do {
@@ -21,11 +21,11 @@ int main(int, char* argv[]) {
         } while (l >= r);
         int a = gen.uniform(-A_ABS_MAX, A_ABS_MAX);
         ll b = gen.uniform(-B_ABS_MAX, B_ABS_MAX);
-        cout << l << " " << r << " " << a << " " << b << "\n";
+        printf("%d %d %d %lld\n", l, r, a, b);
     }
     for (int i = 0; i < q; i++) {
         int t = gen.uniform(0, 1);
-        cout << t << " ";
+        printf("%d ", t);
         if (t == 0) {
             int l, r;
             do {
@@ -34,10 +34,10 @@ int main(int, char* argv[]) {
             } while (l >= r);
             int a = gen.uniform(-A_ABS_MAX, A_ABS_MAX);
             ll b = gen.uniform(-B_ABS_MAX, B_ABS_MAX);
-            cout << l << " " << r << " " << a << " " << b << "\n";
+            printf("%d %d %d %lld\n", l, r, a, b);
         } else {
             int p = gen.uniform(-A_ABS_MAX, A_ABS_MAX);
-            cout << p << "\n";
+            printf("%d\n", p);
         }
     }
     return 0;

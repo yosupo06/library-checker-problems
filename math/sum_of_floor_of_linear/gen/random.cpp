@@ -10,14 +10,14 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     int t = gen.uniform(1, 100'000);
-    cout << t << "\n";
+    printf("%d\n", t);
     for (int i = 0; i < t; i++) {
         int n = gen.uniform(1, 1'000'000'000);
         int m = gen.uniform(1, 1'000'000'000);
         int a = gen.uniform(0, m - 1);
         int b = gen.uniform(0, m - 1);
 
-        cout << n << " " << m << " " << a << " " << b << "\n";
+        printf("%d %d %d %d\n", n, m, a, b);
     }
     return 0;
 }

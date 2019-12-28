@@ -43,7 +43,7 @@ int main() {
         if (ty == 0) {
             uf.merge(a, b);
         } else {
-            cout << uf.same(a, b) << "\n";
+            printf("%d\n", int(uf.same(a, b)));
         }
     }
     return 0;

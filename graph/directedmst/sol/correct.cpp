@@ -198,10 +198,10 @@ int main() {
 
     auto res = directedMST(g, s);
 
-    cout << res.cost << endl;
+    printf("%lld\n", res.cost);
     for (int i = 0; i < n; i++) {
-        cout << (i == s ? s : res.res[i].from);
-        if (i != n - 1) cout << " ";
+        printf("%d", (i == s ? s : res.res[i].from));
+        if (i != n - 1) printf(" ");
     }
     printf("\n");
 

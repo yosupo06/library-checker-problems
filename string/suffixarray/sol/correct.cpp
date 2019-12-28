@@ -142,8 +142,8 @@ int main() {
     SA<string> sa(s, sa_is(s));
     int n = int(s.size());
     for (int i = 1; i <= n; i++) {
-        cout << sa.sa[i];
-        if (i != n) cout << " ";
+        printf("%d", sa.sa[i]);
+        if (i != n) printf(" ");
     }
     printf("\n");
     return 0;

@@ -11,10 +11,10 @@ int main(int, char* argv[]) {
 
     int n = gen.uniform(2, 500'000);
     int q = gen.uniform(1, 500'000);
-    cout << n << " " << q << "\n";
+    printf("%d %d\n", n, q);
     for (int i = 1; i < n; i++) {
-        cout << gen.uniform(0, i - 1);
-        if (i != n - 1) cout << " ";
+        printf("%d", gen.uniform(0, i - 1));
+        if (i != n - 1) printf(" ");
     }
     printf("\n");
     for (int i = 0; i < q; i++) {
@@ -23,7 +23,7 @@ int main(int, char* argv[]) {
             u = gen.uniform(0, n - 1);
             v = gen.uniform(0, n - 1);
         } while (!(u < v));
-        cout << u << " " << v << endl;
+        printf("%d %d\n", u, v);
     }
     return 0;
 }

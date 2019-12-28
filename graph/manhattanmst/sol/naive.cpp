@@ -67,9 +67,9 @@ int main() {
         sm += e.dist;        
     }
 
-    cout << sm << "\n";
+    printf("%lld\n", sm);
     for (auto e: tr) {
-        cout << e.u << " " << e.v << "\n";
+        printf("%d %d\n", e.u, e.v);
     }
     return 0;
 }

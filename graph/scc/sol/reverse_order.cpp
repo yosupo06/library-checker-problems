@@ -98,11 +98,11 @@ int main() {
     auto scc = get_scc(g);
 
     reverse(scc.groups.begin(), scc.groups.end()); // !!Incorrect!!
-    cout << scc.groups.size() << endl;
+    printf("%d\n", int(scc.groups.size()));
     for (auto v: scc.groups) {
         int l = int(v.size());
-        cout << l;
-        for (auto d: v) cout << " " << d;
+        printf("%d\n", l);
+        for (auto d: v) printf(" ") << d;
         printf("\n");
     }
     return 0;

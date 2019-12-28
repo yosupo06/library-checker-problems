@@ -24,17 +24,17 @@ int main(int, char* argv[]) {
         b[i] = gen.uniform(0, 998244353 - 1);
     }
 
-    cout << n << " " << m << endl;
+    printf("%d %d\n", n, m);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            cout << a[i][j];
-            if (j + 1 != m) cout << " ";
+            printf("%d", a[i][j]);
+            if (j + 1 != m) printf(" ");
         }
         printf("\n");
     }
     for (int i = 0; i < n; i++) {
-        cout << b[i];
-        if (i + 1 != n) cout << " ";
+        printf("%d", b[i]);
+        if (i + 1 != n) printf(" ");
     }
     printf("\n");
 

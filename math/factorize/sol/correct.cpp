@@ -103,8 +103,8 @@ int main() {
         scanf("%lld", &a);
         auto v = pollard(a);
         sort(v.begin(), v.end());
-        cout << int(v.size());
-        for (auto d: v) cout << " " << d;
+        printf("%d\n", int(v.size()));
+        for (auto d: v) printf(" ") << d;
         printf("\n");
     }
     return 0;

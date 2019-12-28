@@ -153,17 +153,17 @@ int main() {
     }
     auto answer = solve_linear(mat, vec);
     if (answer.empty()) {
-        cout << -1 << endl;
+        printf("-1");
         return 0;
     }
 
-    cout << answer.size() - 1 << endl;
+    printf("%d\n", int(answer.size()) - 1);
 
     for (auto v: answer) {
         assert(int(v.size()) == m);
         for (int i = 0; i < m; i++) {
-            cout << v[i];
-            if (i != m - 1) cout << " ";
+            printf("%d\n", v[i].v);
+            if (i != m - 1) printf(" ");
         }
         printf("\n");
     }

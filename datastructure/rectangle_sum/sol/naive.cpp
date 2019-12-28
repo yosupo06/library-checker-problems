@@ -31,7 +31,7 @@ int main() {
                 sm += w[i];
             }
         }
-        cout << sm << "\n";
+        printf("%lld\n", sm);
     }
     return 0;
 }

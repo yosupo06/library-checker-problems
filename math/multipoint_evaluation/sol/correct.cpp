@@ -283,8 +283,8 @@ int main() {
     auto answer = multi_eval.query(pol);
 
     for (int i = 0; i < m; i++) {
-        cout << answer[i];
-        if (i + 1 != m) cout << " ";
+        printf("%d\n", answer[i].v);
+        if (i + 1 != m) printf(" ");
     }
     printf("\n");
     return 0;

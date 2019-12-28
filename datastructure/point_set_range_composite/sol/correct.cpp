@@ -92,7 +92,7 @@ int main() {
             ll x;
             scanf("%d %d %lld", &l, &r, &x);
             auto f = segtree.sum(l, r);
-            cout << (f.a * x + f.b) % MOD << "\n";
+            printf("%lld\n", (f.a * x + f.b) % MOD);
         }
     }
     return 0;

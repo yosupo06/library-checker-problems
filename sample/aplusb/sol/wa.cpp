@@ -13,6 +13,6 @@ int main() {
 
     int a, b;
     scanf("%d %d", &a, &b);
-    cout << (a + b) / 2 * 2 << endl;
+    printf("%d\n", (a + b) / 2 * 2);
     return 0;
 }

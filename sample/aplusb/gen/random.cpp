@@ -12,6 +12,6 @@ int main(int, char* argv[]) {
     int a = gen.uniform(0, 1000000000);
     int b = gen.uniform(0, 1000000000);
     
-    cout << a << " " << b << endl;
+    printf("%d %d\n", a, b);
     return 0;
 }

@@ -12,12 +12,12 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     int t = gen.uniform(1, 500'000);
-    cout << t << "\n";
+    printf("%d\n", t);
     for (int i = 0; i < t; i++) {
         ull a = gen.uniform(0ULL, numeric_limits<ull>::max());
         int k = gen.uniform(1, 64);
 
-        cout << a << " " << k << "\n";
+        printf("%llu %d\n", a, k);
     }
     return 0;
 }

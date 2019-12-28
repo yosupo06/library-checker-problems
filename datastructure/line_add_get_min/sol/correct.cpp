@@ -96,7 +96,7 @@ int main() {
             // add
             tr.add({qu.a, qu.b});
         } else {
-            cout << tr.query(qu.p) << "\n";
+            printf("%lld\n", tr.query(qu.p));
         }
     }
     return 0;

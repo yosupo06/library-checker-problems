@@ -44,7 +44,7 @@ int main() {
     for (int i = 0; i < t; i++) {
         ull a; int k;
         scanf("%llu %d", &a, &k);
-        cout << solve(a, k) << "\n";
+        printf("%llu\n", solve(a, k));
     }
     return 0;
 }

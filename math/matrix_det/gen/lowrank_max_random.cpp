@@ -48,11 +48,11 @@ int main(int, char* argv[]) {
     }
     gen.shuffle(a.begin(), a.end());
 
-    cout << n << endl;
+    printf("%d\n", n);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            cout << a[i][j];
-            if (j + 1 != n) cout << " ";
+            printf("%lld", a[i][j]);
+            if (j + 1 != n) printf(" ");
         }
         printf("\n");
     }

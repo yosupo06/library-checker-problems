@@ -86,7 +86,7 @@ int main() {
         } else {
             int u;
             scanf("%d", &u);
-            cout << fw.sum(lord[u], rord[u]) << "\n";
+            printf("%lld\n", fw.sum(lord[u], rord[u]));
         }
     }
     return 0;

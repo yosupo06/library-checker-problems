@@ -18,11 +18,11 @@ int main(int, char* argv[]) {
     }
 
 
-    cout << n << endl;
+    printf("%d\n", n);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            cout << a[i][j];
-            if (j != n - 1) cout << " ";
+            printf("%d", a[i][j]);
+            if (j != n - 1) printf(" ");
         }
         printf("\n");
     }

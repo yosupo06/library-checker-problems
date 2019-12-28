@@ -10,11 +10,11 @@ int main(int, char* argv[]) {
 
     int n = gen.uniform(1, 10);
 
-    cout << n << endl;
+    printf("%d\n", n);
     for (int i = 0; i < n; i++) {
         int x = gen.uniform(0, 30);
         int y = gen.uniform(0, 30);
-        cout << x << " " << y << "\n";
+        printf("%d %d\n", x, y);
     }
     return 0;
 }

@@ -8,11 +8,11 @@ int main() {
 
     int l = 10;
     int t = l * l * l;
-    cout << t << "\n";
+    printf("%d\n", t);
     for (int a = 0; a < l; a++) {
         for (int b = 0; b < l; b++) {
             for (int m = 1; m <= l; m++) {
-                cout << a << " " << b << " " << m << "\n";
+                printf("%d %d %d\n", a, b, m);
             }
         }
     }

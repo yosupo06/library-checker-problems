@@ -19,16 +19,16 @@ int main(int, char* argv[]) {
         b[i] = gen.uniform(0, 998244353);
     }
 
-    cout << n << " " << m << endl;
+    printf("%d %d\n", n, m);
 
     for (int i = 0; i < n; i++) {
-        cout << a[i];
-        if (i != n - 1) cout << " ";
+        printf("%d", a[i]);
+        if (i != n - 1) printf(" ");
     }
     printf("\n");
     for (int i = 0; i < m; i++) {
-        cout << b[i];
-        if (i != m - 1) cout << " ";
+        printf("%d", b[i]);
+        if (i != m - 1) printf(" ");
     }
     printf("\n");
     return 0;

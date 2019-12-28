@@ -56,7 +56,7 @@ int main() {
         } else {
             ll l, r;
             scanf("%lld %lld", &l, &r);
-            cout << fw.sum(l, r) << "\n";
+            printf("%lld\n", fw.sum(l, r));
         }
     }
     return 0;

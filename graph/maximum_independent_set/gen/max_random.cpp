@@ -26,9 +26,9 @@ int main(int, char* argv[]) {
     gen.shuffle(edges.begin(), edges.end());
     edges.resize(m);
 
-    cout << n << " " << m << "\n";
+    printf("%d %d\n", n, m);
     for (int i = 0; i < m; i++) {
-        cout << edges[i].first << " " << edges[i].second << "\n";
+        printf("%d %d\n", edges[i].first, edges[i].second);
     }
     return 0;
 }

@@ -85,17 +85,17 @@ int main(int, char* argv[]) {
         }
     }
 
-    cout << n << " " << m << endl;
+    printf("%d %d\n", n, m);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            cout << a[i][j];
-            if (j != m - 1) cout << " ";
+            printf("%lld", a[i][j]);
+            if (j != m - 1) printf(" ");
         }
         printf("\n");
     }
     for (int i = 0; i < n; i++) {
-        cout << b[i];
-        if (i != n - 1) cout << " ";
+        printf("%lld", b[i]);
+        if (i != n - 1) printf(" ");
     }
     printf("\n");
     return 0;

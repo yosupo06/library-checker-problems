@@ -11,10 +11,10 @@ int main(int, char* argv[]) {
 
     int n = gen.uniform(1, 500'000);
     
-    cout << n << endl;
+    printf("%d\n", n);
     for (int i = 0; i < n; i++) {
-        cout << 0;
-        if (i != n - 1) cout << " ";
+        printf("%d\n", 0);
+        if (i != n - 1) printf(" ");
     }
     printf("\n");
     return 0;

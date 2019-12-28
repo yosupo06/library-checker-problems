@@ -37,7 +37,7 @@ int main() {
             for (auto l : lines) {
                 ans = min(ans, l.first * x + l.second);
             }
-            cout << ans << "\n";
+            printf("%lld\n", ans);
         }
     }
     return 0;

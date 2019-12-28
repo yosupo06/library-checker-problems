@@ -13,6 +13,6 @@ int main() {
 
     int a, b;
     scanf("%d %d", &a, &b);
-    cout << a + b << endl;
+    printf("%d\n", a + b);
     return 0;
 }

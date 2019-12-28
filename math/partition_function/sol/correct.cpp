@@ -257,8 +257,8 @@ int main() {
     pol = pol.exp(n + 1);
 
     for (int i = 0; i <= n; i++) {
-        cout << pol.freq(i);
-        if (i != n) cout << " ";
+        printf("%d\n", pol.freq(i).v);
+        if (i != n) printf(" ");
     }
     printf("\n");
     return 0;

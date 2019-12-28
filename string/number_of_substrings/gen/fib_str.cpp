@@ -20,6 +20,6 @@ int main(int, char* argv[]) {
    
     string s = b;
 
-    cout << s << endl;
+    printf("%s", s.c_str());
     return 0;
 }

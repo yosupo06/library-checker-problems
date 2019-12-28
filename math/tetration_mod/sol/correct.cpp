@@ -65,7 +65,7 @@ int main() {
   for (int caseId = 0; caseId < numCases; ++caseId) {
     long long A, B, M;
     scanf("%lld %lld %lld", &A, &B, &M);
-    cout << tetration(A, B, M) << "\n";
+    printf("%lld\n", tetration(A, B, M));
   }
   return 0;
 }

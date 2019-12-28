@@ -45,8 +45,6 @@ template <class D, class Op> struct SWAG {
 const ll MOD = 998244353;
 
 int main() {
-    constexpr char endl = '\n';
-
     int q;
     scanf("%d", &q);
 
@@ -73,7 +71,7 @@ int main() {
             ll x;
             scanf("%lld", &x);
             F f = swag.sum();
-            cout << (f.a * x + f.b) % MOD << endl;
+            printf("%lld\n", (f.a * x + f.b) % MOD);
         }
     }
     return 0;

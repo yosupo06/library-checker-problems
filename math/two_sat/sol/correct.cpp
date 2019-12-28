@@ -137,14 +137,14 @@ int main() {
     }
 
     if (sat.exec()) {
-        cout << "s SATISFIABLE" << endl;
-        cout << "v";
+        printf("s SATISFIABLE\n");
+        printf("v");
         for (int i = 0; i < n; i++) {
-            cout << " " << (sat.res[i] ? i + 1 : - (i + 1));
+            printf(" %d", sat.res[i] ? i + 1 : - (i + 1));
         }
-        cout << " 0" << endl;
+        printf(" 0\n");
     } else {
-        cout << "s UNSATISFIABLE" << endl;
+        printf("s UNSATISFIABLE\n");
     }
     return 0;
 }

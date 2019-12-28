@@ -112,8 +112,8 @@ int main() {
     domi.idom[s] = s;
 
     for (int i = 0; i < n; i++) {
-        cout << domi.idom[i];
-        if (i != n - 1) cout << " ";
+        printf("%d\n", domi.idom[i]);
+        if (i != n - 1) printf(" ");
     }
     printf("\n");
     return 0;

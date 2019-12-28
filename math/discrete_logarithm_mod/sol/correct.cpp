@@ -66,7 +66,7 @@ int main() {
     for (int i = 0; i < t; i++) {
         ll x, y, m;
         scanf("%lld %lld %lld", &x, &y, &m);
-        cout << discrete_logarithm(x, y, m) << "\n";
+        printf("%lld\n", discrete_logarithm(x, y, m));
     }
     return 0;
 }

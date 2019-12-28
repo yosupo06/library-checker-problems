@@ -81,6 +81,6 @@ int main() {
         }
     }
 
-    for (auto x: res) cout << x << "\n";
+    for (auto x: res) printf("%lld\n", x);
     return 0;
 }

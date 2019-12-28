@@ -10,23 +10,23 @@ int main(int, char* argv[]) {
 
     int n = gen.uniform(1, 500'000);
     int q = gen.uniform(1, 500'000);
-    cout << n << " " << q << "\n";
+    printf("%d %d\n", n, q);
     for (int i = 0; i < n; i++) {
-        cout << gen.uniform(0, 1'000'000'000);
-        if (i != n - 1) cout << " ";
+        printf("%d", gen.uniform(0, 1'000'000'000));
+        if (i != n - 1) printf(" ");
     }
     printf("\n");
     for (int i = 0; i < q; i++) {
         int t = gen.uniform(0, 1);
-        cout << t << " ";
+        printf("%d ", t);
         if (t == 0) {
             int p = gen.uniform(0, n - 1);
             int x = gen.uniform(0, 1'000'000'000);
-            cout << p << " " << x << "\n";
+            printf("%d %d\n", p, x);
         } else {
             auto p = gen.uniform_pair(0, n - 1);
             p.second++;
-            cout << p.first << " " << p.second << "\n";
+            printf("%d %d\n", p.first, p.second);
         }
     }
     return 0;

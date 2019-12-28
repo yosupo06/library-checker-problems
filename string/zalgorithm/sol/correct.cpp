@@ -36,8 +36,8 @@ int main() {
     auto z = z_algo(s);
 
     for (int i = 0; i < n; i++) {
-        cout << z[i];
-        if (i + 1 != n) cout << " ";
+        printf("%d", z[i]);
+        if (i + 1 != n) printf(" ");
     }
     printf("\n");
 

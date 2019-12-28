@@ -106,12 +106,12 @@ int main() {
 
     auto mf = get_mf(g, sv, tv, 0);
 
-    cout << mf.flow << endl;
+    printf("%d\n", mf.flow);
     for (int i = 0; i < L; i++) {
         for (auto e: g[i]) {
             if (!(L <= e.to && e.to < L + R)) continue;
             if (e.cap) continue;
-            cout << i << " " << e.to - L << endl;
+            printf("%d %d\n", i, e.to - L);
         }
     }
     return 0;

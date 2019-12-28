@@ -31,9 +31,9 @@ int main(int, char *argv[]) {
         c[i] = gen.uniform(1, 998244353 - 1);
     }
 
-    cout << n << " " << k << endl;
+    printf("%d %d\n", n, k);
     for (int i = 0; i < k; i++) {
-        cout << a[i] << " " << b[i] << " " << c[i] << endl;
+        printf("%d %d %d\n", a[i], b[i], c[i]);
     }
     return 0;
 }

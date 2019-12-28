@@ -37,9 +37,9 @@ int main(int, char* argv[]) {
     }
     gen.shuffle(ps.begin(), ps.end());
 
-    cout << n << endl;
+    printf("%d\n", n);
     for (int i = 0; i < n; i++) {
-        cout << ps[i].first << " " << ps[i].second << "\n";
+        printf("%d %d\n", ps[i].first, ps[i].second);
     }
     return 0;
 }

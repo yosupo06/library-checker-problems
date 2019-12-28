@@ -283,7 +283,7 @@ int main() {
     auto answer = multi_eval.query(pol);
 
     for (int i = 0; i < m; i++) {
-        printf("%d\n", answer[i].v);
+        printf("%d", answer[i].v);
         if (i + 1 != m) printf(" ");
     }
     printf("\n");

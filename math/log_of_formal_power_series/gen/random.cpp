@@ -10,7 +10,7 @@ int main(int, char* argv[]) {
 
     int n = gen.uniform(1, 500'000);
 
-    printf("%d", n);
+    printf("%d\n", n);
 
     printf("1");
     for (int i = 1; i < n; i++) {

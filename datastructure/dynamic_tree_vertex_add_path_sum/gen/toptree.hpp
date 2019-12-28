@@ -91,6 +91,9 @@ namespace niu {
 
   enum class Type { Compress, Rake, Edge, None };
 
+  static std::size_t ni = 0;
+  extern node ns[1010101];
+
   class node {
     node* ch[2];
     node* par;
@@ -111,7 +114,8 @@ namespace niu {
 
 
     static node* new_edge(vertex v, vertex u, cluster val) {
-      node* n = new node;
+      //node* n = new node();
+      node* n = ns + (ni++);
       n->v[0] = v;
       n->v[1] = u;
       n->fo = val;
@@ -124,7 +128,8 @@ namespace niu {
     }
 
     static node* new_compress(node* left, node* right) {
-      node* n = new node();
+      //node* n = new node();
+      node* n = ns + (ni++);
       n->ch[0] = left;
       n->ch[1] = right;
       n->me = n;
@@ -134,7 +139,8 @@ namespace niu {
     }
 
     static node* new_rake(node* left, node* right) {
-      node * n = new node();
+      //node * n = new node();
+      node* n = ns + (ni++);
       n->ch[0] = left;
       n->ch[1] = right;
       n->me = n;
@@ -584,6 +590,25 @@ namespace niu {
     bring(root);
   }
 
+  cluster path_query(vertex v, vertex u) {
+    soft_expose(v, u);
+    node* root = v.handle();
+    root->push();
+    if(root->endpoint(0) == v && root->endpoint(1) == u) {
+      return root->fold();
+    }
+    else if(root->endpoint(0) == v) {
+      return root->child(0)->fold();
+    }
+    else if(root->endpoint(1) == u) {
+      return root->child(1)->fold();
+    }
+    else {
+      root->child(1)->push();
+      return root->child(1)->child(0)->fold();
+    }
+  }
+
   node* rand_select_rake(Random& gen, node* rake) {
     rake->push();
     while(rake->type() == Type::Rake) {
@@ -646,7 +671,20 @@ namespace niu {
     }
     return { n->endpoint(0), n->endpoint(1) };
   }
+
+  node* node_root(node* n) {
+    if(n->parent()) {
+      return node_root(n->parent());
+    }
+    else {
+      return n;
+    }
+  }
+
+
+  node ns[1010101];
 }
+
 
 #include <vector>
 
@@ -664,6 +702,7 @@ public:
   }
 
   void link(int u, int v) {
+    assert(niu::node_root(vs[u].handle()) != niu::node_root(vs[v].handle()));
     niu::link(vs[u], vs[v], niu::cluster::identity());
     edges.push_back(std::pair<int, int>(u, v));
   }

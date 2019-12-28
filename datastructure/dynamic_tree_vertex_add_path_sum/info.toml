@@ -5,6 +5,14 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/125"
     name = "small.cpp"
     number = 3
 
+[[tests]]
+    name = "random.cpp"
+    number = 5
+
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+
 [[solutions]]
     name = "naive.cpp"
     wrong = true

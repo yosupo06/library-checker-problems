@@ -103,7 +103,7 @@ int main() {
         int l = int(v.size());
         cout << l;
         for (auto d: v) cout << " " << d;
-        cout << "\n";
+        printf("\n");
     }
     return 0;
 }

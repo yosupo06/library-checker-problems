@@ -18,7 +18,7 @@ int main(int, char *argv[])
         if (i != n - 1)
             cout << " ";
     }
-    cout << "\n";
+    printf("\n");
 
     for (int i = 1; i < n; i++)
     {
@@ -26,7 +26,7 @@ int main(int, char *argv[])
         if (i != n - 1)
             cout << " ";
     }
-    cout << "\n";
+    printf("\n");
 
     for (int i = 0; i < q; i++)
     {

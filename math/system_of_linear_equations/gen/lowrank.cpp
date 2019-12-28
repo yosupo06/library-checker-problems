@@ -91,12 +91,12 @@ int main(int, char* argv[]) {
             cout << a[i][j];
             if (j != m - 1) cout << " ";
         }
-        cout << "\n";
+        printf("\n");
     }
     for (int i = 0; i < n; i++) {
         cout << b[i];
         if (i != n - 1) cout << " ";
     }
-    cout << "\n";
+    printf("\n");
     return 0;
 }

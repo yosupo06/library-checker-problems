@@ -14,10 +14,10 @@ int main(int, char* argv[]) {
     int q = gen.uniform(1, 200000);
     cout << n << " " << q << "\n";
     for (int i = 0; i < q; i++) {
-        cout
-        << gen.uniform_bool() << " "
-        << gen.uniform(0, n - 1) << " "
-        << gen.uniform(0, n - 1) << "\n";
+        int ty = gen.uniform_bool();
+        int a = gen.uniform(0, n - 1);
+        int b = gen.uniform(0, n - 1);
+        cout << ty << " " << a << " " << b << "\n";
     }
     return 0;
 }

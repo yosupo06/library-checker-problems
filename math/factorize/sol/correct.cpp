@@ -103,7 +103,7 @@ int main() {
         scanf("%lld", &a);
         auto v = pollard(a);
         sort(v.begin(), v.end());
-        printf("%d\n", int(v.size()));
+        printf("%d", int(v.size()));
         for (auto d: v) printf(" %lld", d);
         printf("\n");
     }

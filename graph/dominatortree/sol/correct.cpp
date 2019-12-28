@@ -94,17 +94,15 @@ Dominator get_dominator(const VV<E>& _g, const VV<E>& _rg, int s) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, m, s;
-    cin >> n >> m >> s;
+    scanf("%d %d %d", &n, &m, &s);
 
     struct E { int to; };
     VV<E> g(n), rg(n);
     for (int i = 0; i < m; i++) {
         int a, b;
-        cin >> a >> b;
+        scanf("%d %d", &a, &b);
         g[a].push_back({b});
         rg[b].push_back({a});
     }
@@ -114,9 +112,9 @@ int main() {
     domi.idom[s] = s;
 
     for (int i = 0; i < n; i++) {
-        cout << domi.idom[i];
-        if (i != n - 1) cout << " ";
+        printf("%d", domi.idom[i]);
+        if (i != n - 1) printf(" ");
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

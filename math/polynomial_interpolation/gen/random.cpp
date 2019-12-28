@@ -4,8 +4,6 @@
 using namespace std;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
@@ -17,16 +15,16 @@ int main(int, char* argv[]) {
         y[i] = gen.uniform(0, 998244353);
     }
 
-    cout << n << endl;
+    printf("%d\n", n);
     for (int i = 0; i < n; i++) {
-        cout << x[i];
-        if (i != n - 1) cout << " ";
+        printf("%d", x[i]);
+        if (i != n - 1) printf(" ");
     }
-    cout << endl;
+    printf("\n");
     for (int i = 0; i < n; i++) {
-        cout << y[i];
-        if (i != n - 1) cout << " ";
+        printf("%d", y[i]);
+        if (i != n - 1) printf(" ");
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

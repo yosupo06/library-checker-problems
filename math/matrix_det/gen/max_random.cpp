@@ -4,8 +4,6 @@
 using namespace std;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     long long seed = atoll(argv[1]);
@@ -19,13 +17,13 @@ int main(int, char* argv[]) {
         }
     }
 
-    cout << n << endl;
+    printf("%d\n", n);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            cout << a[i][j];
-            if (j + 1 != n) cout << " ";
+            printf("%d", a[i][j]);
+            if (j + 1 != n) printf(" ");
         }
-        cout << endl;
+        printf("\n");
     }
     return 0;
 }

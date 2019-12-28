@@ -11,22 +11,20 @@ template <class T> using V = vector<T>;
 template <class T> using VV = V<V<T>>;
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
 
     assert(ll(n) * q <= TEN(7));
 
     V<ll> a(n);
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
+        scanf("%lld", &a[i]);
     }
     auto g = VV<int>(n);
     for (int i = 0; i < n - 1; i++) {
         int a, b;
-        cin >> a >> b;
+        scanf("%d %d", &a, &b);
         g[a].push_back(b);
         g[b].push_back(a);
     }
@@ -44,14 +42,14 @@ int main() {
 
     for (int i = 0; i < q; i++) {
         int ty;
-        cin >> ty;
+        scanf("%d", &ty);
         if (ty == 0) {
             int p; ll x;
-            cin >> p >> x;
+            scanf("%d %lld", &p, &x);
             a[p] += x;
         } else {
             int u, v;
-            cin >> u >> v;
+            scanf("%d %d", &u, &v);
             ll sum = 0;
             while (u != v) {
                 if (depth[u] < depth[v]) swap(u, v);
@@ -59,7 +57,7 @@ int main() {
                 u = parent[u];
             }
             sum += a[u];
-            cout << sum << "\n";
+            printf("%lld\n", sum);
         }
     }
     return 0;

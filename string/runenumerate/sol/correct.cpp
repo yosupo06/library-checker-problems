@@ -100,12 +100,11 @@ struct RunExec {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-
-
+    static char buf[1'000'000];
     string s;
-    cin >> s;
+    scanf("%s", buf);
+    s = buf;
+
     V<int> _s;
     for (char c : s) _s.push_back(c);
     RunExec runexec(_s);
@@ -113,12 +112,12 @@ int main() {
     int n = 0;
     for (auto v : runexec.runs) n += int(v.size());
 
-    cout << n << endl;
+    printf("%d\n", n);
     for (int i = 0; i < m; i++) {
         auto v = runexec.runs[i];
         sort(v.begin(), v.end());
         for (auto p : v) {
-            cout << i << " " << p.first << " " << p.second << endl;
+            printf("%d %d %d\n", i, p.first, p.second);
         }
     }
     return 0;

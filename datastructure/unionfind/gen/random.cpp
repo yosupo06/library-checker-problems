@@ -4,20 +4,18 @@
 using namespace std;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
     int n = gen.uniform(1, 200000);
     int q = gen.uniform(1, 200000);
-    cout << n << " " << q << "\n";
+    printf("%d %d\n", n, q);
     for (int i = 0; i < q; i++) {
         int ty = gen.uniform_bool();
         int a = gen.uniform(0, n - 1);
         int b = gen.uniform(0, n - 1);
-        cout << ty << " " << a << " " << b << "\n";
+        printf("%d %d %d\n", ty, a, b);
     }
     return 0;
 }

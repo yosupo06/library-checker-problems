@@ -110,19 +110,17 @@ struct TwoSat {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-
-    string dummy;
-    cin >> dummy >> dummy;
+    static char buf[1'000'000];
+    scanf("%s", buf);
+    scanf("%s", buf);
 
     int n, m;
-    cin >> n >> m;
+    scanf("%d %d", &n, &m);
 
     TwoSat sat(n);
     for (int i = 0; i < m; i++) {
         int a, b, zero;
-        cin >> a >> b >> zero;
+        scanf("%d %d %d", &a, &b, &zero);
 
         bool a_pos = a > 0, b_pos = b > 0;
         a = abs(a) - 1;
@@ -132,14 +130,14 @@ int main() {
     }
 
     if (sat.exec()) {
-        cout << "s SATISFIABLE" << endl;
-        cout << "v";
+        printf("s SATISFIABLE\n");
+        printf("v");
         for (int i = 0; i < n; i++) {
-            cout << " " << (sat.res[i] ? i + 1 : - (i + 1));
+            printf(" %d", sat.res[i] ? i + 1 : - (i + 1));
         }
-        cout << " 0" << endl;
+        printf(" 0\n");
     } else {
-        cout << "s UNSATISFIABLE" << endl;
+        printf("s UNSATISFIABLE\n");
     }
     return 0;
 }

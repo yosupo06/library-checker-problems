@@ -4,20 +4,18 @@
 using namespace std;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
     int n = 500'000;
     int q = 500'000;
-    cout << n << " " << q << "\n";
+    printf("%d %d\n", n, q);
     for (int i = 0; i < n; i++) {
-        cout << gen.uniform(0, 1'000'000'000);
-        if (i != n - 1) cout << " ";
+        printf("%d", gen.uniform(0, 1'000'000'000));
+        if (i != n - 1) printf(" ");
     }
-    cout << "\n";
+    printf("\n");
 
     vector<int> u(n - 1), v(n - 1);
     for (int i = 0; i < n - 1; i++) {
@@ -34,20 +32,20 @@ int main(int, char* argv[]) {
     }
 
     for (int i = 0; i < n - 1; i++) {
-        cout << u[i] << " " << v[i] << "\n";
+        printf("%d %d\n", u[i], v[i]);
     }
 
     for (int i = 0; i < q; i++) {
         int t = gen.uniform(0, 1);
-        cout << t << " ";
+        printf("%d ", t);
         if (t == 0) {
             int p = gen.uniform(0, n - 1);
             int x = gen.uniform(0, 1'000'000'000);
-            cout << p << " " << x << "\n";
+            printf("%d %d\n", p, x);
         } else {
             auto u = gen.uniform(0, n - 1);
             auto v = gen.uniform(0, n - 1);
-            cout << u << " " << v << "\n";
+            printf("%d %d\n", u, v);
         }
     }
     return 0;

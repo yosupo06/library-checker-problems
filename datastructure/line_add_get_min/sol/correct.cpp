@@ -55,14 +55,12 @@ struct LiChaoTree {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
     V<ll> sa(n), sb(n);
     for (int i = 0; i < n; i++) {
-        cin >> sa[i] >> sb[i];
+        scanf("%lld %lld", &sa[i], &sb[i]);
     }
     struct Q {
         int ty;
@@ -73,15 +71,15 @@ int main() {
     V<ll> xs;
     for (int i = 0; i < q; i++) {
         int t;
-        cin >> t;
+        scanf("%d", &t);
         if (t == 0) {
             // add
             ll a, b;
-            cin >> a >> b;
+            scanf("%lld %lld", &a, &b);
             query.push_back(Q{t, a, b, -1});
         } else {
             ll p;
-            cin >> p;
+            scanf("%lld", &p);
             xs.push_back(p);
             query.push_back(Q{t, -1, -1, p});
         }
@@ -98,7 +96,7 @@ int main() {
             // add
             tr.add({qu.a, qu.b});
         } else {
-            cout << tr.query(qu.p) << "\n";
+            printf("%lld\n", tr.query(qu.p));
         }
     }
     return 0;

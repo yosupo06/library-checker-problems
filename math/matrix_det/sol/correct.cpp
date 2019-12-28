@@ -108,19 +108,17 @@ template <class Mint> Mint calc_det(Mat<Mint> a) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     int n;
-    cin >> n;
+    scanf("%d", &n);
     Mat<Mint> mat(n, V<Mint>(n, n));
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            cin >> mat[i][j].v;
+            scanf("%d", &mat[i][j].v);
         }
     }
     auto answer = calc_det(mat);
-    cout << answer << endl;
+    printf("%d\n", answer.v);
     return 0;
 }

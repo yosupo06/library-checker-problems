@@ -59,15 +59,13 @@ T tetration(T a,T n,T m){
 
 // https://judge.yosupo.jp/problem/tetration_mod
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
 
   int numCases;
-  cin >> numCases;
+  scanf("%d", &numCases);
   for (int caseId = 0; caseId < numCases; ++caseId) {
     long long A, B, M;
-    cin >> A >> B >> M;
-    cout << tetration(A, B, M) << "\n";
+    scanf("%lld %lld %lld", &A, &B, &M);
+    printf("%lld\n", tetration(A, B, M));
   }
   return 0;
 }

@@ -164,20 +164,18 @@ template <class T> struct Fenwick {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
     
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
     V<ll> a(n);
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
+        scanf("%lld", &a[i]);
     }
     struct E { int to; };
     auto g = VV<E>(n);
     for (int i = 0; i < n - 1; i++) {
         int a, b;
-        cin >> a >> b;
+        scanf("%d %d", &a, &b);
         g[a].push_back({b});
         g[b].push_back({a});
     }
@@ -190,15 +188,15 @@ int main() {
 
     for (int i = 0; i < q; i++) {
         int ty;
-        cin >> ty;
+        scanf("%d", &ty);
         if (ty == 0) {
             int p; ll x;
-            cin >> p >> x;
+            scanf("%d %lld", &p, &x);
             a[p] += x;
             fw.add(hl.ord(p), x);
         } else {
             int u, v;
-            cin >> u >> v;
+            scanf("%d %d", &u, &v);
             int lca = hl.lca(u, v);
             ll sm = a[lca];
             hl.get_path(lca, u, [&](int a, int b) {
@@ -207,7 +205,7 @@ int main() {
             hl.get_path(lca, v, [&](int a, int b) {
                 sm += fw.sum(a, b + 1);
             });
-            cout << sm << "\n";
+            printf("%lld\n", sm);
         }
     }
     return 0;

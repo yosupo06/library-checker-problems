@@ -10,11 +10,9 @@ template <class T> using V = vector<T>;
 template <class T> using VV = V<V<T>>;
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int a, b;
-    cin >> a >> b;
-    cout << (a + b) / 2 * 2 << endl;
+    scanf("%d %d", &a, &b);
+    printf("%d\n", (a + b) / 2 * 2);
     return 0;
 }

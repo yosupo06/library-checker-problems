@@ -1,7 +1,8 @@
-#include <iostream>
+#include <cstdio>
 #include <algorithm>
 #include <vector>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 using uint = unsigned int;
@@ -41,7 +42,6 @@ template <uint MD> struct ModInt {
         return r;
     }
     M inv() const { return pow(MD - 2); }
-    friend ostream& operator<<(ostream& os, const M& r) { return os << r.v; }
 };
 using Mint = ModInt<998244353>;
 template <> const Mint Mint::G = Mint(3);
@@ -232,11 +232,8 @@ template <class D> struct Poly {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-
     int n;
-    cin >> n;
+    scanf("%d", &n);
 
     V<Mint> fact(n + 1);
     fact[0] = Mint(1);
@@ -249,10 +246,10 @@ int main() {
     po = po.inv(n + 1);
     for (int i = 0; i <= n; i++) {
         Mint x = fact[i] * po.freq(i);
-        cout << x;
-        if (i != n) cout << " ";
+        printf("%d", x.v);
+        if (i != n) printf(" ");
     }
-    cout << endl;
+    printf("\n");
 
     return 0;
 }

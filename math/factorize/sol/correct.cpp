@@ -95,19 +95,17 @@ V<ll> pollard(ll n) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int q;
-    cin >> q;
+    scanf("%d", &q);
     for (int i = 0; i < q; i++) {
         ll a;
-        cin >> a;
+        scanf("%lld", &a);
         auto v = pollard(a);
         sort(v.begin(), v.end());
-        cout << int(v.size());
-        for (auto d: v) cout << " " << d;
-        cout << endl;
+        printf("%d", int(v.size()));
+        for (auto d: v) printf(" %lld", d);
+        printf("\n");
     }
     return 0;
 }

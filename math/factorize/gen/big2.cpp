@@ -19,8 +19,6 @@ vector<long long> enum_prime(long long st, long long ed) {
 }
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     long long seed = atoll(argv[1]);
@@ -34,9 +32,9 @@ int main(int, char* argv[]) {
         a[i] = primes[gen.uniform(0, k - 1)] * primes[gen.uniform(0, k - 1)];
     }
 
-    cout << q << endl;
+    printf("%d\n", q);
     for (auto x: a) {
-        cout << x << endl;
+        printf("%lld\n", x);
     }
     return 0;
 }

@@ -39,14 +39,12 @@ ull solve(ull a, int k) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
     int t;
-    cin >> t;
+    scanf("%d", &t);
     for (int i = 0; i < t; i++) {
         ull a; int k;
-        cin >> a >> k;
-        cout << solve(a, k) << "\n";
+        scanf("%llu %d", &a, &k);
+        printf("%llu\n", solve(a, k));
     }
     return 0;
 }

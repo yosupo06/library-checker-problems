@@ -11,19 +11,17 @@ template <class T> using V = vector<T>;
 template <class T> using VV = V<V<T>>;
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
     int lg = 1;
     while ((1 << lg) < n) lg++;
 
     V<int> dps(n, 0);
     VV<int> anc(lg, V<int>(n, -1));
     for (int i = 1; i < n; i++) {
-        cin >> anc[0][i];
+        scanf("%d", &anc[0][i]);
         dps[i] = dps[anc[0][i]] + 1;
     }
     for (int i = 1; i < lg; i++) {
@@ -51,8 +49,8 @@ int main() {
 
     for (int i = 0; i < q; i++) {
         int u, v;
-        cin >> u >> v;
-        cout << query(u, v) << endl;
+        scanf("%d %d", &u, &v);
+        printf("%d\n", query(u, v));
     }
     return 0;
 }

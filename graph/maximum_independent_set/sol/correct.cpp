@@ -71,18 +71,16 @@ template <int N, class E> struct MaxClique {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, m;
-    cin >> n >> m;    
+    scanf("%d %d", &n, &m);    
     VV<int> graph(n, V<int>(n, 1));
     for (int i = 0; i < n; i++) {
         graph[i][i] = 0;
     }
     for (int i = 0; i < m; i++) {
         int a, b;
-        cin >> a >> b;
+        scanf("%d %d", &a, &b);
         graph[a][b] = graph[b][a] = 0;
     }
 
@@ -98,11 +96,11 @@ int main() {
 
     
     int x = int(answer.size());
-    cout << x << endl;
+    printf("%d\n", x);
     for (int i = 0; i < x; i++) {
-        cout << answer[i];
-        if (i != x - 1) cout << " ";
+        printf("%d", answer[i]);
+        if (i != x - 1) printf(" ");
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

@@ -20,8 +20,6 @@ vector<ll> enum_prime(ll l, ll r) {
 }
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
@@ -31,7 +29,7 @@ int main(int, char* argv[]) {
     vector<ll> small_primes = enum_prime(2, 1000);
 
     int t = 100'000;
-    cout << t << "\n";
+    printf("%d\n", t);
     for (int i = 0; i < t; i++) {
         ll p;
         if (gen.uniform_bool())
@@ -41,7 +39,7 @@ int main(int, char* argv[]) {
 
         ll y = gen.uniform(0LL, p - 1);
 
-        cout << y << " " << p << endl;
+        printf("%lld %lld\n", y, p);
     }
     return 0;
 }

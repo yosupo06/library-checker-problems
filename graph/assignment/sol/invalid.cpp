@@ -93,16 +93,14 @@ struct Hungarian
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     int n;
-    cin >> n;
+    scanf("%d", &n);
     VV<ll> a(n, V<ll>(n));
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            cin >> a[i][j];
+            scanf("%lld", &a[i][j]);
         }
     }
     auto hungarian = Hungarian<ll>(a);
@@ -112,12 +110,12 @@ int main() {
         sm += hungarian.le[i] + hungarian.ri[i];
     }
 
-    cout << -sm << endl;
+    printf("%lld\n", -sm);
     reverse(hungarian.perm.begin(), hungarian.perm.end());
     for (int i = 0; i < n; i++) {
-        cout << hungarian.perm[i];
-        if (i != n - 1) cout << " ";
+        printf("%d", hungarian.perm[i]);
+        if (i != n - 1) printf(" ");
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

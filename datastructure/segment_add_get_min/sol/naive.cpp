@@ -12,11 +12,9 @@ template <class T> using V = vector<T>;
 template <class T> using VV = V<V<T>>;
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
     assert(ll(n) * q <= TEN(8));
     struct S {
         ll l, r, a, b;
@@ -24,20 +22,20 @@ int main() {
     V<S> segments;
     for (int i = 0; i < n; i++) {
         ll l, r, a, b;
-        cin >> l >> r >> a >> b;
+        scanf("%lld %lld %lld %lld", &l, &r, &a, &b);
         segments.push_back(S{l, r, a, b});
     }
     for (int i = 0; i < q; i++) {
         int t;
-        cin >> t;
+        scanf("%d", &t);
         if (t == 0) {
             // add
             ll l, r, a, b;
-            cin >> l >> r >> a >> b;
+            scanf("%lld %lld %lld %lld", &l, &r, &a, &b);
             segments.push_back(S{l, r, a, b});
         } else {
             ll x;
-            cin >> x;
+            scanf("%lld", &x);
             constexpr ll INF = 3 * TEN(18);
             ll ans = INF;
             for (auto s : segments) {
@@ -45,7 +43,7 @@ int main() {
                     ans = min(ans, s.a * x + s.b);
                 }
             }
-            cout << (ans == INF ? "INFINITY" : to_string(ans)) << "\n";
+            printf("%s\n", (ans == INF ? "INFINITY" : to_string(ans).c_str()));
         }
     }
     return 0;

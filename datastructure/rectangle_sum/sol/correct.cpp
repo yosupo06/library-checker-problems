@@ -37,11 +37,9 @@ template <class T> struct Fenwick {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
     struct E {
         int x, y, ty, freq;
         ll w;
@@ -50,13 +48,13 @@ int main() {
     V<int> yv;
     for (int i = 0; i < n; i++) {
         int x, y, w;
-        cin >> x >> y >> w;
+        scanf("%d %d %d", &x, &y, &w);
         evs.push_back({x, y, -1, 0, w}); // add point
         yv.push_back(y);
     }
     for (int i = 0; i < q; i++) {
         int l, d, r, u;
-        cin >> l >> d >> r >> u;
+        scanf("%d %d %d %d", &l, &d, &r, &u);
         evs.push_back({l, d, i, 1, 0});
         evs.push_back({l, u, i, -1, 0});
         evs.push_back({r, d, i, -1, 0});
@@ -83,6 +81,6 @@ int main() {
         }
     }
 
-    for (auto x: res) cout << x << "\n";
+    for (auto x: res) printf("%lld\n", x);
     return 0;
 }

@@ -52,8 +52,6 @@ vector<vector<ll>> gen_matrix(int n, int m, int r, Random& gen) {
 }
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     long long seed = atoll(argv[1]);
@@ -87,18 +85,18 @@ int main(int, char* argv[]) {
         }
     }
 
-    cout << n << " " << m << endl;
+    printf("%d %d\n", n, m);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            cout << a[i][j];
-            if (j != m - 1) cout << " ";
+            printf("%lld", a[i][j]);
+            if (j != m - 1) printf(" ");
         }
-        cout << "\n";
+        printf("\n");
     }
     for (int i = 0; i < n; i++) {
-        cout << b[i];
-        if (i != n - 1) cout << " ";
+        printf("%lld", b[i]);
+        if (i != n - 1) printf(" ");
     }
-    cout << "\n";
+    printf("\n");
     return 0;
 }

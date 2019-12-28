@@ -1,13 +1,9 @@
-#include <iostream>
+#include <cstdio>
 #include "random.h"
 
 using namespace std;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-
-
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
@@ -21,18 +17,17 @@ int main(int, char* argv[]) {
     for (int i = 0; i < m; i++) {
         b[i] = gen.uniform(0, 998244353);
     }
-
-    cout << n << " " << m << endl;
-
+    
+    printf("%d %d\n", n, m);
     for (int i = 0; i < n; i++) {
-        cout << a[i];
-        if (i != n - 1) cout << " ";
+        printf("%d", a[i]);
+        if (i != n - 1) printf(" ");
     }
-    cout << endl;
+    printf("\n");
     for (int i = 0; i < m; i++) {
-        cout << b[i];
-        if (i != m - 1) cout << " ";
+        printf("%d", b[i]);
+        if (i != m - 1) printf(" ");
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

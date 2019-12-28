@@ -5,8 +5,6 @@
 using namespace std;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
@@ -24,9 +22,9 @@ int main(int, char* argv[]) {
     }
     m = int(edges.size());
 
-    cout << l << " " << r << " " << m << endl;
+    printf("%d %d %d\n", l, r, m);
     for (auto edge: edges) {
-        cout << edge.first << " " << edge.second << endl;
+        printf("%d %d\n", edge.first, edge.second);
     }
     return 0;
 }

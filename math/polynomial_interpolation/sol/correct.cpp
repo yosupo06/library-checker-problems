@@ -315,17 +315,15 @@ template <class Mint> struct InterPol {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n;
-    cin >> n;
+    scanf("%d", &n);
     V<Mint> x(n), y(n);
     for (int i = 0; i < n; i++) {
-        cin >> x[i].v;
+        scanf("%d", &x[i].v);
     }
     for (int i = 0; i < n; i++) {
-        cin >> y[i].v;
+        scanf("%d", &y[i].v);
     }
 
     auto pol = InterPol<Mint>(x).query(y);
@@ -333,9 +331,9 @@ int main() {
     //assert(MultiEval<Mint>(x).query(pol) == y);
 
     for (int i = 0; i < n; i++) {
-        cout << pol.freq(i);
-        if (i + 1 != n) cout << " ";
+        printf("%d", pol.freq(i).v);
+        if (i + 1 != n) printf(" ");
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

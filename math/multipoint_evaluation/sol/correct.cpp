@@ -270,11 +270,9 @@ template <class Mint> struct MultiEval {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, m;
-    cin >> n >> m;    
+    scanf("%d %d", &n, &m);    
     V<Mint> c(n), p(m);
     for (int i = 0; i < n; i++) cin >> c[i].v;
     for (int i = 0; i < m; i++) cin >> p[i].v;
@@ -285,9 +283,9 @@ int main() {
     auto answer = multi_eval.query(pol);
 
     for (int i = 0; i < m; i++) {
-        cout << answer[i];
-        if (i + 1 != m) cout << " ";
+        printf("%d", answer[i].v);
+        if (i + 1 != m) printf(" ");
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

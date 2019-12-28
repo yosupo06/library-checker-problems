@@ -4,8 +4,6 @@
 using namespace std;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     long long seed = atoll(argv[1]);
@@ -17,6 +15,6 @@ int main(int, char* argv[]) {
 
     string s(n, c);
 
-    cout << s << endl;
+    printf("%s\n", s.c_str());
     return 0;
 }

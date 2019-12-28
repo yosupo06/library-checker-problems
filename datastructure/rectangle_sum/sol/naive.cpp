@@ -12,20 +12,18 @@ template <class T> using V = vector<T>;
 template <class T> using VV = V<V<T>>;
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
     assert(ll(n) * q <= TEN(8));
     V<int> x(n), y(n);
     V<ll> w(n);
     for (int i = 0; i < n; i++) {
-        cin >> x[i] >> y[i] >> w[i];
+        scanf("%d %d %lld", &x[i], &y[i], &w[i]);
     }
     for (int ph = 0; ph < q; ph++) {
         int l, d, r, u;
-        cin >> l >> d >> r >> u;
+        scanf("%d %d %d %d", &l, &d, &r, &u);
 
         ll sm = 0;
         for (int i = 0; i < n; i++) {
@@ -33,7 +31,7 @@ int main() {
                 sm += w[i];
             }
         }
-        cout << sm << "\n";
+        printf("%lld\n", sm);
     }
     return 0;
 }

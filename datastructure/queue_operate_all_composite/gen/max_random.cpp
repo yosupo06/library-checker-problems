@@ -7,15 +7,11 @@ const int MOD = 998244353;
 const int Q_MAX = 500'000;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-    constexpr char endl = '\n';
-
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
     int q = Q_MAX;
-    cout << q << endl;
+    printf("%d\n", q);
 
     int length = 0;
     for (int i = 0; i < q; i++) {
@@ -24,17 +20,17 @@ int main(int, char* argv[]) {
         if (length == 0 and t == 1) {
             t = 0;
         }
-        cout << t;
+        printf("%d", t);
         if (t == 0) {
             int a = gen.uniform(1, MOD - 1);
             int b = gen.uniform(0, MOD - 1);
-            cout << ' ' << a << ' ' << b;
+            printf(" %d %d", a, b);
         } else if (t == 1) {
         } else {
             int x = gen.uniform(0, MOD - 1);
-            cout << ' ' << x;
+            printf(" %d", x);
         }
-        cout << endl;
+        printf("\n");
     }
     return 0;
 }

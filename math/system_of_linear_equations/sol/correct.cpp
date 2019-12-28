@@ -137,37 +137,35 @@ template <class Mint> VV<Mint> solve_linear(Mat<Mint> a, V<Mint> b) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     int n, m;
-    cin >> n >> m;
+    scanf("%d %d", &n, &m);
     Mat<Mint> mat(n, V<Mint>(m));
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            cin >> mat[i][j].v;
+            scanf("%d", &mat[i][j].v);
         }
     }
     V<Mint> vec(n);
     for (int i = 0; i < n; i++) {
-        cin >> vec[i].v;
+        scanf("%d", &vec[i].v);
     }
     auto answer = solve_linear(mat, vec);
     if (answer.empty()) {
-        cout << -1 << endl;
+        printf("-1\n");
         return 0;
     }
 
-    cout << answer.size() - 1 << endl;
+    printf("%d\n", int(answer.size()) - 1);
 
     for (auto v: answer) {
         assert(int(v.size()) == m);
         for (int i = 0; i < m; i++) {
-            cout << v[i];
-            if (i != m - 1) cout << " ";
+            printf("%d", v[i].v);
+            if (i != m - 1) printf(" ");
         }
-        cout << endl;
+        printf("\n");
     }
     return 0;
 }

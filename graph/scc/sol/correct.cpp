@@ -85,27 +85,25 @@ struct E {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, m;
-    cin >> n >> m;
+    scanf("%d %d", &n, &m);
     VV<E> g(n);
     for (int i = 0; i < m; i++) {
         int a, b;
-        cin >> a >> b;
+        scanf("%d %d", &a, &b);
         g[a].push_back({b});
     }
 
     auto scc = get_scc(g);
 
 
-    cout << scc.groups.size() << endl;
+    printf("%d\n", int(scc.groups.size()));
     for (auto v: scc.groups) {
         int l = int(v.size());
-        cout << l;
-        for (auto d: v) cout << " " << d;
-        cout << "\n";
+        printf("%d", l);
+        for (auto d: v) printf(" %d", d);
+        printf("\n");
     }
     return 0;
 }

@@ -184,28 +184,26 @@ DirectedMSTInfo directedMST(VV<E> g, int r) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, m, s;
-    cin >> n >> m >> s;
+    scanf("%d %d %d", &n, &m, &s);
 
     VV<E> g(n);
     for (int i = 0; i < m; i++) {
         int a, b;
         ll c;
-        cin >> a >> b >> c;
+        scanf("%d %d %lld", &a, &b, &c);
         g[a].push_back({a, b, c});
     }
 
     auto res = directedMST(g, s);
 
-    cout << res.cost << endl;
+    printf("%lld\n", res.cost);
     for (int i = 0; i < n; i++) {
-        cout << (i == s ? s : res.res[i].from);
-        if (i != n - 1) cout << " ";
+        printf("%d", (i == s ? s : res.res[i].from));
+        if (i != n - 1) printf(" ");
     }
-    cout << endl;
+    printf("\n");
 
     return 0;
 }

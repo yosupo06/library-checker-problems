@@ -233,11 +233,9 @@ template <class D> struct Poly {
 
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n;
-    cin >> n;
+    scanf("%d", &n);
     V<Mint> fact(n + 1), iFac(n + 1);
     fact[0] = Mint(1);
     for (int i = 1; i <= n; i++) fact[i] = fact[i - 1] * Mint(i);
@@ -259,9 +257,9 @@ int main() {
     pol = pol.exp(n + 1);
 
     for (int i = 0; i <= n; i++) {
-        cout << pol.freq(i);
-        if (i != n) cout << " ";
+        printf("%d", pol.freq(i).v);
+        if (i != n) printf(" ");
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

@@ -32,20 +32,18 @@ struct UnionFind {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
     UnionFind uf(n);
     for (int i = 0; i < q; i++) {
         int ty, a, b;
-        cin >> ty >> a >> b;
+        scanf("%d %d %d", &ty, &a, &b);
         if (ty == 0) {
             uf.merge(a, b);
         } else {
-            cout << uf.same(a, b) << "\n";
+            printf("%d\n", int(uf.same(a, b)));
         }
     }
     return 0;

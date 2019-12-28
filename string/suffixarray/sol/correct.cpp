@@ -132,18 +132,16 @@ template <class Str> V<int> sa_is(Str s, int B = 200) {
 
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-
-
+    static char buf[1'000'000];
     string s;
-    cin >> s;
+    scanf("%s", buf);
+    s = buf;
     SA<string> sa(s, sa_is(s));
     int n = int(s.size());
     for (int i = 1; i <= n; i++) {
-        cout << sa.sa[i];
-        if (i != n) cout << " ";
+        printf("%d", sa.sa[i]);
+        if (i != n) printf(" ");
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

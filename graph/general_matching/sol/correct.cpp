@@ -98,16 +98,14 @@ template <class E> struct MaxMatching {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, m;
-    cin >> n >> m;
+    scanf("%d %d", &n, &m);
     struct E { int to; };
     VV<E> g(n);
     for (int i = 0; i < m; i++) {
         int u, v;
-        cin >> u >> v;
+        scanf("%d %d", &u, &v);
         g[u].push_back({v});
         g[v].push_back({u});
     }
@@ -123,9 +121,9 @@ int main() {
     }
 
     int x = int(u.size());
-    cout << x << "\n";
+    printf("%d\n", x);
     for (int i = 0; i < x; i++) {
-        cout << u[i] << " " << v[i] << "\n";
+        printf("%d %d\n", u[i], v[i]);
     }
     return 0;
 }

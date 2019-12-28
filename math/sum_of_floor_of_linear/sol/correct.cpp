@@ -46,15 +46,13 @@ ll sum_of_floor(ll n, ll m, ll a, ll b) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int t;
-    cin >> t;
+    scanf("%d", &t);
     for (int i = 0; i < t; i++) {
         ll n, m, a, b;
-        cin >> n >> m >> a >> b;
-        cout << sum_of_floor(n, m, a, b) << "\n";
+        scanf("%lld %lld %lld %lld", &n, &m, &a, &b);
+        printf("%lld\n", sum_of_floor(n, m, a, b));
     }
     return 0;
 }

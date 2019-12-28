@@ -36,31 +36,27 @@ template <class T> struct Fenwick {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-
-
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
     Fenwick<ll> fw(n);
     for (int i = 0; i < n; i++) {
         ll a;
-        cin >> a;
+        scanf("%lld", &a);
         fw.add(i, a);
     }
     for (int i = 0; i < q; i++) {
         int t;
-        cin >> t;
+        scanf("%d", &t);
         if (t == 0) {
             //add
             int p;
             ll x;
-            cin >> p >> x;
+            scanf("%d %lld", &p, &x);
             fw.add(p, x);
         } else {
             ll l, r;
-            cin >> l >> r;
-            cout << fw.sum(l, r) << "\n";
+            scanf("%lld %lld", &l, &r);
+            printf("%lld\n", fw.sum(l, r));
         }
     }
     return 0;

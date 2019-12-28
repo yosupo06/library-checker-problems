@@ -50,21 +50,19 @@ SparseTable<D, OP> get_sparse_table(V<D> v, D e, OP op) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
     V<int> a(n);
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
+        scanf("%d", &a[i]);
     }
     auto sparse_table = get_sparse_table(a, int(TEN(9)), [&](int a, int b){ return min(a, b); });
     for (int i = 0; i < q; i++) {
         int a, b;
-        cin >> a >> b;
-        cout << sparse_table.query(a, b) << "\n";
+        scanf("%d %d", &a, &b);
+        printf("%d\n", sparse_table.query(a, b));
     }
     return 0;
 }

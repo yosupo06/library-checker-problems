@@ -60,15 +60,13 @@ ll discrete_logarithm(ll x, ll y, ll m) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int t;
-    cin >> t;
+    scanf("%d", &t);
     for (int i = 0; i < t; i++) {
         ll x, y, m;
-        cin >> x >> y >> m;
-        cout << discrete_logarithm(x, y, m) << "\n";
+        scanf("%lld %lld %lld", &x, &y, &m);
+        printf("%lld\n", discrete_logarithm(x, y, m));
     }
     return 0;
 }

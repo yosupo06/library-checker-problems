@@ -25,20 +25,18 @@ template <class S> V<int> z_algo(const S& s) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-
-
     string s;
-    cin >> s;
+    static char buf[1'000'000];
+    scanf("%s", buf);
+    s = buf;
     int n = int(s.size());
     auto z = z_algo(s);
 
     for (int i = 0; i < n; i++) {
-        cout << z[i];
-        if (i + 1 != n) cout << " ";
+        printf("%d", z[i]);
+        if (i + 1 != n) printf(" ");
     }
-    cout << endl;
+    printf("\n");
 
     return 0;
 }

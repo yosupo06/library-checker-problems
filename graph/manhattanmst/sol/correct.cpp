@@ -102,15 +102,13 @@ template <class T> V<pair<int, int>> manhattan_mst(V<pair<T, T>> ps, T inf = num
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n;
-    cin >> n;
+    scanf("%d", &n);
 
     V<pair<ll, ll>> ps(n);
     for (int i = 0; i < n; i++) {
-        cin >> ps[i].first >> ps[i].second;
+        scanf("%lld %lld", &ps[i].first, &ps[i].second);
     }
 
     auto res = manhattan_mst(ps);
@@ -119,9 +117,9 @@ int main() {
         sm += abs(ps[e.first].first - ps[e.second].first);
         sm += abs(ps[e.first].second - ps[e.second].second);
     }
-    cout << sm << "\n";
+    printf("%lld\n", sm);
     for (auto e: res) {
-        cout << e.first << " " << e.second << "\n";
+        printf("%d %d\n", e.first, e.second);
     }
     return 0;
 }

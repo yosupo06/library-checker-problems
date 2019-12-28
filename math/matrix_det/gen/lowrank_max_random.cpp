@@ -7,8 +7,6 @@ using ll = long long;
 const ll Mod = 998244353;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     long long seed = atoll(argv[1]);
@@ -50,13 +48,13 @@ int main(int, char* argv[]) {
     }
     gen.shuffle(a.begin(), a.end());
 
-    cout << n << endl;
+    printf("%d\n", n);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            cout << a[i][j];
-            if (j + 1 != n) cout << " ";
+            printf("%lld", a[i][j]);
+            if (j + 1 != n) printf(" ");
         }
-        cout << endl;
+        printf("\n");
     }
     return 0;
 }

@@ -41,15 +41,13 @@ struct E {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n;
-    cin >> n;
+    scanf("%d", &n);
     assert(n <= 1000);
     V<ll> x(n), y(n);
     for (int i = 0; i < n; i++) {
-        cin >> x[i] >> y[i];
+        scanf("%lld %lld", &x[i], &y[i]);
     }
     vector<E> edges;
     for (int i = 0; i < n; i++) {
@@ -69,9 +67,9 @@ int main() {
         sm += e.dist;        
     }
 
-    cout << sm << "\n";
+    printf("%lld\n", sm);
     for (auto e: tr) {
-        cout << e.u << " " << e.v << "\n";
+        printf("%d %d\n", e.u, e.v);
     }
     return 0;
 }

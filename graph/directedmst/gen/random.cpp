@@ -8,8 +8,6 @@ struct E {
 };
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     long long seed = atoll(argv[1]);
@@ -42,9 +40,9 @@ int main(int, char* argv[]) {
 
     auto idx = gen.perm<int>(n);
     int s = idx[0];
-    cout << n << " " << m << " " << s << "\n";
+    printf("%d %d %d\n", n, m, s);
     for (auto e: edges) {
-        cout << idx[e.from] << " " << idx[e.to] << " " << e.cost << "\n";
+        printf("%d %d %d\n", idx[e.from], idx[e.to], e.cost);
     }
     return 0;
 }

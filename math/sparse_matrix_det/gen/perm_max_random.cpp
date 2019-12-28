@@ -4,8 +4,6 @@
 using namespace std;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     long long seed = atoll(argv[1]);
@@ -19,9 +17,9 @@ int main(int, char* argv[]) {
         c[i] = gen.uniform(1, 998244353 - 1);
     }
 
-    cout << n << " " << n << endl;
+    printf("%d %d\n", n, n);
     for (int i = 0; i < n; i++) {
-        cout << a[i] << " " << b[i] << " " << c[i] << endl;
+        printf("%d %d %d\n", a[i], b[i], c[i]);
     }
     return 0;
 }

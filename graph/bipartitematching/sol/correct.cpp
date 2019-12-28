@@ -78,11 +78,9 @@ MaxFlow<C> get_mf(VV<E>& g, int s, int t, C eps) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int L, R, M;
-    cin >> L >> R >> M;
+    scanf("%d %d %d", &L, &R, &M);
 
     struct E {
         int to, rev, cap;
@@ -102,18 +100,18 @@ int main() {
     }
     for (int i = 0; i < M; i++) {
         int a, b;
-        cin >> a >> b;
+        scanf("%d %d", &a, &b);
         add_edge(a, L + b, 1);
     }
 
     auto mf = get_mf(g, sv, tv, 0);
 
-    cout << mf.flow << endl;
+    printf("%d\n", mf.flow);
     for (int i = 0; i < L; i++) {
         for (auto e: g[i]) {
             if (!(L <= e.to && e.to < L + R)) continue;
             if (e.cap) continue;
-            cout << i << " " << e.to - L << endl;
+            printf("%d %d\n", i, e.to - L);
         }
     }
     return 0;

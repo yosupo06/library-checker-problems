@@ -11,36 +11,34 @@ template <class T> using V = vector<T>;
 template <class T> using VV = V<V<T>>;
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
 
     assert(ll(n) * q <= TEN(7));
 
     V<ll> a(n);
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
+        scanf("%lld", &a[i]);
     }
 
     auto g = VV<int>(n);
     for (int i = 1; i < n; i++) {
         int p;
-        cin >> p;
+        scanf("%d", &p);
         g[p].push_back(i);
     }
 
     for (int i = 0; i < q; i++) {
         int ty;
-        cin >> ty;
+        scanf("%d", &ty);
         if (ty == 0) {
             int u; ll x;
-            cin >> u >> x;
+            scanf("%d %lld", &u, &x);
             a[u] += x;
         } else {
             int u;
-            cin >> u;
+            scanf("%d", &u);
             auto dfs = [&](auto dfs, int v) -> ll {
                 ll sum = a[v];
                 for (auto w: g[v]) {
@@ -48,7 +46,7 @@ int main() {
                 }
                 return sum;
             };
-            cout << dfs(dfs, u) << "\n";
+            printf("%lld\n", dfs(dfs, u));
         }
     }
     return 0;

@@ -4,8 +4,6 @@
 using namespace std;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
@@ -25,9 +23,9 @@ int main(int, char* argv[]) {
         n += m;
     }
     gen.shuffle(ps.begin(), ps.end());
-    cout << n << endl;
+    printf("%d\n", n);
     for (auto p: ps) {
-        cout << p.first << " " << p.second << "\n";
+        printf("%d %d\n", p.first, p.second);
     }
     return 0;
 }

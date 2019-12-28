@@ -68,15 +68,13 @@ struct LiChaoTree {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, q;
-    cin >> n >> q;
+    scanf("%d %d", &n, &q);
     V<ll> sl(n), sr(n), sa(n), sb(n);
     V<ll> xs;
     for (int i = 0; i < n; i++) {
-        cin >> sl[i] >> sr[i] >> sa[i] >> sb[i];
+        scanf("%lld %lld %lld %lld", &sl[i], &sr[i], &sa[i], &sb[i]);
         xs.push_back(sl[i]);
         xs.push_back(sr[i]);
     }
@@ -88,17 +86,17 @@ int main() {
     V<Q> query;
     for (int i = 0; i < q; i++) {
         int t;
-        cin >> t;
+        scanf("%d", &t);
         if (t == 0) {
             // add
             ll l, r, a, b;
-            cin >> l >> r >> a >> b;
+            scanf("%lld %lld %lld %lld", &l, &r, &a, &b);
             xs.push_back(l);
             xs.push_back(r);
             query.push_back(Q{t, l, r, a, b, -1});
         } else {
             ll p;
-            cin >> p;
+            scanf("%lld", &p);
             xs.push_back(p);
             query.push_back(Q{t, -1, -1, -1, -1, p});
         }
@@ -116,7 +114,7 @@ int main() {
             tr.add({qu.a, qu.b}, qu.l, qu.r);
         } else {
             ll ans = tr.query(qu.p);
-            cout << (ans == INF ? "INFINITY" : to_string(ans)) << "\n";
+            printf("%s\n", (ans == INF ? "INFINITY" : to_string(ans).c_str()));
         }
     }
     return 0;

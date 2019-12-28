@@ -1,23 +1,20 @@
 #include "random.h"
-#include <iostream>
+#include <cstdio>
 
 using namespace std;
 using ll = long long;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
     int n = gen.uniform(1, 500'000);
+    printf("%d\n", n);
 
-    cout << n << endl;
-    cout << 0;
+    printf("0");
     for (int i = 1; i < n; i++) {
-        cout << " " << gen.uniform(0, 998244353);
+        printf(" %d", gen.uniform(0, 998244353));
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

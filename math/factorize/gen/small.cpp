@@ -4,8 +4,6 @@
 using namespace std;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     long long seed = atoll(argv[1]);
@@ -16,9 +14,9 @@ int main(int, char* argv[]) {
         a[i] = seed * 100 + 1 + i;
     }
 
-    cout << q << endl;
+    printf("%d\n", q);
     for (auto x: a) {
-        cout << x << endl;
+        printf("%lld\n", x);
     }
     return 0;
 }

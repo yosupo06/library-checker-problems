@@ -26,17 +26,15 @@ struct Montmort{
 
 // https://judge.yosupo.jp/problem/montmort_number_mod
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
 
   int N, M;
-  cin >> N >> M;
+  scanf("%d %d", &N, &M);
 
   Montmort<int> mm(N, M);
   for(int i=1;i<=N;i++){
-    if(i) cout << " ";
-    cout << mm[i];
+    if(i) printf(" ");
+    printf("%d", mm[i]);
   }
-  cout << endl;
+  printf("\n");
   return 0;
 }

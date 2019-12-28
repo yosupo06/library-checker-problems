@@ -45,7 +45,7 @@ template <class T> V<pair<int, int>> manhattan_mst(V<pair<T, T>> ps, T inf = num
     for (int ph = 0; ph < 4; ph++) {
         sort(ids.begin(), ids.end(), [&](auto i, auto j) {
             T ixy = (ps[i].first + ps[i].second), jxy = (ps[j].first + ps[j].second);
-            return tie(ixy, ps[i].second) > tie(jxy, ps[j].second);
+            return tie(ixy, ps[i].second, i) > tie(jxy, ps[j].second, j);
         });
         V<T> xv;
         for (int i = 0; i < n; i++) xv.push_back(ps[i].first);

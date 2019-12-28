@@ -35,6 +35,9 @@ ulimit -s unlimited # for linux (don't need for os x)
 ls datastructure/unionfind/in/ # testcases of unionfind
 ls datastructure/unionfind/out/ # solutions of unionfind
 
+# generate hash(For developers)
+./generate.py problems.toml --refhash # if you fix some code, you have to regenerate hashes of testcases
+
 # verify
 ./generate.py problems.toml --verify # generate testcases & run input checker
 ./generate.py problems.toml --nogen --verify # run input checker(without generate testcases, you must generate already)

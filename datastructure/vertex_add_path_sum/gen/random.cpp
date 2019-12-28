@@ -27,7 +27,7 @@ int main(int, char* argv[]) {
     //shuffle u, v
     {
         auto perm = gen.perm<int>(n);
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n - 1; i++) {
             u[i] = perm[u[i]];
             v[i] = perm[v[i]];
         }

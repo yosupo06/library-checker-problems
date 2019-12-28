@@ -43,7 +43,7 @@ int main() {
     scanf("%d", &t);
     for (int i = 0; i < t; i++) {
         ull a; int k;
-        scanf("%ulld %d", &a, &k);
+        scanf("%llu %d", &a, &k);
         cout << solve(a, k) << "\n";
     }
     return 0;

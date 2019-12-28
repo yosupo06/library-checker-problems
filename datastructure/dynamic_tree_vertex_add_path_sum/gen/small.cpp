@@ -11,8 +11,8 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = gen.uniform(0, 100);
-    int q = 100;
+    int n = gen.uniform(0, 1000);
+    int q = gen.uniform(0, 1000);
     cout << n << " " << q << "\n";
     for (int i = 0; i < n; i++) {
         cout << gen.uniform(0, 100);

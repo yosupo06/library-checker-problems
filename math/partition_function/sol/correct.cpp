@@ -257,7 +257,7 @@ int main() {
     pol = pol.exp(n + 1);
 
     for (int i = 0; i <= n; i++) {
-        printf("%d\n", pol.freq(i).v);
+        printf("%d ", pol.freq(i).v);
         if (i != n) printf(" ");
     }
     printf("\n");

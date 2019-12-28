@@ -110,8 +110,6 @@ struct TwoSat {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     string dummy;
     cin >> dummy >> dummy;

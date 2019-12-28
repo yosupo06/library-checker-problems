@@ -45,8 +45,6 @@ template <class D, class Op> struct SWAG {
 const ll MOD = 998244353;
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
     constexpr char endl = '\n';
 
     int q;

@@ -94,8 +94,6 @@ Dominator get_dominator(const VV<E>& _g, const VV<E>& _rg, int s) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, m, s;
     cin >> n >> m >> s;

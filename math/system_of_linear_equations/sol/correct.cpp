@@ -137,8 +137,6 @@ template <class Mint> VV<Mint> solve_linear(Mat<Mint> a, V<Mint> b) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     int n, m;

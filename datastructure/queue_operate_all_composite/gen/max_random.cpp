@@ -7,8 +7,6 @@ const int MOD = 998244353;
 const int Q_MAX = 500'000;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
     constexpr char endl = '\n';
 
     long long seed = atoll(argv[1]);

@@ -102,8 +102,6 @@ template <class T> V<pair<int, int>> manhattan_mst(V<pair<T, T>> ps, T inf = num
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n;
     cin >> n;

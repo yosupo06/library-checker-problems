@@ -32,8 +32,6 @@ struct UnionFind {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     int n, q;

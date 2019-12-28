@@ -59,8 +59,6 @@ T tetration(T a,T n,T m){
 
 // https://judge.yosupo.jp/problem/tetration_mod
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
 
   int numCases;
   cin >> numCases;

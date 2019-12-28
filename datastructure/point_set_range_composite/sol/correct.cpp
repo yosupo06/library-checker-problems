@@ -61,8 +61,6 @@ SimpleSeg<D, Op> get_simple_seg(V<D> v, D e, Op op) {
 const ll MOD = 998244353;
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, q;
     cin >> n >> q;

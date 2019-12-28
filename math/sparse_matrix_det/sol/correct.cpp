@@ -420,8 +420,6 @@ Mint sparse_det(const VV<E>& g) {
 
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     int n, k;

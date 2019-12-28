@@ -184,8 +184,6 @@ DirectedMSTInfo directedMST(VV<E> g, int r) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, m, s;
     cin >> n >> m >> s;

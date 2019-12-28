@@ -26,8 +26,6 @@ struct Montmort{
 
 // https://judge.yosupo.jp/problem/montmort_number_mod
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
 
   int N, M;
   cin >> N >> M;

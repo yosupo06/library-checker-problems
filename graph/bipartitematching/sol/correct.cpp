@@ -78,8 +78,6 @@ MaxFlow<C> get_mf(VV<E>& g, int s, int t, C eps) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int L, R, M;
     cin >> L >> R >> M;

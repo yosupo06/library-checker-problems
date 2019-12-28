@@ -46,8 +46,6 @@ ll sum_of_floor(ll n, ll m, ll a, ll b) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int t;
     cin >> t;

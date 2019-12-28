@@ -37,8 +37,6 @@ template <class T> struct Fenwick {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, q;
     cin >> n >> q;

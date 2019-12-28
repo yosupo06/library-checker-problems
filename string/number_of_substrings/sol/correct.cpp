@@ -132,8 +132,6 @@ template <class Str> V<int> sa_is(Str s, int B = 200) {
 
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     string s;
     cin >> s;

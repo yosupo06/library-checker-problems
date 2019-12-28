@@ -6,8 +6,6 @@ using namespace std;
 const int MOD = 998244353;
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
     constexpr char endl = '\n';
 
     long long seed = atoll(argv[1]);

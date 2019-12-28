@@ -98,8 +98,6 @@ template <class E> struct MaxMatching {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
     int n, m;
     cin >> n >> m;

@@ -108,8 +108,6 @@ template <class Mint> Mint calc_det(Mat<Mint> a) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     int n;

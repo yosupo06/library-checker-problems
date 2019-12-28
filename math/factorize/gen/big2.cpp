@@ -19,8 +19,6 @@ vector<long long> enum_prime(long long st, long long ed) {
 }
 
 int main(int, char* argv[]) {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     long long seed = atoll(argv[1]);

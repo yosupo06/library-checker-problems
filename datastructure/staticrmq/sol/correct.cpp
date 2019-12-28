@@ -50,8 +50,6 @@ SparseTable<D, OP> get_sparse_table(V<D> v, D e, OP op) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     int n, q;

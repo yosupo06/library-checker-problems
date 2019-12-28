@@ -25,8 +25,6 @@ template <class S> V<int> z_algo(const S& s) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
 
 
     string s;

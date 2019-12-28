@@ -99,8 +99,6 @@ void unittest() {
 
 // https://judge.yosupo.jp/problem/sqrt_mod
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
   // unittest();
 
   int numCases;

@@ -153,7 +153,7 @@ int main() {
     }
     auto answer = solve_linear(mat, vec);
     if (answer.empty()) {
-        printf("-1");
+        printf("-1\n");
         return 0;
     }
 
@@ -162,7 +162,7 @@ int main() {
     for (auto v: answer) {
         assert(int(v.size()) == m);
         for (int i = 0; i < m; i++) {
-            printf("%d\n", v[i].v);
+            printf("%d", v[i].v);
             if (i != m - 1) printf(" ");
         }
         printf("\n");

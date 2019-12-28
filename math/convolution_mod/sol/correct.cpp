@@ -92,9 +92,6 @@ template <class Mint> V<Mint> multiply(const V<Mint>& a, const V<Mint>& b) {
 }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-
     int n, m;
     scanf("%d %d", &n, &m);
     V<Mint> a(n), b(m);

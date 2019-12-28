@@ -231,9 +231,6 @@ template <class D> struct Poly {
 };
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-
     int n;
     scanf("%d", &n);
 

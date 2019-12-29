@@ -364,7 +364,7 @@ if __name__ == '__main__':
             logger.error('There is not problem {}'.format(name))
             exit(1)
 
-    for name, probinfo in problems['problems'].items():
+    for name, probinfo in sorted(problems['problems'].items(), key = lambda x: x[0]):
         if targetprobs and name not in targetprobs:
             continue
 

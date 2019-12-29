@@ -232,6 +232,11 @@ int main() {
             inf.readSpace();
             int x = inf.readInt(0, n - 1, "x");
 
+            ensure(edges.count(minmax(u, v)));
+            edges.erase(minmax(u, v));
+            ensure(!edges.count(minmax(w, x)));
+            edges.insert(minmax(w, x));
+
             tree.evert(ns[u]);
             tree.cut(ns[v]);
 
@@ -239,10 +244,6 @@ int main() {
             tree.evert(ns[w]);
             tree.link(ns[w], ns[x]);
 
-            ensure(edges.count(minmax(u, v)));
-            edges.erase(minmax(u, v));
-            ensure(!edges.count(minmax(w, x)));
-            edges.insert(minmax(w, x));
         }
         else if (t == 1) {
             inf.readInt(0, n - 1, "p");

@@ -181,3 +181,7 @@
 [problems.dynamic_tree_vertex_add_path_sum]
     title = 'Dynamic Tree Vertex Add Path Sum'
     dir = 'datastructure/dynamic_tree_vertex_add_path_sum'
+
+[problems.dynamic_tree_vertex_add_subtree_sum]
+    title = 'Dynamic Tree Vertex Add Subtree Sum'
+    dir = 'datastructure/dynamic_tree_vertex_add_subtree_sum'

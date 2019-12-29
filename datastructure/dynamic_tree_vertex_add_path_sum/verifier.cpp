@@ -195,6 +195,7 @@ int main() {
 
 
     auto uf = UnionFind(n);
+    std::set<std::pair<int, int>> edges;
     for (int i = 0; i < n - 1; i++) {
         int a = inf.readInt(0, n - 1, "u_i");
         inf.readSpace();
@@ -207,6 +208,9 @@ int main() {
         ensure(!tree.same_tree(ns[a], ns[b]));
         tree.evert(ns[a]);
         tree.link(ns[a], ns[b]);
+
+        ensure(!edges.count(minmax(a, b)));
+        edges.insert(minmax(a, b));
     }
 
     for (int i = 0; i < q; i++) {
@@ -220,6 +224,11 @@ int main() {
             int w = inf.readInt(0, n - 1, "w");
             inf.readSpace();
             int x = inf.readInt(0, n - 1, "x");
+
+            ensure(edges.count(minmax(u, v)));
+            edges.erase(minmax(u, v));
+            ensure(!edges.count(minmax(w, x)));
+            edges.insert(minmax(w, x));
 
             tree.evert(ns[u]);
             tree.cut(ns[v]);

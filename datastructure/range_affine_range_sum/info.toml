@@ -20,4 +20,4 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/233"
 
 [params]
     N_AND_Q_MAX = 500_000
-    MOD = 99824433
+    MOD = 998244353

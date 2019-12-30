@@ -19,6 +19,10 @@
     title = 'Point Set Range Composite'
     dir = 'datastructure/point_set_range_composite'
 
+[problems.range_affine_range_sum]
+    title = 'Range Affine Range Sum'
+    dir = 'datastructure/range_affine_range_sum'
+
 [problems.vertex_add_path_sum]
     title = 'Vertex Add Path Sum'
     dir = 'datastructure/vertex_add_path_sum'
@@ -177,11 +181,3 @@
 [problems.two_sat]
     title = '2 Sat'
     dir = 'math/two_sat'
-
-[problems.dynamic_tree_vertex_add_path_sum]
-    title = 'Dynamic Tree Vertex Add Path Sum'
-    dir = 'datastructure/dynamic_tree_vertex_add_path_sum'
-
-[problems.dynamic_tree_vertex_add_subtree_sum]
-    title = 'Dynamic Tree Vertex Add Subtree Sum'
-    dir = 'datastructure/dynamic_tree_vertex_add_subtree_sum'

@@ -31,6 +31,14 @@
     title = 'Vertex Add Subtree Sum'
     dir = 'datastructure/vertex_add_subtree_sum'
 
+[problems.dynamic_tree_vertex_add_path_sum]
+    title = 'Dynamic Tree Vertex Add Path Sum'
+    dir = 'datastructure/dynamic_tree_vertex_add_path_sum'
+
+[problems.dynamic_tree_vertex_add_subtree_sum]
+    title = 'Dynamic Tree Vertex Add Subtree Sum'
+    dir = 'datastructure/dynamic_tree_vertex_add_subtree_sum'
+
 [problems.line_add_get_min]
     title = 'Line Add Get Min'
     dir = 'datastructure/line_add_get_min'

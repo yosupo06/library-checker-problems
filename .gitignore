@@ -1,6 +1,7 @@
 *
 
 !.gitignore
+!.clang-format
 !Dockerfile
 !LICENSE
 
@@ -11,6 +12,7 @@
 !*.toml
 !*.cpp
 !*.h
+!*.hpp
 !*.md
 !*.py
 !*.in

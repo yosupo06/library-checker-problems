@@ -23,7 +23,7 @@ $N$ $Q$
 $a_0$ $b_0$
 $a_1$ $b_1$
 :
-$a{N - 1}$ $b_{N - 1}$
+$a_{N - 1}$ $b_{N - 1}$
 $\textrm{Query}_0$
 $\textrm{Query}_1$
 :

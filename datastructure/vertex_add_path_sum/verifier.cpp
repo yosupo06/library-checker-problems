@@ -1,4 +1,5 @@
 #include "testlib.h"
+#include "params.h"
 #include <vector>
 
 struct UnionFind {
@@ -26,13 +27,13 @@ struct UnionFind {
 int main() {
     registerValidation();
 
-    int n = inf.readInt(1, 500'000, "N");
+    int n = inf.readInt(1, N_AND_Q_MAX, "N");
     inf.readSpace();
-    int q = inf.readInt(1, 500'000, "Q");
+    int q = inf.readInt(1, N_AND_Q_MAX, "Q");
     inf.readEoln();
 
     for (int i = 0; i < n; i++) {
-        inf.readInt(0, 1'000'000'000, "a_i");
+        inf.readInt(0, A_AND_X_MAX, "a_i");
         if (i != n - 1) inf.readSpace();
     }
     inf.readEoln();
@@ -53,7 +54,7 @@ int main() {
         if (t == 0) {
             inf.readInt(0, n - 1, "p");
             inf.readSpace();
-            inf.readInt(0, 1'000'000'000, "x");
+            inf.readInt(0, A_AND_X_MAX, "x");
         } else {
             inf.readInt(0, n - 1, "u");
             inf.readSpace();

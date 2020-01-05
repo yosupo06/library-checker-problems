@@ -1,11 +1,12 @@
 #include "testlib.h"
+#include "params.h"
 
 int main() {
     registerValidation();
 
-    inf.readInt(0, 1'000'000'000); // a
+    inf.readInt(0, A_AND_B_MAX); // a
     inf.readSpace();
-    inf.readInt(0, 1'000'000'000); // b
+    inf.readInt(0, A_AND_B_MAX); // b
     inf.readEoln();
     inf.readEof();
     return 0;

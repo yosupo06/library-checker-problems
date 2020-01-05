@@ -12,3 +12,5 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/32"
     name = "wa.cpp"
     wrong = true
 
+[params]
+    A_AND_B_MAX = 1_000_000_000

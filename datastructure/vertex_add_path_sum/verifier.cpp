@@ -54,7 +54,7 @@ int main() {
         if (t == 0) {
             inf.readInt(0, n - 1, "p");
             inf.readSpace();
-            inf.readInt(0, A_X_MAX, "x");
+            inf.readInt(0, A_AND_X_MAX, "x");
         } else {
             inf.readInt(0, n - 1, "u");
             inf.readSpace();

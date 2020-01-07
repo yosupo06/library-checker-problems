@@ -21,8 +21,8 @@ int main(int, char* argv[]) {
     }
     for (int i = 0; i < q; i++) {
         int l, d, r, u;
-        tie(l, r) = gen.uniform_pair(0, 2 * n);
-        tie(d, u) = gen.uniform_pair(0, 2 * n);
+        tie(l, r) = gen.uniform_pair(0, 2 * n - 1); r++;
+        tie(d, u) = gen.uniform_pair(0, 2 * n - 1); u++;
         if (gen.uniform_bool()) {
             l = 0;
         }

@@ -32,8 +32,8 @@ int main(int, char* argv[]) {
     for (int i = 0; i < q; i++) {
         int l, d, r, u;
         if (gen.uniform_bool()) {
-            tie(l, r) = gen.uniform_pair(0, 1'000'000'000);
-            tie(d, u) = gen.uniform_pair(0, 1'000'000'000);
+            tie(l, r) = gen.uniform_pair(0, 1'000'000'000 - 1); r++;
+            tie(d, u) = gen.uniform_pair(0, 1'000'000'000 - 1); u++;
         } else {
             do {
                 l = xs[gen.uniform(0, 999)];

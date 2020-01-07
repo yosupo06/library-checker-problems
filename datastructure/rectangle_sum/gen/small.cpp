@@ -20,8 +20,8 @@ int main(int, char* argv[]) {
     }
     for (int i = 0; i < q; i++) {
         int l, d, r, u;
-        tie(l, r) = gen.uniform_pair(0, 1000);
-        tie(d, u) = gen.uniform_pair(0, 1000);
+        tie(l, r) = gen.uniform_pair(0, 1000 - 1); r++;
+        tie(d, u) = gen.uniform_pair(0, 1000 - 1); u++;
         printf("%d %d %d %d\n", l, d, r, u);
     }
     return 0;

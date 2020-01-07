@@ -76,15 +76,12 @@ struct Random {
         return double(v) / (1ULL << 63);
     }
 
-    // random choice two element from [lower, upper]
+    // random choice sorted two elements from [lower, upper]
     template <class T>
     std::pair<T, T> uniform_pair(T lower, T upper) {
         assert(upper - lower + 1 >= 2);
-        T a, b;
-        do {
-            a = uniform(lower, upper);
-            b = uniform(lower, upper);
-        } while (a == b);
+        T a = uniform(lower, upper);
+        T b = uniform(lower, upper);
         if (a > b) std::swap(a, b);
         return {a, b};
     }

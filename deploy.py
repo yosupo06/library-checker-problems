@@ -52,9 +52,9 @@ if __name__ == "__main__":
     )
 
     for name, probinfo in problems['problems'].items():
-        title = probinfo['title']
         problem = Problem(libdir, libdir / probinfo['dir'])
         probdir = problem.basedir
+        title = problem.config['title']
         timelimit = problem.config['timelimit']
 
         with tempfile.NamedTemporaryFile(suffix='.zip') as tmp:

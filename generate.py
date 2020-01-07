@@ -97,7 +97,7 @@ class Problem:
         for name in self.basedir.glob('gen/*.in'):
             if str(name) not in gens:
                 logger.error('Unused .in gen file: {}'.format(name))
-                exit(1)        
+                exit(1)
 
     def generate_params_h(self):
         logger.info('generate params.h')
@@ -221,7 +221,8 @@ class Problem:
                 testcases.add(expected)
 
         # Here you should use min, not max. We want ensure that all testcases are newer than all source files.
-        latest_timestamp = min(datetime.fromtimestamp(path.stat().st_mtime) for path in testcases)
+        latest_timestamp = min(datetime.fromtimestamp(
+            path.stat().st_mtime) for path in testcases)
 
         # compare the timestamp with other files (including header files in common/)
         for path in list(self.basedir.glob('**/*')) + list(self.libdir.glob('common/**/*')):
@@ -282,7 +283,7 @@ class Problem:
 
                 results.add(result)
                 logging_result(result, start, end,
-                               '{} : {}'.format(case, checker_output))
+                               '{} : {}'.format(case, checker_output.decode('utf-8')))
 
         expectaccept = not config.get('wrong', False)
         actualaccept = (results == {'AC'})
@@ -325,11 +326,14 @@ class Problem:
         actual = self.calc_hashes()
         if expect != actual:
             logger.error('hashes are different')
-            logger.error('your hash: {}'.format(json.dumps(actual, indent=2, sort_keys=True)))
+            logger.error('your hash: {}'.format(
+                json.dumps(actual, indent=2, sort_keys=True)))
             exit(1)
 
     def write_hashes(self):
-        json.dump(self.calc_hashes(), open(str(self.basedir / 'hash.json'), 'w'), indent=2, sort_keys=True)
+        json.dump(self.calc_hashes(), open(
+            str(self.basedir / 'hash.json'), 'w'), indent=2, sort_keys=True)
+
 
 if __name__ == '__main__':
     basicConfig(
@@ -346,7 +350,8 @@ if __name__ == '__main__':
     parser.add_argument('--html', action='store_true', help='Generate HTML')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
     parser.add_argument('--refhash', action='store_true', help='Refresh Hash')
-    parser.add_argument('--ignore-cache', action='store_true', help='Ignore cache')
+    parser.add_argument(
+        '--ignore-cache', action='store_true', help='Ignore cache')
     args = parser.parse_args()
 
     problems = toml.load(args.toml)
@@ -364,7 +369,7 @@ if __name__ == '__main__':
             logger.error('There is not problem {}'.format(name))
             exit(1)
 
-    for name, probinfo in sorted(problems['problems'].items(), key = lambda x: x[0]):
+    for name, probinfo in sorted(problems['problems'].items(), key=lambda x: x[0]):
         if targetprobs and name not in targetprobs:
             continue
 
@@ -372,7 +377,8 @@ if __name__ == '__main__':
         probs[name] = problem
 
         if name != problem.basedir.name:
-            logger.error('Different ID({}) vs dir({})'.format(name, problem.basedir.name))
+            logger.error('Different ID({}) vs dir({})'.format(
+                name, problem.basedir.name))
             exit(1)
 
         # health check
@@ -398,7 +404,6 @@ if __name__ == '__main__':
 
         if not args.nogen and (args.sol or not is_already_generated or args.ignore_cache):
             problem.make_outputs(args.sol)
-
 
         if args.sol:
             problem.compile_solutions()

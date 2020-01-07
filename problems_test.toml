@@ -1,19 +1,14 @@
 [problems.simple_aplusb]
-    title = 'Simple AplusB'
     dir = 'test/simple_aplusb'
 
 [problems.failed_verify]
-    title = 'Failed Verify'
     dir = 'test/failed_verify'
 
 [problems.unused_example]
-    title = 'Unused Example'
     dir = 'test/unused_example'
 
 [problems.unused_gen]
-    title = 'Unused Gen'
     dir = 'test/unused_gen'
 
 [problems.this_is_differ_id]
-    title = 'Differ ID'
     dir = 'test/differ_id'

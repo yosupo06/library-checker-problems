@@ -1,5 +1,5 @@
 title = 'Range Chmin Chmax Add Range Sum'
-timelimit = 5.0
+timelimit = 10.0
 forum = "https://github.com/yosupo06/library-checker-problems/issues/243"
 [[tests]]
     name = "example.in"
@@ -19,9 +19,11 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/243"
     number = 3
 
 [[solutions]]
+    name = "correct_with_assert.cpp"
+[[solutions]]
     name = "naive.cpp"
     wrong = true
 
 [params]
-    N_AND_Q_MAX = 500_000
+    N_AND_Q_MAX = 200_000
     A_ABS_MAX = 1_000_000_000_000

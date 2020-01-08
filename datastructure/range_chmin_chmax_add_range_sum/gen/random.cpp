@@ -27,8 +27,7 @@ int main(int, char* argv[]) {
     for (int i = 0; i < q; i++) {
         int t = gen.uniform(0, 3);
         int l, r;
-        tie(l, r) = gen.uniform_pair(0, n - 1);
-        r++;
+        tie(l, r) = gen.uniform_pair(0, n);
         if (t == 0) {
             long long b = gen.uniform<long long>(-A_ABS_MAX, A_ABS_MAX);
             printf("%d %d %d %lld\n", t, l, r, b);

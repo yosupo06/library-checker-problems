@@ -25,9 +25,8 @@ int main(int, char* argv[]) {
             int d = gen.uniform(0, 998244353);
             printf("%d %d %d\n", p, c, d);
         } else {
-            auto p = gen.uniform_pair(0, n - 1);
+            auto p = gen.uniform_pair(0, n);
             int x = gen.uniform(0, 998244353);
-            p.second++;
             printf("%d %d %d\n", p.first, p.second, x);
         }
     }

@@ -17,7 +17,7 @@ int main(int, char* argv[]) {
     }
     printf("\n");
     for (int i = 0; i < q; i++) {
-        auto p = gen.uniform_pair(0, n - 1); p.second++;
+        auto p = gen.uniform_pair(0, n);
         printf("%d %d\n", p.first, p.second);
     }
     return 0;

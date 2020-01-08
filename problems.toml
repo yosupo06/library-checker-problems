@@ -17,6 +17,9 @@
 [problems.range_affine_range_sum]
     dir = 'datastructure/range_affine_range_sum'
 
+[problems.range_chmin_chmax_add_range_sum]
+    dir = 'datastructure/range_chmin_chmax_add_range_sum'
+
 [problems.vertex_add_path_sum]
     dir = 'datastructure/vertex_add_path_sum'
 

@@ -15,6 +15,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/42"
     name = "fft_killer.cpp"
     number = 2
 
+[[solutions]]
+    name = "naive.cpp"
+    wrong = true
+
 [params]
     N_AND_M_MAX = 524288
     MOD = 998244353

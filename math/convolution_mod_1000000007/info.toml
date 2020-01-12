@@ -1,6 +1,6 @@
-title = 'Convolution'
-timelimit = 5.0
-forum = "https://github.com/yosupo06/library-checker-problems/issues/42"
+title = 'Convolution (mod 1,000,000,007)'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/145"
 
 [[tests]]
     name = "example.in"
@@ -27,4 +27,4 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/42"
 
 [params]
     N_AND_M_MAX = 524288
-    MOD = 998244353
+    MOD = 1000000007

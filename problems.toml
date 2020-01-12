@@ -116,6 +116,9 @@
 [problems.convolution_mod]
     dir = 'math/convolution_mod'
 
+[problems.convolution_mod_1000000007]
+    dir = 'math/convolution_mod_1000000007'
+
 [problems.multipoint_evaluation]
     dir = 'math/multipoint_evaluation'
 

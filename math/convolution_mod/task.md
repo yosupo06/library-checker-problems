@@ -5,15 +5,15 @@
 
 ただし、
 
-$$c_i = \sum_{j = 0}^i a_j b_{i - j} \bmod 998244353$$
+$$c_i = \sum_{j = 0}^i a_j b_{i - j} \bmod {{param MOD}}$$
 
 です
 
 制約
 ---------
 
-- $1 \leq N, M \leq 2^{19}(=524288)$
-- $0 \leq a_i, b_i < 998244353$
+- $1 \leq N, M \leq {{param N_AND_M_MAX}}$
+- $0 \leq a_i, b_i < {{param MOD}}$
 
 入力
 ---------

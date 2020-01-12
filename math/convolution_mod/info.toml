@@ -14,3 +14,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/42"
 [[tests]]
     name = "fft_killer.cpp"
     number = 2
+
+[params]
+    N_AND_M_MAX = 524288
+    MOD = 998244353

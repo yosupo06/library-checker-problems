@@ -6,7 +6,7 @@
 制約
 ---------
 
-- $0 \leq a, b \leq 10^9$
+- $0 \leq a, b \leq {{param A_AND_B_MAX}}$
 
 
 入力

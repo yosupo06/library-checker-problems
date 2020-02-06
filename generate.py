@@ -423,4 +423,4 @@ if __name__ == '__main__':
         logger.warning('No problems')
 
     for problem in problems:
-        generate(problem, args.ignore_cache, args.refhash, args.verify, args.html, args.htmldir)
+        generate(problem, args.ignore_cache, args.refhash, args.verify, args.html, Path(args.htmldir))

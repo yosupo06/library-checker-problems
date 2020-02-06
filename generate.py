@@ -335,7 +335,7 @@ class Problem:
             str(self.basedir / 'hash.json'), 'w'), indent=2, sort_keys=True)
 
 
-def generate(problem: Problem, force_generate: bool, rewrite_hash: bool, verify: bool, generate_html: bool, html_dir: Path):
+def generate(problem: Problem, force_generate: bool, rewrite_hash: bool, verify: bool, generate_html: bool, html_dir: Union[Path, None]):
     # health check
     problem.health_check()
 
@@ -427,4 +427,5 @@ if __name__ == '__main__':
         Path(args.htmldir).mkdir(exist_ok=True)
 
     for problem in problems:
-        generate(problem, args.ignore_cache, args.refhash, args.verify, args.html, Path(args.htmldir))
+        generate(problem, args.ignore_cache, args.refhash, args.verify, args.html,
+            Path(args.htmldir) if args.htmldir else None)

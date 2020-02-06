@@ -422,5 +422,9 @@ if __name__ == '__main__':
     if len(problems) == 0:
         logger.warning('No problems')
 
+    if args.htmldir:
+        logger.info('make htmldir')
+        Path(args.htmldir).mkdir(exist_ok=True)
+
     for problem in problems:
         generate(problem, args.ignore_cache, args.refhash, args.verify, args.html, Path(args.htmldir))

@@ -46,6 +46,9 @@ ls datastructure/unionfind/out/ # solutions of unionfind
 # generate statement
 ./generate.py -p unionfind --html # generate testcases & generate html
 ls datastructure/unionfind/task.html # statement
+
+# compile checker (mainly target for other project developers)
+./generate.py -p unionfind --compile-checker # generate executable binary in ./datastrucure/unionfind/checker
 ```
 
 ## ローカルでのテスト

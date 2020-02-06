@@ -335,7 +335,7 @@ class Problem:
             str(self.basedir / 'hash.json'), 'w'), indent=2, sort_keys=True)
 
 
-def generate(problem: Problem, force_generate: bool, rewrite_hash: bool, verify: bool, generate_html: bool):
+def generate(problem: Problem, force_generate: bool, rewrite_hash: bool, verify: bool, generate_html: bool, html_dir: Path):
     # health check
     problem.health_check()
 
@@ -370,7 +370,7 @@ def generate(problem: Problem, force_generate: bool, rewrite_hash: bool, verify:
         problem.check_hashes()
 
     if generate_html:
-        problem.write_html(problem.basedir)
+        problem.write_html(html_dir if html_dir else problem.basedir)
 
 if __name__ == '__main__':
     basicConfig(
@@ -396,8 +396,6 @@ if __name__ == '__main__':
         logger.warning('--nogen is deprecated, because auto skip was implemented')
     if args.sol:
         logger.warning('--sol is deprecated. --sol is also enabled by --verify')
-    if args.htmldir:
-        logger.warning('--htmldir is deprecated. If you want to use it, please make an issue')
     
     libdir = Path.cwd()
     problems = list()  # type: List[Problem]
@@ -425,4 +423,4 @@ if __name__ == '__main__':
         logger.warning('No problems')
 
     for problem in problems:
-        generate(problem, args.ignore_cache, args.refhash, args.verify, args.html)
+        generate(problem, args.ignore_cache, args.refhash, args.verify, args.html, args.htmldir)

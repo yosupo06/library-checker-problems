@@ -28,4 +28,4 @@ if __name__ == '__main__':
         for n in names:
             print('  {}'.format(n))
     else:
-        check_call(['./generate.py', args.toml.name, '--verify', '--sol', '-p'] + names + args.args)
+        check_call(['./generate.py', args.toml.name, '--verify', '-p'] + names + args.args)

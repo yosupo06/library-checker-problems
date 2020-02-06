@@ -20,7 +20,7 @@ jobs:
           command: |
             pip install --user -r requirements.txt
             ulimit -s unlimited
-            ./generate.py problems.toml --verify --sol
+            ./generate.py $(find . -name "info.toml" -not -path "./test/*") --verify
           environment:           
             CXX: clang++
             CXXFLAGS: -O2 -std=c++14 -stdlib=libc++ -Wall -Wextra -Werror
@@ -33,7 +33,7 @@ jobs:
           command: |
             pip install --user -r requirements.txt
             ulimit -s unlimited
-            ./generate.py problems.toml --verify --sol --html --htmldir=/tmp/html
+            ./generate.py $(find . -name "info.toml" -not -path "./test/*") --verify --html --htmldir=/tmp/html
       - store_artifacts:
           path: /tmp/html
 

@@ -335,7 +335,14 @@ class Problem:
             str(self.basedir / 'hash.json'), 'w'), indent=2, sort_keys=True)
 
 
-def generate(problem: Problem, force_generate: bool, rewrite_hash: bool, verify: bool, generate_html: bool, html_dir: Union[Path, None]):
+def generate(
+        problem: Problem,
+        force_generate: bool,
+        rewrite_hash: bool,
+        verify: bool,
+        compile_checker: bool,
+        generate_html: bool,
+        html_dir: Union[Path, None]):
     # health check
     problem.health_check()
 
@@ -353,6 +360,8 @@ def generate(problem: Problem, force_generate: bool, rewrite_hash: bool, verify:
     if verify:
         problem.compile_verifier()
         problem.verify_inputs()
+
+    if verify or compile_checker:
         problem.compile_checker()
 
     if not is_already_generated or force_generate:
@@ -372,6 +381,7 @@ def generate(problem: Problem, force_generate: bool, rewrite_hash: bool, verify:
     if generate_html:
         problem.write_html(html_dir if html_dir else problem.basedir)
 
+
 if __name__ == '__main__':
     basicConfig(
         level=getenv('LOG_LEVEL', 'DEBUG'),
@@ -386,6 +396,8 @@ if __name__ == '__main__':
     parser.add_argument('--refhash', action='store_true', help='Refresh Hash')
     parser.add_argument(
         '--ignore-cache', action='store_true', help='Ignore cache')
+    parser.add_argument('--compile-checker',
+                        action='store_true', help='Compile Checker')
 
     parser.add_argument('--nogen', action='store_true', help='Skip Generate')
     parser.add_argument('--sol', action='store_true', help='Solution Test')
@@ -393,10 +405,12 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.nogen:
-        logger.warning('--nogen is deprecated, because auto skip was implemented')
+        logger.warning(
+            '--nogen is deprecated, because auto skip was implemented')
     if args.sol:
-        logger.warning('--sol is deprecated. --sol is also enabled by --verify')
-    
+        logger.warning(
+            '--sol is deprecated. --sol is also enabled by --verify')
+
     libdir = Path.cwd()
     problems = list()  # type: List[Problem]
 
@@ -406,7 +420,7 @@ if __name__ == '__main__':
             logger.warning('problems.toml is deprecated')
             continue
         problems.append(Problem(libdir, Path(tomlpath).parent))
-    
+
     for problem_name in args.problem:
         tomls = list(Path.cwd().glob('**/{}/info.toml'.format(problem_name)))
         if len(tomls) == 0:
@@ -427,5 +441,5 @@ if __name__ == '__main__':
         Path(args.htmldir).mkdir(exist_ok=True)
 
     for problem in problems:
-        generate(problem, args.ignore_cache, args.refhash, args.verify, args.html,
-            Path(args.htmldir) if args.htmldir else None)
+        generate(problem, args.ignore_cache, args.refhash, args.verify, args.compile_checker, args.html,
+                 Path(args.htmldir) if args.htmldir else None)

@@ -1,11 +1,10 @@
 #include "random.h"
 #include <iostream>
-#include <tuple>
-#include "../params.h"
 
 using namespace std;
 
 int main(int, char* argv[]) {
+
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
@@ -13,8 +12,7 @@ int main(int, char* argv[]) {
     int q = 1000;
     printf("%d %d\n", n, q);
     for (int i = 0; i < n; i++) {
-        int a = gen.uniform<int>(0, MOD - 1);
-        printf("%d", a);
+        printf("%d", gen.uniform(0, 1'000'000'000));
         if (i != n - 1) printf(" ");
     }
     printf("\n");
@@ -22,15 +20,12 @@ int main(int, char* argv[]) {
         int t = gen.uniform(0, 1);
         printf("%d ", t);
         if (t == 0) {
-            int l, r;
-            tie(l, r) = gen.uniform_pair(0, n);
-            int b = gen.uniform<int>(1, MOD - 1);
-            int c = gen.uniform<int>(0, MOD - 1);
-            printf("%d %d %d %d\n", l, r, b, c);
+            int p = gen.uniform(0, n - 1);
+            int x = gen.uniform(0, 1'000'000'000);
+            printf("%d %d\n", p, x);
         } else {
-            int l, r;
-            tie(l, r) = gen.uniform_pair(0, n);
-            printf("%d %d\n", l, r);
+            auto p = gen.uniform_pair(0, n);
+            printf("%d %d\n", p.first, p.second);
         }
     }
     return 0;

@@ -422,7 +422,7 @@ if __name__ == '__main__':
         problems.append(Problem(libdir, Path(tomlpath).parent))
 
     for problem_name in args.problem:
-        tomls = list(Path.cwd().glob('**/{}/info.toml'.format(problem_name)))
+        tomls = list(libdir.glob('**/{}/info.toml'.format(problem_name)))
         if len(tomls) == 0:
             logger.error('Cannot find problem: {}'.format(problem_name))
             exit(1)

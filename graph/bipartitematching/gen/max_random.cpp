@@ -11,9 +11,9 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int l = gen.uniform<int>(1, L_MAX);
-    int r = gen.uniform<int>(1, R_MAX);
-    int m = gen.uniform<int>(1, M_MAX);
+    int l = L_MAX;
+    int r = R_MAX;
+    int m = M_MAX;
 
     using P = pair<int, int>;
     set<P> edges;

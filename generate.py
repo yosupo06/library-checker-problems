@@ -411,7 +411,7 @@ if __name__ == '__main__':
         logger.warning(
             '--sol is deprecated. --sol is also enabled by --verify')
 
-    libdir = Path.cwd()
+    libdir = Path(__file__).parent
     problems = list()  # type: List[Problem]
 
     for tomlpath in args.toml:

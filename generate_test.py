@@ -84,8 +84,8 @@ class TestCallFromOutside(unittest.TestCase):
         try:
             chdir('/')
             proc = run(
-                [str(cwd / 'generate.py'), str(cwd / 'test/simple_aplusb')])
-            self.assertNotEqual(proc.returncode, 0)
+                [str(cwd / 'generate.py'), str(cwd / 'test/simple_aplusb/info.toml')])
+            self.assertEqual(proc.returncode, 0)
         finally:
             chdir(str(cwd))
 

@@ -87,7 +87,7 @@ class TestCallFromOutside(unittest.TestCase):
                 [str(cwd / 'generate.py'), str(cwd / 'test/simple_aplusb')])
             self.assertNotEqual(proc.returncode, 0)
         finally:
-            chdir(cwd)
+            chdir(str(cwd))
 
 
 if __name__ == "__main__":

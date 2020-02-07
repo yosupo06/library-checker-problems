@@ -2,7 +2,7 @@
 
 import unittest
 from logging import basicConfig, getLogger
-from os import getenv
+from os import chdir, getenv
 from subprocess import PIPE, run
 from pathlib import Path
 
@@ -76,6 +76,18 @@ class TestUnusedGen(unittest.TestCase):
         proc = run(
             ['./generate.py', '-p', 'unused_gen'])
         self.assertNotEqual(proc.returncode, 0)
+
+
+class TestCallFromOutside(unittest.TestCase):
+    def test_call_from_outside(self):
+        cwd = Path.cwd()
+        try:
+            chdir('/')
+            proc = run(
+                [str(cwd / 'generate.py'), str(cwd / 'test/simple_aplusb/info.toml')])
+            self.assertEqual(proc.returncode, 0)
+        finally:
+            chdir(str(cwd))
 
 
 if __name__ == "__main__":

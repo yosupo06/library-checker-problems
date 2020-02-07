@@ -13,10 +13,10 @@ int main(int, char* argv[]) {
     vector<int> a(n), b(m);
 
     for (int i = 0; i < n; i++) {
-        a[i] = gen.uniform(0ll, MOD);
+        a[i] = gen.uniform(0ll, MOD - 1);
     }
     for (int i = 0; i < m; i++) {
-        b[i] = gen.uniform(0ll, MOD);
+        b[i] = gen.uniform(0ll, MOD - 1);
     }
 
     printf("%d %d\n", n, m);

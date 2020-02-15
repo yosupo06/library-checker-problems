@@ -21,10 +21,10 @@ int main(int, char* argv[]) {
         int t = gen.uniform(0, 1);
         printf("%d ", t);
         if (t == 0) {
-            int a = gen.uniform(-A_ABS_MAX, A_ABS_MAX);
-            dec += gen.uniform(0LL, A_ABS_MAX / n);
+            ll a = gen.uniform(-A_ABS_MAX, A_ABS_MAX);
+            dec += gen.uniform(0LL, A_ABS_MAX);
             ll b = a * a / 2 - dec;
-            printf("%d %lld\n", a, b);
+            printf("%lld %lld\n", a, b);
         } else {
             int p = gen.uniform(-A_ABS_MAX, A_ABS_MAX);
             printf("%d\n", p);

@@ -12,13 +12,13 @@ int main(int, char* argv[]) {
     int n = N_AND_Q_MAX;
     int q = N_AND_Q_MAX;
     printf("%d %d\n", n, q);
-    vector<pair<int, ll>> line;
-    int grad = n / 2;
+    vector<pair<ll, ll>> line;
+    ll grad = n / 2;
     const ll step = 2 * A_ABS_MAX / n - 1;
-    int x = -A_ABS_MAX;
+    ll x = -A_ABS_MAX;
     ll y = 0;
     for (int i = 0; i < n; i++) {
-        int a = grad--;
+        ll a = grad--;
         ll b = y - grad * x;
         y += step * a;
         x += step;
@@ -26,7 +26,7 @@ int main(int, char* argv[]) {
     }
     gen.shuffle(line.begin(), line.end());
     for (auto p : line) {
-        printf ("%d %lld\n", p.first, p.second);
+        printf ("%lld %lld\n", p.first, p.second);
     }
     vector<int> ask;
     int p = -A_ABS_MAX + 1;

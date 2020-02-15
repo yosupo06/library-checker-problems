@@ -21,7 +21,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/174"
     name = "hand_max.cpp"
     number = 1
 
-
 [[solutions]]
     name = "naive.cpp"
     wrong = true

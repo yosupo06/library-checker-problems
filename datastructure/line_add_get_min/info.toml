@@ -14,6 +14,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/174"
 [[tests]]
     name = "max_random.cpp"
     number = 3
+[[tests]]
+    name = "parabola_random.cpp"
+    number = 3
+[[tests]]
+    name = "hand_max.cpp"
+    number = 1
 
 [[solutions]]
     name = "naive.cpp"

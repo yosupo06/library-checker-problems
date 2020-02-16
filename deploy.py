@@ -34,7 +34,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Testcase Deploy')
     args = parser.parse_args()
 
-    problems = toml.load('problems.toml')
+    tomls = filter(lambda p: not p.match('test/**/info.toml'),
+                   Path('.').glob('**/info.toml'))
     libdir = Path.cwd()
 
     logger.info('connect to SQL')
@@ -50,11 +51,11 @@ if __name__ == "__main__":
         password=password,
         database='librarychecker'
     )
-
-    for name, probinfo in problems['problems'].items():
-        title = probinfo['title']
-        problem = Problem(libdir, libdir / probinfo['dir'])
-        probdir = problem.basedir
+    for toml_path in tomls:
+        probdir = toml_path.parent
+        name = probdir.name
+        problem = Problem(libdir, probdir)
+        title = problem.config['title']
         timelimit = problem.config['timelimit']
 
         with tempfile.NamedTemporaryFile(suffix='.zip') as tmp:

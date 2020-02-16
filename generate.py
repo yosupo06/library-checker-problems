@@ -97,7 +97,7 @@ class Problem:
         for name in self.basedir.glob('gen/*.in'):
             if str(name) not in gens:
                 logger.error('Unused .in gen file: {}'.format(name))
-                exit(1)        
+                exit(1)
 
     def generate_params_h(self):
         logger.info('generate params.h')
@@ -221,7 +221,8 @@ class Problem:
                 testcases.add(expected)
 
         # Here you should use min, not max. We want ensure that all testcases are newer than all source files.
-        latest_timestamp = min(datetime.fromtimestamp(path.stat().st_mtime) for path in testcases)
+        latest_timestamp = min(datetime.fromtimestamp(
+            path.stat().st_mtime) for path in testcases)
 
         # compare the timestamp with other files (including header files in common/)
         for path in list(self.basedir.glob('**/*')) + list(self.libdir.glob('common/**/*')):
@@ -282,7 +283,7 @@ class Problem:
 
                 results.add(result)
                 logging_result(result, start, end,
-                               '{} : {}'.format(case, checker_output))
+                               '{} : {}'.format(case, checker_output.decode('utf-8')))
 
         expectaccept = not config.get('wrong', False)
         actualaccept = (results == {'AC'})
@@ -325,11 +326,61 @@ class Problem:
         actual = self.calc_hashes()
         if expect != actual:
             logger.error('hashes are different')
-            logger.error('your hash: {}'.format(json.dumps(actual, indent=2, sort_keys=True)))
+            logger.error('your hash: {}'.format(
+                json.dumps(actual, indent=2, sort_keys=True)))
             exit(1)
 
     def write_hashes(self):
-        json.dump(self.calc_hashes(), open(str(self.basedir / 'hash.json'), 'w'), indent=2, sort_keys=True)
+        json.dump(self.calc_hashes(), open(
+            str(self.basedir / 'hash.json'), 'w'), indent=2, sort_keys=True)
+
+
+def generate(
+        problem: Problem,
+        force_generate: bool,
+        rewrite_hash: bool,
+        verify: bool,
+        compile_checker: bool,
+        generate_html: bool,
+        html_dir: Union[Path, None]):
+    # health check
+    problem.health_check()
+
+    logger.info('Start {}'.format(problem.basedir.name))
+
+    is_already_generated = problem.is_already_generated()
+
+    problem.generate_params_h()
+
+    if not is_already_generated or force_generate:
+        problem.compile_correct()
+        problem.compile_gens()
+        problem.make_inputs()
+
+    if verify:
+        problem.compile_verifier()
+        problem.verify_inputs()
+
+    if verify or compile_checker:
+        problem.compile_checker()
+
+    if not is_already_generated or force_generate:
+        problem.make_outputs(args.sol)
+
+    if verify:
+        problem.compile_solutions()
+        # TODO: problem.judge_solutions()?
+        for sol in problem.config.get('solutions', []):
+            problem.judge(problem.basedir / 'sol' / sol['name'], sol)
+
+    if rewrite_hash:
+        problem.write_hashes()
+    else:
+        problem.check_hashes()
+
+    if generate_html:
+        problem.write_html(html_dir if html_dir else problem.basedir)
+
 
 if __name__ == '__main__':
     basicConfig(
@@ -337,79 +388,58 @@ if __name__ == '__main__':
         format="%(asctime)s %(levelname)s %(name)s : %(message)s"
     )
     parser = argparse.ArgumentParser(description='Testcase Generator')
-    parser.add_argument('toml', type=argparse.FileType('r'), help='Toml File')
+    parser.add_argument('toml', nargs='*', help='Toml File')
     parser.add_argument('-p', '--problem', nargs='*',
                         help='Generate problem', default=[])
-    parser.add_argument('--nogen', action='store_true', help='Skip Generate')
     parser.add_argument('--verify', action='store_true', help='Verify Inputs')
-    parser.add_argument('--sol', action='store_true', help='Solution Test')
     parser.add_argument('--html', action='store_true', help='Generate HTML')
-    parser.add_argument('--htmldir', help='Generate HTML', default=None)
     parser.add_argument('--refhash', action='store_true', help='Refresh Hash')
-    parser.add_argument('--ignore-cache', action='store_true', help='Ignore cache')
+    parser.add_argument(
+        '--ignore-cache', action='store_true', help='Ignore cache')
+    parser.add_argument('--compile-checker',
+                        action='store_true', help='Compile Checker')
+
+    parser.add_argument('--nogen', action='store_true', help='Skip Generate')
+    parser.add_argument('--sol', action='store_true', help='Solution Test')
+    parser.add_argument('--htmldir', help='Generate HTML', default=None)
     args = parser.parse_args()
 
-    problems = toml.load(args.toml)
-    libdir = Path(args.toml.name).parent
-    targetprobs = set(args.problem)
+    if args.nogen:
+        logger.warning(
+            '--nogen is deprecated, because auto skip was implemented')
+    if args.sol:
+        logger.warning(
+            '--sol is deprecated. --sol is also enabled by --verify')
 
-    probs = dict()
+    libdir = Path(__file__).parent
+    problems = list()  # type: List[Problem]
+
+    for tomlpath in args.toml:
+        tomlfile = toml.load(args.toml)
+        if 'problems' in tomlfile:
+            logger.warning('problems.toml is deprecated')
+            continue
+        problems.append(Problem(libdir, Path(tomlpath).parent))
+
+    for problem_name in args.problem:
+        tomls = list(libdir.glob('**/{}/info.toml'.format(problem_name)))
+        if len(tomls) == 0:
+            logger.error('Cannot find problem: {}'.format(problem_name))
+            exit(1)
+        if len(tomls) >= 2:
+            logger.error('Find multi problem dirs: {}'.format(problem_name))
+            exit(1)
+        problem_dir = tomls[0].parent
+        problems.append(Problem(libdir, problem_dir))
+        logger.info('Find problem dir {}'.format(problem_dir))
+
+    if len(problems) == 0:
+        logger.warning('No problems')
 
     if args.htmldir:
-        logger.info('mkdir htmldir')
+        logger.info('make htmldir')
         Path(args.htmldir).mkdir(exist_ok=True)
 
-    for name in targetprobs:
-        if name not in problems['problems']:
-            logger.error('There is not problem {}'.format(name))
-            exit(1)
-
-    for name, probinfo in sorted(problems['problems'].items(), key = lambda x: x[0]):
-        if targetprobs and name not in targetprobs:
-            continue
-
-        problem = Problem(libdir, libdir / probinfo['dir'])
-        probs[name] = problem
-
-        if name != problem.basedir.name:
-            logger.error('Different ID({}) vs dir({})'.format(name, problem.basedir.name))
-            exit(1)
-
-        # health check
-        problem.health_check()
-
-        logger.info('Start {}'.format(probinfo['dir']))
-
-        is_already_generated = problem.is_already_generated()
-
-        problem.generate_params_h()
-
-        if not args.nogen and (not is_already_generated or args.ignore_cache):
-            problem.compile_correct()
-            problem.compile_gens()
-            problem.make_inputs()
-
-        if args.verify:
-            problem.compile_verifier()
-            problem.verify_inputs()
-
-        if args.sol:
-            problem.compile_checker()
-
-        if not args.nogen and (args.sol or not is_already_generated or args.ignore_cache):
-            problem.make_outputs(args.sol)
-
-
-        if args.sol:
-            problem.compile_solutions()
-            for sol in problem.config.get('solutions', []):
-                problem.judge(problem.basedir / 'sol' / sol['name'], sol)
-
-        if args.refhash:
-            problem.write_hashes()
-        else:
-            problem.check_hashes()
-
-        if args.html:
-            problem.write_html(Path(args.htmldir)
-                               if args.htmldir else problem.basedir)
+    for problem in problems:
+        generate(problem, args.ignore_cache, args.refhash, args.verify, args.compile_checker, args.html,
+                 Path(args.htmldir) if args.htmldir else None)

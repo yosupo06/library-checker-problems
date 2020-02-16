@@ -1,6 +1,8 @@
 #include <iostream>
 #include <set>
+
 #include "random.h"
+#include "../params.h"
 
 using namespace std;
 
@@ -9,9 +11,9 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int l = gen.uniform(1, 100'000);
-    int r = gen.uniform(1, 100'000);
-    int m = gen.uniform(1, 200'000);
+    int l = gen.uniform<int>(1, L_MAX);
+    int r = gen.uniform<int>(1, R_MAX);
+    int m = gen.uniform<int>(1, M_MAX);
 
     using P = pair<int, int>;
     set<P> edges;

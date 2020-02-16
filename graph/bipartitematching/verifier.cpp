@@ -1,15 +1,16 @@
 #include <iostream>
 
+#include "params.h"
 #include "testlib.h"
 
 int main() {
     registerValidation();
 
-    int L = inf.readInt(1, 100'000);
+    int L = inf.readInt(1, L_MAX);
     inf.readSpace();
-    int R = inf.readInt(1, 100'000);
+    int R = inf.readInt(1, R_MAX);
     inf.readSpace();
-    int M = inf.readInt(1, 200'000);
+    int M = inf.readInt(1, M_MAX);
     inf.readEoln();
 
     using P = std::pair<int, int>;

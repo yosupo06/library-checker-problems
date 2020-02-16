@@ -30,28 +30,25 @@ pip3 install toml markdown
 ulimit -s unlimited # for linux (don't need for os x)
 
 # generate testcase
-./generate.py problems.toml # generate testcases of all problems
-./generate.py problems.toml -p unionfind # generate testcases of unionfind
+./generate.py -p unionfind # generate testcases of unionfind
+# or ./generate.py datastructure/unionfind/info.toml
 ls datastructure/unionfind/in/ # testcases of unionfind
 ls datastructure/unionfind/out/ # solutions of unionfind
 
+./generate.py $(find . -name "info.toml" -not -path "./test/*") # generate testcases of all problems
+
 # generate hash(For developers)
-./generate.py problems.toml --refhash # if you fix some code, you have to regenerate hashes of testcases
+./generate.py -p unionfind --refhash # if you fix some code, you have to regenerate hashes of testcases
 
 # verify
-./generate.py problems.toml --verify # generate testcases & run input checker
-./generate.py problems.toml --nogen --verify # run input checker(without generate testcases, you must generate already)
-./generate.py problems.toml --nogen --verify -p unionfind # of cource, it is ok
-
-# other solutions check
-./generate.py problems.toml --sol # generate testcases & run other solution
-./generate.py problems.toml --nogen --sol
-./generate.py problems.toml --nogen --sol -p unionfind
+./generate.py -p unionfind --verify # generate testcases & run input checker & run other solutions
 
 # generate statement
-./generate.py problems.toml --html # generate testcases & generate html
-./generate.py problems.toml --nogen --html
+./generate.py -p unionfind --html # generate testcases & generate html
 ls datastructure/unionfind/task.html # statement
+
+# compile checker (mainly target for other project developers)
+./generate.py -p unionfind --compile-checker # generate executable binary in ./datastrucure/unionfind/checker
 ```
 
 ## ローカルでのテスト

@@ -41,10 +41,10 @@ jobs:
           pip install --user -r requirements.txt
       - name: Print problem list
         run: |
-          ./ci_generate.py --show-list problems.toml 5 ${{ matrix.id }}
+          ./ci_generate.py --show-list 5 ${{ matrix.id }}
       - name: Run generate.py on clang
         run: |
-          ./ci_generate.py problems.toml 5 ${{ matrix.id }}
+          ./ci_generate.py 5 ${{ matrix.id }}
         env:
           CXX: clang++
 
@@ -65,11 +65,11 @@ jobs:
           pip install --user -r requirements.txt
       - name: Print problem list
         run: |
-          ./ci_generate.py --show-list problems.toml 5 ${{ matrix.id }}
+          ./ci_generate.py --show-list 5 ${{ matrix.id }}
       - name: Run generate.py on gcc
         run: |
           ulimit -s unlimited
-          ./ci_generate.py problems.toml 5 ${{ matrix.id }} --html --htmldir=/tmp/html
+          ./ci_generate.py 5 ${{ matrix.id }} --html --htmldir=/tmp/html
       - name: Archive problem statements
         uses: actions/upload-artifact@v1
         with:

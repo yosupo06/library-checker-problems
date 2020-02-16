@@ -10,14 +10,6 @@ logger = getLogger(__name__)
 
 # test of deprecated feature
 
-
-class TestProblemToml(unittest.TestCase):
-    def test_success(self):
-        proc = run(
-            ['./generate.py', 'problems_test.toml', '-p', 'simple_aplusb', '--verify', '--html'])
-        self.assertEqual(proc.returncode, 0)
-
-
 class TestSuccess(unittest.TestCase):
     def test_success(self):
         proc = run(

@@ -1,18 +1,27 @@
 #include <iostream>
 #include <vector>
-
+#include <cmath>
 using namespace std;
 using uint = unsigned int;
 using ll = long long;
-using ull = unsigned long long;
-constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }
-template <class T> using V = vector<T>;
-template <class T> using VV = V<V<T>>;
+
+struct P {
+    ll x, y;
+    bool operator<(P r) const {
+        return atan2(y, x) < atan2(r.y, r.x);
+    }
+};
 
 int main() {
-
-    int a, b;
-    scanf("%d %d", &a, &b);
-    printf("%d\n", (a + b) / 2 * 2);
+    int n;
+    scanf("%d", &n);
+    vector<P> ps(n);
+    for (int i = 0; i < n; i++) {
+        scanf("%lld %lld", &ps[i].x, &ps[i].y);
+    }
+    sort(ps.begin(), ps.end());
+    for (auto p : ps) {
+        printf("%lld %lld\n", p.x, p.y);
+    }
     return 0;
 }

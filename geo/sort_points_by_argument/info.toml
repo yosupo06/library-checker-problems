@@ -3,10 +3,19 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/32"
 
 [[tests]]
     name = "example.in"
-    number = 2
+    number = 1
 [[tests]]
     name = "random.cpp"
-    number = 10
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "near_arg.cpp"
+    number = 3
+[[tests]]
+    name = "small_all.cpp"
+    number = 1
 
 [[solutions]]
     name = "wa.cpp"
@@ -15,5 +24,4 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/32"
 
 [params]
     N_MAX = 200_000
-    A_ABS_MAX = 1_000_000_000
-    B_ABS_MAX = 1_000_000_000_000_000_000
+    X_AND_Y_ABS_MAX = 1_000_000_000

@@ -1,62 +1,55 @@
-// https://github.com/MikeMirzayanov/testlib/blob/master/checkers/wcmp.cpp
-
-// The MIT License (MIT)
-
-// Copyright (c) 2015 Mike Mirzayanov
-
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+#include <map>
+#include <utility>
+#include <vector>
 
 #include "testlib.h"
 
 using namespace std;
+using ll = long long;
 
-int main(int argc, char * argv[])
-{
-    setName("compare sequences of tokens");
+struct P {
+    ll x, y;
+    int pos() const {
+        if (y < 0) return -1;
+        if (y == 0 && 0 <= x) return 0;
+        return 1;
+    }
+    bool operator<(P r) const {
+        if (pos() != r.pos()) return pos() < r.pos();
+        return 0 < (x * r.y - y * r.x);
+    }
+};
+
+int main(int argc, char* argv[]) {
     registerTestlibCmd(argc, argv);
 
-    int n = 0;
-    string j, p;
-
-    while (!ans.seekEof() && !ouf.seekEof()) 
-    {
-        n++;
-
-        ans.readWordTo(j);
-        ouf.readWordTo(p);
-        
-        if (j != p)
-            quitf(_wa, "%d%s words differ - expected: '%s', found: '%s'", n, englishEnding(n).c_str(), compress(j).c_str(), compress(p).c_str());
+    // input
+    int n = inf.readInt();
+    multiset<pair<int, int>> input_set;
+    for (int i = 0; i < n; i++) {
+        int x = inf.readInt();
+        int y = inf.readInt();
+        input_set.insert({x, y});
     }
 
-    if (ans.seekEof() && ouf.seekEof())
-    {
-        if (n == 1)
-            quitf(_ok, "\"%s\"", compress(j).c_str());
-        else
-            quitf(_ok, "%d tokens", n);
+    multiset<pair<int, int>> actual_set;
+    vector<P> actual(n);
+    for (int i = 0; i < n; i++) {
+        int x = ouf.readInt();
+        int y = ouf.readInt();
+        actual_set.insert({x, y});
+        actual[i] = {x, y};
     }
-    else
-    {
-        if (ans.seekEof())
-            quitf(_wa, "Participant output contains extra tokens");
-        else
-            quitf(_wa, "Unexpected EOF in the participants output");
+
+    if (input_set != actual_set) {
+        quitf(_wa, "Do not use each point exactly once");
     }
+
+    for (int i = 0; i < n - 1; i++) {
+        if (actual[i + 1] < actual[i]) {
+            quitf(_wa, "Order is not correct");
+        }
+    }
+
+    quitf(_ok, "OK");
 }

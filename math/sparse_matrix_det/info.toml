@@ -17,3 +17,8 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/44"
 [[tests]]
     name = "perm_plus_random.cpp"
     number = 5
+
+[params]
+    N_MAX = 3000
+    M_MAX = 10000
+    MOD = 998244353

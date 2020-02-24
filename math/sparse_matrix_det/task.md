@@ -3,15 +3,16 @@
 
 $N \times N$ 正方行列 $M$ が与えられます。
 $M$ は $K$ 個の要素のみが非零で、$i$ 個目は $M(a_i, b_i) = c_i$ です。
-$M$ の行列式をmod 998244353で求めてください。
+$M$ の行列式をmod {{param MOD}}で求めてください。
 
 制約
 ---------
 
-- $1 \leq N \leq 3000$
-- $1 \leq K \leq 10000$
+- $1 \leq N \leq {{param N_MAX}}$
+- $1 \leq K \leq {{param M_MAX}}$
 - $0 \leq a_i, b_i \leq N - 1$
-- $0 \leq c_i < 998244353$
+- $(a_i, b_i)$ は全て異なる
+- $1 \leq c_i < {{param MOD}}$
 
 入力
 ---------

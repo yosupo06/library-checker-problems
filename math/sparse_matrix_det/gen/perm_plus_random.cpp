@@ -1,4 +1,5 @@
 #include <iostream>
+#include "../params.h"
 #include "random.h"
 
 using namespace std;
@@ -9,8 +10,8 @@ int main(int, char *argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = gen.uniform(2800, 3000);
-    int k = gen.uniform(9900, 10000);
+    int n = gen.uniform<int>(N_MAX - 200, N_MAX);
+    int k = gen.uniform<int>(M_MAX - 100, M_MAX);
 
     set<pair<int, int>> st;
     vector<int> a = gen.perm<int>(n);
@@ -20,7 +21,7 @@ int main(int, char *argv[]) {
     vector<int> c(k);
     for (int i = 0; i < n; i++) {
         st.insert({a[i], b[i]});
-        c[i] = gen.uniform(1, 998244353 - 1);
+        c[i] = gen.uniform<int>(1, MOD - 1);
     }
     for (int i = n; i < k; i++) {
         do {
@@ -28,7 +29,7 @@ int main(int, char *argv[]) {
             b[i] = gen.uniform(0, n - 1);
         } while (st.count({a[i], b[i]}));
         st.insert({a[i], b[i]});
-        c[i] = gen.uniform(1, 998244353 - 1);
+        c[i] = gen.uniform<int>(1, MOD - 1);
     }
 
     printf("%d %d\n", n, k);

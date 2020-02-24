@@ -26,7 +26,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         scanf("%lld %lld", &ps[i].x, &ps[i].y);
     }
-    sort(ps.begin(), ps.end());
+    stable_sort(ps.begin(), ps.end());
     for (auto p: ps) {
         printf("%lld %lld\n", p.x, p.y);
     }

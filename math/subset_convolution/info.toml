@@ -1,0 +1,21 @@
+title = 'Subset Convolution'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/297"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+
+[[solutions]]
+    name = "naive.cpp"
+    wrong = true
+
+[params]
+    N_MAX = 20
+    MOD = 998244353

@@ -2,53 +2,58 @@
 #include "testlib.h"
 
 using namespace std;
+using P = pair<int, int>;
+
+// check and return scc
+vector<vector<int>> read_ans(int n, vector<P> edges, InStream& stream) {
+    int k = stream.readInt(1, n);
+    vector<vector<int>> sccs(k);
+    vector<int> pos(n, -1);
+    for (int i = 0; i < k; i++) {
+        int l = stream.readInt(1, n);
+        sccs[i] = vector<int>(l);
+        for (int j = 0; j < l; j++) {
+            sccs[i][j] = stream.readInt(0, n - 1);
+            if (pos[sccs[i][j]] != -1) {
+                stream.quitf(_wa, "twice used vertex %d", sccs[i][j]);
+            }
+            pos[sccs[i][j]] = i;
+        }
+        sort(sccs[i].begin(), sccs[i].end());
+    }
+    for (auto edge: edges) {
+        int u = edge.first, v = edge.second;
+        if (pos[u] > pos[v]) {
+            stream.quitf(_wa, "%d is later than %d, but there is an edge (%d, %d)", u, v, u, v);
+        }
+    }
+    return sccs;
+}
 
 int main(int argc, char *argv[]) {
     registerTestlibCmd(argc, argv);
 
     int n = inf.readInt();
     int m = inf.readInt();
+    vector<P> edges(m);
+    for (int i = 0; i < m; i++) {
+        edges[i].first = inf.readInt();
+        edges[i].second = inf.readInt();
+    }
 
-
-    int k_ans = ans.readInt(1, n);
-    int k_ouf = ouf.readInt(1, n);
+    auto sccs_ans = read_ans(n, edges, ans);
+    auto sccs_ouf = read_ans(n, edges, ouf);
+    int k_ans = int(sccs_ans.size());
+    int k_ouf = int(sccs_ouf.size());
     if (k_ans != k_ouf) {
         quitf(_wa, "# of scc is differ - expected: '%d', found: '%d'", k_ans, k_ouf);
-    }
-
-    vector<vector<int>> sccs_ans(k_ans), sccs_ouf(k_ouf);
-    for (int i = 0; i < k_ans; i++) {
-        int l = ans.readInt(1, n);
-        sccs_ans[i] = vector<int>(l);
-        for (int j = 0; j < l; j++) {
-            sccs_ans[i][j] = ans.readInt();
-        }
-        sort(sccs_ans[i].begin(), sccs_ans[i].end());
-    }
-
-    vector<int> pos_ouf(n, -1);
-    for (int i = 0; i < k_ouf; i++)
-    {
-        int l = ouf.readInt(1, n);
-        sccs_ouf[i] = vector<int>(l);
-        for (int j = 0; j < l; j++) {
-            sccs_ouf[i][j] = ouf.readInt();
-            ensure(pos_ouf[sccs_ouf[i][j]] == -1);
-            pos_ouf[sccs_ouf[i][j]] = i;
-        }
-        sort(sccs_ouf[i].begin(), sccs_ouf[i].end());
-    }
-
-    for (int i = 0; i < m; i++) {
-        int u = inf.readInt(0, n - 1);
-        int v = inf.readInt(0, n - 1);
-        ensure(pos_ouf[u] <= pos_ouf[v]);
     }
 
     sort(sccs_ans.begin(), sccs_ans.end());
     sort(sccs_ouf.begin(), sccs_ouf.end());
 
-    ensure(sccs_ans == sccs_ouf);
-
+    if (sccs_ans != sccs_ouf) {
+        quitf(_wa, "scc is differ");
+    }
     quitf(_ok, "OK");
 }

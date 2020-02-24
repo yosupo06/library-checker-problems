@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cmath>
+
 using namespace std;
 using uint = unsigned int;
 using ll = long long;

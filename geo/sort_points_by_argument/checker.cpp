@@ -1,6 +1,7 @@
 #include <map>
 #include <utility>
 #include <vector>
+#include <algorithm>
 
 #include "testlib.h"
 

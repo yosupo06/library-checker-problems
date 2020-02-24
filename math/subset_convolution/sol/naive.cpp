@@ -59,7 +59,7 @@ int main() {
         scanf("%d", &x);
         b[i] = x;
     }
-    for (uint k = 0; k < (1 << n); k++) {
+    for (uint k = 0; k < (1U << n); k++) {
         Mint sum = 0;
         uint i = 0;
         do {

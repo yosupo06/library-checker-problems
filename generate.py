@@ -78,8 +78,11 @@ class Problem:
         self.config = toml.load(tomlpath)  # type: MutableMapping[str, Any]
 
     def health_check(self):
+        if 'title' not in self.config:
+            logger.error('no title: {}'.format(self.basedir))
+            exit(1)
         gendir = self.basedir / 'gen'
-        gens = []
+        gens = []            
         for test in self.config['tests']:
             gen = gendir / test['name']
             if gen.suffix == '.cpp':

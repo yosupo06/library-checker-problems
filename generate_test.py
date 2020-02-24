@@ -70,6 +70,13 @@ class TestUnusedGen(unittest.TestCase):
         self.assertNotEqual(proc.returncode, 0)
 
 
+class TestNoTitle(unittest.TestCase):
+    def test_no_title(self):
+        proc = run(
+            ['./generate.py', '-p', 'no_title'])
+        self.assertNotEqual(proc.returncode, 0)
+
+
 class TestCallFromOutside(unittest.TestCase):
     def test_call_from_outside(self):
         cwd = Path.cwd()

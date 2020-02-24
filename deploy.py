@@ -32,11 +32,22 @@ if __name__ == "__main__":
         format="%(asctime)s %(levelname)s %(name)s : %(message)s"
     )
     parser = argparse.ArgumentParser(description='Testcase Deploy')
+    parser.add_argument('-p', '--problem', nargs='*',
+                        help='Generate problem', default=[])
     args = parser.parse_args()
-
-    tomls = filter(lambda p: not p.match('test/**/info.toml'),
-                   Path('.').glob('**/info.toml'))
-    libdir = Path.cwd()
+    libdir = Path(__file__).parent
+    tomls = []
+    for problem_name in args.problem:
+        toml = list(libdir.glob('**/{}/info.toml'.format(problem_name)))
+        if len(toml) == 0:
+            logger.error('Cannot find problem: {}'.format(problem_name))
+            exit(1)
+        if len(toml) >= 2:
+            logger.error('Find multi problem dirs: {}'.format(problem_name))
+            exit(1)
+        tomls.append(toml[0])
+    if len(tomls) == 0:
+        tomls = filter(lambda p: not p.match('test/**/info.toml'), Path('.').glob('**/info.toml'))
 
     logger.info('connect to SQL')
     hostname = environ.get('POSTGRE_HOST', '127.0.0.1')

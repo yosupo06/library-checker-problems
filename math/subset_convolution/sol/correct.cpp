@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <array>
+#include <cassert>
 
 using namespace std;
 using uint = unsigned int;
@@ -52,12 +53,12 @@ int main() {
     scanf("%d", &n);
     assert(n <= 20);
     V<A> a(1 << n), b(1 << n);
-    for (uint i = 0; i < (1 << n); i++) {
+    for (uint i = 0; i < (1U << n); i++) {
         int x = 1;
         scanf("%d", &x);
         a[i][popcnt(i)] = x;
     }
-    for (uint i = 0; i < (1 << n); i++) {
+    for (uint i = 0; i < (1U << n); i++) {
         int x = 1;
         scanf("%d", &x);
         b[i][popcnt(i)] = x;
@@ -99,9 +100,9 @@ int main() {
         }
     }
 
-    for (uint k = 0; k < (1 << n); k++) {
+    for (uint k = 0; k < (1U << n); k++) {
         printf("%d", a[k][popcnt(k)].v);
-        if (k != (1 << n) - 1) printf(" ");
+        if (k != (1U << n) - 1) printf(" ");
     }
     printf("\n");
     return 0;

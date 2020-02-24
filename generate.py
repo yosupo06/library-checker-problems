@@ -365,7 +365,7 @@ def generate(
         problem.compile_checker()
 
     if not is_already_generated or force_generate:
-        problem.make_outputs(args.sol)
+        problem.make_outputs(verify)
 
     if verify:
         problem.compile_solutions()

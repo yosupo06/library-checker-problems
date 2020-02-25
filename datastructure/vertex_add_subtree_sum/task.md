@@ -1,4 +1,4 @@
-Problem Statement / 問題文
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 頂点 $0$ を根とする $N$ 頂点の木が与えられる。頂点 $i$ の値は $a_i$ で、親は $p_i$。$Q$ 個のクエリが飛んでくるので処理。

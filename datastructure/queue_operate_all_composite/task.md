@@ -1,4 +1,4 @@
-Problem Statement / 問題文
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 長さ $0$ (一次)関数の列 $f = ()$ があります。$Q$ 個のクエリが飛んできます。処理してください。

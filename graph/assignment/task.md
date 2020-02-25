@@ -1,4 +1,4 @@
-Problem Statement / 問題文
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 $N \times N$ の行列 $a_{ij}$ が与えられる。

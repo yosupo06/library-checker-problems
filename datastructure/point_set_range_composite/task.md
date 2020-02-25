@@ -1,4 +1,4 @@
-Problem Statement / 問題文
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 長さ $N$ の(一次)関数列 $f_0, f_1, ..., f_{N-1}$ が与えられる。$f_i(x) = a_i x + b_i$ である。 $Q$ 個のクエリが飛んできます。処理してください。

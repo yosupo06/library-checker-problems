@@ -1,4 +1,4 @@
-Problem Statement / 問題文
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 長さ $N$ の文字列 $S$ が与えられます。$S$ の相違なる部分文字列の個数を求めてください。

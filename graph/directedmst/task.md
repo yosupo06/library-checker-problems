@@ -1,4 +1,4 @@
-Problem Statement / 問題文
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 $N$ 頂点 $M$ 辺の単純な重み付き有向グラフが与えられる。$i$ 番目の辺は頂点 $a_i$ から $b_i$ に貼られており、重さ $c_i$ である。

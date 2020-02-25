@@ -1,4 +1,4 @@
-Problem Statement / 問題文
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 木が与えられる。頂点 $i$ の親は $p_i$ である。$Q$ 個のクエリが飛んできます。処理してください。

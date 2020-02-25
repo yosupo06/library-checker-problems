@@ -1,4 +1,4 @@
-Problem Statement / 問題文
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 $N$ 本の線分 $y = a_i x + b_i$ (ただし $x \in [l_i, r_i)$) が存在します。 $Q$ 個のクエリを処理してください。

@@ -1,4 +1,4 @@
-Problem Statement / 問題文
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 $2$ 次元平面上に重み付きの点が $N$ 個ある。$i$ 個目の座標は $(x_i, y_i)$ で、重みは $w_i$ である。

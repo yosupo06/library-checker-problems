@@ -1,4 +1,4 @@
-Problem Statement / 問題文
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 長さ $N$ の整数列 $a_0, a_1, \dots, a_{N - 1}$ が与えられる。$Q$ 個のクエリが飛んできます。処理してください。

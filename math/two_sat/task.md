@@ -1,4 +1,4 @@
-Problem Statement / 問題文
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 $N$ 変数 $M$ 節の 2 Sat が与えられる。充足可能か判定し、可能ならば割り当てを一つ求めてください。

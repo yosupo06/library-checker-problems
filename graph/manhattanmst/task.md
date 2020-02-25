@@ -1,4 +1,4 @@
-Problem Statement / 問題文
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 2次元平面上に $N$ 個の点が与えられる。$i$ 個目の頂点の座標は $(x_i, y_i)$ である。 

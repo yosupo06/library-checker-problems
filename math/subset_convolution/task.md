@@ -8,7 +8,7 @@ $c_k = \sum_{i, j, i \& j = 0, i | j = k} a_i b_j$
 ただし $i \& j, i | j$ はそれぞれbitwise-AND, bitwise-ORとします
 
 
-制約
+Constraints / 制約
 ---------
 
 - $0 \leq N \leq {{param N_MAX}}$
@@ -16,7 +16,7 @@ $c_k = \sum_{i, j, i \& j = 0, i | j = k} a_i b_j$
 - $0 \leq b_i < {{param MOD}}$
 
 
-入力
+Input / 入力
 ---------
 
 ```
@@ -25,14 +25,14 @@ $a_0$ $a_1$ ... $a_{2^N - 1}$
 $b_0$ $b_1$ ... $b_{2^N - 1}$
 ```
 
-出力
+Output / 出力
 ---------
 
 ```
 $c_0$ $c_1$ ... $c_{2^N - 1}$
 ```
 
-サンプル
+Sample / サンプル
 ---------
 
 {{example example_00}}

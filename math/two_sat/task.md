@@ -1,17 +1,17 @@
-問題文
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 $N$ 変数 $M$ 節の 2 Sat が与えられる。充足可能か判定し、可能ならば割り当てを一つ求めてください。
 
 
 
-制約
+Constraints / 制約
 ---------
 
 - $1 \leq N \leq 500,000$
 - $1 \leq M \leq 500,000$
 
-入力
+Input / 入力
 ---------
 
 [DIMACS 標準形式](http://www.domagoj-babic.com/uploads/ResearchProjects/Spear/dimacs-cnf.pdf) で与えられる。
@@ -25,7 +25,7 @@ $a_2$ $b_2$ 0
 $a_M$ $b_M$ 0
 ~~~
 
-出力
+Output / 出力
 ---------
 
 充足可能な場合は以下
@@ -43,7 +43,7 @@ $x_i$ は、$i$ 番目の変数が真ならば $i$、偽ならば $-i$
 s UNSATISFIABLE
 ~~~
 
-サンプル
+Sample / サンプル
 ---------
 
 {{example example_00}}

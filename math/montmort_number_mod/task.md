@@ -7,26 +7,26 @@ $N, M$ が与えられます。
 $1$ から $N$ までの各 $K$ に対して、$b_k = a_k \bmod M$ を求めてください。
 
 
-制約
+Constraints / 制約
 ---------
 - $1 \leq N \leq 10^6$
 - $1 \leq M \leq 10^9$
 
-入力
+Input / 入力
 ---------
 
 ```
 $N$ $M$
 ```
 
-出力
+Output / 出力
 ---------
 
 ```
 $b_1$ $b_2$ $\ldots$ $b_N$
 ```
 
-サンプル
+Sample / サンプル
 ---------
 
 {{example example_00}}

@@ -8,14 +8,14 @@ $A, B, M$ が与えられます。
 ${A \uparrow \uparrow B} (\bmod M)$ を求めてください。
 なお、$0^0 = 1$ とします。
 
-制約
+Constraints / 制約
 ---------
 
 - $1 \leq T \leq 1000$
 - $0 \leq A, B \leq 10^9$
 - $1 \leq M \leq 10^9$
 
-入力
+Input / 入力
 ---------
 
 ```
@@ -26,12 +26,12 @@ $A_1$ $B_1$ $M_1$
 $A_{T-1}$ $B_{T-1}$ $M_{T-1}$
 ```
 
-出力
+Output / 出力
 ---------
 
 各行に、${A \uparrow \uparrow B} (\bmod M)$ を出力してください
 
-サンプル
+Sample / サンプル
 ---------
 
 {{example example_00}}

@@ -15,6 +15,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/248"
     name = "near_arg.cpp"
     number = 3
 [[tests]]
+    name = "near_arg_shuffle.cpp"
+    number = 3
+[[tests]]
     name = "small_all.cpp"
     number = 1
 

@@ -9,13 +9,13 @@
 - 同じ角度の点同士の順番は任意
 - 64bit浮動小数(double)を使うと誤差によりWAになるかもしれません、整数か80bit浮動小数(long double)を使ってください
 
-制約
+Constraints / 制約
 ---------
 
 - $1 \leq N \leq {{param N_MAX}}$
 - $|x_i|, |y_i| \leq {{param X_AND_Y_ABS_MAX}}$
 
-入力
+Input / 入力
 ---------
 
 ```
@@ -26,7 +26,7 @@ $x_1$ $y_1$
 $x_{N - 1}$ $y_{N - 1}$
 ```
 
-出力
+Output / 出力
 ---------
 
 ```
@@ -36,7 +36,7 @@ $x_1$ $y_1$
 $x_{N - 1}$ $y_{N - 1}$
 ```
 
-サンプル
+Sample / サンプル
 ---------
 
 {{example example_00}}

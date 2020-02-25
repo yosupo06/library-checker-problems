@@ -1,4 +1,4 @@
-Problem Statement
+Problem Statement / 問題文
 ---------
 
 You are given an integer sequence $a_0, a_1, ..., a_{N-1}$ with the length $N$.
@@ -7,7 +7,7 @@ Process the following $Q$ queries in order:
 - `0 $p$ $x$`: $a_p = a_p + x$
 - `1 $l$ $r$`: Print $\sum_{i = l}^{r - 1}{a_i}$
 
-Problem Statement (日本語)
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 長さ $N$ の数列 $a_0, a_1, ..., a_{N-1}$ に $Q$ 個のクエリが飛んできます。処理してください。
@@ -15,7 +15,7 @@ Problem Statement (日本語)
 - `0 $p$ $x$`: $a_p = a_p + x$
 - `1 $l$ $r$`: $\sum_{i = l}^{r - 1}{a_i}$ を出力する。
 
-Constraints
+Constraints / 制約
 ---------
 
 - $1 \leq N, Q \leq 500,000$
@@ -23,7 +23,7 @@ Constraints
 - $0 \leq p < N$
 - $0 \leq l_i < r_i \leq N$
 
-Input
+Input / 入力
 ---------
 
 ~~~

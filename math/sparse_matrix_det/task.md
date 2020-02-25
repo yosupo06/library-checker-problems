@@ -5,7 +5,7 @@ $N \times N$ 正方行列 $M$ が与えられます。
 $M$ は $K$ 個の要素のみが非零で、$i$ 個目は $M(a_i, b_i) = c_i$ です。
 $M$ の行列式をmod {{param MOD}}で求めてください。
 
-制約
+Constraints / 制約
 ---------
 
 - $1 \leq N \leq {{param N_MAX}}$
@@ -14,7 +14,7 @@ $M$ の行列式をmod {{param MOD}}で求めてください。
 - $(a_i, b_i)$ は全て異なる
 - $1 \leq c_i < {{param MOD}}$
 
-入力
+Input / 入力
 ---------
 
 ```
@@ -25,7 +25,7 @@ $a_2$ $b_2$ $c_2$
 $a_K$ $b_K$ $c_K$
 ```
 
-サンプル
+Sample / サンプル
 ---------
 
 {{example example_00}}

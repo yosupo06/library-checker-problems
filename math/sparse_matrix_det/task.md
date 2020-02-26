@@ -1,4 +1,4 @@
-問題
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 $N \times N$ 正方行列 $M$ が与えられます。

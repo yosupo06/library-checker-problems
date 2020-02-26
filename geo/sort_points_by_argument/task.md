@@ -1,4 +1,4 @@
-問題
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 長さ $N$ の点列 $(x_0, y_0), (x_1, y_1), \dots, (x_{N - 1}, y_{N - 1})$ が与えられます。

@@ -1,4 +1,4 @@
-問題
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 多項式 $f(x) = \sum_{i = 0}^{N - 1} c_i x^i$, 整数列 $p_0, p_1, ..., p_{M - 1}$ が与えられます。

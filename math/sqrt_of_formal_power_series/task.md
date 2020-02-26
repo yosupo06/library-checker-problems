@@ -1,4 +1,4 @@
-問題
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 母関数 $f(x) = \sum_{i = 0}^{N - 1} a_i x^i$ が与えられます。$\sqrt{f(x)}$ の先頭 $N$ 項を求めてください。つまり

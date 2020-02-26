@@ -12,7 +12,7 @@ Process $Q$ queries as follows. The graph remains a tree even after queries have
 Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
-$N$ 頂点の木が与えられる。辺は $(u_i, v_i)$。頂点 $i$ には値 $a_i$ が書かれている。
+$N$ 頂点の木が与えられる。辺は $(u_i, v_i)$。頂点 $i$ には一次関数 $f_i(x) = a_i x + b_i$ が書かれている。
 
 $Q$ 個のクエリが飛んでくるので処理。ただし, クエリ処理後もグラフが木であることが保証される.
 

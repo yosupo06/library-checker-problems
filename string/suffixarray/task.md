@@ -1,4 +1,4 @@
-問題
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 長さ $N$ の文字列 $S$ が与えられます。$S$ の suffix array $a_i$ を求めてください。

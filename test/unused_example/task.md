@@ -1,4 +1,4 @@
-問題
+Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 
 整数 $a, b$ が与えられます。 $a + b$ を出力してください。

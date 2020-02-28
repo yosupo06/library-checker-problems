@@ -63,14 +63,14 @@ ls datastructure/unionfind/task.html # statement
 ## Contributing(バグ報告などしていただける方へ)
 
 不具合(テストケースが弱い, ジャッジが異常な挙動をする, 問題文にtypoを発見, などなど)を発見したとき、報告していただけるととっても助かります。
-機能の追加要望などもなんでも歓迎です。
+問題の追加要望などもなんでも歓迎です。
 
-- githubはよくわからない！ / issueを立てるのがめんどくさい
-  - [gitter](https://gitter.im/library-checker-problems/community) に書き込んでいただけると助かります
-  - [twitter](https://twitter.com/yosupot) でも大丈夫です
-- issueの立て方がわかる！
-  - issueを立ててくれると助かります。適当で大丈夫です
-  - [CONTRIBUTING](docs/CONTRIBUTING.md) を参考にしていただけるともっと助かります(熱意がある人向け)
+- issueを立てる(推奨): githubにはissueというTODOやバグなどをメモっておく機能があります。上の Issues → New issueから作成できます。
+- pull requestを送る(推奨): 実際に自分でコードを変更していただける場合、[CONTRIBUTING](docs/CONTRIBUTING.md) を参考にしていただけるととても助かります(熱意がある人向け)
+- [gitter](https://gitter.im/library-checker-problems/community) というチャットみたいなものを用意しています。ここに書き込んでくれても大丈夫です
+- [twitter](https://twitter.com/yosupot) に直接 リプライ / DM でも大丈夫です
+
+競プロerは必ずしもgithubに慣れているとは限らず、issue / pull request を送ったことがない人も少なくはないというのを理解しています。どれだけめちゃくちゃなものを送ってきても怒ったりこのリポジトリが壊れたりすることはないので、githubの練習がてら挑戦してみるというのもアリです(頑張ってサポートします)。
 
 ## フォルダ構成
 

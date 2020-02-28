@@ -1,18 +1,18 @@
 #include <algorithm>
-#include <iostream>
+#include <cstdio>
 #include <vector>
 
 int main() {
   int n, q;
-  std::cin >> n >> q;
+  scanf("%d%d", &n, &q);
   std::vector<int> a(n);
   for (int &e : a)
-    std::cin >> e;
+    scanf("%d", &e);
   for (int i = 0; i != q; i += 1) {
     int l, r, k;
-    std::cin >> l >> r >> k;
+    scanf("%d%d%d", &l, &r, &k);
     std::vector<int> b(a.begin() + l, a.begin() + r);
     std::nth_element(b.begin(), b.begin() + k, b.end());
-    std::cout << b[k] << std::endl;
+    printf("%d\n", b[k]);
   }
 }

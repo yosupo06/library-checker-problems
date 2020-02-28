@@ -129,19 +129,19 @@ public:
   }
 };
 
-#include <iostream>
+#include <cstdio>
 #include <vector>
 
 int main() {
   int n, q;
-  std::cin >> n >> q;
+  scanf("%d%d", &n, &q);
   std::vector<int> a(n);
   for (int &e : a)
-    std::cin >> e;
+    scanf("%d", &e);
   const wavelet_matrix<int> wm(30, a);
   for (int i = 0; i != q; i += 1) {
     int l, r, k;
-    std::cin >> l >> r >> k;
-    std::cout << wm.quantile(l, r, k) << std::endl;
+    scanf("%d%d%d", &l, &r, &k);
+    printf("%d\n", int(wm.quantile(l, r, k)));
   }
 }

@@ -1,39 +1,15 @@
 # 各種仕様
 
-## problems.toml
-
-ここに問題のリストが入っている。
-中を見ると大体想像がつくと思うが
-
-```toml
-[problems.aplusb]
-    title = 'A + B'
-    dir = 'sample/aplusb'
-```
-
-が1問に対応する
-
-- `problems.aplusb`
-  - aplusbが問題のID
-  - 問題IDは`[a-z_]+`であることを仮定していい
-  - 変更しないと仮定していい(=問題IDの変更は破壊的変更として扱う)
-- `title`
-  - 問題のタイトル
-  - 内容は変更しうる
-  - 場所ももしかしたら問題ごとの設定ファイル(後述のinfo.toml)に移動するかもしれない
-- `dir`
-  - 問題データの場所
-  - `sample/aplusb` -> `example/aplusb` のように変更しうるが、最後が問題IDと等しいことは仮定していい
-
 ## 問題ごとのファイル構造
 
-problems.tomlのdirで指定されたディレクトリ以下は、以下のような構造になっている
+問題ごとのディレクトリは、以下のような構造になっている
 
 - aplusb/
   - info.toml 問題の情報
   - checker.cpp 出力チェッカー
   - verifier.cpp 入力チェッカー
   - hash.json 入出力ファイルのハッシュ
+  - (params.h 定数が格納されたファイル, 自動生成)
   - sol/
     - correct.cpp 想定解
     - wa.cpp
@@ -66,6 +42,9 @@ timelimit = 2.0
 [[solutions]]
     name = "wa.cpp"
     wrong = true
+
+[params]
+    A_AND_B_MAX = 1_000_000_000
 ```
 
 - `timelimit`: 時間制限(秒)
@@ -75,12 +54,15 @@ timelimit = 2.0
 - `[[solutions]]`: それぞれが1つの解答ファイルに対応する
   - `name`: ファイル名
   - `wrong`: WAが想定かどうか 指定しない場合もあり、false(=正しい解答)として扱う
-- `task.md`: 問題文
+- `[params]`: 各種定数、この情報は自動的に`params.h`に出力される
+  - `task.md`からは`{{param A_AND_B_MAX}}`のように使う
+  - 想定解(`correct.cpp`)からは使わない
 
 ### aplusb/sol/correct.cpp
 
 - 想定解
-- aplusb/correct.cpp への移動を検討中
+- ~~aplusb/correct.cpp への移動を検討中~~
+- `params.h`などは使わず、「そのままジャッジに提出してACが取れる」コードになっている
 
 ### aplusb/verifier.cpp
 

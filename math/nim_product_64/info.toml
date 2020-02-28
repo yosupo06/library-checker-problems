@@ -5,9 +5,23 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/317"
 [[tests]]
     name = "example.in"
     number = 1
-
 [[tests]]
     name = "random.cpp"
+    number = 2
+[[tests]]
+    name = "random_few.cpp"
+    number = 2
+[[tests]]
+    name = "small.cpp"
+    number = 1
+[[tests]]
+    name = "small_few.cpp"
+    number = 1
+[[tests]]
+    name = "large.cpp"
+    number = 1
+[[tests]]
+    name = "large_few.cpp"
     number = 1
 
 [params]

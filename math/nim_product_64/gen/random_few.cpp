@@ -5,7 +5,7 @@
 int main(int, char **argv) {
   auto rng = Random(atoll(argv[1]));
 
-  const int T = T_MAX;
+  const int T = T_FEW;
   printf("%d\n", T);
   for (int t = 0; t < T; ++t) {
     const unsigned long long A = rng.uniform(0ULL, ~0ULL);

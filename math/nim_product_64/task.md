@@ -8,8 +8,8 @@ Calculate the nim product $A \otimes B$.
 
 The nim sum and the nim product for nonnegative integers are defined recursively as follows:
 
-- $a \oplus b = \operatorname{mex}(\{ a' \oplus b \mid a' < a \} \cup \{ a \oplus b' \mid b' < b \})$
-- $a \otimes b = \operatorname{mex}\{ (a' \otimes b) \oplus (a \otimes b') \oplus (a' \oplus b') \mid a' < a, b' < b \}$
+- $a \oplus b = \operatorname{mex}(\\{ a' \oplus b \mid a' < a \\} \cup \\{ a \oplus b' \mid b' < b \\})$
+- $a \otimes b = \operatorname{mex}\\{ (a' \otimes b) \oplus (a \otimes b') \oplus (a' \otimes b') \mid a' < a,\, b' < b \\}$
 
 Constraints / 制約
 ---------
@@ -24,8 +24,17 @@ Input / 入力
 ~~~
 $T$
 $A_0$ $B_0$
-$\vdots$
+ $\vdots$
 $A_{T-1}$ $B_{T-1}$
+~~~
+
+Output / 出力
+---------
+
+~~~
+$\mathit{answer}_0$
+ $\vdots$
+$\mathit{answer}_{T-1}$
 ~~~
 
 {{example example_00}}

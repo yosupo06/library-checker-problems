@@ -16,8 +16,9 @@ Problem Statement (Japanese) / 問題文 (日本語)
 Constraints / 制約
 ---------
 
-- $1 \leq N, Q \leq 200,000$
-- $0 \leq a_i \leq 10^9$
+- ${{param N_MIN}} \leq N \leq {{param N_MAX}}$
+- ${{param Q_MIN}} \leq Q \leq {{param Q_MAX}}$
+- ${{param A_MIN}} \leq a_i \leq {{param A_MAX}}$
 - $0 \leq l_i < r_i \leq N$
 - $0 \leq k_i < r_i - l_i$
 

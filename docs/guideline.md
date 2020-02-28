@@ -2,7 +2,7 @@
 
 以下の物が必要になります。なお、全てを準備する必要はなく、部分的な準備でも十分ありがたいです(出来たところまででpull requestを飛ばして貰えば大丈夫です)。
 
-- フォルダの作成と、/problems.tomlへの登録
+- フォルダの作成
 - task.md(問題文)
 - sol/correct.cpp(想定解)
 - verifier.cpp(input checker)
@@ -10,13 +10,11 @@
 - gen/example_00.in, gen/example_01.in, gen/random.cppなど(ジェネレーター)
 - info.toml
 
-## フォルダの作成と、/problems.tomlへの登録
+## フォルダの作成
 
 問題を置くフォルダを決めます。
 問題ID(例: `unionfind`) は既に決まっているはずなので、それっぽいジャンル(例: `datastructure`)を選んで
 `datastructure/unionfind` にフォルダを作ればいいです。ジャンルは大体悩むことはないと思うんですが、微妙な場合でもフィーリングでいいです(後から変えられるので)
-
-ディレクトリを決めたらproblems.tomlに登録します。フィーリングで追加できると思います。
 
 ## task.md(問題文)
 

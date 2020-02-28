@@ -1,0 +1,22 @@
+title = 'Assignment Problem'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/140"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+
+[[solutions]]
+    name = 'invalid.cpp'    
+    wrong = true
+
+[params]
+    N_MAX = 500
+    M_MAX = 200_000
+    A_ABS_MAX = 1_000_000_000

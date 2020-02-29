@@ -1,2 +1,2 @@
 toml >= 0.10.0
-Markdown >= 3.0.1
+Markdown >= 3.2.1

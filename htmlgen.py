@@ -210,6 +210,7 @@ class ToHTMLConverter:
         with open(str(probdir / 'task.md'), encoding='utf-8') as f:
             self.statement = markdown(
                 f.read(), extensions=[
+                    'md_in_html',
                     'markdown.extensions.fenced_code',
                     'markdown.extensions.tables',
                     ParamsExtension(params=config.get('params', {})),

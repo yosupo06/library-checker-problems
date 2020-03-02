@@ -69,14 +69,17 @@ struct Random {
         return T(lower + next(uint64_t(upper - lower)));
     }
 
+    // random choice from false or true
     bool uniform_bool() { return uniform(0, 1) == 1; }
 
+    // random choice from [0.0, 1.0]
     double uniform01() {
         uint64_t v = next(1ULL << 63);
         return double(v) / (1ULL << 63);
     }
 
     // random choice non-empty sub-interval from interval [lower, upper)
+    // equal: random choice 2 disjoint elements from [lower, upper]
     template <class T>
     std::pair<T, T> uniform_pair(T lower, T upper) {
         assert(upper - lower >= 1);
@@ -123,6 +126,7 @@ struct Random {
         return idx;
     }
 
+    // random choise n elements from [lower, upper]
     template <class T>
     std::vector<T> choice(size_t n, T lower, T upper) {
         assert(T(n) <= upper - lower + 1);

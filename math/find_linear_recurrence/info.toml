@@ -1,0 +1,12 @@
+title = 'Find Linear Recurrence'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/330"
+
+[[tests]]
+    name = "example.in"
+    number = 4
+
+[params]
+    MOD = 998244353
+    N_MIN = 0
+    N_MAX = 5000

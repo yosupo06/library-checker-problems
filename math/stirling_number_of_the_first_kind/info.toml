@@ -1,0 +1,43 @@
+title = 'Stirling Number of the First Kind'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/336"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "0.in"
+    number = 1
+[[tests]]
+    name = "1.in"
+    number = 1
+[[tests]]
+    name = "2.in"
+    number = 1
+[[tests]]
+    name = "5000.in"
+    number = 1
+[[tests]]
+    name = "262143.in"
+    number = 1
+[[tests]]
+    name = "262144.in"
+    number = 1
+[[tests]]
+    name = "491519.in"
+    number = 1
+[[tests]]
+    name = "499999.in"
+    number = 1
+[[tests]]
+    name = "500000.in"
+    number = 1
+
+[[solutions]]
+    name = "slow.cpp"
+    wrong = false
+
+[params]
+    MOD = 998244353
+    N_MIN = 0
+    N_MAX = 500000

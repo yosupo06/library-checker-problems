@@ -175,7 +175,7 @@ class Problem:
                 result = run(execcmd(self.basedir / 'verifier.cpp'),
                              stdin=open(str(inpath), 'r'))
                 if result.returncode != 0:
-                    logger.fatal('verify failed: {}'.format(inname))
+                    logger.error('verify failed: {}'.format(inname))
                     exit(1)
 
     def make_outputs(self, check):

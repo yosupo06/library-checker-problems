@@ -94,7 +94,7 @@ class ExampleExpander(Preprocessor):
                 name = line[len(start):-len(end)]
                 inpath = self.base_path / 'in' / (name + '.in')
                 if not inpath.exists():
-                    logger.fatal('task require non exist file: {}'.format(inpath))
+                    logger.error('task require non exist file: {}'.format(inpath))
                     exit(1)
                 inpath = str(inpath)
                 used_examples.append(inpath)

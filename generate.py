@@ -84,7 +84,7 @@ class Problem:
             logger.error('no title: {}'.format(self.basedir))
             exit(1)
         gendir = self.basedir / 'gen'
-        gens = []            
+        gens = []
         for test in self.config['tests']:
             gen = gendir / test['name']
             if gen.suffix == '.cpp':
@@ -389,8 +389,8 @@ def generate(
 
 if __name__ == '__main__':
     basicConfig(
-        level=getenv('LOG_LEVEL', 'DEBUG'),
-        format="%(asctime)s %(levelname)s %(name)s : %(message)s"
+        level=getenv('LOG_LEVEL', 'INFO'),
+        format="%(asctime)s [%(levelname)s] %(message)s"
     )
     parser = argparse.ArgumentParser(description='Testcase Generator')
     parser.add_argument('toml', nargs='*', help='Toml File')

@@ -33,6 +33,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/336"
     name = "500000.in"
     number = 1
 
+[[solutions]]
+    name = "slow.cpp"
+    wrong = false
+
 [params]
     MOD = 998244353
     N_MIN = 0

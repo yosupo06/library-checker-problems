@@ -13,21 +13,14 @@ int main(int, char* argv[]) {
     int n = N_AND_Q_MAX;
     int q = N_AND_Q_MAX;
     printf("%d %d\n", n, q);
-    int x = gen.uniform(-A_ABS_MAX, A_ABS_MAX - 1);
-    vector<pair<int, ll>> line(n);
     for (int i = 0; i < n; i++) {
-        int d = gen.uniform(-(A_ABS_MAX / 2), A_ABS_MAX / 2);
-        int a = 2 * d;
-        ll b = (ll)d * (2 * x + 1);
-        line[i] = make_pair(a, b);
-    }
-    sort(line.begin(), line.end());
-    for (auto p : line) {
-        printf("%d %lld\n", p.first, p.second);
+        int a = 2 * i;
+        ll b = -i;;
+        printf("%d %lld\n", a, b);
     }
     for (int i = 0; i < q; i++) {
-        int t = gen.uniform(0, 1);
-        printf("1 %d\n", x + t);
+        int x = gen.uniform(0, 1);
+        printf("1 %d\n", x);
     }
     return 0;
 }

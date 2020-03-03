@@ -92,7 +92,11 @@ class ExampleExpander(Preprocessor):
             end = '}}'
             if line.startswith(start) and line.endswith(end):
                 name = line[len(start):-len(end)]
-                inpath = str(self.base_path / 'in' / (name + '.in'))
+                inpath = self.base_path / 'in' / (name + '.in')
+                if not inpath.exists():
+                    logger.fatal('task require non exist file: {}'.format(inpath))
+                    exit(1)
+                inpath = str(inpath)
                 used_examples.append(inpath)
 
                 infile = open(inpath).read()

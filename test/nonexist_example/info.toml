@@ -1,0 +1,6 @@
+title = 'Non Exist Example'
+timelimit = 2.0
+
+[[tests]]
+    name = "example.in"
+    number = 1

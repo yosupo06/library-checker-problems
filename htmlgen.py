@@ -40,7 +40,7 @@ class ParamsExpander(Preprocessor):
                     else:
                         b = r'{} \\times 10^{{{}}}'.format(value / 10 ** k, k)
                 else:
-                    b = format(value, ',')
+                    b = format(value, ',').replace(',', '{,}')
             else:
                 b = str(value)
             self.patterns.append((a, b))

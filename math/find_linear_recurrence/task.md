@@ -29,6 +29,8 @@ $d$
 $c_1$ $\ldots$ $c_d$
 ~~~
 
+If there are multiple answers minimizing $d$, output any of them.
+
 Sample / サンプル
 ---------
 

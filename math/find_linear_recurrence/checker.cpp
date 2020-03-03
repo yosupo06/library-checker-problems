@@ -67,10 +67,9 @@ int main(int argc, char* argv[]) {
   for (int j = 1; j <= d; ++j) {
     cs[j] = ouf.readInt(0, MO - 1);
   }
-  ouf.readEof();
   for (int i = d; i < N; ++i) {
     Mint sum = 0;
-    for (int j = 0; j < d; ++j) {
+    for (int j = 1; j <= d; ++j) {
       sum += cs[j] * as[i - j];
     }
     if (as[i].x != sum.x) {

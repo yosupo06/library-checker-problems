@@ -124,42 +124,18 @@ void prepareFac() {
   }
 }
 
-vector<Mint> stirling1(int n) {
-  if (n == 0) return {1};
-  int m = 1;
-  vector<Mint> s{0, 1};
-  for (int e = 31 - __builtin_clz(n) - 1; e >= 0; --e) {
-    // X -> X - m
-    vector<Mint> as(m + 1), bs(m + 1);
-    for (int i = 0; i <= m; ++i) as[i] = fac[i] * s[i];
-    bs[m - 0] = 1;
-    for (int i = 1; i <= m; ++i) bs[m - i] = bs[m - (i - 1)] * -m;
-    for (int i = 0; i <= m; ++i) bs[m - i] *= invFac[i];
-    const vector<Mint> cs = FFT.convolution(as, bs);
-    vector<Mint> ds(m + 1);
-    for (int i = 0; i <= m; ++i) ds[i] = invFac[i] * cs[m + i];
-    s = FFT.convolution(s, ds);
-    m <<= 1;
-    if (n & 1 << e) {
-      // multiply by (X - m)
-      vector<Mint> ss(m + 1 + 1, 0);
-      for (int i = 0; i <= m; ++i) {
-        ss[i] += s[i] * -m;
-        ss[i + 1] += s[i];
-      }
-      s = ss;
-      m |= 1;
-    }
-  }
-  assert(m == n);
-  return s;
+vector<Mint> stirling2(int n) {
+  vector<Mint> as(n + 1), bs(n + 1);
+  for (int i = 0; i <= n; ++i) as[i] = ((i & 1) ? -1 : +1) * invFac[i];
+  for (int i = 0; i <= n; ++i) bs[i] = invFac[i] * Mint(i).pow(n);
+  return FFT.convolution(as, bs);
 }
 
 int main() {
   prepareFac();
   int N;
   for (; ~scanf("%d", &N); ) {
-    const auto ans = stirling1(N);
+    const auto ans = stirling2(N);
     for (int k = 0; k <= N; ++k) {
       if (k > 0) printf(" ");
       printf("%d", ans[k].x);

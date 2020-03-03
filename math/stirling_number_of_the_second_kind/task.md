@@ -1,11 +1,11 @@
 Problem Statement / 問題文
 ---------
 
-The signed Stirling numbers of the first kind $s(n, k)$ are defined as the coefficients in the identity
-$$x (x - 1) \cdots (x - (n - 1)) = \sum_{k=0}^n s(n, k) x^k.$$
+The Stirling numbers of the second kind $S(n, k)$ are defined as the coefficients in the identity
+$$x^n = \sum_{k=0}^n S(n, k) x (x - 1) \cdots (x - (k - 1)).$$
 
 You are given an integer $N$.
-Calculate $s(N, k) \bmod {{param MOD}}$ for $0 \le k \le N$.
+Calculate $S(N, k) \bmod {{param MOD}}$ for $0 \le k \le N$.
 
 Constraints / 制約
 ---------
@@ -23,7 +23,7 @@ Output / 出力
 ---------
 
 ~~~
-$s(N, 0)$ $\cdots$ $s(N, N)$
+$S(N, 0)$ $\cdots$ $S(N, N)$
 ~~~
 
 Sample / サンプル

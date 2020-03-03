@@ -1,6 +1,6 @@
-title = 'Stirling Number of the First Kind'
+title = 'Stirling Number of the Second Kind'
 timelimit = 10.0
-forum = "https://github.com/yosupo06/library-checker-problems/issues/336"
+forum = "https://github.com/yosupo06/library-checker-problems/issues/337"
 
 [[tests]]
     name = "example.in"
@@ -32,10 +32,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/336"
 [[tests]]
     name = "500000.in"
     number = 1
-
-[[solutions]]
-    name = "slow.cpp"
-    wrong = false
 
 [params]
     MOD = 998244353

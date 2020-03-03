@@ -15,7 +15,7 @@ int main(int, char* argv[]) {
     printf("%d %d\n", n, q);
     for (int i = 0; i < n; i++) {
         int a = 2 * i;
-        ll b = -i;;
+        ll b = -i;
         printf("%d %lld\n", a, b);
     }
     for (int i = 0; i < q; i++) {

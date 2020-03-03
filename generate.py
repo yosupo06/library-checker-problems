@@ -176,7 +176,7 @@ class Problem:
                              stdin=open(str(inpath), 'r'))
                 if result.returncode != 0:
                     logger.fatal('verify failed: {}'.format(inname))
-                    exit(0)
+                    exit(1)
 
     def make_outputs(self, check):
         indir = self.basedir / 'in'

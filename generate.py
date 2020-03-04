@@ -13,7 +13,7 @@ from pathlib import Path
 from subprocess import (DEVNULL, PIPE, STDOUT, CalledProcessError,
                         TimeoutExpired, call, check_call, check_output, run)
 from tempfile import TemporaryDirectory
-from typing import Any, List, MutableMapping, Union
+from typing import Any, Iterator, List, MutableMapping, Union
 
 import toml
 
@@ -210,7 +210,7 @@ class Problem:
                 logging_result('ANS', start, end,
                                '{} : {}'.format(case, checker_output))
 
-    def is_already_generated(self) -> bool:
+    def is_testcases_already_generated(self) -> bool:
         indir = self.basedir / 'in'
         outdir = self.basedir / 'out'
 
@@ -234,8 +234,29 @@ class Problem:
             path.stat().st_mtime) for path in testcases)
 
         # compare the timestamp with other files (including header files in common/)
+        for path in self.list_depending_files():
+            if latest_timestamp < datetime.fromtimestamp(path.stat().st_mtime):
+                return False
+        logger.info('Test cases are already generated')
+        return True
+
+    def is_checker_already_generated(self) -> bool:
+        checker = self.basedir / 'checker'
+        if not checker.exists():
+            return False
+
+        checker_timestamp = datetime.fromtimestamp(checker.stat().st_mtime)
+        for path in self.list_depending_files():
+            if checker_timestamp < datetime.fromtimestamp(path.stat().st_mtime):
+                return False
+        logger.info('The checker is already compiled')
+        return True
+
+    def list_depending_files(self) -> Iterator[Path]:
         for path in list(self.basedir.glob('**/*')) + list(self.libdir.glob('common/**/*')):
-            if path in testcases:
+            if (self.basedir / 'in').resolve() in path.resolve().parents:
+                continue
+            if (self.basedir / 'out').resolve() in path.resolve().parents:
                 continue
             if not path.is_file():
                 continue
@@ -245,10 +266,7 @@ class Problem:
                 continue  # ignore generated HTML files
             if path.name == 'params.h':
                 continue  # ignore generated params.h
-            if latest_timestamp < datetime.fromtimestamp(path.stat().st_mtime):
-                return False
-        logger.info('Test cases are already generated')
-        return True
+            yield path
 
     def judge(self, src: Path, config: dict):
         indir = self.basedir / 'in'
@@ -357,11 +375,12 @@ def generate(
 
     logger.info('Start {}'.format(problem.basedir.name))
 
-    is_already_generated = problem.is_already_generated()
+    is_testcases_already_generated = problem.is_testcases_already_generated()
+    is_checker_already_generated = problem.is_checker_already_generated()
 
     problem.generate_params_h()
 
-    if not is_already_generated or force_generate:
+    if not is_testcases_already_generated or force_generate:
         problem.compile_correct()
         problem.compile_gens()
         problem.make_inputs()
@@ -371,9 +390,10 @@ def generate(
         problem.verify_inputs()
 
     if verify or compile_checker:
-        problem.compile_checker()
+        if not is_checker_already_generated or force_generate:
+            problem.compile_checker()
 
-    if not is_already_generated or force_generate:
+    if not is_testcases_already_generated or force_generate:
         problem.make_outputs(verify)
 
     if verify:

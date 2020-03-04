@@ -30,7 +30,7 @@ Input / 入力
 ```
 $T$
 $A$ $B$
- $vdots$
+ $\vdots$
 $A$ $B$
 ```
 
@@ -39,7 +39,7 @@ Output / 出力
 
 ```
 $A + B$
- $vdots$
+ $\vdots$
 $A + B$
 ```
 

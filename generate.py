@@ -156,7 +156,7 @@ class Problem:
             name = test['name']
             num = test['number']
 
-            logger.info('case {} {}cases'.format(name, num))
+            logger.info('gen {} {}cases'.format(name, num))
             for i in range(num):
                 inpath = indir / (casename(name, i) + '.in')
                 check_call(
@@ -168,11 +168,15 @@ class Problem:
         for test in self.config['tests']:
             name = test['name']
             num = test['number']
-            logger.info('case {} {}cases'.format(name, num))
+            logger.info('verify {} {}cases'.format(name, num))
             for i in range(num):
-                inpath = indir / (casename(name, i) + '.in')
-                check_call(
-                    execcmd(self.basedir / 'verifier.cpp'), stdin=open(str(inpath), 'r'))
+                inname = (casename(name, i) + '.in')
+                inpath = indir / inname
+                result = run(execcmd(self.basedir / 'verifier.cpp'),
+                             stdin=open(str(inpath), 'r'))
+                if result.returncode != 0:
+                    logger.error('verify failed: {}'.format(inname))
+                    exit(1)
 
     def make_outputs(self, check):
         indir = self.basedir / 'in'

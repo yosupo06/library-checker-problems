@@ -338,7 +338,7 @@ int main(){
 	}
 	rep(i,k){
 		lint x;
-		scanf("%lld %lld",&x);
+		scanf("%lld",&x);
 		if(x==0){
 			lint u,v;
 			scanf("%lld %lld",&u,&v);

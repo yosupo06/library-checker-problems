@@ -21,7 +21,6 @@ Constraints / 制約
 - $0 \leq a_i, x \leq 10^9$
 - $0 \leq u_i, v_i < N$
 - $u_i \neq v_i$
-- クエリ処理後もグラフが単純グラフであることが保証される
 
 Input / 入力
 ---------

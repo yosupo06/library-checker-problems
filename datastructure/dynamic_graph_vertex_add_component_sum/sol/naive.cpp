@@ -24,8 +24,8 @@ int main(){
 	ios::sync_with_stdio(false);
 	lint n,k;
 	cin>>n>>k;
-    g.resize(n);
-    a.resize(n,0);
+	g.resize(n);
+	a.resize(n,0);
 	rep(i,n){
 		lint x;
 		cin>>x;

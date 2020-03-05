@@ -6,14 +6,11 @@
 #include "../params.h"
 using namespace std;
 
-#define N_MAX 1'000
-#define Q_MAX 1'000
-
 int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
-    int n = gen.uniform<int>(1,N_MAX);
-    int q = gen.uniform<int>(1,Q_MAX);
+    int n = gen.uniform<int>(1,N_AND_Q_SMALL_MAX);
+    int q = gen.uniform<int>(1,N_AND_Q_SMALL_MAX);
     printf("%d %d\n",n,q);
     for (int i = 0; i < n; i++) {
         int x=gen.uniform(A_AND_X_MIN,A_AND_X_MAX);

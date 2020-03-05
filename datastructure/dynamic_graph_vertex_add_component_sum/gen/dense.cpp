@@ -9,7 +9,7 @@ using namespace std;
 int main(int, char* argv[]){
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
-    int n = gen.uniform(1,1'000);
+    int n = gen.uniform(A_AND_X_MIN,N_AND_Q_SMALL_MAX);
     int q = N_AND_Q_MAX;
     printf("%d %d\n",n,q);
     for (int i = 0; i < n; i++) {

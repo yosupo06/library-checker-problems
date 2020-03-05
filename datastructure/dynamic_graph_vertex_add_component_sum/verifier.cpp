@@ -1,18 +1,18 @@
 #include <set>
 #include <tuple>
 #include "testlib.h"
+#include "./params.h"
 using namespace::std;
-#define N_MAX 200'000
-#define Q_MAX 200'000
+
 int main(int argc, char* argv[]) {
     registerValidation(argc, argv);
-    int n = inf.readInt(1,N_MAX, "n");
+    int n = inf.readInt(N_AND_Q_MIN,N_AND_Q_MAX, "n");
     inf.readSpace();
-    int q = inf.readInt(1,Q_MAX,"q");
+    int q = inf.readInt(N_AND_Q_MIN,N_AND_Q_MAX,"q");
     inf.readEoln();
     set<pair<int,int>>s;
     for(int i=0;i<n;i++) {
-        inf.readInt(1,1'000'000'000,"a_i");
+        inf.readInt(A_AND_X_MIN,A_AND_X_MAX,"a_i");
         if (i!=n-1)inf.readSpace();
     }
     inf.readEoln();
@@ -38,7 +38,7 @@ int main(int argc, char* argv[]) {
         if(x==2){
             inf.readInt(0,n-1,"v");
             inf.readSpace();
-            inf.readInt(0,1'000'000'000,"x");
+            inf.readInt(A_AND_X_MIN,A_AND_X_MAX,"x");
         }
         if(x==3){
             inf.readInt(0,n-1,"v");

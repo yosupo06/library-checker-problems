@@ -1,11 +1,13 @@
+#include <assert.h>
 #include <stdio.h>
 #include <bitset>
 
 using std::bitset;
 
-int lpf[500'000'010];
+constexpr int LIM = 200'000'000;
+int lpf[LIM + 10];
 int primesLen;
-int primes[50'000'010];
+int primes[20'000'010];
 
 int anssLen;
 int anss[1'000'010];
@@ -13,6 +15,7 @@ int anss[1'000'010];
 int main() {
   int N, A, B;
   scanf("%d%d%d", &N, &A, &B);
+  assert(N <= LIM);
 
   for (int n = 2; n <= N; ++n) {
     if (lpf[n] == 0) {

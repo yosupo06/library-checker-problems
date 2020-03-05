@@ -18,7 +18,7 @@ Constraints / 制約
 ---------
 
 - $1 \leq N, Q \leq {{param N_MAX}}$
-- $0 \leq a_i, x \leq 10^9$
+- $0 \leq a_i, x \leq {{A_AND_X_MAX}}$
 - $0 \leq u_i, v_i < N$
 - $u_i \neq v_i$
 

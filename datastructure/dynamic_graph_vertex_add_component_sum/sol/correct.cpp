@@ -164,7 +164,7 @@ class dynamic_connectivity{
 			t->val=fn(t->val,x);
 			update(t);
 		}
-		void edge_update(int s,auto g){
+		void edge_update(int s,function<void(int,int)> g){
 			np t=get_node(s,s);
 			splay(t);
 			function<void(np)>dfs=[&](np t){
@@ -184,7 +184,7 @@ class dynamic_connectivity{
 				splay(t);
 			}
 		}
-		bool try_reconnect(int s,auto f){
+		bool try_reconnect(int s,function<bool(int)> f){
 			np t=get_node(s,s);
 			splay(t);
 			function<bool(np,int)>dfs=[&](np t,int idx)->bool{
@@ -298,9 +298,9 @@ class dynamic_connectivity{
 		}
 		for(int i=k;i>=0;i--){
 			if(ett[i].size(s)>ett[i].size(t))swap(s,t);
-			auto g=[&](int s,int t){ett[i+1].link(s,t);};
+			function<void(int,int)> g=[&](int s,int t){ett[i+1].link(s,t);};
 			ett[i].edge_update(s,g);
-			auto f=[&](int x)->bool{
+			function<bool(int)> f=[&](int x)->bool{
 				for(auto itr=edges[i][x].begin();itr!=edges[i][x].end();){
 					auto y=*itr;
 					itr=edges[i][x].erase(itr);

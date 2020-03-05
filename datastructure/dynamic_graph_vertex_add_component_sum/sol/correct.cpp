@@ -152,8 +152,8 @@ class dynamic_connectivity{
 			return t->sz;
 		}
 		bool same(int s,int t){
-            return same(get_node(s,s),get_node(t,t));
-        }
+			return same(get_node(s,s),get_node(t,t));
+		}
 		void set_size(int sz){
 			ptr.resize(sz);
 			for(int i=0;i<sz;i++)ptr[i][i]=new node(i,i);
@@ -169,7 +169,7 @@ class dynamic_connectivity{
 			splay(t);
 			function<void(np)>dfs=[&](np t){
 				assert(t);
-                if(t->l<t->r&&t->exact){
+				if(t->l<t->r&&t->exact){
 					splay(t);
 					t->exact=0;
 					update(t);

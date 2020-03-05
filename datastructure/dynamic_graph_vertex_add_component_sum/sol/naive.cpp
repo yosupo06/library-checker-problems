@@ -11,13 +11,13 @@ vector<set<lint>>g;
 vector<lint>a;
 set<lint>visited;
 lint dfs(lint now){
-    lint ans=a[now];
-    for(lint to:g[now]){
-        if(visited.count(to))continue;
-        visited.insert(to);
-        ans+=dfs(to);
-    }
-    return ans;
+	lint ans=a[now];
+	for(lint to:g[now]){
+		if(visited.count(to))continue;
+		visited.insert(to);
+		ans+=dfs(to);
+	}
+	return ans;
 }
 int main(){
 	cin.tie(0);
@@ -29,7 +29,7 @@ int main(){
 	rep(i,n){
 		lint x;
 		cin>>x;
-        a[i]=x;
+		a[i]=x;
 	}
 	rep(i,k){
 		lint x;
@@ -38,25 +38,25 @@ int main(){
 			lint u,v;
 			cin>>u>>v;
 			g[u].insert(v);
-            g[v].insert(u);
+			g[v].insert(u);
 		}
 		if(x==1){
 			lint u,v;
 			cin>>u>>v;
 			g[u].erase(v);
-            g[v].erase(u);
+			g[v].erase(u);
 		}
 		if(x==2){
 			lint v,x;
 			cin>>v>>x;
-            a[v]+=x;
+			a[v]+=x;
 		}
 		if(x==3){
 			lint v;
 			cin>>v;
-            visited.clear();
+			visited.clear();
 			visited.insert(v);
-            cout<<dfs(v)<<endl;
+			cout<<dfs(v)<<endl;
 		}
 	}
 }

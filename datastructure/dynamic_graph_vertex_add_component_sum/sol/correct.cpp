@@ -328,14 +328,12 @@ class dynamic_connectivity{
 };
 
 int main(){
-	cin.tie(0);
-	ios::sync_with_stdio(false);
 	lint n,k;
-	cin>>n>>k;
+	scanf("%lld %lld",&n,&k);
 	dynamic_connectivity<lint>dc(n);
 	rep(i,n){
 		lint x;
-		cin>>x;
+		scanf("%lld",&x);
 		dc.update(i,x);
 	}
 	rep(i,k){
@@ -343,23 +341,23 @@ int main(){
 		cin>>x;
 		if(x==0){
 			lint u,v;
-			cin>>u>>v;
+			scanf("%lld %lld",&u,&v);
 			dc.link(u,v);
 		}
 		if(x==1){
 			lint u,v;
-			cin>>u>>v;
+			scanf("%lld %lld",&u,&v);
 			dc.cut(u,v);
 		}
 		if(x==2){
 			lint v,x;
-			cin>>v>>x;
+			scanf("%lld %lld",&v,&x);
 			dc.update(v,x);
 		}
 		if(x==3){
 			lint v;
-			cin>>v;
-			cout<<dc.get_sum(v)<<endl;
+			scanf("%lld",&v);
+			printf("%lld\n",dc.get_sum(v));
 		}
 	}
 }

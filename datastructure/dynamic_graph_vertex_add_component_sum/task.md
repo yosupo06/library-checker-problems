@@ -17,7 +17,7 @@ $Q$ 個のクエリが飛んでくるので処理。
 Constraints / 制約
 ---------
 
-- $1 \leq N, Q \leq 200,000$
+- $1 \leq N, Q \leq {{param N_MAX}}$
 - $0 \leq a_i, x \leq 10^9$
 - $0 \leq u_i, v_i < N$
 - $u_i \neq v_i$

@@ -3,8 +3,6 @@
 
 using std::bitset;
 
-constexpr int LIM_SIEVE = 500'000'010;
-bitset<LIM_SIEVE> isnp;
 int lpf[500'000'010];
 int primesLen;
 int primes[50'000'010];

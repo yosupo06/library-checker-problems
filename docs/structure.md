@@ -54,6 +54,7 @@ timelimit = 2.0
 - `[[solutions]]`: それぞれが1つの解答ファイルに対応する
   - `name`: ファイル名
   - `wrong`: WAが想定かどうか 指定しない場合もあり、false(=正しい解答)として扱う
+  - `allow_tle`: TLEを許可するかどうか これを指定してTLEしなくても許される
 - `[params]`: 各種定数、この情報は自動的に`params.h`に出力される
   - `task.md`からは`{{param A_AND_B_MAX}}`のように使う
   - 想定解(`correct.cpp`)からは使わない

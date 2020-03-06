@@ -63,6 +63,18 @@ class TestUnusedExample(unittest.TestCase):
         self.assertNotEqual(proc.returncode, 0)
 
 
+class TestNonExistdExample(unittest.TestCase):
+    def test_no_html(self):
+        proc = run(
+            ['./generate.py', '-p', 'nonexist_example'])
+        self.assertEqual(proc.returncode, 0)
+
+    def test_unused_example(self):
+        proc = run(
+            ['./generate.py', '-p', 'nonexist_example', '--html'])
+        self.assertNotEqual(proc.returncode, 0)
+
+
 class TestUnusedGen(unittest.TestCase):
     def test_unused_gen(self):
         proc = run(
@@ -87,6 +99,13 @@ class TestCallFromOutside(unittest.TestCase):
             self.assertEqual(proc.returncode, 0)
         finally:
             chdir(str(cwd))
+
+
+class TestAllowTLE(unittest.TestCase):
+    def test_allow_tle(self):
+        proc = run(
+            ['./generate.py', '-p', 'allow_tle', '--verify'])
+        self.assertEqual(proc.returncode, 0)
 
 
 if __name__ == "__main__":

@@ -13,7 +13,7 @@ from pathlib import Path
 from subprocess import (DEVNULL, PIPE, STDOUT, CalledProcessError,
                         TimeoutExpired, call, check_call, check_output, run)
 from tempfile import TemporaryDirectory
-from typing import Any, List, MutableMapping, Union
+from typing import Any, Iterator, List, MutableMapping, Union
 
 import toml
 
@@ -156,7 +156,7 @@ class Problem:
             name = test['name']
             num = test['number']
 
-            logger.info('case {} {}cases'.format(name, num))
+            logger.info('gen {} {}cases'.format(name, num))
             for i in range(num):
                 inpath = indir / (casename(name, i) + '.in')
                 check_call(
@@ -168,11 +168,15 @@ class Problem:
         for test in self.config['tests']:
             name = test['name']
             num = test['number']
-            logger.info('case {} {}cases'.format(name, num))
+            logger.info('verify {} {}cases'.format(name, num))
             for i in range(num):
-                inpath = indir / (casename(name, i) + '.in')
-                check_call(
-                    execcmd(self.basedir / 'verifier.cpp'), stdin=open(str(inpath), 'r'))
+                inname = (casename(name, i) + '.in')
+                inpath = indir / inname
+                result = run(execcmd(self.basedir / 'verifier.cpp'),
+                             stdin=open(str(inpath), 'r'))
+                if result.returncode != 0:
+                    logger.error('verify failed: {}'.format(inname))
+                    exit(1)
 
     def make_outputs(self, check):
         indir = self.basedir / 'in'
@@ -206,7 +210,7 @@ class Problem:
                 logging_result('ANS', start, end,
                                '{} : {}'.format(case, checker_output))
 
-    def is_already_generated(self) -> bool:
+    def is_testcases_already_generated(self) -> bool:
         indir = self.basedir / 'in'
         outdir = self.basedir / 'out'
 
@@ -230,8 +234,29 @@ class Problem:
             path.stat().st_mtime) for path in testcases)
 
         # compare the timestamp with other files (including header files in common/)
+        for path in self.list_depending_files():
+            if latest_timestamp < datetime.fromtimestamp(path.stat().st_mtime):
+                return False
+        logger.info('Test cases are already generated')
+        return True
+
+    def is_checker_already_generated(self) -> bool:
+        checker = self.basedir / 'checker'
+        if not checker.exists():
+            return False
+
+        checker_timestamp = datetime.fromtimestamp(checker.stat().st_mtime)
+        for path in self.list_depending_files():
+            if checker_timestamp < datetime.fromtimestamp(path.stat().st_mtime):
+                return False
+        logger.info('The checker is already compiled')
+        return True
+
+    def list_depending_files(self) -> Iterator[Path]:
         for path in list(self.basedir.glob('**/*')) + list(self.libdir.glob('common/**/*')):
-            if path in testcases:
+            if (self.basedir / 'in').resolve() in path.resolve().parents:
+                continue
+            if (self.basedir / 'out').resolve() in path.resolve().parents:
                 continue
             if not path.is_file():
                 continue
@@ -241,10 +266,7 @@ class Problem:
                 continue  # ignore generated HTML files
             if path.name == 'params.h':
                 continue  # ignore generated params.h
-            if latest_timestamp < datetime.fromtimestamp(path.stat().st_mtime):
-                return False
-        logger.info('Test cases are already generated')
-        return True
+            yield path
 
     def judge(self, src: Path, config: dict):
         indir = self.basedir / 'in'
@@ -290,12 +312,17 @@ class Problem:
                 logging_result(result, start, end,
                                '{} : {}'.format(case, checker_output.decode('utf-8')))
 
-        expectaccept = not config.get('wrong', False)
-        actualaccept = (results == {'AC'})
-        if expectaccept != actualaccept:
-            logger.error('Fail {} : expect_accept = {} : results = {}'.format(
-                src, expectaccept, results))
-            exit(1)
+        if config.get('wrong', False):
+            if results == {'AC'}:
+                logger.error('wrong solution got accept: {}'.format(src))
+                exit(1)
+        else:
+            if 'WA' in results or 'RE' in results:
+                logger.error('correct solution got wa/re: {}'.format(src))
+                exit(1)
+            if not config.get('allow_tle', False) and 'TLE' in results:
+                logger.error('fast solution got tle: {}'.format(src))
+                exit(1)
 
     def gen_html(self):
         from htmlgen import ToHTMLConverter
@@ -353,11 +380,12 @@ def generate(
 
     logger.info('Start {}'.format(problem.basedir.name))
 
-    is_already_generated = problem.is_already_generated()
+    is_testcases_already_generated = problem.is_testcases_already_generated()
+    is_checker_already_generated = problem.is_checker_already_generated()
 
     problem.generate_params_h()
 
-    if not is_already_generated or force_generate:
+    if not is_testcases_already_generated or force_generate:
         problem.compile_correct()
         problem.compile_gens()
         problem.make_inputs()
@@ -367,9 +395,10 @@ def generate(
         problem.verify_inputs()
 
     if verify or compile_checker:
-        problem.compile_checker()
+        if not is_checker_already_generated or force_generate:
+            problem.compile_checker()
 
-    if not is_already_generated or force_generate:
+    if not is_testcases_already_generated or force_generate:
         problem.make_outputs(verify)
 
     if verify:

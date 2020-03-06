@@ -26,7 +26,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/158"
 
 [[solutions]]
     name = "eratosthenes.cpp"
-    wrong = true
+    allow_tle = true
 [[solutions]]
     name = "linear.cpp"
     wrong = true

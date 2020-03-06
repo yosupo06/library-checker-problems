@@ -37,6 +37,8 @@ class ParamsExpander(Preprocessor):
                     k = math.floor(math.log10(value))
                     if value == 10 ** k:
                         b = r'10^{{{}}}'.format(k)
+                    elif value % (10 ** k) == 0:
+                        b = r'{} \\times 10^{{{}}}'.format(value // 10 ** k, k)
                     else:
                         b = r'{} \\times 10^{{{}}}'.format(value / 10 ** k, k)
                 else:

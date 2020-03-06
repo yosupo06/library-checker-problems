@@ -101,6 +101,13 @@ class TestCallFromOutside(unittest.TestCase):
             chdir(str(cwd))
 
 
+class TestAllowTLE(unittest.TestCase):
+    def test_allow_tle(self):
+        proc = run(
+            ['./generate.py', '-p', 'allow_tle', '--verify'])
+        self.assertEqual(proc.returncode, 0)
+
+
 if __name__ == "__main__":
     basicConfig(
         level=getenv('LOG_LEVEL', 'DEBUG'),

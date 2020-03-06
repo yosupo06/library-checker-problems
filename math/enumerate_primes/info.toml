@@ -1,0 +1,38 @@
+title = 'Enumerate Primes'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/158"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "1.in"
+    number = 1
+[[tests]]
+    name = "2.in"
+    number = 1
+[[tests]]
+    name = "499477801.in"
+    number = 1
+[[tests]]
+    name = "499999993.in"
+    number = 1
+[[tests]]
+    name = "max.cpp"
+    number = 2
+[[tests]]
+    name = "ten.cpp"
+    number = 3
+
+[[solutions]]
+    name = "eratosthenes.cpp"
+    allow_tle = true
+[[solutions]]
+    name = "linear.cpp"
+    wrong = true
+
+[params]
+    N_MIN = 1
+    N_MAX = 500_000_000
+    X_MIN = 0
+    X_MAX = 1_000_000

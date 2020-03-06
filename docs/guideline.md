@@ -39,7 +39,7 @@
 - checker.cpp(output checker)
 - gen/example_00.in, gen/example_01.in, gen/random.cppなど(テストケースジェネレーター)
 
-### aplusb/info.toml
+### info.toml
 
 問題の様々な情報が入ってます。[toml](https://github.com/toml-lang/toml)についてはフィーリングでもなんとかなると思います。
 

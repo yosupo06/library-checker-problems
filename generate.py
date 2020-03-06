@@ -312,12 +312,17 @@ class Problem:
                 logging_result(result, start, end,
                                '{} : {}'.format(case, checker_output.decode('utf-8')))
 
-        expectaccept = not config.get('wrong', False)
-        actualaccept = (results == {'AC'})
-        if expectaccept != actualaccept:
-            logger.error('Fail {} : expect_accept = {} : results = {}'.format(
-                src, expectaccept, results))
-            exit(1)
+        if config.get('wrong', False):
+            if results == {'AC'}:
+                logger.error('wrong solution got accept: {}'.format(src))
+                exit(1)
+        else:
+            if 'WA' in results or 'RE' in results:
+                logger.error('correct solution got wa/re: {}'.format(src))
+                exit(1)
+            if not config.get('allow_tle', False) and 'TLE' in results:
+                logger.error('fast solution got tle: {}'.format(src))
+                exit(1)
 
     def gen_html(self):
         from htmlgen import ToHTMLConverter

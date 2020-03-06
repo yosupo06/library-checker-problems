@@ -3,7 +3,7 @@
 Problem Statement
 ---------
 
-You are given integers $a$ and $b$. Print $a + b$.
+You are given integers $A$ and $B$. Print $A + B$.
 
 </div>
 <div markdown="1" class="lang-ja">
@@ -11,14 +11,14 @@ You are given integers $a$ and $b$. Print $a + b$.
 問題文
 ---------
 
-整数 $a, b$ が与えられます。 $a + b$ を出力してください。
+整数 $A, B$ が与えられます。 $A + B$ を出力してください。
 
 </div>
 
 Constraints / 制約
 ---------
 
-- $0 \leq a, b \leq {{param A_AND_B_MAX}}$
+- $0 \leq A, B \leq {{param A_AND_B_MAX}}$
 
 
 Input / 入力

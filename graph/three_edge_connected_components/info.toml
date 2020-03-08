@@ -1,0 +1,32 @@
+title = 'Three Edge Connected Components'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/360"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small_random_1.cpp"
+    number = 3
+[[tests]]
+    name = "small_random_2.cpp"
+    number = 3
+[[tests]]
+    name = "random_1.cpp"
+    number = 3
+[[tests]]
+    name = "random_2.cpp"
+    number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+
+[[solutions]]
+    name = "naive.cpp"
+    wrong = true
+
+[params]
+    N_MIN = 1
+    N_MAX = 200_000
+    M_MIN = 1
+    M_MAX = 200_000

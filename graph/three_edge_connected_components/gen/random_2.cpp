@@ -57,13 +57,8 @@ int main(int, char* argv[]) {
 
     vector<vector<int>> c;
     for (int i = 0; i != size; i += 1) {
-        if (b[i].empty()) continue;
-        c.push_back({i});
-        const int bs = b[i].size();
-        if (bs == 1) continue;
-        const int bm = gen.uniform(bs * 8, bs * 8);
-        for (int j = 0; j != bm; j += 1) {
-            add_bb(i, i);
+        if (!b[i].empty()) {
+            c.push_back({i});
         }
     }
 

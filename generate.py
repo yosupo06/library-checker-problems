@@ -38,7 +38,7 @@ def compile(src: Path, libdir: Path):
         if platform.system() == 'Darwin':
             cxxflags_default += ' -Wl,-stack_size,0x10000000'  # 256MB
         if platform.uname().system == 'Linux' and 'Microsoft' in platform.uname().release:
-            cxxflags_default += ' -fsplit-stack' # a workaround for the lack of ulimit in Windows Subsystem for Linux
+            cxxflags_default += ' -fsplit-stack'  # a workaround for the lack of ulimit in Windows Subsystem for Linux
         cxxflags = getenv('CXXFLAGS', cxxflags_default).split()
         cxxflags.extend(['-I', str(libdir / 'common')])
         check_call([cxx] + cxxflags +

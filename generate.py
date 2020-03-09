@@ -243,11 +243,11 @@ class Problem:
         return True
 
     def is_checker_already_generated(self) -> bool:
-        checker = self.checker
-        if not checker.exists():
+        checker_bin = self.checker.parent / self.checker.stem
+        if not checker_bin.exists():
             return False
 
-        checker_timestamp = datetime.fromtimestamp(checker.stat().st_mtime)
+        checker_timestamp = datetime.fromtimestamp(checker_bin.stat().st_mtime)
         for path in self.list_depending_files():
             if checker_timestamp < datetime.fromtimestamp(path.stat().st_mtime):
                 return False

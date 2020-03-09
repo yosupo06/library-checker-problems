@@ -38,8 +38,7 @@ def compile(src: Path, libdir: Path):
         if platform.system() == 'Darwin':
             cxxflags_default += ' -Wl,-stack_size,0x10000000'  # 256MB
         if platform.uname().system == 'Linux' and 'Microsoft' in platform.uname().release:
-            # a workaround for the lack of ulimit in Windows Subsystem for Linux
-            cxxflags_default += ' -fsplit-stack'
+            cxxflags_default += ' -fsplit-stack' # a workaround for the lack of ulimit in Windows Subsystem for Linux
         cxxflags = getenv('CXXFLAGS', cxxflags_default).split()
         cxxflags.extend(['-I', str(libdir / 'common')])
         check_call([cxx] + cxxflags +
@@ -79,10 +78,8 @@ class Problem:
         self.basedir = basedir  # type: Path
         tomlpath = basedir / 'info.toml'
         self.config = toml.load(tomlpath)  # type: MutableMapping[str, Any]
-        self.checker = basedir / \
-            self.config.get('checker', 'checker.cpp')  # type: Path
-        self.verifier = basedir / \
-            self.config.get('verifier', 'verifier.cpp')  # type: Path
+        self.checker = basedir / self.config.get('checker', 'checker.cpp')  # type: Path
+        self.verifier = basedir / self.config.get('verifier', 'verifier.cpp')  # type: Path
 
     def health_check(self):
         if 'title' not in self.config:

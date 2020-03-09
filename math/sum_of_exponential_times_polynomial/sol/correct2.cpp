@@ -72,25 +72,16 @@ void prepareFac() {
   }
 }
 
-// deg f < |fs|
-Mint interpolateIota(const vector<Mint> &fs, long long n) {
-  const int fsLen = fs.size();
-  vector<Mint> prodR(fsLen + 1);
-  prodR[fsLen] = 1;
-  for (int i = fsLen - 1; i >= 0; --i) {
-    prodR[i] = (n - i) * prodR[i + 1];
+Mint binom(long long n, long long k) {
+  if (0 <= k && k <= n) {
+    assert(n < LIM);
+    return fac[n] * invFac[k] * invFac[n - k];
+  } else {
+    return 0;
   }
-  Mint ans = 0;
-  Mint prodL = 1;
-  for (int i = 0; i < fsLen; ++i) {
-    // (i - 0) ... (i - (i - 1)) (i - (i + 1)) ... (i - (fsLen - 1))
-    ans += invFac[i] * (((fsLen - 1 - i) & 1) ? -1 : +1) * invFac[fsLen - 1 - i] * fs[i] * prodL * prodR[i + 1];
-    prodL *= (n - i);
-  }
-  return ans;
 }
 
-// pws[i] = i^d (0 <= i < n)
+// pws[i] = i^d
 vector<Mint> getMonomials(long long d, int n) {
   vector<int> lpf(n);
   for (int i = 2; i < n; ++i) lpf[i] = i;
@@ -104,51 +95,46 @@ vector<Mint> getMonomials(long long d, int n) {
   return pws;
 }
 
-// \sum_{i=0}^{\infty} r^i f(i) (deg f <= d)
-Mint sumPowerPolyLimit(Mint r, int d, const vector<Mint> &fs) {
-  assert(r.x != 1);
+// mukashi kaita
+Mint sumPowerPoly(int d, const vector<Mint> &y, Mint a, long long n) {
   assert(d + 1 < LIM);
-  assert(fs.size() >= static_cast<size_t>(d + 1));
-  vector<Mint> rr(d + 1);
-  rr[0] = 1;
-  for (int i = 1; i <= d; ++i) rr[i] = rr[i - 1] * r;
-  Mint ans = 0, sumRF = 0;
-  for (int i = 0; i <= d; ++i) {
-    sumRF += rr[i] * fs[i];
-    ans += invFac[d - i] * invFac[i + 1] * (((d - i) & 1) ? -1 : +1) *
-           rr[d - i] * sumRF;
+  assert((int)y.size() >= d + 1);
+  if (n <= d + 1) {
+    Mint sum = 0, aa = 1;
+    for (int i = 0; i < n; ++i) {
+      sum += aa * y[i];
+      aa *= a;
+    }
+    return sum;
+  } else {
+    // a^i, a^(n-i), binom(n, i), binom(n - 1 - i, d - i)
+    vector<Mint> a0(d + 1), a1(d + 1), c0(d + 2), c1(d + 2);
+    a0[0] = 1;
+    for (int i = 1; i <= d; ++i) a0[i] = a0[i - 1] * a;
+    a1[d] = a.pow(n - d);
+    for (int i = d - 1; i >= 0; --i) a1[i] = a1[i + 1] * a;
+    c0[0] = 1;
+    for (int i = 1; i <= d + 1; ++i) c0[i] = c0[i - 1] * (n + 1 - i) * inv[i];
+    c1[d + 1] = 0; c1[d] = 1;
+    for (int i = d - 1; i >= 0; --i) c1[i] = c1[i + 1] * (n - 1 - i) * inv[d - i];
+    Mint b = 0;
+    if (a.x == 1) {
+      b = c0[d] * (n - d) * inv[d + 1];
+    } else {
+      b = 1;
+      for (int i = 0; i <= d; ++i) {
+        b -= c0[i] * c1[i] * (((d - i) % 2 != 0) ? -1 : +1) * a1[i];
+      }
+      b *= (1 - a).inv().pow(d + 1);
+    }
+    Mint ret = 0, sum = 0;
+    for (int i = 1; i <= d + 1; ++i) {
+      sum += a0[i - 1] * y[i - 1];
+      ret += (b * binom(d + 1, i) * (((d + 1 - i) % 2 != 0) ? -1 : +1) * a0[d + 1 - i] +
+          c0[i] * c1[i] * (((d - i) % 2 != 0) ? -1 : +1) * a1[i]) * sum;
+    }
+    return ret;
   }
-  ans *= (1 - r).pow(-(d + 1)) * fac[d + 1];
-  return ans;
-}
-
-// \sum_{i=0}^{n-1} r^i f(i) (deg f <= d)
-Mint sumPowerPoly(Mint r, int d, const vector<Mint> &fs, long long n) {
-  assert(d + 1 < LIM);
-  assert(fs.size() >= static_cast<size_t>(d + 1));
-  assert(n >= 0);
-  if (r.x == 0) return (0 < n) ? fs[0] : 0;
-  vector<Mint> gs(d + 2);
-  Mint rr = 1;
-  gs[0] = 0;
-  for (int i = 0; i <= d; ++i) {
-    gs[i + 1] = gs[i] + rr * fs[i];
-    rr *= r;
-  }
-  if (r.x == 1) return interpolateIota(gs, n);
-  const Mint c = sumPowerPolyLimit(r, d, fs);
-  const Mint rInv = r.inv();
-  Mint rrInv = 1;
-  for (int i = 0; i <= d + 1; ++i) {
-    gs[i] = rrInv * (gs[i] - c);
-    rrInv *= rInv;
-  }
-  return c + r.pow(n) * interpolateIota(gs, n);
-}
-
-// \sum_{i=0}^{n-1} r^i i^d
-Mint sumPowerPoly(Mint r, int d, long long n) {
-  return sumPowerPoly(r, d, getMonomials(d, d + 1), n);
 }
 
 int main() {
@@ -157,7 +143,8 @@ int main() {
   int d;
   long long n;
   for (; ~scanf("%d%d%lld", &r.x, &d, &n); ) {
-    const Mint ans = sumPowerPoly(r, d, n);
+    const vector<Mint> pws = getMonomials(d, d + 1);
+    const Mint ans = sumPowerPoly(d, pws, r, n);
     printf("%d\n", ans.x);
   }
   return 0;

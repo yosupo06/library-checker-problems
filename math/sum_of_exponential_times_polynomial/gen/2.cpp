@@ -9,16 +9,16 @@ using std::vector;
 
 int main(int, char **argv) {
   const long long seed = atoll(argv[1]);
-  auto rng = Random(seed * 3 + 1);
+  auto rng = Random(seed * 3 + 2);
 
-  const long long R = 1;
+  const long long R = rng.uniform(2LL, MOD - 1);
   int D;
   long long N;
   switch (seed % 7) {
     case 0: D = 0; N = N_MAX; break;
     case 1: D = 5'000; N = D; break;
     case 2: D = 5'000; N = rng.uniform(D + 1, 10'000'000); break;
-    case 3: D = D_MAX - 1; N = rng.uniform<long long>(D + 1, N_MAX); break;
+    case 3: D = D_MAX - 1; N = MOD * MOD + rng.uniform(0, D); break;
     case 4: D = D_MAX; N = 0; break;
     case 5: D = D_MAX; N = D; break;
     case 6: D = D_MAX; N = N_MAX; break;

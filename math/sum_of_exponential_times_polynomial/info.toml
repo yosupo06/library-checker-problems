@@ -1,22 +1,30 @@
-title = '$\sum_{i=0}^{\infty} r^i i^d$'
+title = '$\sum_{i=0}^{n-1} r^i i^d$'
 timelimit = 5.0
-forum = "https://github.com/yosupo06/library-checker-problems/issues/99"
+forum = "https://github.com/yosupo06/library-checker-problems/issues/98"
 
 [[tests]]
     name = "example.in"
     number = 1
 [[tests]]
     name = "0.cpp"
-    number = 3
+    number = 5
 [[tests]]
     name = "1.cpp"
-    number = 6
+    number = 7
+[[tests]]
+    name = "2.cpp"
+    number = 7
 
 [[solutions]]
-    name = "eulerian_table.cpp"
+    name = "correct2.cpp"
+    wrong = false
+[[solutions]]
+    name = "brute.cpp"
     wrong = true
 
 [params]
     MOD = 998244353
     D_MIN = 0
     D_MAX = 10_000_000
+    N_MIN = 0
+    N_MAX = 1_000_000_000_000_000_000

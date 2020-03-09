@@ -1,4 +1,4 @@
-// O(d^2)
+// O(n log d)
 
 #include <assert.h>
 #include <stdio.h>
@@ -57,26 +57,17 @@ template<int M_> struct ModInt {
 constexpr int MO = 998'244'353;
 using Mint = ModInt<MO>;
 
-constexpr int LIM = 10010;
-Mint E[LIM][LIM];
-
 int main() {
   Mint r;
   int d;
-  for (; ~scanf("%d%d", &r.x, &d); ) {
-    assert(d < LIM);
-    for (int n = 0; n <= d; ++n) {
-      E[n][0] = 0;
-      E[n][n] = 1;
-      for (int k = 1; k < n; ++k) {
-        E[n][k] = (n + 1 - k) * E[n - 1][k - 1] + k * E[n - 1][k];
-      }
-    }
+  long long n;
+  for (; ~scanf("%d%d%lld", &r.x, &d, &n); ) {
     Mint ans = 0;
-    for (int k = d; k >= 0; --k) {
-      ans = ans * r + E[d][k];
+    Mint rr = 1;
+    for (long long i = 0; i < n; ++i) {
+      ans += rr * Mint(i).pow(d);
+      rr *= r;
     }
-    ans *= (1 - r).pow(-(d + 1));
     printf("%d\n", ans.x);
   }
   return 0;

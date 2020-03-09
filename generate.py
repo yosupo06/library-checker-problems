@@ -38,7 +38,8 @@ def compile(src: Path, libdir: Path):
         if platform.system() == 'Darwin':
             cxxflags_default += ' -Wl,-stack_size,0x10000000'  # 256MB
         if platform.uname().system == 'Linux' and 'Microsoft' in platform.uname().release:
-            cxxflags_default += ' -fsplit-stack'  # a workaround for the lack of ulimit in Windows Subsystem for Linux
+            # a workaround for the lack of ulimit in Windows Subsystem for Linux
+            cxxflags_default += ' -fsplit-stack'
         cxxflags = getenv('CXXFLAGS', cxxflags_default).split()
         cxxflags.extend(['-I', str(libdir / 'common')])
         check_call([cxx] + cxxflags +
@@ -78,6 +79,10 @@ class Problem:
         self.basedir = basedir  # type: Path
         tomlpath = basedir / 'info.toml'
         self.config = toml.load(tomlpath)  # type: MutableMapping[str, Any]
+        self.checker = basedir / \
+            self.config.get('checker', 'checker.cpp')  # type: Path
+        self.verifier = basedir / \
+            self.config.get('verifier', 'verifier.cpp')  # type: Path
 
     def health_check(self):
         if 'title' not in self.config:
@@ -125,7 +130,7 @@ class Problem:
 
     def compile_verifier(self):
         logger.info('compile verifier')
-        compile(self.basedir / 'verifier.cpp', self.libdir)
+        compile(self.verifier, self.libdir)
 
     def compile_gens(self):
         logger.info('compile generators')
@@ -136,7 +141,7 @@ class Problem:
 
     def compile_checker(self):
         logger.info('compile checker')
-        compile(self.basedir / 'checker.cpp', self.libdir)
+        compile(self.checker, self.libdir)
 
     def compile_solutions(self):
         for sol in self.config.get('solutions', []):
@@ -172,7 +177,7 @@ class Problem:
             for i in range(num):
                 inname = (casename(name, i) + '.in')
                 inpath = indir / inname
-                result = run(execcmd(self.basedir / 'verifier.cpp'),
+                result = run(execcmd(self.verifier),
                              stdin=open(str(inpath), 'r'))
                 if result.returncode != 0:
                     logger.error('verify failed: {}'.format(inname))
@@ -182,7 +187,7 @@ class Problem:
         indir = self.basedir / 'in'
         outdir = self.basedir / 'out'
         soldir = self.basedir / 'sol'
-        checker = self.basedir / 'checker.cpp'
+        checker = self.checker
 
         logger.info('clear output {}'.format(outdir))
         if outdir.exists():
@@ -241,7 +246,7 @@ class Problem:
         return True
 
     def is_checker_already_generated(self) -> bool:
-        checker = self.basedir / 'checker'
+        checker = self.checker
         if not checker.exists():
             return False
 
@@ -273,7 +278,7 @@ class Problem:
         outdir = self.basedir / 'out'
         _tmpdir = TemporaryDirectory()
         tmpdir = _tmpdir.name
-        checker = self.basedir / 'checker.cpp'
+        checker = self.checker
         results = set()
 
         logger.info('Start {}'.format(src.name))

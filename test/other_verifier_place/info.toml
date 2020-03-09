@@ -1,0 +1,7 @@
+title = 'Simple AplusB'
+timelimit = 2.0
+verifier = 'verifier_dir/verifier.cpp'
+
+[[tests]]
+    name = "example.in"
+    number = 2

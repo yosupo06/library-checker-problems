@@ -4,7 +4,7 @@ Problem Statement / 問題文
 You are given an integer sequence $a_0, a_1, ..., a_{N-1}$ with the length $N$.
 Process the following $Q$ queries in order:
 
-- `0 $p$ $x$`: $a_p = a_p + x$
+- `0 $p$ $x$`: $a_p \gets a_p + x$
 - `1 $l$ $r$`: Print $\sum_{i = l}^{r - 1}{a_i}$
 
 Problem Statement (Japanese) / 問題文 (日本語)

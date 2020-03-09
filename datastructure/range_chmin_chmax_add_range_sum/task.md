@@ -3,9 +3,9 @@ Problem Statement (Japanese) / 問題文 (日本語)
 
 長さ $N$ の整数列 $a_0, a_1, \dots, a _ {N - 1}$ が与えられる。$Q$ 個のクエリが飛んでくるので処理せよ。
 
-- `0 $l$ $r$ $b$`: $i = l, \dots, {r-1}$ のそれぞれについて $a_i = \min(a_i, b)$
-- `1 $l$ $r$ $b$`: $i = l, \dots, {r-1}$ のそれぞれについて $a_i = \max(a_i, b)$
-- `2 $l$ $r$ $b$`: $i = l, \dots, {r-1}$ のそれぞれについて $a_i = a_i + b$
+- `0 $l$ $r$ $b$`: $i = l, \dots, {r-1}$ のそれぞれについて $a_i \gets \min(a_i, b)$
+- `1 $l$ $r$ $b$`: $i = l, \dots, {r-1}$ のそれぞれについて $a_i \gets \max(a_i, b)$
+- `2 $l$ $r$ $b$`: $i = l, \dots, {r-1}$ のそれぞれについて $a_i \gets a_i + b$
 - `3 $l$ $r$`: $\sum _ {i = l} ^ {r-1} a_i$ を出力
 
 Constraints / 制約

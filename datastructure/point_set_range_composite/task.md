@@ -3,7 +3,7 @@ Problem Statement (Japanese) / 問題文 (日本語)
 
 長さ $N$ の(一次)関数列 $f_0, f_1, ..., f_{N-1}$ が与えられる。$f_i(x) = a_i x + b_i$ である。 $Q$ 個のクエリが飛んできます。処理してください。
 
-- `0 $p$ $c$ $d$`: $f_p = cx + d$ に変更
+- `0 $p$ $c$ $d$`: $f_p \gets cx + d$ に変更
 - `1 $l$ $r$ $x$`: $f_{r-1}(f_{r-2}(...f_l(x))) \bmod 998244353$ を出力する。
 
 Constraints / 制約

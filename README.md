@@ -74,7 +74,7 @@ ls datastructure/unionfind/task.html # statement
 
 ## フォルダ構成
 
-各種コンフィグファイルの仕様などは、[structure](docs/structure.md) にまとまっています
+各種コンフィグファイルの仕様などは、[guideline](docs/guideline.md) にまとまっています
 
 ## library-checker-project
 

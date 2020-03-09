@@ -78,6 +78,8 @@ class Problem:
         self.basedir = basedir  # type: Path
         tomlpath = basedir / 'info.toml'
         self.config = toml.load(tomlpath)  # type: MutableMapping[str, Any]
+        self.checker = basedir / self.config.get('checker', 'checker.cpp')  # type: Path
+        self.verifier = basedir / self.config.get('verifier', 'verifier.cpp')  # type: Path
 
     def health_check(self):
         if 'title' not in self.config:
@@ -125,7 +127,7 @@ class Problem:
 
     def compile_verifier(self):
         logger.info('compile verifier')
-        compile(self.basedir / 'verifier.cpp', self.libdir)
+        compile(self.verifier, self.libdir)
 
     def compile_gens(self):
         logger.info('compile generators')
@@ -136,7 +138,7 @@ class Problem:
 
     def compile_checker(self):
         logger.info('compile checker')
-        compile(self.basedir / 'checker.cpp', self.libdir)
+        compile(self.checker, self.libdir)
 
     def compile_solutions(self):
         for sol in self.config.get('solutions', []):
@@ -172,7 +174,7 @@ class Problem:
             for i in range(num):
                 inname = (casename(name, i) + '.in')
                 inpath = indir / inname
-                result = run(execcmd(self.basedir / 'verifier.cpp'),
+                result = run(execcmd(self.verifier),
                              stdin=open(str(inpath), 'r'))
                 if result.returncode != 0:
                     logger.error('verify failed: {}'.format(inname))
@@ -182,7 +184,7 @@ class Problem:
         indir = self.basedir / 'in'
         outdir = self.basedir / 'out'
         soldir = self.basedir / 'sol'
-        checker = self.basedir / 'checker.cpp'
+        checker = self.checker
 
         logger.info('clear output {}'.format(outdir))
         if outdir.exists():
@@ -241,11 +243,11 @@ class Problem:
         return True
 
     def is_checker_already_generated(self) -> bool:
-        checker = self.basedir / 'checker'
-        if not checker.exists():
+        checker_bin = self.checker.parent / self.checker.stem
+        if not checker_bin.exists():
             return False
 
-        checker_timestamp = datetime.fromtimestamp(checker.stat().st_mtime)
+        checker_timestamp = datetime.fromtimestamp(checker_bin.stat().st_mtime)
         for path in self.list_depending_files():
             if checker_timestamp < datetime.fromtimestamp(path.stat().st_mtime):
                 return False
@@ -273,7 +275,7 @@ class Problem:
         outdir = self.basedir / 'out'
         _tmpdir = TemporaryDirectory()
         tmpdir = _tmpdir.name
-        checker = self.basedir / 'checker.cpp'
+        checker = self.checker
         results = set()
 
         logger.info('Start {}'.format(src.name))

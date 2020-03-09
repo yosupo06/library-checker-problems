@@ -10,6 +10,7 @@ logger = getLogger(__name__)
 
 # test of deprecated feature
 
+
 class TestSuccess(unittest.TestCase):
     def test_success(self):
         proc = run(
@@ -32,6 +33,7 @@ class TestCompileChecker(unittest.TestCase):
             ['./generate.py', '-p', 'simple_aplusb', '--compile-checker'])
         self.assertEqual(proc.returncode, 0)
         self.assertTrue(checker.exists())
+
 
 class TestVerify(unittest.TestCase):
     def test_no_verify(self):
@@ -105,6 +107,20 @@ class TestAllowTLE(unittest.TestCase):
     def test_allow_tle(self):
         proc = run(
             ['./generate.py', '-p', 'allow_tle', '--verify'])
+        self.assertEqual(proc.returncode, 0)
+
+
+class TestOtherCheckerPlace(unittest.TestCase):
+    def test_other_checker_place(self):
+        proc = run(
+            ['./generate.py', '-p', 'other_checker_place'])
+        self.assertEqual(proc.returncode, 0)
+
+
+class TestOtherVerifierPlace(unittest.TestCase):
+    def test_other_verifier_place(self):
+        proc = run(
+            ['./generate.py', '-p', 'other_verifier_place'])
         self.assertEqual(proc.returncode, 0)
 
 

@@ -2,6 +2,7 @@ Problem Statement / 問題文
 ---------
 
 Given integers $r$, $d$ and $n$, calculate $\sum_{i=0}^{n-1} r^i i^d$ modulo ${{param MOD}}$.
+We define $0^0 = 1$.
 
 Constraints / 制約
 ---------

@@ -9,7 +9,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/99"
     name = "0.cpp"
     number = 3
 [[tests]]
-    name = "1.cpp"
+    name = "2.cpp"
     number = 6
 
 [[solutions]]

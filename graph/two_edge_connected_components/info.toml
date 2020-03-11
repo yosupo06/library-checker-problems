@@ -21,6 +21,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/366"
     name = "max_random.cpp"
     number = 3
 
+[[solutions]]
+    name = "naive.cpp"
+    wrong = true
+
 [params]
     N_MIN = 1
     N_MAX = 200_000

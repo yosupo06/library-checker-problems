@@ -78,7 +78,7 @@ signed main(){
   int k=G.build();
   printf("%d\n",k);
   for(int i=0;i<k;i++){
-    printf(" %d",(int)G.C[i].size());
+    printf("%d",(int)G.C[i].size());
     for(int v:G.C[i]) printf(" %d",v);
     puts("");
   }

@@ -130,7 +130,7 @@ markdown + mathjax形式です。他のtask.mdをコピペして弄ればいい�
 動かし方は [README](../README.md) の How to Use 通りに
 
 ```sh
-./generate.py sample/aplusb/info.toml --verify --refhash
+./generate.py sample/aplusb/info.toml --verify --refhash --html
 ```
 
 ### hash.json(自動生成)

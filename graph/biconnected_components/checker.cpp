@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
     sort(bcs_ouf.begin(), bcs_ouf.end());
 
     if (bcs_ans != bcs_ouf) {
-        quitf(_wa, "tecc is differ");
+        quitf(_wa, "bc is differ");
     }
     quitf(_ok, "OK");
 }

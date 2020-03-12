@@ -44,5 +44,3 @@ Sample / サンプル
 {{example example_00}}
 
 {{example example_01}}
-
-{{example example_02}}

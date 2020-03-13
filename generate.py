@@ -62,7 +62,7 @@ def execcmd(src: Path, arg: List[str] = []) -> List[str]:
         return cmd
     elif src.suffix == '.in':
         inpath = src.with_name(casename(src, int(arg[0])) + '.in')
-        if platform.system() == 'Windows': cmd = ['type', str(inpath)]
+        if platform.system() == 'Windows': cmd = ['cmd', '/C', 'type', str(inpath)] # Windows' built-in command 
         else: cmd = ['cat', str(inpath)]
         return cmd
     else:

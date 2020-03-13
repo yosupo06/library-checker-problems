@@ -4,6 +4,7 @@ on:
   push:
     branches: 
       - master
+      - windows
   pull_request:
 
 jobs:

@@ -68,6 +68,13 @@ def execcmd(src: Path, arg: List[str] = []) -> List[str]:
     else:
         raise UnknownTypeFile('Unknown file: {} {}'.format(src, arg))
 
+def check_call_to_file(command: List[str], outpath: Path, *args, **kwargs) :
+    # same as subprocess.check_call(command, stdout=open(outpath, "w"), *args, **kwargs) but handles CRLF stuff on Windows
+    result = run(command, stdout=PIPE, *args, **kwargs)
+    result.check_returncode()
+    with open(str(outpath), "w", newline='\n') as out_file:
+        out_file.write(result.stdout.decode('utf-8').replace(os.linesep, '\n'))
+    
 
 def logging_result(result: str, start: datetime, end: datetime, message: str):
     usemsec = (end - start).seconds*1000 + \
@@ -165,8 +172,7 @@ class Problem:
             logger.info('gen {} {}cases'.format(name, num))
             for i in range(num):
                 inpath = indir / (casename(name, i) + '.in')
-                check_call(
-                    execcmd(gendir / name, [str(i)]), stdout=open(str(inpath), 'w'))
+                check_call_to_file(execcmd(gendir / name, [str(i)]), inpath)
 
     def verify_inputs(self):
         indir = self.basedir / 'in'
@@ -204,8 +210,7 @@ class Problem:
                 infile = indir / (case + '.in')
                 expected = outdir / (case + '.out')
                 start = datetime.now()
-                check_call(execcmd(soldir / 'correct.cpp'),
-                           stdin=open(str(infile), 'r'), stdout=open(str(expected), 'w'))
+                check_call_to_file(execcmd(soldir / 'correct.cpp'), expected, stdin=open(str(infile), 'r'))
                 end = datetime.now()
                 checker_output = bytes()
                 if check:
@@ -298,8 +303,8 @@ class Problem:
                 result = ''
                 checker_output = bytes()
                 try:
-                    check_call(execcmd(src), stdin=open(str(infile), 'r'), stdout=open(
-                        str(actual), 'w'), timeout=self.config['timelimit'])
+                    check_call_to_file(execcmd(src), actual,
+                        stdin=open(str(infile), 'r'), timeout=self.config['timelimit'])
                 except TimeoutExpired:
                     result = 'TLE'
                 except CalledProcessError:

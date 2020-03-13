@@ -37,6 +37,9 @@ def compile(src: Path, libdir: Path):
         cxxflags_default = '-O2 -std=c++14 -Wall -Wextra -Werror -Wno-unused-result'
         if platform.system() == 'Darwin':
             cxxflags_default += ' -Wl,-stack_size,0x10000000'  # 256MB
+        if platform.system() == 'Windows' :
+            cxxflags_default += ' -Wl,-stack,0x10000000'  # 256MB
+            cxxflags_default += ' -D__USE_MINGW_ANSI_STDIO' # avoid using MinGW's "unique" stdio, which doesn't recognize %lld
         if platform.uname().system == 'Linux' and 'Microsoft' in platform.uname().release:
             cxxflags_default += ' -fsplit-stack'  # a workaround for the lack of ulimit in Windows Subsystem for Linux
         cxxflags = getenv('CXXFLAGS', cxxflags_default).split()

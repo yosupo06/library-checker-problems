@@ -62,7 +62,8 @@ def execcmd(src: Path, arg: List[str] = []) -> List[str]:
         return cmd
     elif src.suffix == '.in':
         inpath = src.with_name(casename(src, int(arg[0])) + '.in')
-        cmd = ['cat', str(inpath)]
+        if platform.system() == 'Windows': cmd = ['type', str(inpath)]
+        else: cmd = ['cat', str(inpath)]
         return cmd
     else:
         raise UnknownTypeFile('Unknown file: {} {}'.format(src, arg))

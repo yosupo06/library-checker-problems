@@ -69,12 +69,13 @@ def execcmd(src: Path, arg: List[str] = []) -> List[str]:
         raise UnknownTypeFile('Unknown file: {} {}'.format(src, arg))
 
 def check_call_to_file(command: List[str], outpath: Path, *args, **kwargs) :
-    # same as subprocess.check_call(command, stdout=open(outpath, "w"), *args, **kwargs) but handles CRLF stuff on Windows
+    # same as subprocess.check_call(command, stdout=open(outpath, "w"), *args, **kwargs) =
+    # but handles CRLF stuff on Windows and suppresses the annoying dialogue appears when it crashed
     result = run(command, stdout=PIPE, *args, **kwargs)
     result.check_returncode()
     with open(str(outpath), "w", newline='\n') as out_file:
         out_file.write(result.stdout.decode('utf-8').replace(os.linesep, '\n'))
-    
+
 
 def logging_result(result: str, start: datetime, end: datetime, message: str):
     usemsec = (end - start).seconds*1000 + \
@@ -484,6 +485,12 @@ if __name__ == '__main__':
     if args.htmldir:
         logger.info('make htmldir')
         Path(args.htmldir).mkdir(exist_ok=True)
+    
+    # suppress the annoying dialog appears when an application crashes on Windows
+    if platform.uname().system == 'Windows' :
+        import ctypes 
+        SEM_NOGPFAULTERRORBOX = 2 # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684863(v=vs.85).aspx
+        ctypes.windll.kernel32.SetErrorMode(SEM_NOGPFAULTERRORBOX)
 
     for problem in problems:
         generate(problem, args.ignore_cache, args.refhash, args.verify, args.compile_checker, args.html,

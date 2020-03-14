@@ -12,8 +12,8 @@ int main(int, char **argv) {
   auto rng = Random(seed * 3 + 2);
 
   const long long R = rng.uniform(2LL, MOD - 1);
-  int D;
-  long long N;
+  int D = -1;
+  long long N = -1;
   switch (seed % 7) {
     case 0: D = 0; N = N_MAX; break;
     case 1: D = 5'000; N = D; break;

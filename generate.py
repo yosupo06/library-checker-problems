@@ -38,7 +38,7 @@ def compile(src: Path, libdir: Path):
         cxxflags_default = '-O2 -std=c++14 -Wall -Wextra -Werror -Wno-unused-result'
         if platform.system() == 'Darwin':
             cxxflags_default += ' -Wl,-stack_size,0x10000000'  # 256MB
-        if platform.system() == 'Windows' :
+        if platform.system() == 'Windows':
             cxxflags_default += ' -Wl,-stack,0x10000000'  # 256MB
             cxxflags_default += ' -D__USE_MINGW_ANSI_STDIO' # avoid using MinGW's "unique" stdio, which doesn't recognize %lld
         if platform.uname().system == 'Linux' and 'Microsoft' in platform.uname().release:
@@ -58,7 +58,7 @@ def execcmd(src: Path, arg: List[str] = []) -> List[str]:
     # main.cpp -> ['main']
     # example.in -> ['cat', 'example_00.in']
     if src.suffix == '.cpp':
-        cmd = [str(src.with_suffix('').resolve())]
+        cmd = [str(src.with_suffix('' if platform.system() != 'Windows' else '.exe').resolve())]
         cmd.extend(arg)
         return cmd
     elif src.suffix == '.in':
@@ -69,7 +69,7 @@ def execcmd(src: Path, arg: List[str] = []) -> List[str]:
     else:
         raise UnknownTypeFile('Unknown file: {} {}'.format(src, arg))
 
-def check_call_to_file(command: List[str], outpath: Path, *args, **kwargs) :
+def check_call_to_file(command: List[str], outpath: Path, *args, **kwargs):
     # same as subprocess.check_call(command, stdout=open(outpath, "w"), *args, **kwargs) =
     # but handles CRLF stuff on Windows and suppresses the annoying dialogue appears when it crashed
     result = run(command, stdout=PIPE, check=True, *args, **kwargs)
@@ -484,10 +484,10 @@ def main(args: List[str]):
 
     if args.htmldir:
         logger.info('make htmldir')
-        Path(args.htmldir).mkdir(exist_ok=True)
+        Path(args.htmldir).mkdir(exist_ok=True, parents=True)
     
     # suppress the annoying dialog appears when an application crashes on Windows
-    if platform.uname().system == 'Windows' :
+    if platform.uname().system == 'Windows':
         import ctypes 
         SEM_NOGPFAULTERRORBOX = 2 # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684863(v=vs.85).aspx
         ctypes.windll.kernel32.SetErrorMode(SEM_NOGPFAULTERRORBOX)
@@ -498,4 +498,4 @@ def main(args: List[str]):
 
 
 if __name__ == '__main__':
-	main(sys.argv[1:])
+    main(sys.argv[1:])

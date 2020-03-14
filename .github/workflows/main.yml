@@ -94,12 +94,12 @@ jobs:
           pip install --user -r requirements.txt
       - name: Print problem list
         run: |
-          ./ci_generate.py --show-list 5 ${{ matrix.id }}
+          python ci_generate.py --show-list 5 ${{ matrix.id }}
       - name: Run generate.py on gcc
         run: |
-          ./ci_generate.py 5 ${{ matrix.id }} --html --htmldir=/tmp/html
+          python ci_generate.py 5 ${{ matrix.id }} --html --htmldir=D:/tmp/html
       - name: Archive problem statements
         uses: actions/upload-artifact@v1
         with:
           name: statements
-          path: /tmp/html
+          path: D:/tmp/html

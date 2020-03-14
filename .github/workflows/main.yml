@@ -97,7 +97,6 @@ jobs:
           ./ci_generate.py --show-list 5 ${{ matrix.id }}
       - name: Run generate.py on gcc
         run: |
-          ulimit -s unlimited
           ./ci_generate.py 5 ${{ matrix.id }} --html --htmldir=/tmp/html
       - name: Archive problem statements
         uses: actions/upload-artifact@v1

@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 
 import argparse
-from os import getenv
-from subprocess import check_call
 from pathlib import Path
 import toml
+import generate
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Testcase Generator for Matrix build')
@@ -26,4 +25,4 @@ if __name__ == '__main__':
         for x in tomls:
             print('  {}'.format(x))
     else:
-        check_call(['./generate.py', '--verify'] + list(map(str, tomls)) + args.args)
+        generate.main(['--verify'] + list(map(str, tomls)) + args.args)

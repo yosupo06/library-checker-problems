@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import argparse
 import os
 import platform
@@ -427,7 +428,7 @@ def generate(
         problem.write_html(html_dir if html_dir else problem.basedir)
 
 
-if __name__ == '__main__':
+def main(args: List[str]):
     basicConfig(
         level=getenv('LOG_LEVEL', 'INFO'),
         format="%(asctime)s [%(levelname)s] %(message)s"
@@ -447,7 +448,7 @@ if __name__ == '__main__':
     parser.add_argument('--nogen', action='store_true', help='Skip Generate')
     parser.add_argument('--sol', action='store_true', help='Solution Test')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
-    args = parser.parse_args()
+    args = parser.parse_args(args)
 
     if args.nogen:
         logger.warning(
@@ -494,3 +495,7 @@ if __name__ == '__main__':
     for problem in problems:
         generate(problem, args.ignore_cache, args.refhash, args.verify, args.compile_checker, args.html,
                  Path(args.htmldir) if args.htmldir else None)
+
+
+if __name__ == '__main__':
+	main(sys.argv[1:])

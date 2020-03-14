@@ -14,7 +14,7 @@ int main() {
     int m = inf.readInt(n - 1, 200'000);
     inf.readSpace();
     int s = inf.readInt(0, n - 1);
-    inf.readEoln();
+    inf.readChar('\n');
 
     using P = pair<int, int>;
     set<P> st;
@@ -25,7 +25,7 @@ int main() {
         int b = inf.readInt(0, n - 1);
         inf.readSpace();
         inf.readInt(0, 1'000'000'000);
-        inf.readEoln();
+        inf.readChar('\n');
 
         g[a].push_back(b);
 

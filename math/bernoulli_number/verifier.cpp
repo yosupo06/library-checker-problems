@@ -5,7 +5,7 @@
 int main() {
     registerValidation();
     inf.readInt(0, 500'000);
-    inf.readEoln();
+    inf.readChar('\n');
     inf.readEof();
     return 0;
 }

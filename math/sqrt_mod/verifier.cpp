@@ -40,14 +40,14 @@ int main() {
     registerValidation();
 
     int t = inf.readInt(1, 100'000);
-    inf.readEoln();
+    inf.readChar('\n');
 
     set<long long> trusted;
     for (int i = 0; i < t; i++) {
         long long y = inf.readLong(0LL, 1'000'000'000LL);
         inf.readSpace();
         long long p = inf.readLong(2LL, 1'000'000'000LL);
-        inf.readEoln();
+        inf.readChar('\n');
         ensure(y <= p);
         ensure(trusted.count(p) || is_prime(p));
         trusted.insert(p);

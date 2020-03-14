@@ -11,7 +11,7 @@ int main() {
     int R = inf.readInt(1, R_MAX);
     inf.readSpace();
     int M = inf.readInt(1, M_MAX);
-    inf.readEoln();
+    inf.readChar('\n');
 
     using P = std::pair<int, int>;
     std::set<P> st;
@@ -19,7 +19,7 @@ int main() {
         int a = inf.readInt(0, L - 1);
         inf.readSpace();
         int b = inf.readInt(0, R - 1);
-        inf.readEoln();
+        inf.readChar('\n');
         ensure(!st.count(P(a, b)));
         st.insert(P(a, b));
     }

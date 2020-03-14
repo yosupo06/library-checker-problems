@@ -5,7 +5,7 @@ int main() {
     registerValidation();
 
     int q = inf.readInt(1, 500'000, "Q");
-    inf.readEoln();
+    inf.readChar('\n');
 
     int length = 0;
     for (int i = 0; i < q; i++) {
@@ -23,7 +23,7 @@ int main() {
             inf.readSpace();
             inf.readInt(0, MOD - 1, "x");
         }
-        inf.readEoln();
+        inf.readChar('\n');
     }
     inf.readEof();
     return 0;

@@ -180,7 +180,7 @@ int main() {
     int n = inf.readInt(N_AND_Q_MIN, N_AND_Q_MAX, "N");
     inf.readSpace();
     int q = inf.readInt(N_AND_Q_MIN, N_AND_Q_MAX, "Q");
-    inf.readEoln();
+    inf.readChar('\n');
 
     std::vector<LinkCutTree::Node*> ns;
     LinkCutTree tree;
@@ -190,7 +190,7 @@ int main() {
         if (i != n - 1) inf.readSpace();
         ns.push_back(tree.make_node(i));
     }
-    inf.readEoln();
+    inf.readChar('\n');
 
 
 
@@ -200,7 +200,7 @@ int main() {
         int a = inf.readInt(0, n - 1, "u_i");
         inf.readSpace();
         int b = inf.readInt(0, n - 1, "v_i");
-        inf.readEoln();
+        inf.readChar('\n');
 
         ensure(!uf.same(a, b));
         uf.merge(a, b);
@@ -246,7 +246,7 @@ int main() {
             inf.readSpace();
             inf.readInt(0, n - 1, "v");
         }
-        inf.readEoln();
+        inf.readChar('\n');
     }
     inf.readEof();
     return 0;

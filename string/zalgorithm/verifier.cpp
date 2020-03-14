@@ -7,7 +7,7 @@ int main() {
     registerValidation();
 
     string s = inf.readToken();
-    inf.readEoln();
+    inf.readChar('\n');
     inf.readEof();
     int n = int(s.size());
     ensure(1 <= n && n <= 500'000);

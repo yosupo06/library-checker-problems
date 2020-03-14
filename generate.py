@@ -71,8 +71,7 @@ def execcmd(src: Path, arg: List[str] = []) -> List[str]:
 def check_call_to_file(command: List[str], outpath: Path, *args, **kwargs) :
     # same as subprocess.check_call(command, stdout=open(outpath, "w"), *args, **kwargs) =
     # but handles CRLF stuff on Windows and suppresses the annoying dialogue appears when it crashed
-    result = run(command, stdout=PIPE, *args, **kwargs)
-    result.check_returncode()
+    result = run(command, stdout=PIPE, check=True, *args, **kwargs)
     with open(str(outpath), "w", newline='\n') as out_file:
         out_file.write(result.stdout.decode('utf-8').replace(os.linesep, '\n'))
 

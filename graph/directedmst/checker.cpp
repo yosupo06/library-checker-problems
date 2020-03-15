@@ -52,7 +52,7 @@ ll read_ans(int n, int s, map<P, ll> edges, InStream& stream) {
     }
 
     if (x != sum) {
-        stream.quitf(_wa, "X(%lld) isn't correct, sum = %lld", x, sum);
+        stream.quitf(_wa, "X(" I64 ") isn't correct, sum = " I64, x, sum);
     }
     return x;
 }
@@ -83,5 +83,5 @@ int main(int argc, char *argv[]) {
     if (x_ans > x_ouf) {
         quitf(_fail, "Participate find better answer");
     }
-    quitf(_ok, "OK: %lld", x_ouf);
+    quitf(_ok, "OK: " I64, x_ouf);
 }

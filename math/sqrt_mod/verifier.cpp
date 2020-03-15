@@ -48,7 +48,7 @@ int main() {
         inf.readSpace();
         long long p = inf.readLong(2LL, 1'000'000'000LL);
         inf.readChar('\n');
-        ensure(y <= p);
+        ensure(y < p);
         ensure(trusted.count(p) || is_prime(p));
         trusted.insert(p);
     }    

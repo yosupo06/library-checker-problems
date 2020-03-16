@@ -13,8 +13,9 @@ Constraints / 制約
 ---------
 
 - $1 \leq T \leq {{T_MAX}}$
+- $0 \leq K \leq {{K_MAX}}
 - $2 \leq P \leq {{P_MAX}}$
-- $0 \leq Y \leq {{K_MAX}}$
+- $0 \leq Y \leq P$
 - $P$ は素数
 
 Input / 入力

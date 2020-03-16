@@ -1,0 +1,23 @@
+title = 'k-th root'
+timelimit = 5
+forum = "https://github.com/yosupo06/library-checker-problems/issues/21"
+
+[[tests]]
+    name = "example.cpp"
+    number = 1
+[[tests]]
+    name = "small.cpp"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+[[tests]]
+    name = "safe_prime.cpp"
+    number = 5
+[[tests]]
+    name = "Tonelli-Shanks_worstcase.cpp"
+    number = 5
+

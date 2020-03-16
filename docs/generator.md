@@ -13,7 +13,7 @@
 
 大事なこととして、
 
-- 乱数生成器は `#include "random.h"` し、`common/random.h` の中の `struct Random` を使う
+- 乱数生成器は `#include "random.h"` し、[`common/random.h`](https://github.com/yosupo06/library-checker-problems/blob/master/common/random.h) の中の `struct Random` を使う
 - 乱数の初期化は、`argv[1]` を使う
 - 大量に出力する場合、iostream高速化をする
 

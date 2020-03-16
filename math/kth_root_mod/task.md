@@ -8,6 +8,7 @@ $K, Y, P(P: \textrm{prime})$ が与えられます。
 $X^K \equiv Y \pmod{P}$ なる $X$ を1つ求めてください。
 
 ただし $0^0\equiv 1 \pmod{P}$ とする。
+
 Constraints / 制約
 ---------
 

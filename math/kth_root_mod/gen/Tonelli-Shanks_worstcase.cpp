@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include "../params.h"
 
 using namespace std;
 using ll = long long;
@@ -60,7 +61,7 @@ int main(int, char* argv[]) {
 
     ll up = gen.uniform((ll)1e4, (ll)2e4);
     vector<ll> primes = enum_prime(up - (ll)5e3, up);
-    int t = 5000;
+    int t = T_MAX;
     printf("%d\n", t);
     for (int i = 0; i < t; i++) {
         ll k,p;
@@ -69,7 +70,7 @@ int main(int, char* argv[]) {
             for (long c=2;c<20;++c){
                 k = primes[gen.uniform<ll>(0LL, primes.size() - 1)];
                 p = c*k*k+1;
-                if (is_prime(p) && p <= 1e9){
+                if (is_prime(p) && p <= P_MAX){
                     find=true;
                     break;
                 }

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include "../params.h"
 
 using namespace std;
 using ll = long long;
@@ -38,9 +39,9 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    ll up = gen.uniform((ll)9e8, (ll)1e9);
+    ll up = gen.uniform((ll)9e8, P_MAX);
     vector<ll> primes = enum_prime(up - (ll)5e6, up);
-    int t = 5000;
+    int t = T_MAX;
     printf("%d\n", t);
     for (int i = 0; i < t; i++) {
         ll p = 0;

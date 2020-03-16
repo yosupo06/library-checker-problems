@@ -5,17 +5,14 @@ Problem Statement (Japanese) / 問題文 (日本語)
 
 $K, Y, P(P: \textrm{prime})$ が与えられます。
 
-$X^K \equiv Y \pmod{P}$ なる $X$ を1つ求めてください。
-
-ただし$0^0 \equiv 0 bmod{P}$とします。
+$X^K \equiv Y (\bmod P)$ なる $X$ を1つ求めてください。
 
 Constraints / 制約
 ---------
 
-- $1 \leq T \leq 5000$
-- $0 \leq K \leq 10^9$
-- $2 \leq P \leq 10^9$
-- $0 \leq Y < P$
+- $1 \leq T \leq {{T_MAX}}$
+- $2 \leq P \leq {{P_MAX}}$
+- $0 \leq Y \leq {{K_MAX}}$
 - $P$ は素数
 
 Input / 入力

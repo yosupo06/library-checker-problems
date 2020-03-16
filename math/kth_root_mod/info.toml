@@ -21,3 +21,8 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/21"
     name = "Tonelli-Shanks_worstcase.cpp"
     number = 5
 
+[params]
+    T_MAX = 5_000
+    P_MAX = 1_000_000_000
+    K_MAX = 1_000_000_000
+    

@@ -1,4 +1,5 @@
 #include <algorithm>
+#include "params.h"
 #include "testlib.h"
 
 using namespace std;
@@ -39,19 +40,19 @@ bool is_prime(long long n) {
 int main() {
     registerValidation();
 
-    int t = inf.readInt(1, 5000);
+    int t = inf.readInt(1, (int)T_MAX);
     inf.readEoln();
 
     set<long long> trusted;
     for (int i = 0; i < t; i++) {
-        long long k = inf.readLong(0LL, 1000000000LL);
+        long long k = inf.readLong(0LL, K_MAX);
         inf.readSpace();
-        long long y = inf.readLong(0LL, 1000000000LL);
+        long long y = inf.readLong(0LL, P_MAX);
         inf.readSpace();
-        long long p = inf.readLong(2LL, 1000000000LL);
+        long long p = inf.readLong(2LL, P_MAX);
         inf.readEoln();
-        ensure(0<=k&&k<=1e9);
-        ensure(2<=p&&p<=1e9);
+        ensure(0<=k&&k<=K_MAX);
+        ensure(2<=p&&p<=P_MAX);
         ensure(y < p);
         ensure(trusted.count(p) || is_prime(p));
         trusted.insert(p);

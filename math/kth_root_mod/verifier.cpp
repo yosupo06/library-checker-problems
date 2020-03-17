@@ -41,7 +41,7 @@ int main() {
     registerValidation();
 
     int t = inf.readInt(1, (int)T_MAX);
-    inf.readEoln();
+    inf.readChar('\n');
 
     set<long long> trusted;
     for (int i = 0; i < t; i++) {
@@ -50,7 +50,7 @@ int main() {
         long long y = inf.readLong(0LL, P_MAX);
         inf.readSpace();
         long long p = inf.readLong(2LL, P_MAX);
-        inf.readEoln();
+        inf.readChar('\n');
         ensure(0<=k&&k<=K_MAX);
         ensure(2<=p&&p<=P_MAX);
         ensure(y < p);

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import argparse
 import os
 import platform
@@ -37,6 +38,9 @@ def compile(src: Path, libdir: Path):
         cxxflags_default = '-O2 -std=c++14 -Wall -Wextra -Werror -Wno-unused-result'
         if platform.system() == 'Darwin':
             cxxflags_default += ' -Wl,-stack_size,0x10000000'  # 256MB
+        if platform.system() == 'Windows':
+            cxxflags_default += ' -Wl,-stack,0x10000000'  # 256MB
+            cxxflags_default += ' -D__USE_MINGW_ANSI_STDIO' # avoid using MinGW's "unique" stdio, which doesn't recognize %lld
         if platform.uname().system == 'Linux' and 'Microsoft' in platform.uname().release:
             cxxflags_default += ' -fsplit-stack'  # a workaround for the lack of ulimit in Windows Subsystem for Linux
         cxxflags = getenv('CXXFLAGS', cxxflags_default).split()
@@ -54,15 +58,27 @@ def execcmd(src: Path, arg: List[str] = []) -> List[str]:
     # main.cpp -> ['main']
     # example.in -> ['cat', 'example_00.in']
     if src.suffix == '.cpp':
-        cmd = [str(src.with_suffix('').resolve())]
+        cmd = [str(src.with_suffix('' if platform.system() != 'Windows' else '.exe').resolve())]
         cmd.extend(arg)
         return cmd
     elif src.suffix == '.in':
         inpath = src.with_name(casename(src, int(arg[0])) + '.in')
-        cmd = ['cat', str(inpath)]
+        if platform.system() == 'Windows': cmd = ['cmd', '/C', 'type', str(inpath)] # Windows' built-in command 
+        else: cmd = ['cat', str(inpath)]
         return cmd
     else:
         raise UnknownTypeFile('Unknown file: {} {}'.format(src, arg))
+
+
+def check_call_to_file(command: List[str], outpath: Path, *args, **kwargs):
+    # same as subprocess.check_call(command, stdout=open(outpath, "w"), *args, **kwargs)
+    # but handles CRLF stuff on Windows
+    if platform.uname().system == 'Windows':
+        result = run(command, stdout=PIPE, check=True, *args, **kwargs)
+        with open(str(outpath), "w", newline='\n') as out_file:
+            out_file.write(result.stdout.decode('utf-8').replace(os.linesep, '\n'))
+    else:
+        check_call(command, stdout=open(str(outpath), "w"), *args, **kwargs)
 
 
 def logging_result(result: str, start: datetime, end: datetime, message: str):
@@ -161,8 +177,7 @@ class Problem:
             logger.info('gen {} {}cases'.format(name, num))
             for i in range(num):
                 inpath = indir / (casename(name, i) + '.in')
-                check_call(
-                    execcmd(gendir / name, [str(i)]), stdout=open(str(inpath), 'w'))
+                check_call_to_file(execcmd(gendir / name, [str(i)]), inpath)
 
     def verify_inputs(self):
         indir = self.basedir / 'in'
@@ -200,8 +215,7 @@ class Problem:
                 infile = indir / (case + '.in')
                 expected = outdir / (case + '.out')
                 start = datetime.now()
-                check_call(execcmd(soldir / 'correct.cpp'),
-                           stdin=open(str(infile), 'r'), stdout=open(str(expected), 'w'))
+                check_call_to_file(execcmd(soldir / 'correct.cpp'), expected, stdin=open(str(infile), 'r'))
                 end = datetime.now()
                 checker_output = bytes()
                 if check:
@@ -294,8 +308,8 @@ class Problem:
                 result = ''
                 checker_output = bytes()
                 try:
-                    check_call(execcmd(src), stdin=open(str(infile), 'r'), stdout=open(
-                        str(actual), 'w'), timeout=self.config['timelimit'])
+                    check_call_to_file(execcmd(src), actual,
+                        stdin=open(str(infile), 'r'), timeout=self.config['timelimit'])
                 except TimeoutExpired:
                     result = 'TLE'
                 except CalledProcessError:
@@ -418,7 +432,7 @@ def generate(
         problem.write_html(html_dir if html_dir else problem.basedir)
 
 
-if __name__ == '__main__':
+def main(args: List[str]):
     basicConfig(
         level=getenv('LOG_LEVEL', 'INFO'),
         format="%(asctime)s [%(levelname)s] %(message)s"
@@ -438,7 +452,7 @@ if __name__ == '__main__':
     parser.add_argument('--nogen', action='store_true', help='Skip Generate')
     parser.add_argument('--sol', action='store_true', help='Solution Test')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
-    args = parser.parse_args()
+    args = parser.parse_args(args)
 
     if args.nogen:
         logger.warning(
@@ -474,8 +488,18 @@ if __name__ == '__main__':
 
     if args.htmldir:
         logger.info('make htmldir')
-        Path(args.htmldir).mkdir(exist_ok=True)
+        Path(args.htmldir).mkdir(exist_ok=True, parents=True)
+    
+    # suppress the annoying dialog appears when an application crashes on Windows
+    if platform.uname().system == 'Windows':
+        import ctypes 
+        SEM_NOGPFAULTERRORBOX = 2 # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684863(v=vs.85).aspx
+        ctypes.windll.kernel32.SetErrorMode(SEM_NOGPFAULTERRORBOX)
 
     for problem in problems:
         generate(problem, args.ignore_cache, args.refhash, args.verify, args.compile_checker, args.html,
                  Path(args.htmldir) if args.htmldir else None)
+
+
+if __name__ == '__main__':
+    main(sys.argv[1:])

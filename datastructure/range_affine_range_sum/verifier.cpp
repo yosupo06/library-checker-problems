@@ -7,13 +7,13 @@ int main() {
     int n = inf.readInt(1, N_AND_Q_MAX, "N");
     inf.readSpace();
     int q = inf.readInt(1, N_AND_Q_MAX, "Q");
-    inf.readEoln();
+    inf.readChar('\n');
 
     for (int i = 0; i < n; i++) {
         inf.readInt(0, MOD - 1, "a_i");        
         if (i != n - 1) inf.readSpace();
     }
-    inf.readEoln();
+    inf.readChar('\n');
     for (int i = 0; i < q; i++) {
         int t = inf.readInt(0, 1, "t");
         inf.readSpace();
@@ -31,7 +31,7 @@ int main() {
             inf.readSpace();
             inf.readInt(l + 1, n, "r");
         }
-        inf.readEoln();
+        inf.readChar('\n');
     }
     inf.readEof();
     return 0;

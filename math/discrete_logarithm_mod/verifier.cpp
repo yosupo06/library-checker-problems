@@ -7,7 +7,7 @@ int main() {
     registerValidation();
 
     int t = inf.readInt(1, 100);
-    inf.readEoln();
+    inf.readChar('\n');
 
     for (int i = 0; i < t; i++) {
         int x = inf.readInt(0, 1'000'000'000);
@@ -15,7 +15,7 @@ int main() {
         int y = inf.readInt(0, 1'000'000'000);
         inf.readSpace();
         int m = inf.readInt(1, 1'000'000'000);
-        inf.readEoln();
+        inf.readChar('\n');
         ensure(x < m);
         ensure(y < m);
     }

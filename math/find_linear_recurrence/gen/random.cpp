@@ -59,7 +59,7 @@ int main(int, char **argv) {
   const long long seed = atoll(argv[1]);
   auto rng = Random(seed);
 
-  int N, d;
+  int N = -1, d = -1;
   switch (seed % 4) {
     case 0: {
       N = N_MAX;

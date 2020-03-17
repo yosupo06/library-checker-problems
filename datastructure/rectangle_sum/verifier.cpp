@@ -6,7 +6,7 @@ int main() {
     int n = inf.readInt(1, 200'000, "N");
     inf.readSpace();
     int q = inf.readInt(1, 200'000, "Q");
-    inf.readEoln();
+    inf.readChar('\n');
 
     for (int i = 0; i < n; i++) {
         inf.readInt(0, 1'000'000'000, "x_i");
@@ -14,7 +14,7 @@ int main() {
         inf.readInt(0, 1'000'000'000, "y_i");
         inf.readSpace();
         inf.readInt(0, 1'000'000'000, "w_i");
-        inf.readEoln();
+        inf.readChar('\n');
     }
     for (int i = 0; i < q; i++) {
         int l = inf.readInt(0, 1'000'000'000, "l_i");
@@ -24,7 +24,7 @@ int main() {
         inf.readInt(l + 1, 1'000'000'000, "r_i");
         inf.readSpace();
         inf.readInt(d + 1, 1'000'000'000, "u_i");
-        inf.readEoln();
+        inf.readChar('\n');
     }
     inf.readEof();
     return 0;

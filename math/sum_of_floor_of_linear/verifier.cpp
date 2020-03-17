@@ -5,7 +5,7 @@
 int main() {
     registerValidation();
     int t = inf.readInt(1, 100'000);
-    inf.readEoln();
+    inf.readChar('\n');
     for (int i = 0; i < t; i++) {
         inf.readInt(1, 1'000'000'000);
         inf.readSpace();
@@ -14,7 +14,7 @@ int main() {
         inf.readInt(0, m - 1);
         inf.readSpace();
         inf.readInt(0, m - 1);
-        inf.readEoln();
+        inf.readChar('\n');
     }
     inf.readEof();
     return 0;

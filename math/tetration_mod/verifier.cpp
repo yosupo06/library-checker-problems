@@ -7,7 +7,7 @@ int main() {
     registerValidation();
 
     int t = inf.readInt(1, 1000);
-    inf.readEoln();
+    inf.readChar('\n');
 
     set<long long> trusted;
     for (int i = 0; i < t; i++) {
@@ -16,7 +16,7 @@ int main() {
         inf.readLong(0LL, 1'000'000'000LL);
         inf.readSpace();
         inf.readLong(1LL, 1'000'000'000LL);
-        inf.readEoln();
+        inf.readChar('\n');
     }
     inf.readEof();
 }

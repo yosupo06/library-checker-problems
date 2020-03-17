@@ -9,7 +9,7 @@ int main() {
     int n = inf.readInt(N_AND_Q_MIN, N_AND_Q_MAX, "N");
     inf.readSpace();
     int q = inf.readInt(N_AND_Q_MIN, N_AND_Q_MAX, "Q");
-    inf.readEoln();
+    inf.readChar('\n');
 
     for (int i = 0; i < n; i++) {
         int l = inf.readInt(-A_ABS_MAX, A_ABS_MAX, "l_i");
@@ -20,7 +20,7 @@ int main() {
         inf.readInt(-A_ABS_MAX, A_ABS_MAX, "a_i");
         inf.readSpace();
         inf.readLong(-B_ABS_MAX, B_ABS_MAX, "b_i");
-        inf.readEoln();
+        inf.readChar('\n');
     }
     for (int i = 0; i < q; i++) {
         int t = inf.readInt(0, 1, "t");
@@ -37,7 +37,7 @@ int main() {
         } else {
             inf.readInt(-A_ABS_MAX, A_ABS_MAX, "p");
         }
-        inf.readEoln();
+        inf.readChar('\n');
     }
     inf.readEof();
     return 0;

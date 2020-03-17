@@ -14,13 +14,13 @@ int main() {
     int m = inf.readInt(0, 200'000);
     inf.readSpace();
     inf.readInt(0, n - 1);
-    inf.readEoln();
+    inf.readChar('\n');
 
     for (int i = 0; i < m; i++) {
         inf.readInt(0, n - 1);
         inf.readSpace();
         inf.readInt(0, n - 1);
-        inf.readEoln();
+        inf.readChar('\n');
     }
     inf.readEof();
     return 0;

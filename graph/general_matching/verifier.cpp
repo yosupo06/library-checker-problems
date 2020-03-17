@@ -10,7 +10,7 @@ int main() {
     int n = inf.readInt(1, 500, "n");
     inf.readSpace();
     int m = inf.readInt(0, n * (n - 1) / 2, "m");
-    inf.readEoln();
+    inf.readChar('\n');
 
     using P = std::pair<int, int>;
     std::set<P> edges;
@@ -18,7 +18,7 @@ int main() {
         int u = inf.readInt(0, n - 1, "u_i");
         inf.readSpace();
         int v = inf.readInt(0, n - 1, "v_i");
-        inf.readEoln();
+        inf.readChar('\n');
         ensuref(u != v, "u != v");
         ensuref(edges.count({u, v}) == 0 && edges.count({v, u}) == 0, "duplicate edge");
         edges.insert({u, v});

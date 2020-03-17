@@ -7,7 +7,7 @@
 #include<assert.h>
 using namespace::std;
 using lint=long long;
-#define rep(i,n) for(lint (i)=0;(i)<lint(n);(i)++)
+#define rep(i,n) for(lint i=0;(i)<lint(n);(i)++)
 template<typename T>
 class dynamic_connectivity{
 	class euler_tour_tree{

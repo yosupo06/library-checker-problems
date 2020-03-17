@@ -12,8 +12,8 @@ int main(int, char **argv) {
   // auto rng = Random(seed * 3 + 0);
 
   const long long R = 0;
-  int D;
-  long long N;
+  int D = -1;
+  long long N = -1;
   switch (seed % 5) {
     case 0: D = 0; N = 0; break;
     case 1: D = 0; N = 1; break;

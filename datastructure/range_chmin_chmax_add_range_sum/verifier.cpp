@@ -9,7 +9,7 @@ int main() {
     int n = inf.readInt(1, N_AND_Q_MAX, "N");
     inf.readSpace();
     int q = inf.readInt(1, N_AND_Q_MAX, "Q");
-    inf.readEoln();
+    inf.readChar('\n');
 
     std::vector<typename min_max_monoid::value_type> init(n);
     for (int i = 0; i < n; i++) {
@@ -17,7 +17,7 @@ int main() {
         if (i != n - 1) inf.readSpace();
         init[i] = { a, a };
     }
-    inf.readEoln();
+    inf.readChar('\n');
     chmin_chmax_add_min_max_segment_tree segtree(init.begin(), init.end());
 
     for (int i = 0; i < q; i++) {
@@ -44,7 +44,7 @@ int main() {
         auto a = segtree.range_get(0, n);
         ensure(-A_ABS_MAX <= a.min);
         ensure(a.max <= A_ABS_MAX);
-        inf.readEoln();
+        inf.readChar('\n');
     }
     inf.readEof();
     return 0;

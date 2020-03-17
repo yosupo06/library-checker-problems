@@ -17,7 +17,7 @@ int read_ans(vector<vector<ll>> a, InStream& stream) {
         sum += a[i][p];
     }
     if (x != sum) {
-        stream.quitf(_wa, "x is differ: %lld(x) vs %lld(actual)", x, sum);
+        stream.quitf(_wa, "x is different: " I64 "(x) vs " I64 "(actual)", x, sum);
     }
     return x;
 }
@@ -39,9 +39,9 @@ int main(int argc, char *argv[]) {
     ll x_ouf = read_ans(a, ouf);
 
     if (x_ans > x_ouf) {
-        quitf(_fail, "%lld %lld: Participate find better answer....", x_ans, x_ouf);
+        quitf(_fail, I64 " " I64 ": Participate find better answer....", x_ans, x_ouf);
     } else if (x_ans < x_ouf) {
-        quitf(_wa, "%lld %lld: There is the better solution", x_ans, x_ouf);
+        quitf(_wa, I64 " " I64 ": There is the better solution", x_ans, x_ouf);
     }
-    quitf(_ok, "OK: %lld", x_ans);
+    quitf(_ok, "OK: " I64, x_ans);
 }

@@ -8,13 +8,13 @@ int main() {
     int n = inf.readInt(1, 500'000, "N");
     inf.readSpace();
     int q = inf.readInt(1, 500'000, "Q");
-    inf.readEoln();
+    inf.readChar('\n');
 
     for (int i = 0; i < n; i++) {
         inf.readInt(1, MOD - 1, "a_i");
         inf.readSpace();
         inf.readInt(0, MOD - 1, "b_i");
-        inf.readEoln();
+        inf.readChar('\n');
     }
     for (int i = 0; i < q; i++) {
         int t = inf.readInt(0, 1, "t");
@@ -32,7 +32,7 @@ int main() {
             inf.readSpace();
             inf.readInt(0, MOD - 1, "x");
         }
-        inf.readEoln();
+        inf.readChar('\n');
     }
     inf.readEof();
     return 0;

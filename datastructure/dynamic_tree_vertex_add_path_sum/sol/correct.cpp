@@ -615,7 +615,7 @@ namespace niu {
   char cur;
   struct FIN {
     static inline bool is_blank(char c) { return c <= ' '; }
-    inline char next() { return cur = getc_unlocked(stdin); }
+    inline char next() { return cur = getc(stdin); }
     inline char peek() { return cur; }
     inline void skip() { while(is_blank(next())){} }
 #define intin(inttype)  \
@@ -638,7 +638,7 @@ intin(long long)
   char tmp[128];
   struct FOUT {
     static inline bool is_blank(char c) { return c <= ' '; }
-    inline void push(char c) { putc_unlocked(c, stdout); }
+    inline void push(char c) { putc(c, stdout); }
     FOUT& operator<<(char c) { push(c); return *this; }
     FOUT& operator<<(const char* s) { while(*s) push(*s++); return *this; }
 #define intout(inttype) \

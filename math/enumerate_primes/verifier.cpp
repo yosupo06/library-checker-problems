@@ -80,6 +80,6 @@ int main() {
   inf.readEof();
 
   const long long pi = numPrimes(N);
-  ensuref(A * X_MAX + B >= pi, "X <= %lld must hold", X_MAX);
+  ensuref(A * X_MAX + B >= pi, "X <= " I64 " must hold", X_MAX);
   return 0;
 }

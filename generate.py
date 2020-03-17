@@ -78,7 +78,7 @@ def check_call_to_file(command: List[str], outpath: Path, *args, **kwargs):
         with open(str(outpath), "w", newline='\n') as out_file:
             out_file.write(result.stdout.decode('utf-8').replace(os.linesep, '\n'))
     else:
-        check_call(command, stdout=open(outpath, "w"), *args, **kwargs)
+        check_call(command, stdout=open(str(outpath), "w"), *args, **kwargs)
 
 
 def logging_result(result: str, start: datetime, end: datetime, message: str):

@@ -12,9 +12,9 @@ $X^K \equiv Y \pmod{P}$ なる $X$ を1つ求めてください。
 Constraints / 制約
 ---------
 
-- $1 \leq T \leq {{T_MAX}}$
-- $0 \leq K \leq {{K_MAX}}$
-- $2 \leq P \leq {{P_MAX}}$
+- $1 \leq T \leq {{param T_MAX}}$
+- $0 \leq K \leq {{param K_MAX}}$
+- $2 \leq P \leq {{param P_MAX}}$
 - $0 \leq Y  < P$
 - $P$ は素数
 

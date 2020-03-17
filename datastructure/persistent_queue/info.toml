@@ -1,0 +1,38 @@
+title = 'Persistent Queue'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/379"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "random_2.cpp"
+    number = 3
+[[tests]]
+    name = "random_3.cpp"
+    number = 3
+[[tests]]
+    name = "ephemeral.cpp"
+    number = 1
+[[tests]]
+    name = "two_stacks_killer.cpp"
+    number = 1
+[[tests]]
+    name = "half_rot_killer.cpp"
+    number = 1
+
+[[solutions]]
+    name = "naive.cpp"
+    wrong = true
+[[solutions]]
+    name = "two_stacks.cpp"
+    wrong = true
+
+[params]
+    Q_MIN = 1
+    Q_MAX = 500_000
+    X_MIN = 0
+    X_MAX = 1_000_000_000

@@ -78,8 +78,8 @@ long long peth_root(long long a,long long p,int e,long long mod) {
 }
     
 long long kth_root(long long a,long long k,long long p) {
+    if(k>0&&a%p==0)return 0;
     k%=p-1;
-    if(k>0&&a==0)return 0;
     long long g=gcd(k,p-1);
     if (pow(a,(p-1)/g,p)!=1)
         return -1;

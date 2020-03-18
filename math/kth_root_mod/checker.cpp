@@ -27,14 +27,13 @@ int main(int argc, char *argv[]) {
         if (x != -1 && pow(x,k,p) != y) {
             quitf(_wa, "invalid x");
         }
-        k%=p-1;
         bool actual = (x != -1);
-        bool expected = ((k==0 && y==1) || (k!=0 && y==0) || (k!=0 && pow(y,(p-1)/gcd(k,p-1),p)==1));
+        bool expected = ((k%(p-1)==0 && y%p==1) || (k>0 && y%p==0) || (k>=0 && y%p>0 && pow(y,(p-1)/gcd(k,p-1),p)==1));
         if (expected && !actual) {
             quitf(_wa, "you cann't find x");
         }
         if (!expected && actual) {
-            quitf(_fail, "what happened???");
+            quitf(_fail, "judge is broken");
         }
     }
     quitf(_ok, "OK");

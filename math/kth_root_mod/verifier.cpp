@@ -47,7 +47,7 @@ int main() {
     for (int i = 0; i < t; i++) {
         long long k = inf.readLong(0LL, K_MAX);
         inf.readSpace();
-        long long y = inf.readLong(0LL, P_MAX);
+        long long y = inf.readLong(0LL, P_MAX - 1LL);
         inf.readSpace();
         long long p = inf.readLong(2LL, P_MAX);
         inf.readChar('\n');

@@ -1,0 +1,20 @@
+title = 'Sum of Totient Function'
+timelimit = 5
+forum = "https://github.com/yosupo06/library-checker-problems/issues/384"
+
+[[tests]]
+    name = "example.cpp"
+    number = 3
+[[tests]]
+    name = "small.cpp"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 10
+[[tests]]
+    name = "max.cpp"
+    number = 10
+
+[params]
+    N_MAX = 10000000000
+    

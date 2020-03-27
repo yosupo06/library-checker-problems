@@ -65,5 +65,5 @@ void build(){
 int main() {
   scanf("%lld",&N);
   build();
-  std::cout<<Phi2[1]<<std::endl;
+  printf("%lld\n", Phi2[1]);
 }

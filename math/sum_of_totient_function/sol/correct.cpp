@@ -47,9 +47,9 @@ void build(){
   for(int i=1;i<L1;++i)Phi1[i]=(Phi1[i]+Phi1[i-1])%m;
   for(int i=L2-1;i>=1;--i){
     int n=2;
-    long cur=N/i;
+    long long cur=N/i;
     for(;cur/n!=cur/(n+1)&&n<=cur;++n){
-      Phi2[i]=Phi2[i]-((long)i*n>=L2?Phi1[(int)(cur/n)]:Phi2[i*n]);
+      Phi2[i]=Phi2[i]-((long long)i*n>=L2?Phi1[(int)(cur/n)]:Phi2[i*n]);
       while(Phi2[i]<0)Phi2[i]+=m;
     }
     for(int arg=(int)(cur/n);arg>=1;--arg){

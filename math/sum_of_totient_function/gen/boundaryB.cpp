@@ -19,6 +19,6 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     ll N = gen.uniform<ll>(10LL, N_MAX);
-    printf("%lld\n", N);
+    printf("%lld\n", f(N));
     return 0;
 }

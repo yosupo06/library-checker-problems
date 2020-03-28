@@ -18,7 +18,8 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    ll N = gen.uniform<ll>(10LL, N_MAX);
-    printf("%lld\n", f(N));
+    ll N = gen.uniform<ll>(1000LL, N_MAX-10L);
+    ll d = gen.uniform<ll>(-3LL, 3L);
+    printf("%lld\n", f(N)+d);
     return 0;
 }

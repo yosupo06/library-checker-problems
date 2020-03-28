@@ -16,10 +16,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/384"
     number = 10
 [[tests]]
     name = "boundaryA.cpp"
-    number = 3
+    number = 10
 [[tests]]
     name = "boundaryB.cpp"
-    number = 3
+    number = 10
 
 [params]
     N_MAX = 10000000000

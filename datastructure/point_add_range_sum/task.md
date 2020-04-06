@@ -12,7 +12,7 @@ Problem Statement (Japanese) / 問題文 (日本語)
 
 長さ $N$ の数列 $a_0, a_1, ..., a_{N-1}$ に $Q$ 個のクエリが飛んできます。処理してください。
 
-- `0 $p$ $x$`: $a_p = a_p + x$
+- `0 $p$ $x$`: $a_p \gets a_p + x$
 - `1 $l$ $r$`: $\sum_{i = l}^{r - 1}{a_i}$ を出力する。
 
 Constraints / 制約

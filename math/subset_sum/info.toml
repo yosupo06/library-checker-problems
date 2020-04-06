@@ -21,3 +21,4 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/385"
 [params]
     N_MAX=1000000
     T_MAX=500000
+    MOD=998244353

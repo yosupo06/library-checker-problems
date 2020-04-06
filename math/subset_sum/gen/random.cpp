@@ -12,7 +12,7 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int N=gen.uniform(1LL,T_MAX),T=gen.uniform(1LL,T_MAX);
+    int N=gen.uniform(1LL,N_MAX),T=gen.uniform(1LL,T_MAX);
     printf("%d %d\n", N,T);
     for(int i=0;i<N;i++){
         printf("%d",gen.uniform(1,T));

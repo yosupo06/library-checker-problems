@@ -1,5 +1,5 @@
 title = 'Static Range Sum'
-timelimit = 2.0
+timelimit = 5.0
 forum = "https://github.com/yosupo06/library-checker-problems/issues/398"
 
 [[tests]]

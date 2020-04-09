@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <tuple>
 #include "random.h"
 #include "../params.h"
 using namespace std;
@@ -18,8 +19,8 @@ int main(int, char* argv[]) {
     }
 
     for(int i=0; i<Q; i++) {
-        int l = gen.uniform<int>(0, N-1);
-        int r = gen.uniform<int>(l+1, N);
+        int l, r;
+        std::tie(l, r) = gen.uniform_pair<int>(0, N);
         printf("%d %d\n", l, r);
     }
     

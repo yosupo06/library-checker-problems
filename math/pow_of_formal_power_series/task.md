@@ -9,7 +9,6 @@ Constraints / 制約
 - $1 \leq N \leq {{param N_MAX}}$
 - $1 \leq M \leq {{param M_MAX}}$
 - $0 \leq a_i < {{param MOD}}$
-- $1 \leq M \leq 10^9$
 
 Input / 入力
 ---------

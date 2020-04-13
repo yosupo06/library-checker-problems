@@ -15,7 +15,7 @@ int main(int, char* argv[]) {
     
     vector<int> f(n);
     for (int i = 0; i < n; i++) {
-        f[i] = gen.uniform(0, 998244353);
+        f[i] = gen.uniform(0LL, MOD - 1);
     }
     int m = gen.uniform(1, n);
     for (int i = 0; i < m; i++) {

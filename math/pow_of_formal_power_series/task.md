@@ -1,7 +1,7 @@
 Problem Statement (Japanese) / 問題文 (日本語)
 ---------
 $f(x):=\sum_{i=0}^{N-1} a_i x^i$ とします。
-$f(x)^M \bmod x^{N}$を{{param MOD}}で割った余り$\sum_{i=0}^{N-1} b_i x^i$を求めてください。
+$f(x)^M \bmod x^{N}$を${{param MOD}}$で割った余り$\sum_{i=0}^{N-1} b_i x^i$を求めてください。
 
 Constraints / 制約
 ---------

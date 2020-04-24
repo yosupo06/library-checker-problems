@@ -20,6 +20,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/145"
 [[tests]]
     name = "fft_killer.cpp"
     number = 2
+[[tests]]
+    name = "medium_all_zero.cpp"
+    number = 1
+[[tests]]
+    name = "max_ans_zero.cpp"
+    number = 1
 
 [[solutions]]
     name = "naive.cpp"

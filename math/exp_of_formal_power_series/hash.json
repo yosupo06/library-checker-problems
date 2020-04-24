@@ -1,6 +1,10 @@
 {
   "example_00.in": "2a7b2913e67d11f900e3ba5940f907b336be56f7a4b6d2d021955e56e6e100ad",
   "example_00.out": "7c3373341beb01cc0be7fb983b2153b9ae812648c5cb18eb2822ec77a3f7d69b",
+  "max_all_zero_00.in": "b0ecdf74a0a435d7bd69c9f404531e6866583a3377cefe15b7886674941e2480",
+  "max_all_zero_00.out": "f2774e4730d96d283af639a646df6942b8cfa13bedd0b26eebaf1df591ed2c42",
+  "max_ans_zero_00.in": "ead1af3b6b4dc95d5d2d7a826e4889dec9483990068727951b9bff58fe054f4d",
+  "max_ans_zero_00.out": "b430588f3eeed805f0deb094d59695c5ea3c71a21fcfd07c7161785d541d1c50",
   "max_random_00.in": "9b12be7a72b0dcf2e8c1b5e661cffef8092fc8b6db5eb4bc507049dd10ffd1cd",
   "max_random_00.out": "1d9d614be7839c1edb76083ff62d4febd7f7a771fb22d0cfc1943dd4f078267c",
   "max_random_01.in": "fecc60f8c3ecab2978270a3f9d74f2e7ddcab969630c38556207d6a3c545cb27",

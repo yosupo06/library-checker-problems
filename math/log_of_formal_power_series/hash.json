@@ -1,6 +1,8 @@
 {
   "example_00.in": "dce400e9fb4dc53a24b2cc1dfd56b7b35cd09362baac90269cd6f198e9efd502",
   "example_00.out": "565581ff013ebbb3c9acfdf6b14b6f1ece3efccfbfc0baf5bf0eb83016a998fd",
+  "max_all_zero_00.in": "e288a186652cf4723f66724b0a2fdb22e1bc8cd0517d665763533b4f55806ad0",
+  "max_all_zero_00.out": "5a6ac1c2423f3b2e3ed7488817a53d157e6f8524a6b4ef2c8f1b399754821bc3",
   "max_random_00.in": "71cb0227a5a1e40ece225e19cd9d2633dfd4f07f25d39f01719bc2376e1d4ac8",
   "max_random_00.out": "c031f72a4eb2eacfaacce3a4f427b5f2d296b0fa9ecbd96d7dca445a38cbbd93",
   "max_random_01.in": "4e02bda31a47036fe451d93878205f7bb9529753bef1ec480984ab4625719d2d",

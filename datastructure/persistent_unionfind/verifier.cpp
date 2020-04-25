@@ -19,7 +19,7 @@ int main() {
         inf.readInt(0, N-1); // u
         inf.readSpace();
         inf.readInt(0, N-1); // v
-        inf.readEoln();
+        inf.readChar('\n');
         ensuref(k == -1 or tp[k] == 0, "the value of k is invalid");
         tp[i] = t;
     }

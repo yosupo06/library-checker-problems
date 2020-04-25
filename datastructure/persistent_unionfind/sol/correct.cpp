@@ -44,17 +44,6 @@ struct RollBackUnionFind {
 
 int main() {
     int N, Q; scanf("%d%d", &N, &Q);
-
-    /*
-    RollBackUnionFind uf(N);
-    for(int i=0; i<Q; i++) {
-        int t, u, v; scanf("%d%d%d", &t, &u, &v);
-        if(t == 0) uf.unite(u, v);
-        else printf("%d\n", uf.same(u, v));
-        for(int k=0; k<N; k++) fprintf(stderr, "%d ", uf.find(k));
-        fprintf(stderr, "\n");
-    }
-    */
     
     vector<int> t(Q+1), u(Q+1), v(Q+1), ans(Q+1);
     vector< vector<int> > queries(Q+1);

@@ -17,6 +17,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/405"
     wrong = false
 
 [params]
-    MAX_N = 100_000
-    MAX_Q = 100_000
+    MAX_N = 200_000
+    MAX_Q = 200_000
 

@@ -30,7 +30,6 @@ Constraints / 制約
 - $-1 \leq k\_{i} < i$
 - for all $k_i$, $k\_i = -1$ or $t\_{k\_{i}} = 0$ holds.
 - $0 \leq u\_{i}, v\_{i} < N$
-- $u\_{i} \neq v\_{i}$
 
 Input / 入力
 ---------

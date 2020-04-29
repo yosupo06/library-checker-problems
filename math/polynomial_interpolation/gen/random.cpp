@@ -9,10 +9,10 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     int n = gen.uniform(1, 1 << 17);
-    vector<int> x = gen.choice(n, 0, 998244353);
+    vector<int> x = gen.choice(n, 0, 998244352);
     vector<int> y(n);
     for (int i = 0; i < n; i++) {
-        y[i] = gen.uniform(0, 998244353);
+        y[i] = gen.uniform(0, 998244352);
     }
 
     printf("%d\n", n);

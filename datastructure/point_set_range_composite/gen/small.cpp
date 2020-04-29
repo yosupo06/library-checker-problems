@@ -12,8 +12,8 @@ int main(int, char* argv[]) {
     int q = 1000;
     printf("%d %d\n", n, q);
     for (int i = 0; i < n; i++) {
-        int a = gen.uniform(1, 998244353);
-        int b = gen.uniform(0, 998244353);
+        int a = gen.uniform(1, 998244352);
+        int b = gen.uniform(0, 998244352);
         printf("%d %d\n", a, b);
     }
     for (int i = 0; i < q; i++) {
@@ -21,12 +21,12 @@ int main(int, char* argv[]) {
         printf("%d ", t);
         if (t == 0) {
             int p = gen.uniform(0, n - 1);
-            int c = gen.uniform(1, 998244353);
-            int d = gen.uniform(0, 998244353);
+            int c = gen.uniform(1, 998244352);
+            int d = gen.uniform(0, 998244352);
             printf("%d %d %d\n", p, c, d);
         } else {
             auto p = gen.uniform_pair(0, n);
-            int x = gen.uniform(0, 998244353);
+            int x = gen.uniform(0, 998244352);
             printf("%d %d %d\n", p.first, p.second, x);
         }
     }

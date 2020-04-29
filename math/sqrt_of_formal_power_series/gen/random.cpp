@@ -13,7 +13,7 @@ int main(int, char* argv[]) {
 
     printf("%d\n", n);
     for (int i = 0; i < n; i++) {
-        printf("%d", gen.uniform(0, 998244353));
+        printf("%d", gen.uniform(0, 998244352));
         if (i != n - 1) printf(" ");
     }
     printf("\n");

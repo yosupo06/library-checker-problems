@@ -10,7 +10,7 @@ int main() {
     inf.readChar('\n');
 
     for (int i = 0; i < n; i++) {
-        inf.readInt(0, 998244353);
+        inf.readInt(0, 998244352);
         if (i != n - 1) inf.readSpace();
     }
     inf.readChar('\n');

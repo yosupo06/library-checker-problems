@@ -1,0 +1,58 @@
+title = 'Shortest Path'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/173"
+
+[[tests]]
+	name = "example.in"
+	number = 2
+[[tests]]
+	name = "small.cpp"
+	number = 5
+[[tests]]
+	name = "max_sparse_random.cpp"
+	number = 3
+[[tests]]
+	name = "sparse_random.cpp"
+	number = 3
+[[tests]]
+	name = "max_dense_random.cpp"
+	number = 2
+[[tests]]
+	name = "max_dense_long.cpp"
+	number = 1
+[[tests]]
+	name = "max_dense_zero.cpp"
+	number = 1
+[[tests]]
+	name = "almost_line.cpp"
+	number = 2
+[[tests]]
+	name = "line.cpp"
+	number = 1
+[[tests]]
+	name = "grid_swirl.cpp"
+	number = 1
+[[tests]]
+	name = "grid_random.cpp"
+	number = 1
+[[tests]]
+	name = "wrong_dijkstra_killer.cpp"
+	number = 1
+
+[[solutions]]
+	name = 'spfa.cpp'
+	wrong = true
+[[solutions]]
+	name = 'wrong_dijkstra_0.cpp'
+	wrong = true
+[[solutions]]
+	name = 'wrong_dijkstra_1.cpp'
+	wrong = true
+
+[params]
+	N_MIN = 1
+	N_MAX = 500000
+	M_MIN = 1
+	M_MAX = 500000
+	C_MIN = 0
+	C_MAX = 1000000000

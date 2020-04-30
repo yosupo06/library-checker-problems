@@ -50,7 +50,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/173"
 	wrong = true
 
 [params]
-	N_MIN = 1
+	N_MIN = 2
 	N_MAX = 500000
 	M_MIN = 1
 	M_MAX = 500000

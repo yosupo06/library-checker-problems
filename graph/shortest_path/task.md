@@ -24,7 +24,7 @@ Constraints / 制約
 ---------
 
 - ${{param N_MIN}} \leq N \leq {{param N_MAX}}$
-- ${{param N_MIN}} \leq M \leq {{param N_MAX}}$
+- ${{param M_MIN}} \leq M \leq {{param M_MAX}}$
 - $0 \leq s \lt N$
 - $0 \leq t \lt N$
 - $s \neq t$

@@ -44,7 +44,7 @@ int main() {
 		std::vector<int> path;
 		for (int cur = t; cur != -1; cur = from[cur]) path.push_back(cur);
 		std::reverse(path.begin(), path.end());
-		printf("%" PRId64 " %d\n", dist[t], (int) path.size() - 1);
+		printf("%lld %d\n", (long long) dist[t], (int) path.size() - 1);
 		for (int i = 0; i + 1 < (int) path.size(); i++) printf("%d %d\n", path[i], path[i + 1]);
 	}
 	return 0;

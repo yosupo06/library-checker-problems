@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
 	auto res_correct = read_ans(n, ans);
 	auto res_submitted = read_ans(n, ouf);
 	if (!res_submitted.path.size() != !res_correct.path.size()) {
-		quitf(_wa, "path existence differ - expected: %s, found: %s",
+		quitf(_wa, "path existences differ - expected: %s, found: %s",
 			res_correct.path.size() ? "Yes" : "No",
 			res_submitted.path.size() ? "Yes" : "No");
 	}
@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
 			total_cost_submitted += costs[path_submitted[i]];
 		}
 		if (total_cost_submitted != res_submitted.dist)
-			quitf(_wa, "total weight differ between X(" I64 ") and submitted path's(" I64 ")",
+			quitf(_wa, "total weights differ between X(" I64 ") and submitted path's(" I64 ")",
 				res_submitted.dist, total_cost_submitted);
 		if (total_cost_submitted > res_correct.dist)
 			quitf(_wa, "not the shortest - shortest : " I64 ", your path : " I64,

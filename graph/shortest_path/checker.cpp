@@ -10,7 +10,7 @@ struct Result {
 };
 
 Result read_ans(int n, InStream& stream) {
-	int64_t dist = stream.readLong(-1, 1000000000000000000);
+	int64_t dist = stream.readLong((long long) -1, (long long) 1000000000000000000);
 	if (dist == -1) return {-1, {}};
 	int x = stream.readInt(1, n - 1);
 	std::vector<std::pair<int, int> > path;

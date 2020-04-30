@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
 			quitf(_wa, "start of the path invalid : %d", path_submitted.front().first);
 		if (path_submitted.back().second != t)
 			quitf(_wa, "end of the path invalid : %d", path_submitted.back().second);
-		int64_t total_cost_submitted = 0;
+		long long total_cost_submitted = 0;
 		std::vector<bool> used(n);
 		used[s] = true;
 		for (int i = 0; i < (int) path_submitted.size(); i++) {
@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
 			used[path_submitted[i].second] = true;
 			total_cost_submitted += costs[path_submitted[i]];
 		}
-		int64_t total_cost_correct = 0;
+		long long total_cost_correct = 0;
 		for (auto i : path_correct) total_cost_correct += costs[i];
 		if (total_cost_submitted > total_cost_correct)
 			quitf(_wa, "not the shortest - shortest : " I64 ", your path : " I64,

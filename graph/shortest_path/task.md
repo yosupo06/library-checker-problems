@@ -3,10 +3,10 @@
 Problem Statement
 ---------
 
-You are given a simple directed weighted graph, consisting of $N$ vertices and $M$ edges.
-The $i$-th edge is directed from vertex $a_i$ to vertex $b_i$ and has a weight of $c_i$.
-Find the (simple) shortest path from vertex $s$ to vertex $t$, or report that no such path exists.
-If there are multiple shortest paths, print any of them.
+You are given a simple directed weighted graph, consisting of $N$ vertices and $M$ edges.  
+The $i$-th edge is directed from vertex $a_i$ to vertex $b_i$ and has a weight of $c_i$.  
+Find the (simple) shortest path from vertex $s$ to vertex $t$, or report that no such path exists.  
+If there are multiple shortest paths, print any of them.  
 
 </div>
 <div markdown="1" class="lang-ja">

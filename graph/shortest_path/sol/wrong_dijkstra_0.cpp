@@ -3,6 +3,7 @@
 #include <queue>
 #include <utility>
 #include <stdint.h>
+#include <inttypes.h>
 #include <algorithm>
 
 #define INF 1000000000000000000
@@ -44,7 +45,7 @@ int main() {
 		std::vector<int> path;
 		for (int cur = t; cur != -1; cur = from[cur]) path.push_back(cur);
 		std::reverse(path.begin(), path.end());
-		printf("%d\n", (int) path.size() - 1);
+		printf("%" PRId64 " %d\n", dist[t], (int) path.size() - 1);
 		for (int i = 0; i + 1 < (int) path.size(); i++) printf("%d %d\n", path[i], path[i + 1]);
 	}
 	return 0;

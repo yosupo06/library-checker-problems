@@ -4,17 +4,22 @@
 #include <inttypes.h>
 #include "testlib.h"
 
-std::vector<std::pair<int, int> > read_ans(int n, InStream& stream) {
-	int x = stream.readInt(-1, n - 1);
-	if (x == -1) return {};
-	ensure(x);
-	std::vector<std::pair<int, int> > res;
+struct Result {
+	long long dist;
+	std::vector<std::pair<int, int> > path;
+};
+
+Result read_ans(int n, InStream& stream) {
+	int64_t dist = stream.readLong(-1, 1000000000000000000);
+	if (dist == -1) return {-1, {}};
+	int x = stream.readInt(1, n - 1);
+	std::vector<std::pair<int, int> > path;
 	for (int i = 0; i < x; i++) {
 		int a = stream.readInt(0, n - 1);
 		int b = stream.readInt(0, n - 1);
-		res.push_back({a, b});
+		path.push_back({a, b});
 	}
-	return res;
+	return {dist, path};
 }
 
 int main(int argc, char *argv[]) {
@@ -32,13 +37,14 @@ int main(int argc, char *argv[]) {
 		costs[{a, b}] = c;
 	}
 	
-	auto path_correct = read_ans(n, ans);
-	auto path_submitted = read_ans(n, ouf);
-	if (!path_submitted.size() != !path_correct.size()) {
+	auto res_correct = read_ans(n, ans);
+	auto res_submitted = read_ans(n, ouf);
+	if (!res_submitted.path.size() != !res_correct.path.size()) {
 		quitf(_wa, "path existence differ - expected: %s, found: %s",
-			path_correct.size() ? "Yes" : "No",
-			path_submitted.size() ? "Yes" : "No");
+			res_correct.path.size() ? "Yes" : "No",
+			res_submitted.path.size() ? "Yes" : "No");
 	}
+	auto path_submitted = res_submitted.path;
 	if (path_submitted.size()) {
 		if (path_submitted.front().first != s)
 			quitf(_wa, "start of the path invalid : %d", path_submitted.front().first);
@@ -59,14 +65,15 @@ int main(int argc, char *argv[]) {
 			used[path_submitted[i].second] = true;
 			total_cost_submitted += costs[path_submitted[i]];
 		}
-		long long total_cost_correct = 0;
-		for (auto i : path_correct) total_cost_correct += costs[i];
-		if (total_cost_submitted > total_cost_correct)
+		if (total_cost_submitted != res_submitted.dist)
+			quitf(_wa, "total weight differ between X(" I64 ") and submitted path's(" I64 ")",
+				res_submitted.dist, total_cost_submitted);
+		if (total_cost_submitted > res_correct.dist)
 			quitf(_wa, "not the shortest - shortest : " I64 ", your path : " I64,
-				total_cost_correct, total_cost_submitted);
-		if (total_cost_submitted < total_cost_correct) // should never happen...
+				res_correct.dist, total_cost_submitted);
+		if (total_cost_submitted < res_correct.dist) // should never happen...
 			quitf(_fail, "submitted solution got shorter path than judge's - submitted : " I64 ", judge : " I64,
-				total_cost_submitted, total_cost_correct);
+				total_cost_submitted, res_correct.dist);
 	}
 	quitf(_ok, "OK");
 }

@@ -54,13 +54,14 @@ Output
 If there are no paths from vertex $s$ to vertex $t$, output ```-1```.
 Otherwise, output one of the shortest paths in the following format.
 ```
-$X$
+$X$ $Y$
 $u_0$ $v_0$
 $u_1$ $v_1$
 $u_2$ $v_2$
-$u_{X - 1}$ $v_{X - 1}$
+$u_{Y - 1}$ $v_{Y - 1}$
 ```
-$X$ represents the number of edges in the path.
+$X$ represents length of the shortest path.
+$Y$ represents the number of edges in the path.
 $u_i$ and $v_i$ are beginning and end of the $i$-th edge in the path, respectively.
 </div>
 <div markdown="1" class="lang-ja">
@@ -70,13 +71,13 @@ $u_i$ and $v_i$ are beginning and end of the $i$-th edge in the path, respective
 頂点 $s$ から頂点 $t$ へのパスが存在しない場合```-1```を出力してください。
 そうでない場合以下の形式で出力してください。
 ```
-$X$
+$X$ $Y$
 $u_0$ $v_0$
 $u_1$ $v_1$
 $u_2$ $v_2$
-$u_{X - 1}$ $v_{X - 1}$
+$u_{Y - 1}$ $v_{Y - 1}$
 ```
-$X$は出力するパスの辺数を表し、$u_i, v_i$はそれぞれ$i$番目に通る辺の始点と終点を表します。
+$X$は最短距離、$Y$は出力するパスの辺数を表し、$u_i, v_i$はそれぞれ$i$番目に通る辺の始点と終点を表します。
 同じ頂点を $2$ 回以上通ってはなりません。
 </div>
 

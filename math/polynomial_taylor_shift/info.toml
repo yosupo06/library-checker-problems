@@ -1,0 +1,32 @@
+title = 'Polynomial Taylor Shift'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/392"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small.cpp"
+    number = 16
+[[tests]]
+    name = "medium.cpp"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 2
+[[tests]]
+    name = "fft_killer.cpp"
+    number = 2
+[[tests]]
+    name = "medium_all_zero.cpp"
+    number = 1
+[[tests]]
+    name = "medium_c_zero.cpp"
+    number = 1
+
+[params]
+    N_AND_M_MAX = 524288
+    MOD = 998244353

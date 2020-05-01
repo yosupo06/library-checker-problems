@@ -19,8 +19,7 @@ int main(int, char *argv[])
 
     int c = 0;
 
-    printf("%d\n", n);
-    printf("%d\n", c);
+    printf("%d %d\n", n, c);
     for (int i = 0; i < n; i++)
     {
         printf("%d", a[i]);

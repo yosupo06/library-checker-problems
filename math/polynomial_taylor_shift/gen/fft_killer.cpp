@@ -9,7 +9,7 @@ int main(int, char *argv[])
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = N_AND_M_MAX;
+    int n = N_MAX;
     vector<int> a(n);
     constexpr int B = 1 << 15;
     for (int i = 0; i < n; i++)

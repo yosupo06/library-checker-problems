@@ -6,7 +6,7 @@
 int main()
 {
     registerValidation();
-    int n = inf.readInt(1, N_AND_M_MAX);
+    int n = inf.readInt(1, N_MAX);
     inf.readChar('\n');
     inf.readInt(0, MOD - 1);
     inf.readChar('\n');

@@ -18,8 +18,7 @@ int main(int argc, char **argv)
 	}
 	int c = gen.uniform(0ll, MOD - 1);
 
-	printf("%d\n", n);
-	printf("%d\n", c);
+	printf("%d %d\n", n, c);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d", a[i]);

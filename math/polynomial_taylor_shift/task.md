@@ -13,7 +13,7 @@ $f(x+c) = \sum_{i=0}^{N-1}b_ix^i$ を満たす数列 $b_0, b_1, \ldots, b_{N-1}$
 Constraints / 制約
 ---------
 
-- $1 \leq N \leq {{param N_AND_M_MAX}}$
+- $1 \leq N \leq {{param N_MAX}}$
 - $0 \leq c, a_i < {{param MOD}}$
 
 Input / 入力

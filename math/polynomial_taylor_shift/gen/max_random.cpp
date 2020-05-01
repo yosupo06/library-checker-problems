@@ -9,7 +9,7 @@ int main(int, char *argv[])
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = N_AND_M_MAX;
+    int n = N_MAX;
     vector<int> a(n);
 
     for (int i = 0; i < n; i++)
@@ -18,8 +18,7 @@ int main(int, char *argv[])
     }
     int c = gen.uniform(0ll, MOD - 1);
 
-    printf("%d\n", n);
-    printf("%d\n", c);
+    printf("%d %d\n", n, c);
     for (int i = 0; i < n; i++)
     {
         printf("%d", a[i]);

@@ -1,6 +1,6 @@
 title = 'Inv of Polynomials'
 timelimit = 10.0
-forum = "https://github.com/yosupo06/library-checker-problems/issues/120"
+forum = "https://github.com/yosupo06/library-checker-problems/issues/387"
 
 [[tests]]
     name = "example.in"

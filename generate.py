@@ -270,9 +270,9 @@ class Problem:
 
     def list_depending_files(self) -> Iterator[Path]:
         for path in list(self.basedir.glob('**/*')) + list(self.libdir.glob('common/**/*')):
-            if (self.basedir / 'in').resolve() in path.resolve().parents:
+            if (self.basedir / 'in').exists() and (self.basedir / 'in').resolve() in path.resolve().parents:
                 continue
-            if (self.basedir / 'out').resolve() in path.resolve().parents:
+            if (self.basedir / 'out').exists() and (self.basedir / 'out').resolve() in path.resolve().parents:
                 continue
             if not path.is_file():
                 continue

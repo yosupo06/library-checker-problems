@@ -63,15 +63,15 @@ jobs:
         run: |
           ulimit -s unlimited
           ./ci_generate.py --htmldir=/tmp/html
+        with:
+          path: ~/generated.json
+          key: ${{ runner.os }}-build
+          restore-keys: ${{ runner.os }}-build
       - name: Archive problem statements
         uses: actions/upload-artifact@v1
         with:
           name: statements
           path: /tmp/html
-        with:
-          path: ~/generated.json
-          key: ${{ runner.os }}-build
-          restore-keys: ${{ runner.os }}-build
 
   mingw-windows:
     runs-on: windows-latest

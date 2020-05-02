@@ -22,6 +22,9 @@ if __name__ == '__main__':
     cache = Path('generated.json')
     generated = json.load(open(cache)) if cache.exists() else dict()
 
+    if args.htmldir:
+        Path(args.htmldir).mkdir(exist_ok=True, parents=True)
+
     for x in tomls:
         problem = generate.Problem(Path.cwd(), x.parent)
         problem_name = problem.basedir.name

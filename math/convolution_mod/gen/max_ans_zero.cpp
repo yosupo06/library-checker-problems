@@ -15,7 +15,7 @@ int mpow(int a, int b) {
 }
 int inv(int x) { return mpow(x, MOD - 2); }
 
-int main() {
+int main(int, char **argv) {
 	long long seed = atoll(argv[1]);
 	auto gen = Random(seed);
 	

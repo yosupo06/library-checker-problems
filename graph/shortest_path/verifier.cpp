@@ -23,7 +23,7 @@ int main() {
 		inf.readSpace();
 		int b = inf.readInt(0, n - 1);
 		inf.readSpace();
-		inf.readInt(C_MIN, C_MAX. "c");
+		inf.readInt(C_MIN, C_MAX, "c");
 		inf.readChar('\n');
 		
 		ensure(a != b);

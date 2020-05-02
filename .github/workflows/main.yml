@@ -27,9 +27,6 @@ jobs:
         
   clang-mac:
     runs-on: macos-latest
-    strategy:
-      matrix:
-        id: [1, 2, 3, 4, 5]
     steps:
       - uses: actions/checkout@v1
       - name: Set up Python 3.5.9
@@ -40,20 +37,18 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install --user -r requirements.txt
-      - name: Print problem list
-        run: |
-          ./ci_generate.py --show-list 5 ${{ matrix.id }}
       - name: Run generate.py on clang
         run: |
-          ./ci_generate.py 5 ${{ matrix.id }}
+          ./ci_generate.py
         env:
           CXX: clang++
+        with:
+          path: ~/generated.json
+          key: ${{ runner.os }}-build
+          restore-keys: ${{ runner.os }}-build
 
   gcc-ubuntu:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        id: [1, 2, 3, 4, 5]
     steps:
       - uses: actions/checkout@v1
       - name: Set up Python 3.5.9
@@ -64,24 +59,22 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install --user -r requirements.txt
-      - name: Print problem list
-        run: |
-          ./ci_generate.py --show-list 5 ${{ matrix.id }}
       - name: Run generate.py on gcc
         run: |
           ulimit -s unlimited
-          ./ci_generate.py 5 ${{ matrix.id }} --html --htmldir=/tmp/html
+          ./ci_generate.py --htmldir=/tmp/html
       - name: Archive problem statements
         uses: actions/upload-artifact@v1
         with:
           name: statements
           path: /tmp/html
+        with:
+          path: ~/generated.json
+          key: ${{ runner.os }}-build
+          restore-keys: ${{ runner.os }}-build
 
   mingw-windows:
     runs-on: windows-latest
-    strategy:
-      matrix:
-        id: [1, 2, 3, 4, 5]
     steps:
       - uses: actions/checkout@v1
       - name: Set up Python 3.5.4
@@ -92,9 +85,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install --user -r requirements.txt
-      - name: Print problem list
-        run: |
-          python ci_generate.py --show-list 5 ${{ matrix.id }}
       - name: Run generate.py on gcc
         run: |
-          python ci_generate.py 5 ${{ matrix.id }} --html --htmldir=D:/tmp/html
+          python ci_generate.py --html --htmldir=D:/tmp/html
+        with:
+          path: ~/generated.json
+          key: ${{ runner.os }}-build
+          restore-keys: ${{ runner.os }}-build

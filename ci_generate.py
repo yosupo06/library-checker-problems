@@ -5,25 +5,35 @@ import argparse
 from pathlib import Path
 import toml
 import generate
+import json
+
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Testcase Generator for Matrix build')
-    parser.add_argument('--show-list', action='store_true', help='Show problem list')
-    parser.add_argument('num', type=int, help='# of server')
-    parser.add_argument('id', type=int, help='server ID(1 <= id <= num)')
-    parser.add_argument('args', nargs=argparse.REMAINDER)
+    parser = argparse.ArgumentParser(
+        description='Testcase Generator for Matrix build')
+    parser.add_argument('--html', action='store_true', help='Generate HTML')
+    parser.add_argument('--htmldir', help='Generate HTML', default=None)
     args = parser.parse_args()
 
     tomls = list(filter(lambda p: not p.match('test/**/info.toml'),
-                   Path('.').glob('**/info.toml')))
+                        Path('.').glob('**/info.toml')))
     tomls = sorted(tomls, key=lambda x: x.parent.name)
 
-    tomls = [tomls[i] for i in range(args.id - 1, len(tomls), args.num)]
+    cache = Path('generated.json')
+    generated = json.load(open(cache)) if cache.exists() else dict()
 
-    if args.show_list:
-        print('Server ID: {} / {}'.format(args.id, args.num))
-        print('Problem List:')
-        for x in tomls:
-            print('  {} {}'.format(x, generate.Problem(Path.cwd(), x).problem_version()))
-    else:
-        generate.main(['--verify'] + list(map(str, tomls)) + args.args)
+    for x in tomls:
+        problem = generate.Problem(Path.cwd(), x.parent)
+        problem_name = problem.basedir.name
+        problem_version = problem.problem_version()
+        if problem_name in generated and problem_version in generated[problem_name]:
+            print('Problem {} is already generated, skip'.format(problem_name))
+        else:
+            print('Generate {}'.format(problem_name))
+            generate.generate(problem, force_generate=True, rewrite_hash=False,
+                              verify=True, compile_checker=True, generate_html=args.html, html_dir=args.htmldir)
+        if problem_name not in generated:
+            generated[problem_name] = dict()
+        generated[problem_name][problem_version] = True
+    with open('generated.json', 'w') as f:
+        json.dump(generated, f)

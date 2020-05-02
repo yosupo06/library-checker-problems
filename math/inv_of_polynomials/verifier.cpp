@@ -19,7 +19,7 @@ int main() {
     }
     inf.readChar('\n');
     for (int i = 0; i < m; i++) {
-      inf.readInt((i == m-1) ? 1 : 0, MOD);
+      inf.readInt((i == m-1) ? 1 : 0, MOD - 1);
       if (i != m - 1) inf.readSpace();
     }
     

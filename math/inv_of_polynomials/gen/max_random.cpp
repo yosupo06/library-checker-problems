@@ -589,7 +589,7 @@ std::vector<std::vector<std::vector<int>>> inv_naive(std::vector<int> &a,std::ve
 std::vector<std::vector<std::vector<int>>> inv(std::vector<int> &a,std::vector<int> &m) {
   norm(a);norm(m);
   if (deg(a)>deg(m)) a=mod(a,m);
-  if (deg(a)==-1) return {{{{1}},{{0}}},{{{0}},{{1}}}};
+  if (deg(a)==-1) return {{{1},{0}},{{0},{1}}};
   if (deg(m)<=256) return inv_naive(a,m);
   std::vector<std::vector<std::vector<int>>> R=hgcd(m,a);
   std::vector<std::vector<std::vector<int>>> v={{m},{a}};

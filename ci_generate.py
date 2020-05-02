@@ -24,6 +24,6 @@ if __name__ == '__main__':
         print('Server ID: {} / {}'.format(args.id, args.num))
         print('Problem List:')
         for x in tomls:
-            print('  {}'.format(x))
+            print('  {} {}'.format(x, generate.Problem(Path.cwd(), x).problem_version()))
     else:
         generate.main(['--verify'] + list(map(str, tomls)) + args.args)

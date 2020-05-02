@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include "random.h"
 
-int main(int argc, char **argv) {
-	(void) argc;
+int main(int, char **argv) {
 	long long seed = atoll(argv[1]);
 	auto gen = Random(seed);
 	

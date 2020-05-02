@@ -23,10 +23,8 @@ int main() {
 		inf.readSpace();
 		int b = inf.readInt(0, n - 1);
 		inf.readSpace();
-		int c = inf.readInt(C_MIN, C_MAX);
+		inf.readInt(C_MIN, C_MAX. "c");
 		inf.readChar('\n');
-		
-		(void) c;
 		
 		ensure(a != b);
 		ensure(hens.insert({a, b}).second);

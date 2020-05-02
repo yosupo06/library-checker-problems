@@ -31,7 +31,7 @@ if __name__ == '__main__':
         else:
             print('Generate {}'.format(problem_name))
             generate.generate(problem, force_generate=True, rewrite_hash=False,
-                              verify=True, compile_checker=True, generate_html=args.html, html_dir=args.htmldir)
+                              verify=True, compile_checker=True, generate_html=args.html, html_dir=Path(args.htmldir) if args.htmldir else None)
         if problem_name not in generated:
             generated[problem_name] = dict()
         generated[problem_name][problem_version] = True

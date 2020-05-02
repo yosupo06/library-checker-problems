@@ -1,0 +1,14 @@
+{
+  "example_00.in": "5fca8b5a66dc8066f387fc28c7b5e3ebfc6b6c6f7e5f69f494991e752ecc6de7",
+  "example_00.out": "c1caf61a3e3af21ef32b36579cb26c9e6a7c38301beb40cca66704ed9ef62784",
+  "max_random_00.in": "efba1fb7dbebf3c7dfb0d604bac31059254316186bce5a7d1c98fc5a3baf20af",
+  "max_random_00.out": "3ecc8ed5e19f2ec7effdcaad492dd192f04f99cda138a435bec3fa692ff80e6e",
+  "max_random_01.in": "ca101fcf64fae37abde1277f791391aea1573c386730ada10c9cac4bf713bb39",
+  "max_random_01.out": "9c17641409962efecfc06b1a3b5e146edd97aee7f1322dea2a296a6151f8f89a",
+  "max_random_02.in": "25fb8f492a75fbcd1b1ec28979d448a685c458042fc25994a94765dad8ce80df",
+  "max_random_02.out": "c34ce9e5c46ea06d46dec1cc748ea8c41c7d1f724f6a84d1756577b9b24515bb",
+  "max_random_03.in": "9cf91410bc88ad89518ecaa71e966361ccf6144d95e1e6894f48f02371725cce",
+  "max_random_03.out": "abe31de5da8e5639f0b1129d7913ffc9d1863b33791a97abef2d2d9787c0c784",
+  "max_random_04.in": "8ba3026c187c5321840a7223bbe22ed00653cf27d0c4d423f00082f8a0b08b2c",
+  "max_random_04.out": "0ae411a447495c914220b24ca5899e997b931e5045e3e9eead7cceb7b4b7af28"
+}

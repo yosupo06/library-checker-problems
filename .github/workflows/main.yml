@@ -42,6 +42,7 @@ jobs:
           ./ci_generate.py
         env:
           CXX: clang++
+        uses: actions/cache@v1
         with:
           path: ~/generated.json
           key: ${{ runner.os }}-build
@@ -63,6 +64,7 @@ jobs:
         run: |
           ulimit -s unlimited
           ./ci_generate.py --htmldir=/tmp/html
+        uses: actions/cache@v1
         with:
           path: ~/generated.json
           key: ${{ runner.os }}-build
@@ -88,6 +90,7 @@ jobs:
       - name: Run generate.py on gcc
         run: |
           python ci_generate.py --html --htmldir=D:/tmp/html
+        uses: actions/cache@v1
         with:
           path: ~/generated.json
           key: ${{ runner.os }}-build

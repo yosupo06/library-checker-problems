@@ -288,7 +288,7 @@ class Problem:
     def problem_version(self) -> str:
         all_hash = hashlib.sha256()
         for path in sorted(self.list_depending_files()):
-            all_hash.update(hashlib.sha256(open(path, 'rb').read()).digest())
+            all_hash.update(hashlib.sha256(open(str(path), 'rb').read()).digest())
         return all_hash.hexdigest()
 
 

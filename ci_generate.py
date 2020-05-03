@@ -24,7 +24,7 @@ if __name__ == '__main__':
         cache_dir.mkdir()
 
     cache = cache_dir / 'generated.json'
-    generated = json.load(open(cache)) if cache.exists() else dict()
+    generated = json.load(open(str(cache))) if cache.exists() else dict()
 
     if args.htmldir:
         Path(args.htmldir).mkdir(exist_ok=True, parents=True)

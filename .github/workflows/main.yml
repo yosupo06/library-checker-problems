@@ -110,10 +110,10 @@ jobs:
           pip install --user -r requirements.txt
       - name: Print problem list
         run: |
-          ./ci_generate.py --show-list 5 ${{ matrix.id }}
+          ./ci_generate_parallel.py --show-list 5 ${{ matrix.id }}
       - name: Run generate.py on clang
         run: |
-          ./ci_generate.py 5 ${{ matrix.id }}
+          ./ci_generate_parallel.py 5 ${{ matrix.id }}
         env:
           CXX: clang++
 
@@ -134,11 +134,11 @@ jobs:
           pip install --user -r requirements.txt
       - name: Print problem list
         run: |
-          ./ci_generate.py --show-list 5 ${{ matrix.id }}
+          ./ci_generate_parallel.py --show-list 5 ${{ matrix.id }}
       - name: Run generate.py on gcc
         run: |
           ulimit -s unlimited
-          ./ci_generate.py 5 ${{ matrix.id }} --html --htmldir=/tmp/html
+          ./ci_generate_parallel.py 5 ${{ matrix.id }} --html --htmldir=/tmp/html
 
   mingw-windows:
     runs-on: windows-latest
@@ -157,7 +157,7 @@ jobs:
           pip install --user -r requirements.txt
       - name: Print problem list
         run: |
-          python ci_generate.py --show-list 5 ${{ matrix.id }}
+          python ci_generate_parallel.py --show-list 5 ${{ matrix.id }}
       - name: Run generate.py on gcc
         run: |
-          python ci_generate.py 5 ${{ matrix.id }} --html --htmldir=D:/tmp/html
+          python ci_generate_parallel.py 5 ${{ matrix.id }} --html --htmldir=D:/tmp/html

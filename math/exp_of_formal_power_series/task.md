@@ -11,8 +11,8 @@ $$\sum_{k = 0}^{N - 1}{\frac{f(x)^k}{k!}} \bmod (x^N)$$
 Constraints / 制約
 ---------
 
-- $1 \leq N \leq 500,000$
-- $0 \leq a_i < 998244353$
+- $1 \leq N \leq {{param N_MAX}}$
+- $0 \leq a_i < {{param MOD}}$
 - $a_0 = 0$
 
 Input / 入力
@@ -30,7 +30,7 @@ Output / 出力
 $b_0$ $b_1$ ... $b_{N - 1}$
 ```
 
-ただし $g(x) = \sum_{i = 0}^{N - 1} b'_i x^i$ としたとき, $b_i \equiv b'_i (\bmod 998244353)$ とする
+ただし $g(x) = \sum_{i = 0}^{N - 1} b'_i x^i$ としたとき, $b_i \equiv b'_i (\bmod {{param MOD}})$ とする
 
 Sample / サンプル
 ---------

@@ -17,6 +17,7 @@ Constraints / 制約
 - $0 \leq b_i < {{param MOD}}$
 - $a_{N-1} \neq 0$
 - $b_{M-1} \neq 0$
+
 Input / 入力
 ---------
 

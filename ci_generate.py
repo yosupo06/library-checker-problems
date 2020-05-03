@@ -19,7 +19,11 @@ if __name__ == '__main__':
                         Path('.').glob('**/info.toml')))
     tomls = sorted(tomls, key=lambda x: x.parent.name)
 
-    cache = Path('generated.json')
+    cache_dir = Path('cache')
+    if not cache_dir.exists():
+        cache_dir.mkdir()
+
+    cache = cache_dir / 'generated.json'
     generated = json.load(open(cache)) if cache.exists() else dict()
 
     if args.htmldir:
@@ -38,5 +42,5 @@ if __name__ == '__main__':
         if problem_name not in generated:
             generated[problem_name] = dict()
         generated[problem_name][problem_version] = True
-    with open('generated.json', 'w') as f:
+    with open(cache, 'w') as f:
         json.dump(generated, f)

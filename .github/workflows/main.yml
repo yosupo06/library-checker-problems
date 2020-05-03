@@ -39,8 +39,8 @@ jobs:
           pip install --user -r requirements.txt
       - uses: actions/cache@v1
         with:
-          path: ./generated.json
-          key: ${{ runner.os }}-generated
+          path: cache
+          key: ${{ runner.os }}-generated-cache
       - name: Run generate.py on clang
         run: |
           ./ci_generate.py
@@ -61,8 +61,8 @@ jobs:
           pip install --user -r requirements.txt
       - uses: actions/cache@v1
         with:
-          path: ./generated.json
-          key: ${{ runner.os }}-generated
+          path: cache
+          key: ${{ runner.os }}-generated-cache
       - name: Run generate.py on gcc
         run: |
           ulimit -s unlimited
@@ -87,8 +87,8 @@ jobs:
           pip install --user -r requirements.txt
       - uses: actions/cache@v1
         with:
-          path: ./generated.json
-          key: ${{ runner.os }}-generated
+          path: cache
+          key: ${{ runner.os }}-generated-cache
       - name: Run generate.py on gcc
         run: |
           python ci_generate.py --html --htmldir=D:/tmp/html

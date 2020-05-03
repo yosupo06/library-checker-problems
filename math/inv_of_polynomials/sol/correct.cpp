@@ -563,11 +563,11 @@ std::vector<std::vector<std::vector<int>>> inv_naive(std::vector<int> &a,std::ve
   }
   assert(deg(m)==0);
   {
-    long normalizer=inv(m[0]);
+    int normalizer=inv(m[0]);
     for (int i=0;i<2;++i)
       for (int j=0;j<2;++j)
         for (int k=0;k<(int)R[i][j].size();++k)
-          R[i][j][k]=R[i][j][k]*normalizer%p;
+          R[i][j][k]=1LL*R[i][j][k]*normalizer%p;
   }
   return R;
 }

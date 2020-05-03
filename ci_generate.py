@@ -42,5 +42,5 @@ if __name__ == '__main__':
         if problem_name not in generated:
             generated[problem_name] = dict()
         generated[problem_name][problem_version] = True
-    with open(cache, 'w') as f:
+    with open(str(cache), 'w') as f:
         json.dump(generated, f)

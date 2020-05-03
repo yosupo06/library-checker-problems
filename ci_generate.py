@@ -6,7 +6,8 @@ from pathlib import Path
 import toml
 import generate
 import json
-
+from logging import basicConfig
+from os import getenv
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -14,6 +15,11 @@ if __name__ == '__main__':
     parser.add_argument('--html', action='store_true', help='Generate HTML')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
     args = parser.parse_args()
+
+    basicConfig(
+        level=getenv('LOG_LEVEL', 'INFO'),
+        format="%(asctime)s [%(levelname)s] %(message)s"
+    )
 
     tomls = list(filter(lambda p: not p.match('test/**/info.toml'),
                         Path('.').glob('**/info.toml')))
@@ -36,7 +42,7 @@ if __name__ == '__main__':
         if problem_name in generated and problem_version in generated[problem_name]:
             print('Problem {} is already generated, skip'.format(problem_name))
         else:
-            print('Generate {}'.format(problem_name))
+            print('Generate {}, new version: {}'.format(problem_name, problem_version))
             generate.generate(problem, force_generate=True, rewrite_hash=False,
                               verify=True, compile_checker=True, generate_html=args.html, html_dir=Path(args.htmldir) if args.htmldir else None)
         if problem_name not in generated:

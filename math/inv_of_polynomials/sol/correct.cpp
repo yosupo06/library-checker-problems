@@ -10,22 +10,6 @@
 #include <cstdio>
 #include <tuple>
 
-template<typename T=int>inline T get(){
-  char c=getchar(); bool neg=(c=='-');
-  T res=neg?0:c-'0'; while(isdigit(c=getchar()))res=res*10+(c-'0');
-  return neg?-res:res;
-}
-
-template<typename T=int>inline void put(T x,char c='\n'){
-  if(x==0)putchar('0');
-  else{
-    if(x<0) std::putchar('-'),x*=-1;
-    int d[20],i=0;
-    while(x)d[i++]=x%10,x/=10;
-    while(i--) std::putchar('0'+d[i]);
-  } putchar(c);
-}
-
 constexpr long long     p=998244353;
 constexpr long long  root=3;
 constexpr long long iroot=332748118;
@@ -578,6 +562,13 @@ std::vector<std::vector<std::vector<int>>> inv_naive(std::vector<int> &a,std::ve
     }
   }
   assert(deg(m)==0);
+  {
+    long normalizer=inv(m[0]);
+    for (int i=0;i<2;++i)
+      for (int j=0;j<2;++j)
+        for (int k=0;k<(int)R[i][j].size();++k)
+          R[i][j][k]=R[i][j][k]*normalizer%p;
+  }
   return R;
 }
 
@@ -585,7 +576,11 @@ std::vector<std::vector<std::vector<int>>> inv_naive(std::vector<int> &a,std::ve
 std::vector<std::vector<std::vector<int>>> inv(std::vector<int> &a,std::vector<int> &m) {
   norm(a);norm(m);
   if (deg(a)>deg(m)) a=mod(a,m);
-  if (deg(a)==-1) return {{{1},{0}},{{0},{1}}};
+  if (deg(a)==-1) {
+    assert(deg(m)==0);
+    int normalizer=inv(m[0]);
+    return {{{normalizer},{0}},{{0},{normalizer}}};
+  }
   if (deg(m)<=256) return inv_naive(a,m);
   std::vector<std::vector<std::vector<int>>> R=hgcd(m,a);
   std::vector<std::vector<std::vector<int>>> v={{m},{a}};
@@ -640,7 +635,41 @@ std::vector<std::vector<std::vector<int>>> inv(std::vector<int> &a,std::vector<i
   return mul(nextR,R);
 }
 
-int main() {
+
+void verify() {
+  std::random_device seed_gen;
+  std::mt19937_64 engine(seed_gen());
+  for (int t=0;t<10000;++t) {
+    
+    int n=(int)2;
+    std::vector<int> a(n,0);
+    std::vector<int> b(n,0);
+    for (int i=0;i<n;++i) a[i]=1LL*(p+engine())%p;
+    for (int i=0;i<n;++i) b[i]=1LL*(p+engine())%p;
+    norm(a);norm(b);
+    std::vector<int> a_=trim(a,a.size());
+    std::vector<int> b_=trim(b,b.size());
+    if (deg(b)==-1) continue;
+    a=mod(a,b);
+    if (deg(a)==-1) continue;
+    // for (int i=0;i<n;++i) {
+    //   std::cout << i << " a:" << a[i] << " b:" << b[i] << std::endl;
+    // }
+    
+    
+    clock_t start = clock();
+    std::vector<int> v=mul(inv(a,b)[0][1],a_);
+    v=mod(v,b_);
+    assert(deg(v)==0);
+    assert(v[0]==1);
+    clock_t end = clock();
+    const double time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000.0;
+    printf("%lf[ms]\n", time);
+
+  }
+}
+
+void solve() {
   int n,m;
   scanf("%d %d",&n,&m);
   std::vector<int> a(n);
@@ -660,4 +689,9 @@ int main() {
     if (i==(int)c.size()-1) printf("\n");
     else printf(" ");
   }
+}
+
+int main() {
+  //verify();
+  solve();
 }

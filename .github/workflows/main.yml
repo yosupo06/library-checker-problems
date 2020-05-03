@@ -39,7 +39,7 @@ jobs:
           pip install --user -r requirements.txt
       - uses: actions/cache@v1
         with:
-          path: ~/generated.json
+          path: ./generated.json
           key: ${{ runner.os }}-generated
       - name: Run generate.py on clang
         run: |
@@ -61,7 +61,7 @@ jobs:
           pip install --user -r requirements.txt
       - uses: actions/cache@v1
         with:
-          path: ~/generated.json
+          path: ./generated.json
           key: ${{ runner.os }}-generated
       - name: Run generate.py on gcc
         run: |
@@ -87,7 +87,7 @@ jobs:
           pip install --user -r requirements.txt
       - uses: actions/cache@v1
         with:
-          path: ~/generated.json
+          path: ./generated.json
           key: ${{ runner.os }}-generated
       - name: Run generate.py on gcc
         run: |

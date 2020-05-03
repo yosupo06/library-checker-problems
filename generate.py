@@ -269,6 +269,7 @@ class Problem:
         return True
 
     def list_depending_files(self) -> Iterator[Path]:
+        yield Path(__file__)
         for path in list(self.basedir.glob('**/*')) + list(self.libdir.glob('common/**/*')):
             if (self.basedir / 'in').exists() and (self.basedir / 'in').resolve() in path.resolve().parents:
                 continue

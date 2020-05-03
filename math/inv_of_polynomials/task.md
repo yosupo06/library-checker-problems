@@ -4,8 +4,9 @@ $\mathbb{Z}/{{param MOD}}\mathbb{Z}$ 係数の多項式 $f(x)=\sum_{i=0}^{N-1} a
 $\deg(h) < \deg(g)$ かつ 
 $$f(x)h(x)\equiv1\pmod {g(x)}$$
 を満たす$\mathbb{Z}/{{param MOD}}\mathbb{Z}$ 係数の多項式 $h(x)=\sum_{i=0}^{T-1}c_ix^i$ を求めてください。
-このような $h(x)$ が存在しないときは$-1$を出力してください。
 ただし $\deg(0)=-\infty$とします。
+このような $h(x)$ は存在するならば一意に定まることが示せます。
+$h(x)$ が存在しないときは$-1$を出力してください。
 
 Constraints / 制約
 ---------

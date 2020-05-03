@@ -6,12 +6,16 @@ from pathlib import Path
 import toml
 import generate
 import json
-from logging import basicConfig
+from logging import Logger, basicConfig, getLogger
 from os import getenv
+from typing import Dict
 
-if __name__ == '__main__':
+logger = getLogger(__name__)  # type: Logger
+
+def main():
     parser = argparse.ArgumentParser(
         description='Testcase Generator for Matrix build')
+    parser.add_argument('--print-version', action='store_true', help='Print version')
     parser.add_argument('--html', action='store_true', help='Generate HTML')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
     args = parser.parse_args()
@@ -24,6 +28,17 @@ if __name__ == '__main__':
     tomls = list(filter(lambda p: not p.match('test/**/info.toml'),
                         Path('.').glob('**/info.toml')))
     tomls = sorted(tomls, key=lambda x: x.parent.name)
+
+    versions = dict() # type: Dict[str, str]
+    for x in tomls:
+        problem = generate.Problem(Path.cwd(), x.parent)
+        problem_name = problem.basedir.name
+        problem_version = problem.problem_version()
+        versions[problem_name] = problem_version
+
+    if args.print_version:
+        print(json.dumps(versions))
+        return
 
     cache_dir = Path('cache')
     if not cache_dir.exists():
@@ -39,14 +54,17 @@ if __name__ == '__main__':
         problem = generate.Problem(Path.cwd(), x.parent)
         problem_name = problem.basedir.name
         problem_version = problem.problem_version()
-        if problem_name in generated and problem_version in generated[problem_name]:
-            print('Problem {} is already generated, skip'.format(problem_name))
+        if problem_name in generated and generated[problem_name] == problem_version:
+            logger.info('Problem {} is already generated, skip'.format(problem_name))
         else:
-            print('Generate {}, new version: {}'.format(problem_name, problem_version))
+            logger.info('Generate {}, new version: {}'.format(problem_name, problem_version))
             generate.generate(problem, force_generate=True, rewrite_hash=False,
                               verify=True, compile_checker=True, generate_html=args.html, html_dir=Path(args.htmldir) if args.htmldir else None)
         if problem_name not in generated:
             generated[problem_name] = dict()
-        generated[problem_name][problem_version] = True
+
     with open(str(cache), 'w') as f:
-        json.dump(generated, f)
+        json.dump(versions, f)
+
+if __name__ == '__main__':
+    main()

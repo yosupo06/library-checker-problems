@@ -37,10 +37,17 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install --user -r requirements.txt
+      - name: Print verison file
+        run: |
+          ./ci_generate.py --print-version | tee versions.json
+        env:
+          CXX: clang++
       - uses: actions/cache@v1
         with:
           path: cache
-          key: ${{ runner.os }}-cache
+          key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}
+          restore_keys: |
+            ${{ runner.os }}-cache-
       - name: Run generate.py on clang
         run: |
           ./ci_generate.py
@@ -59,10 +66,15 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install --user -r requirements.txt
+      - name: Print verison file
+        run: |
+          ./ci_generate.py --print-version | tee versions.json
       - uses: actions/cache@v1
         with:
           path: cache
-          key: ${{ runner.os }}-cache
+          key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}
+          restore_keys: |
+            ${{ runner.os }}-cache-
       - name: Run generate.py on gcc
         run: |
           ulimit -s unlimited
@@ -85,10 +97,15 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install --user -r requirements.txt
+      - name: Print verison file
+        run: |
+          python ci_generate.py --print-version | tee versions.json
       - uses: actions/cache@v1
         with:
           path: cache
-          key: ${{ runner.os }}-cache
+          key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}
+          restore_keys: |
+            ${{ runner.os }}-cache-
       - name: Run generate.py on gcc
         run: |
           python ci_generate.py --html --htmldir=D:/tmp/html

@@ -91,7 +91,7 @@ jobs:
           key: ${{ runner.os }}-cache
       - name: Run generate.py on gcc
         run: |
-          python ci_generate.py 5 ${{ matrix.id }} --html --htmldir=D:/tmp/html
+          python ci_generate.py --html --htmldir=D:/tmp/html
           
   clang-mac:
     runs-on: macos-latest

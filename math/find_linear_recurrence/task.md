@@ -1,4 +1,4 @@
-Problem Statement / ## @{keyword.statement}
+## @{keyword.statement}
 You are given a sequence of integers $a_0, \ldots, a_{N-1}$.
 
 Find a sequence of integers $c_1, \ldots, c_d$ of the minimum length $d \ge 0$ such that

@@ -1,4 +1,4 @@
-Problem Statement / ## @{keyword.statement}
+## @{keyword.statement}
 The signed Stirling numbers of the first kind $s(n, k)$ are defined as the coefficients in the identity
 $$x (x - 1) \cdots (x - (n - 1)) = \sum_{k=0}^n s(n, k) x^k.$$
 

@@ -1,4 +1,4 @@
-Problem Statement / ## {{keyword.statement}}
+Problem Statement / ## @{keyword.statement}
 There are $T$ test cases.
 
 For each test case, you are given two nonnegative integers $A$ and $B$.
@@ -9,13 +9,13 @@ The nim sum and the nim product for nonnegative integers are defined recursively
 - $a \oplus b = \operatorname{mex}(\\{ a' \oplus b \mid a' < a \\} \cup \\{ a \oplus b' \mid b' < b \\})$
 - $a \otimes b = \operatorname{mex}\\{ (a' \otimes b) \oplus (a \otimes b') \oplus (a' \otimes b') \mid a' < a,\, b' < b \\}$
 
-## {{keyword.constraints}}
+## @{keyword.constraints}
 
-- ${{param.T_MIN}} \le T \le {{param.T_MAX}}$
+- $@{param.T_MIN} \le T \le @{param.T_MAX}$
 - $0 \le A < 2^{64}$
 - $0 \le B < 2^{64}$
 
-## {{keyword.input}}
+## @{keyword.input}
 
 ~~~
 $T$
@@ -24,7 +24,7 @@ $A_0$ $B_0$
 $A_{T-1}$ $B_{T-1}$
 ~~~
 
-## {{keyword.output}}
+## @{keyword.output}
 
 ~~~
 $\mathit{answer}_0$
@@ -32,4 +32,4 @@ $\mathit{answer}_0$
 $\mathit{answer}_{T-1}$
 ~~~
 
-{{example.example_00}}
+@{example.example_00}

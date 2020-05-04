@@ -1,4 +1,4 @@
-## {{keyword.statement}}
+## @{keyword.statement}
 
 {{lang.en}}
 There are $T$ cases.
@@ -8,13 +8,13 @@ For each case, you are given integers $A$ and $B$. Print $A + B$.
 整数 $A, B$ が与えられます。 $A + B$ を出力してください。
 {{lang.end}}
 
-## {{keyword.constraints}}
+## @{keyword.constraints}
 
-- $1 \leq T \leq {{param.T_MAX}}$
-- $0 \leq A, B \leq {{param.A_AND_B_MAX}}$
+- $1 \leq T \leq @{param.T_MAX}$
+- $0 \leq A, B \leq @{param.A_AND_B_MAX}$
 
 
-## {{keyword.input}}
+## @{keyword.input}
 
 ```
 $T$
@@ -23,7 +23,7 @@ $A$ $B$
 $A$ $B$
 ```
 
-## {{keyword.output}}
+## @{keyword.output}
 
 ```
 $A + B$
@@ -31,6 +31,6 @@ $A + B$
 $A + B$
 ```
 
-## {{keyword.sample}}
+## @{keyword.sample}
 
-{{example.example_00}}
+@{example.example_00}

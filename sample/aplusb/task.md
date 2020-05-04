@@ -1,31 +1,31 @@
-## {{keyword.statement}}
+## @{keyword.statement}
 
-{{lang.en}}
+@{lang.en}
 You are given integers $A$ and $B$. Print $A + B$.
-{{lang.ja}}
+@{lang.ja}
 整数 $A, B$ が与えられます。 $A + B$ を出力してください。
-{{lang.end}}
+@{lang.end}
 
-## {{keyword.constraints}}
+## @{keyword.constraints}
 
-- $0 \leq A, B \leq {{param.A_AND_B_MAX}}$
+- $0 \leq A, B \leq @{param.A_AND_B_MAX}$
 
 
-## {{keyword.input}}
+## @{keyword.input}
 
 
 ```
 $A$ $B$
 ```
 
-## {{keyword.output}}
+## @{keyword.output}
 
 ```
 $A + B$
 ```
 
-## {{keyword.sample}}
+## @{keyword.sample}
 
-{{example.example_00}}
+@{example.example_00}
 
-{{example.example_01}}
+@{example.example_01}

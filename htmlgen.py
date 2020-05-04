@@ -18,7 +18,7 @@ from subprocess import (DEVNULL, PIPE, STDOUT, CalledProcessError,
 from tempfile import TemporaryDirectory
 
 import markdown.extensions
-from jinja2 import Template
+from jinja2 import Template, Environment, DictLoader
 import toml
 from markdown import Extension, markdown
 from markdown.preprocessors import Preprocessor
@@ -93,7 +93,7 @@ def gen_params(toml_params):
     return params
 
 
-# {{example.example_00}}
+# @{example.example_00}
 class ExampleReader:
     sample_template = '''
 <div class="uk-grid-small uk-child-width-1-2@s" uk-grid>
@@ -267,12 +267,19 @@ html_body = '''
 
 class ToHTMLConverter:
     def __init__(self, probdir: Path, config):
+        logger.info("HTML Generate {}".format(probdir.name))
         md_statement = open(str(probdir / 'task.md'), encoding='utf-8').read()
 
-        # evaluate template
-        template = Template(md_statement)
+        # evaluate jinja2
         lang_manager = LangManager()
-        template.environment.globals['endlang'] = lang_manager.reset_lang
+        environment = Environment(variable_start_string="@{", variable_end_string="}", loader=DictLoader({'task': md_statement}))
+        logger.info(environment.list_templates())
+        template = environment.get_template('task')
+        # environment.globals['endlang'] = lang_manager.reset_lang
+        # template = Template(md_statement)
+        # template.environment.variable_start_string = "@@"
+        # template.environment.variable_end_string = "@@"
+        # template.environment.globals['endlang'] = lang_manager.reset_lang
 
         mid_statement = template.render(
             keyword=keywords,

@@ -1,25 +1,25 @@
-## {{keyword.statement}}
+## @{keyword.statement}
 整数 $a, b$ が与えられます。 $a + b$ を出力してください。
 
-## {{keyword.constraints}}
+## @{keyword.constraints}
 
 - $0 \leq a, b \leq 10^9$
 
 
-## {{keyword.input}}
+## @{keyword.input}
 
 ```
 $A$ $B$
 ```
 
-## {{keyword.output}}
+## @{keyword.output}
 
 ```
 $A + B$
 ```
 
-## {{keyword.sample}}
+## @{keyword.sample}
 
-{{example.example_00}}
+@{example.example_00}
 
-{{example.example_01}}
+@{example.example_01}

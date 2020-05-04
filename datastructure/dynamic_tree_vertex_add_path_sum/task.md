@@ -1,4 +1,4 @@
-## {{keyword.statement}}
+## @{keyword.statement}
 
 $N$ 頂点の木が与えられる。辺は $(u_i, v_i)$。頂点 $i$ には値 $a_i$ が書かれている。
 
@@ -9,14 +9,14 @@ $Q$ 個のクエリが飛んでくるので処理。ただし, クエリ処理�
 - `2 $u$ $v$`: $u, v$ 間のパス上の頂点(端点含む)に書かれた値の総和を出力
 
 
-## {{keyword.constraints}}
+## @{keyword.constraints}
 
 - $1 \leq N, Q \leq 200,000$
 - $0 \leq a_i, x \leq 10^9$
 - $0 \leq p, u_i, v_i < N$
 - $(u_i, v_i)$ は木
 
-## {{keyword.input}}
+## @{keyword.input}
 
 ~~~
 $N$ $Q$
@@ -31,4 +31,4 @@ $\textrm{Query}_1$
 $\textrm{Query}_{Q - 1}$
 ~~~
 
-{{example.example_00}}
+@{example.example_00}

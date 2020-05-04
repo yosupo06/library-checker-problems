@@ -1,4 +1,4 @@
-## {{keyword.statement}}
+## @{keyword.statement}
 長さ $N$ の整数列 $a_0, a_1, \dots, a _ {N - 1}$ が与えられる。$Q$ 個のクエリが飛んでくるので処理せよ。
 
 - `0 $l$ $r$ $b$`: $i = l, \dots, {r-1}$ のそれぞれについて $a_i \gets \min(a_i, b)$
@@ -6,13 +6,13 @@
 - `2 $l$ $r$ $b$`: $i = l, \dots, {r-1}$ のそれぞれについて $a_i \gets a_i + b$
 - `3 $l$ $r$`: $\sum _ {i = l} ^ {r-1} a_i$ を出力
 
-## {{keyword.constraints}}
+## @{keyword.constraints}
 
-- $1 \leq N, Q \leq {{param.N_AND_Q_MAX}}$
-- クエリ処理の過程で常に $\vert a_i \vert \leq {{param.A_ABS_MAX}}$ が成り立つ
+- $1 \leq N, Q \leq @{param.N_AND_Q_MAX}$
+- クエリ処理の過程で常に $\vert a_i \vert \leq @{param.A_ABS_MAX}$ が成り立つ
 - $0 \leq l < r \leq N$
 
-## {{keyword.input}}
+## @{keyword.input}
 
 ~~~
 $N$ $Q$
@@ -23,4 +23,4 @@ $\textrm{Query}_1$
 $\textrm{Query}_{Q - 1}$
 ~~~
 
-{{example.example_00}}
+@{example.example_00}

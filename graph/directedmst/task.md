@@ -1,10 +1,10 @@
-## {{keyword.statement}}
+## @{keyword.statement}
 $N$ 頂点 $M$ 辺の単純な重み付き有向グラフが与えられる。$i$ 番目の辺は頂点 $a_i$ から $b_i$ に貼られており、重さ $c_i$ である。
 
 頂点 $S$ を根とする(根から全ての頂点に到達できる)有向最小全域木を求めよ。
 
 
-## {{keyword.constraints}}
+## @{keyword.constraints}
 
 - $1 \leq N \leq 200,000$
 - $N - 1 \leq M \leq 200,000$
@@ -15,7 +15,7 @@ $N$ 頂点 $M$ 辺の単純な重み付き有向グラフが与えられる。$i
 - $0 \leq c_i \leq 10^9$
 - 頂点 $S$ から全ての頂点へ到達可能
 
-## {{keyword.input}}
+## @{keyword.input}
 
 ~~~
 $N$ $M$ $S$
@@ -25,7 +25,7 @@ $a_1$ $b_1$ $c_1$
 $a_{M - 1}$ $b_{M - 1}$ $c_{M - 1}$
 ~~~
 
-## {{keyword.output}}
+## @{keyword.output}
 
 ~~~
 $X$
@@ -36,8 +36,8 @@ $p_0$ $p_1$ $p_2$ ... $p_{N - 1}$
 解が複数存在する場合、どれを返しても構わない。
 
 
-## {{keyword.sample}}
+## @{keyword.sample}
 
-{{example.example_00}}
+@{example.example_00}
 
-{{example.example_01}}
+@{example.example_01}

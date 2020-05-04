@@ -63,6 +63,7 @@ class TestUnusedExample(unittest.TestCase):
     def test_unused_example(self):
         proc = run(
             ['./generate.py', '-p', 'unused_example', '--html'])
+        print("TEST RETURN CODE: ", proc)
         self.assertNotEqual(proc.returncode, 0)
 
 

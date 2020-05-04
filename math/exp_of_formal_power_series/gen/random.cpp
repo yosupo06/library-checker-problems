@@ -9,7 +9,7 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = gen.uniform(1, N_MAX);
+    int n = gen.uniform(1, int(N_MAX));
     printf("%d\n", n);
 
     printf("0");

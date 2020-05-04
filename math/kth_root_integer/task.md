@@ -25,4 +25,4 @@ $A_{T-1}$ $K_{T-1}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

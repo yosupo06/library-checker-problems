@@ -40,4 +40,4 @@ $d_{R-1,0}$ $d_{R-1,1}$ ... $d_{R-1,M-1}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

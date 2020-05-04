@@ -28,4 +28,4 @@ $Y_{T-1}$ $P_{T-1}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

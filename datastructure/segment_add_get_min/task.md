@@ -6,10 +6,10 @@ $N$ 本の線分 $y = a_i x + b_i$ (ただし $x \in [l_i, r_i)$) が存在し�
 
 ## {{keyword.constraints}}
 
-- ${{param N_AND_Q_MIN}} \leq N, Q \leq {{param N_AND_Q_MAX}}$
-- $-{{param A_ABS_MAX}} \leq l_i \lt r_i \leq {{param A_ABS_MAX}}$
-- $|a_i|, |p| \leq {{param A_ABS_MAX}}$
-- $|b_i| \leq {{param B_ABS_MAX}}$
+- ${{param.N_AND_Q_MIN}} \leq N, Q \leq {{param.N_AND_Q_MAX}}$
+- $-{{param.A_ABS_MAX}} \leq l_i \lt r_i \leq {{param.A_ABS_MAX}}$
+- $|a_i|, |p| \leq {{param.A_ABS_MAX}}$
+- $|b_i| \leq {{param.B_ABS_MAX}}$
 
 ## {{keyword.input}}
 
@@ -25,6 +25,6 @@ $\textrm{Query}_1$
 $\textrm{Query}_{Q - 1}$
 ~~~
 
-{{example example_00}}
+{{example.example_00}}
 
-{{example example_01}}
+{{example.example_01}}

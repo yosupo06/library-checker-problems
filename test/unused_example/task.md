@@ -20,4 +20,4 @@ $A + B$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

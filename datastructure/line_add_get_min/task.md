@@ -6,9 +6,9 @@ $N$ 本の直線 $y = a_i x + b_i$ が存在します。 $Q$ 個のクエリを�
 
 ## {{keyword.constraints}}
 
-- ${{param N_AND_Q_MIN}} \leq N, Q \leq {{param N_AND_Q_MAX}}$
-- $|a_i|, |p| \leq {{param A_ABS_MAX}}$
-- $|b_i| \leq {{param B_ABS_MAX}}$
+- ${{param.N_AND_Q_MIN}} \leq N, Q \leq {{param.N_AND_Q_MAX}}$
+- $|a_i|, |p| \leq {{param.A_ABS_MAX}}$
+- $|b_i| \leq {{param.B_ABS_MAX}}$
 
 ## {{keyword.input}}
 
@@ -24,4 +24,4 @@ $\textrm{Query}_1$
 $\textrm{Query}_{Q - 1}$
 ~~~
 
-{{example example_00}}
+{{example.example_00}}

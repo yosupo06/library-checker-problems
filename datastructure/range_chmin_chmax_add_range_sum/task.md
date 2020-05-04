@@ -8,8 +8,8 @@
 
 ## {{keyword.constraints}}
 
-- $1 \leq N, Q \leq {{param N_AND_Q_MAX}}$
-- クエリ処理の過程で常に $\vert a_i \vert \leq {{param A_ABS_MAX}}$ が成り立つ
+- $1 \leq N, Q \leq {{param.N_AND_Q_MAX}}$
+- クエリ処理の過程で常に $\vert a_i \vert \leq {{param.A_ABS_MAX}}$ が成り立つ
 - $0 \leq l < r \leq N$
 
 ## {{keyword.input}}
@@ -23,4 +23,4 @@ $\textrm{Query}_1$
 $\textrm{Query}_{Q - 1}$
 ~~~
 
-{{example example_00}}
+{{example.example_00}}

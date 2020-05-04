@@ -27,6 +27,6 @@ $c_0$ $c_1$ ... $c_{N -1}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 
-{{example example_01}}
+{{example.example_01}}

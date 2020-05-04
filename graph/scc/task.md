@@ -36,4 +36,4 @@ $l$ $v_0$ $v_1$ ... $v_{l-1}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

@@ -29,4 +29,4 @@ $b_0$ $b_1$ ... $b_{N - 1}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

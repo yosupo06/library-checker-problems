@@ -28,6 +28,6 @@ $A_{T-1}$ $B_{T-1}$ $M_{T-1}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 
-{{example example_01}}
+{{example.example_01}}

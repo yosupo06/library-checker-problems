@@ -13,8 +13,8 @@ $N$ 頂点 $M$ 辺の単純重み付き有向グラフが与えられます。$i
 
 ## {{keyword.constraints}}
 
-- ${{param N_MIN}} \leq N \leq {{param N_MAX}}$
-- ${{param M_MIN}} \leq M \leq {{param M_MAX}}$
+- ${{param.N_MIN}} \leq N \leq {{param.N_MAX}}$
+- ${{param.M_MIN}} \leq M \leq {{param.M_MAX}}$
 - $0 \leq s \lt N$
 - $0 \leq t \lt N$
 - $s \neq t$
@@ -22,7 +22,7 @@ $N$ 頂点 $M$ 辺の単純重み付き有向グラフが与えられます。$i
 - $0 \leq b_i \lt N$
 - $a_i \neq a_j$
 - $(a_i, b_i) \neq (a_j, b_j) (i \neq j)$
-- ${{param C_MIN}} \leq c_i \leq {{param C_MAX}}$
+- ${{param.C_MIN}} \leq c_i \leq {{param.C_MAX}}$
 
 
 ## {{keyword.input}}
@@ -63,6 +63,6 @@ $X$は最短距離、$Y$は出力するパスの辺数を表し、$u_i, v_i$は�
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 
-{{example example_01}}
+{{example.example_01}}

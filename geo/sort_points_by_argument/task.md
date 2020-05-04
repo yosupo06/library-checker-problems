@@ -9,8 +9,8 @@
 
 ## {{keyword.constraints}}
 
-- $1 \leq N \leq {{param N_MAX}}$
-- $|x_i|, |y_i| \leq {{param X_AND_Y_ABS_MAX}}$
+- $1 \leq N \leq {{param.N_MAX}}$
+- $|x_i|, |y_i| \leq {{param.X_AND_Y_ABS_MAX}}$
 
 ## {{keyword.input}}
 
@@ -33,4 +33,4 @@ $x_{N - 1}$ $y_{N - 1}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

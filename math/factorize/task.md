@@ -26,4 +26,4 @@ $k$ $x_0$ $x_1$ ... $x_{k - 1}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

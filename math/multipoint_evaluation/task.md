@@ -24,6 +24,6 @@ $f(p_0)$ $f(p_1)$ ... $f(p_{M-1})$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 
-{{example example_01}}
+{{example.example_01}}

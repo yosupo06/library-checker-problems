@@ -31,6 +31,6 @@ $p_i$ は頂点 $i$ の親である。頂点 $S$ から頂点 $i$ へ到達で�
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 
-{{example example_01}}
+{{example.example_01}}

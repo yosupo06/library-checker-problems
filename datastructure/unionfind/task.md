@@ -30,4 +30,4 @@ $t_Q$ $u_Q$ $v_Q$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

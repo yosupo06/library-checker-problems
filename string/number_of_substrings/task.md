@@ -20,10 +20,10 @@ $ans$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 
-{{example example_01}}
+{{example.example_01}}
 
-{{example example_02}}
+{{example.example_02}}
 
-{{example example_03}}
+{{example.example_03}}

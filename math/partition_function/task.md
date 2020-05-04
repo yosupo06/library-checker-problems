@@ -19,4 +19,4 @@ $p_0$ $p_1$ ... $p_N$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

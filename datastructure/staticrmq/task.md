@@ -26,4 +26,4 @@ $l_2$ $r_2$
 $l_Q$ $r_Q$
 ~~~
 
-{{example example_00}}
+{{example.example_00}}

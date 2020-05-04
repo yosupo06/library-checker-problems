@@ -14,8 +14,8 @@ $G_{-1}$ を、$N$ 個の頂点からなる、辺がひとつも存在しない�
 
 ## {{keyword.constraints}}
 
-- $1 \leq N \leq {{param MAX_N}}$
-- $1 \leq Q \leq {{param MAX_Q}}$
+- $1 \leq N \leq {{param.MAX_N}}$
+- $1 \leq Q \leq {{param.MAX_Q}}$
 - $t\_{i} \in \left\\{ 0, 1 \right\\}$
 - $-1 \leq k\_{i} < i$
 - for all $k_i$, $k\_i = -1$ or $t\_{k\_{i}} = 0$ holds.
@@ -32,5 +32,5 @@ $t_{Q-1}$ $k_{Q-1}$ $u_{Q-1}$ $v_{Q-1}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 

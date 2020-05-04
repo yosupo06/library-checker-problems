@@ -23,6 +23,6 @@ $b_1$ $b_2$ $\ldots$ $b_N$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 
-{{example example_01}}
+{{example.example_01}}

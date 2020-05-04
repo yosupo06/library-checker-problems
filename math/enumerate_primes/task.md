@@ -7,9 +7,9 @@ and print $p_{Ai+B}$ for nonnegative integers $i$ with $p_{Ai+B} \le N$.
 
 ## {{keyword.constraints}}
 
-- ${{param N_MIN}} \le N \le {{param N_MAX}}$
+- ${{param.N_MIN}} \le N \le {{param.N_MAX}}$
 - $0 \le B < A \le N$
-- ${{param X_MIN}} \le X \le {{param X_MAX}}$ where $X = \\#\\{ i \in \mathbb{Z}\_{\ge 0} \mid p_{Ai+B} \le N \\}$
+- ${{param.X_MIN}} \le X \le {{param.X_MAX}}$ where $X = \\#\\{ i \in \mathbb{Z}\_{\ge 0} \mid p_{Ai+B} \le N \\}$
 
 ## {{keyword.input}}
 
@@ -24,4 +24,4 @@ $\pi(N)$ $X$
 $p_{B}$ $p_{A+B}$ $\cdots$ $p_{A(X-1)+B}$
 ~~~
 
-{{example example_00}}
+{{example.example_00}}

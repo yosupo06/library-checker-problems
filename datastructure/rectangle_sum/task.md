@@ -25,4 +25,4 @@ $\textrm{Query}_1$
 $\textrm{Query}_{Q - 1}$
 ~~~
 
-{{example example_00}}
+{{example.example_00}}

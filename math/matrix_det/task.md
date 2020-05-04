@@ -18,8 +18,8 @@ $a_{N1}$ $a_{N2}$ ... $a_{NN}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 
-{{example example_01}}
+{{example.example_01}}
 
-{{example example_02}}
+{{example.example_02}}

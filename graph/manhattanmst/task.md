@@ -34,4 +34,4 @@ $u_{N - 2}$ $v_{N - 2}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

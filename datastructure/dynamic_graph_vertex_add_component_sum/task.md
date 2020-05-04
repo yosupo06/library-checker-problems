@@ -14,8 +14,8 @@ $Q$ 個のクエリが飛んでくるので処理。
 
 ## {{keyword.constraints}}
 
-- $1 \leq N, Q \leq {{param N_AND_Q_MAX}}$
-- $0 \leq a_i, x \leq {{param A_AND_X_MAX}}$
+- $1 \leq N, Q \leq {{param.N_AND_Q_MAX}}$
+- $0 \leq a_i, x \leq {{param.A_AND_X_MAX}}$
 - $0 \leq u_i, v_i < N$
 - $u_i \neq v_i$
 
@@ -30,4 +30,4 @@ $\textrm{Query}_1$
 $\textrm{Query}_{Q - 1}$
 ~~~
 
-{{example example_00}}
+{{example.example_00}}

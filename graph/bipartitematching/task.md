@@ -33,4 +33,4 @@ $K$ は最大マッチングの本数、$(c_i, d_i)$ はマッチングの辺
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

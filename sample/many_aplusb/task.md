@@ -10,8 +10,8 @@ For each case, you are given integers $A$ and $B$. Print $A + B$.
 
 ## {{keyword.constraints}}
 
-- $1 \leq T \leq {{param T_MAX}}$
-- $0 \leq A, B \leq {{param A_AND_B_MAX}}$
+- $1 \leq T \leq {{param.T_MAX}}$
+- $0 \leq A, B \leq {{param.A_AND_B_MAX}}$
 
 
 ## {{keyword.input}}
@@ -33,4 +33,4 @@ $A + B$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

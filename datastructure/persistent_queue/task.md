@@ -8,9 +8,9 @@ $i$ 個目のクエリは以下の形式で与えられます。
 
 ## {{keyword.constraints}}
 
-- ${{param Q_MIN}} \le Q \le {{param Q_MAX}}$
+- ${{param.Q_MIN}} \le Q \le {{param.Q_MAX}}$
 - $-1 \le t_i \lt i$
-- ${{param X_MIN}} \le x_i \le {{param X_MAX}}$
+- ${{param.X_MIN}} \le x_i \le {{param.X_MAX}}$
 - クエリ 1 について、$S_{t_i}$ は空ではない
 
 ## {{keyword.input}}
@@ -23,4 +23,4 @@ $\textrm{Query}_1$
 $\textrm{Query}_{Q-1}$
 ~~~
 
-{{example example_00}}
+{{example.example_00}}

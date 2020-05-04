@@ -23,4 +23,4 @@ $u_{Q - 1}$ $v_{Q - 1}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

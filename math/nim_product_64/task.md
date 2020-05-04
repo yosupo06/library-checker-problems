@@ -11,7 +11,7 @@ The nim sum and the nim product for nonnegative integers are defined recursively
 
 ## {{keyword.constraints}}
 
-- ${{param T_MIN}} \le T \le {{param T_MAX}}$
+- ${{param.T_MIN}} \le T \le {{param.T_MAX}}$
 - $0 \le A < 2^{64}$
 - $0 \le B < 2^{64}$
 
@@ -32,4 +32,4 @@ $\mathit{answer}_0$
 $\mathit{answer}_{T-1}$
 ~~~
 
-{{example example_00}}
+{{example.example_00}}

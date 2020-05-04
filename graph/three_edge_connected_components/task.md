@@ -6,8 +6,8 @@ $N$ 頂点 $M$ 辺の無向グラフが与えられる。$i$ 番目の辺は $(a
 
 ## {{keyword.constraints}}
 
-- ${{param N_MIN}} \leq N \leq {{param N_MAX}}$
-- ${{param M_MIN}} \leq M \leq {{param M_MAX}}$
+- ${{param.N_MIN}} \leq N \leq {{param.N_MAX}}$
+- ${{param.M_MIN}} \leq M \leq {{param.M_MAX}}$
 - $0 \leq a_i, b_i < N$
 
 ## {{keyword.input}}
@@ -34,6 +34,6 @@ $l$ $v_0$ $v_1$ ... $v_{l-1}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 
-{{example example_01}}
+{{example.example_01}}

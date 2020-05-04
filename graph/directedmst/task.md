@@ -38,6 +38,6 @@ $p_0$ $p_1$ $p_2$ ... $p_{N - 1}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 
-{{example example_01}}
+{{example.example_01}}

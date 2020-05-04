@@ -11,9 +11,9 @@ Process the following $Q$ queries in order:
 
 ## {{keyword.constraints}}
 
-- ${{param N_MIN}} \leq N \leq {{param N_MAX}}$
-- ${{param Q_MIN}} \leq Q \leq {{param Q_MAX}}$
-- ${{param A_MIN}} \leq a_i \leq {{param A_MAX}}$
+- ${{param.N_MIN}} \leq N \leq {{param.N_MAX}}$
+- ${{param.Q_MIN}} \leq Q \leq {{param.Q_MAX}}$
+- ${{param.A_MIN}} \leq a_i \leq {{param.A_MAX}}$
 - $0 \leq l_i < r_i \leq N$
 - $0 \leq k_i < r_i - l_i$
 
@@ -28,4 +28,4 @@ $l_1$ $r_1$ $k_1$
 $l_{Q-1}$ $r_{Q-1}$ $k_{Q-1}$
 ~~~
 
-{{example example_00}}
+{{example.example_00}}

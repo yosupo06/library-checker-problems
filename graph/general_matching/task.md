@@ -33,6 +33,6 @@ $X$ は最大マッチングのサイズ
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 
-{{example example_01}}
+{{example.example_01}}

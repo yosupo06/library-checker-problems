@@ -12,9 +12,9 @@ You are given a non-negative integer sequence $A = (a_0, a_1, \ldots, a_{N-1})$ 
 
 ## {{keyword.constraints}}
 
-- $1 \leq N \leq {{param MAX_N}}$
-- $1 \leq Q \leq {{param MAX_Q}}$
-- $0 \leq a_i \leq {{param MAX_A}}$
+- $1 \leq N \leq {{param.MAX_N}}$
+- $1 \leq Q \leq {{param.MAX_Q}}$
+- $0 \leq a_i \leq {{param.MAX_A}}$
 - $0 \leq l_i < r_i \leq N$
 
 ## {{keyword.input}}
@@ -29,5 +29,5 @@ $l_Q$ $r_Q$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 

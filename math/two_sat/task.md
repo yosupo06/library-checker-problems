@@ -40,7 +40,7 @@ s UNSATISFIABLE
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 
 この入力は
 
@@ -55,4 +55,4 @@ $$
 
 を表す
 
-{{example example_01}}
+{{example.example_01}}

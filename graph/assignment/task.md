@@ -29,4 +29,4 @@ $X$は$\sum_{i = 0}^{N - 1} a_{ip_i}$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

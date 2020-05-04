@@ -19,4 +19,4 @@ $B_0$ $B_1$ ... $B_N$
 
 ## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}

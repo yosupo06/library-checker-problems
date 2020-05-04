@@ -1,12 +1,12 @@
 ## @{keyword.statement}
 
-{{lang.en}}
+@{lang.en}
 There are $T$ cases.
 For each case, you are given integers $A$ and $B$. Print $A + B$.
-{{lang.ja}}
+@{lang.ja}
 この問題は $T$ ケースあります。
 整数 $A, B$ が与えられます。 $A + B$ を出力してください。
-{{lang.end}}
+@{lang.end}
 
 ## @{keyword.constraints}
 

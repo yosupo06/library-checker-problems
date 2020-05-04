@@ -9,7 +9,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/387"
     name = "max_random.cpp"
     number = 5
 
-
 [params]
     N_MAX = 50000
     MOD = 998244353

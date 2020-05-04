@@ -685,6 +685,8 @@ void solve() {
   
   std::vector<int> c=inv(a,b)[0][1];
   norm(c);
+  assert(deg(c)+1<m);
+  if (c.back()==0) c.pop_back();
   printf("%d\n",(int)c.size());
   for (int i=0;i<(int)c.size();++i) {
     printf("%d",c[i]);

@@ -38,7 +38,7 @@ def lang_div_end(lang):
     return '</div>'
 
 
-# {{keyword.statement}}, {{keyword.constraints}}, ...
+# @{keyword.statement}, @{keyword.constraints}, ...
 def to_keyword_str(lang_dict):
     s = ''
     for k, v in lang_dict.items():
@@ -119,8 +119,14 @@ class ExampleReader:
         self.counter += 1
         s += self.sample_template.format(infile, outfile)
         return s
-
-# {{setlang('en')}}, {{resetlang()}}
+    
+    def check_all_used(self) -> bool :
+        for file_path in Path(self.problem_dir).glob('in/example_*.in'):
+            name = file_path.stem
+            if name not in self.used:
+                logger.warn('Not use {} for task.md'.format(name))
+                return False
+        return True
 
 
 class LangManager:
@@ -273,19 +279,14 @@ class ToHTMLConverter:
         # evaluate jinja2
         lang_manager = LangManager()
         environment = Environment(variable_start_string="@{", variable_end_string="}", loader=DictLoader({'task': md_statement}))
-        logger.info(environment.list_templates())
+        environment.globals['endlang'] = lang_manager.reset_lang
         template = environment.get_template('task')
-        # environment.globals['endlang'] = lang_manager.reset_lang
-        # template = Template(md_statement)
-        # template.environment.variable_start_string = "@@"
-        # template.environment.variable_end_string = "@@"
-        # template.environment.globals['endlang'] = lang_manager.reset_lang
-
+        examples = ExampleReader(problem_dir=probdir)
         mid_statement = template.render(
             keyword=keywords,
             param=gen_params(config.get('params', dict())),
             lang=lang_manager,
-            example=ExampleReader(problem_dir=probdir),
+            example=examples,
         )
 
         # evaluate markdown
@@ -297,3 +298,6 @@ class ToHTMLConverter:
             ],
         )
         self.html = html_header + html_body.format(self.statement)
+
+        if not examples.check_all_used():
+            exit(1)

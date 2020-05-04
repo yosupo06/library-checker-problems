@@ -1,33 +1,27 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-
+## {{keyword.statement}}
 $N, M$ が与えられます。
 
 長さ $K$ の撹乱順列の個数を $a_k$ とします。
 $1$ から $N$ までの各 $K$ に対して、$b_k = a_k \bmod M$ を求めてください。
 
 
-Constraints / 制約
----------
+## {{keyword.constraints}}
 - $1 \leq N \leq 10^6$
 - $1 \leq M \leq 10^9$
 
-Input / 入力
----------
+## {{keyword.input}}
 
 ```
 $N$ $M$
 ```
 
-Output / 出力
----------
+## {{keyword.output}}
 
 ```
 $b_1$ $b_2$ $\ldots$ $b_N$
 ```
 
-Sample / サンプル
----------
+## {{keyword.sample}}
 
 {{example example_00}}
 

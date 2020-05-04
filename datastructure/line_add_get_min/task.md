@@ -1,20 +1,16 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-
+## {{keyword.statement}}
 $N$ 本の直線 $y = a_i x + b_i$ が存在します。 $Q$ 個のクエリを処理してください。
 
 - `0 $a$ $b$`: 直線 $y = ax + b$ を追加
 - `1 $p$`: $x = p$ での $y$ 座標の最小を求める。
 
-Constraints / 制約
----------
+## {{keyword.constraints}}
 
 - ${{param N_AND_Q_MIN}} \leq N, Q \leq {{param N_AND_Q_MAX}}$
 - $|a_i|, |p| \leq {{param A_ABS_MAX}}$
 - $|b_i| \leq {{param B_ABS_MAX}}$
 
-Input / 入力
----------
+## {{keyword.input}}
 
 ~~~
 $N$ $Q$

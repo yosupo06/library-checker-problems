@@ -1,16 +1,12 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-
+## {{keyword.statement}}
 クエリが $Q$ 個与えられます。各クエリでは整数 $a_i$ が与えられるので、これを素因数分解してください。
 
-Constraints / 制約
----------
+## {{keyword.constraints}}
 
 - $1 \leq Q \leq 100$
 - $1 \leq a_i \leq 10^{18}$
 
-Input / 入力
----------
+## {{keyword.input}}
 
 ```
 $Q$
@@ -20,8 +16,7 @@ $a_1$
 $a_{Q - 1}$
 ```
 
-Output / 出力
----------
+## {{keyword.output}}
 
 $Q$ 行出力する。各行では以下のように出力する。$k$ は素因数の個数であり、$x_i$ は素因数を __昇順__ に並べたもの。
 
@@ -29,7 +24,6 @@ $Q$ 行出力する。各行では以下のように出力する。$k$ は素因
 $k$ $x_0$ $x_1$ ... $x_{k - 1}$
 ```
 
-Sample / サンプル
----------
+## {{keyword.sample}}
 
 {{example example_00}}

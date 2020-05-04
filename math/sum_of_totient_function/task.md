@@ -1,21 +1,16 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-オイラーのトーティエント関数の和$\sum_{i=1}^N \phi(i)$を$998244353$で割った余りを求めてください。
+## {{keyword.statement}}オイラーのトーティエント関数の和$\sum_{i=1}^N \phi(i)$を$998244353$で割った余りを求めてください。
 
-Constraints / 制約
----------
+## {{keyword.constraints}}
 
 - $1 \leq N \leq {{param N_MAX}}$
 
-Input / 入力
----------
+## {{keyword.input}}
 
 ```
 $N$
 ```
 
-Sample / サンプル
----------
+## {{keyword.sample}}
 
 {{example example_00}}
 {{example example_01}}

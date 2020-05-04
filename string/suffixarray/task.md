@@ -1,32 +1,26 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-
+## {{keyword.statement}}
 長さ $N$ の文字列 $S$ が与えられます。$S$ の suffix array $a_i$ を求めてください。
 
 
-Constraints / 制約
----------
+## {{keyword.constraints}}
 
 - $1 \leq N \leq 500,000$
 - $S$ は英小文字からなる
 
 
-Input / 入力
----------
+## {{keyword.input}}
 
 ```
 $S$
 ```
 
-Output / 出力
----------
+## {{keyword.output}}
 
 ```
 $a_0$ $a_1$ ... $a_{N-2}$ $a_{N-1}$
 ```
 
-Sample / サンプル
----------
+## {{keyword.sample}}
 
 {{example example_00}}
 

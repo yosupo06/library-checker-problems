@@ -1,31 +1,20 @@
-<div markdown="1" class="lang-en">
+## {{keyword.statement}}
 
-Problem Statement
----------
-
+{{lang.en}}
 There are $T$ cases.
 For each case, you are given integers $A$ and $B$. Print $A + B$.
-
-</div>
-<div markdown="1" class="lang-ja">
-
-問題文
----------
-
+{{lang.ja}}
 この問題は $T$ ケースあります。
 整数 $A, B$ が与えられます。 $A + B$ を出力してください。
+{{lang.end}}
 
-</div>
-
-Constraints / 制約
----------
+## {{keyword.constraints}}
 
 - $1 \leq T \leq {{param T_MAX}}$
 - $0 \leq A, B \leq {{param A_AND_B_MAX}}$
 
 
-Input / 入力
----------
+## {{keyword.input}}
 
 ```
 $T$
@@ -34,8 +23,7 @@ $A$ $B$
 $A$ $B$
 ```
 
-Output / 出力
----------
+## {{keyword.output}}
 
 ```
 $A + B$
@@ -43,7 +31,6 @@ $A + B$
 $A + B$
 ```
 
-Sample / サンプル
----------
+## {{keyword.sample}}
 
 {{example example_00}}

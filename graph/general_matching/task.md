@@ -1,19 +1,15 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-
+## {{keyword.statement}}
 $N$ 頂点 $M$ 辺の単純な無向グラフが与えられる。辺は $(u_i, v_i)$。
 
 最大マッチングを出力してください。
 
-Constraints / 制約
----------
+## {{keyword.constraints}}
 
 - $1 \leq N \leq 500$
 - $0 \leq M \leq \frac{N(N-1)}{2}$
 - $0 \leq u_i, v_i < N$
 
-Input / 入力
----------
+## {{keyword.input}}
 
 ~~~
 $N$ $M$
@@ -23,8 +19,7 @@ $u_1$ $v_1$
 $u_{M - 1}$ $v_{M - 1}$
 ~~~
 
-Output / 出力
----------
+## {{keyword.output}}
 
 ~~~
 $X$
@@ -36,8 +31,7 @@ $a_{X - 1}$ $b_{X - 1}$
 
 $X$ は最大マッチングのサイズ
 
-Sample / サンプル
----------
+## {{keyword.sample}}
 
 {{example example_00}}
 

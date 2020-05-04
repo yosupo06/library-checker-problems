@@ -1,28 +1,22 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-
+## {{keyword.statement}}
 $N$ が与えられます。$0,1,..., N$ の分割数を 998244353 で割った余りを求めてください。
 
-Constraints / 制約
----------
+## {{keyword.constraints}}
 
 - $0 \leq N \leq 500,000$
 
-Input / 入力
----------
+## {{keyword.input}}
 
 ```
 $N$
 ```
 
-Output / 出力
----------
+## {{keyword.output}}
 
 ```
 $p_0$ $p_1$ ... $p_N$
 ```
 
-Sample / サンプル
----------
+## {{keyword.sample}}
 
 {{example example_00}}

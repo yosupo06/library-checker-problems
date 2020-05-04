@@ -1,30 +1,24 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-
+## {{keyword.statement}}
 長さ $N$ の文字列 $S$ が与えられます。$S$ の相異なる部分文字列の個数を求めてください。
 
-Constraints / 制約
----------
+## {{keyword.constraints}}
 
 - $1 \leq N \leq 500,000$
 - $S$ は英小文字のみからなる
 
-Input / 入力
----------
+## {{keyword.input}}
 
 ~~~
 $S$
 ~~~
 
-Output / 出力
----------
+## {{keyword.output}}
 
 ~~~
 $ans$
 ~~~
 
-Sample / サンプル
----------
+## {{keyword.sample}}
 
 {{example example_00}}
 

@@ -1,43 +1,31 @@
-<div markdown="1" class="lang-en">
+## {{keyword.statement}}
 
-Problem Statement
----------
-
+{{lang.en}}
 You are given integers $A$ and $B$. Print $A + B$.
-
-</div>
-<div markdown="1" class="lang-ja">
-
-問題文
----------
-
+{{lang.ja}}
 整数 $A, B$ が与えられます。 $A + B$ を出力してください。
+{{lang.end}}
 
-</div>
+## {{keyword.constraints}}
 
-Constraints / 制約
----------
-
-- $0 \leq A, B \leq {{param A_AND_B_MAX}}$
+- $0 \leq A, B \leq {{param.A_AND_B_MAX}}$
 
 
-Input / 入力
----------
+## {{keyword.input}}
+
 
 ```
 $A$ $B$
 ```
 
-Output / 出力
----------
+## {{keyword.output}}
 
 ```
 $A + B$
 ```
 
-Sample / サンプル
----------
+## {{keyword.sample}}
 
-{{example example_00}}
+{{example.example_00}}
 
-{{example example_01}}
+{{example.example_01}}

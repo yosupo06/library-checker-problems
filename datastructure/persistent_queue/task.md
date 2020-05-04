@@ -1,6 +1,4 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-
+## {{keyword.statement}}
 $S_{-1}$ を空の列とします。
 $Q$ 個のクエリを処理してください。
 $i$ 個目のクエリは以下の形式で与えられます。
@@ -8,16 +6,14 @@ $i$ 個目のクエリは以下の形式で与えられます。
 - `0 $t_i$ $x_i$`: $S_{t_i}$ の末尾に $x_i$ を追加した列を $S_i$ とする。
 - `1 $t_i$`: $S_{t_i}$ の先頭を削除した列を $S_i$ とする。削除した要素を出力する。
 
-Constraints / 制約
----------
+## {{keyword.constraints}}
 
 - ${{param Q_MIN}} \le Q \le {{param Q_MAX}}$
 - $-1 \le t_i \lt i$
 - ${{param X_MIN}} \le x_i \le {{param X_MAX}}$
 - クエリ 1 について、$S_{t_i}$ は空ではない
 
-Input / 入力
----------
+## {{keyword.input}}
 
 ~~~
 $Q$

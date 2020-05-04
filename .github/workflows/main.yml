@@ -46,7 +46,7 @@ jobs:
         with:
           path: cache
           key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}
-          restore_keys: |
+          restore-keys: |
             ${{ runner.os }}-cache-
       - name: Run generate.py on clang
         run: |
@@ -73,7 +73,7 @@ jobs:
         with:
           path: cache
           key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}
-          restore_keys: |
+          restore-keys: |
             ${{ runner.os }}-cache-
       - name: Run generate.py on gcc
         run: |
@@ -104,7 +104,7 @@ jobs:
         with:
           path: cache
           key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}
-          restore_keys: |
+          restore-keys: |
             ${{ runner.os }}-cache-
       - name: Run generate.py on gcc
         run: |

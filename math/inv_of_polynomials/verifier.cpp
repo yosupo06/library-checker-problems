@@ -18,13 +18,10 @@ int main() {
         if (i != n - 1) inf.readSpace();
     }
     inf.readChar('\n');
-    bool zero = true;
     for (int i = 0; i < m; i++) {
       int b = inf.readInt((i == m-1) ? 1 : 0, MOD - 1);
       if (i != m - 1) inf.readSpace();
-      zero&=b==0;
     }
-    assert(!zero);
     inf.readChar('\n');
     inf.readEof();
 }

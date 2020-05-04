@@ -276,9 +276,9 @@ class Problem:
             if (self.basedir / 'out').exists() and (self.basedir / 'out').resolve() in path.resolve().parents:
                 continue
             if not path.is_file():
-                continue
-            if os.access(str(path), os.X_OK):
-                continue  # ignore directries and compiled binaries
+                continue # ignore directories
+            if path.suffix == '':
+                continue  # ignore compiled binaries
             if path.name.endswith('.html'):
                 continue  # ignore generated HTML files
             if path.name == 'params.h':

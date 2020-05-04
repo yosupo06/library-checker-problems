@@ -1,18 +1,14 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-
+## @{keyword.statement}
 2次元平面上に $N$ 個の点が与えられる。$i$ 個目の頂点の座標は $(x_i, y_i)$ である。 
 
 2点間の距離をマンハッタン距離、つまり $|x_i - x_j| + |y_i - y_j|$ で定義するときの、MSTを求めよ。
 
-Constraints / 制約
----------
+## @{keyword.constraints}
 
 - $1 \leq N \leq 200,000$
 - $0 \leq x_i, y_i \leq 10^9$
 
-Input / 入力
----------
+## @{keyword.input}
 
 ~~~
 $N$
@@ -22,8 +18,7 @@ $x_1$ $y_1$
 $x_{N - 1}$ $y_{N - 1}$
 ~~~
 
-Output / 出力
----------
+## @{keyword.output}
 
 ~~~
 $X$
@@ -37,7 +32,6 @@ $u_{N - 2}$ $v_{N - 2}$
 解が複数存在する場合、どれを返しても構わない。
 
 
-Sample / サンプル
----------
+## @{keyword.sample}
 
-{{example example_00}}
+@{example.example_00}

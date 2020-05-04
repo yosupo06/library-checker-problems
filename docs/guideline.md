@@ -70,7 +70,7 @@ timelimit = 2.0
   - `wrong`: WAが想定かどうか 指定しない場合もあり、false(=正しい解答)として扱う
   - `allow_tle`: TLEを許可するかどうか これを指定してTLEしなくても許される
 - `[params]`: 各種定数、この情報は自動的に`params.h`に出力される
-  - `task.md`からは`{{param A_AND_B_MAX}}`のように使う
+  - `task.md`からは`@{param.A_AND_B_MAX}`のように使う
 
 ## task.md(問題文)
 
@@ -79,8 +79,8 @@ markdown + mathjax形式です。他のtask.mdをコピペして弄ればいい�
 
 いくつか拡張されています
 
-- {{example example_00}} : `gen/example_00.in`を埋め込みます
-- {{param A_AND_B_MAX}} : info.tomlで指定した`[params]`を埋め込みます。
+- @{example.example_00} : `gen/example_00.in`を埋め込みます
+- @{param.A_AND_B_MAX} : info.tomlで指定した`[params]`を埋め込みます。
 
 ## sol/correct.cpp(想定解)
 

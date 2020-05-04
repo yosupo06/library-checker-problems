@@ -1,22 +1,18 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-
+## @{keyword.statement}
 長さ $0$ (一次)関数の列 $f = ()$ があります。$Q$ 個のクエリが飛んできます。処理してください。
 
 - `0 $a$ $b$`: 列 $f$ の末尾に一次関数 $\lambda x. ax + b$ を追加する
 - `1`: 列 $f$ の先頭の一次関数を削除する
 - `2 $x$`: $f = (f_{l}, \dots, f_{r - 1})$ として $f _ {r - 1}(f _ {r - 2}(\dots (f _ l(x)) \dots)) \bmod 998244353$ を出力する。$f = ()$ の場合は $x$
 
-Constraints / 制約
----------
+## @{keyword.constraints}
 
 - $1 \leq Q \leq 500,000$
 - $1 \leq a \lt 998244353$
 - $0 \leq b, x \lt 998244353$
 - クエリ $1$ が来るとき、列 $f$ は空ではない
 
-Input / 入力
----------
+## @{keyword.input}
 
 ~~~
 $Q$
@@ -26,6 +22,6 @@ $\textrm{Query}_1$
 $\textrm{Query}_{Q - 1}$
 ~~~
 
-{{example example_00}}
+@{example.example_00}
 
-{{example example_01}}
+@{example.example_01}

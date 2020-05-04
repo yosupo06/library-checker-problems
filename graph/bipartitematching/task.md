@@ -1,11 +1,8 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-
+## @{keyword.statement}
 頂点数が $L, R$、辺が $M$ の二部グラフが与えられる。$i$ 番目の辺は $(a_i, b_i)$ である。
 最大マッチングを求めてください。
 
-Constraints / 制約
----------
+## @{keyword.constraints}
 
 - $1 \leq L, R \leq 100,000$
 - $1 \leq M \leq 200,000$
@@ -13,8 +10,7 @@ Constraints / 制約
 - $0 \leq b_i < R$
 - 多重辺は存在しない
 
-Input / 入力
----------
+## @{keyword.input}
 
 ~~~
 $L$ $R$ $M$
@@ -24,8 +20,7 @@ $a_1$ $b_1$
 $a_{M - 1}$ $b_{M - 1}$
 ~~~
 
-Output / 出力
----------
+## @{keyword.output}
 ~~~
 $K$
 $c_0$ $d_0$
@@ -36,7 +31,6 @@ $c_{K - 1}$ $d_{K - 1}$
 
 $K$ は最大マッチングの本数、$(c_i, d_i)$ はマッチングの辺
 
-Sample / サンプル
----------
+## @{keyword.sample}
 
-{{example example_00}}
+@{example.example_00}

@@ -1,21 +1,16 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-$N$以下の素数の個数を求めてください。
+## @{keyword.statement}$N$以下の素数の個数を求めてください。
 
-Constraints / 制約
----------
+## @{keyword.constraints}
 
-- $1 \leq N \leq {{param N_MAX}}$
+- $1 \leq N \leq @{param.N_MAX}$
 
-Input / 入力
----------
+## @{keyword.input}
 
 ```
 $N$
 ```
 
-Sample / サンプル
----------
+## @{keyword.sample}
 
-{{example example_00}}
-{{example example_01}}
+@{example.example_00}
+@{example.example_01}

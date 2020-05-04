@@ -1,31 +1,25 @@
-Problem Statement / 問題文
----------
-
-Given integers $r$, $d$ and $n$, calculate $\sum_{i=0}^{n-1} r^i i^d$ modulo ${{param MOD}}$.
+Problem Statement / ## @{keyword.statement}
+Given integers $r$, $d$ and $n$, calculate $\sum_{i=0}^{n-1} r^i i^d$ modulo $@{param.MOD}$.
 We define $0^0 = 1$.
 
-Constraints / 制約
----------
+## @{keyword.constraints}
 
-- $0 \le r < {{param MOD}}$
-- ${{param D_MIN}} \le d \le {{param D_MAX}}$
-- ${{param N_MIN}} \le n \le {{param N_MAX}}$
+- $0 \le r < @{param.MOD}$
+- $@{param.D_MIN} \le d \le @{param.D_MAX}$
+- $@{param.N_MIN} \le n \le @{param.N_MAX}$
 
-Input / 入力
----------
+## @{keyword.input}
 
 ~~~
 $r$ $d$ $n$
 ~~~
 
-Output / 出力
----------
+## @{keyword.output}
 
 ~~~
 $\mathit{answer}$
 ~~~
 
-Sample / サンプル
----------
+## @{keyword.sample}
 
-{{example example_00}}
+@{example.example_00}

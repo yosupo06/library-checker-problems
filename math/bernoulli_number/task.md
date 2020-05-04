@@ -1,28 +1,22 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-
+## @{keyword.statement}
 $N$ が与えられます。ベルヌーイ数 $B_0, B_1,..., B_N$ を 998244353 で割った余りを求めてください。
 
-Constraints / 制約
----------
+## @{keyword.constraints}
 
 - $0 \leq N \leq 500,000$
 
-Input / 入力
----------
+## @{keyword.input}
 
 ```
 $N$
 ```
 
-Output / 出力
----------
+## @{keyword.output}
 
 ```
 $B_0$ $B_1$ ... $B_N$
 ```
 
-Sample / サンプル
----------
+## @{keyword.sample}
 
-{{example example_00}}
+@{example.example_00}

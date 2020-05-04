@@ -14,7 +14,7 @@ int main(int, char* argv[]) {
 
     printf("0");
     for (int i = 1; i < n; i++) {
-        printf(" %d", gen.uniform(0, MOD - 1));
+        printf(" %d", gen.uniform(0, int(MOD - 1)));
     }
     printf("\n");
     return 0;

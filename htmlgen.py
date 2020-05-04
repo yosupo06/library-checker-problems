@@ -111,8 +111,11 @@ class ExampleReader:
     def __getitem__(self, key: str):
         logger.debug('read example: {}'.format(key))
         self.used.add(key)
-        inpath = self.problem_dir / 'in' / (key + '.in')
-        outpath = self.problem_dir / 'out' / (key + '.out')
+        inpath = self.problem_dir / 'in' / (key + '.in') # type: Path
+        outpath = self.problem_dir / 'out' / (key + '.out') # type: Path
+        if not inpath.exists() or not outpath.exists():
+            logger.error('There is no example file {}'.format(key))
+            exit(1)
         infile = open(inpath, 'r').read()
         outfile = open(outpath, 'r').read()
 

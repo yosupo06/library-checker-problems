@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+from sys import exit
 import hashlib
 import math
 import re
@@ -119,8 +120,8 @@ class ExampleReader:
         self.counter += 1
         s += self.sample_template.format(infile, outfile)
         return s
-    
-    def check_all_used(self) -> bool :
+
+    def check_all_used(self) -> bool:
         for file_path in Path(self.problem_dir).glob('in/example_*.in'):
             name = file_path.stem
             if name not in self.used:
@@ -146,7 +147,6 @@ class LangManager:
         s = lang_div_end(self.now_lang)
         self.now_lang = ''
         return s
-
 
 
 class ForumExpander(Preprocessor):
@@ -278,7 +278,8 @@ class ToHTMLConverter:
 
         # evaluate jinja2
         lang_manager = LangManager()
-        environment = Environment(variable_start_string="@{", variable_end_string="}", loader=DictLoader({'task': md_statement}))
+        environment = Environment(
+            variable_start_string="@{", variable_end_string="}", loader=DictLoader({'task': md_statement}))
         environment.globals['endlang'] = lang_manager.reset_lang
         template = environment.get_template('task')
         examples = ExampleReader(problem_dir=probdir)
@@ -300,4 +301,5 @@ class ToHTMLConverter:
         self.html = html_header + html_body.format(self.statement)
 
         if not examples.check_all_used():
+            logger.error("Not use all examples, exit")
             exit(1)

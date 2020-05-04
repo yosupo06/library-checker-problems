@@ -5,7 +5,8 @@ from logging import basicConfig, getLogger
 from os import chdir, getenv
 from subprocess import PIPE, run
 from pathlib import Path
-
+from generate import Problem
+from typing import List
 logger = getLogger(__name__)
 
 # test of deprecated feature
@@ -122,6 +123,21 @@ class TestOtherVerifierPlace(unittest.TestCase):
         proc = run(
             ['./generate.py', '-p', 'other_verifier_place'])
         self.assertEqual(proc.returncode, 0)
+
+
+class TestListDependingFiles(unittest.TestCase):
+    def test_list_depending_files(self):
+        problem = Problem(Path.cwd(), Path('sample/aplusb'))
+        files = list(problem.list_depending_files()) # type: List[Path]
+        find_random = False
+        find_verifier = False
+        for f in files:
+            if f.resolve() == Path('common/random.h').resolve():
+                find_random = True
+            if f.resolve() == Path('sample/aplusb/verifier.cpp').resolve():
+                find_verifier = True
+        self.assertTrue(find_random)
+        self.assertTrue(find_verifier)
 
 
 if __name__ == "__main__":

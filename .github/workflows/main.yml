@@ -24,12 +24,9 @@ jobs:
         run: |
           ulimit -s unlimited
           ./generate_test.py
-        
-  clang-mac:
+          
+  clang-mac-diffrun:
     runs-on: macos-latest
-    strategy:
-      matrix:
-        id: [1, 2, 3, 4, 5]
     steps:
       - uses: actions/checkout@v1
       - name: Set up Python 3.5.9
@@ -40,15 +37,79 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install --user -r requirements.txt
-      - name: Print problem list
+      - name: Print verison file
         run: |
-          ./ci_generate.py --show-list 5 ${{ matrix.id }}
+          ./ci_generate.py --print-version | tee versions.json
+        env:
+          CXX: clang++
+      - uses: actions/cache@v1
+        with:
+          path: cache
+          key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}
+          restore-keys: |
+            ${{ runner.os }}-cache-
       - name: Run generate.py on clang
         run: |
-          ./ci_generate.py 5 ${{ matrix.id }}
+          ./ci_generate.py
         env:
           CXX: clang++
 
+  gcc-ubuntu-diffrun:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python 3.5.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.5.9
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install --user -r requirements.txt
+      - name: Print verison file
+        run: |
+          ./ci_generate.py --print-version | tee versions.json
+      - uses: actions/cache@v1
+        with:
+          path: cache
+          key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}
+          restore-keys: |
+            ${{ runner.os }}-cache-
+      - name: Run generate.py on gcc
+        run: |
+          ulimit -s unlimited
+          ./ci_generate.py --htmldir=/tmp/html
+      - name: Archive problem statements
+        uses: actions/upload-artifact@v1
+        with:
+          name: statements
+          path: /tmp/html
+
+  mingw-windows-diffrun:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python 3.5.4
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.5.4
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install --user -r requirements.txt
+      - name: Print verison file
+        run: |
+          python ci_generate.py --print-version | tee versions.json
+      - uses: actions/cache@v1
+        with:
+          path: cache
+          key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}
+          restore-keys: |
+            ${{ runner.os }}-cache-
+      - name: Run generate.py on gcc
+        run: |
+          python ci_generate.py --html --htmldir=D:/tmp/html
+          
   gcc-ubuntu:
     runs-on: ubuntu-latest
     strategy:
@@ -66,16 +127,11 @@ jobs:
           pip install --user -r requirements.txt
       - name: Print problem list
         run: |
-          ./ci_generate.py --show-list 5 ${{ matrix.id }}
+          ./ci_generate_parallel.py --show-list 5 ${{ matrix.id }}
       - name: Run generate.py on gcc
         run: |
           ulimit -s unlimited
-          ./ci_generate.py 5 ${{ matrix.id }} --html --htmldir=/tmp/html
-      - name: Archive problem statements
-        uses: actions/upload-artifact@v1
-        with:
-          name: statements
-          path: /tmp/html
+          ./ci_generate_parallel.py 5 ${{ matrix.id }} --html --htmldir=/tmp/html
 
   mingw-windows:
     runs-on: windows-latest
@@ -94,7 +150,7 @@ jobs:
           pip install --user -r requirements.txt
       - name: Print problem list
         run: |
-          python ci_generate.py --show-list 5 ${{ matrix.id }}
+          python ci_generate_parallel.py --show-list 5 ${{ matrix.id }}
       - name: Run generate.py on gcc
         run: |
-          python ci_generate.py 5 ${{ matrix.id }} --html --htmldir=D:/tmp/html
+          python ci_generate_parallel.py 5 ${{ matrix.id }} --html --htmldir=D:/tmp/html

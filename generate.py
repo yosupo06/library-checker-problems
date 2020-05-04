@@ -269,20 +269,29 @@ class Problem:
         return True
 
     def list_depending_files(self) -> Iterator[Path]:
+        yield Path(__file__)
         for path in list(self.basedir.glob('**/*')) + list(self.libdir.glob('common/**/*')):
-            if (self.basedir / 'in').resolve() in path.resolve().parents:
+            if (self.basedir / 'in').exists() and (self.basedir / 'in').resolve() in path.resolve().parents:
                 continue
-            if (self.basedir / 'out').resolve() in path.resolve().parents:
+            if (self.basedir / 'out').exists() and (self.basedir / 'out').resolve() in path.resolve().parents:
                 continue
             if not path.is_file():
-                continue
-            if os.access(str(path), os.X_OK):
-                continue  # ignore directries and compiled binaries
+                continue # ignore directories
+            if path.suffix == '':
+                continue  # ignore compiled binaries
             if path.name.endswith('.html'):
                 continue  # ignore generated HTML files
             if path.name == 'params.h':
                 continue  # ignore generated params.h
             yield path
+
+    # return "version" of problem
+    def problem_version(self) -> str:
+        all_hash = hashlib.sha256()
+        for path in sorted(self.list_depending_files()):
+            all_hash.update(hashlib.sha256(open(str(path), 'rb').read()).digest())
+        return all_hash.hexdigest()
+
 
     def judge(self, src: Path, config: dict):
         indir = self.basedir / 'in'
@@ -452,26 +461,26 @@ def main(args: List[str]):
     parser.add_argument('--nogen', action='store_true', help='Skip Generate')
     parser.add_argument('--sol', action='store_true', help='Solution Test')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
-    args = parser.parse_args(args)
+    opts = parser.parse_args(args)
 
-    if args.nogen:
+    if opts.nogen:
         logger.warning(
             '--nogen is deprecated, because auto skip was implemented')
-    if args.sol:
+    if opts.sol:
         logger.warning(
             '--sol is deprecated. --sol is also enabled by --verify')
 
     libdir = Path(__file__).parent
     problems = list()  # type: List[Problem]
 
-    for tomlpath in args.toml:
-        tomlfile = toml.load(args.toml)
+    for tomlpath in opts.toml:
+        tomlfile = toml.load(opts.toml)
         if 'problems' in tomlfile:
             logger.warning('problems.toml is deprecated')
             continue
         problems.append(Problem(libdir, Path(tomlpath).parent))
 
-    for problem_name in args.problem:
+    for problem_name in opts.problem:
         tomls = list(libdir.glob('**/{}/info.toml'.format(problem_name)))
         if len(tomls) == 0:
             logger.error('Cannot find problem: {}'.format(problem_name))
@@ -486,9 +495,9 @@ def main(args: List[str]):
     if len(problems) == 0:
         logger.warning('No problems')
 
-    if args.htmldir:
+    if opts.htmldir:
         logger.info('make htmldir')
-        Path(args.htmldir).mkdir(exist_ok=True, parents=True)
+        Path(opts.htmldir).mkdir(exist_ok=True, parents=True)
     
     # suppress the annoying dialog appears when an application crashes on Windows
     if platform.uname().system == 'Windows':
@@ -497,8 +506,8 @@ def main(args: List[str]):
         ctypes.windll.kernel32.SetErrorMode(SEM_NOGPFAULTERRORBOX)
 
     for problem in problems:
-        generate(problem, args.ignore_cache, args.refhash, args.verify, args.compile_checker, args.html,
-                 Path(args.htmldir) if args.htmldir else None)
+        generate(problem, opts.ignore_cache, opts.refhash, opts.verify, opts.compile_checker, opts.html,
+                 Path(opts.htmldir) if opts.htmldir else None)
 
 
 if __name__ == '__main__':

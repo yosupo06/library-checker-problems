@@ -8,23 +8,6 @@ on:
   pull_request:
 
 jobs:
-  mingw-windows-test:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Set up Python 3.5.4
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.5.4
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install --user -r requirements.txt
-      - name: Test Run
-        run: |
-          python test_mingw.py
-          
-
   generate-test:
     runs-on: ubuntu-latest
     steps:

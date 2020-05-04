@@ -1,4 +1,4 @@
-Problem Statement / ## @{keyword.statement}
+## @{keyword.statement}
 The Stirling numbers of the second kind $S(n, k)$ are defined as the coefficients in the identity
 $$x^n = \sum_{k=0}^n S(n, k) x (x - 1) \cdots (x - (k - 1)).$$
 

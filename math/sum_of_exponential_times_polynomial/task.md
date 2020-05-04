@@ -1,4 +1,4 @@
-Problem Statement / ## @{keyword.statement}
+## @{keyword.statement}
 Given integers $r$, $d$ and $n$, calculate $\sum_{i=0}^{n-1} r^i i^d$ modulo $@{param.MOD}$.
 We define $0^0 = 1$.
 

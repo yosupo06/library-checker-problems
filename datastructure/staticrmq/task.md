@@ -1,4 +1,4 @@
-Problem Statement / ## @{keyword.statement}
+## @{keyword.statement}
 You are given an integer sequence $a_0, a_1, ..., a_{N-1}$ with the length $N$.
 Process the following $Q$ queries in order:
 

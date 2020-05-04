@@ -1,4 +1,4 @@
-Problem Statement / ## @{keyword.statement}
+## @{keyword.statement}
 There are $T$ test cases.
 
 For each test case, you are given two nonnegative integers $A$ and $B$.

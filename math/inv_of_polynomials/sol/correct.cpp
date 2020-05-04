@@ -21,6 +21,11 @@ inline int SUB(const int a,const int b) {
   return a-b<0?a-b+p:a-b;
 }
 
+void fail() {
+  printf("-1\n");
+  exit(0);
+}
+
 int deg(const std::vector<int> &a){
   int ret=a.size()-1;
   while (ret>=0 && a[ret]==0) --ret;
@@ -400,7 +405,6 @@ std::vector<std::vector<std::vector<int>>> hgcd_naive(std::vector<int> a,std::ve
         a[i+j]=(a[i+j]+1LL*b[j]*c[i])%p;
       }
     }
-    assert(a.back()==0);
     ans[0][0]=add(ans[0][0],mul(ans[1][0],c));
     ans[0][1]=add(ans[0][1],mul(ans[1][1],c));
     std::swap(ans[0][0],ans[1][0]);
@@ -561,7 +565,7 @@ std::vector<std::vector<std::vector<int>>> inv_naive(std::vector<int> &a,std::ve
       std::swap(a,m);
     }
   }
-  assert(deg(m)==0);
+  if (deg(m)!=0) fail();
   {
     int normalizer=inv(m[0]);
     for (int i=0;i<2;++i)
@@ -577,7 +581,7 @@ std::vector<std::vector<std::vector<int>>> inv(std::vector<int> &a,std::vector<i
   norm(a);norm(m);
   if (deg(a)>deg(m)) a=mod(a,m);
   if (deg(a)==-1) {
-    assert(deg(m)==0);
+    if (deg(m)!=0) fail();
     int normalizer=inv(m[0]);
     return {{{normalizer},{0}},{{0},{normalizer}}};
   }
@@ -656,7 +660,6 @@ void verify() {
     //   std::cout << i << " a:" << a[i] << " b:" << b[i] << std::endl;
     // }
     
-    
     clock_t start = clock();
     std::vector<int> v=mul(inv(a,b)[0][1],a_);
     v=mod(v,b_);
@@ -665,7 +668,6 @@ void verify() {
     clock_t end = clock();
     const double time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000.0;
     printf("%lf[ms]\n", time);
-
   }
 }
 

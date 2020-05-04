@@ -3,6 +3,8 @@
   "example_00.out": "7a7283c60fd7ce86d2f53bd22512961f5ecc13b50d664ef30b1270f2d155ddcd",
   "example_01.in": "4352f9622b49624969b5180daff3c6073a27bce71e4095b1d32f927dcfa006ce",
   "example_01.out": "5d90ef7fc0d040fd56a1e48697cfa99e0dfaf4fd803aefefc3b5053ec1d36aea",
+  "example_02.in": "bf8a86877db5fd22df762716e97adda2e8c1ccd4b954e04dc993005f01275320",
+  "example_02.out": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28",
   "max_random_00.in": "efba1fb7dbebf3c7dfb0d604bac31059254316186bce5a7d1c98fc5a3baf20af",
   "max_random_00.out": "a391be1c251f93b6f9b1668c994183e05a00fef160242dbb96a1c9860b0a5ad8",
   "max_random_01.in": "ca101fcf64fae37abde1277f791391aea1573c386730ada10c9cac4bf713bb39",

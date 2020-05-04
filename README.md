@@ -1,6 +1,6 @@
 # Library Checker Problems
 
-[![CircleCI](https://circleci.com/gh/yosupo06/library-checker-problems/tree/master.svg?style=svg)](https://circleci.com/gh/yosupo06/library-checker-problems/tree/master)
+![CI](https://github.com/yosupo06/library-checker-problems/workflows/CI/badge.svg)
 [![Gitter](https://badges.gitter.im/library-checker-problems/community.svg)](https://gitter.im/library-checker-problems/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp)

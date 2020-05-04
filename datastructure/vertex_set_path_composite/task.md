@@ -1,18 +1,18 @@
 ## @{keyword.statement}
 
-{{lang.en}}
+@{lang.en}
 Given an $N$ vertices tree. Edges are $(u_i, v_i)$ and a linear function $f_i(x) = a_i x + b_i$ is written on the vertex $i$ for each $i$. Process $Q$ queries as follows:
 
 - `0 $p$ $c$ $d$`: Set $f_p \gets cx + d$
 - `1 $u$ $v$ $x$`: Let vertices on the path between $u$ and $v$ be $p_1 = u, p_2, ..., p_k = v$. Print $f_{p_k}(...f_{p_2}(f_{p_1}(x))) \bmod @{param.MOD}$
-{{lang.ja}}
+@{lang.ja}
 $N$ 頂点の木が与えられる。辺は $(u_i, v_i)$。頂点 $i$ には一次関数 $f_i(x) = a_i x + b_i$ が書かれている。
 
 $Q$ 個のクエリが飛んでくるので処理。
 
 - `0 $p$ $c$ $d$`: $f_p = cx + d$ に変更
 - `1 $u$ $v$ $x$`: $u, v$ 間のパス上の頂点(端点含む)を$p_1 = u, p_2, ..., p_k = v$ として、$f_{p_k}(...f_{p_2}(f_{p_1}(x))) \bmod @{param.MOD}$ を出力
-{{lang.end}}
+@{lang.end}
 
 ## @{keyword.constraints}
 

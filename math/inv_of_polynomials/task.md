@@ -1,4 +1,6 @@
-## @{keyword.statement}$\mathbb{Z}/@{param.MOD}\mathbb{Z}$ 係数の多項式 $f(x)=\sum_{i=0}^{N-1} a_ix^i ,g(x)=\sum_{i=0}^{M-1}b_ix^i$ が与えられます。
+## @{keyword.statement}
+
+$\mathbb{Z}/@{param.MOD}\mathbb{Z}$ 係数の多項式 $f(x)=\sum_{i=0}^{N-1} a_ix^i ,g(x)=\sum_{i=0}^{M-1}b_ix^i$ が与えられます。
 $\deg(h) < \deg(g)$ かつ 
 $$f(x)h(x)\equiv1\pmod {g(x)}$$
 を満たす$\mathbb{Z}/@{param.MOD}\mathbb{Z}$ 係数の多項式 $h(x)=\sum_{i=0}^{T-1}c_ix^i$ を求めてください。

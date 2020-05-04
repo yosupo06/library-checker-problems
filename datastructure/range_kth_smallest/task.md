@@ -1,15 +1,15 @@
 ## @{keyword.statement}
 
-{{lang.en}}
+@{lang.en}
 You are given an integer sequence $a_0, a_1, ..., a_{N-1}$ with the length $N$.
 Process the following $Q$ queries in order:
 
 - `$l_i$ $r_i$ $k_i$`: Print $k_i+1$ th smallest value in $(a_{l_i}, a_{l_i + 1}, ..., a_{r_i - 1})$.
-{{lang.ja}}
+@{lang.ja}
 長さ $N$ の数列 $a_0, a_1, ..., a_{N-1}$ に $Q$ 個のクエリが飛んできます。処理してください。
 
 - `$l_i$ $r_i$ $k_i$`: $(a_{l_i}, a_{l_i + 1}, ..., a_{r_i - 1})$ のうち $k_i+1$ 番目に小さい値を出力する。
-{{lang.end}}
+@{lang.end}
 
 ## @{keyword.constraints}
 

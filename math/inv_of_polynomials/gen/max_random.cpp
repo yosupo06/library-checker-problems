@@ -679,10 +679,10 @@ int main(int, char* argv[]) {
 
     while (true) {
       for (int i = 0; i < n; i++) {
-        a[i]=gen.uniform((i == n-1) ? 1 : 0, 998244353);
+        a[i]=gen.uniform((i == n-1) ? 1 : 0, MOD - 1);
       }
       for (int i = 0; i < m; i++) {
-        b[i]=gen.uniform((i == m-1) ? 1 : 0, 998244353);
+        b[i]=gen.uniform((i == m-1) ? 1 : 0, MOD - 1);
       }
       std::vector<int> tmpa=trim(a,a.size());
       std::vector<int> tmpb=trim(b,b.size());
@@ -692,13 +692,13 @@ int main(int, char* argv[]) {
 
     printf("%d %d\n", n, m);
     for (int i = 0; i < n; i++) {
-        printf("%d", gen.uniform((i == n-1) ? 1 : 0, 998244353));
+        printf("%d", gen.uniform((i == n-1) ? 1 : 0, MOD - 1));
         if (i != n - 1) printf(" ");
     }
     printf("\n");
     
     for (int i = 0; i < m; i++) {
-      printf("%d", gen.uniform((i == m-1) ? 1 : 0, 998244353));
+      printf("%d", gen.uniform((i == m-1) ? 1 : 0, MOD - 1));
       if (i != m - 1) printf(" ");
     }
     printf("\n");

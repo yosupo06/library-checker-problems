@@ -8,9 +8,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/387"
 [[tests]]
     name = "max_random.cpp"
     number = 5
-[[tests]]
-    name = "abnormal_remainder_sequence.cpp"
-    number = 3
 
 [params]
     N_MAX = 50000

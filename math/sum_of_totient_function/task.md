@@ -1,4 +1,6 @@
-## @{keyword.statement}オイラーのトーティエント関数の和$\sum_{i=1}^N \phi(i)$を$998244353$で割った余りを求めてください。
+## @{keyword.statement}
+
+オイラーのトーティエント関数の和$\sum_{i=1}^N \phi(i)$を$998244353$で割った余りを求めてください。
 
 ## @{keyword.constraints}
 

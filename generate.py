@@ -445,12 +445,12 @@ def main(args: List[str]):
     try:
         import colorlog
     except ImportError:
-        logger.warn('Please install colorlog: pip3 install colorlog')
         basicConfig(
             format="%(asctime)s [%(levelname)s] %(message)s",
             datefmt="%H:%M:%S",
             level=getenv('LOG_LEVEL', 'INFO'),
         )
+        logger.warn('Please install colorlog: pip3 install colorlog')
     else:
         handler = colorlog.StreamHandler()
         formatter = colorlog.ColoredFormatter(

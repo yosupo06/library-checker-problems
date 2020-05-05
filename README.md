@@ -24,7 +24,7 @@ Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp)
 ```sh
 cd /path/to/library-checker-problems
 
-pip3 install toml markdown
+pip3 install toml colorlog markdown jinja2
 # or pip3 install -r requirements.txt
 
 ulimit -s unlimited # for linux (don't need for os x)

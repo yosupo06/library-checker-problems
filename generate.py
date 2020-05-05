@@ -444,7 +444,7 @@ def generate(
 def main(args: List[str]):
     try:
         import colorlog
-    except ModuleNotFoundError:
+    except ImportError:
         logger.warn('Please install colorlog: pip3 install colorlog')
         basicConfig(
             format="%(asctime)s [%(levelname)s] %(message)s",

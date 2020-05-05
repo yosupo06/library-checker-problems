@@ -7,4 +7,4 @@ RUN apt-get install -y postgresql libpq-dev python3 python3-pip g++ clang libc++
 RUN apt-get clean
 
 RUN pip3 install --upgrade pip
-RUN pip3 install termcolor toml psycopg2 markdown jinja2
+RUN pip3 install termcolor toml psycopg2 markdown colorlog jinja2

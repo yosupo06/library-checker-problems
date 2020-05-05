@@ -32,7 +32,7 @@ logger = getLogger(__name__)  # type: Logger
 
 # html tag for change lang
 def lang_div_start(lang):
-    return '<div class="lang-{}">'.format(lang)
+    return '<div markdown="1" class="lang-{}">'.format(lang)
 
 
 def lang_div_end(lang):

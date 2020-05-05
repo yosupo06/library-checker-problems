@@ -1,4 +1,6 @@
-## @{keyword.statement}$N$以下の素数の個数を求めてください。
+## @{keyword.statement}
+
+$N$以下の素数の個数を求めてください。
 
 ## @{keyword.constraints}
 

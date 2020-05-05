@@ -8,7 +8,7 @@ import shutil
 import hashlib
 import json
 from datetime import datetime
-from logging import Logger, basicConfig, getLogger
+from logging import Logger, basicConfig, getLogger, INFO
 from os import getenv
 from pathlib import Path
 from subprocess import (DEVNULL, PIPE, STDOUT, CalledProcessError,
@@ -276,7 +276,7 @@ class Problem:
             if (self.basedir / 'out').exists() and (self.basedir / 'out').resolve() in path.resolve().parents:
                 continue
             if not path.is_file():
-                continue # ignore directories
+                continue  # ignore directories
             if path.suffix == '':
                 continue  # ignore compiled binaries
             if path.name.endswith('.html'):
@@ -442,10 +442,33 @@ def generate(
 
 
 def main(args: List[str]):
-    basicConfig(
-        level=getenv('LOG_LEVEL', 'INFO'),
-        format="%(asctime)s [%(levelname)s] %(message)s"
-    )
+    try:
+        import colorlog
+    except ImportError:
+        basicConfig(
+            format="%(asctime)s [%(levelname)s] %(message)s",
+            datefmt="%H:%M:%S",
+            level=getenv('LOG_LEVEL', 'INFO'),
+        )
+        logger.warn('Please install colorlog: pip3 install colorlog')
+    else:
+        handler = colorlog.StreamHandler()
+        formatter = colorlog.ColoredFormatter(
+            "%(log_color)s%(asctime)s [%(levelname)s] %(message)s",
+            datefmt="%H:%M:%S",
+            log_colors={
+                'DEBUG':    'cyan',
+                'INFO':     'white',
+                'WARNING':  'yellow',
+                'ERROR':    'red',
+                'CRITICAL': 'red,bg_white',
+            })
+        handler.setFormatter(formatter)    
+        basicConfig(
+            level=getenv('LOG_LEVEL', 'INFO'),
+            handlers=[handler]
+        )
+
     parser = argparse.ArgumentParser(description='Testcase Generator')
     parser.add_argument('toml', nargs='*', help='Toml File')
     parser.add_argument('-p', '--problem', nargs='*',

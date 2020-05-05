@@ -17,7 +17,6 @@ from tempfile import TemporaryDirectory
 from typing import Any, Iterator, List, MutableMapping, Union
 
 import toml
-import colorlog
 
 logger = getLogger(__name__)  # type: Logger
 
@@ -443,23 +442,33 @@ def generate(
 
 
 def main(args: List[str]):
-    handler = colorlog.StreamHandler()
-    formatter = colorlog.ColoredFormatter(
-        "%(log_color)s%(asctime)s [%(levelname)s] %(message)s",
-        datefmt="%H:%M:%S",
-        log_colors={
-            'DEBUG':    'cyan',
-            'INFO':     'white',
-            'WARNING':  'yellow',
-            'ERROR':    'red',
-            'CRITICAL': 'red,bg_white',
-        })
-    handler.setFormatter(formatter)
-    
-    basicConfig(
-        level=getenv('LOG_LEVEL', 'INFO'),
-        handlers=[handler]
-    )
+    try:
+        import colorlog
+    except ModuleNotFoundError:
+        logger.warn('Please install colorlog: pip3 install colorlog')
+        basicConfig(
+            format="%(asctime)s [%(levelname)s] %(message)s",
+            datefmt="%H:%M:%S",
+            level=getenv('LOG_LEVEL', 'INFO'),
+        )
+    else:
+        handler = colorlog.StreamHandler()
+        formatter = colorlog.ColoredFormatter(
+            "%(log_color)s%(asctime)s [%(levelname)s] %(message)s",
+            datefmt="%H:%M:%S",
+            log_colors={
+                'DEBUG':    'cyan',
+                'INFO':     'white',
+                'WARNING':  'yellow',
+                'ERROR':    'red',
+                'CRITICAL': 'red,bg_white',
+            })
+        handler.setFormatter(formatter)    
+        basicConfig(
+            level=getenv('LOG_LEVEL', 'INFO'),
+            handlers=[handler]
+        )
+
     parser = argparse.ArgumentParser(description='Testcase Generator')
     parser.add_argument('toml', nargs='*', help='Toml File')
     parser.add_argument('-p', '--problem', nargs='*',

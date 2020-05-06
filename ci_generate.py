@@ -58,8 +58,8 @@ def main():
             logger.info('Problem {} is already generated, skip'.format(problem_name))
         else:
             logger.info('Generate {}, new version: {}'.format(problem_name, problem_version))
-            generate.generate(problem, force_generate=True, rewrite_hash=False,
-                              verify=True, compile_checker=True, generate_html=args.html, html_dir=Path(args.htmldir) if args.htmldir else None)
+            generate.generate(problem, force_generate=True, ignore_warning=False, rewrite_hash=False,
+                              verify=True, generate_html=args.html, html_dir=Path(args.htmldir) if args.htmldir else None)
         if problem_name not in generated:
             generated[problem_name] = dict()
 

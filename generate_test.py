@@ -23,7 +23,7 @@ def create_test_dir(problem_name: str) -> TemporaryDirectory:
         trg = Path(new_dir.name) / path  # type: Path
         if not trg.parent.exists():
             trg.parent.mkdir(parents=True)
-        copy(src, trg)
+        copy(str(src), str(trg))
     return new_dir
 
 

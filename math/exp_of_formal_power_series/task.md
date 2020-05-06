@@ -1,10 +1,10 @@
 ## @{keyword.statement}
+
 母関数 $f(x) = \sum_{i = 0}^{N - 1} a_i x^i$ が与えられます。$\exp(f(x))$ の先頭 $N$ 項を求めてください。つまり
 
 $$\sum_{k = 0}^{N - 1}{\frac{f(x)^k}{k!}} \bmod (x^N)$$
 
 を出力してください
-
 
 ## @{keyword.constraints}
 

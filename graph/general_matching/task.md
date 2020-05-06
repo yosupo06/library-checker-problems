@@ -1,7 +1,16 @@
 ## @{keyword.statement}
+
+@{lang.en}
+
+Given a simple graph with $N$ vertices and $M$ edges. $i$-th edge is $(u_i, v_i)$.
+
+Calculate the maximum matching.
+
+@{lang.ja}
 $N$ 頂点 $M$ 辺の単純な無向グラフが与えられる。辺は $(u_i, v_i)$。
 
 最大マッチングを出力してください。
+@{lang.end}
 
 ## @{keyword.constraints}
 
@@ -29,7 +38,15 @@ $a_1$ $b_1$
 $a_{X - 1}$ $b_{X - 1}$
 ~~~
 
+@{lang.en}
+
+$X$ is the size of the maximum matching.
+
+@{lang.ja}
+
 $X$ は最大マッチングのサイズ
+
+@{lang.end}
 
 ## @{keyword.sample}
 

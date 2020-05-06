@@ -4,3 +4,9 @@ timelimit = 2.0
 [[tests]]
     name = "example.in"
     number = 2
+[[tests]]
+    name = "random.cpp"
+    number = 2
+
+[params]
+    A_AND_B_MAX = 1_000_000_000

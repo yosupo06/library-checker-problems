@@ -1,5 +1,10 @@
 ## @{keyword.statement}
+
+@{lang.ja}
+Given $N \times N$ matrix $M = \lbrace a_{ij} \rbrace$. Print $\mathrm{det}(M) \bmod 998244353$.
+@{lang.en}
 $N \times N$ 正方行列 $a_{ij}$ が与えられます。行列式をmod 998244353で求めてください。
+@{lang.end}
 
 ## @{keyword.constraints}
 

@@ -1,6 +1,16 @@
 ## @{keyword.statement}
+
+@{lang.en}
+
+Given a polynomial $f(x) = \sum_{i = 0}^{N - 1} c_i x^i$ and integer sequence $p_0, p_1, ..., p_{M - 1}$.
+Print $f(p_i) \bmod 998244353$ for each $p_i$.
+
+@{lang.ja}
+
 多項式 $f(x) = \sum_{i = 0}^{N - 1} c_i x^i$, 整数列 $p_0, p_1, ..., p_{M - 1}$ が与えられます。
 $f(p_i) \bmod 998244353$ を全ての$p_i$について求めてください。
+
+@{lang.end}
 
 ## @{keyword.constraints}
 

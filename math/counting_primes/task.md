@@ -1,6 +1,10 @@
 ## @{keyword.statement}
 
-$N$以下の素数の個数を求めてください。
+@{lang.ja}
+Count the number of primes no more than $N$.
+@{lang.en}
+$N$ 以下の素数の個数を求めてください。
+@{lang.end}
 
 ## @{keyword.constraints}
 
@@ -15,4 +19,5 @@ $N$
 ## @{keyword.sample}
 
 @{example.example_00}
+
 @{example.example_01}

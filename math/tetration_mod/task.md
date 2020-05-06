@@ -1,10 +1,20 @@
 ## @{keyword.statement}
+
+@{lang.en}
+Each test cases consist of $T$ cases.
+
+Given $A, B, M$. Print ${A \uparrow \uparrow B} (\bmod M)$.
+
+We note that $0^0 = 1$ (at least in this problem).
+
+@{lang.ja}
 この問題は $T$ ケース与えられます。
 
 $A, B, M$ が与えられます。
 
 ${A \uparrow \uparrow B} (\bmod M)$ を求めてください。
 なお、$0^0 = 1$ とします。
+@{lang.end}
 
 ## @{keyword.constraints}
 
@@ -24,7 +34,11 @@ $A_{T-1}$ $B_{T-1}$ $M_{T-1}$
 
 ## @{keyword.output}
 
+@{lang.en}
+For each line, print ${A \uparrow \uparrow B} (\bmod M)$.
+@{lang.ja}
 各行に、${A \uparrow \uparrow B} (\bmod M)$ を出力してください
+@{lang.end}
 
 ## @{keyword.sample}
 

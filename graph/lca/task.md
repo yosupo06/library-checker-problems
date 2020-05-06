@@ -1,7 +1,19 @@
 ## @{keyword.statement}
+
+@{lang.en}
+
+Given a rooted tree with $N$ vertices. The root is vertex $0$ and a parent of a vertex $i$ is $p_i$. Process $Q$ queries as follows:
+
+- `$u$ $v$`: Print LCA of vertex $u$ and $v$.
+
+@{lang.ja}
+
 木が与えられる。頂点 $i$ の親は $p_i$ である。$Q$ 個のクエリが飛んできます。処理してください。
 
 - `$u$ $v$`: 頂点 $u$, $v$ のLCAを出力する
+
+@{lang.end}
+
 
 ## @{keyword.constraints}
 

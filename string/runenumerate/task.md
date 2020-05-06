@@ -5,7 +5,7 @@
 Given a length $N$ string $S$. Please enumerate the runs of $S$. In other words, please enumerate tuples $(t, l, r)$ that satisfy the following conditions.
 
 - The minimum period of the $S[l..r-1]$ is $t$, and $r - l \geq 2t$ is satisfied.
-- $l$ and $r$ are maximum. In other words, $(t, l - 1, r)$ and $(t, l, r + 1)$ are not satisfied the above condition.
+- $l$ and $r$ are maximul. In other words, $(t, l - 1, r)$ and $(t, l, r + 1)$ are not satisfied the above condition.
 
 @{lang.ja}
 

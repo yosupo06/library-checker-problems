@@ -285,12 +285,12 @@ class ToHTMLConverter:
             variable_start_string="@{", variable_end_string="}", loader=DictLoader({'task': md_statement}))
         environment.globals['endlang'] = lang_manager.reset_lang
         template = environment.get_template('task')
-        examples = ExampleReader(problem_dir=probdir)
+        self.examples = ExampleReader(problem_dir=probdir)
         mid_statement = template.render(
             keyword=keywords,
             param=gen_params(config.get('params', dict())),
             lang=lang_manager,
-            example=examples,
+            example=self.examples,
         )
 
         # evaluate markdown
@@ -303,6 +303,6 @@ class ToHTMLConverter:
         )
         self.html = html_header + html_body.format(self.statement)
 
-        if not examples.check_all_used():
-            logger.error("Not use all examples, exit")
-            exit(1)
+    def check_all_samples_used(self) -> bool:
+        return self.examples.check_all_used()
+

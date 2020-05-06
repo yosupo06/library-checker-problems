@@ -96,11 +96,16 @@ class Problem:
         self.config = toml.load(tomlpath)  # type: MutableMapping[str, Any]
         self.checker = basedir / self.config.get('checker', 'checker.cpp')  # type: Path
         self.verifier = basedir / self.config.get('verifier', 'verifier.cpp')  # type: Path
+        self.ignore_warning = False # type: bool
 
+    def warning(self,message: str):
+        logger.warning(message)
+        if not self.ignore_warning:
+            raise RuntimeError(message)
+    
     def health_check(self):
         if 'title' not in self.config:
-            logger.error('no title: {}'.format(self.basedir))
-            exit(1)
+            self.warning('no title: {}'.format(self.basedir))
         gendir = self.basedir / 'gen'
         gens = []
         for test in self.config['tests']:
@@ -112,15 +117,14 @@ class Problem:
                     cn = casename(test['name'], i) + '.in'
                     gens.append(str(gendir / cn))
             else:
+                logger.error('Unknown file: {}'.format(test['name']))
                 raise UnknownTypeFile('Unknown file: {}'.format(test['name']))
         for name in self.basedir.glob('gen/*.cpp'):
             if str(name) not in gens:
-                logger.error('Unused .cpp gen file: {}'.format(name))
-                exit(1)
+                self.warning('Unused .cpp gen file: {}'.format(name))
         for name in self.basedir.glob('gen/*.in'):
             if str(name) not in gens:
-                logger.error('Unused .in gen file: {}'.format(name))
-                exit(1)
+                self.warning('Unused .in gen file: {}'.format(name))
 
     def generate_params_h(self):
         logger.info('generate params.h')
@@ -355,9 +359,10 @@ class Problem:
         return ToHTMLConverter(self.basedir, self.config)
 
     def write_html(self, htmldir: Path):
-        from htmlgen import ToHTMLConverter
         # convert task
         html = self.gen_html()
+        if not html.check_all_samples_used():
+            self.warning('all samples are not used')
         path = self.basedir / 'task.html' if not htmldir else htmldir / \
             (self.basedir.name + '.html')
         with open(str(path), 'w', encoding='utf-8') as f:
@@ -375,19 +380,27 @@ class Problem:
             hashes[name.name] = m.hexdigest()
         return hashes
 
-    def check_hashes(self):
+    def assert_hashes(self):
         if not Path(self.basedir, 'hash.json').exists():
-            logger.error("hash.json doesn't exist")
-            exit(1)
+            raise RuntimeError("hash.json doesn't exist")
         expect = json.load(open(str(self.basedir / 'hash.json'), 'r'))
         actual = self.calc_hashes()
         if expect != actual:
             logger.error('hashes are different')
             logger.error('your hash: {}'.format(
                 json.dumps(actual, indent=2, sort_keys=True)))
-            exit(1)
+            raise RuntimeError("hashes are different")
 
     def write_hashes(self):
+        actual = self.calc_hashes()
+        if not Path(self.basedir, 'hash.json').exists():
+            self.warning("hash.json doesn't exist, create")
+        else:
+            expect = json.load(open(str(self.basedir / 'hash.json'), 'r'))
+            if expect != actual:
+                self.warning('hashes are different, overwrite')
+                self.warning('your hash: {}'.format(
+                    json.dumps(actual, indent=2, sort_keys=True)))
         json.dump(self.calc_hashes(), open(
             str(self.basedir / 'hash.json'), 'w'), indent=2, sort_keys=True)
 
@@ -395,15 +408,18 @@ class Problem:
 def generate(
         problem: Problem,
         force_generate: bool,
+        ignore_warning: bool,
         rewrite_hash: bool,
         verify: bool,
-        compile_checker: bool,
         generate_html: bool,
         html_dir: Union[Path, None]):
-    # health check
-    problem.health_check()
+
+    problem.ignore_warning = ignore_warning
 
     logger.info('Start {}'.format(problem.basedir.name))
+
+    # health check
+    problem.health_check()
 
     is_testcases_already_generated = problem.is_testcases_already_generated()
     is_checker_already_generated = problem.is_checker_already_generated()
@@ -419,9 +435,8 @@ def generate(
         problem.compile_verifier()
         problem.verify_inputs()
 
-    if verify or compile_checker:
-        if not is_checker_already_generated or force_generate:
-            problem.compile_checker()
+    if not is_checker_already_generated or force_generate:
+        problem.compile_checker()
 
     if not is_testcases_already_generated or force_generate:
         problem.make_outputs(verify)
@@ -435,7 +450,7 @@ def generate(
     if rewrite_hash:
         problem.write_hashes()
     else:
-        problem.check_hashes()
+        problem.assert_hashes()
 
     if generate_html:
         problem.write_html(html_dir if html_dir else problem.basedir)
@@ -473,19 +488,42 @@ def main(args: List[str]):
     parser.add_argument('toml', nargs='*', help='Toml File')
     parser.add_argument('-p', '--problem', nargs='*',
                         help='Generate problem', default=[])
-    parser.add_argument('--verify', action='store_true', help='Verify Inputs')
-    parser.add_argument('--html', action='store_true', help='Generate HTML')
-    parser.add_argument('--refhash', action='store_true', help='Refresh Hash')
-    parser.add_argument(
-        '--ignore-cache', action='store_true', help='Ignore cache')
-    parser.add_argument('--compile-checker',
-                        action='store_true', help='Compile Checker')
-
-    parser.add_argument('--nogen', action='store_true', help='Skip Generate')
-    parser.add_argument('--sol', action='store_true', help='Solution Test')
+    
+    parser.add_argument('--dev', action='store_true', help='Developer Mode')
+    parser.add_argument('--test', action='store_true', help='CI Mode')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
+
+    parser.add_argument('--html', action='store_true', help='Deprecated: Generate HTML')
+    parser.add_argument('--verify', action='store_true', help='Deprecated: Verify Inputs')
+    parser.add_argument('--refhash', action='store_true', help='Deprecated: Refresh Hash')
+    parser.add_argument(
+        '--ignore-cache', action='store_true', help='Deprecated: Ignore cache')
+    parser.add_argument('--compile-checker',
+                        action='store_true', help='Deprecated: Compile Checker')
+    parser.add_argument('--nogen', action='store_true', help='Deprecated: Skip Generate')
+    parser.add_argument('--sol', action='store_true', help='Deprecated: Solution Test')
+
+
     opts = parser.parse_args(args)
 
+    if opts.dev and opts.test:
+        raise ValueError('only one of --dev and --test can be used')
+
+    if opts.html:
+        logger.warning(
+            '--html is deprecated. Please use --dev or --test')
+    if opts.verify:
+        logger.warning(
+            '--verify is deprecated. Please use --dev or --test')
+    if opts.refhash:
+        logger.warning(
+            '--refhash is deprecated. Please use --dev')
+    if opts.ignore_cache:
+        logger.warning(
+            '--ignore-cache is deprecated. Please use --dev')
+    if opts.compile_checker:
+        logger.warning(
+            '--compile-checker is deprecated. Checker is compiled in default')
     if opts.nogen:
         logger.warning(
             '--nogen is deprecated, because auto skip was implemented')
@@ -528,9 +566,42 @@ def main(args: List[str]):
         SEM_NOGPFAULTERRORBOX = 2 # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684863(v=vs.85).aspx
         ctypes.windll.kernel32.SetErrorMode(SEM_NOGPFAULTERRORBOX)
 
+
+    # default
+    force_generate = False
+    ignore_warning = False
+    rewrite_hash = False
+    verify = False
+    generate_html = False
+
+    if opts.dev:
+        force_generate = True
+        ignore_warning = True
+        rewrite_hash = True
+        verify = True
+        generate_html = True
+    if opts.test:
+        force_generate = True
+        verify = True
+        generate_html = True
+
+    if opts.refhash:
+        rewrite_hash = True
+    if opts.ignore_cache:
+        force_generate = True
+    if opts.html:
+        generate_html = True
+    if opts.verify:
+        verify = True
+
     for problem in problems:
-        generate(problem, opts.ignore_cache, opts.refhash, opts.verify, opts.compile_checker, opts.html,
-                 Path(opts.htmldir) if opts.htmldir else None)
+        generate(problem,
+                 force_generate=force_generate,
+                 ignore_warning=ignore_warning,
+                 rewrite_hash=rewrite_hash,
+                 verify=verify,
+                 generate_html=generate_html,
+                 html_dir=Path(opts.htmldir) if opts.htmldir else None)
 
 
 if __name__ == '__main__':

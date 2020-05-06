@@ -11,6 +11,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/329"
 [[tests]]
     name = "max_random.cpp"
     number = 2
+[[tests]]
+    name = "all_max.cpp"
+    number = 1
 
 [params]
     T_MAX = 1_000_000

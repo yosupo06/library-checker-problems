@@ -5,7 +5,7 @@ You are given a simple undirected graph, consisting of $N$ vertices and $M$ edge
 The $i$-th edge is $\lbrace u_i, v_i \rbrace$.
 Each vertex has an integer value, and the value of $i$ th vertex is $x_i$.
 
-Three vertices $a, b, c$ connected by three edges $\lbrace a, b \rbrace, \lbrace a, c \rbrace, \lbrace b, c \rbrace$ are called triangle.
+Three vertices $a, b, c (a \lt b \lt c)$ connected by three edges $\lbrace a, b \rbrace, \lbrace a, c \rbrace, \lbrace b, c \rbrace$ are called triangle.
 Find the sum of $x_a x_b x_c$ over all triangles, and print the sum modulo $@{param.MOD}$ .
 
 @{lang.ja}
@@ -13,7 +13,7 @@ $N$ 頂点 $M$ 辺の単純無向グラフが与えられます。
 $i$ 番目の辺は $\lbrace u_i, v_i \rbrace$ です。
 各頂点 $i$ には整数 $x_i$ が割り当てられています。
 
-3 頂点 $a, b, c$ であって辺 $\lbrace a, b \rbrace, \lbrace a, c \rbrace, \lbrace b, c \rbrace$ が全て存在するものを triangle と呼びます。
+3 頂点 $a, b, c (a \lt b \lt c)$ であって辺 $\lbrace a, b \rbrace, \lbrace a, c \rbrace, \lbrace b, c \rbrace$ が全て存在するものを triangle と呼びます。
 全ての triangle についての $x_a x_b x_c$ の和を $@{param.MOD}$ で割った余りを求めてください。
 
 @{lang.end}

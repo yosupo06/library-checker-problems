@@ -45,6 +45,21 @@ class TestSuccess(unittest.TestCase):
                 ['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml'), '--verify', '--html'])
             self.assertEqual(proc.returncode, 0)
 
+    def test_success_user(self):
+        with create_test_dir('simple_aplusb') as test_dir:
+            proc = run(['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml')])
+            self.assertEqual(proc.returncode, 0)
+
+    def test_success_dev(self):
+        with create_test_dir('simple_aplusb') as test_dir:
+            proc = run(['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml'), '--dev'])
+            self.assertEqual(proc.returncode, 0)
+
+    def test_success_test(self):
+        with create_test_dir('simple_aplusb') as test_dir:
+            proc = run(['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml'), '--test'])
+            self.assertEqual(proc.returncode, 0)
+
 
 # warn: --compile-checker is used in other project(e.g. kmyk/online-judge-verify-helper)
 class TestCompileChecker(unittest.TestCase):
@@ -68,16 +83,25 @@ class TestCompileChecker(unittest.TestCase):
 
 
 class TestVerify(unittest.TestCase):
-    def test_no_verify(self):
-        with create_test_dir('failed_verify') as test_dir:
-            proc = run(
-                ['./generate.py', str(Path(test_dir) / 'failed_verify/info.toml')])
-            self.assertEqual(proc.returncode, 0)
-
     def test_failed_verify(self):
         with create_test_dir('failed_verify') as test_dir:
             proc = run(
                 ['./generate.py', str(Path(test_dir) / 'failed_verify/info.toml'), '--verify'])
+            self.assertNotEqual(proc.returncode, 0)
+
+    def test_no_verify_user(self):
+        with create_test_dir('failed_verify') as test_dir:
+            proc = run(['./generate.py', str(Path(test_dir) / 'failed_verify/info.toml')])
+            self.assertEqual(proc.returncode, 0)
+
+    def test_no_verify_dev(self):
+        with create_test_dir('failed_verify') as test_dir:
+            proc = run(['./generate.py', str(Path(test_dir) / 'failed_verify/info.toml'), '--dev'])
+            self.assertNotEqual(proc.returncode, 0)
+
+    def test_no_verify_test(self):
+        with create_test_dir('failed_verify') as test_dir:
+            proc = run(['./generate.py', str(Path(test_dir) / 'failed_verify/info.toml'), '--test'])
             self.assertNotEqual(proc.returncode, 0)
 
 
@@ -89,7 +113,7 @@ class TestNonExistProblem(unittest.TestCase):
 
 
 class TestUnusedExample(unittest.TestCase):
-    def test_no_html(self):
+    def test_unused_example_user(self):
         with create_test_dir('unused_example') as test_dir:
             proc = run(
                 ['./generate.py', str(Path(test_dir) / 'unused_example/info.toml')])
@@ -101,6 +125,16 @@ class TestUnusedExample(unittest.TestCase):
                 ['./generate.py', str(Path(test_dir) / 'unused_example/info.toml'), '--html'])
             self.assertNotEqual(proc.returncode, 0)
 
+    def test_unused_example_dev(self):
+        with create_test_dir('unused_example') as test_dir:
+            proc = run(['./generate.py', str(Path(test_dir) / 'unused_example/info.toml'), '--dev'])
+            self.assertEqual(proc.returncode, 0)
+
+    def test_unused_example_test(self):
+        with create_test_dir('unused_example') as test_dir:
+            proc = run(['./generate.py', str(Path(test_dir) / 'unused_example/info.toml'), '--test'])
+            self.assertNotEqual(proc.returncode, 0)
+
 
 class TestNonExistdExample(unittest.TestCase):
     def test_no_html(self):
@@ -109,26 +143,60 @@ class TestNonExistdExample(unittest.TestCase):
                 ['./generate.py', str(Path(test_dir) / 'nonexist_example/info.toml')])
             self.assertEqual(proc.returncode, 0)
 
-    def test_unused_example(self):
+    def test_non_exist_user(self):
         with create_test_dir('nonexist_example') as test_dir:
             proc = run(
                 ['./generate.py', str(Path(test_dir) / 'nonexist_example/info.toml'), '--html'])
             self.assertNotEqual(proc.returncode, 0)
 
+    def test_non_exist_dev(self):
+        with create_test_dir('nonexist_example') as test_dir:
+            proc = run(['./generate.py', str(Path(test_dir) / 'nonexist_example/info.toml'), '--dev'])
+            self.assertNotEqual(proc.returncode, 0)
+
+    def test_non_exist_test(self):
+        with create_test_dir('nonexist_example') as test_dir:
+            proc = run(['./generate.py', str(Path(test_dir) / 'nonexist_example/info.toml'), '--test'])
+            self.assertNotEqual(proc.returncode, 0)
+
 
 class TestUnusedGen(unittest.TestCase):
-    def test_unused_gen(self):
+    def test_unused_gen_user(self):
         with create_test_dir('unused_gen') as test_dir:
             proc = run(
                 ['./generate.py', str(Path(test_dir) / 'unused_gen/info.toml')])
             self.assertNotEqual(proc.returncode, 0)
 
+    def test_unused_gen_dev(self):
+        with create_test_dir('unused_gen') as test_dir:
+            proc = run(
+                ['./generate.py', str(Path(test_dir) / 'unused_gen/info.toml'), '--dev'])
+            self.assertEqual(proc.returncode, 0)
+
+    def test_unused_gen_test(self):
+        with create_test_dir('unused_gen') as test_dir:
+            proc = run(
+                ['./generate.py', str(Path(test_dir) / 'unused_gen/info.toml'), '--test'])
+            self.assertNotEqual(proc.returncode, 0)
+
 
 class TestNoTitle(unittest.TestCase):
-    def test_no_title(self):
+    def test_no_title_user(self):
         with create_test_dir('no_title') as test_dir:
             proc = run(
                 ['./generate.py', str(Path(test_dir) / 'no_title/info.toml')])
+            self.assertNotEqual(proc.returncode, 0)
+
+    def test_no_title_dev(self):
+        with create_test_dir('no_title') as test_dir:
+            proc = run(
+                ['./generate.py', str(Path(test_dir) / 'no_title/info.toml'), '--dev'])
+            self.assertEqual(proc.returncode, 0)
+
+    def test_no_title_test(self):
+        with create_test_dir('no_title') as test_dir:
+            proc = run(
+                ['./generate.py', str(Path(test_dir) / 'no_title/info.toml'), '--test'])
             self.assertNotEqual(proc.returncode, 0)
 
 
@@ -169,7 +237,7 @@ class TestOtherVerifierPlace(unittest.TestCase):
 
 
 class TestCacheTest(unittest.TestCase):
-    def test_other_verifier_place(self):
+    def test_cache_user(self):
         with create_test_dir('simple_aplusb') as test_dir:
             in_path = Path(test_dir) / \
                 'simple_aplusb/in/random_00.in'  # type: Path
@@ -182,6 +250,20 @@ class TestCacheTest(unittest.TestCase):
                 ['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml')])
             self.assertTrue(in_path.exists())
             self.assertEqual(time, in_path.stat().st_mtime_ns)
+
+    def test_cache_dev(self):
+        with create_test_dir('simple_aplusb') as test_dir:
+            in_path = Path(test_dir) / \
+                'simple_aplusb/in/random_00.in'  # type: Path
+            self.assertFalse(in_path.exists())
+            proc = run(
+                ['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml'), '--dev'])
+            self.assertTrue(in_path.exists())
+            time = in_path.stat().st_mtime_ns
+            proc = run(
+                ['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml'), '--dev'])
+            self.assertTrue(in_path.exists())
+            self.assertNotEqual(time, in_path.stat().st_mtime_ns)
 
 
 class TestListDependingFiles(unittest.TestCase):

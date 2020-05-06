@@ -1,13 +1,32 @@
 ## @{keyword.statement}
+
+@{lang.en}
+
+Given a length $N$ string $S$. Calculate array $a_0, a_1, ..., a_{N - 1}$ as follows:
+
+- $a_i$ is the LCP(longest common prefix) of $S$ and $S.substr(i)$.
+
+@{lang.ja}
+
 長さ $N$ の文字列 $S$ が与えられます。以下の条件を満たす配列 $a_0, a_1, ..., a_{N - 1}$ を出力してください。
 
 - $a_i$ は、$S$ と $S.substr(i)$ の LCP(longest common prefix)
 
+@{lang.end}
 
 ## @{keyword.constraints}
 
+@{lang.en}
+
 - $1 \leq N \leq 500,000$
-- $S$ は英小文字のみからなる
+- Each character of $S$ is lowercase English letters.
+
+@{lang.ja}
+
+- $1 \leq N \leq 500,000$
+- $S$ は英小文字からなる。
+
+@{lang.end}
 
 ## @{keyword.input}
 

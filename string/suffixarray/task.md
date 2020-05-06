@@ -1,12 +1,30 @@
 ## @{keyword.statement}
+
+@{lang.en}
+
+Given a length $N$ string $S$. Calculate the suffix array of $S$, $a_i$.
+
+@{lang.ja}
+
 長さ $N$ の文字列 $S$ が与えられます。$S$ の suffix array $a_i$ を求めてください。
+
+@{lang.end}
+
 
 
 ## @{keyword.constraints}
 
-- $1 \leq N \leq 500,000$
-- $S$ は英小文字からなる
+@{lang.en}
 
+- $1 \leq N \leq 500,000$
+- Each character of $S$ is lowercase English letters.
+
+@{lang.ja}
+
+- $1 \leq N \leq 500,000$
+- $S$ は英小文字からなる。
+
+@{lang.end}
 
 ## @{keyword.input}
 

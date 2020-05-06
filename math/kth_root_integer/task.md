@@ -1,7 +1,14 @@
 ## @{keyword.statement}
+
+@{lang.en}
+Each test case consist of $T$ cases.
+
+Given $A, K$. Print $\textrm{floor}(a^{1/k})$.
+@{lang.ja}
 この問題は $T$ ケース与えられます。
 
 $A, K$ が与えられます。$\textrm{floor}(a^{1/k})$ を求めてください。
+@{lang.end}
 
 ## @{keyword.constraints}
 
@@ -21,7 +28,11 @@ $A_{T-1}$ $K_{T-1}$
 
 ## @{keyword.output}
 
+@{lang.en}
+For each line, print the answer.
+@{lang.ja}
 各行に、求めたものを出力してください。
+@{lang.end}
 
 ## @{keyword.sample}
 

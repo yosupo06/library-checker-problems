@@ -2,6 +2,7 @@
 
 ![CI](https://github.com/yosupo06/library-checker-problems/workflows/CI/badge.svg)
 [![Gitter](https://badges.gitter.im/library-checker-problems/community.svg)](https://gitter.im/library-checker-problems/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp)
 
@@ -9,13 +10,12 @@ Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp)
 
 ## Requirements
 
-- Linux / OS X
+- Linux / OS X / Windows(MinGW64)
 - python3.5+
 - g++ / clang++ (--std=c++14, __int128_tが使える必要あり)
 
 ### (需要と余力があれば)対応予定
 
-- Windows
 - MSVC++
 - __int128_tの除去
 
@@ -24,31 +24,26 @@ Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp)
 ```sh
 cd /path/to/library-checker-problems
 
-pip3 install toml colorlog markdown jinja2
-# or pip3 install -r requirements.txt
+pip3 install -r requirements.txt
+# or pip3 install toml colorlog markdown jinja2
 
-ulimit -s unlimited # for linux (don't need for os x)
+ulimit -s unlimited # for linux (doesn't need for OS X and WSL)
 
-# generate testcase
 ./generate.py -p unionfind # generate testcases of unionfind
 # or ./generate.py datastructure/unionfind/info.toml
 ls datastructure/unionfind/in/ # testcases of unionfind
 ls datastructure/unionfind/out/ # solutions of unionfind
+file datastructure/unionfind/checker # binary of output checker
+```
 
-./generate.py $(find . -name "info.toml" -not -path "./test/*") # generate testcases of all problems
+### For developer
 
-# generate hash(For developers)
-./generate.py -p unionfind --refhash # if you fix some code, you have to regenerate hashes of testcases
+```
+./generate.py -p unionfind --dev # developer mode
+./generate.py -p unionfind --test # test mode (for developer, run this before pull request)
+cat datastructure/unionfind/unionfind.html # statement
 
-# verify
-./generate.py -p unionfind --verify # generate testcases & run input checker & run other solutions
-
-# generate statement
-./generate.py -p unionfind --html # generate testcases & generate html
-ls datastructure/unionfind/task.html # statement
-
-# compile checker (mainly target for other project developers)
-./generate.py -p unionfind --compile-checker # generate executable binary in ./datastrucure/unionfind/checker
+./generate.py $(find . -name "info.toml" -not -path "./test/*") # generate all testcases
 ```
 
 ## ローカルでのテスト

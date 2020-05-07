@@ -20,6 +20,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/442"
 [[tests]]
 	name = "max_random.cpp"
 	number = 3
+[[tests]]
+	name = "star.cpp"
+	number = 2
 
 [[solutions]]
 	name = 'naive.cpp'
@@ -27,6 +30,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/442"
 [[solutions]]
 	name = 'correct_slow.cpp'
 	wrong = false
+[[solutions]]
+	name = "deg_2.cpp"
+	wrong = true
 
 [params]
 	N_MIN = 1

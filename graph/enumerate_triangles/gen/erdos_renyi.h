@@ -4,6 +4,7 @@
 #include <cstdio>
 #include <set>
 #include <utility>
+#include <vector>
 
 void erdos_renyi(int n, int m, Random &gen) {
   assert(static_cast<long long>(n) * (n - 1) / 2 >= m);

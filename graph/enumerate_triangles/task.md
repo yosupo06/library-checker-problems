@@ -25,7 +25,7 @@ $i$ 番目の辺は $\lbrace u_i, v_i \rbrace$ です。
 - $0 \le x_i \lt @{param.MOD}$
 - $0 \le u_i \lt N$
 - $0 \le v_i \lt N$
-- $u_i \neq v_j$
+- $u_i \neq v_i$
 - $\lbrace u_i, v_i \rbrace \neq \lbrace u_j, v_j \rbrace \  (i \neq j)$
 
 ## @{keyword.input}

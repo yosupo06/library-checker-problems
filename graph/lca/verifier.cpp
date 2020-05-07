@@ -1,13 +1,13 @@
 #include <iostream>
-
 #include "testlib.h"
+#include "params.h"
 
 int main() {
     registerValidation();
 
-    int n = inf.readInt(2, 500'000);
+    int n = inf.readInt(N_MIN, N_MAX);
     inf.readSpace();
-    int q = inf.readInt(1, 500'000);
+    int q = inf.readInt(Q_MIN, Q_MAX);
     inf.readChar('\n');
 
     for (int i = 1; i < n; i++) {

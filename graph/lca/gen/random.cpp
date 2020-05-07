@@ -1,16 +1,16 @@
 #include <iostream>
 #include "random.h"
+#include "../params.h"
 
 using namespace std;
 
 int main(int, char* argv[]) {
 
-
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = gen.uniform(2, 500'000);
-    int q = gen.uniform(1, 500'000);
+    int n = gen.uniform<int>(N_MIN, N_MAX);
+    int q = gen.uniform<int>(Q_MIN, Q_MAX);
     printf("%d %d\n", n, q);
     for (int i = 1; i < n; i++) {
         printf("%d", gen.uniform(0, i - 1));
@@ -19,10 +19,7 @@ int main(int, char* argv[]) {
     printf("\n");
     for (int i = 0; i < q; i++) {
         int u, v;
-        do {
-            u = gen.uniform(0, n - 1);
-            v = gen.uniform(0, n - 1);
-        } while (!(u < v));
+        std::tie(u, v) = gen.uniform_pair<int>(0, n - 1);
         printf("%d %d\n", u, v);
     }
     return 0;

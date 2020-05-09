@@ -13,8 +13,8 @@ $N$ 頂点 $M$ 辺の単純な無向グラフが与えられる。辺は $(u_i, 
 
 ## @{keyword.constraints}
 
-- $1 \leq N \leq 40$
-- $1 \leq M \leq N(N - 1) / 2$
+- $1 \leq N \leq @{param.N_MAX}$
+- $0 \leq M \leq \frac{N(N-1)}{2}$
 - $0 \leq u_i, v_i < N$
 - $u_i \neq v_i$
 - $(u_i, v_i) \neq (u_j, v_j)$

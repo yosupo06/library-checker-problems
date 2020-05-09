@@ -3,11 +3,12 @@
 #include <set>
 
 #include "testlib.h"
+#include "params.h"
 
 int main() {
     registerValidation();
 
-    int n = inf.readInt(1, 40, "n");
+    int n = inf.readInt(N_MIN, N_MAX, "n");
     inf.readSpace();
     int m = inf.readInt(0, n * (n - 1) / 2, "m");
     inf.readChar('\n');

@@ -20,7 +20,7 @@ $N$ 頂点 $M$ 辺の単純重み付き有向グラフが与えられます。$i
 - $s \neq t$
 - $0 \leq a_i \lt N$
 - $0 \leq b_i \lt N$
-- $a_i \neq a_j$
+- $a_i \neq b_i$
 - $(a_i, b_i) \neq (a_j, b_j) (i \neq j)$
 - $@{param.C_MIN} \leq c_i \leq @{param.C_MAX}$
 

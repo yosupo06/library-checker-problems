@@ -15,8 +15,8 @@ $\sum_{i = 0}^{N - 1} a_{ip_i}$ を最小化する順列 $p_i$ を構成して�
 
 ## @{keyword.constraints}
 
-- $1 \leq N \leq 500$
-- $|a_{ij}| \leq 10^9$
+- $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
+- $|a_{ij}| \leq @{param.A_ABS_MAX}$
 
 ## @{keyword.input}
 

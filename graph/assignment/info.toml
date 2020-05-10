@@ -5,13 +5,28 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/38"
 [[tests]]
     name = "example.in"
     number = 1
+
 [[tests]]
     name = "random.cpp"
     number = 5
+
 [[tests]]
     name = "max_random.cpp"
     number = 5
 
+[[tests]]
+    name = "hand_plus.cpp"
+    number = 1
+
+[[tests]]
+    name = "hand_minus.cpp"
+    number = 1
+
 [[solutions]]
-    name = 'invalid.cpp'    
+    name = 'invalid.cpp'
     wrong = true
+
+[params]
+    N_MIN = 1
+    N_MAX = 500
+    A_ABS_MAX = 1000000000

@@ -28,7 +28,7 @@ logger: Logger = getLogger(__name__)
 
 if __name__ == "__main__":
     basicConfig(
-        level=getenv('LOG_LEVEL', 'DEBUG'),
+        level=getenv('LOG_LEVEL', 'INFO'),
         format="%(asctime)s %(levelname)s %(name)s : %(message)s"
     )
     parser = argparse.ArgumentParser(description='Testcase Deploy')
@@ -72,7 +72,7 @@ if __name__ == "__main__":
         with tempfile.NamedTemporaryFile(suffix='.zip') as tmp:
             m = hashlib.sha256()
 
-            with zipfile.ZipFile(tmp.name, 'w') as newzip:
+            with zipfile.ZipFile(tmp.name, 'w', zipfile.ZIP_DEFLATED) as newzip:
                 def zip_write(filename, arcname):
                     newzip.write(filename, arcname)
                     m.update(pack('q', path.getsize(filename)))
@@ -83,12 +83,12 @@ if __name__ == "__main__":
                     zip_write(f, arcname=f.relative_to(probdir))
                 for f in sorted(probdir.glob('out/*.out')):
                     zip_write(f, arcname=f.relative_to(probdir))
-
+            
             tmp.seek(0)
             data = tmp.read()
             datahash = m.hexdigest()
 
-            print('[*] deploy {} {}'.format(name, datahash))
+            print('[*] deploy {} {}Mbytes {}'.format(name, len(data) / 1024 / 1024, datahash))
 
             # convert task
             html = problem.gen_html()

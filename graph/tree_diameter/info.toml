@@ -1,0 +1,16 @@
+timelimit = 2.0
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "random.cpp"
+    number = 10
+
+[[solutions]]
+    name = "wa.cpp"
+    wrong = true
+
+[params]
+    N_MIN = 2
+    N_MAX = 500_000

@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cstdio>
 #include <vector>
 #include <tuple>
 
@@ -51,12 +51,12 @@ void path_restoration(const std::vector<std::vector<std::pair<int, T>>> &g, std:
 int main() {
 
   int n;
-  std::cin >> n;
+  scanf("%d", &n);
   Graph g(n);
   for (int i = 0; i < n - 1; i++) {
     int a, b;
     lint c;
-    std::cin >> a >> b >> c;
+    scanf("%d %d %lld", &a, &b, &c);
     g[a].push_back({b, c});
     g[b].push_back({a, c});
   }
@@ -64,12 +64,12 @@ int main() {
   auto [u, v, dist] = tree_diameter<lint>(g);
   std::vector<int> path;
   path_restoration(g, path, u, -1, v);
-  std::cout << dist << " " << path.size() << std::endl;
+  printf("%lld %zu\n", dist, path.size());
   for (int i = 0; i < path.size(); i++) {
     if (i + 1 == path.size()) {
-      std::cout << path[i] << std::endl;
+      printf("%d\n", path[i]);
     } else {
-      std::cout << path[i] << " ";
+      printf("%d ", path[i]);
     }
   }
   return 0;

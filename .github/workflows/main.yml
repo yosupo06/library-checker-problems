@@ -125,7 +125,7 @@ jobs:
             ${{ runner.os }}-cache-
       - name: Run generate.py on gcc
         run: |
-          python ci_generate.py --html --htmldir=D:/tmp/html
+          python ci_generate.py --htmldir=D:/tmp/html
           
   gcc-ubuntu:
     runs-on: ubuntu-latest

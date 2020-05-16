@@ -1,8 +1,9 @@
+#include <iostream>
 #include "testlib.h"
 
 struct Result {
-  int X;
-  long long Y;
+  long long X;
+  int Y;
   std::vector<int> path;
 };
 
@@ -10,52 +11,52 @@ int main(int argc, char *argv[]) {
 
   registerTestlibCmd(argc, argv);
 
-  int n = readInt();
+  int N = inf.readInt();
 
   using edge = std::pair<int, int>;
   std::map<edge, long long> edges;
-  for (int i = 0; i < n - 1; i++) {
+  for (int i = 0; i < N - 1; i++) {
     int a = inf.readInt();
     int b = inf.readInt();
     long long c = inf.readInt();
     if (a > b) {
-      swap(a, b);
+      std::swap(a, b);
     }
     
-    edges[make_pair(a, b)] = c;
+    edges[std::make_pair(a, b)] = c;
   }
+  
   
   Result res_ans;
   Result res_submitted;
 
-
-  res_ans.X = ans.readInt();
+  res_ans.X = ans.readLong();
   res_ans.Y = ans.readInt();
 
   res_submitted.X = ouf.readLong();
-  res_submitted.Y = ouf.readLong();
+  res_submitted.Y = ouf.readInt();
 
   // 木の直径が正しいことの確認
-  if (res_ans.Y != res_submitted.Y) {
-    quitf(_wa, "Tree Diameter is differ - expected: '%lld', found '%d'", res_ans.Y, res_submitted.Y);
+  if (res_ans.X != res_submitted.X) {
+    quitf(_wa, "Tree Diameter is differ - expected: '%d', found '%d'", res_ans.Y, res_submitted.Y);
   }
 
-
   // 復元されたパスが，ちゃんと正しいかを確認
-  for (int i = 0; i < res_ans.X; i++) {
+  for (int i = 0; i < res_ans.Y; i++) {
     int node = ouf.readInt();
     res_submitted.path.push_back(node);
   }
 
   int cur = res_submitted.path[0];
-  long long cost;
-  std::vector<bool> visited(n, false);
+  long long cost = 0;
+  std::vector<bool> visited(N, false);
   visited[cur] = true;
-  for (int i = 1; i < res_submitted.path.size(); i++) {
+
+  for (size_t i = 1; i < res_submitted.path.size(); i++) {
     int u = res_submitted.path[i - 1];
     int v = res_submitted.path[i];
     if (u > v) {
-      swap(u, v);
+      std::swap(u, v);
     }
 
     // 存在する？
@@ -77,18 +78,18 @@ int main(int argc, char *argv[]) {
       quitf(_wa, "visited the same vertex #%d twice", cur);
     }
 
-    cost += edge({u, v});
+    cost += edges[std::make_pair(u, v)];
   }
 
-  // cost は Y と一致する？
-  if (cost != Y) {
-    quitf(_wa, "total weights differ between Y(" %lld ") and submitted path's(" %lld ")", Y, cost);
+  // cost は X と一致する？
+  if (cost != res_submitted.X) {
+    quitf(_wa, "total weights differ between Y(%lld) and submitted path's(%lld)", res_submitted.X, cost);
   }
 
   if (ouf.seekEof()) {
     quitf(_ok, "OK");
   } else {
-    quitf(_ng, "unexpected token");
+    quitf(_wa, "unexpected token");
   }
   
   return 0;

@@ -10,22 +10,24 @@ int main(int, char* argv[]) {
   auto gen = Random(seed);
 
   int N = N_MAX;
-  vector<int> par(n, -1);
-  for (int i = 1; i < n; i++) {
+  std::vector<int> par(N, -1);
+  for (int i = 1; i < N; i++) {
     par[i] = gen.uniform(0, i - 1);
   }
 
-  using edge = tuple<int, int, int>;
-  vector<edge> edges;
-  for (int i = 1; i < n; i++) {
+  using edge = std::tuple<int, int, int>;
+  std::vector<edge> edges;
+  for (int i = 1; i < N; i++) {
     int c = gen.uniform(C_MIN, C_MAX);
-    edges.emplace_back(i, p[i], c);
+    edges.emplace_back(i, par[i], c);
   }
 
-  gen.shuffle(edge.begin(), edge.begin());
-  prinft("%d\n", n);
-  for (auto e * edges) {
-    auto [u, v, c] = e;
+  gen.shuffle(edges.begin(), edges.begin());
+  printf("%d\n", N);
+  for (auto e : edges) {
+    // auto [u, v, c] = e;
+    int u, v, c;
+    std::tie(u, v, c) = e;
     printf("%d %d %d\n", u, v, c);
   }
 

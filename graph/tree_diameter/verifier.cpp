@@ -4,7 +4,7 @@
 
 using lint = long long int;
 
-void dfs(const std::vector<std::vector<int>> &g, std::vector<bool> &visited, int cur, int nxt, bool &ret) {
+void dfs(const std::vector<std::vector<int>> &g, std::vector<bool> &visited, int cur, int par, bool &ret) {
 
   visited[cur] = true;
   for (auto nxt : g[cur]) {
@@ -43,20 +43,19 @@ int main() {
   int N = inf.readInt(N_MIN, N_MAX);
   inf.readChar('\n');
 
-  std::vector<std::vector<int>> g(n);
+  std::vector<std::vector<int>> g(N);
 
-  for(int i = 0; i < N; i++) {
+  for(int i = 0; i < N - 1; i++) {
     int a = inf.readInt(0, N - 1);
     inf.readSpace();
     int b = inf.readInt(0, N - 1);
     inf.readSpace();
-    lint c = inf.readLong(C_MIN, C_MAX);
+    inf.readLong(C_MIN, C_MAX);
 
     g[a].push_back(b);
     g[b].push_back(a);
 
-    if(i + 1 == N) inf.readChar('\n');
-    else inf.readSpace();
+    inf.readChar('\n');
   }
 
   // 連結であること

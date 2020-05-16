@@ -3,7 +3,7 @@ timelimit = 10.0
 forum = "https://github.com/yosupo06/library-checker-problems/issues/385"
 
 [[tests]]
-    name = "example.cpp"
+    name = "example.in"
     number = 1
 [[tests]]
     name = "big.cpp"

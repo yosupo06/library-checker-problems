@@ -2,7 +2,7 @@ timelimit = 2.0
 
 [[tests]]
     name = "example.in"
-    number = 2
+    number = 1
 
 [[tests]]
     name = "random.cpp"
@@ -13,8 +13,12 @@ timelimit = 2.0
     number = 10
 
 [[tests]]
+    name = "uni.cpp"
+    number = 2
+
+[[tests]]
     name = "line.cpp"
-    number = 10
+    number = 2
 
 [[solutions]]
     name = "wa.cpp"

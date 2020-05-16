@@ -39,5 +39,3 @@ $u_i$,$u_{i+1}$ はそれぞれ $i+1$ 番目に通る辺の始点と終点を表
 ## @{keyword.sample}
 
 @{example.example_00}
-
-@{example.example_01}

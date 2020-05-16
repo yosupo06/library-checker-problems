@@ -20,10 +20,6 @@ timelimit = 2.0
     name = "line.cpp"
     number = 2
 
-[[solutions]]
-    name = "wa.cpp"
-    wrong = true
-
 [params]
     N_MIN = 2
     N_MAX = 500_000

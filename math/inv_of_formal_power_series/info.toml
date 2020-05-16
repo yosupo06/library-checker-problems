@@ -14,3 +14,13 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/120"
 [[tests]]
     name = "max_random_or_zero.cpp"
     number = 1
+[[tests]]
+    name = "near_262144.cpp"
+    number = 3
+[[tests]]
+    name = "small_degree.cpp"
+    number = 10
+
+[params]
+    N_MAX = 500_000
+    MOD = 998_244_353

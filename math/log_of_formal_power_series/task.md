@@ -21,8 +21,8 @@ $$f(x) = \sum_{k = 0}^{N - 1}{\frac{g(x)^k}{k!}} \bmod (x^N)$$
 
 ## @{keyword.constraints}
 
-- $1 \leq N \leq 500,000$
-- $0 \leq a_i < 998244353$
+- $1 \leq N \leq @{param.N_MAX}$
+- $0 \leq a_i < @{param.MOD}$
 - $a_0 = 1$
 
 ## @{keyword.input}
@@ -39,9 +39,9 @@ $b_0$ $b_1$ ... $b_{N - 1}$
 ```
 
 @{lang.en}
-If we denote $g(x) = \sum_{i = 0}^{N - 1} b'_i x^i$, $b_i \equiv b'_i (\bmod 998244353)$ is satisfied.
+If we denote $g(x) = \sum_{i = 0}^{N - 1} b'_i x^i$, $b_i \equiv b'_i (\bmod @{param.MOD})$ is satisfied.
 @{lang.ja}
-ただし $g(x) = \sum_{i = 0}^{N - 1} b'_i x^i$ としたとき, $b_i \equiv b'_i (\bmod 998244353)$ とする
+ただし $g(x) = \sum_{i = 0}^{N - 1} b'_i x^i$ としたとき, $b_i \equiv b'_i (\bmod @{param.MOD})$ とする
 @{lang.end}
 
 ## @{keyword.sample}

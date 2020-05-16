@@ -1,5 +1,6 @@
 #include "random.h"
 #include <iostream>
+#include "../params.h"
 
 using namespace std;
 using ll = long long;
@@ -9,7 +10,7 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = 500'000;
+    int n = N_MAX;
     int k = gen.uniform(0, (n - 1) / 2) * 2;
     k += seed % 2;
     printf("%d\n", n);

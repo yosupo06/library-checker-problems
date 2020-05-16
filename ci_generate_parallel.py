@@ -26,4 +26,4 @@ if __name__ == '__main__':
         for x in tomls:
             print('  {}'.format(x))
     else:
-        generate.main(['--verify'] + list(map(str, tomls)) + args.args)
+        generate.main(['--test'] + list(map(str, tomls)) + args.args)

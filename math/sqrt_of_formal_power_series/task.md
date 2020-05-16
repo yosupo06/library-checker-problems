@@ -5,21 +5,21 @@ Given formal power series $f(x) = \sum_{i = 0}^{N - 1} a_i x^i$. Calculate first
 
 $$f(x) = g(x) \times g(x) \bmod (x^N)$$
 
-is satisfied. We consider everything in $\mathbb{Z}_{998244353}$.
+is satisfied. We consider everything in $\mathbb{Z}_{@{param.MOD}}$.
 
 @{lang.ja}
 母関数 $f(x) = \sum_{i = 0}^{N - 1} a_i x^i$ が与えられます。$\sqrt{f(x)}$ の先頭 $N$ 項を求めてください。つまり
 
 $$f(x) = g(x) \times g(x) \bmod (x^N)$$
 
-となる $g(x)$ を出力してください。ただし係数は全て $\mathbb{Z}_{998244353}$ とします
+となる $g(x)$ を出力してください。ただし係数は全て $\mathbb{Z}_{@{param.MOD}}$ とします
 @{lang.end}
 
 
 ## @{keyword.constraints}
 
-- $1 \leq N \leq 500,000$
-- $0 \leq a_i < 998244353$
+- $1 \leq N \leq @{param.N_MAX}$
+- $0 \leq a_i < @{param.MOD}$
 
 ## @{keyword.input}
 

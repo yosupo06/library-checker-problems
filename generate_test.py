@@ -29,22 +29,6 @@ def create_test_dir(problem_name: str) -> TemporaryDirectory:
 
 class TestSuccess(unittest.TestCase):
     # select problem by problem id
-    def test_success_problem_name(self):
-        proc = run(
-            ['./generate.py', '-p', 'simple_aplusb', '--verify', '--html'])
-        self.assertEqual(proc.returncode, 0)
-
-    def test_success_info_toml(self):
-        proc = run(
-            ['./generate.py', 'test/simple_aplusb/info.toml', '--verify', '--html'])
-        self.assertEqual(proc.returncode, 0)
-
-    def test_success(self):
-        with create_test_dir('simple_aplusb') as test_dir:
-            proc = run(
-                ['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml'), '--verify', '--html'])
-            self.assertEqual(proc.returncode, 0)
-
     def test_success_user(self):
         with create_test_dir('simple_aplusb') as test_dir:
             proc = run(['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml')])
@@ -83,12 +67,6 @@ class TestCompileChecker(unittest.TestCase):
 
 
 class TestVerify(unittest.TestCase):
-    def test_failed_verify(self):
-        with create_test_dir('failed_verify') as test_dir:
-            proc = run(
-                ['./generate.py', str(Path(test_dir) / 'failed_verify/info.toml'), '--verify'])
-            self.assertNotEqual(proc.returncode, 0)
-
     def test_no_verify_user(self):
         with create_test_dir('failed_verify') as test_dir:
             proc = run(['./generate.py', str(Path(test_dir) / 'failed_verify/info.toml')])
@@ -119,12 +97,6 @@ class TestUnusedExample(unittest.TestCase):
                 ['./generate.py', str(Path(test_dir) / 'unused_example/info.toml')])
             self.assertEqual(proc.returncode, 0)
 
-    def test_unused_example(self):
-        with create_test_dir('unused_example') as test_dir:
-            proc = run(
-                ['./generate.py', str(Path(test_dir) / 'unused_example/info.toml'), '--html'])
-            self.assertNotEqual(proc.returncode, 0)
-
     def test_unused_example_dev(self):
         with create_test_dir('unused_example') as test_dir:
             proc = run(['./generate.py', str(Path(test_dir) / 'unused_example/info.toml'), '--dev'])
@@ -136,18 +108,12 @@ class TestUnusedExample(unittest.TestCase):
             self.assertNotEqual(proc.returncode, 0)
 
 
-class TestNonExistdExample(unittest.TestCase):
+class TestNonExistExample(unittest.TestCase):
     def test_no_html(self):
         with create_test_dir('nonexist_example') as test_dir:
             proc = run(
                 ['./generate.py', str(Path(test_dir) / 'nonexist_example/info.toml')])
             self.assertEqual(proc.returncode, 0)
-
-    def test_non_exist_user(self):
-        with create_test_dir('nonexist_example') as test_dir:
-            proc = run(
-                ['./generate.py', str(Path(test_dir) / 'nonexist_example/info.toml'), '--html'])
-            self.assertNotEqual(proc.returncode, 0)
 
     def test_non_exist_dev(self):
         with create_test_dir('nonexist_example') as test_dir:
@@ -216,7 +182,7 @@ class TestAllowTLE(unittest.TestCase):
     def test_allow_tle(self):
         with create_test_dir('allow_tle') as test_dir:
             proc = run(
-                ['./generate.py', str(Path(test_dir) / 'allow_tle/info.toml'), '--verify'])
+                ['./generate.py', str(Path(test_dir) / 'allow_tle/info.toml'), '--test'])
             self.assertEqual(proc.returncode, 0)
 
 
@@ -224,7 +190,7 @@ class TestOtherCheckerPlace(unittest.TestCase):
     def test_other_checker_place(self):
         with create_test_dir('other_checker_place') as test_dir:
             proc = run(
-                ['./generate.py', str(Path(test_dir) / 'other_checker_place/info.toml'), '--verify'])
+                ['./generate.py', str(Path(test_dir) / 'other_checker_place/info.toml'), '--test'])
             self.assertEqual(proc.returncode, 0)
 
 
@@ -232,7 +198,7 @@ class TestOtherVerifierPlace(unittest.TestCase):
     def test_other_verifier_place(self):
         with create_test_dir('other_verifier_place') as test_dir:
             proc = run(
-                ['./generate.py', str(Path(test_dir) / 'other_verifier_place/info.toml'), '--verify'])
+                ['./generate.py', str(Path(test_dir) / 'other_verifier_place/info.toml'), '--test'])
             self.assertEqual(proc.returncode, 0)
 
 

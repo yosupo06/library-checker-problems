@@ -415,7 +415,7 @@ class Problem:
         def rewrite_hash(self):
             return self == self.DEV
         def generate_html(self):
-            return self == self.DEV
+            return self == self.DEV or self == self.TEST
 
     def generate(self, mode: Mode, html_dir: Optional[Path]):
         if mode == self.Mode.DEV:
@@ -458,8 +458,6 @@ class Problem:
 
         if mode.generate_html():
             self.write_html(html_dir if html_dir else self.basedir)
-
-        pass
 
 def generate(
         problem: Problem,
@@ -547,11 +545,17 @@ def main(args: List[str]):
     parser.add_argument('--dev', action='store_true', help='Developer Mode')
     parser.add_argument('--test', action='store_true', help='CI Mode')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
+    parser.add_argument('--compile-checker',
+                        action='store_true', help='Deprecated: Compile Checker')
 
     opts = parser.parse_args(args)
 
     if opts.dev and opts.test:
         raise ValueError('only one of --dev and --test can be used')
+
+    if opts.compile_checker:
+        logger.warning(
+            '--compile-checker is deprecated. Checker is compiled in default')
 
     libdir = Path(__file__).parent
     problems = list()  # type: List[Problem]

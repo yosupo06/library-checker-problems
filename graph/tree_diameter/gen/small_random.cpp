@@ -9,13 +9,17 @@ int main(int, char* argv[]) {
   long long seed = atoll(argv[1]);
   auto gen = Random(seed);
 
-  int N = N_MAX;
+  int N = gen.uniform(N_MIN, 100LL);
+  std::vector<int> par(N, -1);
+  for (int i = 1; i < N; i++) {
+    par[i] = gen.uniform(0, i - 1);
+  }
 
   using edge = std::tuple<int, int, int>;
   std::vector<edge> edges;
   for (int i = 1; i < N; i++) {
     int c = gen.uniform(C_MIN, C_MAX);
-    edges.emplace_back(i - 1, i, c);
+    edges.emplace_back(i, par[i], c);
   }
 
   gen.shuffle(edges.begin(), edges.end());

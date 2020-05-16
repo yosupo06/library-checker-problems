@@ -18,7 +18,7 @@ int main(int, char* argv[]) {
     edges.emplace_back(0, i, c);
   }
 
-  gen.shuffle(edges.begin(), edges.begin());
+  gen.shuffle(edges.begin(), edges.end());
   printf("%d\n", N);
   for (auto e : edges) {
     // auto [u, v, c] = e;

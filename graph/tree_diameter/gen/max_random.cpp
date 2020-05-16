@@ -22,7 +22,7 @@ int main(int, char* argv[]) {
     edges.emplace_back(i, par[i], c);
   }
 
-  gen.shuffle(edges.begin(), edges.begin());
+  gen.shuffle(edges.begin(), edges.end());
   printf("%d\n", N);
   for (auto e : edges) {
     // auto [u, v, c] = e;

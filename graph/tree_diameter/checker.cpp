@@ -64,7 +64,7 @@ int main(int argc, char *argv[]) {
       quitf(_wa, "using an edge that doesn't exist : (%d, %d)", u, v);
     }
 
-    // 片方は cur?
+    // パスが繋がってるかを確認
     if (cur == v) {
       cur = u;
     } else if (cur == u) {
@@ -77,6 +77,8 @@ int main(int argc, char *argv[]) {
     if (visited[cur]) {
       quitf(_wa, "visited the same vertex #%d twice", cur);
     }
+
+    visited[cur] = true;
 
     cost += edges[std::make_pair(u, v)];
   }

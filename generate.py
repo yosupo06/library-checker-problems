@@ -14,8 +14,9 @@ from pathlib import Path
 from subprocess import (DEVNULL, PIPE, STDOUT, CalledProcessError,
                         TimeoutExpired, call, check_call, check_output, run)
 from tempfile import TemporaryDirectory
-from typing import Any, Iterator, List, MutableMapping, Union
+from typing import Any, Iterator, List, MutableMapping, Union, Optional
 
+from enum import Enum
 import toml
 
 logger = getLogger(__name__)  # type: Logger
@@ -296,7 +297,6 @@ class Problem:
             all_hash.update(hashlib.sha256(open(str(path), 'rb').read()).digest())
         return all_hash.hexdigest()
 
-
     def judge(self, src: Path, config: dict):
         indir = self.basedir / 'in'
         outdir = self.basedir / 'out'
@@ -404,6 +404,62 @@ class Problem:
         json.dump(self.calc_hashes(), open(
             str(self.basedir / 'hash.json'), 'w'), indent=2, sort_keys=True)
 
+    class Mode(Enum):
+        DEFAULT = 1
+        DEV = 2
+        TEST = 3
+        def force_generate(self):
+            return self == self.DEV or self == self.TEST
+        def verify(self):
+            return self == self.DEV or self == self.TEST
+        def rewrite_hash(self):
+            return self == self.DEV
+        def generate_html(self):
+            return self == self.DEV
+
+    def generate(self, mode: Mode, html_dir: Optional[Path]):
+        if mode == self.Mode.DEV:
+            self.ignore_warning = True
+
+        logger.info('Start {}'.format(self.basedir.name))
+
+        # health check
+        self.health_check()
+
+        self.generate_params_h()
+
+        is_testcases_already_generated = self.is_testcases_already_generated()
+        is_checker_already_generated = self.is_checker_already_generated()
+
+        if not is_checker_already_generated or mode.force_generate():
+            self.compile_checker()
+
+        if not is_testcases_already_generated or mode.force_generate():
+            self.compile_correct()
+            self.compile_gens()
+            self.make_inputs()
+
+        if mode.verify():
+            self.compile_verifier()
+            self.verify_inputs()
+
+        if not is_testcases_already_generated or mode.force_generate():
+            self.make_outputs(mode.verify())
+
+        if mode.verify():
+            self.compile_solutions()
+            for sol in self.config.get('solutions', []):
+                self.judge(self.basedir / 'sol' / sol['name'], sol)
+
+        if mode.rewrite_hash():
+            self.write_hashes()
+        else:
+            self.assert_hashes()
+
+        if mode.generate_html():
+            self.write_html(html_dir if html_dir else self.basedir)
+
+        pass
 
 def generate(
         problem: Problem,
@@ -455,7 +511,6 @@ def generate(
     if generate_html:
         problem.write_html(html_dir if html_dir else problem.basedir)
 
-
 def main(args: List[str]):
     try:
         import colorlog
@@ -493,52 +548,16 @@ def main(args: List[str]):
     parser.add_argument('--test', action='store_true', help='CI Mode')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
 
-    parser.add_argument('--html', action='store_true', help='Deprecated: Generate HTML')
-    parser.add_argument('--verify', action='store_true', help='Deprecated: Verify Inputs')
-    parser.add_argument('--refhash', action='store_true', help='Deprecated: Refresh Hash')
-    parser.add_argument(
-        '--ignore-cache', action='store_true', help='Deprecated: Ignore cache')
-    parser.add_argument('--compile-checker',
-                        action='store_true', help='Deprecated: Compile Checker')
-    parser.add_argument('--nogen', action='store_true', help='Deprecated: Skip Generate')
-    parser.add_argument('--sol', action='store_true', help='Deprecated: Solution Test')
-
-
     opts = parser.parse_args(args)
 
     if opts.dev and opts.test:
         raise ValueError('only one of --dev and --test can be used')
-
-    if opts.html:
-        logger.warning(
-            '--html is deprecated. Please use --dev or --test')
-    if opts.verify:
-        logger.warning(
-            '--verify is deprecated. Please use --dev or --test')
-    if opts.refhash:
-        logger.warning(
-            '--refhash is deprecated. Please use --dev')
-    if opts.ignore_cache:
-        logger.warning(
-            '--ignore-cache is deprecated. Please use --dev')
-    if opts.compile_checker:
-        logger.warning(
-            '--compile-checker is deprecated. Checker is compiled in default')
-    if opts.nogen:
-        logger.warning(
-            '--nogen is deprecated, because auto skip was implemented')
-    if opts.sol:
-        logger.warning(
-            '--sol is deprecated. --sol is also enabled by --verify')
 
     libdir = Path(__file__).parent
     problems = list()  # type: List[Problem]
 
     for tomlpath in opts.toml:
         tomlfile = toml.load(opts.toml)
-        if 'problems' in tomlfile:
-            logger.warning('problems.toml is deprecated')
-            continue
         problems.append(Problem(libdir, Path(tomlpath).parent))
 
     for problem_name in opts.problem:
@@ -547,7 +566,7 @@ def main(args: List[str]):
             logger.error('Cannot find problem: {}'.format(problem_name))
             exit(1)
         if len(tomls) >= 2:
-            logger.error('Find multi problem dirs: {}'.format(problem_name))
+            logger.error('Find multiple problem dirs: {}'.format(problem_name))
             exit(1)
         problem_dir = tomls[0].parent
         problems.append(Problem(libdir, problem_dir))
@@ -557,7 +576,7 @@ def main(args: List[str]):
         logger.warning('No problems')
 
     if opts.htmldir:
-        logger.info('make htmldir')
+        logger.info('Make htmldir')
         Path(opts.htmldir).mkdir(exist_ok=True, parents=True)
     
     # suppress the annoying dialog appears when an application crashes on Windows
@@ -566,43 +585,14 @@ def main(args: List[str]):
         SEM_NOGPFAULTERRORBOX = 2 # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684863(v=vs.85).aspx
         ctypes.windll.kernel32.SetErrorMode(SEM_NOGPFAULTERRORBOX)
 
-
-    # default
-    force_generate = False
-    ignore_warning = False
-    rewrite_hash = False
-    verify = False
-    generate_html = False
-
+    mode = Problem.Mode.DEFAULT
     if opts.dev:
-        force_generate = True
-        ignore_warning = True
-        rewrite_hash = True
-        verify = True
-        generate_html = True
+        mode = Problem.Mode.DEV
     if opts.test:
-        force_generate = True
-        verify = True
-        generate_html = True
-
-    if opts.refhash:
-        rewrite_hash = True
-    if opts.ignore_cache:
-        force_generate = True
-    if opts.html:
-        generate_html = True
-    if opts.verify:
-        verify = True
+        mode = Problem.Mode.TEST
 
     for problem in problems:
-        generate(problem,
-                 force_generate=force_generate,
-                 ignore_warning=ignore_warning,
-                 rewrite_hash=rewrite_hash,
-                 verify=verify,
-                 generate_html=generate_html,
-                 html_dir=Path(opts.htmldir) if opts.htmldir else None)
-
+        problem.generate(mode, Path(opts.htmldir) if opts.htmldir else None)
 
 if __name__ == '__main__':
     main(sys.argv[1:])

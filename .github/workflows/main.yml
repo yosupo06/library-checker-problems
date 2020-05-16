@@ -148,7 +148,7 @@ jobs:
       - name: Run generate.py on gcc
         run: |
           ulimit -s unlimited
-          ./ci_generate_parallel.py 5 ${{ matrix.id }} --html --htmldir=/tmp/html
+          ./ci_generate_parallel.py 5 ${{ matrix.id }} --htmldir=/tmp/html
 
   mingw-windows:
     runs-on: windows-latest
@@ -170,4 +170,4 @@ jobs:
           python ci_generate_parallel.py --show-list 5 ${{ matrix.id }}
       - name: Run generate.py on gcc
         run: |
-          python ci_generate_parallel.py 5 ${{ matrix.id }} --html --htmldir=D:/tmp/html
+          python ci_generate_parallel.py 5 ${{ matrix.id }} --htmldir=D:/tmp/html

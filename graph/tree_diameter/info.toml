@@ -12,15 +12,15 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/465"
 
 [[tests]]
     name = "max_random.cpp"
-    number = 10
+    number = 2
 
 [[tests]]
     name = "uni.cpp"
-    number = 2
+    number = 1
 
 [[tests]]
     name = "line.cpp"
-    number = 2
+    number = 1
 
 [params]
     N_MIN = 2

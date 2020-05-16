@@ -14,7 +14,7 @@ $i$ 番目の辺は，頂点 $a_i$,$b_i$ 間に双方向に張られており，
 
 - 入力は全て整数である
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
-- $0 \leq a_i \leq \leq b_i N - 1$
+- $0 \leq a_i \leq b_i \leq N - 1$
 - $@{param.C_MIN} \leq c_i \leq @{param.C_MAX}$
 
 ## @{keyword.input}
@@ -33,7 +33,7 @@ $a_{N-2}$ $b_{N-2}$ $c_{N-2}$
 $X$ $Y$
 $u_0$ $u_1$ $\ldots$ $u_{Y-1}$
 ```
-$X$ はパスの長さ，$Y$ はパスに含まれる頂点数を表す．
+$X$ はパスの重みの総和，$Y$ はパスに含まれる頂点数を表す．
 $u_i$,$u_{i+1}$ はそれぞれ $i+1$ 番目に通る辺の始点と終点を表す．
 
 ## @{keyword.sample}

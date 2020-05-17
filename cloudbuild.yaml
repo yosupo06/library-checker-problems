@@ -30,4 +30,4 @@ steps:
         path: /cloudsql
     waitFor: ['generate_and_deploy']
 
-timeout: 1800s
+timeout: 3600s

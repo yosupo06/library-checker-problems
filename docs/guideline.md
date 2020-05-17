@@ -22,11 +22,11 @@
     - example_00.in サンプル
     - random.cpp
     - ...
-  - in/ デフォルトでは存在しない、生成された入力ファイルが入る
+  - (in/) デフォルトでは存在しない、生成された入力ファイルが入る
     - example_00.in
     - random_00.in
     - ...
-  - out/ デフォルトでは存在しない、生成された出力ファイルが入る
+  - (out/) デフォルトでは存在しない、生成された出力ファイルが入る
     - example_00.out
 
 準備する必要があるものは以下の物です。
@@ -61,7 +61,7 @@ timelimit = 2.0
     A_AND_B_MAX = 1_000_000_000
 ```
 
-- `timelimit`: 時間制限(秒)
+- `timelimit`: 時間制限(秒) aplusbは2secですが大体5secです
 - `[[tests]]`: それぞれが1つのテストケースジェネレーターに対応する
   - `name`: ファイル名　拡張子が`.in`のものは生ファイルに対応する
   - `number`: このジェネレーターから生成するケース数
@@ -79,8 +79,9 @@ markdown + mathjax形式です。他のtask.mdをコピペして弄ればいい�
 
 いくつか拡張されています
 
+- @{lang.en}, @{lang.ja}, @{lang.end} : このブロックで囲んだところは対応する言語にしか見えなくなります
 - @{example.example_00} : `gen/example_00.in`を埋め込みます
-- @{param.A_AND_B_MAX} : info.tomlで指定した`[params]`を埋め込みます。
+- @{param.A_AND_B_MAX} : info.tomlで指定した`[params]`を埋め込みます
 
 ## sol/correct.cpp(想定解)
 
@@ -91,14 +92,14 @@ markdown + mathjax形式です。他のtask.mdをコピペして弄ればいい�
 コーディング規約は以下です。守らないとCI(pull requestを送った時に走る自動テスト)で割と落ちます。
 
 - 言語はC++
-- `bits/stdc++.h`を使わない
 - 普段使いのテンプレートとかはOK、でも使ってないテンプレートが100行貼ってあるとかはやめてほしい
 - `cin / cout`ではなく`scanf / printf`を使う(高速入出力でも可)
-- `params.h`など、外部のファイルを(std以外)使わない
 - 警告を無視しない
-- 環境依存性がない(= 出力ファイルが手元とCIで全く同じ) 特に以下のことに注意するといいです
+- 環境依存性がない(=Windows, mac, linux全てで同じように動く) これはCIがチェックするのでそれを見ればいいです
+  - `bits/stdc++.h`を使わない
+  - `params.h`など、外部のファイルを(std以外)使わない
   - 環境依存性があるものを使わない: `rand()`, `uniform_int_distribution`, `shuffle`, ...
-  - `sort`は同じ大きさの物の順序が未定義だが、それらの物の順序で出力が変わらないか(特に構築)
+    - `sort`は同じ大きさの物の順序が未定義だが、それらの物の順序で出力が変わらないか(特に構築)
 
 ## verifier.cpp(input checker)
 
@@ -115,7 +116,7 @@ markdown + mathjax形式です。他のtask.mdをコピペして弄ればいい�
 
 ## gen/example_00.in, gen/example_01.in, gen/random.cppなど(ジェネレーター)
 
-テストケースです。[問題の作り方](generator.md)を参考にすると追加できます。
+テストケースです。[テストケースの作り方](generator.md)を参考にすると追加できます。
 
 - example_00.in は欲しい(サンプルは1個は欲しい)
 - random.cpp という名前でランダムケースが3個ぐらい欲しい
@@ -127,10 +128,9 @@ markdown + mathjax形式です。他のtask.mdをコピペして弄ればいい�
 ## 実際に動かす
 
 準備が無事にできたら、手元で動かしてみることができます。
-動かし方は [README](../README.md) の How to Use 通りに
 
 ```sh
-./generate.py sample/aplusb/info.toml --verify --refhash --html
+./generate.py sample/aplusb/info.toml --dev
 ```
 
 ### hash.json(自動生成)
@@ -144,4 +144,4 @@ markdown + mathjax形式です。他のtask.mdをコピペして弄ればいい�
 }
 ```
 
-無事動かせると上記のようなファイルが生まれているはずです。テストケースのハッシュ(sha256)が保存されていて、これもpushする必要があります(CIでもテストケースを作って、ハッシュがpushされたものと一致してるか確認する)。
+無事動かせると上記のようなファイルが生まれているはずです。テストケースのハッシュ(sha256)が保存されていて、これもcommitする必要があります(CIでもテストケースを作って、ハッシュがpushされたものと一致してるか確認する)。

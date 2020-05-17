@@ -37,8 +37,13 @@ int main(int argc, char *argv[]) {
   res_submitted.Y = ouf.readInt();
 
   // 木の直径が正しいことの確認
-  if (res_ans.X != res_submitted.X) {
-    quitf(_wa, "Tree Diameter is differ - expected: '%d', found '%d'", res_ans.Y, res_submitted.Y);
+  if (res_ans.X < res_submitted.X) { 
+    // 想定解より悪いとき
+    quitf(_wa, "Tree Diameter is differ - expected: " I64 ", found " I64, res_ans.X, res_submitted.X);
+  }
+  if (res_ans.X > res_submitted.X) {
+    // 想定解より良いとき
+    quitf(_fail, "Contestant found the more optimal answer - expected: " I64 ", found " I64, res_ans.X, res_submitted.X);
   }
 
   // 復元されたパスが，ちゃんと正しいかを確認
@@ -85,14 +90,10 @@ int main(int argc, char *argv[]) {
 
   // cost は X と一致する？
   if (cost != res_submitted.X) {
-    quitf(_wa, "total weights differ between Y(%lld) and submitted path's(%lld)", res_submitted.X, cost);
+    quitf(_wa, "total weights differ between Y(" I64 ") and submitted path's(" I64 ")", res_submitted.X, cost);
   }
 
-  if (ouf.seekEof()) {
-    quitf(_ok, "OK");
-  } else {
-    quitf(_wa, "unexpected token");
-  }
+  quitf(_ok, "OK");
   
   return 0;
 }

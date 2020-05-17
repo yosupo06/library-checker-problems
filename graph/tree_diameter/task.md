@@ -1,7 +1,5 @@
 ## @{keyword.statement}
 
-@{lang.en}
-
 @{lang.ja}
 $N$ 頂点の重み付き無向木が与えられる．
 $i$ 番目の辺は，頂点 $a_i$,$b_i$ 間に双方向に張られており，重みは $c_i$ である．
@@ -14,7 +12,8 @@ $i$ 番目の辺は，頂点 $a_i$,$b_i$ 間に双方向に張られており，
 
 - 入力は全て整数である
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
-- $0 \leq a_i \leq b_i \leq N - 1$
+- $0 \leq a_i, b_i \leq N - 1$
+- $a_i \neq b_i$
 - $@{param.C_MIN} \leq c_i \leq @{param.C_MAX}$
 
 ## @{keyword.input}

@@ -95,9 +95,9 @@ markdown + mathjax形式です。他のtask.mdをコピペして弄ればいい�
 - 普段使いのテンプレートとかはOK、でも使ってないテンプレートが100行貼ってあるとかはやめてほしい
 - `cin / cout`ではなく`scanf / printf`を使う(高速入出力でも可)
 - 警告を無視しない
+- `params.h`など、外部のファイルを(std以外)使わない
 - 環境依存性がない(=Windows, mac, linux全てで同じように動く) これはCIがチェックするのでそれを見ればいいです
   - `bits/stdc++.h`を使わない
-  - `params.h`など、外部のファイルを(std以外)使わない
   - 環境依存性があるものを使わない: `rand()`, `uniform_int_distribution`, `shuffle`, ...
     - `sort`は同じ大きさの物の順序が未定義だが、それらの物の順序で出力が変わらないか(特に構築)
 
@@ -113,6 +113,10 @@ markdown + mathjax形式です。他のtask.mdをコピペして弄ればいい�
 ジャッジ内容が完全一致の場合、`library-checker-problems/sample/aplusb/checker.cpp` をコピーするだけで終わりです。
 
 スペシャルジャッジの場合は大変です。[https://codeforces.com/blog/entry/18431](https://codeforces.com/blog/entry/18431) を参考に書いてください。
+
+- `%lld`はquitfでは使えないです
+  - `quitf(_wa, "long long value(%lld)", x)`は`quitf(_wa, "long long value(" I64 ")", x)`としてください
+
 
 ## gen/example_00.in, gen/example_01.in, gen/random.cppなど(ジェネレーター)
 

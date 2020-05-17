@@ -459,6 +459,18 @@ class Problem:
         if mode.generate_html():
             self.write_html(html_dir if html_dir else self.basedir)
 
+
+def find_problem_dir(rootdir: Path, problem_name: Path) -> Optional[Path]:
+    tomls = list(rootdir.glob('**/{}/info.toml'.format(problem_name)))
+    if len(tomls) == 0:
+        logger.error('Cannot find problem: {}'.format(problem_name))
+        return None
+    if len(tomls) >= 2:
+        logger.error('Find multiple problem dirs: {}'.format(problem_name))
+        return None
+    return tomls[0].parent
+
+
 def generate(
         problem: Problem,
         force_generate: bool,
@@ -565,16 +577,10 @@ def main(args: List[str]):
         problems.append(Problem(libdir, Path(tomlpath).parent))
 
     for problem_name in opts.problem:
-        tomls = list(libdir.glob('**/{}/info.toml'.format(problem_name)))
-        if len(tomls) == 0:
-            logger.error('Cannot find problem: {}'.format(problem_name))
-            exit(1)
-        if len(tomls) >= 2:
-            logger.error('Find multiple problem dirs: {}'.format(problem_name))
-            exit(1)
-        problem_dir = tomls[0].parent
+        problem_dir = find_problem_dir(libdir, problem_name)
+        if problem_dir is None:
+            raise ValueError('Cannot find problem: {}'.format(problem_name))
         problems.append(Problem(libdir, problem_dir))
-        logger.info('Find problem dir {}'.format(problem_dir))
 
     if len(problems) == 0:
         logger.warning('No problems')

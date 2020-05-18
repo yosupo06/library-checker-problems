@@ -1,17 +1,4 @@
 steps:
-  # until the db migration step is finished
-  # https://cloud.google.com/sql/docs/postgres/sql-proxy
-  - id: proxy
-    name: gcr.io/cloudsql-docker/gce-proxy:1.15
-    entrypoint: sh
-    args:
-      - '-c'
-      - '/cloud_sql_proxy -dir=/cloudsql -instances=$_PG_NAME & while [ ! -f /cloudsql/stop ]; do sleep 2; done'
-    waitFor: ['-']
-    volumes:
-      - name: db
-        path: /cloudsql
-
   - id: generate_and_deploy
     name: yosupo/library-checker-problems-deploy
     entrypoint: sh
@@ -24,15 +11,5 @@ steps:
       - 'MINIO_ACCESS_KEY=$_MINIO_ACCESS_KEY'
       - 'MINIO_SECRET_KEY=$_MINIO_SECRET_KEY'
       - 'MINIO_BUCKET=$_MINIO_BUCKET'
-    volumes:
-      - name: db
-        path: /cloudsql
-    waitFor: ['-']
-  - name: yosupo/library-checker-problems-deploy
-    args: ['touch', '/cloudsql/stop']
-    volumes:
-      - name: db
-        path: /cloudsql
-    waitFor: ['generate_and_deploy']
 
 timeout: 3600s

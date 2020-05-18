@@ -22,32 +22,54 @@ import toml
 from markdown import Extension, markdown
 from markdown.preprocessors import Preprocessor
 
-from generate import Problem
+import ssl
+import grpc
+from scripts import library_checker_pb2_grpc, library_checker_pb2 as libpb
+
+from minio import Minio
+
+from generate import Problem, find_problem_dir
+import colorlog
 
 logger: Logger = getLogger(__name__)
 
 if __name__ == "__main__":
+    handler = colorlog.StreamHandler()
+    formatter = colorlog.ColoredFormatter(
+        "%(log_color)s%(asctime)s [%(levelname)s] %(message)s",
+        datefmt="%H:%M:%S",
+        log_colors={
+            'DEBUG':    'cyan',
+            'INFO':     'white',
+            'WARNING':  'yellow',
+            'ERROR':    'red',
+            'CRITICAL': 'red,bg_white',
+        })
+    handler.setFormatter(formatter)
     basicConfig(
         level=getenv('LOG_LEVEL', 'INFO'),
-        format="%(asctime)s %(levelname)s %(name)s : %(message)s"
+        handlers=[handler]
     )
+
     parser = argparse.ArgumentParser(description='Testcase Deploy')
     parser.add_argument('-p', '--problem', nargs='*',
                         help='Generate problem', default=[])
+    parser.add_argument('--host', default='localhost:50051', help='Host URL')
+    parser.add_argument('--prod', action='store_true',
+                        help='Production Mode(use SSL)')
+
     args = parser.parse_args()
     libdir = Path(__file__).parent
     tomls = []
     for problem_name in args.problem:
-        toml = list(libdir.glob('**/{}/info.toml'.format(problem_name)))
-        if len(toml) == 0:
+        problem_dir = find_problem_dir(libdir, problem_name)
+        if problem_dir is None:
             logger.error('Cannot find problem: {}'.format(problem_name))
-            exit(1)
-        if len(toml) >= 2:
-            logger.error('Find multi problem dirs: {}'.format(problem_name))
-            exit(1)
-        tomls.append(toml[0])
+            raise ValueError('Cannot find problem: {}'.format(problem_name))
+        tomls.append(problem_dir / 'info.toml')
     if len(tomls) == 0:
-        tomls = filter(lambda p: not p.match('test/**/info.toml'), Path('.').glob('**/info.toml'))
+        tomls = list(filter(lambda p: not p.match(
+            'test/**/info.toml'), Path('.').glob('**/info.toml')))
 
     logger.info('connect to SQL')
     hostname = environ.get('POSTGRE_HOST', '127.0.0.1')
@@ -62,10 +84,44 @@ if __name__ == "__main__":
         password=password,
         database='librarychecker'
     )
+
+    logger.info('connect to API {} ssl={}'.format(args.host, args.prod))
+    if args.prod:
+        channel = grpc.secure_channel(
+            args.host, grpc.ssl_channel_credentials())
+        stub = library_checker_pb2_grpc.LibraryCheckerServiceStub(channel)
+    else:
+        channel = grpc.secure_channel(args.host, grpc.local_channel_credentials())
+        stub = library_checker_pb2_grpc.LibraryCheckerServiceStub(channel)
+
+    response = stub.LangList(libpb.LangListRequest())
+    api_password = environ.get('API_PASS', 'password')
+    response = stub.Login(libpb.LoginRequest(
+        name='admin', password=api_password))
+    cred_token = grpc.access_token_call_credentials(response.token)
+
+    logger.info('connect to ObjectStorage')
+    minio_host = environ.get('MINIO_HOST', 'localhost:9000')
+    minio_access_key = environ.get('MINIO_ACCESS_KEY', 'minio')
+    minio_secret_key = environ.get('MINIO_SECRET_KEY', 'miniopass')
+
+    minio_client = Minio(minio_host,
+                        access_key=minio_access_key,
+                        secret_key=minio_secret_key,
+                        secure=args.prod)
+
+    bucket_name = environ.get('MINIO_BUCKET', 'testcase')
+
+    if not minio_client.bucket_exists(bucket_name):
+        logger.error('No bucket {}'.format(bucket_name))
+        raise ValueError('No bucket {}'.format(bucket_name))
+
     for toml_path in tomls:
         probdir = toml_path.parent
         name = probdir.name
         problem = Problem(libdir, probdir)
+        problem.generate(problem.Mode.DEFAULT, None)
+
         title = problem.config['title']
         timelimit = problem.config['timelimit']
 
@@ -83,13 +139,15 @@ if __name__ == "__main__":
                     zip_write(f, arcname=f.relative_to(probdir))
                 for f in sorted(probdir.glob('out/*.out')):
                     zip_write(f, arcname=f.relative_to(probdir))
-            
+
             tmp.seek(0)
             data = tmp.read()
             datahash = m.hexdigest()
 
-            print('[*] deploy {} {}Mbytes {}'.format(name, len(data) / 1024 / 1024, datahash))
+            print('[*] deploy {} {}Mbytes {}'.format(name,
+                                                     len(data) / 1024 / 1024, datahash))
 
+            minio_client.fput_object(bucket_name, datahash + '.zip', tmp.name)
             # convert task
             html = problem.gen_html()
             statement = html.statement
@@ -99,18 +157,15 @@ if __name__ == "__main__":
                     'select testhash from problems where name = %s', (name, ))
                 prevhash = cursor.fetchone()
                 prevhash = prevhash[0] if prevhash else None
-                cursor.execute('''
-                    insert into problems (name, title, statement, timelimit)
-                    values (%s, %s, %s, %s)
-                    on conflict(name) do update
-                    set (title, statement, timelimit)
-                    = (EXCLUDED.title, EXCLUDED.statement, EXCLUDED.timelimit)
-                    ''', (name, title, statement, int(timelimit * 1000)))
+                print(name)
+                stub.ChangeProblemInfo(libpb.ChangeProblemInfoRequest(
+                    name=name, title=title, statement=statement, time_limit=timelimit, case_version=datahash
+                ), credentials=cred_token)
                 if prevhash != datahash:
                     print('[!] upload data {} -> {}'.format(prevhash, datahash))
                     cursor.execute('''
-                        update problems set (testhash, testzip) = (%s, %s) where name = %s
-                        ''', (datahash, data, name))
+                        update problems set testzip = %s where name = %s
+                        ''', (data, name))
 
             conn.commit()
     conn.close()

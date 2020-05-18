@@ -7,7 +7,6 @@ import zipfile
 from logging import Logger, basicConfig, getLogger
 from os import environ, getenv, path
 from pathlib import Path
-from struct import pack
 
 import colorlog
 import grpc
@@ -92,38 +91,36 @@ if __name__ == "__main__":
         probdir = toml_path.parent
         name = probdir.name
         problem = Problem(libdir, probdir)
+
+        new_version = problem.testcase_version()
+        old_version = stub.ProblemInfo(libpb.ProblemInfoRequest(name=name), credentials=cred_token).case_version
+
+        if new_version == old_version:
+            logger.info('Already deployed, skip: {} ({})', name, new_version)
+            continue
+
+        logger.info('Generate : {} ({} -> {})', name, old_version, new_version)
+
         problem.generate(problem.Mode.DEFAULT, None)
 
         title = problem.config['title']
         timelimit = problem.config['timelimit']
 
         with tempfile.NamedTemporaryFile(suffix='.zip', delete=False) as tmp:
-            m = hashlib.sha256()
-
             with zipfile.ZipFile(tmp.name, 'w', zipfile.ZIP_DEFLATED) as newzip:
                 def zip_write(filename, arcname):
                     newzip.write(filename, arcname)
-                    m.update(pack('q', path.getsize(filename)))
-                    with open(filename, 'rb') as f:
-                        m.update(f.read())
                 zip_write(probdir / 'checker.cpp', arcname='checker.cpp')
                 for f in sorted(probdir.glob('in/*.in')):
                     zip_write(f, arcname=f.relative_to(probdir))
                 for f in sorted(probdir.glob('out/*.out')):
                     zip_write(f, arcname=f.relative_to(probdir))
 
-            tmp.seek(0)
-            data = tmp.read()
-            datahash = m.hexdigest()
+            minio_client.fput_object(bucket_name, new_version + '.zip', tmp.name, part_size=5 * 1000 * 1000 * 1000)
 
-            print('[*] deploy {} {}Mbytes {}'.format(name,
-                                                        len(data) / 1024 / 1024, datahash))
-            
-            minio_client.fput_object(bucket_name, datahash + '.zip', tmp.name, part_size=5 * 1000 * 1000 * 1000)
-            # convert task
             html = problem.gen_html()
             statement = html.statement
 
             stub.ChangeProblemInfo(libpb.ChangeProblemInfoRequest(
-                name=name, title=title, statement=statement, time_limit=timelimit, case_version=datahash
+                name=name, title=title, statement=statement, time_limit=timelimit, case_version=new_version
             ), credentials=cred_token)

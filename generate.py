@@ -297,6 +297,15 @@ class Problem:
             all_hash.update(hashlib.sha256(open(str(path), 'rb').read()).digest())
         return all_hash.hexdigest()
 
+    # return "version" of testcase
+    def testcase_version(self) -> str:
+        all_hash = hashlib.sha256()
+        all_hash.update(hashlib.sha256(open(str(self.checker), 'rb').read()).digest())
+        cases = json.load(open(str(self.basedir / 'hash.json'), 'r'))
+        for name, sha in sorted(cases.items(), key=lambda x : x[0]):
+            all_hash.update(sha)
+        return all_hash.hexdigest()
+
     def judge(self, src: Path, config: dict):
         indir = self.basedir / 'in'
         outdir = self.basedir / 'out'

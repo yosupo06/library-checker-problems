@@ -6,6 +6,7 @@ struct Result {
   int Y;
   std::vector<int> path;
 };
+using edge = std::pair<int, int>;
 
 // 出力を読む関数 
 Result read_ans(int N, InStream &stream) {
@@ -25,22 +26,8 @@ Result read_ans(int N, InStream &stream) {
 // - テレポートしない
 // - 実際の距離が X と一致する
 // - 辺が存在する
-void validate_path(long long X, std::vector<int> path) {
+void validate_path(long long X, std::vector<int> path, int N, std::map<edge, long long> edges) {
 
-  // 入力受け取り
-  int N = inf.readInt();
-
-  using edge = std::pair<int, int>;
-  std::map<edge, long long> edges;
-  for (int i = 0; i < N - 1; i++) {
-    int a = inf.readInt();
-    int b = inf.readInt();
-    long long c = inf.readInt();
-    if (a > b) {
-      std::swap(a, b);
-    }
-    edges[std::make_pair(a, b)] = c;
-  }
 
   int cur = path[0]; // 現在の頂点
   long long cost = 0; // コストの総和
@@ -88,12 +75,26 @@ int main(int argc, char *argv[]) {
 
   registerTestlibCmd(argc, argv);
 
+  // 入力受け取り
+  int N = inf.readInt();
+
+  std::map<edge, long long> edges;
+  for (int i = 0; i < N - 1; i++) {
+    int a = inf.readInt();
+    int b = inf.readInt();
+    long long c = inf.readInt();
+    if (a > b) {
+      std::swap(a, b);
+    }
+    edges[std::make_pair(a, b)] = c;
+  }
+
   // 出力受け取り
   Result res_ans = read_ans(N, ans);
   Result res_submitted = read_ans(N, ouf);
 
   // コンテスタントの出力した直径 X と，復元されたパスが正しいかを判定する
-  validate_path(res_submitted.X, res_submitted.path);
+  validate_path(res_submitted.X, res_submitted.path, N, edges);
 
   // 木の直径が正しいことの確認
   if (res_ans.X > res_submitted.X) { 

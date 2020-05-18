@@ -25,6 +25,7 @@ steps:
       - 'MINIO_HOST=$_MINIO_HOST'
       - 'MINIO_ACCESS_KEY=$_MINIO_ACCESS_KEY'
       - 'MINIO_SECRET_KEY=$_MINIO_SECRET_KEY'
+      - 'MINIO_BUCKET=$_MINIO_BUCKET'
     volumes:
       - name: db
         path: /cloudsql

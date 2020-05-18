@@ -119,7 +119,6 @@ if __name__ == "__main__":
     with open('test.txt', 'w') as f:
         f.write("this is test!")
     minio_client.fput_object(bucket_name, 'test.txt', 'test.txt')
-    minio_client.fput_object()
     for toml_path in tomls:
         probdir = toml_path.parent
         name = probdir.name
@@ -151,7 +150,7 @@ if __name__ == "__main__":
                                                     len(data) / 1024 / 1024, datahash))
 
         print(tmpname)
-        minio_client.fput_object(bucket_name, datahash + '.zip', tmpname)
+        minio_client.fput_object(bucket_name, datahash + '.zip', 'test.txt')
         # convert task
         html = problem.gen_html()
         statement = html.statement

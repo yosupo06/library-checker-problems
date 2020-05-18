@@ -303,7 +303,7 @@ class Problem:
         all_hash.update(hashlib.sha256(open(str(self.checker), 'rb').read()).digest())
         cases = json.load(open(str(self.basedir / 'hash.json'), 'r'))
         for name, sha in sorted(cases.items(), key=lambda x : x[0]):
-            all_hash.update(sha)
+            all_hash.update(sha.encode('ascii'))
         return all_hash.hexdigest()
 
     def judge(self, src: Path, config: dict):

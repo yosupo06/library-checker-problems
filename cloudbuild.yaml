@@ -23,8 +23,8 @@ steps:
       - 'POSTGRE_PASS=$_PG_PASS'
       - 'API_PASS=$_API_PASS'
       - 'MINIO_HOST=$_MINIO_HOST'
-      - 'MINIO_ACCESS=$_MINIO_ACCESS'
-      - 'MINIO_SECRET=$_MINIO_SECRET'
+      - 'MINIO_ACCESS_KEY=$_MINIO_ACCESS_KEY'
+      - 'MINIO_SECRET_KEY=$_MINIO_SECRET_KEY'
     volumes:
       - name: db
         path: /cloudsql

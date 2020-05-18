@@ -111,6 +111,10 @@ if __name__ == "__main__":
 
     bucket_name = environ.get('MINIO_BUCKET', 'testcase')
 
+    if not minio_client.bucket_exists(bucket_name):
+        logger.error('No bucket {}'.format(bucket_name))
+        raise ValueError('No bucket {}'.format(bucket_name))
+
     for toml_path in tomls:
         probdir = toml_path.parent
         name = probdir.name

@@ -7,10 +7,27 @@ struct Result {
   std::vector<int> path;
 };
 
-int main(int argc, char *argv[]) {
+// 出力を読む関数 
+Result read_ans(int N, InStream &stream) {
+  Result ret;
+  ret.X = stream.readLong();
+  ret.Y = stream.readInt(1, N);
+  for (int i = 0; i < ret.Y; i++) {
+    int node = stream.readInt(0, N - 1);
+    ret.path.push_back(node);
+  }
 
-  registerTestlibCmd(argc, argv);
+  return ret;
+}
 
+// チェックすること
+// - 同じ頂点を二度踏まない
+// - テレポートしない
+// - 実際の距離が X と一致する
+// - 辺が存在する
+void validate_path(long long X, std::vector<int> path) {
+
+  // 入力受け取り
   int N = inf.readInt();
 
   using edge = std::pair<int, int>;
@@ -22,50 +39,23 @@ int main(int argc, char *argv[]) {
     if (a > b) {
       std::swap(a, b);
     }
-    
     edges[std::make_pair(a, b)] = c;
   }
-  
-  
-  Result res_ans;
-  Result res_submitted;
 
-  res_ans.X = ans.readLong();
-  res_ans.Y = ans.readInt();
-
-  res_submitted.X = ouf.readLong();
-  res_submitted.Y = ouf.readInt();
-
-  // 木の直径が正しいことの確認
-  if (res_ans.X < res_submitted.X) { 
-    // 想定解より悪いとき
-    quitf(_wa, "Tree Diameter is differ - expected: " I64 ", found " I64, res_ans.X, res_submitted.X);
-  }
-  if (res_ans.X > res_submitted.X) {
-    // 想定解より良いとき
-    quitf(_fail, "Contestant found the more optimal answer - expected: " I64 ", found " I64, res_ans.X, res_submitted.X);
-  }
-
-  // 復元されたパスが，ちゃんと正しいかを確認
-  for (int i = 0; i < res_ans.Y; i++) {
-    int node = ouf.readInt();
-    res_submitted.path.push_back(node);
-  }
-
-  int cur = res_submitted.path[0];
-  long long cost = 0;
-  std::vector<bool> visited(N, false);
+  int cur = path[0]; // 現在の頂点
+  long long cost = 0; // コストの総和
+  std::vector<bool> visited(N, false); // 頂点の訪問済みフラグ
   visited[cur] = true;
 
-  for (size_t i = 1; i < res_submitted.path.size(); i++) {
-    int u = res_submitted.path[i - 1];
-    int v = res_submitted.path[i];
+  for (size_t i = 1; i < path.size(); i++) {
+    int u = path[i - 1];
+    int v = path[i];
     if (u > v) {
       std::swap(u, v);
     }
 
     // 存在する？
-    if (edges.find({u, v}) == edges.end()) {
+    if (edges.find(edge(u, v)) == edges.end()) {
       quitf(_wa, "using an edge that doesn't exist : (%d, %d)", u, v);
     }
 
@@ -85,12 +75,34 @@ int main(int argc, char *argv[]) {
 
     visited[cur] = true;
 
-    cost += edges[std::make_pair(u, v)];
+    cost += edges[edge(u, v)];
   }
 
   // cost は X と一致する？
-  if (cost != res_submitted.X) {
-    quitf(_wa, "total weights differ between Y(" I64 ") and submitted path's(" I64 ")", res_submitted.X, cost);
+  if (cost != X) {
+    quitf(_wa, "total weights differ between Y(" I64 ") and submitted path's(" I64 ")", X, cost);
+  }
+}
+
+int main(int argc, char *argv[]) {
+
+  registerTestlibCmd(argc, argv);
+
+  // 出力受け取り
+  Result res_ans = read_ans(N, ans);
+  Result res_submitted = read_ans(N, ouf);
+
+  // コンテスタントの出力した直径 X と，復元されたパスが正しいかを判定する
+  validate_path(res_submitted.X, res_submitted.path);
+
+  // 木の直径が正しいことの確認
+  if (res_ans.X > res_submitted.X) { 
+    // 想定解より悪いとき
+    quitf(_wa, "Tree Diameter is differ - expected: " I64 ", found " I64, res_ans.X, res_submitted.X);
+  }
+  if (res_ans.X < res_submitted.X) {
+    // 想定解より良いとき
+    quitf(_fail, "Contestant found the more optimal answer - expected: " I64 ", found " I64, res_ans.X, res_submitted.X);
   }
 
   quitf(_ok, "OK");

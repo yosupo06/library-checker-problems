@@ -117,7 +117,8 @@ if __name__ == "__main__":
         raise ValueError('No bucket {}'.format(bucket_name))
         
     with open('test.txt', 'w') as f:
-        f.write("this is test!")
+        for x in range(100_000):
+            f.write("this is test!")
     minio_client.fput_object(bucket_name, 'test.txt', 'test.txt')
     for toml_path in tomls:
         probdir = toml_path.parent

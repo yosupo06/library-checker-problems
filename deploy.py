@@ -94,10 +94,9 @@ if __name__ == "__main__":
         channel = grpc.secure_channel(args.host, grpc.local_channel_credentials())
         stub = library_checker_pb2_grpc.LibraryCheckerServiceStub(channel)
 
-    response = stub.LangList(libpb.LangListRequest())
     api_password = environ.get('API_PASS', 'password')
     response = stub.Login(libpb.LoginRequest(
-        name='admin', password=api_password))
+        name='upload', password=api_password))
     cred_token = grpc.access_token_call_credentials(response.token)
 
     logger.info('connect to ObjectStorage')

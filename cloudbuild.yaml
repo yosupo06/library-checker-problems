@@ -17,7 +17,7 @@ steps:
     entrypoint: sh
     args:
       - '-c'
-      - 'ulimit -s unlimited && ./generate.py $(find . -name "info.toml" -not -path "./test/*") && ./deploy.py'
+      - 'pip3 install -r requirements.txt && ulimit -s unlimited && ./deploy.py'
     env:
       - 'POSTGRE_HOST=/cloudsql/$_PG_NAME'
       - 'POSTGRE_PASS=$_PG_PASS'

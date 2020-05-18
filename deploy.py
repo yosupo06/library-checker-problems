@@ -87,7 +87,7 @@ if __name__ == "__main__":
     )
 
     logger.info('connect to API {} ssl={}'.format(args.host, args.prod))
-    if False: #args.prod:
+    if args.prod:
         channel = grpc.secure_channel(
             args.host, grpc.ssl_channel_credentials())
         stub = library_checker_pb2_grpc.LibraryCheckerServiceStub(channel)

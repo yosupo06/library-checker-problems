@@ -87,7 +87,7 @@ if __name__ == "__main__":
     )
 
     logger.info('connect to API {} ssl={}'.format(args.host, args.prod))
-    if args.prod:
+    if False: #args.prod:
         channel = grpc.secure_channel(
             args.host, grpc.ssl_channel_credentials())
         stub = library_checker_pb2_grpc.LibraryCheckerServiceStub(channel)
@@ -116,10 +116,6 @@ if __name__ == "__main__":
         logger.error('No bucket {}'.format(bucket_name))
         raise ValueError('No bucket {}'.format(bucket_name))
         
-    with open('test.txt', 'w') as f:
-        for x in range(100_000):
-            f.write("this is test!")
-    minio_client.fput_object(bucket_name, 'test.txt', 'test.txt')
     for toml_path in tomls:
         probdir = toml_path.parent
         name = probdir.name
@@ -129,48 +125,47 @@ if __name__ == "__main__":
         title = problem.config['title']
         timelimit = problem.config['timelimit']
 
-        tmpname = tempfile.NamedTemporaryFile(suffix='.zip', delete=False).name
-        m = hashlib.sha256()
+        with tempfile.NamedTemporaryFile(suffix='.zip', delete=False) as tmp:
+            m = hashlib.sha256()
 
-        with zipfile.ZipFile(tmpname, 'w', zipfile.ZIP_DEFLATED) as newzip:
-            def zip_write(filename, arcname):
-                newzip.write(filename, arcname)
-                m.update(pack('q', path.getsize(filename)))
-                with open(filename, 'rb') as f:
-                    m.update(f.read())
-            zip_write(probdir / 'checker.cpp', arcname='checker.cpp')
-            for f in sorted(probdir.glob('in/*.in')):
-                zip_write(f, arcname=f.relative_to(probdir))
-            for f in sorted(probdir.glob('out/*.out')):
-                zip_write(f, arcname=f.relative_to(probdir))
+            with zipfile.ZipFile(tmp.name, 'w', zipfile.ZIP_DEFLATED) as newzip:
+                def zip_write(filename, arcname):
+                    newzip.write(filename, arcname)
+                    m.update(pack('q', path.getsize(filename)))
+                    with open(filename, 'rb') as f:
+                        m.update(f.read())
+                zip_write(probdir / 'checker.cpp', arcname='checker.cpp')
+                for f in sorted(probdir.glob('in/*.in')):
+                    zip_write(f, arcname=f.relative_to(probdir))
+                for f in sorted(probdir.glob('out/*.out')):
+                    zip_write(f, arcname=f.relative_to(probdir))
 
-        data = open(tmpname, 'rb').read()
-        datahash = m.hexdigest()
+            tmp.seek(0)
+            data = tmp.read()
+            datahash = m.hexdigest()
 
-        print('[*] deploy {} {}Mbytes {}'.format(name,
-                                                    len(data) / 1024 / 1024, datahash))
+            print('[*] deploy {} {}Mbytes {}'.format(name,
+                                                        len(data) / 1024 / 1024, datahash))
+            
+            minio_client.fput_object(bucket_name, datahash + '.zip', tmp.name, part_size=10**10)
+            # convert task
+            html = problem.gen_html()
+            statement = html.statement
 
-        print(tmpname)
-        minio_client.fput_object(bucket_name, datahash + '.zip', 'test.txt')
-        # convert task
-        html = problem.gen_html()
-        statement = html.statement
+            with conn.cursor() as cursor:
+                cursor.execute(
+                    'select testhash from problems where name = %s', (name, ))
+                prevhash = cursor.fetchone()
+                prevhash = prevhash[0] if prevhash else None
+                print(name)
+                stub.ChangeProblemInfo(libpb.ChangeProblemInfoRequest(
+                    name=name, title=title, statement=statement, time_limit=timelimit, case_version=datahash
+                ), credentials=cred_token)
+                if prevhash != datahash:
+                    print('[!] upload data {} -> {}'.format(prevhash, datahash))
+                    cursor.execute('''
+                        update problems set testzip = %s where name = %s
+                        ''', (data, name))
 
-        with conn.cursor() as cursor:
-            cursor.execute(
-                'select testhash from problems where name = %s', (name, ))
-            prevhash = cursor.fetchone()
-            prevhash = prevhash[0] if prevhash else None
-            print(name)
-            stub.ChangeProblemInfo(libpb.ChangeProblemInfoRequest(
-                name=name, title=title, statement=statement, time_limit=timelimit, case_version=datahash
-            ), credentials=cred_token)
-            if prevhash != datahash:
-                print('[!] upload data {} -> {}'.format(prevhash, datahash))
-                cursor.execute('''
-                    update problems set testzip = %s where name = %s
-                    ''', (data, name))
-
-        os.remove(tmpname)
         conn.commit()
     conn.close()

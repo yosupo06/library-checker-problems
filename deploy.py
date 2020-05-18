@@ -18,7 +18,6 @@ from subprocess import (DEVNULL, PIPE, STDOUT, CalledProcessError,
 from tempfile import TemporaryDirectory
 
 import markdown.extensions
-import psycopg2
 import toml
 from markdown import Extension, markdown
 from markdown.preprocessors import Preprocessor
@@ -71,20 +70,6 @@ if __name__ == "__main__":
     if len(tomls) == 0:
         tomls = list(filter(lambda p: not p.match(
             'test/**/info.toml'), Path('.').glob('**/info.toml')))
-
-    logger.info('connect to SQL')
-    hostname = environ.get('POSTGRE_HOST', '127.0.0.1')
-    port = int(environ.get('POSTGRE_PORT', '5432'))
-    user = environ.get('POSTGRE_USER', 'postgres')
-    password = environ.get('POSTGRE_PASS', 'passwd')
-
-    conn = psycopg2.connect(
-        host=hostname,
-        port=port,
-        user=user,
-        password=password,
-        database='librarychecker'
-    )
 
     logger.info('connect to API {} ssl={}'.format(args.host, args.prod))
     if args.prod:
@@ -152,20 +137,6 @@ if __name__ == "__main__":
             html = problem.gen_html()
             statement = html.statement
 
-            with conn.cursor() as cursor:
-                cursor.execute(
-                    'select testhash from problems where name = %s', (name, ))
-                prevhash = cursor.fetchone()
-                prevhash = prevhash[0] if prevhash else None
-                print(name)
-                stub.ChangeProblemInfo(libpb.ChangeProblemInfoRequest(
-                    name=name, title=title, statement=statement, time_limit=timelimit, case_version=datahash
-                ), credentials=cred_token)
-                if prevhash != datahash:
-                    print('[!] upload data {} -> {}'.format(prevhash, datahash))
-                    cursor.execute('''
-                        update problems set testzip = %s where name = %s
-                        ''', (data, name))
-
-        conn.commit()
-    conn.close()
+            stub.ChangeProblemInfo(libpb.ChangeProblemInfoRequest(
+                name=name, title=title, statement=statement, time_limit=timelimit, case_version=datahash
+            ), credentials=cred_token)

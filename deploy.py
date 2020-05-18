@@ -2,34 +2,20 @@
 
 import argparse
 import hashlib
-import re
-import shutil
-import subprocess
 import tempfile
 import zipfile
-from datetime import datetime
 from logging import Logger, basicConfig, getLogger
 from os import environ, getenv, path
-import os
 from pathlib import Path
-from struct import pack
-from subprocess import (DEVNULL, PIPE, STDOUT, CalledProcessError,
-                        TimeoutExpired, call, check_call, check_output, run)
-from tempfile import TemporaryDirectory
 
-import markdown.extensions
-import toml
-from markdown import Extension, markdown
-from markdown.preprocessors import Preprocessor
-
-import ssl
+import colorlog
 import grpc
-from scripts import library_checker_pb2_grpc, library_checker_pb2 as libpb
-
+import toml
 from minio import Minio
 
 from generate import Problem, find_problem_dir
-import colorlog
+from scripts import library_checker_pb2 as libpb
+from scripts import library_checker_pb2_grpc
 
 logger: Logger = getLogger(__name__)
 
@@ -105,38 +91,36 @@ if __name__ == "__main__":
         probdir = toml_path.parent
         name = probdir.name
         problem = Problem(libdir, probdir)
+
+        new_version = problem.testcase_version()
+        old_version = stub.ProblemInfo(libpb.ProblemInfoRequest(name=name), credentials=cred_token).case_version
+
+        if new_version == old_version:
+            logger.info('Already deployed, skip: {} ({})'.format(name, new_version))
+            continue
+
+        logger.info('Generate : {} ({} -> {})'.format(name, old_version, new_version))
+
         problem.generate(problem.Mode.DEFAULT, None)
 
         title = problem.config['title']
         timelimit = problem.config['timelimit']
 
         with tempfile.NamedTemporaryFile(suffix='.zip', delete=False) as tmp:
-            m = hashlib.sha256()
-
             with zipfile.ZipFile(tmp.name, 'w', zipfile.ZIP_DEFLATED) as newzip:
                 def zip_write(filename, arcname):
                     newzip.write(filename, arcname)
-                    m.update(pack('q', path.getsize(filename)))
-                    with open(filename, 'rb') as f:
-                        m.update(f.read())
                 zip_write(probdir / 'checker.cpp', arcname='checker.cpp')
                 for f in sorted(probdir.glob('in/*.in')):
                     zip_write(f, arcname=f.relative_to(probdir))
                 for f in sorted(probdir.glob('out/*.out')):
                     zip_write(f, arcname=f.relative_to(probdir))
 
-            tmp.seek(0)
-            data = tmp.read()
-            datahash = m.hexdigest()
+            minio_client.fput_object(bucket_name, new_version + '.zip', tmp.name, part_size=5 * 1000 * 1000 * 1000)
 
-            print('[*] deploy {} {}Mbytes {}'.format(name,
-                                                        len(data) / 1024 / 1024, datahash))
-            
-            minio_client.fput_object(bucket_name, datahash + '.zip', tmp.name, part_size=5 * 1000 * 1000 * 1000)
-            # convert task
             html = problem.gen_html()
             statement = html.statement
 
             stub.ChangeProblemInfo(libpb.ChangeProblemInfoRequest(
-                name=name, title=title, statement=statement, time_limit=timelimit, case_version=datahash
+                name=name, title=title, statement=statement, time_limit=timelimit, case_version=new_version
             ), credentials=cred_token)

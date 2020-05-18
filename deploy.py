@@ -96,10 +96,10 @@ if __name__ == "__main__":
         old_version = stub.ProblemInfo(libpb.ProblemInfoRequest(name=name), credentials=cred_token).case_version
 
         if new_version == old_version:
-            logger.info('Already deployed, skip: {} ({})', name, new_version)
+            logger.info('Already deployed, skip: {} ({})'.format(name, new_version))
             continue
 
-        logger.info('Generate : {} ({} -> {})', name, old_version, new_version)
+        logger.info('Generate : {} ({} -> {})'.format(name, old_version, new_version))
 
         problem.generate(problem.Mode.DEFAULT, None)
 

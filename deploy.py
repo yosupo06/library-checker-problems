@@ -147,7 +147,7 @@ if __name__ == "__main__":
             print('[*] deploy {} {}Mbytes {}'.format(name,
                                                         len(data) / 1024 / 1024, datahash))
             
-            minio_client.fput_object(bucket_name, datahash + '.zip', tmp.name, part_size=10**10)
+            minio_client.fput_object(bucket_name, datahash + '.zip', tmp.name, part_size=5 * 1000 * 1000 * 1000)
             # convert task
             html = problem.gen_html()
             statement = html.statement

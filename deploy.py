@@ -2,34 +2,21 @@
 
 import argparse
 import hashlib
-import re
-import shutil
-import subprocess
 import tempfile
 import zipfile
-from datetime import datetime
 from logging import Logger, basicConfig, getLogger
 from os import environ, getenv, path
-import os
 from pathlib import Path
 from struct import pack
-from subprocess import (DEVNULL, PIPE, STDOUT, CalledProcessError,
-                        TimeoutExpired, call, check_call, check_output, run)
-from tempfile import TemporaryDirectory
 
-import markdown.extensions
-import toml
-from markdown import Extension, markdown
-from markdown.preprocessors import Preprocessor
-
-import ssl
+import colorlog
 import grpc
-from scripts import library_checker_pb2_grpc, library_checker_pb2 as libpb
-
+import toml
 from minio import Minio
 
 from generate import Problem, find_problem_dir
-import colorlog
+from scripts import library_checker_pb2 as libpb
+from scripts import library_checker_pb2_grpc
 
 logger: Logger = getLogger(__name__)
 

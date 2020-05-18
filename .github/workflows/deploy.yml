@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: 
+      - master
+      - test
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install --user -r requirements.txt
+          pip install grpcio grpc-tools minio
+      - name: Run deploy.py
+        run: |
+          ulimit -s unlimited
+          ./deploy.py --host=apiv1.yosupo.jp --prod
+        env:
+          API_PASS: ${{ secrets.API_PASS }}
+          MINIO_HOST: ${{ secrets.MINIO_HOST }}
+          MINIO_ACCESS_KEY: ${{ secrets.MINIO_ACCESS_KEY }}
+          MINIO_SECRET_KEY: ${{ secrets.MINIO_SECRET_KEY }}
+          MINIO_BUCKET: ${{ secrets.MINIO_BUCKET }}

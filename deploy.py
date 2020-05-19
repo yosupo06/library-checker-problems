@@ -93,7 +93,13 @@ if __name__ == "__main__":
         problem = Problem(libdir, probdir)
 
         new_version = problem.testcase_version()
-        old_version = stub.ProblemInfo(libpb.ProblemInfoRequest(name=name), credentials=cred_token).case_version
+        try:
+            old_version = stub.ProblemInfo(libpb.ProblemInfoRequest(name=name), credentials=cred_token).case_version
+        except grpc.RpcError as err:
+            if err.code() == grpc.StatusCode.UNKNOWN:
+                old_version = 'FirstTime'
+            else:
+                raise RuntimeError('Unknown gRPC error')
 
         if new_version == old_version:
             logger.info('Already deployed, skip: {} ({})'.format(name, new_version))

@@ -18,7 +18,7 @@ int main() {
             inf.readSpace();
             inf.readLong(0, K_AND_V_MAX, "k");
         }
-        inf.readEoln();
+        inf.readChar('\n');
     }
     inf.readEof();
     return 0;

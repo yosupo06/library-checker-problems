@@ -21,6 +21,8 @@
   "sparse_keys_01.out": "bfb91cd5679cf614a0750c47f00958c492944ae95f3a67dd1146269fe37cb663",
   "unordered_map_killer_00.in": "0dd841bf7a3a02b546b597de6a9eadc22ceae790a28b6d7a4ec3cc5ac02944c8",
   "unordered_map_killer_00.out": "ec3e0cbc97113d333beb1a5691088baf945de94d7fd89e746912b1770e32141c",
-  "unordered_map_killer_01.in": "d06eca77d8250ec4095d23ba0621c45c96208b0a5d580b437631cf3bcb26776c",
-  "unordered_map_killer_01.out": "8785fe632aaa363af4b99d5ce8ef3638c90fe86f36afba83dedf7c5b5903783b"
+  "unordered_map_killer_01.in": "96e853bb9efd434e3a11d115a12f5b29ae85fc15e8bf84477995fcc5643756e3",
+  "unordered_map_killer_01.out": "8785fe632aaa363af4b99d5ce8ef3638c90fe86f36afba83dedf7c5b5903783b",
+  "unordered_map_killer_02.in": "f7d1ae5706bf7db22825738815beb929178482fd50b66fa8bb05cad8da8cf9dd",
+  "unordered_map_killer_02.out": "4e1bf0c0e07f6edbb5822e7b0d19b36d89c45c5e1e8a604ef4bfbb7610a2c7ac"
 }

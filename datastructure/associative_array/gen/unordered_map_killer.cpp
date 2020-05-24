@@ -33,8 +33,8 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    // magic for g++, clang++(OS X)
-    int MAGIC = vector<int>({256279, 205759})[seed % 2];
+    // magic for ideone, judge, clang++(OS X)
+    int MAGIC = vector<int>({256279, 218971, 205759})[seed % 3];
 
     int Q = Q_MAX;
     printf("%d\n", Q);

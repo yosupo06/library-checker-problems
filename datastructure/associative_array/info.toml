@@ -13,7 +13,7 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/376'
     number = 3
 [[tests]]
     name = "unordered_map_killer.cpp"
-    number = 2
+    number = 3
 [[tests]]
     name = "sparse_keys.cpp"
     number = 2

@@ -262,6 +262,25 @@ class TestGenerateHtml(unittest.TestCase):
             self.assertEqual(proc.returncode, 0)
             self.assertTrue((Path(test_dir) / 'simple_aplusb' / 'task.html').exists())
 
+
+class TestHtmlDir(unittest.TestCase):
+    def test_generate_html_dev(self):
+        with create_test_dir('simple_aplusb') as test_dir:
+            html_dir = TemporaryDirectory()
+            proc = run(['./generate.py', str(Path(test_dir) /
+                                             'simple_aplusb/info.toml'), '--dev', '--htmldir', html_dir.name])
+            self.assertEqual(proc.returncode, 0)
+            self.assertTrue((Path(html_dir.name) / 'simple_aplusb.html').exists())
+
+    def test_generate_html_test(self):
+        with create_test_dir('simple_aplusb') as test_dir:
+            html_dir = TemporaryDirectory()
+            proc = run(['./generate.py', str(Path(test_dir) /
+                                             'simple_aplusb/info.toml'), '--test', '--htmldir', html_dir.name])
+            self.assertEqual(proc.returncode, 0)
+            self.assertTrue((Path(html_dir.name) / 'simple_aplusb.html').exists())
+
+
 if __name__ == "__main__":
     basicConfig(
         level=getenv('LOG_LEVEL', 'DEBUG'),

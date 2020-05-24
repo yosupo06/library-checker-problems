@@ -125,10 +125,10 @@ bool read_ans(int n, int m, vector<vector<int>> g, InStream& stream) {
 
 	auto dfs = [&](auto self, int target, int node, int pre_node) -> int {
 		int sum = 1;
-		for (int near: tree[node]) {
-			if (near == pre_node) continue;
-			if (find(bag[near].begin(), bag[near].end(), target) == bag[near].end()) continue;			
-			sum += self(self, target, near, node);
+		for (int nei: tree[node]) {
+			if (nei == pre_node) continue;
+			if (find(bag[nei].begin(), bag[nei].end(), target) == bag[nei].end()) continue;			
+			sum += self(self, target, nei, node);
 		}
 		return sum;
 	};

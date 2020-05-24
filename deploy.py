@@ -93,11 +93,13 @@ if __name__ == "__main__":
         problem = Problem(libdir, probdir)
 
         new_version = problem.testcase_version()
+        first_time = "FirstTime"
+        
         try:
             old_version = stub.ProblemInfo(libpb.ProblemInfoRequest(name=name), credentials=cred_token).case_version
         except grpc.RpcError as err:
             if err.code() == grpc.StatusCode.UNKNOWN:
-                old_version = 'FirstTime'
+                old_version = first_time
             else:
                 raise RuntimeError('Unknown gRPC error')
 
@@ -122,7 +124,10 @@ if __name__ == "__main__":
                 for f in sorted(probdir.glob('out/*.out')):
                     zip_write(f, arcname=f.relative_to(probdir))
 
+
             minio_client.fput_object(bucket_name, new_version + '.zip', tmp.name, part_size=5 * 1000 * 1000 * 1000)
+            if old_version != first_time:
+                minio_client.remove_object(bucket_name, old_version + '.zip')
 
             html = problem.gen_html()
             statement = html.statement

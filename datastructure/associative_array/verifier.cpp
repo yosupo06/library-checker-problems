@@ -5,7 +5,7 @@ int main() {
     registerValidation();
 
     int Q = inf.readInt(1, Q_MAX);
-    inf.readEoln();
+    inf.readChar('\n');
 
     for (int i = 0; i < Q; i++) {
         int t = inf.readInt(0, 1);

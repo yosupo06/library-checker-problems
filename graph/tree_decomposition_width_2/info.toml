@@ -1,0 +1,34 @@
+title = 'Tree Decomposition (width 2)'
+timelimit = 10.0
+forum = 'https://github.com/yosupo06/library-checker-problems/issues/479'
+
+
+[[tests]]
+	name = 'example.in'
+	number = 2
+[[tests]]
+	name = 'small_random.cpp'
+	number = 5
+[[tests]]
+	name = 'max_sparse_random.cpp'
+	number = 3
+[[tests]]
+	name = 'cactus.cpp'
+	number = 2
+[[tests]]
+	name = 'outer_planer.cpp'
+	number = 2
+[[tests]]
+	name = 'series_parallel.cpp'
+	number = 2
+[[tests]]
+	name = 'many_series_parallel.cpp'
+	number = 2
+[[tests]]
+	name = 'tree.cpp'
+	number = 2
+
+
+[params]	
+	N_MAX = 500_000
+	M_MAX = 500_000

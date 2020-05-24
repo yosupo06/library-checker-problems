@@ -373,7 +373,6 @@ class Problem:
         if not html.check_all_samples_used():
             self.warning('all samples are not used')
         path = (self.basedir / 'task.html') if not htmldir else htmldir / (self.basedir.name + '.html')
-        logger.info('write html to : {} {}'.format(path, self.basedir.name))
         with open(str(path), 'w', encoding='utf-8') as f:
             f.write(html.html)
 

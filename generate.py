@@ -367,13 +367,13 @@ class Problem:
         # convert task
         return ToHTMLConverter(self.basedir, self.config)
 
-    def write_html(self, htmldir: Path):
+    def write_html(self, htmldir: Optional[Path]):
         # convert task
         html = self.gen_html()
         if not html.check_all_samples_used():
             self.warning('all samples are not used')
-        path = self.basedir / 'task.html' if not htmldir else htmldir / \
-            (self.basedir.name + '.html')
+        path = (self.basedir / 'task.html') if not htmldir else htmldir / (self.basedir.name + '.html')
+        logger.info('write html to : {} {}'.format(path, self.basedir.name))
         with open(str(path), 'w', encoding='utf-8') as f:
             f.write(html.html)
 
@@ -466,7 +466,7 @@ class Problem:
             self.assert_hashes()
 
         if mode.generate_html():
-            self.write_html(html_dir if html_dir else self.basedir)
+            self.write_html(html_dir)
 
 
 def find_problem_dir(rootdir: Path, problem_name: Path) -> Optional[Path]:

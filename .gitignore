@@ -11,6 +11,7 @@
 !*.toml
 !*.cpp
 !*.h
+!*.hpp
 !*.md
 !*.py
 !*.in

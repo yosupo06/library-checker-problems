@@ -20,6 +20,12 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/376'
 [[tests]]
     name = "2_powers.cpp"
     number = 1
+[[tests]]
+    name = "many_0set.cpp"
+    number = 1
+[[tests]]
+    name = "many_0set_sparse.cpp"
+    number = 1
 
 [[solutions]]
     name = "tle_unordered_map.cpp"

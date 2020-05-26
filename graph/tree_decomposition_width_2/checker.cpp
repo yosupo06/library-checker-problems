@@ -54,7 +54,7 @@ bool read_ans(int n, int m, vector<vector<int>> g, InStream& stream) {
 		stream.quit(_pe, "first token must be td");
 	}
 
-	int K = stream.readInt(0, 2 * n + m + 10);
+	int K = stream.readInt(0, 10 * n + m + 10);
 
 	int tw = stream.readInt(0, 2);
 

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 
 #include "testlib.h"
 #include "params.h"

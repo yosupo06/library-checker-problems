@@ -2,7 +2,7 @@
 
 $N$ 頂点の木があります。辺は $(a_i, b_i)$ です。各 $i = 1, 2, \cdots, N - 1$ について、$\mathrm{dist}(u, v) = i$ となる頂点対 $u, v (u < v)$ の個数 $x_i$ を求めてください。
 
-$\mathrm{dist}(u, v)$ は頂点 $u, v$ をつなぐパスの頂点数です。
+$\mathrm{dist}(u, v)$ は頂点 $u, v$ をつなぐパスの辺数です。
 
 ## @{keyword.constraints}
 

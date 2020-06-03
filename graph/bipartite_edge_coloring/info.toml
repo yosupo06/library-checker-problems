@@ -1,0 +1,24 @@
+title = 'Matching on Bipartite Graph'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/37"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 10
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "line.cpp"
+    number = 2
+[[tests]]
+    name = "many_smalls.cpp"
+    number = 2
+
+[params]
+    L_MAX = 100_000
+    R_MAX = 100_000
+    M_MAX = 100_000

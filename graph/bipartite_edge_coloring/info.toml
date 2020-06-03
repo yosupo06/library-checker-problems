@@ -1,6 +1,6 @@
-title = 'Matching on Bipartite Graph'
+title = 'Edge Coloring of Bipartite Graph'
 timelimit = 5.0
-forum = "https://github.com/yosupo06/library-checker-problems/issues/37"
+forum = "https://github.com/yosupo06/library-checker-problems/issues/393"
 
 [[tests]]
     name = "example.in"
@@ -17,6 +17,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/37"
 [[tests]]
     name = "many_smalls.cpp"
     number = 2
+[[tests]]
+    name = "worst.cpp"
+    number = 3
 
 [params]
     L_MAX = 100_000

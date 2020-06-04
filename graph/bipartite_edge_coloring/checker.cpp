@@ -24,7 +24,7 @@ int main(int argc, char * argv[])
   for (int &d:deg) max_deg=std::max(max_deg,d);
   int k_ouf = ouf.readInt();  
   if (max_deg != k_ouf) {
-    quitf(_wa, "# of Matching is differ - expected: '%d', found '%d'", max_deg, k_ouf);
+    quitf(_wa, "# of color is  - expected: '%d', found '%d'", max_deg, k_ouf);
   }
   for (int i = 0; i < M; i++) {
     int col = ouf.readInt();

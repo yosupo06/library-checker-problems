@@ -3,7 +3,7 @@
 @{lang.en}
 Given a bipartite graph with $L + R$ vertices and $M$ edges. $i$-th edge is $(a_i, b_i)$.
 
-Calculate the proper edge coloring which gives edge chromatic number.
+Calculate the proper edge coloring which gives the edge chromatic number.
 
 @{lang.ja}
 

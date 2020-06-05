@@ -95,6 +95,7 @@ void divide_edge(std::vector<vertex> &v0,std::vector<vertex> &v1,int a,int b,edg
 }
 
 void divide(std::vector<vertex> &vs,std::vector<vertex> &v0,std::vector<vertex> &v1) {
+  assert(max_deg(vs)%2==0);
   std::vector<std::vector<bool>> vis;
   for (int i=0;i<(int)vs.size();++i) {
     vis.push_back(std::vector<bool>(vs[i].edges.size(),false));
@@ -174,10 +175,37 @@ void delete_edges(std::vector<vertex> &vs,std::vector<int> delete_edges) {
   vs=ret;
 }
 
-std::vector<std::pair<int,int>> colorize(std::vector<vertex> &vs,int offset=0) {
+std::vector<std::pair<int,int>> colorize2(std::vector<vertex> &vs,int offset=0) {
+  int D=max_deg(vs);
+  if (D==1) {
+    std::vector<std::pair<int,int>> ret;
+    for (vertex &v:vs) for (edge &e:v.edges) {
+        if (v.id>e.dst) continue;
+        ret.push_back(std::make_pair(e.id,offset));
+      }
+    return ret;
+  }
+  std::vector<vertex> v0(vs.size());
+  std::vector<vertex> v1(vs.size());
+  for (int i=0;i<(int)vs.size();++i) {
+    v0[i].id=i;
+    v1[i].id=i;
+  }
+  divide(vs,v0,v1);
+  std::vector<std::pair<int,int>> ans0=colorize2(v0,offset);
+  std::vector<std::pair<int,int>> ans1=colorize2(v1,offset+D/2);
+  for (std::pair<int,int> &p:ans0) {
+    ans1.push_back(p);
+  }
+  return ans1;
+}
+
+std::vector<std::pair<int,int>> colorize(std::vector<vertex> vs,int offset=0) {
   int D=max_deg(vs);
   if (D==0) return std::vector<std::pair<int,int>>();
   else if (D%2==0) {
+    int D2=1;
+    while (D2<D/2) D2*=2;
     std::vector<vertex> v0(vs.size());
     std::vector<vertex> v1(vs.size());
     for (int i=0;i<(int)vs.size();++i) {
@@ -186,14 +214,28 @@ std::vector<std::pair<int,int>> colorize(std::vector<vertex> &vs,int offset=0) {
     }
     divide(vs,v0,v1);
     std::vector<std::pair<int,int>> ans0=colorize(v0,offset);
-    std::vector<std::pair<int,int>> ans1=colorize(v1,offset+D/2);
-    for (std::pair<int,int> &p:ans1) {
-      ans0.push_back(p);
+    std::set<int> invalid;
+    for (auto &p:ans0) {
+      assert(p.second<offset+D/2);
+      if (p.second-offset>=(int)(D/2-(D2-D/2))) {
+        invalid.insert(p.first);
+      }
     }
-    return ans0;
+    for (vertex &v:v0) {
+      for (edge &e:v.edges) {
+        if (v.id>e.dst) continue;
+        if (invalid.count(e.id)) {
+          add_edge(v1[v.id],v1[e.dst],-1,1,e.id);
+        }
+      }
+    }
+    std::vector<std::pair<int,int>> ans1=colorize2(v1,offset+(D/2-(D2-D/2)));
+    for (std::pair<int,int> &p:ans0) {
+      if (invalid.count(p.first)==0) ans1.push_back(p);
+    }
+    return ans1;
   } else {
     std::vector<int> matching=find_matching(vs);
-    assert(matching.size()==vs.size()/2);
     std::vector<std::pair<int,int>> ans0;
     std::vector<std::pair<int,int>> ans1;
     for (int &id:matching) {
@@ -287,7 +329,7 @@ void gen() {
 }
 
 void verify() {
- for (int i=0;i<10;++i) {
+  for (int i=0;i<10;++i) {
     clock_t start=clock();
     verify();
     clock_t end=clock();

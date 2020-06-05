@@ -1,0 +1,31 @@
+title = 'Set Xor-Min'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/499"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "ans_big.in"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "almost_all_insert.cpp"
+    number = 1
+[[tests]]
+    name = "almost_all_query.cpp"
+    number = 1
+[[tests]]
+    name = "almost_all_query_close.cpp"
+    number = 1
+[[tests]]
+    name = "max_ans_small.cpp"
+    number = 1
+
+[params]
+    MAX_Q = 500_000

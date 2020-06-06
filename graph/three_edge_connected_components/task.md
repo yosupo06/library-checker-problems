@@ -8,7 +8,7 @@ Please decompose this graph into three-edge-connected components.
 @{lang.ja}
 
 $N$ 頂点 $M$ 辺の無向グラフが与えられる。$i$ 番目の辺は $(a_i, b_i)$ である。このグラフは単純とは限らない。
-このグラフを二辺連結成分分解してください。
+このグラフを三辺連結成分分解してください。
 
 @{lang.end}
 

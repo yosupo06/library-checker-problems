@@ -1,0 +1,54 @@
+title = 'K-Shortest Walk'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/347"
+
+[[tests]]
+	name = "example.in"
+	number = 1
+
+[[tests]]
+	name = "smallest_random.cpp"
+	number = 3
+
+[[tests]]
+	name = "small_random.cpp"
+	number = 3
+
+[[tests]]
+	name = "random.cpp"
+	number = 5
+
+[[tests]]
+	name = "max_random.cpp"
+	number = 5
+
+[[tests]]
+	name = "almost_path.cpp"
+	number = 3
+
+[[tests]]
+	name = "dense.cpp"
+	number = 2
+
+[[tests]]
+	name = "sparse.cpp"
+	number = 2
+
+[[solutions]]
+	name = "wa1.cpp"
+	wrong = true
+[[solutions]]
+	name = "wa2.cpp"
+	wrong = true
+[params]
+	N_AND_M_MIN = 1
+	N_AND_M_MAX = 300_000
+	N_AND_M_SMALL_MAX = 1_000
+	N_AND_M_SMALLEST_MAX =10
+	K_MIN = 1
+	K_MAX = 300_000
+	K_SMALL_MAX =1_000
+	K_SMALLEST_MAX =10
+	C_MIN =0
+	C_MAX =1_000_000_000
+	C_SMALLEST_MAX=10

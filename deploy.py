@@ -139,24 +139,24 @@ if __name__ == "__main__":
         title = problem.config['title']
         timelimit = problem.config['timelimit']
 
-        with tempfile.NamedTemporaryFile(suffix='.zip', delete=False) as tmp:
-            with zipfile.ZipFile(tmp.name, 'w', zipfile.ZIP_DEFLATED) as newzip:
-                def zip_write(filename, arcname):
-                    newzip.write(filename, arcname)
-                zip_write(probdir / 'checker.cpp', arcname='checker.cpp')
-                for f in sorted(probdir.glob('in/*.in')):
-                    zip_write(f, arcname=f.relative_to(probdir))
-                for f in sorted(probdir.glob('out/*.out')):
-                    zip_write(f, arcname=f.relative_to(probdir))
+        if new_version != old_version:
+            with tempfile.NamedTemporaryFile(suffix='.zip', delete=False) as tmp:
+                with zipfile.ZipFile(tmp.name, 'w', zipfile.ZIP_DEFLATED) as newzip:
+                    def zip_write(filename, arcname):
+                        newzip.write(filename, arcname)
+                    zip_write(probdir / 'checker.cpp', arcname='checker.cpp')
+                    for f in sorted(probdir.glob('in/*.in')):
+                        zip_write(f, arcname=f.relative_to(probdir))
+                    for f in sorted(probdir.glob('out/*.out')):
+                        zip_write(f, arcname=f.relative_to(probdir))
 
+                minio_client.fput_object(bucket_name, new_version + '.zip', tmp.name, part_size=5 * 1000 * 1000 * 1000)
+                if old_version != first_time:
+                    minio_client.remove_object(bucket_name, old_version + '.zip')
 
-            minio_client.fput_object(bucket_name, new_version + '.zip', tmp.name, part_size=5 * 1000 * 1000 * 1000)
-            if old_version != first_time:
-                minio_client.remove_object(bucket_name, old_version + '.zip')
+        html = problem.gen_html()
+        statement = html.statement
 
-            html = problem.gen_html()
-            statement = html.statement
-
-            stub.ChangeProblemInfo(libpb.ChangeProblemInfoRequest(
-                name=name, title=title, statement=statement, time_limit=timelimit, case_version=new_version
-            ), credentials=cred_token)
+        stub.ChangeProblemInfo(libpb.ChangeProblemInfoRequest(
+            name=name, title=title, statement=statement, time_limit=timelimit, case_version=new_version
+        ), credentials=cred_token)

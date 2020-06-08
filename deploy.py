@@ -86,7 +86,36 @@ if __name__ == "__main__":
     if not minio_client.bucket_exists(bucket_name):
         logger.error('No bucket {}'.format(bucket_name))
         raise ValueError('No bucket {}'.format(bucket_name))
-        
+    
+    tomls_new = []
+    tomls_old = []
+    for toml_path in tomls:
+        probdir = toml_path.parent
+        name = probdir.name
+        problem = Problem(libdir, probdir)
+
+        new_version = problem.testcase_version()
+        first_time = "FirstTime"
+
+        try:
+            old_version = stub.ProblemInfo(libpb.ProblemInfoRequest(
+                name=name), credentials=cred_token).case_version
+        except grpc.RpcError as err:
+            if err.code() == grpc.StatusCode.UNKNOWN:
+                old_version = first_time
+            else:
+                raise RuntimeError('Unknown gRPC error')
+
+        if new_version == old_version:
+            tomls_new += toml_path
+        else:
+            tomls_old += toml_path
+    
+    logger.info('First deploy: {}'.format(tomls_new))
+    logger.info('Second deploy: {}'.format(tomls_old))
+
+    tomls = tomls_new + tomls_old
+
     for toml_path in tomls:
         probdir = toml_path.parent
         name = probdir.name
@@ -103,10 +132,6 @@ if __name__ == "__main__":
             else:
                 raise RuntimeError('Unknown gRPC error')
 
-        if new_version == old_version:
-            logger.info('Already deployed, skip: {} ({})'.format(name, new_version))
-            continue
-
         logger.info('Generate : {} ({} -> {})'.format(name, old_version, new_version))
 
         problem.generate(problem.Mode.DEFAULT, None)
@@ -114,24 +139,24 @@ if __name__ == "__main__":
         title = problem.config['title']
         timelimit = problem.config['timelimit']
 
-        with tempfile.NamedTemporaryFile(suffix='.zip', delete=False) as tmp:
-            with zipfile.ZipFile(tmp.name, 'w', zipfile.ZIP_DEFLATED) as newzip:
-                def zip_write(filename, arcname):
-                    newzip.write(filename, arcname)
-                zip_write(probdir / 'checker.cpp', arcname='checker.cpp')
-                for f in sorted(probdir.glob('in/*.in')):
-                    zip_write(f, arcname=f.relative_to(probdir))
-                for f in sorted(probdir.glob('out/*.out')):
-                    zip_write(f, arcname=f.relative_to(probdir))
+        if new_version != old_version:
+            with tempfile.NamedTemporaryFile(suffix='.zip', delete=False) as tmp:
+                with zipfile.ZipFile(tmp.name, 'w', zipfile.ZIP_DEFLATED) as newzip:
+                    def zip_write(filename, arcname):
+                        newzip.write(filename, arcname)
+                    zip_write(probdir / 'checker.cpp', arcname='checker.cpp')
+                    for f in sorted(probdir.glob('in/*.in')):
+                        zip_write(f, arcname=f.relative_to(probdir))
+                    for f in sorted(probdir.glob('out/*.out')):
+                        zip_write(f, arcname=f.relative_to(probdir))
 
+                minio_client.fput_object(bucket_name, new_version + '.zip', tmp.name, part_size=5 * 1000 * 1000 * 1000)
+                if old_version != first_time:
+                    minio_client.remove_object(bucket_name, old_version + '.zip')
 
-            minio_client.fput_object(bucket_name, new_version + '.zip', tmp.name, part_size=5 * 1000 * 1000 * 1000)
-            if old_version != first_time:
-                minio_client.remove_object(bucket_name, old_version + '.zip')
+        html = problem.gen_html()
+        statement = html.statement
 
-            html = problem.gen_html()
-            statement = html.statement
-
-            stub.ChangeProblemInfo(libpb.ChangeProblemInfoRequest(
-                name=name, title=title, statement=statement, time_limit=timelimit, case_version=new_version
-            ), credentials=cred_token)
+        stub.ChangeProblemInfo(libpb.ChangeProblemInfoRequest(
+            name=name, title=title, statement=statement, time_limit=timelimit, case_version=new_version
+        ), credentials=cred_token)

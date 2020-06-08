@@ -86,7 +86,36 @@ if __name__ == "__main__":
     if not minio_client.bucket_exists(bucket_name):
         logger.error('No bucket {}'.format(bucket_name))
         raise ValueError('No bucket {}'.format(bucket_name))
-        
+    
+    tomls_new = []
+    tomls_old = []
+    for toml_path in tomls:
+        probdir = toml_path.parent
+        name = probdir.name
+        problem = Problem(libdir, probdir)
+
+        new_version = problem.testcase_version()
+        first_time = "FirstTime"
+
+        try:
+            old_version = stub.ProblemInfo(libpb.ProblemInfoRequest(
+                name=name), credentials=cred_token).case_version
+        except grpc.RpcError as err:
+            if err.code() == grpc.StatusCode.UNKNOWN:
+                old_version = first_time
+            else:
+                raise RuntimeError('Unknown gRPC error')
+
+        if new_version == old_version:
+            tomls_new += toml_path
+        else:
+            tomls_old += toml_path
+    
+    logger.info('First deploy: {}'.format(tomls_new))
+    logger.info('Second deploy: {}'.format(tomls_old))
+
+    tomls = tomls_new + tomls_old
+
     for toml_path in tomls:
         probdir = toml_path.parent
         name = probdir.name
@@ -102,10 +131,6 @@ if __name__ == "__main__":
                 old_version = first_time
             else:
                 raise RuntimeError('Unknown gRPC error')
-
-        if new_version == old_version:
-            logger.info('Already deployed, skip: {} ({})'.format(name, new_version))
-            continue
 
         logger.info('Generate : {} ({} -> {})'.format(name, old_version, new_version))
 

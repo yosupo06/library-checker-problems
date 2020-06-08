@@ -17,6 +17,8 @@ from generate import Problem, find_problem_dir
 from scripts import library_checker_pb2 as libpb
 from scripts import library_checker_pb2_grpc
 
+from typing import List
+
 logger: Logger = getLogger(__name__)
 
 if __name__ == "__main__":
@@ -46,7 +48,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     libdir = Path(__file__).parent
-    tomls = []
+    tomls: List[Path] = []
     for problem_name in args.problem:
         problem_dir = find_problem_dir(libdir, problem_name)
         if problem_dir is None:
@@ -87,8 +89,9 @@ if __name__ == "__main__":
         logger.error('No bucket {}'.format(bucket_name))
         raise ValueError('No bucket {}'.format(bucket_name))
     
-    tomls_new = []
-    tomls_old = []
+    tomls_new : List[Path] = []
+    tomls_old : List[Path] = []
+
     for toml_path in tomls:
         probdir = toml_path.parent
         name = probdir.name
@@ -107,9 +110,9 @@ if __name__ == "__main__":
                 raise RuntimeError('Unknown gRPC error')
 
         if new_version == old_version:
-            tomls_new += toml_path
+            tomls_new.append(toml_path)
         else:
-            tomls_old += toml_path
+            tomls_old.append(toml_path)
     
     logger.info('First deploy: {}'.format(tomls_new))
     logger.info('Second deploy: {}'.format(tomls_old))

@@ -65,7 +65,8 @@ if __name__ == "__main__":
             args.host, grpc.ssl_channel_credentials())
         stub = library_checker_pb2_grpc.LibraryCheckerServiceStub(channel)
     else:
-        channel = grpc.secure_channel(args.host, grpc.local_channel_credentials())
+        channel = grpc.secure_channel(
+            args.host, grpc.local_channel_credentials())
         stub = library_checker_pb2_grpc.LibraryCheckerServiceStub(channel)
 
     api_password = environ.get('API_PASS', 'password')
@@ -79,18 +80,18 @@ if __name__ == "__main__":
     minio_secret_key = environ.get('MINIO_SECRET_KEY', 'miniopass')
 
     minio_client = Minio(minio_host,
-                        access_key=minio_access_key,
-                        secret_key=minio_secret_key,
-                        secure=args.prod)
+                         access_key=minio_access_key,
+                         secret_key=minio_secret_key,
+                         secure=args.prod)
 
     bucket_name = environ.get('MINIO_BUCKET', 'testcase')
 
     if not minio_client.bucket_exists(bucket_name):
         logger.error('No bucket {}'.format(bucket_name))
         raise ValueError('No bucket {}'.format(bucket_name))
-    
-    tomls_new : List[Path] = []
-    tomls_old : List[Path] = []
+
+    tomls_new: List[Path] = []
+    tomls_old: List[Path] = []
 
     for toml_path in tomls:
         probdir = toml_path.parent
@@ -109,11 +110,11 @@ if __name__ == "__main__":
             else:
                 raise RuntimeError('Unknown gRPC error')
 
-        if new_version == old_version:
+        if new_version != old_version:
             tomls_new.append(toml_path)
         else:
             tomls_old.append(toml_path)
-    
+
     logger.info('First deploy: {}'.format(tomls_new))
     logger.info('Second deploy: {}'.format(tomls_old))
 
@@ -126,16 +127,18 @@ if __name__ == "__main__":
 
         new_version = problem.testcase_version()
         first_time = "FirstTime"
-        
+
         try:
-            old_version = stub.ProblemInfo(libpb.ProblemInfoRequest(name=name), credentials=cred_token).case_version
+            old_version = stub.ProblemInfo(libpb.ProblemInfoRequest(
+                name=name), credentials=cred_token).case_version
         except grpc.RpcError as err:
             if err.code() == grpc.StatusCode.UNKNOWN:
                 old_version = first_time
             else:
                 raise RuntimeError('Unknown gRPC error')
 
-        logger.info('Generate : {} ({} -> {})'.format(name, old_version, new_version))
+        logger.info('Generate : {} ({} -> {})'.format(name,
+                                                      old_version, new_version))
 
         problem.generate(problem.Mode.DEFAULT, None)
 
@@ -153,9 +156,11 @@ if __name__ == "__main__":
                     for f in sorted(probdir.glob('out/*.out')):
                         zip_write(f, arcname=f.relative_to(probdir))
 
-                minio_client.fput_object(bucket_name, new_version + '.zip', tmp.name, part_size=5 * 1000 * 1000 * 1000)
+                minio_client.fput_object(
+                    bucket_name, new_version + '.zip', tmp.name, part_size=5 * 1000 * 1000 * 1000)
                 if old_version != first_time:
-                    minio_client.remove_object(bucket_name, old_version + '.zip')
+                    minio_client.remove_object(
+                        bucket_name, old_version + '.zip')
 
         html = problem.gen_html()
         statement = html.statement

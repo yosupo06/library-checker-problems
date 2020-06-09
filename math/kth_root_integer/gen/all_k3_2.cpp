@@ -57,7 +57,7 @@ int main(int, char* argv[]) {
     for (int i = 0; i < t; i++) {
         int k = 3;
         ull x = gen.uniform(0ULL, up[k]);
-        x = mypow(x, 3);
+        x = mypow(x, k);
 
         ull lw = ull(max(Int(0), Int(x) - 10));
         ull up = ull(min(Int(ull_max), Int(x) + 10));

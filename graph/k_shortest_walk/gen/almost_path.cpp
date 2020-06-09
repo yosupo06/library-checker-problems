@@ -10,11 +10,9 @@ int main(int, char* argv[]) {
 	int n = gen.uniform<int>(N_AND_M_MIN,N_AND_M_MAX);
 	int m = gen.uniform<int>(N_AND_M_MIN,N_AND_M_MAX);
 	int k = gen.uniform<int>(K_MIN,K_MAX);
-	printf("%d %d %d\n",n,m,k);
-	int s,t;
-	s=gen.uniform(0,n-1);
-	t=gen.uniform(0,n-1);
-	printf("%d %d\n",s,t);
+	int s=gen.uniform<int>(0,n-1);
+	int t=gen.uniform<int>(0,n-1);
+	printf("%d %d %d %d %d\n",n,m,k,s,t);
 	vector<int> v(n);
 	for (int i = 0; i < n; i++)v[i]=i;
 	gen.shuffle(v.begin(),v.end());

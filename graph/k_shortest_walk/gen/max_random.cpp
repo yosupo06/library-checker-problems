@@ -10,11 +10,9 @@ int main(int, char* argv[]) {
 	int n = N_AND_M_MAX;
 	int m = N_AND_M_MAX;
 	int k = K_MAX;
-	printf("%d %d %d\n",n,m,k);
-	int s,t;
-	s=gen.uniform(0,n-1);
-	t=gen.uniform(0,n-1);
-	printf("%d %d\n",s,t);
+	int s=gen.uniform<int>(0,n-1);
+	int t=gen.uniform<int>(0,n-1);
+	printf("%d %d %d %d %d\n",n,m,k,s,t);
 	for (int i = 0; i < m; i++) {
 		int u,v,c;
 		u=gen.uniform(0,n-1);

@@ -47,9 +47,8 @@ struct heap{
  
 int main(){
 	lint n,m,k;
-	scanf("%lld%lld%lld",&n,&m,&k);
 	lint x,y;
-	scanf("%lld%lld",&x,&y);
+	scanf("%lld%lld%lld%lld%lld",&n,&m,&x,&y,&k);
 	vector<vector<tuple<lint,lint,lint>>>g(n);
 	vector<vector<tuple<lint,lint,lint>>>g2(n);
 	for(lint i=0;i<m;++i){

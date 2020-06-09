@@ -8,17 +8,17 @@ int main(int, char* argv[]) {
 	long long seed = atoll(argv[1]);
 	auto gen = Random(seed);
     int n = N_AND_M_MAX;
-	int m = N_AND_M_SMALL_MAX;
+	int m = n;
 	int k = K_MAX;
-	int s=gen.uniform<int>(0,n-1);
-	int t=gen.uniform<int>(0,n-1);
+    vector<int> v(n);
+	for (int i = 0; i < n; i++)v[i]=i;
+	gen.shuffle(v.begin(),v.end());
+	int s=v[0];
+	int t=v.back();
 	printf("%d %d %d %d %d\n",n,m,s,t,k);
-	for (int i = 0; i < m; i++) {
-		int u,v,c;
-		u=gen.uniform(0,n-1);
-		v=gen.uniform(0,n-1);
-		c=gen.uniform(C_MIN,C_MAX);
-		printf("%d %d %d\n",u,v,c);
+	for (int i = 0; i < m; i++){
+        int c=C_MAX;
+        printf("%d %d %d\n",v[i],v[(i+1)%n],c);
 	}
 	return 0;
 }

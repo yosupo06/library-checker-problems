@@ -10,11 +10,11 @@ int main(int argc, char* argv[]) {
 	inf.readSpace();
 	int m = inf.readInt(N_AND_M_MIN,N_AND_M_MAX,"m");
 	inf.readSpace();
-	inf.readInt(K_MIN,K_MAX,"k");
-	inf.readSpace();
 	inf.readInt(0,n-1,"s");
 	inf.readSpace();
 	inf.readInt(0,n-1,"t");
+	inf.readSpace();
+	inf.readInt(K_MIN,K_MAX,"k");
 	inf.readChar('\n');
 	for(int i=0;i<m;i++) {
 		inf.readInt(0,n-1,"u");

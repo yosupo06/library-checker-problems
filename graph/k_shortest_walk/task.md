@@ -17,7 +17,7 @@
 ## @{keyword.input}
 
 ~~~
-$N~M~K~s~t$
+$N~M~s~t~K$
 $u_0~v_0~c_0$
 $u_1~v_1~c_1$
 $u_2~v_2~c_2$

@@ -110,7 +110,7 @@ int main(){
 		heap<lint>::np now;
 		tie(t,now)=qqq.top();
 		qqq.pop();
-		//if(t==INF)break;
+		if(t==INF)break;
 		ans.push_back(t);
 		if(int(ans.size())==k)break;
 		if(now->ch[0]){

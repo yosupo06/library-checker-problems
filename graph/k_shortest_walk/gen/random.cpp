@@ -12,7 +12,7 @@ int main(int, char* argv[]) {
 	int k = gen.uniform<int>(K_MIN,K_MAX);
 	int s=gen.uniform<int>(0,n-1);
 	int t=gen.uniform<int>(0,n-1);
-	printf("%d %d %d %d %d\n",n,m,k,s,t);
+	printf("%d %d %d %d %d\n",n,m,s,t,k);
 	for (int i = 0; i < m; i++) {
 		int u,v,c;
 		u=gen.uniform(0,n-1);

@@ -15,5 +15,14 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/64"
     name = "all_k3.cpp"
     number = 2
 [[tests]]
+    name = "all_k3_2.cpp"
+    number = 2
+[[tests]]
     name = "near_border.cpp"
     number = 3
+[[tests]]
+    name = "near_border_2.cpp"
+    number = 3
+
+[params]
+    T_MAX = 500000

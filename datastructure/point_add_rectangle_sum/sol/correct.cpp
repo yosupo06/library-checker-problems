@@ -119,7 +119,7 @@ int main() {
 	tree.build1();
 	for (int i = 0; i < q; i++) {
 		if (a[i] == -1) tree.add(b[i], c[i], d[i]);
-		else printf("%" PRId64 "\n", tree.sum(a[i], c[i], b[i], d[i]));
+		else printf("%lld\n", (long long) tree.sum(a[i], c[i], b[i], d[i]));
 	}
 	return 0;
 }

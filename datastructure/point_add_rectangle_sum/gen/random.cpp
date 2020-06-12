@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <tuple>
 #include "random.h"
 #include "../params.h"
 
@@ -19,10 +20,10 @@ int main(int, char **argv) {
 		int t = gen.uniform<int>(0, 1);
 		printf("%d ", t);
 		if (t) {
-			int l = gen.uniform<int>(0, COORD_MAX - 1);
-			int r = gen.uniform<int>(l + 1, COORD_MAX);
-			int d = gen.uniform<int>(0, COORD_MAX - 1);
-			int u = gen.uniform<int>(d + 1, COORD_MAX);
+			int l, r;
+			std::tie(l, r) = gen.uniform_pair<int>(0, COORD_MAX);
+			int d, u;
+			std::tie(d, u) = gen.uniform_pair<int>(0, COORD_MAX);
 			printf("%d %d %d %d\n", l, d, r, u);
 		} else {
 			int x = gen.uniform<int>(0, COORD_MAX);

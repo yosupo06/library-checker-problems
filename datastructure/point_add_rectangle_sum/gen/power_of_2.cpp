@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <tuple>
 #include "random.h"
 #include "../params.h"
 
@@ -22,17 +23,11 @@ int main(int, char **argv) {
 	}
 	for (int i = 0; i < q; i++) {
 		int l, r;
-		do {
-			l = gen.uniform<int>(0, COORD_MAX - 1);
-			r = gen.uniform<int>(l + 1, COORD_MAX);
-		} while (xs.count(l) || xs.count(r));
+		do std::tie(l, r) = gen.uniform_pair<int>(0, COORD_MAX); while (xs.count(l) || xs.count(r));
 		xs.insert(l);
 		xs.insert(r);
 		int d, u;
-		do {
-			d = gen.uniform<int>(0, COORD_MAX - 1);
-			u = gen.uniform<int>(d + 1, COORD_MAX);
-		} while (ys.count(d) || ys.count(u));
+		do std::tie(d, u) = gen.uniform_pair<int>(0, COORD_MAX); while (ys.count(d) || ys.count(u));
 		ys.insert(d);
 		ys.insert(u);
 		printf("1 %d %d %d %d\n", l, d, r, u);

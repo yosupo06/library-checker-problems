@@ -1,10 +1,10 @@
 ## @{keyword.statement}
 @{lang.en}
 You are given $N$ weighted points on two-dimensional plane. $i$-th is at ($x_i$, $y_i$) and has a weight of $w_i$.
-Process the following queries in order.
+Process $Q$ queries of the following types.
 
- - `0 $x$ $y$ $w$` : Add a new point with weight $w_i$ at $(x, y)$. If there is another point at the same coordinates, add as a distinct point.
- - `1 $l$ $d$ $r$ $u$` : Find the sum of weight of points that $l \leq x < r$, $d \leq y < u$ is satisfied.
+ - `0 $x$ $y$ $w$` : Add a new point with weight $w$ at $(x, y)$. If there is another point at the same coordinates, add as a distinct point.
+ - `1 $l$ $d$ $r$ $u$` : Find the sum of weight of points such that $l \leq x < r$, $d \leq y < u$ is satisfied.
 
 @{lang.ja}
 $2$ 次元平面上に重み付きの点が $N$ 個あります。 $i$ 個目の座標は$(x_i, y_i)$で重みは$w_i$です。
@@ -46,11 +46,11 @@ $2$ 次元平面上に重み付きの点が $N$ 個あります。 $i$ 個目の
 ## @{keyword.input}
 ~~~
 $N$ $Q$
+$x_0$ $y_0$ $w_0$
 $x_1$ $y_1$ $w_1$
 $x_2$ $y_2$ $w_2$
-$x_3$ $y_3$ $w_3$
 $\hspace{17pt} \vdots$
-$x_N$ $y_N$ $w_N$
+$x_{N - 1}$ $y_{N - 1}$ $w_{N - 1}$
 $\mathrm{Query}_0$
 $\mathrm{Query}_1$
 $\mathrm{Query}_2$

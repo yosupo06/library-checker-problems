@@ -16,8 +16,8 @@ Process the following $Q$ queries in order:
 
 ## @{keyword.constraints}
 
-- $1 \leq N, Q \leq 500,000$
-- $0 \leq a_i, x \leq 10^9$
+- $1 \leq N, Q \leq @{param.N_AND_Q_MAX}$
+- $0 \leq a_i, x \leq @{param.A_AND_X_MAX}$
 - $0 \leq p < N$
 - $0 \leq l_i < r_i \leq N$
 

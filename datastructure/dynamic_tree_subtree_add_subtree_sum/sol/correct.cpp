@@ -41,7 +41,7 @@ struct Node {
 		size = 1 + l->size + r->size + size_light;
 		sum = val + l->sum + r->sum + sum_light;
 	}
-	void add(int add_val) {
+	void add(int64_t add_val) {
 		val += add_val;
 		sum += (int64_t) size * add_val;
 		sum_light += (int64_t) size_light * add_val;

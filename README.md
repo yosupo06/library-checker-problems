@@ -72,9 +72,9 @@ We are welcome any issues and PRs! Except minor change (e.g. add test cases, fix
 
 ## File structure / How to create the problem
 
-[guideline](docs/guideline.en.md)
+[guideline(en)](docs/guideline.en.md)
 
-各種コンフィグファイルの仕様などは、[guideline](docs/guideline.md) にまとまっています
+[guideline(日本語)](docs/guideline.md)
 
 ## library-checker-project
 

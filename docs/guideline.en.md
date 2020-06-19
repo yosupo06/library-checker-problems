@@ -111,7 +111,7 @@ For special judge: [https://codeforces.com/blog/entry/18431](https://codeforces.
 
 ## gen/example_00.in, gen/example_01.in, gen/random.cpp...(Generator)
 
-You can refer [テストケースの作り方](generator.md) (TODO! translation...)
+You can refer [How to create testcases](generator.en.md)
 
 - Please prepare example_00.in as a sample
 - Weak test cases are okay, we can add testcases in later

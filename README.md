@@ -70,7 +70,9 @@ We are welcome any issues and PRs! Except minor change (e.g. add test cases, fix
 
 競プロerは必ずしもgithubに慣れているとは限らず、issue / pull request を送ったことがない人も少なくはないというのを理解しています。どれだけめちゃくちゃなものを送ってきても怒ったりこのリポジトリが壊れたりすることはないので、githubの練習がてら挑戦してみるというのもアリです(頑張ってサポートします)。
 
-## File structure(Japanese Only / 日本語)
+## File structure / How to create the problem
+
+[guideline](docs/guideline.en.md)
 
 各種コンフィグファイルの仕様などは、[guideline](docs/guideline.md) にまとまっています
 

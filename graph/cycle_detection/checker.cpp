@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
 	
 	int N = inf.readInt(); (void)N;
 	int M = inf.readInt();
-    std::vector<int> U(M), V(M);
+    std::vector<int> U(M), V(M), cnt(M);
 	for(int i=0; i<M; i++) {
         U[i] = inf.readInt();
         V[i] = inf.readInt();
@@ -49,9 +49,13 @@ int main(int argc, char *argv[]) {
 	}
 	auto edges_submitted = res_submitted.edges;
 	if(res_submitted.contain_cycle) {
-        if(edges_submitted.size()) {
+        if(edges_submitted.size() >= 2) {
             size_t L = edges_submitted.size();
             for(size_t i=0; i<L; i++) {
+                if(++cnt[ edges_submitted[i] ] >= 2) {
+                    quitf(_wa, "the edge (id = %d) appears twice",
+                          edges_submitted[i]);
+                }
                 int v1 = V[ edges_submitted[i] ];
                 int v2 = U[ edges_submitted[(i+1)%L] ];
                 if(v1 != v2) {
@@ -61,7 +65,7 @@ int main(int argc, char *argv[]) {
             
         }
         else {
-            quitf(_wa, "cycle length = 0 is not permitted");
+            quitf(_wa, "cycle length < 2 is not permitted");
         }
     }
 	quitf(_ok, "OK");

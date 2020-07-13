@@ -1,0 +1,30 @@
+title = 'Cycle Detection'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/534"
+
+[[tests]]
+	name = "example.in"
+	number = 2
+[[tests]]
+    name = "random.cpp"
+    number = 10
+[[tests]]
+    name = "random_dense.cpp"
+    number = 5
+[[tests]]
+    name = "random_dag.cpp"
+    number = 10
+[[tests]]
+    name = "random_dag_dense.cpp"
+    number = 5
+
+[[solutions]]
+	name = 'source_zero.cpp'
+	wrong = true
+
+[params]
+	N_MIN = 2
+	N_MAX = 500000
+	M_MIN = 1
+	M_MAX = 500000
+

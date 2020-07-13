@@ -1,0 +1,8 @@
+{
+  "example_00.in": "adfafc288ab45f135f6527cf86ecd9e04c666891b5f807cb24f934f936671b0c",
+  "example_00.out": "74b3abad58c36dbbc7497cb07c95a53b39d55aae51633922cc096dd7bab0a8af",
+  "near_maximum_00.in": "27221944f5a9191af3a3f4fefd7a88c9e065ccb48a117edf3e903e29acd9a403",
+  "near_maximum_00.out": "04b7410e3ee635cf5a3ed0d251a8a12e5a3b3d6ea24370e60097bdeb38702450",
+  "near_minimum_00.in": "9d11b9a6bf360f72b6d4a9a677799053b0059f7e84d7fd6bfefce4ec11bb861c",
+  "near_minimum_00.out": "e14b948efac3edb77191cdbc16ccbe7bd0599929e06fbaac8d8c1a55a5267dd7"
+}

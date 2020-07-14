@@ -21,6 +21,8 @@ struct Rng : public Random {
     }
     // returns [lower, upper], skewed to the middle.
     template<class T> T skewed(const T lower, const T middle, const T upper) {
+        if (middle < lower) return skewed(lower, lower, upper);
+        if (middle > upper) return skewed(lower, upper, upper);
         assert(lower <= middle && middle <= upper);
         if (lower == middle) return lower + skewed(upper - lower);
         if (upper == middle) return upper - skewed(upper - lower);

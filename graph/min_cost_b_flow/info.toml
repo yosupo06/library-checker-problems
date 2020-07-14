@@ -11,6 +11,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/143"
 [[tests]]
     name = "near_maximum.cpp"
     number = 1
+[[tests]]
+    name = "small_random.cpp"
+    number = 10
 
 [params]
     N_MAX = 100

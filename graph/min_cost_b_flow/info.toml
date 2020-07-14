@@ -20,6 +20,13 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/143"
 [[tests]]
     name = "large_random.cpp"
     number = 10
+[[tests]]
+    name = "anti_ssp.in"
+    number = 1
+
+[[solutions]]
+    name = 'ssp.cpp'
+    wrong = true
 
 [params]
     N_MAX = 100

@@ -1,4 +1,6 @@
 {
+  "anti_ssp_00.in": "1eeaa9701379ac58fbccad76f2c5d7b3f05e566930eab0050d4bdc16ed247121",
+  "anti_ssp_00.out": "91c7a468bdfd92aa972bfc7cb9edcdb92f57a0ffcde25b241d10c450a365de79",
   "empty_00.in": "0ccdb5a77ba5bf7687f2565a8ed97dfb9c1af45503c496fb646312239fab5101",
   "empty_00.out": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
   "empty_01.in": "ed124fbf8ffd811c88b3cc955212778eacce7a20b83ad9c8e79a9729cfb9b0b9",

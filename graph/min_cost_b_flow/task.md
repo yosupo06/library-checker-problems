@@ -43,7 +43,7 @@ $v$ 番目の頂点は, $b_v$ が正のとき $b_v$ の供給点であり, そ�
 - $0 \le n \leq @{param.N_MAX}$
 - $0 \le m \leq @{param.M_MAX}$
 - $0 \le s_e \lt n$
-- $0 \le t_e \lt m$
+- $0 \le t_e \lt n$
 - $|b_v| \le @{param.U_MAX}$
 - $|l_v| \le @{param.U_MAX}$
 - $|u_v| \le @{param.U_MAX}$

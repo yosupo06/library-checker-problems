@@ -21,6 +21,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/143"
     name = "large_random.cpp"
     number = 10
 [[tests]]
+    name = "small_random_possibly_infeasible.cpp"
+    number = 10
+[[tests]]
     name = "anti_ssp.in"
     number = 1
 

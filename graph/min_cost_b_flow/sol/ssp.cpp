@@ -59,7 +59,7 @@ class MinCostFlow {
         public:
         EdgePtr() = default;
 
-        [[nodiscard]] V_id src() const { return src; }
+        [[nodiscard]] V_id src() const { return v; }
 
         [[nodiscard]] V_id dst() const { return edge().dst; }
 

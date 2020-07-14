@@ -59,7 +59,7 @@ class MinCostFlow {
         public:
         EdgePtr() = default;
 
-        [[nodiscard]] V_id src() const { return src; }
+        [[nodiscard]] V_id src() const { return v; }
 
         [[nodiscard]] V_id dst() const { return edge().dst; }
 
@@ -254,12 +254,21 @@ class MinCostFlow {
         value /= (T)2;
         return value;
     }
+    std::vector<size_t> get_cut() {
+        std::vector<size_t> res;
+        for (size_t v = 0; v < n; ++v) {
+            if (dist[v] < unreachable) res.emplace_back(v);
+        }
+        return res;
+    }
 };
 
 #if __INCLUDE_LEVEL__ == 0
 
 #include <cstdint>
 #include <cstdio>
+#include <set>
+
 #define REP(i, b, n) for (int i = (int)(b); i < (int)(n); ++i)
 #define rep(i, n) REP(i, 0, n)
 #define loop(n) rep(i##__COUNTER__, n)
@@ -289,13 +298,18 @@ std::string i2s(T value) {
 }
 
 int main(void) {
-    using MCF = MinCostFlow<long long, long long>;
+    using Flow = long long;
+    using Cost = long long;
+    using MCF = MinCostFlow<Flow, Cost>;
     const int n = readI();
     const int m = readI();
     MCF mcf;
     const auto vs = mcf.add_vertices(n);
+    std::vector<Flow> original_bs(n);
     for (const auto &v : vs) {
-        mcf.add_supply(vs[v], readLL());
+        const Flow b = readLL();
+        original_bs[v] = b;
+        mcf.add_supply(vs[v], b);
     }
     std::vector<MCF::EdgePtr> edges;
     loop(m) {
@@ -308,6 +322,21 @@ int main(void) {
     }
     const auto status = mcf.solve().first;
     if (status == Status::INFEASIBLE) {
+        const auto cut_vec = mcf.get_cut();
+        const std::set<size_t> cut_set(cut_vec.begin(), cut_vec.end());
+        Flow left_sum = 0, right_sum = 0, cap_sum = 0;
+        rep (v, n) (cut_set.count(v) ? left_sum : right_sum) += original_bs[v];
+        for (auto &e : edges) {
+            const auto sl = cut_set.count(e.src()) > 0;
+            const auto tr = cut_set.count(e.dst()) == 0;
+            if (sl != tr) continue;
+            if (sl) {
+                cap_sum += e.upper();
+            } else {
+                cap_sum -= e.lower();
+            }
+        }
+        assert((left_sum > cap_sum) || (right_sum < -cap_sum) || (left_sum + right_sum != 0));
         puts("infeasible");
     } else {
         const auto potential = mcf.get_potential();

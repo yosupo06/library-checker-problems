@@ -9,8 +9,8 @@ struct Generator : public basic_tree_to_graph_generator::Generator {
 
     Generator(Rng &rng) : rng(rng) { }
 
-    Cost get_cost_limit() const override { return std::min<Cost>(10, C_MAX); }
-    Flow get_flow_limit() const override { return std::min<Flow>(10, U_MAX); }
+    Cost get_cost_limit() const override { return C_MAX; }
+    Flow get_flow_limit() const override { return U_MAX; }
 
     Tree generate_tree(const size_t n) override {
         return basic_tree_to_graph_generator::generate_skewed_tree(rng, n);
@@ -49,8 +49,8 @@ int main(const int, const char* argv[]) {
 
     long long seed = atoll(argv[1]);
     auto rng = Rng(seed);
-    const size_t n = rng.template skewed<size_t>(1, 5, std::min<size_t>(N_MAX, 20));
-    const size_t m = rng.template skewed<size_t>(n-1, 15, std::min<size_t>(M_MAX, 40));
+    const size_t n = N_MAX;
+    const size_t m = M_MAX;
 
     Generator gen{rng};
     auto graph = gen.generate(n, m);

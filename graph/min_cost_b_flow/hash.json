@@ -1,4 +1,12 @@
 {
+  "empty_00.in": "0ccdb5a77ba5bf7687f2565a8ed97dfb9c1af45503c496fb646312239fab5101",
+  "empty_00.out": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+  "empty_01.in": "ed124fbf8ffd811c88b3cc955212778eacce7a20b83ad9c8e79a9729cfb9b0b9",
+  "empty_01.out": "52f96c26a39ed25108a6db43d6e11c6051eba8a498a5baab1891adfa7ac7c262",
+  "empty_02.in": "5f5752fbf4695fcf3463cf111d65b37bc4b21ab9c3abe4598d5e170a7525b74a",
+  "empty_02.out": "9ecc6fd52c6e6b8c3bce4718e62655510a376fa89ef551c1ba7f689ea7571bae",
+  "empty_03.in": "54b1e29a9060242a5dbf38e1b70c016fffc4502fc92c1dd8bd553d05021acfd5",
+  "empty_03.out": "9ecc6fd52c6e6b8c3bce4718e62655510a376fa89ef551c1ba7f689ea7571bae",
   "example_00.in": "adfafc288ab45f135f6527cf86ecd9e04c666891b5f807cb24f934f936671b0c",
   "example_00.out": "74b3abad58c36dbbc7497cb07c95a53b39d55aae51633922cc096dd7bab0a8af",
   "near_maximum_00.in": "27221944f5a9191af3a3f4fefd7a88c9e065ccb48a117edf3e903e29acd9a403",

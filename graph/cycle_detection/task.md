@@ -5,13 +5,13 @@ You are given a graph, consisting of $N$ vertices and $M$ edges.
 
 The $i$-th edge is directed from vertex $u_i$ to vertex $v_i$.
 
-Find the cycle in given graph, or report that no such cycle exists.
+Find and report an **edge-disjoint** cycle in given graph, or report that no such cycle exists.
 
 If there are multiple cycles, print any of them.
 @{lang.ja}
 $N$ 頂点 $M$ 辺の有向グラフが与えられます。$i$ 番目の辺は頂点 $u_i$ から頂点 $v_i$ に向けて張られています。
 
-与えられたグラフにサイクルが含まれるならば、1 つ見つけてください。存在しないならばその旨を報告してください。サイクルが複数含まれるならばどれを出力しても構いません。
+与えられたグラフにサイクルが含まれるならば、**辺素な** サイクルを 1 つ見つけて報告してください。存在しないならばその旨を報告してください。サイクルが複数含まれるならばどれを出力しても構いません。
 @{lang.end}
 
 ## @{keyword.constraints}
@@ -67,3 +67,13 @@ For instance, $L = 2, e = (1, 4)$ is also a valid answer.
 
 @{example.example_01}
 
+@{example.example_02}
+
+@{lang.en}
+Any edge-disjoint cycles (so it satisfies the rule: $e_i \neq e_j$) can get accepted, so $L = 6, e = (0, 1, 2, 3, 4, 5)$ is also a valid answer.
+
+Note that $L = 6, e = (0, 1, 2, 0, 4, 5)$ is not a valid answer.
+
+@{lang.ja}
+辺素なサイクル、つまり $e_i \neq e_j$ ならば正答が得られるため、$L = 6, e = (0, 1, 2, 3, 4, 5)$ も正答になります。$L = 6, e = (0, 1, 2, 0, 4, 5)$ は正答とならないことに注意してください。
+@{lang.end}

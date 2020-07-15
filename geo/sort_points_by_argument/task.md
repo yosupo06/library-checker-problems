@@ -1,14 +1,14 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given a size $N$ 2D-point sequence $(x_0, y_0), (x_1, y_1), \dots, (x_{N - 1}, y_{N - 1})$.
-Sort this by $\mathrm{atan2}(x, y)$. In other words, sort points in counter-clock-wise order that starts with a half line $x \le 0, y = 0$.
+Given $N$ 2D-points $(x_0, y_0), (x_1, y_1), \dots, (x_{N - 1}, y_{N - 1})$, please sort them by $\mathrm{atan2}(x, y)$. 
+In other words, sort the points in counterclockwise order that starts from the half line $x \le 0, y = 0$.
 
 Note:
 
 - $\mathrm{atan2}(x < 0, y = 0) = \pi$.
 - $\mathrm{atan2}(0, 0) = 0$.
-- We don't specify the order of same argument points.
+- Points with the same argument can be ordered arbitrarily.
 - The precision of the 64bit floating-point type(C++: double) may not be enough. Please use an integer-type or the 80bit floating-point type(C++: long double).
 @{lang.ja}
 長さ $N$ の点列 $(x_0, y_0), (x_1, y_1), \dots, (x_{N - 1}, y_{N - 1})$ が与えられます。

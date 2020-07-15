@@ -33,32 +33,27 @@ std::pair<std::vector<Flow>, std::vector<Edge>> readInstance(InStream &is) {
 }
 
 __int128_t read_optimal_value(const std::string s) {
-    if (s.empty()) {
-        quitf(_pe, "Optimal value shouldn't be the empty string");
-    }
+    quitif(s.empty(), _pe,
+           "Optimal value shouldn't be the empty string");
     // The length is capped by the length of M_MAX * U_MAX * C_MAX plus one (for '-')
-    if (s.size() > 32) {
-        quitf(_pe, "The given optimal value %s is too long as a string", s.c_str());
-    }
+    quitif(s.size() > 32, _pe,
+           "The given optimal value %s is too long as a string", s.c_str());
+    quitif(s == "-", _pe,
+           "The given optimal value %s is invalid", s.c_str());
+
     if (s == "0") {
         return 0;
     }
-    if (s == "-") {
-        quitf(_pe, "The given optimal value %s is invalid", s.c_str());
-    }
     bool negative = s[0] == '-';
     size_t pos = negative ? 1 : 0;
-    if (s[pos] == '0') {
-        quitf(_pe, "The given optimal value %s has leading zeros", s.c_str());
-    }
+    quitif(s[pos] == '0', _pe,
+           "The given optimal value %s has leading zeros", s.c_str());
 
     __int128_t ret{0};
     for (; pos < s.size(); ++pos) {
         const char c = s[pos];
-        if ((c < '0') || (c > '9')) {
-            quitf(_pe, "The given optimal value %s contains an invalid charactor %c",
-                  s.c_str(), c);
-        }
+        quitif((c < '0') || (c > '9'), _pe,
+               "The given optimal value %s contains an invalid charactor %c", s.c_str(), c);
         ret = (ret * 10) + (c - '0');
     }
     return negative ? -ret : ret;
@@ -89,9 +84,8 @@ int main(int argc, char * argv[]) {
     const std::string first_line_of_ans = ans.readLine();
     const std::string first_line_of_ouf = ouf.readLine();
     if (first_line_of_ouf == "infeasible") {
-        if (first_line_of_ans != first_line_of_ouf) {
-            quitf(_wa, "The problem is feasible but the first line of the output was infeasible");
-        }
+        quitif(first_line_of_ans != first_line_of_ouf, _wa,
+               "The problem is feasible but the first line of the output was infeasible");
         ouf.readEof();
         quitf(_ok, "OK");
     }
@@ -121,51 +115,40 @@ int main(int argc, char * argv[]) {
         reconstructed_ans += ((__int128_t) f) * ((__int128_t) e.cost);
 
         // Capacity constraints
-        if (f < e.lower) {
-            quitf(_wa, "Capacity constraint:"
-                   "The given flow on " U64 "-th edge (" I64 ") is lower than the lower bound of the edge (" I64 ")",
-                   (unsigned long long int) i, f, e.lower);
-        }
-        if (f > e.upper) {
-            quitf(_wa, "Capacity constraint: "
-                   "The given flow on " U64 "-th edge (" I64 ") is greater than the upper bound of the edge (" I64 ")",
-                   (unsigned long long int) i, f, e.upper);
-        }
+        quitif(f < e.lower, _wa, "Capacity constraint:"
+               "The given flow on " U64 "-th edge (" I64 ") is lower than the lower bound of the edge (" I64 ")",
+               (unsigned long long int) i, f, e.lower);
+        quitif(f > e.upper, _wa, "Capacity constraint: "
+               "The given flow on " U64 "-th edge (" I64 ") is greater than the upper bound of the edge (" I64 ")",
+               (unsigned long long int) i, f, e.upper);
         // Complementary slackness constraints
-        if ((f > e.lower) && (reduced_cost > 0)) {
-            quitf(_wa, "Complementary slackness condition: "
-                   "Flow on " U64 "-th edge (" I64 ") is greater than the lower bound (" I64 "), but the reduced cost (" I64 " = " I64 " + " I64 " - " I64 ") is positive",
-                   (unsigned long long int) i, f, e.lower, reduced_cost, e.cost, potentials[e.s], potentials[e.t]);
-        }
-        if ((f < e.upper) && (reduced_cost < 0)) {
-            quitf(_wa, "Complementary slackness condition: "
-                   "Flow on " U64 "-th edge (" I64 ") is less than the upper bound (" I64 "), but the reduced cost (" I64 " = " I64 " + " I64 " - " I64 ") is negative",
-                   (unsigned long long int) i, f, e.upper, reduced_cost, e.cost, potentials[e.s], potentials[e.t]);
-        }
+        quitif((f > e.lower) && (reduced_cost > 0), _wa, "Complementary slackness condition: "
+              "Flow on " U64 "-th edge (" I64 ") is greater than the lower bound (" I64 "), but the reduced cost (" I64 " = " I64 " + " I64 " - " I64 ") is positive",
+              (unsigned long long int) i, f, e.lower, reduced_cost, e.cost, potentials[e.s], potentials[e.t]);
+        quitif((f < e.upper) && (reduced_cost < 0), _wa, "Complementary slackness condition: "
+              "Flow on " U64 "-th edge (" I64 ") is less than the upper bound (" I64 "), but the reduced cost (" I64 " = " I64 " + " I64 " - " I64 ") is negative",
+              (unsigned long long int) i, f, e.upper, reduced_cost, e.cost, potentials[e.s], potentials[e.t]);
     }
     for (size_t v = 0; v < n; ++v) {
-        if (bs[v] != b_from_flow[v]) {
-            quitf(_wa, "Flow conservation constraint: "
-                   U64 "-th vertex should supply " I64 " flow but was " I64 "",
-                   (unsigned long long int) v, bs[v], b_from_flow[v]);
-        }
+        quitif(bs[v] != b_from_flow[v], _wa, "Flow conservation constraint: "
+              U64 "-th vertex should supply " I64 " flow but was " I64 "",
+              (unsigned long long int) v, bs[v], b_from_flow[v]);
     }
 
     // Now we've validated that the user's solution was a feasible solution.
     // We're going to validate the first line of the user's solution and the judge solution.
-    if (first_line_of_ans == "infeasible") {
-        quitf(_fail, "The expected output was `infeasible`, but the submitted answer was a feasible solution.");
-    }
+    ensuref(first_line_of_ans != "infeasible", "The expected output was `infeasible`, but the submitted answer was a feasible solution.");
+
     const __int128_t optimal_value_ouf = read_optimal_value(first_line_of_ouf);
-    if (reconstructed_ans != optimal_value_ouf) {
-        quitf(_wa, "The given minimum value %s didn't match the value reconstructed from flows %s",
-              first_line_of_ouf.c_str(), i2s(reconstructed_ans).c_str()
-              );
-    }
-    if (first_line_of_ans != first_line_of_ouf) {
-        // By the strong duality, `optimal_value_ouf` should be correct.
-        // So this disagreement means that we have an error in either logic somewhere above or in the judge solution.
-        quitf(_fail, "The submitted answer %s should be correct but did't match with the expected output %s", first_line_of_ouf.c_str(), first_line_of_ans.c_str());
-    }
+    quitif(reconstructed_ans != optimal_value_ouf, _wa,
+           "The given minimum value %s didn't match the value reconstructed from flows %s",
+           first_line_of_ouf.c_str(), i2s(reconstructed_ans).c_str());
+
+    // By the strong duality, `optimal_value_ouf` should be correct.
+    // So this disagreement means that we have an error in either logic somewhere above or in the judge solution.
+    ensuref(first_line_of_ans == first_line_of_ouf,
+            "The submitted answer %s should be correct but did't match with the expected output %s",
+            first_line_of_ouf.c_str(), first_line_of_ans.c_str());
+
     quitf(_ok, "OK");
 }

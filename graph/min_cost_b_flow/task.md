@@ -45,9 +45,10 @@ $v$ 番目の頂点は, $b_v$ が正のとき $b_v$ の供給点であり, そ�
 - $0 \le s_e \lt n$
 - $0 \le t_e \lt n$
 - $|b_v| \le @{param.U_MAX}$
-- $|l_v| \le @{param.U_MAX}$
-- $|u_v| \le @{param.U_MAX}$
+- $|l_e| \le @{param.U_MAX}$
+- $|u_e| \le @{param.U_MAX}$
 - $|c_e| \le @{param.C_MAX}$
+- $l_e \le u_e$
 - All of the values are integral
 
 

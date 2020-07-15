@@ -256,8 +256,10 @@ class MinCostFlow {
     }
     std::vector<size_t> get_cut() {
         std::vector<size_t> res;
+        if (excess_vs.empty()) return res;
         for (size_t v = 0; v < n; ++v) {
-            if (dist[v] < unreachable) res.emplace_back(v);
+            if (deficit_vs.empty() || (dist[v] < unreachable))
+                res.emplace_back(v);
         }
         return res;
     }
@@ -336,7 +338,7 @@ int main(void) {
                 cap_sum -= e.lower();
             }
         }
-        assert((left_sum > cap_sum) || (right_sum < -cap_sum) || (left_sum + right_sum != 0));
+        assert((left_sum > cap_sum) || (right_sum < -cap_sum));
         puts("infeasible");
     } else {
         const auto potential = mcf.get_potential();

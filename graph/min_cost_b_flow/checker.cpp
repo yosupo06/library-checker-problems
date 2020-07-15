@@ -32,20 +32,32 @@ std::pair<std::vector<Flow>, std::vector<Edge>> readInstance(InStream &is) {
     return {std::move(bs), std::move(es)};
 }
 
-template<class T>
-T s2i_unchecked(std::string s, const size_t max_len) {
+__int128_t read_optimal_value(const std::string s) {
     if (s.empty()) {
-        throw std::runtime_error("Got an empty string");
+        quitf(_pe, "Optimal value shouldn't be the empty string");
     }
-    if (s.size() > max_len) {
-        throw std::runtime_error("Given string was too long: " + s);
+    // The length is capped by the length of M_MAX * U_MAX * C_MAX plus one (for '-')
+    if (s.size() > 32) {
+        quitf(_pe, "The given optimal value %s is too long as a string", s.c_str());
+    }
+    if (s == "0") {
+        return 0;
+    }
+    if (s == "-") {
+        quitf(_pe, "The given optimal value %s is invalid", s.c_str());
     }
     bool negative = s[0] == '-';
-    if (negative) s = s.substr(1);
-    T ret{0};
-    for (const auto &c : s) {
+    size_t pos = negative ? 1 : 0;
+    if (s[pos] == '0') {
+        quitf(_pe, "The given optimal value %s has leading zeros", s.c_str());
+    }
+
+    __int128_t ret{0};
+    for (; pos < s.size(); ++pos) {
+        const char c = s[pos];
         if ((c < '0') || (c > '9')) {
-            throw std::runtime_error("Given string contained non-digital charactor" + s);
+            quitf(_pe, "The given optimal value %s contains an invalid charactor %c",
+                  s.c_str(), c);
         }
         ret = (ret * 10) + (c - '0');
     }
@@ -76,18 +88,15 @@ int main(int argc, char * argv[]) {
 
     const std::string first_line_of_ans = ans.readLine();
     const std::string first_line_of_ouf = ouf.readLine();
-    if (first_line_of_ans == "infeasible") {
+    if (first_line_of_ouf == "infeasible") {
+        if (first_line_of_ans != first_line_of_ouf) {
+            quitf(_wa, "The problem is feasible but the first line of the output was infeasible");
+        }
         ouf.readEof();
-        if (first_line_of_ans != first_line_of_ouf) {
-            quitf(_wa, "The problem was infeasible but the first line of the output was %s", first_line_of_ouf.c_str());
-        }
         quitf(_ok, "OK");
-    } else {
-        if (first_line_of_ans != first_line_of_ouf) {
-            quitf(_wa, "The minimum value is %s but the output was %s", first_line_of_ouf.c_str(), first_line_of_ans.c_str());
-        }
     }
-    const __int128_t optimal_value = s2i_unchecked<__int128_t>(first_line_of_ouf, 32);
+    // Now the user's output is not infeasible. We verify the optimal value (the first line) at the end of the checker
+    // to tolerate bug of the model solution as much as possible.
 
     std::vector<Cost> potentials(n);
     std::vector<Flow> flows(m);
@@ -141,12 +150,22 @@ int main(int argc, char * argv[]) {
                    (unsigned long long int) v, bs[v], b_from_flow[v]);
         }
     }
-    if (reconstructed_ans != optimal_value) {
-        // Since we already ensured that optimal_value is correct and the given primal/dual pair satisfisfy the constraints,
-        // these values should match or otherwise we have an error in either logic somewhere above or both in the answer and users' solution.
-        quitf(_fail, "The given minimum value %s didn't match the value reconstructed from flows %s",
+
+    // Now we've validated that the user's solution was a feasible solution.
+    // We're going to validate the first line of the user's solution and the judge solution.
+    if (first_line_of_ans == "infeasible") {
+        quitf(_fail, "The expected output was `infeasible`, but the submitted answer was a feasible solution.");
+    }
+    const __int128_t optimal_value_ouf = read_optimal_value(first_line_of_ouf);
+    if (reconstructed_ans != optimal_value_ouf) {
+        quitf(_wa, "The given minimum value %s didn't match the value reconstructed from flows %s",
               first_line_of_ouf.c_str(), i2s(reconstructed_ans).c_str()
               );
+    }
+    if (first_line_of_ans != first_line_of_ouf) {
+        // By the strong duality, `optimal_value_ouf` should be correct.
+        // So this disagreement means that we have an error in either logic somewhere above or in the judge solution.
+        quitf(_fail, "The submitted answer %s should be correct but did't match with the expected output %s", first_line_of_ouf.c_str(), first_line_of_ans.c_str());
     }
     quitf(_ok, "OK");
 }

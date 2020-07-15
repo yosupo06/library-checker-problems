@@ -3,7 +3,13 @@
 #include <exception>
 
 #include "testlib.h"
-#include "params.h"
+
+// Copied from params.h
+#define N_MAX (long long)100
+#define M_MAX (long long)1000
+#define U_MAX (long long)1000000000
+#define C_MAX (long long)1000000000
+#define P_MAX (long long)1000000000000000
 
 using Flow = long long int;
 using Cost = long long int;

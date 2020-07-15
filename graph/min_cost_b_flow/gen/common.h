@@ -90,12 +90,12 @@ struct Graph {
 
     void output() {
         assert(satisfies_constraints());
-        printf("%lld %lld\n", (unsigned long long int) bs.size(), (unsigned long long int) es.size());
+        printf("%llu %llu\n", (unsigned long long int) bs.size(), (unsigned long long int) es.size());
         for (const auto &b : bs) {
             printf("%lld\n", b);
         }
         for (const auto &e : es) {
-            printf("%lld %lld %lld %lld %lld\n", (unsigned long long int) e.s, (unsigned long long int) e.t, e.lower, e.upper, e.cost);
+            printf("%llu %llu %lld %lld %lld\n", (unsigned long long int) e.s, (unsigned long long int) e.t, e.lower, e.upper, e.cost);
         }
     }
 };

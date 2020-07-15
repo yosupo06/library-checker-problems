@@ -114,31 +114,31 @@ int main(int argc, char * argv[]) {
         // Capacity constraints
         if (f < e.lower) {
             quitf(_wa, "Capacity constraint:"
-                   "The given flow on " I64 "-th edge (" I64 ") is lower than the lower bound of the edge (" I64 ")",
-                   (long long int) i, f, e.lower);
+                   "The given flow on " U64 "-th edge (" I64 ") is lower than the lower bound of the edge (" I64 ")",
+                   (unsigned long long int) i, f, e.lower);
         }
         if (f > e.upper) {
             quitf(_wa, "Capacity constraint: "
-                   "The given flow on " I64 "-th edge (" I64 ") is greater than the upper bound of the edge (" I64 ")",
-                   (long long int) i, f, e.upper);
+                   "The given flow on " U64 "-th edge (" I64 ") is greater than the upper bound of the edge (" I64 ")",
+                   (unsigned long long int) i, f, e.upper);
         }
         // Complementary slackness constraints
         if ((f > e.lower) && (reduced_cost > 0)) {
             quitf(_wa, "Complementary slackness condition: "
-                   "Flow on " I64 "-th edge (" I64 ") is greater than the lower bound (" I64 "), but the reduced cost (" I64 " = " I64 " + " I64 " - " I64 ") is positive",
-                   (long long int) i, f, e.lower, reduced_cost, e.cost, potentials[e.s], potentials[e.t]);
+                   "Flow on " U64 "-th edge (" I64 ") is greater than the lower bound (" I64 "), but the reduced cost (" I64 " = " I64 " + " I64 " - " I64 ") is positive",
+                   (unsigned long long int) i, f, e.lower, reduced_cost, e.cost, potentials[e.s], potentials[e.t]);
         }
         if ((f < e.upper) && (reduced_cost < 0)) {
             quitf(_wa, "Complementary slackness condition: "
-                   "Flow on " I64 "-th edge (" I64 ") is less than the upper bound (" I64 "), but the reduced cost (" I64 " = " I64 " + " I64 " - " I64 ") is negative",
-                   (long long int) i, f, e.upper, reduced_cost, e.cost, potentials[e.s], potentials[e.t]);
+                   "Flow on " U64 "-th edge (" I64 ") is less than the upper bound (" I64 "), but the reduced cost (" I64 " = " I64 " + " I64 " - " I64 ") is negative",
+                   (unsigned long long int) i, f, e.upper, reduced_cost, e.cost, potentials[e.s], potentials[e.t]);
         }
     }
     for (size_t v = 0; v < n; ++v) {
         if (bs[v] != b_from_flow[v]) {
             quitf(_wa, "Flow conservation constraint: "
-                   I64 "-th vertex should supply " I64 " flow but was " I64 "",
-                   (long long int) v, bs[v], b_from_flow[v]);
+                   U64 "-th vertex should supply " I64 " flow but was " I64 "",
+                   (unsigned long long int) v, bs[v], b_from_flow[v]);
         }
     }
     if (reconstructed_ans != optimal_value) {

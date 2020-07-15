@@ -80,7 +80,7 @@ std::vector<std::pair<size_t, size_t>> generate_tree(RNG &rng, const size_t n) {
     while (!unused.empty()) {
         const auto child = unused.back();
         unused.pop_back();
-        const auto parent = added[rng.uniform(0, added.size()-1)];
+        const auto parent = added[rng.template uniform<size_t>(0, added.size()-1)];
         res.emplace_back(parent, child);
         added.emplace_back(child);
     }

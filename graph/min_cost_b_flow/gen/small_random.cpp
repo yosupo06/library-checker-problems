@@ -13,7 +13,11 @@ struct Generator : public basic_tree_to_graph_generator::Generator {
     Flow get_flow_limit() const override { return std::min<Flow>(10, U_MAX); }
 
     Tree generate_tree(const size_t n) override {
-        return basic_tree_to_graph_generator::generate_skewed_tree(rng, n);
+        if (rng.uniform_bool()) {
+            return basic_tree_to_graph_generator::generate_tree(rng, n);
+        } else {
+            return basic_tree_to_graph_generator::generate_skewed_tree(rng, n);
+        }
     }
     Cost gen_potential(const Cost upper) override {
         return rng.template skewed<Cost>(0, 0, upper);

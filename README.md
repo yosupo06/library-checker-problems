@@ -1,7 +1,6 @@
 # Library Checker Problems
 
 ![CI](https://github.com/yosupo06/library-checker-problems/workflows/CI/badge.svg)
-[![Gitter](https://badges.gitter.im/library-checker-problems/community.svg)](https://gitter.im/library-checker-problems/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/yosupo06/library-checker-problems/blob/master/LICENSE)
 
 Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp). You can get test cases of problems from this repository.
@@ -48,14 +47,13 @@ cat datastructure/unionfind/unionfind.html # statement
 ## If you have any trouble
 
 - Create issue: we are very happy if you report any of our mistakes (e.g. test cases are weak, strange behavior of the site, English of statements is bad, ...). Anything others are also welcome.
+- Codeforces: https://codeforces.com/blog/entry/76945
 - Twitter: if you tweet your trouble with hashtag \#LibraryChecker, we are going to help you. The account of admin is [@yosupot](https://twitter.com/yosupot).
-- [gitter](https://gitter.im/library-checker-problems/community): it is the chat of this project.
 
 ## 困ったときは(If you have any trouble - Japanese edition)
 
 - issueを立てる: githubにはissueというTODOやバグなどをメモっておく機能があります。上の Issues → New issueから作成できます。
-- twitter で \#LibraryChecker というハッシュタグをつけて呟いてくれると、助けに行きます。[@yosupot](https://twitter.com/yosupot) へリプライ / DM でも大丈夫です。
-- [gitter](https://gitter.im/library-checker-problems/community) というチャットみたいなものを用意しています。ここに書き込んでくれても大丈夫です
+- Twitter で \#LibraryChecker というハッシュタグをつけて呟いてくれると、助けに行きます。[@yosupot](https://twitter.com/yosupot) へリプライ / DM でも大丈夫です。
 
 ## Contributing
 

@@ -21,6 +21,7 @@ import toml
 
 logger = getLogger(__name__)  # type: Logger
 
+CASENAME_LEN_LIMIT = 40
 
 def casename(name: Union[str, Path], i: int) -> str:
     # (random, 1) -> random_01
@@ -107,6 +108,12 @@ class Problem:
     def health_check(self):
         if 'title' not in self.config:
             self.warning('no title: {}'.format(self.basedir))
+        for test in self.config['tests']:
+            for i in range(test['number']):
+                cn = casename(test['name'], i) + '.in'
+                if len(cn) > CASENAME_LEN_LIMIT:
+                    self.warning('too long casename: {}'.format(cn))
+
         gendir = self.basedir / 'gen'
         gens = []
         for test in self.config['tests']:

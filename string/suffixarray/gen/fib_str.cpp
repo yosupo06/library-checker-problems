@@ -1,4 +1,5 @@
 #include <iostream>
+#include "../params.h"
 #include "random.h"
 
 using namespace std;
@@ -12,7 +13,7 @@ int main(int, char* argv[]) {
     string a = gen.lower_string(gen.uniform(1, 5));
     string b = gen.lower_string(gen.uniform(1, 5));
 
-    while (a.size() + b.size() <= 500'000) {
+    while (a.size() + b.size() <= N_MAX) {
         string c = a + b;
         a = b;
         b = c;

@@ -47,10 +47,10 @@ if __name__ == "__main__":
                         help='Production Mode(use SSL)')
 
     args = parser.parse_args()
-    libdir = Path(__file__).parent
+    rootdir = Path(__file__).parent
     tomls: List[Path] = []
     for problem_name in args.problem:
-        problem_dir = find_problem_dir(libdir, problem_name)
+        problem_dir = find_problem_dir(rootdir, problem_name)
         if problem_dir is None:
             logger.error('Cannot find problem: {}'.format(problem_name))
             raise ValueError('Cannot find problem: {}'.format(problem_name))
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     for toml_path in tomls:
         probdir = toml_path.parent
         name = probdir.name
-        problem = Problem(libdir, probdir)
+        problem = Problem(rootdir, probdir)
 
         new_version = problem.testcase_version()
         first_time = "FirstTime"
@@ -123,7 +123,7 @@ if __name__ == "__main__":
     for toml_path in tomls:
         probdir = toml_path.parent
         name = probdir.name
-        problem = Problem(libdir, probdir)
+        problem = Problem(rootdir, probdir)
 
         new_version = problem.testcase_version()
         first_time = "FirstTime"
@@ -151,6 +151,9 @@ if __name__ == "__main__":
                     def zip_write(filename, arcname):
                         newzip.write(filename, arcname)
                     zip_write(probdir / 'checker.cpp', arcname='checker.cpp')
+                    zip_write(probdir / 'params.h', arcname='params.h')
+                    zip_write(rootdir / 'common' /
+                              'testlib.h', arcname='testlib.h')
                     for f in sorted(probdir.glob('in/*.in')):
                         zip_write(f, arcname=f.relative_to(probdir))
                     for f in sorted(probdir.glob('out/*.out')):

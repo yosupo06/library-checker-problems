@@ -8,7 +8,8 @@
 
 #include "../params.h"
 
-#define rep(i, n) for (size_t i = 0; i < (size_t)(n); ++i)
+#define REP(i, b, n) for (size_t i = (b); i < (size_t)(n); ++i)
+#define rep(i, n) REP(i, 0, n)
 #define loop(n) rep(i##__COUNTER__, n)
 
 using Flow = long long int;
@@ -46,7 +47,7 @@ struct Graph {
         return es.size();
     }
 
-    bool satisfies_constraints() {
+    bool satisfies_constraints() const {
         const auto n = bs.size();
         const auto m = es.size();
         if (n > N_MAX) return false;
@@ -88,7 +89,7 @@ struct Graph {
         }
     }
 
-    void output() {
+    void output() const {
         assert(satisfies_constraints());
         printf("%llu %llu\n", (unsigned long long int) bs.size(), (unsigned long long int) es.size());
         for (const auto &b : bs) {

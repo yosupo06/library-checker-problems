@@ -2,7 +2,7 @@
 
 @{lang.en}
 
-Given $N \times M$ matrix $A$, a size $N$ vector $b$. Please calculate a (size $M$) vector $b$ s.t. $Ax = b$. We consider everything $\mathbb{Z}_{998244353}$.
+Given $N \times M$ matrix $A$, a size $N$ vector $b$. Please calculate a (size $M$) vector $x$ s.t. $Ax = b$. We consider everything $\mathbb{Z}_{998244353}$.
 
 @{lang.ja}
 

@@ -197,6 +197,8 @@ class MinCostFlow {
     }
 
     void saturate_negative(const Flow delta) {
+        excess_vs.clear();
+        deficit_vs.clear();
         for (auto &es : g) for (auto &e : es) {
             Flow rcap = e.residual_cap();
             rcap -= rcap % delta;
@@ -228,6 +230,10 @@ class MinCostFlow {
             saturate_negative(delta);
             while (dual(delta)) primal(delta);
         }
+
+        std::fill(std::begin(potential), std::end(potential), 0);
+        for (size_t i = 0; i < n; ++i) for (const auto &es : g) for (const auto &e : es)
+            if (e.residual_cap() > 0) potential[e.dst] = std::min(potential[e.dst], potential[e.src] + e.cost);
 
         Cost value = 0;
         for (const auto &es : g) for (const auto &e : es) {
@@ -317,9 +323,9 @@ int main(void) {
     loop(m) {
         const int s = readI();
         const int t = readI();
-        const int lower = readLL();
-        const int upper = readLL();
-        const int cost = readLL();
+        const Flow lower = readLL();
+        const Flow upper = readLL();
+        const Cost cost = readLL();
         edges.emplace_back(mcf.add_edge(s, t, lower, upper, cost));
     }
     const auto status = mcf.solve().first;

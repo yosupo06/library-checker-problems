@@ -13,7 +13,7 @@ Process the following $Q$ queries in order:
 
 ## @{keyword.constraints}
 
-- $1 \leq N, Q \leq 500,000$
+- $1 \leq N, Q \leq @{param.N_AND_Q_MAX}$
 - $0 \leq a_i \leq 10^9$
 - $0 \leq l_i < r_i \leq N$
 

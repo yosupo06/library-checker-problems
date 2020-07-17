@@ -37,7 +37,7 @@ class UnknownTypeFile(Exception):
 def compile(src: Path, libdir: Path):
     if src.suffix == '.cpp':
         cxx = getenv('CXX', 'g++')
-        cxxflags_default = '-O2 -std=c++14 -Wall -Wextra -Werror -Wno-unused-result'
+        cxxflags_default = '-O2 -std=c++17 -Wall -Wextra -Werror -Wno-unused-result'
         if platform.system() == 'Darwin':
             cxxflags_default += ' -Wl,-stack_size,0x10000000'  # 256MB
         if platform.system() == 'Windows':

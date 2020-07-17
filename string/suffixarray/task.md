@@ -16,12 +16,12 @@ Given a length $N$ string $S$. Calculate the suffix array of $S$, $a_i$.
 
 @{lang.en}
 
-- $1 \leq N \leq 500,000$
+- $1 \leq N \leq @{param.N_MAX}$
 - Each character of $S$ is lowercase English letters.
 
 @{lang.ja}
 
-- $1 \leq N \leq 500,000$
+- $1 \leq N \leq @{param.N_MAX}$
 - $S$ は英小文字からなる。
 
 @{lang.end}

@@ -231,10 +231,6 @@ class MinCostFlow {
             while (dual(delta)) primal(delta);
         }
 
-        std::fill(std::begin(potential), std::end(potential), 0);
-        for (size_t i = 0; i < n; ++i) for (const auto &es : g) for (const auto &e : es)
-            if (e.residual_cap() > 0) potential[e.dst] = std::min(potential[e.dst], potential[e.src] + e.cost);
-
         Cost value = 0;
         for (const auto &es : g) for (const auto &e : es) {
             value += e.flow * e.cost;
@@ -249,6 +245,11 @@ class MinCostFlow {
     }
 
     std::vector<Cost> get_potential() {
+        // Not strictly necessary, but re-calculate potential to bound the potential values,
+        // plus make them somewhat canonical so that it is robust for the algorithm chaneges.
+        std::fill(std::begin(potential), std::end(potential), 0);
+        for (size_t i = 0; i < n; ++i) for (const auto &es : g) for (const auto &e : es)
+            if (e.residual_cap() > 0) potential[e.dst] = std::min(potential[e.dst], potential[e.src] + e.cost);
         return potential;
     }
     template<class T>

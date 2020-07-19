@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given size $2^N$ interger sequences $a_0, a_1, \dots, a_{2^N - 1}$ and $b_0, b_1, \dots, b_{2^N - 1}$. Calculate an integer sequence $c_0, c_1, \dots, c_{2^N - 1}$ as follows and print it $\bmod @{param.MOD}$.
+Given size $2^N$ integer sequences $a_0, a_1, \dots, a_{2^N - 1}$ and $b_0, b_1, \dots, b_{2^N - 1}$. Calculate an integer sequence $c_0, c_1, \dots, c_{2^N - 1}$ as follows and print it $\bmod @{param.MOD}$.
 
 $c_k = \sum_{i, j, i \& j = 0, i | j = k} a_i b_j$
 

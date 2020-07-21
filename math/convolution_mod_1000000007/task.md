@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given interger sequences $a_0, a_1, ..., a_{N - 1}$ and $b_0, b_1, ..., b_{M - 1}$. Calculate an interger sequence $c_0, c_1, ..., c_{(N - 1) + (M - 1)}$ as follows:
+Given integer sequences $a_0, a_1, ..., a_{N - 1}$ and $b_0, b_1, ..., b_{M - 1}$. Calculate an integer sequence $c_0, c_1, ..., c_{(N - 1) + (M - 1)}$ as follows:
 
 $$c_i = \sum_{j = 0}^i a_j b_{i - j} \bmod @{param.MOD}$$
 

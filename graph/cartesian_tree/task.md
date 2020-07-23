@@ -2,12 +2,14 @@
 
 @{lang.en}
 
-You are given a distinct interger sequence $A = (a_0, a_1, \dots, a _ {N-1})$.
+You are given a sequence $A = (a_0, a_1, \dots, a _ {N-1})$ or distinct integers.
 Construct the Cartesian tree derived from this sequence $A$.
+The smallest element becomes the root.
 
 @{lang.ja}
 長さ $N$ の distinct な数列 $A = (a_0, a_1, \dots, a _ {N-1})$ が与えられる。
 この数列 $A$ から誘導される Cartesian tree を求めよ。
+ただし、最も小さい要素が根である。
 @{lang.end}
 
 ## @{keyword.constraints}
@@ -40,11 +42,5 @@ $p_i$ は頂点 $i$ の親である。また、根である頂点 $r$ につい�
 ## @{keyword.sample}
 
 @{example.example_00}
-
-@{lang.en}
-The smallest element becomes the root.
-@{lang.ja}
-最も小さい要素が根である。
-@{lang.end}
 
 @{example.example_01}

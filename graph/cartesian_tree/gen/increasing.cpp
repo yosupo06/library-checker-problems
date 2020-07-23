@@ -19,13 +19,8 @@ int main(int, char* argv[]) {
         used.insert(a[i]);
     }
 
-    // make them almost decreasing
-    sort(a.rbegin(), a.rend());
-    for (int k = 0; k < 100; k++) {
-        int i = gen.uniform(0, n - 1);
-        int j = (i + gen.uniform(0, 30)) % n;
-        swap(a[i], a[j]);
-    }
+    // make them increasing
+    sort(a.begin(), a.end());
 
     // print params
     printf("%d\n", n);

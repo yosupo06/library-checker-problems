@@ -6,14 +6,23 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/554"
     name = "example.in"
     number = 2
 [[tests]]
+    name = "small.cpp"
+    number = 10
+[[tests]]
     name = "random.cpp"
     number = 5
 [[tests]]
+    name = "increasing.cpp"
+    number = 2
+[[tests]]
+    name = "decreasing.cpp"
+    number = 2
+[[tests]]
     name = "almost-increasing.cpp"
-    number = 3
+    number = 2
 [[tests]]
     name = "almost-decreasing.cpp"
-    number = 3
+    number = 2
 
 [[solutions]]
     name = "naive.cpp"

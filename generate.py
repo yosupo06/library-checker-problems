@@ -379,7 +379,7 @@ class Problem:
         html = self.gen_html()
         if not html.check_all_samples_used():
             self.warning('all samples are not used')
-        path = (self.basedir / 'task.html') if not htmldir else htmldir / (self.basedir.name + '.html')
+        path = (self.basedir / 'task.html') if not htmldir else htmldir / (self.basedir.resolve().name + '.html')
         with open(str(path), 'w', encoding='utf-8') as f:
             f.write(html.html)
 

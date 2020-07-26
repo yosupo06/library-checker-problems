@@ -2,7 +2,7 @@
 
 @{lang.en}
 
-You are given a sequence $A = (a_0, a_1, \dots, a _ {N-1})$ or distinct integers.
+You are given a sequence $A = (a_0, a_1, \dots, a _ {N-1})$ of distinct integers.
 Construct the Cartesian tree derived from this sequence $A$.
 The smallest element becomes the root.
 

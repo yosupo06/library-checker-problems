@@ -33,9 +33,9 @@ $p_0$ $p_1$ $p_2$ ... $p_{N - 1}$
 ~~~
 
 @{lang.en}
-$p_i$ is the parent of vertex $i$. $p_r = -1$ for the root node $r$ of the tree.
+$p_i$ is the parent of vertex $i$. $p_r = r$ for the root node $r$ of the tree.
 @{lang.ja}
-$p_i$ は頂点 $i$ の親である。また、根である頂点 $r$ については $p_r = -1$ とすること。
+$p_i$ は頂点 $i$ の親である。また、根である頂点 $r$ については $p_r = r$ とすること。
 @{lang.end}
 
 

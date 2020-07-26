@@ -31,7 +31,7 @@ int main(){
 
     // output
     REP (i, n) {
-        printf("%d%c", p[i], i + 1 < n ? ' ' : '\n');
+        printf("%d%c", p[i] == -1 ? i : p[i], i + 1 < n ? ' ' : '\n');
     }
     return 0;
 }

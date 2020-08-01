@@ -51,6 +51,11 @@ $v$ 番目の頂点は, $b_v$ が正のとき $b_v$ の供給点であり, そ�
 - $l_e \le u_e$
 - All of the values are integral
 
+Note that
+
+- the input graph may contain self loops,
+- and the result value may exceed $2^{64}$.
+
 
 ## @{keyword.input}
 

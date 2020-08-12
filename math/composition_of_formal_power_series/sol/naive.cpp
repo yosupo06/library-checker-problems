@@ -148,15 +148,15 @@ struct FPS_BASE:vector<T>{
         }
         return ret.pre(n);
     }
-	P pow(int c,int deg=-1){
-		// const int n=deg==-1?this->size():deg;
-		// long long i=0;
-		// P ret(*this);
-		// while(i!=(int)this->size()&&ret[i]==0)i++;
-		// if(i==(int)this->size())return P(n,0);
-		// if(i*c>=n)return P(n,0);
-		// T k=ret[i];
-		// return ((((ret>>i)/k).log()*c).exp()*(k.pow(c))<<(i*c)).pre(n);
+    P pow(int c,int deg=-1){
+        // const int n=deg==-1?this->size():deg;
+        // long long i=0;
+        // P ret(*this);
+        // while(i!=(int)this->size()&&ret[i]==0)i++;
+        // if(i==(int)this->size())return P(n,0);
+        // if(i*c>=n)return P(n,0);
+        // T k=ret[i];
+        // return ((((ret>>i)/k).log()*c).exp()*(k.pow(c))<<(i*c)).pre(n);
         P x(*this);
         P ret(1,1);
         while(c) {
@@ -169,7 +169,7 @@ struct FPS_BASE:vector<T>{
             c>>=1;
         }
         return ret;
-	}
+    }
     P sqrt(int deg=-1){
         const int n=deg==-1?this->size():deg;
         if((*this)[0]==T(0)) {
@@ -190,17 +190,17 @@ struct FPS_BASE:vector<T>{
         }
         return ret.pre(n);
     }
-	P shift(int c){
-		const int n=this->size();
-		P f(*this),g(n,0);
-		for(int i=0;i<n;++i)f[i]*=T(i).fact();
-		for(int i=0;i<n;++i)g[i]=T(c).pow(i)/T(i).fact();
-		g=g.rev();
-		f*=g;
-		f>>=n-1;
-		for(int i=0;i<n;++i)f[i]/=T(i).fact();
-		return f;
-	}
+    P shift(int c){
+        const int n=this->size();
+        P f(*this),g(n,0);
+        for(int i=0;i<n;++i)f[i]*=T(i).fact();
+        for(int i=0;i<n;++i)g[i]=T(c).pow(i)/T(i).fact();
+        g=g.rev();
+        f*=g;
+        f>>=n-1;
+        for(int i=0;i<n;++i)f[i]/=T(i).fact();
+        return f;
+    }
     T eval(T x){
         T res=0;
         for(int i=(int)this->size()-1;i>=0;--i){
@@ -363,16 +363,16 @@ class mint {
     constexpr bool operator!=(mint x) noexcept {
         return a!=x.a;
     }
-	constexpr bool operator<(mint x) noexcept {
+    constexpr bool operator<(mint x) noexcept {
         return a<x.a;
     }
-	constexpr bool operator>(mint x) noexcept {
+    constexpr bool operator>(mint x) noexcept {
         return a>x.a;
     }
-	constexpr bool operator<=(mint x) noexcept {
+    constexpr bool operator<=(mint x) noexcept {
         return a<=x.a;
     }
-	constexpr bool operator>=(mint x) noexcept {
+    constexpr bool operator>=(mint x) noexcept {
         return a>=x.a;
     }
     constexpr static int root(){

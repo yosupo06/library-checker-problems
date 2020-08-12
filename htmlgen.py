@@ -74,7 +74,7 @@ keywords = {
 def param_to_str(value):
     if isinstance(value, int):
         if str(value).endswith('000000'):
-            k = math.floor(math.log10(value))
+            k = math.floor(math.log10(abs(value)))
             if value == 10 ** k:
                 return r'10^{{{}}}'.format(k)
             elif value % (10 ** k) == 0:

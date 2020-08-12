@@ -28,7 +28,7 @@ struct FPS_BASE:vector<T>{
         for(int i=0;i<(int)max((*this).size(),x.size());++i){
             if(i>=(int)(*this).size()&&x[i]!=T())return 0;
             if(i>=(int)x.size()&&(*this)[i]!=T())return 0;
-            if((*this)[i]!=x[i])return 0;
+            if(i<(int)min((*this).size(),x.size()))if((*this)[i]!=x[i])return 0;
         }
         return 1;
     }
@@ -89,6 +89,10 @@ struct FPS_BASE:vector<T>{
     P &operator %=(const P& x){
         return ((*this)-=*this/x*x);
     }
+    inline void print(){
+        for(int i=0;i<(int)(*this).size();++i)cerr<<(*this)[i]<<" \n"[i==(int)(*this).size()-1];
+        if((int)(*this).size()==0)cerr<<endl;
+    }
     inline P& shrink(){while((*this).back()==0)(*this).pop_back();return (*this);}
     inline P pre(int sz)const{
         return P(begin(*this),begin(*this)+min((int)this->size(),sz));
@@ -116,6 +120,7 @@ struct FPS_BASE:vector<T>{
         return ret;
     }
     P diff(){
+        if((int)(*this).size()<=1)return P();
         P ret(*this);
         for(int i=0;i<(int)ret.size();i++){
             ret[i]*=i;
@@ -236,7 +241,9 @@ struct FPS_BASE:vector<T>{
     //(*this)(t(x))
     P manipulate(P t,int deg){
         P s=P(*this);
-        int k=std::sqrt(deg/std::log(deg+1))*2+1;
+        if(deg==0)return P();
+        if((int)t.size()==1)return P{s.eval(t[0])};
+        int k=min((int)::sqrt(deg/(::log2(deg)+1))+1,(int)t.size());
         int b=deg/k+1;
         P t2=t.pre(k);
         vector<P>table(s.size()/2+1,P{1});
@@ -274,7 +281,10 @@ struct FPS_BASE:vector<T>{
 
 template<typename Mint>
 struct _FPS9{
-    auto operator()(auto s,auto t)->decltype(s){
+    template<typename T>
+    T operator()(T s,T t){
+        if(s==decltype(s)())return decltype(s)();
+        if(t==decltype(t)())return decltype(t)();
         auto ntt=[](auto v,const bool& inv){
             const int n=v.size();
             assert(Mint::get_mod()>=3&&Mint::get_mod()%2==1);

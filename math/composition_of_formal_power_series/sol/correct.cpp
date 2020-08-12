@@ -243,7 +243,7 @@ struct FPS_BASE:vector<T>{
         P s=P(*this);
         if(deg==0)return P();
         if((int)t.size()==1)return P{s.eval(t[0])};
-        int k=min((int)std::sqrt(deg/(std::log2(deg)+1))+1,(int)t.size());
+        int k=min((int)::sqrt(deg/(::log2(deg)+1))+1,(int)t.size());
         int b=deg/k+1;
         P t2=t.pre(k);
         vector<P>table(s.size()/2+1,P{1});
@@ -281,7 +281,8 @@ struct FPS_BASE:vector<T>{
 
 template<typename Mint>
 struct _FPS9{
-    auto operator()(auto s,auto t)->decltype(s){
+    template<typename T>
+    T operator()(T s,T t){
         if(s==decltype(s)())return decltype(s)();
         if(t==decltype(t)())return decltype(t)();
         auto ntt=[](auto v,const bool& inv){

@@ -159,7 +159,7 @@ void Random_Graph(int n,int m,int M,vvp &g,Random &gen){
 		I++;
 		int x=gen.uniform<int>(0,n*(n-1)/2-I);
 		if(x<m){
-			int t=gen.uniform<int>(1,M);
+			int t=gen.uniform<int>(0,M);
 			g[i].push_back({j,t});
 			g[j].push_back({i,t});
 			m--;
@@ -168,7 +168,25 @@ void Random_Graph(int n,int m,int M,vvp &g,Random &gen){
 	assert(m==0);
 }
 
+void Add_Zero(int m,vvp &g,Random &gen){
+	int n=g.size();
+	while(m){
+		int u=gen.uniform<int>(0,n-1),v=gen.uniform<int>(0,n-1);
+		bool B=0;
+		for(auto p:g[u]) if(p.first==v) B=1;
+		if(u==v||B) continue;
+		g[u].push_back({v,0});
+		g[v].push_back({u,0});
+		m--;
+	}
+}
+
 void Random_Query(int n,int q,int M,vvp g,vi &a,vp &b,Random &gen,bool debug=false){
+	{
+		vvp g_(n);
+		for(int i=0;i<n;i++) for(auto p:g[i]) if(p.second) g_[i].push_back(p);
+		g=g_;
+	}
 	a=vi(n,-1);
 	b=vp(q,{-1,-1});
 	vvi tr;

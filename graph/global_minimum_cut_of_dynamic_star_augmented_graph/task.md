@@ -32,7 +32,7 @@ $G$ に新たな頂点 $N$ を追加して，頂点 $i$,$N$ 間に重み $a_i$ �
 - $0 \le u_i, v_i \lt N$
 - $u_i \neq v_i$
 - $\lbrace u_i, v_i \rbrace \neq \lbrace u_j, v_j \rbrace \  (i \neq j)$
-- $1 \le w_i \le @{param.W_MAX}$
+- $0 \le w_i \le @{param.W_MAX}$
 - $0 \le x_i \lt N$
 - $0 \le y_i \le @{param.W_MAX}$
 

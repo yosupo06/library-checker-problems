@@ -19,5 +19,7 @@ int main(int, char* argv[]) {
 	g[0].push_back({n/2,1});
 	g[n/2].push_back({0,1});
 	Random_Query(n,q,W_MAX,g,a,b,gen);
+	Add_Zero(M_MAX-m,g,gen);
+	m=M_MAX;
 	Output(n,m,q,a,g,b,gen);
 }

@@ -17,5 +17,7 @@ int main(int, char* argv[]) {
 	int x=gen.uniform<int>(1,30);
 	for(int i=0;i<n-x;i++) a[i]=W_MAX;
 	for(int i=0;i<q;i++) b[i]={n-1,i+1};
+	Add_Zero(M_MAX-m,g,gen);
+	m=M_MAX;
 	Output(n,m,q,a,g,b,gen);
 }

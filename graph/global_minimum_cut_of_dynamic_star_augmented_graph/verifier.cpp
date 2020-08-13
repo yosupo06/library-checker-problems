@@ -27,10 +27,10 @@ int main(){
 		inf.readSpace();
 		int v=inf.readInt(0,n-1);
 		inf.readSpace();
-		inf.readInt(1,W_MAX);
-		assert(u!=v);
+		inf.readInt(0,W_MAX);
+		ensure(u!=v);
 		if(u>v) std::swap(u,v);
-		assert(st.find({u,v})==st.end());
+		ensure(st.find({u,v})==st.end());
 		st.insert({u,v});
 		inf.readChar('\n');
 	}

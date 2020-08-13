@@ -23,5 +23,7 @@ int main(int, char* argv[]) {
 		id+=1<<i;
 	}
 	Random_Query(n,q,W_MAX,g,a,b,gen);
+	Add_Zero(M_MAX-m,g,gen);
+	m=M_MAX;
 	Output(n,m,q,a,g,b,gen);
 }

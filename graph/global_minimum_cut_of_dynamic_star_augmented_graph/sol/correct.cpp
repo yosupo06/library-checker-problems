@@ -169,6 +169,7 @@ int main(){
 	for(int i=0;i<m;i++){
 		int u,v,w;
 		scanf("%d%d%d",&u,&v,&w);
+		if(!w) continue;
 		g[u].push_back({v,w});
 		g[v].push_back({u,w});
 	}

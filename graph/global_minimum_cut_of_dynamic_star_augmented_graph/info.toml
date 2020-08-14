@@ -1,0 +1,74 @@
+title = 'Global Minimum Cut of Dynamic Star Augmented Graph'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/570"
+
+[[tests]]
+	name = "example.in"
+	number = 2
+
+[[tests]]
+	name = "dense.cpp"
+	number = 2
+
+[[tests]]
+	name = "sparse.cpp"
+	number = 2
+
+[[tests]]
+	name = "noedge.cpp"
+	number = 1
+
+[[tests]]
+	name = "only.cpp"
+	number = 1
+
+[[tests]]
+	name = "onlyzero.cpp"
+	number = 1
+
+[[tests]]
+	name = "clique_max.cpp"
+	number = 1
+
+[[tests]]
+	name = "clique.cpp"
+	number = 1
+
+[[tests]]
+	name = "almostclique.cpp"
+	number = 1
+
+[[tests]]
+	name = "balance.cpp"
+	number = 2
+
+[[tests]]
+	name = "balance_many.cpp"
+	number = 2
+
+[[tests]]
+	name = "deep.cpp"
+	number = 2
+
+[[tests]]
+	name = "doubledeep.cpp"
+	number = 2
+
+[[tests]]
+	name = "handmake.cpp"
+	number = 1
+
+[[solutions]]
+	name = 'nodata.cpp'
+	allow_tle = true
+
+[params]
+	N_MIN=1
+	N_MED=300
+	N_MAX=4_000
+	M_MIN=0
+	M_MAX=4_000
+	W_MED=100_000
+	W_MAX=1_000_000_000
+	Q_MIN=1
+	Q_MAX=200_000

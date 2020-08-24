@@ -1,5 +1,6 @@
 #include <iostream>
 #include "random.h"
+#include "../params.h"
 
 using namespace std;
 
@@ -26,7 +27,7 @@ int main(int, char* argv[]) {
 
     auto primes = enum_prime(1'000'000'000 - 1'000'000, 1'000'000'000);
     int k = int(primes.size());
-    int q = 50;
+    int q = MAX_Q;
     vector<long long> a(q);
     for (int i = 0; i < q; i++) {
         a[i] = primes[gen.uniform(0, k - 1)] * primes[gen.uniform(0, k - 1)];

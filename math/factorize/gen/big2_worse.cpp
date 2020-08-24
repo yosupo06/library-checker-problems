@@ -1,9 +1,9 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <map>
+#include "random.h"
+#include "../params.h"
 
 using namespace std;
+
 using uint = unsigned int;
 using ll = long long;
 using ull = unsigned long long;
@@ -19,12 +19,12 @@ int bsr(ull x) { return 63 - __builtin_clzll(x); }
 int bsf(uint x) { return __builtin_ctz(x); }
 int bsf(ull x) { return __builtin_ctzll(x); }
 
-//binary gcd
+// binary gcd
 ll gcd(ll _a, ll _b) {
     ull a = abs(_a), b = abs(_b);
     if (a == 0) return b;
     if (b == 0) return a;
-    int shift = bsf(a|b);
+    int shift = bsf(a | b);
     a >>= bsf(a);
     do {
         b >>= bsf(b);
@@ -34,8 +34,7 @@ ll gcd(ll _a, ll _b) {
     return (a << shift);
 }
 
-template<class T, class U>
-T pow_mod(T x, U n, T md) {
+template <class T, class U> T pow_mod(T x, U n, T md) {
     T r = 1 % md;
     x %= md;
     while (n) {
@@ -67,50 +66,70 @@ bool is_prime(ll n) {
     return true;
 }
 
-ll pollard_single(ll n) {
+// return pair(factor, # of step)
+pair<ll, ll> pollard_single(ll n) {
     auto f = [&](ll x) { return (__int128_t(x) * x + 1) % n; };
-    if (is_prime(n)) return n;
-    if (n % 2 == 0) return 2;
+    if (is_prime(n)) return {n, 1};
+    if (n % 2 == 0) return {2, 1};
     ll st = 0;
+    ll step = 0;
     while (true) {
         st++;
         ll x = st, y = f(x);
         while (true) {
+            step++;
             ll p = gcd((y - x + n), n);
             if (p == 0 || p == n) break;
-            if (p != 1) return p;
+            if (p != 1) return {p, step};
             x = f(x);
             y = f(f(y));
         }
     }
 }
 
-V<ll> pollard(ll n) {
-    if (n == 1) return {};
-    ll x = pollard_single(n);
-    if (x == n) return {x};
-    V<ll> le = pollard(x);
-    V<ll> ri = pollard(n / x);
-    le.insert(le.end(), ri.begin(), ri.end());
-    return le;
+// return step
+ll pollard(ll n) {
+    if (n == 1) return 1;
+    auto x = pollard_single(n);
+    if (x.first == n) return x.second;
+    return pollard(x.first) + pollard(n / x.first) + x.second;
 }
 
-int main() {
-    int q;
-    scanf("%d", &q);
-    map<ll, V<ll>> cache;
-    for (int i = 0; i < q; i++) {
-        ll a;
-        scanf("%lld", &a);
-        if (!cache.count(a)) {
-            auto v = pollard(a);
-            sort(v.begin(), v.end());
-            cache[a] = v;
+vector<long long> enum_prime(long long st, long long ed) {
+    if (st == 1) st = 2;
+    vector<bool> is_prime(ed - st + 1, true);
+    for (long long i = 2; i * i <= ed; i++) {
+        for (long long j = (st + i - 1) / i * i; j <= ed; j += i) {
+            is_prime[j - st] = false;
         }
-        auto v = cache[a];
-        printf("%d", int(v.size()));
-        for (auto d: v) printf(" %lld", d);
-        printf("\n");
+    }
+    vector<long long> primes;
+    for (long long i = st; i <= ed; i++) {
+        if (is_prime[i - st]) primes.push_back(i);
+    }
+    return primes;
+}
+
+int main(int, char* argv[]) {
+
+
+    long long seed = atoll(argv[1]);
+    auto gen = Random(seed);
+
+    auto primes = enum_prime(1'000'000'000 - 1'000'000, 1'000'000'000);
+    int k = int(primes.size());
+    int q = MAX_Q;
+    vector<pair<long long, long long>> a;
+    for (int i = 0; i < 20 * q; i++) {
+        long long x = primes[gen.uniform(0, k - 1)] * primes[gen.uniform(0, k - 1)];
+        a.push_back({pollard(x), x});
+    }
+    sort(a.begin(), a.end(), greater<>());
+    a.resize(q);
+
+    printf("%d\n", q);
+    for (auto x: a) {
+        printf("%lld\n", x.second);
     }
     return 0;
 }

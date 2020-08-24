@@ -15,6 +15,15 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/41"
     name = "big2.cpp"
     number = 3
 [[tests]]
+    name = "big2_worse.cpp"
+    number = 1
+[[tests]]
+    name = "pow2.cpp"
+    number = 3
+[[tests]]
+    name = "999381247093216751.cpp"
+    number = 3
+[[tests]]
     name = "prime_test_special.cpp"
     number = 3
 

@@ -14,3 +14,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/41"
 [[tests]]
     name = "big2.cpp"
     number = 3
+
+[params]
+    MAX_Q = 100
+    MAX_A = 1_000_000_000_000_000_000

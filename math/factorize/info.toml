@@ -22,7 +22,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/41"
     number = 3
 [[tests]]
     name = "999381247093216751.cpp"
-    number = 3
+    number = 1
 [[tests]]
     name = "prime_test_special.cpp"
     number = 3

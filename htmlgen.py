@@ -116,8 +116,8 @@ class ExampleReader:
         if not inpath.exists() or not outpath.exists():
             logger.error('There is no example file {}'.format(key))
             exit(1)
-        infile = open(inpath, 'r').read()
-        outfile = open(outpath, 'r').read()
+        infile = open(str(inpath), 'r').read()
+        outfile = open(str(outpath), 'r').read()
 
         s = r'<h3># {}</h3>'.format(self.counter)
         self.counter += 1

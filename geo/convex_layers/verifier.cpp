@@ -1,4 +1,3 @@
-#include <bits/stdc++.h>
 #include "testlib.h"
 #include <set>
 #include "params.h"

@@ -155,12 +155,12 @@ int main(){
   }
   
   std::sort(ps.begin(),ps.end());
-  struct LeftHull left(ps);
+  LeftHull left(ps);
   std::reverse(ps.begin(),ps.end());
   for(auto& p:ps){
     p=-p;
   }
-  struct LeftHull right(ps);
+  LeftHull right(ps);
   for(auto& p:ps){
     p=-p;
   }

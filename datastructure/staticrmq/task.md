@@ -8,7 +8,7 @@ Process the following $Q$ queries in order:
 @{lang.ja}
 長さ $N$ の数列 $a_0, a_1, ..., a_{N-1}$ に $Q$ 個のクエリが飛んできます。処理してください。
 
-- `$l_i$ $r_i$`: $\min(a_l, a_{l+1}, ..., a_{r_i - 1})$ を出力する。
+- `$l_i$ $r_i$`: $\min(a_{l_i}, a_{{l_i}+1}, ..., a_{r_i - 1})$ を出力する。
 @{lang.end}
 
 ## @{keyword.constraints}

@@ -1,0 +1,36 @@
+title = 'Convex Layers'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/582"
+
+[[tests]]
+    name = "example.in"
+    number = 6
+[[tests]]
+    name = "line.cpp"
+    number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+[[tests]]
+    name = "max_square_grid.cpp"
+    number = 1
+[[tests]]
+    name = "max_x.cpp"
+    number = 1
+[[tests]]
+    name = "max_y.cpp"
+    number = 1
+[[tests]]
+    name = "max_t.cpp"
+    number = 1
+[[tests]]
+    name = "max_l.cpp"
+    number = 1
+
+[[solutions]]
+    name = "naive.cpp"
+    allow_tle = true
+
+[params]
+    N_MAX = 200_000
+    X_AND_Y_MAX = 1_000_000

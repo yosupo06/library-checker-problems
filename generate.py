@@ -623,7 +623,7 @@ def main(args: List[str]):
     if opts.test:
         mode = Problem.Mode.TEST
     if opts.only_html:
-    	mode = Problem.Mode.HTML
+        mode = Problem.Mode.HTML
 
     for problem in problems:
         problem.generate(mode, Path(opts.htmldir) if opts.htmldir else None)

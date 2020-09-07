@@ -579,7 +579,8 @@ def main(args: List[str]):
     parser.add_argument('--test', action='store_true', help='CI Mode')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
     parser.add_argument('--compile-checker',
-                        action='store_true', help='Deprecated: Compile Checker')    parser.add_argument('--only-html', action='store_true', help='HTML generator Mode')
+                        action='store_true', help='Deprecated: Compile Checker')
+    parser.add_argument('--only-html', action='store_true', help='HTML generator Mode')
 
     opts = parser.parse_args(args)
 

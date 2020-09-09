@@ -12,8 +12,8 @@ Given $Q$ cases. For each case, given integer $a_i$. Please factorize it.
 
 ## @{keyword.constraints}
 
-- $1 \leq Q \leq 100$
-- $1 \leq a_i \leq 10^{18}$
+- $1 \leq Q \leq @{param.MAX_Q}$
+- $1 \leq a_i \leq @{param.MAX_A}$
 
 ## @{keyword.input}
 

@@ -57,7 +57,6 @@ struct FPS_BASE:vector<T>{
         return (*this)=ret;
     }
     P &operator >>=(int x){
-        if((int)(*this).size()<=x)return (*this)=P();
         P ret;
         ret.insert(ret.end(),begin(*this)+x,end(*this));
         return (*this)=ret;
@@ -260,25 +259,12 @@ struct FPS_BASE:vector<T>{
         P tmp=f(f,s.begin(),s.end(),deg);
         P tmp2=P{1};
         T tmp3=T(1);
-        int tmp5=-1;
-        P tmp6=t2.diff();
-        if(tmp6==P()){
-            for(int i=0;i<b;++i){
-                if(tmp.size()==0)break;
-                ans+=(tmp2*tmp[0]).pre(deg)/tmp3;
-                tmp=tmp.diff();
-                tmp2=(tmp2*(t-t2)).pre(deg);
-                tmp3*=T(i+1);
-            }
-        }else{
-            while(t2[++tmp5]==T());
-            P tmp4=(tmp6>>(tmp5-1)).inv(deg);
-            for(int i=0;i<b;++i){
-                ans+=(tmp*tmp2).pre(deg)/tmp3;
-                tmp=((tmp.diff()>>(tmp5-1))*tmp4).pre(deg);
-                tmp2=(tmp2*(t-t2)).pre(deg);
-                tmp3*=T(i+1);
-            }
+        P tmp4=t2.diff().inv(deg);
+        for(int i=0;i<b;++i){
+            ans+=(tmp*tmp2).pre(deg)/tmp3;
+            tmp=(tmp.diff()*tmp4).pre(deg);
+            tmp2=(tmp2*(t-t2)).pre(deg);
+            tmp3*=T(i+1);
         }
         return ans;
     }
@@ -290,9 +276,6 @@ struct FPS_BASE:vector<T>{
             ans=(ans*t+s[i]).pre(deg);
         }
         return ans;
-    }
-    void debug(){
-        for(int i=0;i<(int)(*this).size();++i)cerr<<(*this)[i]<<" \n"[i==(int)(*this).size()-1];
     }
 };
 
@@ -456,8 +439,7 @@ int main(){
     fps<mint>f(n),g(n);
     for(int i=0;i<n;++i)cin>>f[i];
     for(int i=0;i<n;++i)cin>>g[i];
-    auto p=f.manipulate(g,n);
-    auto q=f.manipulate(g,n);
-    p.resize(n,0);
-    for(int i=0;i<n;++i)cout<<p[i]<<" \n"[i==n-1];
+    auto h=f.manipulate(g,n);
+    h.resize(n,0);
+    for(int i=0;i<n;++i)cout<<h[i]<<" \n"[i==n-1];
 }

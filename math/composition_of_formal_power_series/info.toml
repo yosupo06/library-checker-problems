@@ -13,10 +13,18 @@ timelimit = 10.0
 [[tests]]
     name = "small.cpp"
     number = 10
+[[tests]]
+    name = "hack.cpp"
+    number = 3
+[[tests]]
+    name = "hack2.cpp"
+    number = 3
 [[solutions]]
     name = "naive.cpp"
     wrong = true
-
+[[solutions]]
+    name = "wa.cpp"
+    wrong = true
 [params]
     N_MAX = 8_000
     N_SMALL_MAX = 10

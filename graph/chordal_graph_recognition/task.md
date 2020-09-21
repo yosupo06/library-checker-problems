@@ -64,3 +64,4 @@ $v_i$ is the $i$-th vertex in the perfect elimination ordering.
 
 @{example.example_00}
 @{example.example_01}
+@{example.example_02}

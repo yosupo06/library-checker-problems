@@ -4,12 +4,18 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/591"
 
 [[tests]]
     name = "example.in"
-    number = 2
+    number = 3
+[[tests]]
+    name = "heawood.cpp"
+    number = 1
 [[tests]]
     name = "path.cpp"
     number = 1
 [[tests]]
     name = "cycle.cpp"
+    number = 1
+[[tests]]
+    name = "thick_cycle.cpp"
     number = 1
 [[tests]]
     name = "wheel.cpp"
@@ -40,6 +46,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/591"
     wrong = true
 [[solutions]]
     name = "mcs_wa1.cpp"
+    wrong = true
+[[solutions]]
+    name = "mcs_wa2.cpp"
     wrong = true
 
 [params]

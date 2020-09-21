@@ -1,0 +1,49 @@
+title = 'Chordal Graph Recognition'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/591"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "path.cpp"
+    number = 1
+[[tests]]
+    name = "cycle.cpp"
+    number = 1
+[[tests]]
+    name = "wheel.cpp"
+    number = 1
+[[tests]]
+    name = "complete.cpp"
+    number = 1
+[[tests]]
+    name = "complete_minus_ab.cpp"
+    number = 1
+[[tests]]
+    name = "complete_minus_ab_cd.cpp"
+    number = 1
+[[tests]]
+    name = "complete_minus_ab_ac.cpp"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "2tree.cpp"
+    number = 5
+[[solutions]]
+    name = "bfs.cpp"
+    wrong = true
+[[solutions]]
+    name = "dfs.cpp"
+    wrong = true
+[[solutions]]
+    name = "mcs_wa1.cpp"
+    wrong = true
+
+[params]
+    N_MIN = 1
+    N_MAX = 200_000
+    M_MIN = 0
+    M_MAX = 200_000

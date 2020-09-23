@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "testlib.h"
-#include "param.h"
+#include "params.h"
 using namespace std;
 
 int main() {

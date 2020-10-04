@@ -15,6 +15,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/243"
     name = "random.cpp"
     number = 3
 [[tests]]
+    name = "random2.cpp"
+    number = 3
+[[tests]]
+    name = "random3.cpp"
+    number = 3
+[[tests]]
     name = "max_random.cpp"
     number = 3
 

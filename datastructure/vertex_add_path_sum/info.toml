@@ -20,6 +20,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/125"
 [[tests]]
     name = "almost_line.cpp"
     number = 2
+[[tests]]
+    name = "long-path-decomposition_killer.cpp"
+    number = 1
 
 [[solutions]]
     name = "naive.cpp"

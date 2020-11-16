@@ -34,10 +34,6 @@ int main(int, char* argv[]) {
     pr+=len;
     len-=2;
   }
-  for (int i=0;i<n-1;++i) {
-    u[i]=i;
-    v[i]=i+1;
-  }
 
   for (int i = 0; i < n - 1; i++) {
     printf("%d %d\n", u[i], v[i]);

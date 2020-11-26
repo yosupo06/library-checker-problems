@@ -33,7 +33,7 @@ struct Tree {
   Tree(G& _g, int _r = 0) : g(_g), root(_r) { build(); }
 
   int kth_ancestor(int u, int k) const {
-    for (int i = k ? __lg(k) : -1; i >= 0; --i) {
+    for (int i = 30; i >= 0; --i) {
       if ((k >> i) & 1) {
         if (i >= (int)bl[u].size()) return -1;
         u = bl[u][i];

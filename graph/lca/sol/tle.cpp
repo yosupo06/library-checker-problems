@@ -1,6 +1,7 @@
 // https://judge.yosupo.jp/submission/30757
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 template <typename G>

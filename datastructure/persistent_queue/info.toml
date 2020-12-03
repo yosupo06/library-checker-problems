@@ -23,6 +23,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/379"
 [[tests]]
     name = "half_rot_killer.cpp"
     number = 1
+[[tests]]
+    name = "half_rot_killer2.cpp"
+    number = 1
 
 [[solutions]]
     name = "naive.cpp"

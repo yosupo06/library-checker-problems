@@ -11,3 +11,18 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/49"
 [[tests]]
     name = "random.cpp"
     number = 10
+[[tests]]
+    name = "max_random.cpp"
+    number = 2
+[[tests]]
+    name = "all_same.cpp"
+    number = 5
+[[tests]]
+    name = "fib_str.cpp"
+    number = 5
+[[tests]]
+    name = "binary_carry.cpp"
+    number = 2
+
+[params]
+    N_MAX = 500_000

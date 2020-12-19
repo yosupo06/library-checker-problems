@@ -16,13 +16,13 @@ $N$ 頂点 $M$ 辺の単純な重み付き有向グラフが与えられる。$i
 
 ## @{keyword.constraints}
 
-- $1 \leq N \leq 200,000$
-- $N - 1 \leq M \leq 200,000$
+- $1 \leq N \leq @{param.N_MAX}$
+- $N - 1 \leq M \leq @{param.N_MAX}$
 - $0 \leq S < N$
 - $0 \leq a_i, b_i < N$
 - $a_i \neq b_i$
 - $(a_i, b_i) \neq (a_j, b_j) (i \neq j)$
-- $0 \leq c_i \leq 10^9$
+- $0 \leq c_i \leq @{param.C_MAX}$
 - @{lang.en} All the vertices are reachable from the vertex $S$ @{lang.ja} 頂点 $S$ から全ての頂点へ到達可能 @{lang.end}
 
 ## @{keyword.input}

@@ -8,3 +8,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/39"
 [[tests]]
     name = "random.cpp"
     number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+
+[params]
+    N_MAX = 200_000
+    C_MAX = 1_000_000_000

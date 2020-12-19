@@ -2,6 +2,7 @@
 #include <set>
 #include <utility>
 #include "testlib.h"
+#include "params.h"
 #include <queue>
 
 using namespace std;
@@ -9,9 +10,9 @@ using namespace std;
 int main() {
     registerValidation();
 
-    int n = inf.readInt(1, 200'000);
+    int n = inf.readInt(1, N_MAX);
     inf.readSpace();
-    int m = inf.readInt(n - 1, 200'000);
+    int m = inf.readInt(n - 1, N_MAX);
     inf.readSpace();
     int s = inf.readInt(0, n - 1);
     inf.readChar('\n');
@@ -24,7 +25,7 @@ int main() {
         inf.readSpace();
         int b = inf.readInt(0, n - 1);
         inf.readSpace();
-        inf.readInt(0, 1'000'000'000);
+        inf.readInt(0, C_MAX);
         inf.readChar('\n');
 
         g[a].push_back(b);

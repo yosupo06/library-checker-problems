@@ -9,15 +9,15 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    long long n = N_MAX;
+    long long d = D_MAX;
     long long k = K_MAX;
 
-    printf("%lld %lld\n", n, k);
+    printf("%lld %lld\n", d, k);
 
     for(int _ = 0; _ < 2; _++) {
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < d; i++) {
             printf("%d", gen.uniform<int>(0, MOD - 1));
-            printf(i == n - 1 ? "\n" : " ");
+            printf(i == d - 1 ? "\n" : " ");
         }
     }
     return 0;

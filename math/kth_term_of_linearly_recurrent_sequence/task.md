@@ -4,35 +4,35 @@
 
 An integer sequence $(a_i)$ satisfies the following linear recurrence:
 
-$$a_{i} \equiv \sum_{j=1}^{N} c_j a_{i - j}\pmod{998244353},\  i\geq N$$
+$$a_{i} \equiv \sum_{j=1}^{d} c_j a_{i - j} \pmod{@{param.MOD}},\  i\geq d$$
 
-Given $a_0,$ $a_1,$ $\ldots$ $,a_{N-1}$. Print $a_K \pmod{998244353}$.
+Given $a_0,a_1,\ldots,a_{d-1}$, print $a_k \bmod @{param.MOD}$.
 @{lang.ja}
-$$a_{i} \equiv \sum_{j=1}^{N} c_j a_{i - j}\pmod{998244353},\  i\geq N$$
+$$a_{i} \equiv \sum_{j=1}^{d} c_j a_{i - j} \pmod{@{param.MOD}},\  i\geq d$$
 
-を満たす数列$a$の初め$N$項が与えられる。$a_K \pmod{998244353}$を求めよ。
+を満たす数列$a$の初めの$d$項が与えられる。$a_k \bmod @{param.MOD}$を求めよ。
 
 @{lang.end}
 
 ## @{keyword.constraints}
 
-- $1 \leq N \leq 10 ^ 5$
-- $0 \leq K \leq 10^{18}$
-- $0 \leq a_i \leq 998244352\ (0 \leq i \leq N-1)$
-- $0 \leq c_i \leq 998244352\ (1 \leq i \leq N)$
+- $1 \leq d \leq @{param.D_MAX}$
+- $0 \leq k \leq @{param.K_MAX}$
+- $0 \leq a_i \lt @{param.MOD}\ (0 \leq i \leq d-1)$
+- $0 \leq c_i \lt @{param.MOD}\ (1 \leq i \leq d)$
 
 ## @{keyword.input}
 
 ```
-$N$ $K$
-$a_0$ $a_1$ $\ldots$ $a_{N-1}$
-$c_1$ $c_2$ $\ldots$ $c_N$
+$d$ $k$
+$a_0$ $a_1$ $\ldots$ $a_{d-1}$
+$c_1$ $c_2$ $\ldots$ $c_d$
 ```
 
 ## @{keyword.output}
 
 ```
-$a_N$
+$a_k$
 ```
 
 ## @{keyword.sample}

@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-You are given two formal power series $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ and $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{F}\_{@{param.MOD}}$ with $b_0 \ne 0$.
+You are given two formal power series $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ and $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ with $b_0 \ne 0$.
 Calculate the first $N$ terms of $f(g(x)) = \sum_{i=0}^{\infty} c_i x^i$.
 In other words, find $h(x) = \sum_{i=0}^{N-1} c_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ such that
 

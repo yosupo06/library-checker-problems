@@ -1,17 +1,18 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given formal power series $f(x) = \sum_{i = 0}^{N - 1} a_i x^i$ and $g(x) = \sum_{i = 0}^{N - 1} b_i x^i$.
-Calculate first $N$ terms of $f(g(x))$,in other words, find
+You are given two formal power series $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ and $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{F}\_{@{param.MOD}}$ with $b_0 \ne 0$.
+Calculate the first $N$ terms of $f(g(x)) = \sum_{i=0}^{\infty} c_i x^i$.
+In other words, find $h(x) = \sum_{i=0}^{N-1} c_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ such that
 
-$h(x)=\sum_{i=0}^{N-1} a_i g(x)^i \bmod (x^N)$ and output the coefficients modulo $@{param.MOD}$.
+$$h(x) \equiv \sum_{i=0}^{N-1} a_i g(x)^i \pmod{x^N}.$$
 
 @{lang.ja}
-形式的冪級数 $f(x) = \sum_{i = 0}^{N - 1} a_i x^i$ と $g(x) = \sum_{i = 0}^{N - 1} b_i x^i$ が与えられます。
-$f(g(x))$ の先頭$N$項を求めてください。つまり
+形式的冪級数 $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ と $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ が与えられます ($b_0 = 0$)。$f(g(x)) = \sum_{i=0}^{\infty} c_i x^i$ の先頭 $N$ 項を求めてください。つまり、
 
-$h(x)=\sum_{i=0}^{N-1} a_i g(x)^i \bmod (x^N)$となる$h(x)$を求めて、係数を modulo $@{param.MOD}$ で出力してください
+$$h(x) \equiv \sum_{i=0}^{N-1} a_i g(x)^i \pmod{x^N}$$
 
+となる $h(x) = \sum_{i=0}^{N-1} c_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ を求めてください。
 
 @{lang.end}
 
@@ -24,20 +25,15 @@ $h(x)=\sum_{i=0}^{N-1} a_i g(x)^i \bmod (x^N)$となる$h(x)$を求めて、係�
 
 ```
 $N$
-$a_0$ $a_1$ ... $a_{N - 1}$
-$b_0$ $b_1$ ... $b_{N - 1}$
+$a_0$ $a_1$ $\cdots$ $a_{N - 1}$
+$b_0$ $b_1$ $\cdots$ $b_{N - 1}$
 ```
 
 ## @{keyword.output}
 
 ```
-$c_0$ $c_1$ ... $c_{N - 1}$
+$c_0$ $c_1$ $\cdots$ $c_{N - 1}$
 ```
-@{lang.en}
-If we denote $h(x)=\sum_{i = 0}^{(N - 1)} c'_i x^i$,$c_i \equiv c'_i(\bmod{@{param.MOD}})$ is satisfied.
-@{lang.ja}
-ただし、$h(x)=\sum_{i = 0}^{(N - 1)} c'_i x^i$とした時$c_i \equiv c'_i(\bmod @{param.MOD})$である。
-@{lang.end}
 
 ## @{keyword.sample}
 

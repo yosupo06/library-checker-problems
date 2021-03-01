@@ -1,6 +1,6 @@
 title = 'Multivariate Convolution'
-timelimit = 5.0
-forum = "https://github.com/yosupo06/library-checker-problems/issues/42"
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/633"
 
 [[tests]]
     name = "example.in"

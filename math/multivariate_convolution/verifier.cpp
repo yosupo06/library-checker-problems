@@ -9,7 +9,7 @@ int main() {
     inf.readChar('\n');
     int N = 1;
     for (int i = 0; i < k; i++) {
-        int n = inf.readInt(1, PROD_N_MAX);
+        int n = inf.readInt(2, PROD_N_MAX);
         ensure(1LL * N * n <= PROD_N_MAX);
         N *= n;
 

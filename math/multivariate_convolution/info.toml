@@ -12,10 +12,16 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/633"
     name = "twos.cpp"
     number = 2
 [[tests]]
+    name = "threes.cpp"
+    number = 2
+[[tests]]
     name = "dim2.cpp"
     number = 2
 [[tests]]
     name = "max_random.cpp"
+    number = 2
+[[tests]]
+    name = "k0.cpp"
     number = 2
 
 [[solutions]]
@@ -23,6 +29,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/633"
     wrong = true
 
 [params]
-    MAX_K = 20
-    PROD_N_MAX = 1048576
+    MAX_K = 18
+    PROD_N_MAX = 262144
     MOD = 998244353

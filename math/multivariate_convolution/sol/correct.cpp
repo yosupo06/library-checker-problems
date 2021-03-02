@@ -212,6 +212,14 @@ int main() {
         scanf("%d", &(n[i]));
         N *= n[i];
     }
+
+    if (k == 0) {
+        int x, y;
+        scanf("%d%d", &x, &y);
+        int z = (mint(x) * mint(y)).val();
+        printf("%d\n", z);
+        return 0;
+    }
     auto chi = [&](int x) {
         int sum = 0;
         int base = 1;

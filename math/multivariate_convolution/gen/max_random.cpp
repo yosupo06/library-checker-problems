@@ -11,7 +11,7 @@ int main(int, char* argv[]) {
 
     vector<int> ns;
     int N = 1;
-    for (int i = 0; i < MAX_K; i++) {
+    for (int i = 0; i < K_MAX; i++) {
         if (2 * N > PROD_N_MAX) break;
         int n = gen.uniform(2ll, min(10ll, PROD_N_MAX / N));
         ns.push_back(n);

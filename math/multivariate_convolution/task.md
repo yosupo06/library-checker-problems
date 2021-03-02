@@ -5,8 +5,8 @@ $f, g$ の積を、$\bmod (x_1^{N_1}, x_2^{N_2}, ..., x_K^{N_K})$ で求めて�
 
 ## @{keyword.constraints}
 
-- $0 \leq K \leq @{param.MAX_K}$
-- $\prod N_i \leq @{param.MAX_PROD_N}$
+- $0 \leq K \leq @{param.K_MAX}$
+- $\prod N_i \leq @{param.PROD_N_MAX}$
 - $2 \leq N_i$
 
 ## @{keyword.input}

@@ -29,6 +29,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/633"
     wrong = true
 
 [params]
-    MAX_K = 18
+    K_MAX = 18
     PROD_N_MAX = 262144
     MOD = 998244353

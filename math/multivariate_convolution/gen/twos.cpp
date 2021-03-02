@@ -10,7 +10,7 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     vector<int> ns;
-    int k = MAX_K - seed % MAX_K;
+    int k = K_MAX - seed % K_MAX;
     int N = 1;
     for (int i = 0; i < k; i++) {
         int n = 2;

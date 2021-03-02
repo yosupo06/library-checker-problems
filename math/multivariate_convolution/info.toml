@@ -4,7 +4,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/633"
 
 [[tests]]
     name = "example.in"
-    number = 2
+    number = 3
 [[tests]]
     name = "small.cpp"
     number = 2
@@ -13,6 +13,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/633"
     number = 2
 [[tests]]
     name = "threes.cpp"
+    number = 2
+[[tests]]
+    name = "dim1.cpp"
     number = 2
 [[tests]]
     name = "dim2.cpp"

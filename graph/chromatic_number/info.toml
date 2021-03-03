@@ -14,4 +14,4 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/628"
 
 [params]
     MIN_N = 1
-    MAX_N = 18
+    MAX_N = 20

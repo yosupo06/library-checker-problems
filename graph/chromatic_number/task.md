@@ -1,12 +1,12 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given a simple graph with $N$ vertices and $M$ edges. $i$-th edge is $(u_i, v_i)$。
+Given a simple graph with $N$ vertices and $M$ edges. $i$-th edge is $\{u_i, v_i\}$。
 
 Calculate the chromatic number $C$.
 
 @{lang.ja}
-$N$ 頂点 $M$ 辺の単純な無向グラフが与えられる。 $i$ 番目の辺は $(u_i, v_i)$である。
+$N$ 頂点 $M$ 辺の単純な無向グラフが与えられる。 $i$ 番目の辺は $\{u_i, v_i\}$である。
 
 彩色数 $C$ を出力してください。
 @{lang.end}

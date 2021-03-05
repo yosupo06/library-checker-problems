@@ -19,7 +19,7 @@ struct BIT_Predecessor {
     data.assign(N + 1, 0);
     lg = 31 - __builtin_clz(N);
   }
-  void set(int k) {
+  void insert(int k) {
     if (get(k) == 1) return;
     for (++k; k <= N; k += k & -k) data[k] += 1;
   }
@@ -82,7 +82,7 @@ int main() {
     int c, k;
     cin >> c >> k;
     if (c == 1) {
-      dict.set(k);
+      dict.insert(k);
     } else if (c == 2) {
       dict.reset(k);
     } else if (c == 3) {

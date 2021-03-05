@@ -1,4 +1,4 @@
-// std::set
+// std::insert
 // O((N + Q) log N)
 
 #include <cassert>
@@ -13,7 +13,7 @@ struct naive_Predecessor {
   int N;
   set<int> st;
   naive_Predecessor(int n) : N(n) {}
-  void set(int k) { st.insert(k); }
+  void insert(int k) { st.insert(k); }
   void reset(int k) { st.erase(k); }
   int get(int k) const { return st.find(k) != st.end(); }
   int find_next(int k) {
@@ -37,14 +37,14 @@ int main() {
 
   naive_Predecessor dict(N);
   for (int i = 0; i < N; i++) {
-    if (T[i] == '1') dict.set(i);
+    if (T[i] == '1') dict.insert(i);
   }
 
   while (Q--) {
     int c, k;
     cin >> c >> k;
     if (c == 1) {
-      dict.set(k);
+      dict.insert(k);
     } else if (c == 2) {
       dict.reset(k);
     } else if (c == 3) {

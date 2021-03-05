@@ -9,7 +9,7 @@
 using namespace std;
 
 struct BIT_Predecessor {
-  int N;
+  int N, lg;
   vector<int> data;
   BIT_Predecessor() = default;
   BIT_Predecessor(int size) { init(size); }
@@ -17,6 +17,7 @@ struct BIT_Predecessor {
   void init(int size) {
     N = size + 2;  // memorize [0, N + 1]
     data.assign(N + 1, 0);
+    lg = 31 - __builtin_clz(N);
   }
   void set(int k) {
     if (get(k) == 1) return;
@@ -36,7 +37,7 @@ struct BIT_Predecessor {
   int find_next(int i) const {
     int w = sum(i - 1);
     int x = 0;
-    for (int k = 1 << __lg(N); k; k >>= 1) {
+    for (int k = 1 << lg; k; k >>= 1) {
       if (x + k <= N && data[x + k] <= w) {
         w -= data[x + k];
         x += k;
@@ -50,7 +51,7 @@ struct BIT_Predecessor {
     int w = sum(i) - 1;
     if (w < 0) return -1;
     int x = 0;
-    for (int k = 1 << __lg(N); k; k >>= 1) {
+    for (int k = 1 << lg; k; k >>= 1) {
       if (x + k <= N && data[x + k] <= w) {
         w -= data[x + k];
         x += k;

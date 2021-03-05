@@ -35,10 +35,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/632"
     number = 5
 
 [[solutions]]
-    name = "test.cpp"
-    wrong = false
-
-[[solutions]]
     name = "fenwick.cpp"
     wrong = false
 

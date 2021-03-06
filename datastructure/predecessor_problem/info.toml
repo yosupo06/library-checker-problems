@@ -1,0 +1,51 @@
+title = 'Predecessor Problem'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/632"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+
+[[tests]]
+    name = "max_random.cpp"
+    number = 2
+
+[[tests]]
+    name = "max_sparse.cpp"
+    number = 2
+
+[[tests]]
+    name = "max_all0.cpp"
+    number = 2
+
+[[tests]]
+    name = "max_all1.cpp"
+    number = 2
+
+[[tests]]
+    name = "max_query0_1_2.cpp"
+    number = 2
+
+[[tests]]
+    name = "small.cpp"
+    number = 5
+
+[[tests]]
+    name = "medium.cpp"
+    number = 5
+
+[[solutions]]
+    name = "fenwick.cpp"
+    wrong = false
+    allow_tle = true
+
+[[solutions]]
+    name = "set.cpp"
+    wrong = false
+    allow_tle = true
+
+[params]
+    N_MIN = 1
+    N_MAX = 10_000_000
+    Q_MIN = 1
+    Q_MAX = 1_000_000

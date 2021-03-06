@@ -17,7 +17,7 @@ int main(int, char* argv[]) {
   for (auto& c : T) c = '0' + gen.uniform(0, 1);
   printf("%s\n", T.c_str());
   for (int i = 0; i < Q; i++) {
-    int c = gen.uniform(1, 3);
+    int c = gen.uniform(0, 2);
     int k = gen.uniform(0, N - 1);
     printf("%d %d\n", c, k);
   }

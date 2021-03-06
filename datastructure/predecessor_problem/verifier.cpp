@@ -9,14 +9,14 @@ int main() {
   int Q = inf.readInt(1, Q_MAX);
   inf.readChar('\n');
 
-  for(int i = 0; i < N; i++) {
+  for (int i = 0; i < N; i++) {
     char c = inf.readChar();
-    if (c != '0' && c != '1') exit(1);
+    ensure(c == '0' || c == '1');
   }
   inf.readChar('\n');
 
   for (int i = 0; i < Q; i++) {
-    inf.readInt(1, 5);
+    inf.readInt(0, 4);
     inf.readSpace();
     inf.readInt(0, N - 1);
     inf.readChar('\n');

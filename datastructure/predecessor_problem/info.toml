@@ -23,7 +23,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/632"
     number = 2
 
 [[tests]]
-    name = "max_query1_2_3.cpp"
+    name = "max_query0_1_2.cpp"
     number = 2
 
 [[tests]]

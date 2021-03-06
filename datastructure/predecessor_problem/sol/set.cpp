@@ -2,7 +2,6 @@
 // O((N + Q) log N)
 
 #include <cassert>
-#include <iostream>
 #include <set>
 #include <string>
 #include <vector>
@@ -27,32 +26,28 @@ struct naive_Predecessor {
 };
 
 int main() {
-  cin.tie(nullptr);
-  ios::sync_with_stdio(false);
-
   int N, Q;
-  cin >> N >> Q;
-  string T;
-  cin >> T;
-
+  scanf("%d %d", &N, &Q);
+  char c = getchar();
   naive_Predecessor dict(N);
   for (int i = 0; i < N; i++) {
-    if (T[i] == '1') dict.insert(i);
+    c = getchar();
+    if (c == '1') dict.insert(i);
   }
 
   while (Q--) {
     int c, k;
-    cin >> c >> k;
-    if (c == 1) {
+    scanf("%d %d\n", &c, &k);
+    if (c == 0) {
       dict.insert(k);
-    } else if (c == 2) {
+    } else if (c == 1) {
       dict.reset(k);
+    } else if (c == 2) {
+      printf("%d\n", dict.get(k));
     } else if (c == 3) {
-      cout << dict.get(k) << "\n";
+      printf("%d\n", dict.find_next(k));
     } else if (c == 4) {
-      cout << dict.find_next(k) << "\n";
-    } else {
-      cout << dict.find_prev(k) << "\n";
+      printf("%d\n", dict.find_prev(k));
     }
   }
 }

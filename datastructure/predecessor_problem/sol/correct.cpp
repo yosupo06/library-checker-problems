@@ -3,7 +3,6 @@
 
 #include <array>
 #include <cassert>
-#include <iostream>
 #include <string>
 #include <type_traits>
 using namespace std;
@@ -94,31 +93,27 @@ using w_ary_tree = w_ary_tree_impl::w_ary_tree_node<LOG>;
 w_ary_tree<> set;
 
 int main() {
-  cin.tie(nullptr);
-  ios::sync_with_stdio(false);
-
   int N, Q;
-  cin >> N >> Q;
-  string T;
-  cin >> T;
-
+  scanf("%d %d", &N, &Q);
+  char c = getchar();
   for (int i = 0; i < N; i++) {
-    if (T[i] == '1') set.insert(i);
+    c = getchar();
+    if (c == '1') set.insert(i);
   }
 
   while (Q--) {
     int c, k;
-    cin >> c >> k;
-    if (c == 1) {
+    scanf("%d %d\n", &c, &k);
+    if (c == 0) {
       set.insert(k);
-    } else if (c == 2) {
+    } else if (c == 1) {
       set.erase(k);
+    } else if (c == 2) {
+      printf("%d\n", set.contain(k));
     } else if (c == 3) {
-      cout << set.contain(k) << "\n";
+      printf("%d\n", set.find_next(k));
     } else if (c == 4) {
-      cout << set.find_next(k) << "\n";
-    } else {
-      cout << set.find_prev(k + 1) << "\n";
+      printf("%d\n", set.find_prev(k + 1));
     }
   }
 }

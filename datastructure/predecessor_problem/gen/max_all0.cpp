@@ -16,7 +16,7 @@ int main(int, char* argv[]) {
   string T(N, '0');
   printf("%s\n", T.c_str());
   for (int i = 0; i < Q; i++) {
-    int c = gen.uniform(2, 5);
+    int c = gen.uniform(2, 4);
     int k = gen.uniform(0, N - 1);
     printf("%d %d\n", c, k);
   }

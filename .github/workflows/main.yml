@@ -5,7 +5,8 @@ on:
     branches: 
       - master
   pull_request:
-
+  schedule:
+   - cron: "0 0 * * *"
 jobs:
   clang-mac-diffrun:
     runs-on: macos-latest

@@ -313,10 +313,13 @@ class Problem:
 
     # return "version" of problem
     def problem_version(self) -> str:
+        hashes: List[bytes] = list()
+        for path in self.list_depending_files():
+            with path.open('rb') as f:
+                hashes.append(hashlib.sha256(f.read()).digest())
         all_hash = hashlib.sha256()
-        for path in sorted(self.list_depending_files()):
-            all_hash.update(hashlib.sha256(
-                open(str(path), 'rb').read()).digest())
+        for h in sorted(hashes):
+            all_hash.update(h)
         return all_hash.hexdigest()
 
     # return "version" of testcase

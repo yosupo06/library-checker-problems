@@ -7,7 +7,7 @@ from subprocess import run, check_output
 from shutil import copy
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from generate import Problem
+from problem import Problem
 from typing import List
 logger = getLogger(__name__)
 

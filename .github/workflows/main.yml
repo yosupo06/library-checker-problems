@@ -5,12 +5,13 @@ on:
     branches: 
       - master
   pull_request:
-
+  schedule:
+   - cron: "0 0 * * *"
 jobs:
   clang-mac-diffrun:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Set up Python 3.x
         uses: actions/setup-python@v2
         with:
@@ -24,7 +25,7 @@ jobs:
           ./ci_generate.py --print-version | tee versions.json
         env:
           CXX: clang++
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: cache
           key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}
@@ -39,7 +40,7 @@ jobs:
   gcc-ubuntu-diffrun:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Set up Python 3.x
         uses: actions/setup-python@v2
         with:
@@ -51,7 +52,7 @@ jobs:
       - name: Print verison file
         run: |
           ./ci_generate.py --print-version | tee versions.json
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: cache
           key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}
@@ -62,7 +63,7 @@ jobs:
           ulimit -s unlimited
           ./ci_generate.py --htmldir=/tmp/html
       - name: Archive problem statements
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: statements
           path: /tmp/html
@@ -70,7 +71,7 @@ jobs:
   mingw-windows-diffrun:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Set up Python 3.x
         uses: actions/setup-python@v2
         with:
@@ -82,7 +83,7 @@ jobs:
       - name: Print verison file
         run: |
           python ci_generate.py --print-version | tee versions.json
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: cache
           key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}

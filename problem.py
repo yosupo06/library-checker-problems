@@ -164,27 +164,27 @@ class Problem:
 
     def compile_correct(self):
         logger.info('compile solution')
-        compile(self.basedir / 'sol' / 'correct.cpp', self.libdir)
+        compile(self.basedir / 'sol' / 'correct.cpp', self.rootdir)
 
     def compile_verifier(self):
         logger.info('compile verifier')
-        compile(self.verifier, self.libdir)
+        compile(self.verifier, self.rootdir)
 
     def compile_gens(self):
         logger.info('compile generators')
         for test in self.config['tests']:
             name = test['name']
             logger.info('compile {}'.format(name))
-            compile(self.basedir / 'gen' / name, self.libdir)
+            compile(self.basedir / 'gen' / name, self.rootdir)
 
     def compile_checker(self):
         logger.info('compile checker')
-        compile(self.checker, self.libdir)
+        compile(self.checker, self.rootdir)
 
     def compile_solutions(self):
         for sol in self.config.get('solutions', []):
             name = sol['name']
-            compile(self.basedir / 'sol' / name, self.libdir)
+            compile(self.basedir / 'sol' / name, self.rootdir)
 
     def make_inputs(self):
         indir = self.basedir / 'in'

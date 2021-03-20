@@ -13,7 +13,7 @@ import grpc
 import toml
 from minio import Minio
 
-from generate import Problem, find_problem_dir
+from problem import Problem, find_problem_dir
 from scripts import library_checker_pb2 as libpb
 from scripts import library_checker_pb2_grpc
 

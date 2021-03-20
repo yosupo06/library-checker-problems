@@ -25,7 +25,7 @@ jobs:
           ./ci_generate.py --print-version | tee versions.json
         env:
           CXX: clang++
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: cache
           key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}
@@ -52,7 +52,7 @@ jobs:
       - name: Print verison file
         run: |
           ./ci_generate.py --print-version | tee versions.json
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: cache
           key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}
@@ -63,7 +63,7 @@ jobs:
           ulimit -s unlimited
           ./ci_generate.py --htmldir=/tmp/html
       - name: Archive problem statements
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: statements
           path: /tmp/html
@@ -83,7 +83,7 @@ jobs:
       - name: Print verison file
         run: |
           python ci_generate.py --print-version | tee versions.json
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: cache
           key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}

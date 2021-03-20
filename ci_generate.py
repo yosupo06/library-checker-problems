@@ -15,7 +15,7 @@ logger = getLogger(__name__)  # type: Logger
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Testcase Generator for Matrix build')
+        description='Testcase generator')
     parser.add_argument('--print-version', action='store_true', help='Print version')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
     args = parser.parse_args()

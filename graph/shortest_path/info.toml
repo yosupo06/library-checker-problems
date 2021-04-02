@@ -38,6 +38,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/173"
 [[tests]]
 	name = "wrong_dijkstra_killer.cpp"
 	number = 1
+[[tests]]
+	name = "wrong_dijkstra_handmade.in"
+	number = 1
 
 [[solutions]]
 	name = 'spfa.cpp'
@@ -47,6 +50,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/173"
 	wrong = true
 [[solutions]]
 	name = 'wrong_dijkstra_1.cpp'
+	wrong = true
+[[solutions]]
+	name = 'wrong_dijkstra_2.cpp'
 	wrong = true
 
 [params]

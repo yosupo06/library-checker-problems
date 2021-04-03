@@ -28,10 +28,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/248"
     name = "wa.cpp"
     wrong = true
 
-[[solutions]]
-    name = "wa_x_axis.cpp"
-    wrong = true
-
 
 [params]
     N_MAX = 200_000

@@ -14,3 +14,22 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/41"
 [[tests]]
     name = "big2.cpp"
     number = 3
+[[tests]]
+    name = "big2_worse.cpp"
+    number = 1
+[[tests]]
+    name = "pow2.cpp"
+    number = 3
+[[tests]]
+    name = "999381247093216751.cpp"
+    number = 1
+[[tests]]
+    name = "prime_test_special.cpp"
+    number = 3
+[[tests]]
+    name = "hack00.cpp"
+    number = 1
+
+[params]
+    MAX_Q = 100
+    MAX_A = 1_000_000_000_000_000_000

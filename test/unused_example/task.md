@@ -1,29 +1,23 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-
+## @{keyword.statement}
 整数 $a, b$ が与えられます。 $a + b$ を出力してください。
 
-Constraints / 制約
----------
+## @{keyword.constraints}
 
 - $0 \leq a, b \leq 10^9$
 
 
-Input / 入力
----------
+## @{keyword.input}
 
 ```
 $A$ $B$
 ```
 
-Output / 出力
----------
+## @{keyword.output}
 
 ```
 $A + B$
 ```
 
-Sample / サンプル
----------
+## @{keyword.sample}
 
-{{example example_00}}
+@{example.example_00}

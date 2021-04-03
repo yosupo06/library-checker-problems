@@ -1,21 +1,23 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-$N$以下の素数の個数を求めてください。
+## @{keyword.statement}
 
-Constraints / 制約
----------
+@{lang.ja}
+$N$ 以下の素数の個数を求めてください。
+@{lang.en}
+Count the number of primes no more than $N$.
+@{lang.end}
 
-- $1 \leq N \leq {{param N_MAX}}$
+## @{keyword.constraints}
 
-Input / 入力
----------
+- $1 \leq N \leq @{param.N_MAX}$
+
+## @{keyword.input}
 
 ```
 $N$
 ```
 
-Sample / サンプル
----------
+## @{keyword.sample}
 
-{{example example_00}}
-{{example example_01}}
+@{example.example_00}
+
+@{example.example_01}

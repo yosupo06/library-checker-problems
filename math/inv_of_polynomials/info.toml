@@ -1,0 +1,17 @@
+title = 'Inv of Polynomials'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/387"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+
+[params]
+    N_MAX = 50000
+    MOD = 998244353

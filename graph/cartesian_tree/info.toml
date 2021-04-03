@@ -1,0 +1,35 @@
+title = 'Cartesian Tree'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/554"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small.cpp"
+    number = 10
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "increasing.cpp"
+    number = 2
+[[tests]]
+    name = "decreasing.cpp"
+    number = 2
+[[tests]]
+    name = "almost-increasing.cpp"
+    number = 2
+[[tests]]
+    name = "almost-decreasing.cpp"
+    number = 2
+
+[[solutions]]
+    name = "naive.cpp"
+    wrong = true
+
+[params]
+    N_MIN = 1
+    N_MAX = 1000000
+    A_MIN = 0
+    A_MAX = 1000000000

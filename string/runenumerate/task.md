@@ -1,27 +1,42 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
+## @{keyword.statement}
+
+@{lang.en}
+
+Given a length $N$ string $S$. Please enumerate the runs of $S$. In other words, please enumerate tuples $(t, l, r)$ that satisfy the following conditions.
+
+- The minimum period of the $S[l..r-1]$ is $t$, and $r - l \geq 2t$ is satisfied.
+- $l$ and $r$ are maximul. In other words, $(t, l - 1, r)$ and $(t, l, r + 1)$ are not satisfied the above condition.
+
+@{lang.ja}
 
 長さ $N$ の文字列 $S$ が与えられます。$S$ のrun、つまり以下の条件を満たすタプル $(t, l, r)$ を列挙してください。
 
 - $S$ の $l$ 文字目から $r - 1$ 文字目の __最小__ 周期は $t$ であり、$r - l \geq 2t$ を満たす ($l$, $r$ は0-indexed)
 - 上の条件を満たすもののうち、$l, r$ は極大である。つまり $(t, l - 1, r), (t, l, r + 1)$ は上の条件を満たさない
 
-Constraints / 制約
----------
+@{lang.end}
+
+## @{keyword.constraints}
+
+@{lang.en}
 
 - $1 \leq N \leq 200,000$
-- $S$ は英小文字からなる
+- Each character of $S$ is lowercase English letters.
 
+@{lang.ja}
 
-Input / 入力
----------
+- $1 \leq N \leq 200,000$
+- $S$ は英小文字からなる。
+
+@{lang.end}
+
+## @{keyword.input}
 
 ```
 $S$
 ```
 
-Output / 出力
----------
+## @{keyword.output}
 
 ```
 $M$
@@ -33,13 +48,12 @@ $t_M$ $l_M$ $r_M$
 
 ただし、$M$ はrunの個数とし、またrunは $(t, l, r)$ の順で辞書順にsortして出力すること
 
-Sample / サンプル
----------
+## @{keyword.sample}
 
-{{example example_00}}
+@{example.example_00}
 
-{{example example_01}}
+@{example.example_01}
 
-{{example example_02}}
+@{example.example_02}
 
-{{example example_03}}
+@{example.example_03}

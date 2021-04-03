@@ -1,26 +1,35 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
-$f(x):=\sum_{i=0}^{N-1} a_i x^i$ とします。
-$f(x)^M \bmod x^{N}$を${{param MOD}}$で割った余り$\sum_{i=0}^{N-1} b_i x^i$を求めてください。
+## @{keyword.statement}
 
-Constraints / 制約
----------
+@{lang.en}
+You are given a formal power series $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ and a positive integer $M$.
+Calculate the first $N$ terms of $(f(x))^M = \sum_{i=0}^{\infty} b_i x^i$.
 
-- $1 \leq N \leq {{param N_MAX}}$
-- $1 \leq M \leq {{param M_MAX}}$
-- $0 \leq a_i < {{param MOD}}$
+@{lang.ja}
+形式的冪級数 $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ と正の整数 $M$ が与えられます。$(f(x))^M = \sum_{i=0}^{\infty} b_i x^i$ の先頭 $N$ 項を求めてください。
 
-Input / 入力
----------
+@{lang.end}
+
+## @{keyword.constraints}
+
+- $1 \leq N \leq @{param.N_MAX}$
+- $1 \leq M \leq @{param.M_MAX}$
+- $0 \leq a_i < @{param.MOD}$
+
+## @{keyword.input}
 
 ```
 $N$ $M$
-$a_0$ $a_1$ $\ldots$ $a_{N-1}$
+$a_0$ $a_1$ $\cdots$ $a_{N-1}$
 ```
 
-Sample / サンプル
----------
+## @{keyword.output}
 
-{{example example_00}}
+```
+$b_0$ $b_1$ $\cdots$ $b_{N - 1}$
+```
 
-{{example example_01}}
+## @{keyword.sample}
+
+@{example.example_00}
+
+@{example.example_01}

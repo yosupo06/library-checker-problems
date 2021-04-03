@@ -1,5 +1,6 @@
 #include <iostream>
 #include "random.h"
+#include "../params.h"
 
 using namespace std;
 
@@ -9,8 +10,8 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = gen.uniform(2, 500'000);
-    int q = gen.uniform(1, 500'000);
+    int n = gen.uniform(N_MIN, N_MAX);
+    int q = gen.uniform(Q_MIN, Q_MAX);
     printf("%d %d\n", n, q);
     for (int i = 1; i < n; i++) {
         printf("%d", gen.uniform(0, i - 1));

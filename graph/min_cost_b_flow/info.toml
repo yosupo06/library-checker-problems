@@ -1,0 +1,45 @@
+title = 'Minimum cost b-flow'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/143"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+[[tests]]
+    name = "empty.in"
+    number = 4
+[[tests]]
+    name = "handmade.in"
+    number = 4
+[[tests]]
+    name = "near_minimum.cpp"
+    number = 1
+[[tests]]
+    name = "near_maximum.cpp"
+    number = 1
+[[tests]]
+    name = "small_random.cpp"
+    number = 10
+[[tests]]
+    name = "large_random.cpp"
+    number = 10
+[[tests]]
+    name = "goto.cpp"
+    number = 10
+[[tests]]
+    name = "small_random_possibly_infeasible.cpp"
+    number = 10
+[[tests]]
+    name = "anti_ssp.cpp"
+    number = 1
+
+[[solutions]]
+    name = 'ssp.cpp'
+    allow_tle = true
+
+[params]
+    N_MAX = 100
+    M_MAX = 1_000
+    U_MAX = 1_000_000_000
+    C_MAX = 1_000_000_000
+    P_MAX = 1_000_000_000_000_000

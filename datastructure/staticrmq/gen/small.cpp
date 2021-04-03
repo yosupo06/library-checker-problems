@@ -1,5 +1,6 @@
 #include <iostream>
 #include "random.h"
+#include "../params.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ int main(int, char* argv[]) {
     int q = 1000;
     printf("%d %d\n", n, q);
     for (int i = 0; i < n; i++) {
-        printf("%d", gen.uniform(0, 1'000'000'000));
+        printf("%d", gen.uniform<int>(0, A_MAX));
         if (i != n - 1) printf(" ");
     }
     printf("\n");

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
 import argparse
+from sys import exit
 import hashlib
-import re
 import math
+import re
 import shutil
 import subprocess
 import tempfile
@@ -18,63 +19,83 @@ from subprocess import (DEVNULL, PIPE, STDOUT, CalledProcessError,
 from tempfile import TemporaryDirectory
 
 import markdown.extensions
+from jinja2 import Template, Environment, DictLoader
 import toml
 from markdown import Extension, markdown
 from markdown.preprocessors import Preprocessor
 
+from generate import Problem
+from typing import Set
+
 logger = getLogger(__name__)  # type: Logger
 
 
-class ParamsExpander(Preprocessor):
-    def __init__(self, params):
-        self.params = params
+# html tag for change lang
+def lang_div_start(lang):
+    return '<div markdown="1" class="lang-{}">'.format(lang)
 
-        self.patterns = []
-        for key, value in self.params[0].items():
-            a = re.compile(r'{{{{\s*param\s+{}\s*}}}}'.format(key))
-            if isinstance(value, int):
-                if str(value).endswith('000000'):
-                    k = math.floor(math.log10(value))
-                    if value == 10 ** k:
-                        b = r'10^{{{}}}'.format(k)
-                    elif value % (10 ** k) == 0:
-                        b = r'{} \\times 10^{{{}}}'.format(value // 10 ** k, k)
-                    else:
-                        b = r'{} \\times 10^{{{}}}'.format(value / 10 ** k, k)
-                else:
-                    b = format(value, ',').replace(',', '{,}')
+
+def lang_div_end(lang):
+    return '</div>'
+
+
+# @{keyword.statement}, @{keyword.constraints}, ...
+def to_keyword_str(lang_dict):
+    s = ''
+    for k, v in lang_dict.items():
+        s += lang_div_start(k) + v + lang_div_end(k)
+    return s
+
+
+keywords = {
+    'statement': to_keyword_str({
+        'en': 'Problem Statement',
+        'ja': '問題文',
+    }),
+    'constraints': to_keyword_str({
+        'en': 'Constraints',
+        'ja': '制約',
+    }),
+    'input': to_keyword_str({
+        'en': 'Input',
+        'ja': '入力',
+    }),
+    'output': to_keyword_str({
+        'en': 'Output',
+        'ja': '出力',
+    }),
+    'sample': to_keyword_str({
+        'en': 'Sample',
+        'ja': 'サンプル',
+    }),
+}
+
+
+def param_to_str(value):
+    if isinstance(value, int):
+        if str(value).endswith('000000'):
+            k = math.floor(math.log10(abs(value)))
+            if value == 10 ** k:
+                return r'10^{{{}}}'.format(k)
+            elif value % (10 ** k) == 0:
+                return r'{} \\times 10^{{{}}}'.format(value // 10 ** k, k)
             else:
-                b = str(value)
-            self.patterns.append((a, b))
-        self.failure = re.compile(r'{{\s*param\s+\w+\s*}}')
-
-    def run(self, lines):
-        new_lines = []
-        for line in lines:
-            for a, b in self.patterns:
-                line = re.sub(a, b, line)
-            m = re.search(self.failure, line)
-            if m:
-                logger.error('The template {} is not replaced'.format(repr(m.group(0))))
-                exit(1)
-            new_lines.append(line)
-        return new_lines
+                return r'{} \\times 10^{{{}}}'.format(value / 10 ** k, k)
+        else:
+            return format(value, ',').replace(',', '{,}')
+    else:
+        return str(value)
 
 
-class ParamsExtension(Extension):
-    def __init__(self, **kwargs):
-        self.config = {
-            'params': [{}, 'Parameters'],
-        }
-        super(ParamsExtension, self).__init__(**kwargs)
-
-    def extendMarkdown(self, md):
-        md.preprocessors.register(ParamsExpander(
-            self.config['params']), 'params', 99)
+def gen_params(toml_params):
+    params = dict()  # type: Dict[str, str]
+    for key, value in toml_params.items():
+        params[key] = param_to_str(value)
+    return params
 
 
-class ExampleExpander(Preprocessor):
-    base_path = ''
+# @{example.example_00}
+class ExampleReader:
     sample_template = '''
 <div class="uk-grid-small uk-child-width-1-2@s" uk-grid>
     <div><pre>{}</pre></div>
@@ -82,55 +103,53 @@ class ExampleExpander(Preprocessor):
 </div>
 '''
 
-    def __init__(self, base_path):
-        self.base_path = Path(base_path[0])
+    def __init__(self, problem_dir: Path):
+        self.counter = 1
+        self.problem_dir = problem_dir
+        self.used = set()  # type: Set[str]
 
-    def run(self, lines):
-        used_examples = []
-        new_lines = []
-        counter = 1
-        for line in lines:
-            start = '{{example '
-            end = '}}'
-            if line.startswith(start) and line.endswith(end):
-                name = line[len(start):-len(end)]
-                inpath = self.base_path / 'in' / (name + '.in')
-                if not inpath.exists():
-                    logger.error('task require non exist file: {}'.format(inpath))
-                    exit(1)
-                inpath = str(inpath)
-                used_examples.append(inpath)
+    def __getitem__(self, key: str):
+        logger.debug('read example: {}'.format(key))
+        self.used.add(key)
+        inpath = self.problem_dir / 'in' / (key + '.in') # type: Path
+        outpath = self.problem_dir / 'out' / (key + '.out') # type: Path
+        if not inpath.exists() or not outpath.exists():
+            logger.error('There is no example file {}'.format(key))
+            exit(1)
+        infile = open(str(inpath), 'r').read()
+        outfile = open(str(outpath), 'r').read()
 
-                infile = open(inpath).read()
-                outfile = open(str(self.base_path / 'out' /
-                                   (name + '.out')), 'r').read()
+        s = r'<h3># {}</h3>'.format(self.counter)
+        self.counter += 1
+        s += self.sample_template.format(infile, outfile)
+        return s
 
-                new_lines.append(r'### # {}'.format(counter))
-                new_lines.extend(self.sample_template.format(
-                    infile, outfile).splitlines())
-
-                counter += 1
-            else:
-                new_lines.append(line)
-
-        for name in Path(self.base_path).glob('in/example_*.in'):
-            if str(name) not in used_examples:
-                logger.error('Not use {} for task'.format(name))
-                exit(1)
-
-        return new_lines
+    def check_all_used(self) -> bool:
+        for file_path in Path(self.problem_dir).glob('in/example_*.in'):
+            name = file_path.stem
+            if name not in self.used:
+                logger.warn('Not use {} for task.md'.format(name))
+                return False
+        return True
 
 
-class ExampleExtension(Extension):
-    def __init__(self, **kwargs):
-        self.config = {
-            'base_path': ['.', 'Base path']
-        }
-        super(ExampleExtension, self).__init__(**kwargs)
+class LangManager:
+    def __init__(self):
+        self.now_lang = ''
 
-    def extendMarkdown(self, md):
-        md.preprocessors.register(ExampleExpander(
-            self.config['base_path']), 'example', 100)
+    def __getitem__(self, lang: str):
+        if lang == 'end':
+            return self.reset_lang()
+        s = ''
+        if self.now_lang != '':
+            s += self.reset_lang()
+        self.now_lang = lang
+        return s + lang_div_start(lang)
+
+    def reset_lang(self):
+        s = lang_div_end(self.now_lang)
+        self.now_lang = ''
+        return s
 
 
 class ForumExpander(Preprocessor):
@@ -166,19 +185,16 @@ class ForumExtension(Extension):
             self.config['url']), 'forum', 101)
 
 
-class ToHTMLConverter:
-    header = '''
+html_header = '''
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-
     <!-- Uikit -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://judge.yosupo.jp/public/css/uikit.min.css" />
     <script src="https://judge.yosupo.jp/public/js/uikit.min.js"></script>
     <script src="https://judge.yosupo.jp/public/js/uikit-icons.min.js"></script>
-
     <!-- Katex -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
         integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
@@ -188,7 +204,7 @@ class ToHTMLConverter:
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js"
         integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
         onload="renderMathInElement(document.body);"></script>
-    <script>// <![CDATA[
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
             renderMathInElement(
                 document.body, {
@@ -198,11 +214,56 @@ class ToHTMLConverter:
                     ignoredTags: [],
                 })
         });
-    // ]]></script>
+    </script>
+    <script>
+        function getLang(lang) {
+            lang = localStorage.getItem("lang");
+            if (lang == "ja" || lang == "en") return lang;
+            for (e of navigator.languages) {
+                if (e.startsWith("en")) return "en";
+                if (e.startsWith("ja")) return "ja";
+            }
+            return "en";
+        }
+        function refLang() {
+            lang = getLang();
+            document.getElementById("nav-lang").text = `Lang(${lang})`;
+
+            
+            document.querySelectorAll(".lang-en, .lang-ja").forEach(function(e) {
+                if (e.classList.contains(`lang-${lang}`)) {
+                    e.style.display = 'block';
+                } else {
+                    e.style.display = 'none';
+                }
+            })
+        }
+        function setLang(lang) {
+            localStorage.setItem("lang", lang)
+            refLang()
+        }
+        document.addEventListener("DOMContentLoaded", refLang);
+    </script>
 </head>
 '''
-    body_template = '''
+html_body = '''
 <body>
+    <div class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="#" id="nav-lang">Lang()</a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li><a href="#" onclick="setLang('ja')">Ja</a></li>
+                            <li><a href="#" onclick="setLang('en')">En</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <section class="uk-section">
         <div class="uk-container">
             {}
@@ -212,17 +273,36 @@ class ToHTMLConverter:
 </html>
 '''
 
+
+class ToHTMLConverter:
     def __init__(self, probdir: Path, config):
-        with open(str(probdir / 'task.md'), encoding='utf-8') as f:
-            self.statement = markdown(
-                f.read(), extensions=[
-                    'md_in_html',
-                    'markdown.extensions.fenced_code',
-                    'markdown.extensions.tables',
-                    ParamsExtension(params=config.get('params', {})),
-                    ExampleExtension(base_path=str(probdir)),
-                    ForumExtension(url=config.get('forum', ''))
-                ],
-            )  # type: str
-            self.html = self.header + \
-                self.body_template.format(self.statement)  # type: str
+        logger.info("HTML Generate {}".format(probdir.name))
+        md_statement = open(str(probdir / 'task.md'), encoding='utf-8').read()
+
+        # evaluate jinja2
+        lang_manager = LangManager()
+        environment = Environment(
+            variable_start_string="@{", variable_end_string="}", loader=DictLoader({'task': md_statement}))
+        environment.globals['endlang'] = lang_manager.reset_lang
+        template = environment.get_template('task')
+        self.examples = ExampleReader(problem_dir=probdir)
+        mid_statement = template.render(
+            keyword=keywords,
+            param=gen_params(config.get('params', dict())),
+            lang=lang_manager,
+            example=self.examples,
+        )
+
+        # evaluate markdown
+        self.statement = markdown(
+            mid_statement, extensions=[
+                'md_in_html',
+                'markdown.extensions.fenced_code',
+                ForumExtension(url=config.get('forum', ''))
+            ],
+        )
+        self.html = html_header + html_body.format(self.statement)
+
+    def check_all_samples_used(self) -> bool:
+        return self.examples.check_all_used()
+

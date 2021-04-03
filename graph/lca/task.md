@@ -1,20 +1,28 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
+## @{keyword.statement}
+
+@{lang.en}
+
+Given a rooted tree with $N$ vertices. The root is vertex $0$ and a parent of a vertex $i$ is $p_i$. Process $Q$ queries as follows:
+
+- `$u$ $v$`: Print LCA of vertex $u$ and $v$.
+
+@{lang.ja}
 
 木が与えられる。頂点 $i$ の親は $p_i$ である。$Q$ 個のクエリが飛んできます。処理してください。
 
 - `$u$ $v$`: 頂点 $u$, $v$ のLCAを出力する
 
-Constraints / 制約
----------
+@{lang.end}
+
+
+## @{keyword.constraints}
 
 - $2 \leq N \leq 500,000$
 - $1 \leq Q \leq 500,000$
 - $0 \leq p_i < i$
 - $0 \leq u < v \leq N - 1$
 
-Input / 入力
----------
+## @{keyword.input}
 
 ~~~
 $N$ $Q$
@@ -25,7 +33,6 @@ $u_1$ $v_1$
 $u_{Q - 1}$ $v_{Q - 1}$
 ~~~
 
-Sample / サンプル
----------
+## @{keyword.sample}
 
-{{example example_00}}
+@{example.example_00}

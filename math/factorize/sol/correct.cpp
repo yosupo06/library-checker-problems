@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <map>
 
 using namespace std;
 using uint = unsigned int;
@@ -95,14 +96,18 @@ V<ll> pollard(ll n) {
 }
 
 int main() {
-
     int q;
     scanf("%d", &q);
+    map<ll, V<ll>> cache;
     for (int i = 0; i < q; i++) {
         ll a;
         scanf("%lld", &a);
-        auto v = pollard(a);
-        sort(v.begin(), v.end());
+        if (!cache.count(a)) {
+            auto v = pollard(a);
+            sort(v.begin(), v.end());
+            cache[a] = v;
+        }
+        auto v = cache[a];
         printf("%d", int(v.size()));
         for (auto d: v) printf(" %lld", d);
         printf("\n");

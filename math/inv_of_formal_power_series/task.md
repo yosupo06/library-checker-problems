@@ -1,38 +1,40 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
+## @{keyword.statement}
 
-母関数 $f(x) = \sum_{i = 0}^{N - 1} a_i x^i$ が与えられます。$\frac{1}{f(x)}$ の先頭 $N$ 項を求めてください。つまり
+@{lang.en}
+You are given a formal power series $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ with $a_0 \ne 0$.
+Calculate the first $N$ terms of $\frac{1}{f(x)} = \sum_{i=0}^{\infty} b_i x^i$.
+In other words, find $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ such that
 
-$$1 = f(x)g(x) \bmod (x^N)$$
+$$f(x) g(x) \equiv 1 \pmod{x^N}.$$
 
-となる $g(x)$ を出力してください
+@{lang.ja}
+形式的冪級数 $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ が与えられます ($a_0 \ne 0$)。$\frac{1}{f(x)} = \sum_{i=0}^{\infty} b_i x^i$ の先頭 $N$ 項を求めてください。つまり、
 
+$$f(x) g(x) \equiv 1 \pmod{x^N}$$
 
-Constraints / 制約
----------
+となる $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ を求めてください。
 
-- $1 \leq N \leq 500,000$
-- $0 \leq a_i < 998244353$
+@{lang.end}
+
+## @{keyword.constraints}
+
+- $1 \leq N \leq @{param.N_MAX}$
+- $0 \leq a_i < @{param.MOD}$
 - $a_0 \neq 0$
 
-Input / 入力
----------
+## @{keyword.input}
 
 ```
 $N$
-$a_0$ $a_1$ ... $a_{N - 1}$
+$a_0$ $a_1$ $\cdots$ $a_{N - 1}$
 ```
 
-Output / 出力
----------
+## @{keyword.output}
 
 ```
-$b_0$ $b_1$ ... $b_{N - 1}$
+$b_0$ $b_1$ $\cdots$ $b_{N - 1}$
 ```
 
-ただし $g(x) = \sum_{i = 0}^{N - 1} b'_i x^i$ としたとき, $b_i \equiv b'_i (\bmod 998244353)$ とする
+## @{keyword.sample}
 
-Sample / サンプル
----------
-
-{{example example_00}}
+@{example.example_00}

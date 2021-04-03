@@ -5,19 +5,30 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/50"
 [[tests]]
     name = "example.in"
     number = 4
-
+[[tests]]
+    name = "one.in"
+    number = 1
 [[tests]]
     name = "random.cpp"
     number = 5
-
 [[tests]]
     name = "max_random.cpp"
     number = 5
-
 [[tests]]
     name = "all_same.cpp"
     number = 5
-
 [[tests]]
     name = "fib_str.cpp"
     number = 5
+[[tests]]
+    name = "near_power_of_2_max_random.cpp"
+    number = 2
+[[tests]]
+    name = "near_power_of_2_max_same.cpp"
+    number = 2
+[[tests]]
+    name = "binary_carry.cpp"
+    number = 2
+
+[params]
+    N_MAX = 500_000

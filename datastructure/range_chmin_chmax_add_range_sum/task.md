@@ -1,22 +1,29 @@
-Problem Statement (Japanese) / 問題文 (日本語)
----------
+## @{keyword.statement}
 
+@{lang.en}
+Given a size $N$ interger sequence $a_0, a_1, \dots, a _ {N - 1}$. Process the following $Q$ queries in order:
+
+- `0 $l$ $r$ $b$`: For each $i = l, \dots, {r-1}$, $a_i \gets \min(a_i, b)$
+- `1 $l$ $r$ $b$`: For each $i = l, \dots, {r-1}$, $a_i \gets \max(a_i, b)$
+- `2 $l$ $r$ $b$`: For each $i = l, \dots, {r-1}$, $a_i \gets a_i + b$
+- `3 $l$ $r$`: Print $\sum _ {i = l} ^ {r-1} a_i$
+@{lang.ja}
 長さ $N$ の整数列 $a_0, a_1, \dots, a _ {N - 1}$ が与えられる。$Q$ 個のクエリが飛んでくるので処理せよ。
 
 - `0 $l$ $r$ $b$`: $i = l, \dots, {r-1}$ のそれぞれについて $a_i \gets \min(a_i, b)$
 - `1 $l$ $r$ $b$`: $i = l, \dots, {r-1}$ のそれぞれについて $a_i \gets \max(a_i, b)$
 - `2 $l$ $r$ $b$`: $i = l, \dots, {r-1}$ のそれぞれについて $a_i \gets a_i + b$
 - `3 $l$ $r$`: $\sum _ {i = l} ^ {r-1} a_i$ を出力
+@{lang.end}
 
-Constraints / 制約
----------
 
-- $1 \leq N, Q \leq {{param N_AND_Q_MAX}}$
-- クエリ処理の過程で常に $\vert a_i \vert \leq {{param A_ABS_MAX}}$ が成り立つ
+## @{keyword.constraints}
+
+- $1 \leq N, Q \leq @{param.N_AND_Q_MAX}$
+- @{lang.en} $\vert a_i \vert \leq @{param.A_ABS_MAX}$ is satisfied always while processing queries. @{lang.ja} クエリ処理の過程で常に $\vert a_i \vert \leq @{param.A_ABS_MAX}$ が成り立つ @{lang.end}
 - $0 \leq l < r \leq N$
 
-Input / 入力
----------
+## @{keyword.input}
 
 ~~~
 $N$ $Q$
@@ -27,4 +34,4 @@ $\textrm{Query}_1$
 $\textrm{Query}_{Q - 1}$
 ~~~
 
-{{example example_00}}
+@{example.example_00}

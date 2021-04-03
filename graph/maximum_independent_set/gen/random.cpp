@@ -1,6 +1,7 @@
 #include <iostream>
 #include <tuple>
 #include "random.h"
+#include "../params.h"
 
 using namespace std;
 
@@ -9,7 +10,7 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = gen.uniform(1, 40);
+    int n = gen.uniform(N_MIN, N_MAX);
     int m = gen.uniform(0, n * (n - 1) / 2);
 
     using P = pair<int, int>;

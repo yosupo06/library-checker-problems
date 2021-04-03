@@ -1,80 +1,78 @@
 # Library Checker Problems
 
-[![CircleCI](https://circleci.com/gh/yosupo06/library-checker-problems/tree/master.svg?style=svg)](https://circleci.com/gh/yosupo06/library-checker-problems/tree/master)
-[![Gitter](https://badges.gitter.im/library-checker-problems/community.svg)](https://gitter.im/library-checker-problems/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+![CI](https://github.com/yosupo06/library-checker-problems/workflows/CI/badge.svg)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/yosupo06/library-checker-problems/blob/master/LICENSE)
 
-Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp)
-
-このリポジトリのコードを動かすことで、問題のテストケースを手元に生成することができます。
+Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp). You can get test cases of problems from this repository.
 
 ## Requirements
 
-- Linux / OS X
-- python3.5+
-- g++ / clang++ (--std=c++14, __int128_tが使える必要あり)
-
-### (需要と余力があれば)対応予定
-
-- Windows
-- MSVC++
-- __int128_tの除去
+- Linux / OS X / Windows(MinGW-w64)
+- python3.6+
+- g++ / clang++ (Needs --std=c++14 and __int128_t)
 
 ## How to Use
 
 ```sh
 cd /path/to/library-checker-problems
 
-pip3 install toml markdown
-# or pip3 install -r requirements.txt
+pip3 install -r requirements.txt
+# or pip3 install toml colorlog markdown jinja2
 
-ulimit -s unlimited # for linux (don't need for os x)
+ulimit -s unlimited # for linux (doesn't need for OS X and WSL)
 
-# generate testcase
 ./generate.py -p unionfind # generate testcases of unionfind
 # or ./generate.py datastructure/unionfind/info.toml
+
 ls datastructure/unionfind/in/ # testcases of unionfind
 ls datastructure/unionfind/out/ # solutions of unionfind
-
-./generate.py $(find . -name "info.toml" -not -path "./test/*") # generate testcases of all problems
-
-# generate hash(For developers)
-./generate.py -p unionfind --refhash # if you fix some code, you have to regenerate hashes of testcases
-
-# verify
-./generate.py -p unionfind --verify # generate testcases & run input checker & run other solutions
-
-# generate statement
-./generate.py -p unionfind --html # generate testcases & generate html
-ls datastructure/unionfind/task.html # statement
-
-# compile checker (mainly target for other project developers)
-./generate.py -p unionfind --compile-checker # generate executable binary in ./datastrucure/unionfind/checker
+file datastructure/unionfind/checker # binary of output checker
 ```
 
-## ローカルでのテスト
+### For developer
 
-手元でジャッジをしたい場合, [online-judge-tools](https://github.com/kmyk/online-judge-tools) がサポートしてくれています
+```sh
+./generate.py -p unionfind --dev # developer mode
+./generate.py -p unionfind --test # test mode (for developer, exec this command before PR)
+cat datastructure/unionfind/unionfind.html # statement
 
-また、CIに組み込みたい場合は
+./generate.py $(find . -name "info.toml" -not -path "./test/*") # generate all testcases
+```
 
-- [How to run CI on your library for competitive programming (Japanese)](https://online-judge-tools.readthedocs.io/en/master/run-ci-on-your-library.ja.html) (同じく [online-judge-tools](https://github.com/kmyk/online-judge-tools)) が役に立つでしょう。実際にCIに組み込む例として、[library-checker-ci-example](https://github.com/yosupo06/library-checker-ci-example) を用意しています
-- 簡単にCIに組み込むためのスクリプトとして [online-judge-verify-helper](https://github.com/kmyk/online-judge-verify-helper) が開発されています
+## Test your solutions in local / CI
 
-## Contributing(バグ報告などしていただける方へ)
+- If you want to test your solutions on your computer, [Online Judge Tools](https://github.com/online-judge-tools/oj) is useful.
+- If you want to use Github Actions for testing your library by our problems, [Online Judge Verify Helper](https://github.com/online-judge-tools/verification-helper) is useful.
+
+## If you have any trouble
+
+- Create issue: we are very happy if you report any of our mistakes (e.g. test cases are weak, strange behavior of the site, English of statements is bad, ...). Anything others are also welcome.
+- Codeforces: https://codeforces.com/blog/entry/76945
+- Twitter: if you tweet your trouble with hashtag \#LibraryChecker, we are going to help you. The account of admin is [@yosupot](https://twitter.com/yosupot).
+
+## 困ったときは(If you have any trouble - Japanese edition)
+
+- issueを立てる: githubにはissueというTODOやバグなどをメモっておく機能があります。上の Issues → New issueから作成できます。
+- Twitter で \#LibraryChecker というハッシュタグをつけて呟いてくれると、助けに行きます。[@yosupot](https://twitter.com/yosupot) へリプライ / DM でも大丈夫です。
+
+## Contributing
+
+We are welcome any issues and PRs! Except minor change (e.g. add test cases, fix statements), please create an issue first.
+
+## Contributing - Japanese Edition
 
 不具合(テストケースが弱い, ジャッジが異常な挙動をする, 問題文にtypoを発見, などなど)を発見したとき、報告していただけるととっても助かります。
-問題の追加要望などもなんでも歓迎です。
 
-- issueを立てる(推奨): githubにはissueというTODOやバグなどをメモっておく機能があります。上の Issues → New issueから作成できます。
-- pull requestを送る(推奨): 実際に自分でコードを変更していただける場合、[CONTRIBUTING](docs/CONTRIBUTING.md) を参考にしていただけるととても助かります(熱意がある人向け)
-- [gitter](https://gitter.im/library-checker-problems/community) というチャットみたいなものを用意しています。ここに書き込んでくれても大丈夫です
-- [twitter](https://twitter.com/yosupot) に直接 リプライ / DM でも大丈夫です
+基本的には上に書いたようにissueを立ててもらえると助かります。
+熱意がある人は[CONTRIBUTING](docs/CONTRIBUTING.md) を参考にPull requestを送っていただけるととても助かります。
 
 競プロerは必ずしもgithubに慣れているとは限らず、issue / pull request を送ったことがない人も少なくはないというのを理解しています。どれだけめちゃくちゃなものを送ってきても怒ったりこのリポジトリが壊れたりすることはないので、githubの練習がてら挑戦してみるというのもアリです(頑張ってサポートします)。
 
-## フォルダ構成
+## File structure / How to create the problem
 
-各種コンフィグファイルの仕様などは、[guideline](docs/guideline.md) にまとまっています
+[guideline(en)](docs/guideline.en.md)
+
+[guideline(日本語)](docs/guideline.md)
 
 ## library-checker-project
 
@@ -84,4 +82,4 @@ ls datastructure/unionfind/task.html # statement
 
 ## Thanks
 
-checker, validatorなどに [testlib](https://github.com/MikeMirzayanov/testlib) を使用しています。
+We use [testlib](https://github.com/MikeMirzayanov/testlib) for verifier(input-checker) and output-checker.

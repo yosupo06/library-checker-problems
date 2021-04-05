@@ -11,9 +11,9 @@ int main()
 	std::size_t n;
 	std::uint32_t q;
 	scanf("%zu %u", &n, &q);
-	std::vector<std::int64_t> a(n);
+	std::vector<long long> a(n);
 	for(auto& ai : a)
-	{ scanf("%jd", &ai); }
+	{ scanf("%lld", &ai); }
 	for(std::uint32_t t = 0; t < q; ++t)
 	{
 		std::uint16_t queryType;
@@ -22,16 +22,16 @@ int main()
 		{
 			std::size_t l, r;
 			scanf("%zu %zu", &l, &r);
-			int64_t result{};
+			long long result{};
 			for(; l <= r; ++l)
 			{ (result += a[l]) %= MODULUS; }
-			printf("%jd\n", result);
+			printf("%lld\n", result);
 		}
 		else
 		{
 			std::size_t l, r;
-			std::int64_t k;
-			scanf("%zu %zu %jd", &l, &r, &k);
+			std::long long k;
+			scanf("%zu %zu %lld", &l, &r, &k);
 			k %= MODULUS;
 			if(k < 0)
 			{ k += MODULUS; }

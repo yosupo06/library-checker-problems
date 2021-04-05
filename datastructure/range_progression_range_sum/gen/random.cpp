@@ -18,7 +18,7 @@ int main(int, char* argv[])
 
 	for(std::size_t i = 0; i < n; ++i)
 	{
-		printf("%jd", gen.uniform<std::int64_t>(-A_K_MIN_MAX, A_K_MIN_MAX));
+		printf("%lld", gen.uniform<long long>(-A_K_MIN_MAX, A_K_MIN_MAX));
 		if(i != n - 1)
 		{ printf(" "); }
 	}
@@ -30,7 +30,7 @@ int main(int, char* argv[])
 		std::pair<std::size_t, std::size_t> bounds{gen.uniform_pair<std::size_t>(0, n)};
 		printf("%hu %zu %zu", queryType, bounds.first, bounds.second - 1);
 		if(!queryType)
-		{ printf(" %jd", gen.uniform<std::int64_t>(-A_K_MIN_MAX, A_K_MIN_MAX)); }
+		{ printf(" %lld", gen.uniform<long long>(-A_K_MIN_MAX, A_K_MIN_MAX)); }
 		printf("\n");
 	}
 }

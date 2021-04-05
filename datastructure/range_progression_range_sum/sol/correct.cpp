@@ -131,10 +131,10 @@ int main()
 	std::size_t n;
 	std::uint32_t q;
 	scanf("%zu %u", &n, &q);
-	std::vector<std::int64_t> a(n);
+	std::vector<long long> a(n);
 	for(auto& ai : a)
-	{ scanf("%jd ", &ai); }
-	SegmentTree<std::int64_t> tree(n);
+	{ scanf("%lld ", &ai); }
+	SegmentTree<long long> tree(n);
 	tree.build(a);
 	for(std::uint32_t t = 0; t < q; ++t)
 	{
@@ -144,13 +144,13 @@ int main()
 		{
 			std::size_t l, r;
 			scanf("%zu %zu", &l, &r);
-			printf("%jd\n", tree.range(l, r));
+			printf("%lld\n", tree.range(l, r));
 		}
 		else
 		{
 			std::size_t l, r;
-			std::int64_t k;
-			scanf("%zu %zu %jd", &l, &r, &k);
+			long long k;
+			scanf("%zu %zu %lld", &l, &r, &k);
 			k %= MODULUS;
 			if(k < 0)
 			{ k += MODULUS; }

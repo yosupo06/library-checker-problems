@@ -20,6 +20,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/248"
 [[tests]]
     name = "small_all.cpp"
     number = 1
+[[tests]]
+    name = "only_x_axis.cpp"
+    number = 1
 
 [[solutions]]
     name = "wa.cpp"

@@ -11,3 +11,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/18"
 [[tests]]
     name = "lowrank.cpp"
     number = 6
+[[tests]]
+    name = "hack.cpp"
+    number = 6

@@ -248,8 +248,7 @@ using mint = LazyMontgomeryModInt<998244353>;
 
 using Mat = vector<vector<mint>>;
 
-__attribute__((optimize("O3", "unroll-loops"))) Mat matrix_product(
-    const Mat &a, const Mat &b) {
+Mat matrix_product(const Mat &a, const Mat &b) {
   int N = a.size(), M = a[0].size(), K = b[0].size();
   assert(M == (int)b.size());
   Mat c(N, vector<mint>(K));

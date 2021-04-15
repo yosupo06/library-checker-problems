@@ -15,7 +15,7 @@ int main() {
 
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < m; j++) {
-      inf.readInt(0, 998244352);
+      inf.readInt(0, MOD - 1);
       if (j + 1 != m) inf.readSpace();
     }
     inf.readChar('\n');
@@ -23,7 +23,7 @@ int main() {
 
   for (int i = 0; i < m; i++) {
     for (int j = 0; j < k; j++) {
-      inf.readInt(0, 998244352);
+      inf.readInt(0, MOD - 1);
       if (j + 1 != k) inf.readSpace();
     }
     inf.readChar('\n');

@@ -36,12 +36,12 @@ $g_0\ g_1\ \ldots\ g_{M - 1}$
 ## @{keyword.output}
 
 @{lang.en}
-Print $u=\deg(q)+1$ and $v=\deg(r)+1$ in the first line. It is noted that $\deg(a(x))=-1$ iff $q(x) = 0$. (The same is true for $r(x)$.)
+Print $u=\deg(q)+1$ and $v=\deg(r)+1$ in the first line. Let $u = 0$ instead if $q(x) = 0$. (The same is true for $r(x)$.)
 
 Print the coefficients of $q(x)$ in the second line and $r(x)$ in the third line.
 
 @{lang.ja}
-1行目には$u=\deg(q)+1, v=\deg(r)+1$を出力してください。ただし、$q(x)=0$のときは$\deg(q)=-1$としてください。($r(x)$についても同様です。)
+1行目には$u = \deg(q) + 1, v = \deg(r) + 1$を出力してください。ただし、$q(x) = 0$のときは$u = 0$としてください。($r(x)$についても同様です。)
 
 2行目には$q(x)$の係数を、3行目には$r(x)$の係数を以下の形式で出力してください。
 
@@ -60,3 +60,5 @@ $r_0\ r_1\ \ldots\ r_{v-1}$
 @{example.example_01}
 
 @{example.example_02}
+
+@{example.example_03}

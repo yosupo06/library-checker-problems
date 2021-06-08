@@ -23,9 +23,11 @@ int main(int, char *argv[]) {
 
   std::vector<query_type> qs(Q);
 
-// unused-but-set-variable が誤反応するようなので、抑制する
+  // unused-but-set-variable が誤反応するようなので、抑制する
+#if defined(__GNUC__) && !defined(__llvm__) && !defined(__INTEL_COMPILER)
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-but-set-variable"
+#endif
   if (seed == 0 || seed == 1) {
     // parent[v] = u 最悪ケース
     const int K = 2 * N / 3;
@@ -63,7 +65,9 @@ int main(int, char *argv[]) {
       std::swap(query.u, query.v);
     }
   }
+#if defined(__GNUC__) && !defined(__llvm__) && !defined(__INTEL_COMPILER)
 #pragma GCC diagnostic pop
+#endif
 
   std::vector<int> p(N);
   std::iota(p.begin(), p.end(), 0);

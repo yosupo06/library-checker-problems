@@ -40,7 +40,7 @@ template <u32 mod> struct Z {
   }
   Z &operator/=(const Z &rhs) { return operator*=(rhs.inv()); }
 
-  Z inv() const { // mod should be prime
+  Z inv() const { // `mod` should be a prime number
     assert(v_ != 0);
     return pow(mod - 2);
   }
@@ -80,8 +80,9 @@ template <u32 mod> void reduce(std::vector<std::vector<Z<mod>>> &m) {
     for (int j = i + 2; j != n; ++j) {
       if (m[j][i] == 0) continue;
       Z<mod> v = m[j][i] * iv;
-      for (int k = 0; k != n; ++k) m[j][k] -= v * m[i + 1][k];
-      for (int k = 0; k != n; ++k) m[k][i + 1] += v * m[k][j];
+      for (int k = i; k != n; ++k)
+        m[j][k] -= v * m[i + 1][k]; // subtract `v` * row(`i + 1`) from row(`j`)
+      for (int k = 0; k != n; ++k) m[k][i + 1] += v * m[k][j]; // add `v` * col(`j`) to col(`i + 1`)
     }
   }
 }
@@ -90,32 +91,24 @@ template <u32 mod> std::vector<Z<mod>> get_charpoly(const std::vector<std::vecto
   std::vector<std::vector<Z<mod>>> h = m;
   reduce(h);
   int n = h.size();
-  std::vector<std::vector<Z<mod>>> p(n + 1);
-  {
-    p[0].resize(1);
-    p[0][0] = Z<mod>(1); // let p[0] = {1};
-    p[1].resize(2);
-    p[1][0] = -h[0][0];
-    p[1][1] = Z<mod>(1); // let p[1] = {-h[0][0], 1};
-  }
+  std::vector<std::vector<Z<mod>>> p(n + 1); // `p[i]` is the charpoly of leading principal submatrix h_i
+  p[0].resize(1);
+  p[0][0] = Z<mod>(1); // let `p[0]` = 1
+  p[1].resize(2);
+  p[1][0] = -h[0][0];
+  p[1][1] = Z<mod>(1); // let `p[1]` = x - `h[0][0]`
   for (int i = 2; i <= n; ++i) {
-    {
-      std::vector<Z<mod>> poly(2);
-      const std::vector<Z<mod>> &pi_1 = p[i - 1];
-      std::vector<Z<mod>> &pi = p[i];
-      pi.resize(p[i - 1].size() + 1, Z<mod>(0));
-      poly[0] = -h[i - 1][i - 1];
-      poly[1] = Z<mod>(1); // let pi = pi_1 * {-h[i-1][i-1], 1};
-      for (int j = 0, je = pi_1.size(); j < je; ++j) {
-        for (int k = 0; k < 2; ++k) {
-          pi[j + k] += pi_1[j] * poly[k];
-        }
-      }
-    }
-    for (int j = 1; j <= i - 1; ++j) {
-      Z<mod> prod = h[i - 1 - j][i - 1];
-      for (int k = i; k >= i - j + 1; --k) prod *= h[k - 1][k - 2];
-      for (int k = 0; k <= i - j - 1; ++k) p[i][k] -= prod * p[i - j - 1][k];
+    const std::vector<Z<mod>> &pi_1 = p[i - 1];
+    std::vector<Z<mod>> &pi = p[i];
+    pi.resize(p[i - 1].size() + 1, Z<mod>(0)); // let `pi` = `pi_1` * (x - `h[i - 1][i - 1]`)
+    for (int j = 0, je = pi_1.size(); j < je; ++j) pi[j] += pi_1[j] * -h[i - 1][i - 1];
+    for (int j = 0, je = pi_1.size(); j < je; ++j) pi[j + 1] += pi_1[j];
+    Z<mod> t(1); // `t` is the product of the subdiagonal
+    for (int j = 1; j < i; ++j) {
+      t *= h[i - j][i - j - 1];
+      Z<mod> prod = t * h[i - j - 1][i - 1];
+      if (prod == 0) continue;
+      for (int k = 0; k <= i - j - 1; ++k) pi[k] -= prod * p[i - j - 1][k];
     }
   }
   return p[n];

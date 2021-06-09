@@ -17,7 +17,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/665"
 [[tests]]
     name = "small_random.cpp"
     number = 4
-
+[[solutions]]
+    name = "n_4.cpp"
+    wrong = true
 [params]
     N_MAX = 500
     MOD = 998244353

@@ -4,17 +4,17 @@
 
 Given $N \times N$ matrix $M = \lbrace a_{ij} \rbrace$. Print $p(x)$ where
 
-$$p(x)=\det (xI - M) = \sum_{i = 0}^N p_i x^i$$
+$$p(x) = \det (xI - M) = \sum_{i = 0}^N p_i x^i$$
 
-here $I$ denotes $N \times N$ identity matrix. We consider everything $\mathbb{Z}_{@{param.MOD}}$.
+and $I$ denotes the $N \times N$ identity matrix. We consider everything $\mathbb{Z}_{@{param.MOD}}$.
 
 @{lang.ja}
 
 $N \times N$ 正方行列 $M = \lbrace a_{ij} \rbrace$ が与えられます。$M$ の特性多項式 $p(x)$ を求めてください。
 
-$$p(x)=\det (xI - M) = \sum_{i = 0}^N p_i x^i$$
+$$p(x) = \det (xI - M) = \sum_{i = 0}^N p_i x^i$$
 
-全ての要素は $\mathbb{Z}_{@{param.MOD}}$ で考えることとします。
+ここで、$I$ は $N \times N$ の単位行列です。全ての要素は $\mathbb{Z}_{@{param.MOD}}$ で考えることとします。
 
 @{lang.end}
 

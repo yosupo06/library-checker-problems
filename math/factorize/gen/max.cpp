@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "../params.h"
 
 int main(int, char **argv) {

@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "random.h"
 #include "../params.h"
 
 int main(int, char **argv) {

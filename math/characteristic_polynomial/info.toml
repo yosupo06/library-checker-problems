@@ -4,7 +4,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/665"
 
 [[tests]]
     name = "example.in"
-    number = 2
+    number = 3
 [[tests]]
     name = "max_zero.cpp"
     number = 1

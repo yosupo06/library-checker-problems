@@ -94,6 +94,7 @@ template <u32 mod> std::vector<Z<mod>> get_charpoly(const std::vector<std::vecto
   std::vector<std::vector<Z<mod>>> p(n + 1); // `p[i]` is the charpoly of leading principal submatrix h_i
   p[0].resize(1);
   p[0][0] = Z<mod>(1); // let `p[0]` = 1
+  if (n == 0) return p[0];
   p[1].resize(2);
   p[1][0] = -h[0][0];
   p[1][1] = Z<mod>(1); // let `p[1]` = x - `h[0][0]`

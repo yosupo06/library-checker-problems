@@ -2,25 +2,25 @@
 
 @{lang.en}
 
-Given $N \times N$ matrix $M = \lbrace a_{ij} \rbrace$. Print $p(x)$ where
+Given $N \times N$ matrix $M = \lbrace a_{ij} \rbrace$. Print its (monic) characteristic polynomial $p(x)$ where
 
 $$p(x) = \det (xI - M) = \sum_{i = 0}^N p_i x^i$$
 
-and $I$ denotes the $N \times N$ identity matrix. We consider everything $\mathbb{Z}_{@{param.MOD}}$.
+and $I$ denotes the $N \times N$ identity matrix. The determinant of $0 \times 0$ matrix is equal to $1$. We consider everything $\mathbb{Z}/@{param.MOD}\mathbb{Z}$.
 
 @{lang.ja}
 
-$N \times N$ 正方行列 $M = \lbrace a_{ij} \rbrace$ が与えられます。$M$ の特性多項式 $p(x)$ を求めてください。
+$N \times N$ 正方行列 $M = \lbrace a_{ij} \rbrace$ が与えられます。$M$ の(モニック)特性多項式 $p(x)$ を求めてください。
 
 $$p(x) = \det (xI - M) = \sum_{i = 0}^N p_i x^i$$
 
-ここで、$I$ は $N \times N$ の単位行列です。全ての要素は $\mathbb{Z}_{@{param.MOD}}$ で考えることとします。
+ここで、$I$ は $N \times N$ の単位行列です。$0 \times 0$ 正方行列の行列式は $1$ です。全ての要素は $\mathbb{Z}/@{param.MOD}\mathbb{Z}$ で考えることとします。
 
 @{lang.end}
 
 ## @{keyword.constraints}
 
-- $2 \leq N \leq @{param.N_MAX}$
+- $0 \leq N \leq @{param.N_MAX}$
 - $0 \leq a_{ij} < @{param.MOD}$
 
 ## @{keyword.input}
@@ -44,3 +44,5 @@ $p_0$ $p_1$ ... $p_N$
 @{example.example_00}
 
 @{example.example_01}
+
+@{example.example_02}

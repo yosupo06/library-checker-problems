@@ -8,7 +8,7 @@ int main(int, char* argv[]) {
   long long seed = std::atoll(argv[1]);
   auto gen = Random(seed);
 
-  int n = gen.uniform<int>(20, 50);
+  int n = gen.uniform<int>(2, 50);
 
   std::printf("%d\n", n);
 

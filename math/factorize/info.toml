@@ -12,6 +12,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/41"
     name = "random.cpp"
     number = 3
 [[tests]]
+    name = "max.cpp"
+    number = 1
+[[tests]]
     name = "big2.cpp"
     number = 3
 [[tests]]
@@ -25,6 +28,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/41"
     number = 1
 [[tests]]
     name = "prime_test_special.cpp"
+    number = 4
+[[tests]]
+    name = "prime_test_special_bug.cpp"
     number = 3
 [[tests]]
     name = "hack00.cpp"

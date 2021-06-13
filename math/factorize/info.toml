@@ -30,6 +30,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/41"
     name = "prime_test_special.cpp"
     number = 4
 [[tests]]
+    name = "prime_test_special_bug.cpp"
+    number = 3
+[[tests]]
     name = "hack00.cpp"
     number = 1
 

@@ -1,0 +1,23 @@
+title = 'Inverse Matrix'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/626"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+[[tests]]
+    name = "lowrank_max_random.cpp"
+    number = 5
+[[tests]]
+    name = "perm_max_random.cpp"
+    number = 5
+
+[params]
+    N_MAX = 500
+    MOD = 998244353

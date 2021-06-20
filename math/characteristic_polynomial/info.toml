@@ -17,6 +17,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/665"
 [[tests]]
     name = "small_random.cpp"
     number = 4
+[[tests]]
+    name = "small_multiple_root.in"
+    number = 2
 [[solutions]]
     name = "n_4.cpp"
     wrong = true

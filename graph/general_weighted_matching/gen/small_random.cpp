@@ -9,7 +9,7 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = gen.uniform(1, 20);
+    int n = gen.uniform(2, 20);
     int m = gen.uniform(1, n * (n - 1) / 2);
 
     using P3 = pair<pair<int, int>, int>;

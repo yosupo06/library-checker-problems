@@ -13,7 +13,7 @@ Calculate the matching in which the sum of weights is maximized.
 - $1 \leq N \leq 500$
 - $0 \leq M \leq \frac{N(N-1)}{2}$
 - $0 \leq u_i, v_i < N$
-- $1 \leq w_i < 1\,000\,000$
+- $1 \leq w_i \leq 1\,000\,000$
 
 ## @{keyword.input}
 

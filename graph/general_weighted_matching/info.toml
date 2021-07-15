@@ -6,6 +6,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/171"
     name = "example.in"
     number = 2
 [[tests]]
+    name = "minimal.in"
+    number = 1
+[[tests]]
+    name = "issue610.in"
+    number = 1
+[[tests]]
     name = "small_random.cpp"
     number = 2
 [[tests]]
@@ -14,6 +20,18 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/171"
 [[tests]]
     name = "sparse.cpp"
     number = 5
+[[tests]]
+    name = "binary_tree.cpp"
+    number = 1
+[[tests]]
+    name = "cycles.cpp"
+    number = 1
+[[tests]]
+    name = "grid.cpp"
+    number = 1
+[[tests]]
+    name = "complete.cpp"
+    number = 1
 
 [params]
     N_MIN = 1

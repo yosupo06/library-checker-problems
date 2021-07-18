@@ -23,7 +23,10 @@ int main() {
         inf.readInt(W_MIN, W_MAX, "w_i");
         inf.readChar('\n');
         ensuref(u != v, "u != v");
-        ensuref(edges.count({u, v}) == 0 && edges.count({v, u}) == 0, "duplicate edge");
+        if (u > v) {
+            std::swap(u, v);
+        }
+        ensuref(edges.find({u, v}) == edges.cend(), "duplicate edge");
         edges.insert({u, v});
     }
     inf.readEof();

@@ -23,6 +23,9 @@ int main(int, char* argv[]) {
     vector<int> c;
     for(int i = 1; i < (int) b.size(); ++i) {
         int l = b[i] - b[i-1];
+        if (l == 1) {
+          continue;
+        }
         for(int j = 0; j < l; ++j) {
             int k = (j + 1) % l;
             int w = gen.uniform(1, 1000000);

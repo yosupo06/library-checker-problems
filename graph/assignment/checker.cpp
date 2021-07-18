@@ -3,7 +3,7 @@
 using namespace std;
 using ll = long long;
 
-int read_ans(vector<vector<ll>> a, InStream& stream) {
+ll read_ans(vector<vector<ll>> a, InStream& stream) {
     int n = int(a.size());
     ll x = stream.readLong();
     ll sum = 0;

@@ -35,6 +35,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/171"
 [[tests]]
     name = "complete.cpp"
     number = 1
+[[tests]]
+    name = "lila_arena.cpp"
+    number = 1
 
 [params]
     N_MIN = 1

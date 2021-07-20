@@ -34,10 +34,13 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/171"
     number = 1
 [[tests]]
     name = "complete.cpp"
-    number = 1
+    number = 2
 [[tests]]
     name = "lila_arena.cpp"
     number = 1
+[[tests]]
+    name = "complete_plane.cpp"
+    number = 2
 
 [params]
     N_MIN = 1

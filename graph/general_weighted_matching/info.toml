@@ -41,6 +41,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/171"
 [[tests]]
     name = "complete_plane.cpp"
     number = 2
+[[tests]]
+    name = "complete_mandist.cpp"
+    number = 2
 
 [params]
     N_MIN = 1

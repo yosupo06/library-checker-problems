@@ -6,11 +6,9 @@
 #include <vector>
 #include <queue>
 
-#include <random>
-
 using namespace std;
 
-template <typename CostType, typename TotalCostType=int64_t>
+template <typename CostType, typename TotalCostType>
 class MaximumWeightedMatching {
   /*
     Maximum Weighted Matching in General Graphs.
@@ -779,7 +777,7 @@ private:
   ModifiableHeap<cost_t> heap4;
 };
 
-using MWM = MaximumWeightedMatching<int>;
+using MWM = MaximumWeightedMatching<int, int>;
 using Edge = MWM::InputEdge;
 
 int main() {

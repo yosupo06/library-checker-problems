@@ -36,7 +36,15 @@ private:
   class BinaryHeap {
   public:
     struct Node {
+      #ifdef FAST_COMPARE
       bool operator < (const Node& rhs) const { return value < rhs.value; }
+      #else
+      bool operator < (const Node& rhs) const {
+        if (value < rhs.value) { return true; }
+        if (rhs.value < value) { return false; }
+        return id < rhs.id;
+      }
+      #endif
       T value; int id;
     };
     BinaryHeap() {}
@@ -243,15 +251,35 @@ private:
   struct Event {
     Event() {}
     Event(cost_t time, int id) : time(time), id(id) {}
+    #ifdef FAST_COMPARE
     bool operator < (const Event& rhs) const { return time < rhs.time; }
-    bool operator > (const Event& rhs) const { return time > rhs.time; }
+    #else
+    bool operator < (const Event& rhs) const {
+      if (time < rhs.time) { return true; }
+      if (rhs.time < time) { return false; }
+      return id < rhs.id;
+    }
+    #endif
+    bool operator > (const Event& rhs) const { return rhs.operator<(*this); }
     cost_t time; int id;
   };
   struct EdgeEvent {
     EdgeEvent() {}
     EdgeEvent(cost_t time, int from, int to) : time(time), from(from), to(to) {}
-    bool operator > (const EdgeEvent& rhs) const { return time > rhs.time; }
+    #ifdef FAST_COMPARE
     bool operator < (const EdgeEvent& rhs) const { return time < rhs.time; }
+    #else
+    bool operator < (const EdgeEvent& rhs) const {
+      if (time < rhs.time) {
+        return true;
+      }
+      if (time > rhs.time) {
+        return false;
+      }
+      return make_pair(from, to) < make_pair(rhs.from, rhs.to);
+    }
+    #endif
+    bool operator > (const EdgeEvent& rhs) const { return rhs.operator<(*this); }
     cost_t time; int from, to;
   };
 

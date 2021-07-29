@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given sampling points $f(0), f(1), \ldots , f(N - 1)$ of polynomial $f(x)$, compute $f(c ＋ i) \bmod @{param.MOD}$ for $i = 0, 1, \dots , M - 1$.
+Given sampling points $f(0), f(1), \ldots , f(N - 1)$ of polynomial $f(x)$, compute $f(c ＋ i) \bmod @{param.MOD}$ for $i = 0, 1, \ldots , M - 1$.
 @{lang.ja}
 多項式 $f(x)$ の標本点 $f(0), f(1), \ldots , f(N - 1)$ が与えられます。
 $i = 0, 1, \ldots , M - 1$ に対して $f(c ＋ i) \bmod @{param.MOD}$ を計算してください。

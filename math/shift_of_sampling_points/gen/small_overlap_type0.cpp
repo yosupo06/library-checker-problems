@@ -10,7 +10,9 @@ int main(int, char* argv[]) {
 
   const int N_SMALL = 100;
   int n = gen.uniform<int>(1, N_SMALL);
-  std::printf("%d %d %d\n", n, gen.uniform<int>(1, N_SMALL), gen.uniform<int>(0, n - 1));
+  int m = gen.uniform<int>(1, N_SMALL);
+  int c = gen.uniform<int>(0, n - 1);
+  std::printf("%d %d %d\n", n, m, c);
 
   for (int i = 0; i < n; ++i) {
     std::printf("%d", gen.uniform<int>(0, MOD - 1));

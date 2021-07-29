@@ -11,7 +11,9 @@ int main(int, char* argv[]) {
   const int N_MEDIUM = 10000;
 
   int n = gen.uniform<int>(N_MEDIUM - 100, N_MEDIUM + 100);
-  std::printf("%d %d %d\n", n, gen.uniform<int>(N_MEDIUM - 100, N_MEDIUM + 100), gen.uniform<int>(0, MOD - 1));
+  int m = gen.uniform<int>(N_MEDIUM - 100, N_MEDIUM + 100);
+  int c = gen.uniform<int>(0, MOD - 1);
+  std::printf("%d %d %d\n", n, m, c);
 
   for (int i = 0; i < n; ++i) {
     std::printf("%d", gen.uniform<int>(0, MOD - 1));

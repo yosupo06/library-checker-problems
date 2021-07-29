@@ -143,7 +143,7 @@ struct NTT {
 
 template <u32 mod, u32 pr>
 std::vector<Z<mod>> mult(const std::vector<Z<mod>> &x, const std::vector<Z<mod>> &y,
-                         NTT<mod, pr> &ntt) {
+                         const NTT<mod, pr> &ntt) {
   int n = x.size(), m = y.size();
   assert(n > 0);
   assert(m > 0);
@@ -199,7 +199,8 @@ std::vector<Z<mod>> sample_points_to_FFP(const std::vector<Z<mod>> &pts,
   for (int i = 0; i < n; ++i) {
     pts_egf[i] = pts[i] * fmp.get_ifact(i);
     if (i & 1) emx[i] = -fmp.get_ifact(i);
-    else emx[i] = fmp.get_ifact(i);
+    else
+      emx[i] = fmp.get_ifact(i);
   }
   pts_egf = convolve(emx, pts_egf);
   pts_egf.resize(n);
@@ -213,7 +214,8 @@ std::vector<Z<mod>> FFP_to_sample_points(int n, const std::vector<Z<mod>> &ffp,
   std::vector<Z<mod>> ex(n); // `ex` = e^(x)
   for (int i = 0; i < n; ++i) ex[i] = fmp.get_ifact(i);
   if (int(ffp.size()) > n) ex = convolve(ex, std::vector<Z<mod>>(ffp.begin(), ffp.begin() + n));
-  else ex = convolve(ex, ffp);
+  else
+    ex = convolve(ex, ffp);
   ex.resize(n);
   for (int i = 0; i < n; ++i) ex[i] *= fmp.get_fact(i);
   return ex;
@@ -246,7 +248,8 @@ int main() {
   NTT<MOD, PR> ntt998244353;
   FactorialModPrime<MOD> fmp998244353;
 
-  auto conv = std::bind(mult<MOD, PR>, std::placeholders::_1, std::placeholders::_2, ntt998244353);
+  auto conv = std::bind(mult<MOD, PR>, std::placeholders::_1, std::placeholders::_2,
+                        std::cref(ntt998244353));
 
   std::vector<mint> pts(n);
   for (int i = 0; i < n; ++i) {

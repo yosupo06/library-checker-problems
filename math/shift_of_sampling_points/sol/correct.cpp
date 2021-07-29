@@ -189,9 +189,9 @@ struct FactorialModPrime {
   std::vector<Z<mod>> fact_, ifact_;
 };
 
-template <u32 mod, typename ConvolveFuncType>
+template <u32 mod, u32 pr>
 std::vector<Z<mod>> sample_points_to_FFP(const std::vector<Z<mod>> &pts,
-                                         FactorialModPrime<mod> &fmp, ConvolveFuncType convolve) {
+                                         FactorialModPrime<mod> &fmp, const NTT<mod, pr> &ntt) {
   // FFP is falling factorial polynomial
   int n = pts.size();
   std::vector<Z<mod>> emx(n), pts_egf(n); // `emx` = e^(-x), `pts_egf` = sample points' EGF
@@ -202,28 +202,27 @@ std::vector<Z<mod>> sample_points_to_FFP(const std::vector<Z<mod>> &pts,
     else
       emx[i] = fmp.get_ifact(i);
   }
-  pts_egf = convolve(emx, pts_egf);
+  pts_egf = mult(emx, pts_egf, ntt);
   pts_egf.resize(n);
   return pts_egf;
 }
 
-template <u32 mod, typename ConvolveFuncType>
+template <u32 mod, u32 pr>
 std::vector<Z<mod>> FFP_to_sample_points(int n, const std::vector<Z<mod>> &ffp,
-                                         FactorialModPrime<mod> &fmp, ConvolveFuncType convolve) {
+                                         FactorialModPrime<mod> &fmp, const NTT<mod, pr> &ntt) {
   fmp.preprocess(n);
   std::vector<Z<mod>> ex(n); // `ex` = e^(x)
   for (int i = 0; i < n; ++i) ex[i] = fmp.get_ifact(i);
-  if (int(ffp.size()) > n) ex = convolve(ex, std::vector<Z<mod>>(ffp.begin(), ffp.begin() + n));
+  if (int(ffp.size()) > n) ex = mult(ex, std::vector<Z<mod>>(ffp.begin(), ffp.begin() + n), ntt);
   else
-    ex = convolve(ex, ffp);
+    ex = mult(ex, ffp, ntt);
   ex.resize(n);
   for (int i = 0; i < n; ++i) ex[i] *= fmp.get_fact(i);
   return ex;
 }
 
-template <u32 mod, typename ConvolveFuncType>
-std::vector<Z<mod>> shift_FFP(const std::vector<Z<mod>> &ffp, Z<mod> c, FactorialModPrime<mod> &fmp,
-                              ConvolveFuncType convolve) {
+template <u32 mod, u32 pr>
+std::vector<Z<mod>> shift_FFP(const std::vector<Z<mod>> &ffp, Z<mod> c, FactorialModPrime<mod> &fmp, const NTT<mod, pr> &ntt) {
   int n = ffp.size();
   fmp.preprocess(n);
   std::vector<Z<mod>> A(ffp), B(n);
@@ -231,7 +230,7 @@ std::vector<Z<mod>> shift_FFP(const std::vector<Z<mod>> &ffp, Z<mod> c, Factoria
   for (int i = 0; i < n; ++i)
     A[i] *= fmp.get_fact(i), B[i] = c_i * fmp.get_ifact(i), c_i *= c - Z<mod>(i);
   std::reverse(A.begin(), A.end());
-  A = convolve(A, B);
+  A = mult(A, B, ntt);
   A.resize(n);
   std::reverse(A.begin(), A.end());
   for (int i = 0; i < n; ++i) A[i] *= fmp.get_ifact(i);
@@ -248,9 +247,6 @@ int main() {
   NTT<MOD, PR> ntt998244353;
   FactorialModPrime<MOD> fmp998244353;
 
-  auto conv = std::bind(mult<MOD, PR>, std::placeholders::_1, std::placeholders::_2,
-                        std::cref(ntt998244353));
-
   std::vector<mint> pts(n);
   for (int i = 0; i < n; ++i) {
     int v;
@@ -258,9 +254,9 @@ int main() {
     pts[i] = mint(v);
   }
 
-  auto ffp = sample_points_to_FFP<MOD, decltype(conv)>(pts, fmp998244353, conv);
-  ffp      = shift_FFP<MOD, decltype(conv)>(ffp, mint(c), fmp998244353, conv);
-  auto res = FFP_to_sample_points<MOD, decltype(conv)>(m, ffp, fmp998244353, conv);
+  auto ffp = sample_points_to_FFP<MOD, PR>(pts, fmp998244353, ntt998244353);
+  ffp      = shift_FFP<MOD, PR>(ffp, mint(c), fmp998244353, ntt998244353);
+  auto res = FFP_to_sample_points<MOD, PR>(m, ffp, fmp998244353, ntt998244353);
 
   for (int i = 0; i < m; ++i) {
     std::printf("%d", int(res[i].v_));

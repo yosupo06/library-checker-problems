@@ -197,8 +197,9 @@ std::vector<Z<mod>> sample_points_to_FFP(const std::vector<Z<mod>> &pts,
   std::vector<Z<mod>> emx(n), pts_egf(n); // `emx` = e^(-x), `pts_egf` = sample points' EGF
   fmp.preprocess(n);
   for (int i = 0; i < n; ++i) {
-    pts_egf[i] = pts[i] * (emx[i] = fmp.get_ifact(i));
-    if (i & 1) emx[i] = -emx[i];
+    pts_egf[i] = pts[i] * fmp.get_ifact(i);
+    if (i & 1) emx[i] = -fmp.get_ifact(i);
+    else emx[i] = fmp.get_ifact(i);
   }
   pts_egf = convolve(emx, pts_egf);
   pts_egf.resize(n);

@@ -259,7 +259,7 @@ int main() {
   auto res = FFP_to_sample_points<MOD, decltype(conv)>(m, ffp, fmp998244353, conv);
 
   for (int i = 0; i < m; ++i) {
-    std::printf("%d", res[i].v_);
+    std::printf("%d", int(res[i].v_));
     if (i != m - 1) std::printf(" ");
   }
   std::printf("\n");

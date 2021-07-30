@@ -86,9 +86,9 @@ struct NTT {
     iroot.back() = root.back().inv();
     for (int i = lv - 3; i >= 0; --i) iroot[i] = iroot[i + 1] * iroot[i + 1];
     Z<mod> v(1);
-    for (int i = 0; i < lv - 2; ++i) dw_[i] = v * root[i], v *= iroot[i];
+    for (int i = 0; i < lv - 1; ++i) dw_[i] = v * root[i], v *= iroot[i];
     v = Z<mod>(1);
-    for (int i = 0; i < lv - 2; ++i) idw_[i] = v * iroot[i], v *= root[i];
+    for (int i = 0; i < lv - 1; ++i) idw_[i] = v * iroot[i], v *= root[i];
   }
   ~NTT() = default;
 

@@ -75,10 +75,14 @@ struct NTT {
     return convert[n * deBruijn >> 58];
   }
 
-  static int bsr(u64 n) { return deBruijn_log2(n & ~(n - 1)); }
+  // like _BitScanForward64
+  // see https://docs.microsoft.com/en-us/cpp/intrinsics/bitscanforward-bitscanforward64?view=msvc-160
+  // like __builtin_ctzll
+  // see also https://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html
+  static int bsf(u64 n) { return deBruijn_log2(n & ~(n - 1)); }
 
-  NTT() : dw_(bsr(mod - 1)), idw_(bsr(mod - 1)) {
-    int lv = bsr(mod - 1);
+  NTT() : dw_(bsf(mod - 1)), idw_(bsf(mod - 1)) {
+    int lv = bsf(mod - 1);
     Z<mod> g(primitive_root);                        // any quadratic nonresidue is okay
     std::vector<Z<mod>> root(lv - 1), iroot(lv - 1); // order(`root[i]`) = 2^(`i` + 2)
     root.back() = g.pow((mod - 1) >> lv);
@@ -110,7 +114,7 @@ struct NTT {
           Z<mod> u = x[j + k], v = x[j + k + l] * root;
           x[j + k] = u + v, x[j + k + l] = u - v;
         }
-        root *= dw_[bsr(++m)];
+        root *= dw_[bsf(++m)];
       }
     }
   }
@@ -128,7 +132,7 @@ struct NTT {
           Z<mod> u = x[j + k], v = x[j + k + l];
           x[j + k] = u + v, x[j + k + l] = (u - v) * root;
         }
-        root *= idw_[bsr(++m)];
+        root *= idw_[bsf(++m)];
       }
     }
     Z<mod> iv(Z<mod>(n).inv());

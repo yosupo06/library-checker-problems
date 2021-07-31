@@ -8,9 +8,9 @@ int main(int, char* argv[]) {
   long long seed = std::atoll(argv[1]);
   auto gen = Random(seed);
 
-  int n = gen.uniform<int>(N_MAX - 100, N_MAX);
-  int m = gen.uniform<int>(N_MAX - 100, N_MAX);
-  int c = int(MOD) - 1 - gen.uniform<int>(1, n - 1);
+  int n = gen.uniform<int>(1, N_MAX), m = gen.uniform<int>(1, N_MAX), c = 0;
+
+  // generate case for c = 0
 
   std::printf("%d %d %d\n", n, m, c);
 

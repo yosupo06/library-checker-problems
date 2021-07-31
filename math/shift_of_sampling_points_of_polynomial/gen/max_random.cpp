@@ -8,10 +8,8 @@ int main(int, char* argv[]) {
   long long seed = std::atoll(argv[1]);
   auto gen = Random(seed);
 
-  const int N_SMALL = 100;
-  int n = gen.uniform<int>(1, N_SMALL);
-  int m = gen.uniform<int>(1, N_SMALL);
-  int c = int(MOD) - 1 - gen.uniform<int>(0, n - 1);
+  int n = N_MAX, m = N_MAX, c = gen.uniform<int>(0, MOD - 1);
+
   std::printf("%d %d %d\n", n, m, c);
 
   for (int i = 0; i < n; ++i) {

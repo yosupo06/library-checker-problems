@@ -1,0 +1,38 @@
+title = 'Shift of Sampling Points of Polynomial'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/680"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small_random.cpp"
+    number = 4
+[[tests]]
+    name = "medium_random.cpp"
+    number = 4
+[[tests]]
+    name = "max_random.cpp"
+    number = 4
+[[tests]]
+    name = "type0_random.cpp"
+    number = 4
+[[tests]]
+    name = "type1_random.cpp"
+    number = 4
+[[tests]]
+    name = "type2_random.cpp"
+    number = 4
+[[tests]]
+    name = "type3_random.cpp"
+    number = 4
+[[tests]]
+    name = "N_1.cpp"
+    number = 1
+[[tests]]
+    name = "c_0.cpp"
+    number = 1
+
+[params]
+    N_MAX = 524288
+    MOD = 998244353

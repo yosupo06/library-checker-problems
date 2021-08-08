@@ -24,7 +24,7 @@ $$f(x)h(x)\equiv1\pmod {g(x)}$$
 ただし $\deg(0)=-\infty$とします。
 このような $h(x)$ は存在するならば一意に定まることが示せます。
 $h(x)$ が存在しないときは$-1$を出力してください。
-@{lang.en}
+@{lang.end}
 
 ## @{keyword.constraints}
 

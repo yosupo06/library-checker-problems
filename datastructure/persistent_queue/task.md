@@ -18,12 +18,15 @@ $i$ 個目のクエリは以下の形式で与えられます。
 
 ## @{keyword.constraints}
 
+@{lang.en}
 - $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
 - $-1 \leq t_i < i$
 - $@{param.X_MIN} \leq x_i \leq @{param.X_MAX}$
-@{lang.en}
 - In query 1, $S_{t_i}$ is not empty.
 @{lang.ja}
+- $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
+- $-1 \leq t_i < i$
+- $@{param.X_MIN} \leq x_i \leq @{param.X_MAX}$
 - クエリ 1 について、$S_{t_i}$ は空ではない。
 @{lang.end}
 

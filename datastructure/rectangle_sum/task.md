@@ -1,8 +1,16 @@
 ## @{keyword.statement}
+
+@{lang.en}
+There are $N$ weighted points on the $2$ dimensional plane. The coordinate of the $i$-th point is $(x_i, y_i)$, and its weight is $w_i$.
+Process $Q$ queries.
+
+- `$l$ $d$ $r$ $u$`: Find the sum of weights of all points that satisfy $l \leq x < r$, $d \leq y < u$.
+@{lang.ja}
 $2$ 次元平面上に重み付きの点が $N$ 個ある。$i$ 個目の座標は $(x_i, y_i)$ で、重みは $w_i$ である。
 $Q$ 個のクエリを処理
 
 - `$l$ $d$ $r$ $u$`: $l \leq x < r$, $d \leq y < u$ を満たす点について、重さの総和を求める
+@{lang.end}
 
 ## @{keyword.constraints}
 

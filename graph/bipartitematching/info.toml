@@ -18,8 +18,11 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/37"
     name = "many_smalls.cpp"
     number = 2
 [[tests]]
-    name = "almost_cycle.cpp"
-    number = 1
+    name = "cycle.cpp"
+    number = 2
+[[tests]]
+    name = "line_random.cpp"
+    number = 2
 
 [params]
     L_MAX = 100_000

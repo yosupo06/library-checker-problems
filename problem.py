@@ -186,6 +186,16 @@ class Problem:
             name = sol['name']
             compile(self.basedir / 'sol' / name, self.rootdir)
 
+    def check_all_solutions_used(self) -> bool:
+        sol_names = []
+        sol_names.append('correct.cpp')
+        for sol in self.config.get('solutions', []):
+            sol_names.append(sol['name'])
+        for file_path in (self.basedir / 'sol').glob('*.cpp'):
+            if file_path.name not in sol_names:
+                return False
+        return True
+
     def make_inputs(self):
         indir = self.basedir / 'in'
         gendir = self.basedir / 'gen'
@@ -497,6 +507,8 @@ class Problem:
             self.compile_solutions()
             for sol in self.config.get('solutions', []):
                 self.judge(self.basedir / 'sol' / sol['name'], sol)
+            if not self.check_all_solutions_used():
+                self.warning('Some solutions are not used')
 
         if mode.rewrite_hash():
             self.write_hashes()

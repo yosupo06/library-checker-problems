@@ -1,8 +1,16 @@
 ## @{keyword.statement}
+
+@{lang.en}
+There are $N$ segments $y = a_i x + b_i$ (where $x \in [l_i, r_i)$). Process $Q$ queries.
+
+- `0 $l$ $r$ $a$ $b$`: Add a segment $y = ax + b$ (where $x \in [l, r)$)
+- `1 $p$`: Find the minimal $y$ at $x = p$. If such $y$ doesn't exist, output `INFINITY`.
+@{lang.ja}
 $N$ 本の線分 $y = a_i x + b_i$ (ただし $x \in [l_i, r_i)$) が存在します。 $Q$ 個のクエリを処理してください。
 
 - `0 $l$ $r$ $a$ $b$`: 線分 $y = ax + b$ (ただし $x \in [l, r)$) を追加
 - `1 $p$`: $x = p$ での $y$ 座標の最小を求める。そのような座標がなければ `INFINITY` を出力
+@{lang.end}
 
 ## @{keyword.constraints}
 

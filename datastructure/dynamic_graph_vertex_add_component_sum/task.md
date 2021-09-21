@@ -4,10 +4,12 @@
 You are given an empty graph with $N$ vertices. The $i$-th vertex has a value $a_i$ written on it.
 
 Process $Q$ queries:
+
 - `0 $u$ $v$` : Add an edge between vertex $u$ and vertex $v$. (It is guaranteed that, immediately before this query, there is no edge between vertex $u$ and vertex $v$)
 - `1 $u$ $v$` : Remove the edge between vertex $u$ and vertex $v$. (It is guaranteed that, immediately before this query, there is an edge between vertex $u$ and vertex $v$)
 - `2 $v$ $x$` : $a_v \gets a_v + x$
 - `3 $v$ `   : Output the sum of values on all vertices that are connected to vertex $v$ by a path.
+
 @{lang.ja}
 $N$ 頂点の空グラフが与えられる。頂点 $i$ には値 $a_i$ が書かれている。
 

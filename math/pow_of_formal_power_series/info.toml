@@ -23,7 +23,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/386"
 [[tests]]
     name = "lower_deg_zero2.cpp"
     number = 4
-
+[[tests]]
+    name = "binary_exp_max.cpp"
+    number = 1
 
 [params]
     N_MAX = 500000

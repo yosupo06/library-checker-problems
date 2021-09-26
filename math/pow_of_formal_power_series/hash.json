@@ -3,6 +3,8 @@
   "all_zero_00.out": "62851edd5682853e1866fccc7c3da34aca788e257157b82c5d384808a8658a51",
   "all_zero_01.in": "bbae4da47d96b101e77dad29fd7665d45a7ab2ac8440ff24a2a8b9ccf7ed14fb",
   "all_zero_01.out": "56eaa50ad51565a944f74ed0c8d8e40b48a16a4321262f3c5339470e00325c4b",
+  "binary_exp_max_00.in": "adce2277361e002c44c6b00a016ed2ef32c06056e04f916655277cecae66f752",
+  "binary_exp_max_00.out": "8e9ee63adeb60096aedc0dcd03f5ecb82a5473f78d1add4ed2b11a1af8356462",
   "example_00.in": "4563d710388ccc48cacf931e20ebe9bd9d1c06aaed10abb5c12878d24409880f",
   "example_00.out": "c5bea6d5172950ed3fc3f0433afd51fc1913e545f5dd34c849c65dc166209a00",
   "example_01.in": "8e0c15ffd4f66ecd00ae2b1f06fc72dc6868fc7437cde860dcb6471289b1ec27",

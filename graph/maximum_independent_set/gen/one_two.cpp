@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "../params.h"
 
 int main(int, char**) {

@@ -17,6 +17,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/151"
 [[tests]]
     name = "handmade.in"
     number = 1
+[[tests]]
+    name = "one_two.cpp"
+    number = 1
 
 [params]
     N_MIN = 1

@@ -54,7 +54,7 @@ int main(int argc, char* argv[]) {
     vector<pair<int, int>> extra;
     for (int i = 0; i < n; ++i) {
         int u = rng.uniform(0, n - 1);
-        if (p[u] != i && i != u) extra.emplace_back(i, u);
+        extra.emplace_back(i, u);
     }
     assert(extra.size() + n - 1 <= 200'000);
     cout << n << ' ' << n - 1 + extra.size() << ' ' << 0 << '\n';

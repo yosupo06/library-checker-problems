@@ -58,7 +58,7 @@ int main(int argc, char* argv[]) {
         if (depth[i + 1].size() == 0) break;
         for (auto v : depth[i]) {
             int u = depth[i + 1][rng.uniform(0, (int)depth[i + 1].size() - 1)];
-            if (p[u] != v) extra.emplace_back(v, u);
+            extra.emplace_back(v, u);
         }
     }
     assert(extra.size() + n - 1 <= 200'000);

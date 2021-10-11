@@ -8,3 +8,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/40"
 [[tests]]
     name = "random.cpp"
     number = 5
+[[tests]]
+    name = "gen_tree.cpp"
+    number = 3
+[[tests]]
+    name = "gen_tree_2.cpp"
+    number = 3

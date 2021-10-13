@@ -120,18 +120,6 @@ problems = [
 ]
 
 [[categories]]
-name = "Convolution"
-problems = [
-  "convolution_mod",
-  "convolution_mod_1000000007",
-  "convolution_mod_2_64",
-  "subset_convolution",
-  "bitwise_and_convolution",
-  "bitwise_xor_convolution",
-  "multivariate_convolution"
-]
-
-[[categories]]
 name = "Matrix"
 problems = [
   "matrix_product",

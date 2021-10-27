@@ -59,7 +59,7 @@ def main():
         else:
             logger.info('Generate {}, new version: {}'.format(problem_name, problem_version))
             problem.generate(mode=Problem.Mode.TEST, html_dir=Path(args.htmldir) if args.htmldir else None)
-            problem.generate(mode=Problem.Mode.CLEAN)
+            problem.generate(mode=Problem.Mode.CLEAN, html_dir=None)
         if problem_name not in generated:
             generated[problem_name] = dict()
 

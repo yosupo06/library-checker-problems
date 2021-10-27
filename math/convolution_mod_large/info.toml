@@ -1,5 +1,5 @@
 title = 'Convolution'
-timelimit = 500.0
+timelimit = 15.0
 forum = "https://github.com/yosupo06/library-checker-problems/issues/42"
 
 [[tests]]

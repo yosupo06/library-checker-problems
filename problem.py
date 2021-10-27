@@ -22,7 +22,7 @@ import toml
 logger = getLogger(__name__)  # type: Logger
 
 CASENAME_LEN_LIMIT = 40
-STACK_SIZE = 2_000_000_000 # 2GB
+
 
 def casename(name: Union[str, Path], i: int) -> str:
     """(random, 1) -> random_01"""
@@ -34,9 +34,9 @@ def compile(src: Path, rootdir: Path):
         cxx = getenv('CXX', 'g++')
         cxxflags_default = '-O2 -std=c++17 -Wall -Wextra -Werror -Wno-unused-result'
         if platform.system() == 'Darwin':
-            cxxflags_default += ' -Wl,-stack_size,{}'.format(hex(STACK_SIZE))
+            cxxflags_default += ' -Wl,-stack_size,0x10000000'  # 256MB
         if platform.system() == 'Windows':
-            cxxflags_default += ' -Wl,-stack,{}'.format(hex(STACK_SIZE))
+            cxxflags_default += ' -Wl,-stack,0x10000000'  # 256MB
             # avoid using MinGW's "unique" stdio, which doesn't recognize %lld
             cxxflags_default += ' -D__USE_MINGW_ANSI_STDIO'
         if platform.uname().system == 'Linux' and 'Microsoft' in platform.uname().release:
@@ -139,7 +139,7 @@ class Problem:
                     gens.append(str(gendir / cn))
             else:
                 logger.error('Unknown file: {}'.format(test['name']))
-                raise RuntimeError('Unknown file: {}'.format(test['name']))
+                raise UnknownTypeFile('Unknown file: {}'.format(test['name']))
         for name in self.basedir.glob('gen/*.cpp'):
             if str(name) not in gens:
                 self.warning('Unused .cpp gen file: {}'.format(name))

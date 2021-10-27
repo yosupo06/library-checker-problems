@@ -34,9 +34,9 @@ def compile(src: Path, rootdir: Path):
         cxx = getenv('CXX', 'g++')
         cxxflags_default = '-O2 -std=c++17 -Wall -Wextra -Werror -Wno-unused-result'
         if platform.system() == 'Darwin':
-            cxxflags_default += ' -Wl,-stack_size,0x10000000'  # 256MB
+            cxxflags_default += ' -Wl,-stack_size,0x200000000'  # 256MB
         if platform.system() == 'Windows':
-            cxxflags_default += ' -Wl,-stack,0x10000000'  # 256MB
+            cxxflags_default += ' -Wl,-stack,0x200000000'  # 256MB
             # avoid using MinGW's "unique" stdio, which doesn't recognize %lld
             cxxflags_default += ' -D__USE_MINGW_ANSI_STDIO'
         if platform.uname().system == 'Linux' and 'Microsoft' in platform.uname().release:

@@ -22,6 +22,7 @@ import toml
 logger = getLogger(__name__)  # type: Logger
 
 CASENAME_LEN_LIMIT = 40
+STACK_SIZE = 2 ** 31  # 2GB
 
 
 def casename(name: Union[str, Path], i: int) -> str:
@@ -34,9 +35,9 @@ def compile(src: Path, rootdir: Path):
         cxx = getenv('CXX', 'g++')
         cxxflags_default = '-O2 -std=c++17 -Wall -Wextra -Werror -Wno-unused-result'
         if platform.system() == 'Darwin':
-            cxxflags_default += ' -Wl,-stack_size,0x80000000'  # 2GB
+            cxxflags_default += ' -Wl,-stack_size,{}'.format(hex(STACK_SIZE))
         if platform.system() == 'Windows':
-            cxxflags_default += ' -Wl,-stack,0x80000000'  # 2GB
+            cxxflags_default += ' -Wl,-stack,{}'.format(hex(STACK_SIZE))
             # avoid using MinGW's "unique" stdio, which doesn't recognize %lld
             cxxflags_default += ' -D__USE_MINGW_ANSI_STDIO'
         if platform.uname().system == 'Linux' and 'Microsoft' in platform.uname().release:
@@ -139,7 +140,7 @@ class Problem:
                     gens.append(str(gendir / cn))
             else:
                 logger.error('Unknown file: {}'.format(test['name']))
-                raise UnknownTypeFile('Unknown file: {}'.format(test['name']))
+                raise RuntimeError('Unknown file: {}'.format(test['name']))
         for name in self.basedir.glob('gen/*.cpp'):
             if str(name) not in gens:
                 self.warning('Unused .cpp gen file: {}'.format(name))
@@ -451,11 +452,18 @@ class Problem:
         with hashpath.open('w') as f:
             json.dump(self.calc_hashes(), f, indent=2, sort_keys=True)
 
+    def clean(self):
+        if (self.basedir / 'in').exists():
+            shutil.rmtree(self.basedir / 'in')
+        if (self.basedir / 'out').exists():
+            shutil.rmtree(self.basedir / 'out')
+
     class Mode(Enum):
         DEFAULT = 1
         DEV = 2
         TEST = 3
         HTML = 4
+        CLEAN = 5
 
         def force_generate(self):
             return self == self.DEV or self == self.TEST
@@ -480,6 +488,12 @@ class Problem:
 
         self.generate_params_h()
 
+        if mode == self.Mode.CLEAN:
+            logger.info('Clean input & output directry of {}'.format(
+                self.basedir.name))
+            self.clean()
+            return
+
         is_testcases_already_generated = self.is_testcases_already_generated()
         is_checker_already_generated = self.is_checker_already_generated()
 
@@ -499,8 +513,8 @@ class Problem:
             self.make_outputs(mode.verify())
 
         if mode == self.Mode.HTML:
-            self.write_html(html_dir)
             logger.info('HTML generator Mode, skip judge')
+            self.write_html(html_dir)
             return
 
         if mode.verify():

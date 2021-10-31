@@ -17,7 +17,7 @@ $$c_i = \sum_{j = 0}^i a_j b_{i - j} \bmod @{param.MOD}$$
 
 ## @{keyword.constraints}
 
-- $1 \leq N, M \leq @{param.N_AND_M_MAX} = 2^{25}$
+- $1 \leq N, M \leq @{param.N_AND_M_MAX} = 2^{24}$
 - $0 \leq a_i, b_i < @{param.MOD}$
 
 ## @{keyword.input}

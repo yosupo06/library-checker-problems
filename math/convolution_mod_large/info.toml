@@ -1,6 +1,6 @@
 title = 'Convolution'
-timelimit = 15.0
-forum = "https://github.com/yosupo06/library-checker-problems/issues/42"
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/720"
 
 [[tests]]
     name = "example.in"
@@ -30,15 +30,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/42"
 [[solutions]]
     name = "naive.cpp"
     wrong = true
- 
-#[[solutions]]
-#    name = "acl.cpp"
-   
-#[[solutions]]
-#    name = "schoenhage.cpp"
 
 [params]
-    N_AND_M_MAX = 33554432
-#    N_AND_M_MAX = 8388608
-#    N_AND_M_MAX = 4194314
+    N_AND_M_MAX = 16777216
     MOD = 998244353

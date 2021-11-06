@@ -1,0 +1,27 @@
+title = 'Mul mod 2^n Convolution'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/728"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small.cpp"
+    number = 12
+[[tests]]
+    name = "large.cpp"
+    number = 6
+[[tests]]
+    name = "n_equal.cpp"
+    number = 21
+[[tests]]
+    name = "all_zero.cpp"
+    number = 4
+
+[[solutions]]
+    name = "naive.cpp"
+    wrong = true
+
+[params]
+    N_MAX = 20
+    MOD = 998244353

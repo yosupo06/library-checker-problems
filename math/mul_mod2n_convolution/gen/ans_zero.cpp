@@ -7,9 +7,9 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = 18;
+    int n = N_MAX - seed;
     const int N = 1 << n;
-    vector<int> a(N, 1), b(N);
+    vector<int> a(N, gen.uniform(0LL, MOD - 1)), b(N);
 
     for(int i = 0; i < n - 1; i++){
         int sum = 0;

@@ -8,7 +8,7 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = 18 + seed / 2;
+    int n = N_MAX - seed / 2;
     const int N = 1 << n;
     vector<int> a(N), b(N);
 

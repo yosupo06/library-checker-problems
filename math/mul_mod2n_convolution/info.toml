@@ -1,4 +1,4 @@
-title = 'Mul mod 2^n Convolution'
+title = 'Convolution on the multiplicative monoid of $\mathbb{Z} / 2^N\mathbb{Z}$'
 timelimit = 5.0
 forum = "https://github.com/yosupo06/library-checker-problems/issues/728"
 
@@ -12,14 +12,14 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/728"
     name = "large.cpp"
     number = 6
 [[tests]]
-    name = "n_equal.cpp"
+    name = "n_equals.cpp"
     number = 21
 [[tests]]
     name = "all_zero.cpp"
     number = 4
 [[tests]]
     name = "ans_zero.cpp"
-    number = 1
+    number = 2
 
 [[solutions]]
     name = "naive.cpp"

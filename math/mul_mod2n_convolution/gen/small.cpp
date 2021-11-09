@@ -7,7 +7,6 @@ using namespace std;
 int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
-    gen = Random(seed);
 
     int n = seed / 3;
     const int N = 1 << n;

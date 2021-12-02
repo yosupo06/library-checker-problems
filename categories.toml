@@ -103,6 +103,20 @@ problems = [
 ]
 
 [[categories]]
+name = "Convolution"
+problems = [
+  "convolution_mod",
+  "convolution_mod_1000000007",
+  "convolution_mod_2_64",
+  "convolution_mod_large",
+  "subset_convolution",
+  "bitwise_and_convolution",
+  "bitwise_xor_convolution",
+  "multivariate_convolution",
+  "mul_mod2n_convolution",
+]
+
+[[categories]]
 name = "Polynomial"
 problems = [
   "inv_of_formal_power_series",
@@ -117,20 +131,6 @@ problems = [
   "shift_of_sampling_points_of_polynomial",
   "division_of_polynomials",
   "inv_of_polynomials",
-]
-
-[[categories]]
-name = "Convolution"
-problems = [
-  "convolution_mod",
-  "convolution_mod_1000000007",
-  "convolution_mod_2_64",
-  "convolution_mod_large",
-  "subset_convolution",
-  "bitwise_and_convolution",
-  "bitwise_xor_convolution",
-  "multivariate_convolution",
-  "mul_mod2n_convolution",
 ]
 
 [[categories]]

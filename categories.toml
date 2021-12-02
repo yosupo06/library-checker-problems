@@ -9,6 +9,7 @@ problems = [
 name = "Data Structure"
 problems = [
   "associative_array",
+  "predecessor_problem",
   "unionfind",
   "static_range_sum",
   "staticrmq",
@@ -30,6 +31,7 @@ problems = [
   "line_add_get_min",
   "segment_add_get_min",
   "queue_operate_all_composite",
+  "static_range_frequency",
   "static_range_inversions_query",
   "rectangle_sum",
   "point_add_rectangle_sum",
@@ -49,6 +51,7 @@ problems = [
   "min_cost_b_flow",
   "bipartitematching",
   "general_matching",
+  "general_weighted_matching",
   "bipartite_edge_coloring",
   "assignment",
   "directedmst",
@@ -77,6 +80,7 @@ problems = [
   "counting_primes",
   "enumerate_primes",
   "factorize",
+  "binomial_coefficient",
   "multipoint_evaluation",
   "polynomial_interpolation",
   "inv_of_formal_power_series",
@@ -85,17 +89,20 @@ problems = [
   "pow_of_formal_power_series",
   "sqrt_of_formal_power_series",
   "composition_of_formal_power_series",
+  "division_of_polynomials",
   "inv_of_polynomials",
   "stirling_number_of_the_first_kind",
   "stirling_number_of_the_second_kind",
   "bernoulli_number",
   "partition_function",
   "polynomial_taylor_shift",
+  "shift_of_sampling_points_of_polynomial",
   "montmort_number_mod",
   "sum_of_totient_function",
   "sum_of_exponential_times_polynomial",
   "sum_of_exponential_times_polynomial_limit",
   "find_linear_recurrence",
+  "kth_term_of_linearly_recurrent_sequence",
   "sum_of_floor_of_linear",
   "sqrt_mod",
   "kth_root_mod",
@@ -113,10 +120,12 @@ problems = [
   "convolution_mod",
   "convolution_mod_1000000007",
   "convolution_mod_2_64",
+  "convolution_mod_large",
   "subset_convolution",
   "bitwise_and_convolution",
   "bitwise_xor_convolution",
-  "multivariate_convolution"
+  "multivariate_convolution",
+  "mul_mod2n_convolution",
 ]
 
 [[categories]]
@@ -126,6 +135,8 @@ problems = [
   "matrix_det",
   "sparse_matrix_det",
   "system_of_linear_equations",
+  "inverse_matrix",
+  "characteristic_polynomial",
   "hafnian_of_matrix"
 ]
 

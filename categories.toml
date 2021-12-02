@@ -103,7 +103,7 @@ problems = [
 ]
 
 [[categories]]
-name = "Polynomials"
+name = "Polynomial"
 problems = [
   "inv_of_formal_power_series",
   "exp_of_formal_power_series",

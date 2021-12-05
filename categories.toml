@@ -81,22 +81,10 @@ problems = [
   "enumerate_primes",
   "factorize",
   "binomial_coefficient",
-  "multipoint_evaluation",
-  "polynomial_interpolation",
-  "inv_of_formal_power_series",
-  "exp_of_formal_power_series",
-  "log_of_formal_power_series",
-  "pow_of_formal_power_series",
-  "sqrt_of_formal_power_series",
-  "composition_of_formal_power_series",
-  "division_of_polynomials",
-  "inv_of_polynomials",
   "stirling_number_of_the_first_kind",
   "stirling_number_of_the_second_kind",
   "bernoulli_number",
   "partition_function",
-  "polynomial_taylor_shift",
-  "shift_of_sampling_points_of_polynomial",
   "montmort_number_mod",
   "sum_of_totient_function",
   "sum_of_exponential_times_polynomial",
@@ -126,6 +114,23 @@ problems = [
   "bitwise_xor_convolution",
   "multivariate_convolution",
   "mul_mod2n_convolution",
+]
+
+[[categories]]
+name = "Polynomial"
+problems = [
+  "inv_of_formal_power_series",
+  "exp_of_formal_power_series",
+  "log_of_formal_power_series",
+  "pow_of_formal_power_series",
+  "sqrt_of_formal_power_series",
+  "composition_of_formal_power_series",
+  "multipoint_evaluation",
+  "polynomial_interpolation",
+  "polynomial_taylor_shift",
+  "shift_of_sampling_points_of_polynomial",
+  "division_of_polynomials",
+  "inv_of_polynomials",
 ]
 
 [[categories]]

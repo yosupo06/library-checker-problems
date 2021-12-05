@@ -1,0 +1,31 @@
+title = 'prefix-substring LCS'
+timelimit = 2.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/732"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "min.cpp"
+    number = 3
+[[tests]]
+    name = "small_random.cpp"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+
+[[solutions]]
+    name = "naive.cpp"
+    allow_tle = true
+
+[params]
+    M_MIN = 0
+    M_MAX = 1000
+    N_MIN = 0
+    N_MAX = 1000
+    Q_MIN = 0
+    Q_MAX = 500_000

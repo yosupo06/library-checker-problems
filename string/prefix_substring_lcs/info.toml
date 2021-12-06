@@ -7,7 +7,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/732"
     number = 1
 [[tests]]
     name = "min.cpp"
-    number = 3
+    number = 1
 [[tests]]
     name = "small_random.cpp"
     number = 3
@@ -23,9 +23,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/732"
     allow_tle = true
 
 [params]
-    M_MIN = 0
-    M_MAX = 1000
-    N_MIN = 0
-    N_MAX = 1000
-    Q_MIN = 0
+    M_MIN = 1
+    M_MAX = 1_000
+    N_MIN = 1
+    N_MAX = 1_000
+    Q_MIN = 1
     Q_MAX = 500_000

@@ -7,23 +7,24 @@
 int main() {
   registerValidation();
 
-  const int M = inf.readInt(M_MIN, M_MAX);
-  inf.readSpace();
-  const int N = inf.readInt(N_MIN, N_MAX);
-  inf.readSpace();
   const int Q = inf.readInt(Q_MIN, Q_MAX);
   inf.readChar('\n');
 
-  for (int i = 0; i < M; i++) {
-    const char c = inf.readChar();
+  const std::string S = inf.readToken();
+  inf.readChar('\n');
+  const int M = S.size();
+  ensure(M_MIN <= M && M <= M_MAX);
+  for (const char c : S) {
     ensure(std::islower(c));
   }
+
+  const std::string T = inf.readToken();
   inf.readChar('\n');
-  for (int i = 0; i < N; i++) {
-    const char c = inf.readChar();
+  const int N = T.size();
+  ensure(N_MIN <= N && N <= N_MAX);
+  for (const char c : T) {
     ensure(std::islower(c));
   }
-  inf.readChar('\n');
 
   for (int i = 0; i < Q; i++) {
     inf.readInt(0, M);

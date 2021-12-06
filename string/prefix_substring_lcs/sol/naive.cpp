@@ -1,20 +1,17 @@
 #include <algorithm>
-#include <cstdio>
+#include <iostream>
 #include <string>
 #include <vector>
 
 int main() {
-  int M, N, Q;
-  std::scanf("%d%d%d", &M, &N, &Q);
-  std::string S(M, ' '), T(N, ' ');
-  std::scanf("%*c");
-  for (char &c : S) {
-    std::scanf("%c", &c);
-  }
-  std::scanf("%*c");
-  for (char &c : T) {
-    std::scanf("%c", &c);
-  }
+  std::ios::sync_with_stdio(false);
+  std::cin.tie(nullptr);
+
+  int Q;
+  std::string S, T;
+  std::cin >> Q >> S >> T;
+  const int M = S.size();
+  const int N = T.size();
 
   auto lcs = std::vector(M + 1, std::vector(N + 1, std::vector(N + 1, int(0))));
   for (int a = 1; a <= M; a++) {
@@ -31,8 +28,8 @@ int main() {
 
   for (int i = 0; i < Q; i++) {
     int a, b, c;
-    std::scanf("%d%d%d", &a, &b, &c);
-    std::printf("%d\n", lcs[a][b][c]);
+    std::cin >> a >> b >> c;
+    std::cout << lcs[a][b][c] << "\n";
   }
 
   return 0;

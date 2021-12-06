@@ -38,7 +38,7 @@ Process the following $Q$ queries in order:
 
 
 ```
-$M$ $N$ $Q$
+$Q$
 $S$
 $T$
 $a_0$ $b_0$ $c_0$

@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <iostream>
 #include <numeric>
 #include <string>
 #include <utility>
@@ -27,17 +27,14 @@ public:
 };
 
 int main() {
-  int M, N, Q;
-  std::scanf("%d%d%d", &M, &N, &Q);
-  std::string S(M, ' '), T(N, ' ');
-  std::scanf("%*c");
-  for (char &c : S) {
-    std::scanf("%c", &c);
-  }
-  std::scanf("%*c");
-  for (char &c : T) {
-    std::scanf("%c", &c);
-  }
+  std::ios::sync_with_stdio(false);
+  std::cin.tie(nullptr);
+
+  int Q;
+  std::string S, T;
+  std::cin >> Q >> S >> T;
+  const int M = S.size();
+  const int N = T.size();
 
   struct query_t {
     int a;
@@ -47,7 +44,7 @@ int main() {
   };
   std::vector<query_t> qs(Q);
   for (auto &q : qs) {
-    std::scanf("%d%d%d", &q.a, &q.b, &q.c);
+    std::cin >> q.a >> q.b >> q.c;
   }
 
   std::vector<std::vector<query_t *>> sep_a(M);
@@ -90,7 +87,7 @@ int main() {
   }
 
   for (const auto &q : qs) {
-    std::printf("%d\n", q.ans);
+    std::cout << q.ans << "\n";
   }
 
   return 0;

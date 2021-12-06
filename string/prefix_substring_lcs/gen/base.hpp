@@ -15,7 +15,7 @@ void generate(Random &gen, const int M, const int N, const int Q) {
     c -= 1;
   }
 
-  std::printf("%d %d %d\n", M, N, Q);
+  std::printf("%d\n", Q);
   std::printf("%s\n", S.c_str());
   std::printf("%s\n", T.c_str());
   for (const auto &[a, b, c] : qs) {

@@ -4,12 +4,12 @@
 You are given a string $S$ of length $M$ and a string $T$ of length $N$.
 Process the following $Q$ queries in order:
 
-- `$a$ $b$ $c$`: Print the length of the longest common subsequence of $(S_0, S_1, \dots, S_{a-1}$ and $(T_b, T_{b+1}, \dots, T_{c-1})$.
+- `$a$ $b$ $c$`: Print the length of the longest common subsequence of $(S_0, S_1, \dots, S_{a-1})$ and $(T_b, T_{b+1}, \dots, T_{c-1})$.
 @{lang.ja}
 長さ $M$ の文字列 $S$ と長さ $N$ の文字列 $T$ が与えられます。
 以下で説明されるクエリを順に $Q$ 回処理してください:
 
-- `$a$ $b$ $c$`: $(S_0, S_1, \dots, S_{a-1}$ と $(T_b, T_{b+1}, \dots, T_{c-1})$ の最長共通部分列の長さを出力する。
+- `$a$ $b$ $c$`: $(S_0, S_1, \dots, S_{a-1})$ と $(T_b, T_{b+1}, \dots, T_{c-1})$ の最長共通部分列の長さを出力する。
 @{lang.end}
 
 ## @{keyword.constraints}

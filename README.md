@@ -34,7 +34,7 @@ file datastructure/unionfind/checker # binary of output checker
 ```sh
 ./generate.py -p unionfind --dev # developer mode
 ./generate.py -p unionfind --test # test mode (for developer, exec this command before PR)
-cat datastructure/unionfind/unionfind.html # statement
+cat datastructure/unionfind/task.html # statement
 
 ./generate.py $(find . -name "info.toml" -not -path "./test/*") # generate all testcases
 ```

@@ -133,6 +133,8 @@ int read_ans(InStream& stream) {
 
     if (a * c != b) stream.quitf(_wa, "a * c != b");
 
+    if(r == 0) return 0;
+
     M ds(r);
     for (int ph = 0; ph < r; ph++) {
         Vec d(m);

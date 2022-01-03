@@ -1,5 +1,9 @@
+#include<vector>
+#include<stack>
+#include<algorithm>
+
 #include"lazysegtree.hpp"
-using namespace atcoder;
+
 namespace permutation_tree{
     template<typename T>
     T op(T x,T y){
@@ -37,7 +41,7 @@ namespace permutation_tree{
         std::stack<int>mn_stk,mx_stk;
         std::vector<T>x;
         using F=T;
-        lazy_segtree<T,op,e,F,mapping,composition,id>seg;
+        atcoder::lazy_segtree<T,op,e,F,mapping,composition,id>seg;
         stack<np>stk;
         perm_tree(const std::vector<T>&x):x(x),seg(x.size()){
             for(int i=0;i<(int)x.size();++i)insert(i);
@@ -116,7 +120,7 @@ namespace permutation_tree{
                         break;
                     }
                 }
-                reverse(nw->ch.begin(),nw->ch.end());
+                std::reverse(nw->ch.begin(),nw->ch.end());
             }
             seg.set(idx,T());
         }

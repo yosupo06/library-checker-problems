@@ -44,3 +44,7 @@ $S_i$ は permutation tree の $i$ 番目の頂点が join node なら "join" �
 @{lang.end}
 
 @{example.example_00}
+
+@{example.example_01}
+
+@{example.example_02}

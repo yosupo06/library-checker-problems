@@ -63,11 +63,12 @@ int main(int, char* argv[])
         }
     };
     dfs(dfs, 0, n, 0, n);
-    std::cout << n << '\n';
+
+    printf("%d\n", n);
     for (int i = 0; i < n; ++i) {
         if (i)
-            std::cout << " ";
-        std::cout << p[i];
+            printf(" ");
+        printf("%d", p[i]);
     }
-    std::cout << '\n';
+    printf("\n");
 }

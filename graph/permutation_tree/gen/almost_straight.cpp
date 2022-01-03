@@ -24,7 +24,6 @@ int main(int, char* argv[])
     long long seed = std::atoll(argv[1]);
     auto gen = Random(seed);
     const int n = gen.uniform(N_MIN, N_MAX);
-    std::cout << n << '\n';
     std::vector<int> p(n);
     std::iota(p.begin(), p.end(), 0);
     if (gen.uniform_bool())
@@ -34,10 +33,12 @@ int main(int, char* argv[])
         auto [s, t] = gen.uniform_pair<int>(P_MIN, n - 1);
         std::swap(p[s], p[t]);
     }
+
+    printf("%d\n", n);
     for (int i = 0; i < n; ++i) {
         if (i)
-            std::cout << " ";
-        std::cout << p[i];
+            printf(" ");
+        printf("%d", p[i]);
     }
-    std::cout << '\n';
+    printf("\n");
 }

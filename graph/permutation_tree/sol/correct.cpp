@@ -1,6 +1,6 @@
-#include<iostream>
-#include<tuple>
-#include<vector>
+#include <iostream>
+#include <tuple>
+#include <vector>
 
 using namespace std;
 #include "permutation_tree.hpp"
@@ -23,8 +23,8 @@ int main()
         }
     };
     dfs(dfs, root);
-    cout << v.size() << endl;
+    printf("%zu\n", v.size());
     for (auto [l, r, s] : v) {
-        cout << l << " " << r << " " << s << endl;
+        printf("%d %d %s\n", l, r, s.c_str());
     }
 }

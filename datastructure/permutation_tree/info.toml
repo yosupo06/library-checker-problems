@@ -12,6 +12,9 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/744'
     name = "random.cpp"
     number = 3
 [[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
     name = "ascending_order.cpp"
     number = 3
 [[tests]]
@@ -23,10 +26,15 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/744'
 [[tests]]
     name = "almost_straight.cpp"
     number = 3
-
+[[tests]]
+    name = "killer_case.cpp"
+    number = 5
+[[tests]]
+    name = "killer_straight.cpp"
+    number = 1
 [params]
     P_MIN = 0
     N_MIN = 1
-    N_MAX = 1_000_000
+    N_MAX = 500_000
     N_SMALL_MAX = 20
     SMALL_SWAP_NUM = 20

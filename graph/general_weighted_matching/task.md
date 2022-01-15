@@ -6,6 +6,9 @@ Given a simple weighted undirected graph with $N$ vertices and $M$ edges. $i$-th
 Calculate the matching in which the sum of weights is maximized.
 
 @{lang.ja}
+$N$ 頂点 $M$ 辺からなる単純重み付き無向グラフが与えられます。$i$ 番目の辺は $(u_i, v_i)$ を結ぶ重み $w_i$ の辺です。
+重みの総和が最大であるようなマッチングをひとつ求めてください。
+
 @{lang.end}
 
 ## @{keyword.constraints}
@@ -39,8 +42,11 @@ $a_{X - 1}$ $b_{X - 1}$
 
 $X$ is the size of the maximum matching.
 $W$ is the maximum matching weight.
+$(a_i, b_i)$ is the edge of the matching.
 
 @{lang.ja}
+
+$X$ はマッチングの辺の個数、$W$ はマッチングの重みの総和、$(a_i, b_i)$ はマッチングの辺です。
 
 @{lang.end}
 

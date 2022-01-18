@@ -61,7 +61,7 @@ int det(std::vector<std::vector<int>> m, int mod) {
       }
     }
     res = static_cast<long long>(res) * m[i][i] % mod;
-    if (res == 0) return 0; // In case of det(`m`) | `mod` when `mod` is not a prime. e.g. (2 * 3) modulo 6 = 0.
+    if (res == 0) return 0; // In case of `mod` | det(M) when `mod` is not a prime. e.g. (2 * 3) modulo 6 = 0.
   }
   return static_cast<bool>(flip) ? (mod - res) : res; // `res` will never be 0 here.
 }

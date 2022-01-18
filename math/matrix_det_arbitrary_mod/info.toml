@@ -16,7 +16,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/750"
     number = 5
 [[solutions]]
     name = "charpoly.cpp"
-    wrong = false
 [params]
     N_MAX = 500
     M_MAX = 1_000_000_000

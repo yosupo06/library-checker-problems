@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <vector>
+#include <utility>
 
 typedef std::vector<std::vector<int>> Matrix;
 typedef long long i64;
@@ -7,12 +8,12 @@ typedef long long i64;
 Matrix to_upper_Hessenberg(const Matrix &M, int mod) {
   Matrix H(M);
   int n = static_cast<int>(H.size());
-  for (int i = 0; i < n; ++i) {
-    for (int j = 0; j < n; ++j) {
-      if ((H[i][j] %= mod) < 0)
-        H[i][j] += mod;
-    }
-  }
+  // for (int i = 0; i < n; ++i) {
+  //   for (int j = 0; j < n; ++j) {
+  //     if ((H[i][j] %= mod) < 0)
+  //       H[i][j] += mod;
+  //   }
+  // }
   for (int i = 0; i < n - 1; ++i) {
     int pivot = i + 1;
     for (; pivot < n; ++pivot) {
@@ -59,9 +60,9 @@ Matrix to_upper_Hessenberg(const Matrix &M, int mod) {
 
 std::vector<int> get_charpoly(const Matrix &M, int mod) {
   Matrix H(to_upper_Hessenberg(M, mod));
-  int n = H.size();
+  int n = static_cast<int>(H.size());
   std::vector<std::vector<int>> p(n + 1);
-  p[0] = {1 % mod};
+  p[0] = {1};
   for (int i = 1; i <= n; ++i) {
     const std::vector<int> &pi_1 = p[i - 1];
     std::vector<int> &pi = p[i];

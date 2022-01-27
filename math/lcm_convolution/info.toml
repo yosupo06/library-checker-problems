@@ -1,0 +1,33 @@
+title = 'Lcm Convolution'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/749"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "all_zero.in"
+    number = 1
+[[tests]]
+    name = "small.cpp"
+    number = 16
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 2
+[[tests]]
+    name = "near_prime.cpp"
+    number = 3
+[[tests]]
+    name = "near_prime_squared.cpp"
+    number = 3
+
+[[solutions]]
+    name = "naive.cpp"
+    wrong = true
+
+[params]
+    N_MAX = 1000000
+    MOD = 998244353

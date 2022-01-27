@@ -2,7 +2,7 @@
 
 @{lang.en}
 Given integer sequences $a_1, ..., a_{N}$ and $b_1, ..., b_{N}$. 
-Calculate an integer sequence $c_0, c_1, ..., c_{N}$ as follows:
+Calculate an integer sequence $c_1, ..., c_{N}$ as follows:
 
 $$c_k = \sum_{\gcd(i,j)=k} a_ib_j \bmod @{param.MOD}$$
 

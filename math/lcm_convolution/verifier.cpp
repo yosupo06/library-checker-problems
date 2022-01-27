@@ -6,19 +6,19 @@
 int main() {
   registerValidation();
   int n = inf.readInt(1, N_MAX);
-  inf.readEoln();
+  inf.readChar('\n');
 
   for (int i = 1; i <= n; i++) {
     if (i > 1) inf.readSpace();
     inf.readInt(0, MOD - 1);
   }
-  inf.readEoln();
+  inf.readChar('\n');
 
   for (int i = 1; i <= n; i++) {
     if (i > 1) inf.readSpace();
     inf.readInt(0, MOD - 1);
   }
-  inf.readEoln();
+  inf.readChar('\n');
 
   inf.readEof();
   return 0;

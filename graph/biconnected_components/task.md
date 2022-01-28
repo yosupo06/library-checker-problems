@@ -2,7 +2,7 @@
 
 @{lang.en}
 
-Given a undirected graph with $N$ vertices and $M$ edges. $i$-th edge is $(a_i, b_i)$. This graph may not be simple.
+Given a undirected graph with $N$ vertices and $M$ edges. $i$-th edge is $(a_i, b_i)$. This graph may not be simple but never has a self-loop.
 Please decompose this graph into biconnected components.
 
 @{lang.ja}

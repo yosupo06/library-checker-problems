@@ -26,7 +26,6 @@ int main(int, char* argv[]) {
     for (int i = cysize; i < m; i++) {
         int u = gen.uniform<int>(0, i-1);
         int v = i;
-        if(u <= v) v++;
         edges.push_back({ u, v });
     }
 

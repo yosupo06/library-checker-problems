@@ -23,6 +23,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/37"
 [[tests]]
     name = "line_random.cpp"
     number = 2
+[[tests]]
+    name = "heuristic_matching_killer.cpp"
+    number = 1
 
 [params]
     L_MAX = 100_000

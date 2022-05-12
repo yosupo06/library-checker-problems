@@ -18,7 +18,7 @@ int main(int, char* argv[]) {
     int query0_one = 400000;
     int query1 = 200000;
 
-    printf("%d %lld\n", 0, mask + 2);
+    printf("%d %lld %d\n", 0, mask + 2, 1);
 
     long long int k = 6;
     for(int i = 1; i < query0_col; i++){

@@ -8,9 +8,9 @@ int main(int, char* argv[]) {
 
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
-    long long MAXI = 1e18ll;
+    long long MAXI = 1000000000000000000ll;
     int Q = 1000000;
-    long long mask = (1 << 50) - 1;
+    long long mask = (1ll << 50) - 1;
 
     printf("%d\n", Q);
 

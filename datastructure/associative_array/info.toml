@@ -29,7 +29,7 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/376'
 
 [[tests]]
     name = "py_killer.cpp"
-    number = 1
+    number = 2
     
 [[solutions]]
     name = "tle_unordered_map.cpp"

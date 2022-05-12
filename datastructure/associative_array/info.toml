@@ -35,9 +35,6 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/376'
     name = "tle_unordered_map.cpp"
     allow_tle = true
 
-[[solutions]]
-    name = "python_dictionary.py"
-    allow_tle = true
 [params]
     Q_MAX = 1_000_000
     K_AND_V_MAX = 1_000_000_000_000_000_000

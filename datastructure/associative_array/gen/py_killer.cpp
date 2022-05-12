@@ -35,7 +35,7 @@ int main(int, char* argv[]) {
 
     
     for(int i = 0; i < query1; i++){
-        printf("%d %d", 1, i);
+        printf("%d %d\n", 1, i);
     }
     return 0;
 }

@@ -16,12 +16,13 @@ int main(int, char* argv[]) {
     int N = gen.uniform<int>(MAX_N, MAX_N);
     int Q = gen.uniform<int>(MAX_Q, MAX_Q);
     Q = 4 * (Q / 4);
-    N = std::max(N, Q / 2 + 20);
+    const int x = 3;
+    N = std::max(N, Q / 2 + x);
 
     printf("%d %d\n", N, Q);
 
     for (int i = 0; i < Q / 2; ++i)
-        printf("0 %d %d %d\n", i - 1, gen.uniform(0, 19), i + 20);
+        printf("0 %d %d %d\n", i - 1, gen.uniform(0, x - 1), i + x);
     for (int i = 0; i < Q / 4; ++i) {
         auto u = gen.uniform<int>(0, N - 1);
         int v;

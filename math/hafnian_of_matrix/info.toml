@@ -14,6 +14,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/467"
 [[tests]]
     name = "max.cpp"
     number = 3
+[[tests]]
+    name = "hack77047.cpp"
+    number = 1
 
 [[solutions]]
     name = "naive.cpp"

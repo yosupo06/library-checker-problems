@@ -27,6 +27,10 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/376'
     name = "many_0set_sparse.cpp"
     number = 1
 
+[[tests]]
+    name = "py_killer.cpp"
+    number = 2
+    
 [[solutions]]
     name = "tle_unordered_map.cpp"
     allow_tle = true

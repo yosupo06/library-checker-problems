@@ -14,9 +14,9 @@ int main(int, char* argv[]) {
 
     printf("%d\n", Q);
 
-    int query0_col = 400000;
-    int query0_one = 400000;
-    int query1 = 200000;
+    int query0_col = 200000;
+    int query0_one = 200000;
+    int query1 = 600000;
 
     printf("%d %lld %d\n", 0, mask + 2, 1);
 

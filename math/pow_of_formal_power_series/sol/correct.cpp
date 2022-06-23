@@ -137,6 +137,12 @@ std::vector<long long> pow(std::vector<long long> a,int n) {
   int s=0;
   while (s<(int)a.size() && a[s]==0) ++s;
   if (s==(int)a.size()) return a;
+
+  if((long long)(s) * n >= (long long)(a.size())){
+    fill(a.begin(), a.end(), 0);
+    return a;
+  } 
+
   a=shift(a,-s);
   long long b=inv(a[0]);
   for (int i=0;i<(int)a.size();++i) a[i]=b*a[i]%p;

@@ -3,14 +3,14 @@
 @{lang.en}
 You are given a formal power series $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{Q}[[x]]$ with $a_0 = 1$.
 Calculate the first $N$ terms of $\log(f(x)) = \sum_{i=0}^{\infty} b_i x^i$.
-In other words, find $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{Q}[[x]]$ such that
+In other words, find $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{Q}[[x]]$ such that $b_0 = 0$ and
 
 $$f(x) \equiv \sum_{k=0}^{N-1} \frac{g(x)^k}{k!} \pmod{x^N}.$$
 
 Print the coefficients modulo $@{param.MOD}$.
 
 @{lang.ja}
-形式的冪級数 $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{Q}[[x]]$ が与えられます ($a_0 = 1$)。$\log(f(x)) = \sum_{i=0}^{\infty} b_i x^i$ の先頭 $N$ 項を求めてください。つまり、
+形式的冪級数 $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{Q}[[x]]$ が与えられます ($a_0 = 1$)。$\log(f(x)) = \sum_{i=0}^{\infty} b_i x^i$ の先頭 $N$ 項を求めてください。つまり、$b_0 = 0$ かつ
 
 $$f(x) \equiv \sum_{k=0}^{N-1} \frac{g(x)^k}{k!} \pmod{x^N}$$
 

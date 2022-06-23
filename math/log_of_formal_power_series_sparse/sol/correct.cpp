@@ -4,7 +4,7 @@
 
 using namespace std;
 
-using u32 = uint;
+using u32 = unsigned int;
 using ll = long long;
 
 template <u32 mod>

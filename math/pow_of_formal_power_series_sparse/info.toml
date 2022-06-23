@@ -26,11 +26,18 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/767"
 [[tests]]
     name = "low_deg_zero2.cpp"
     number = 5
+[[tests]]
+    name = "overflow_killer.in"
+    number = 1
 
 
 [[solutions]]
     name = "dense_correct.cpp"
     wrong = false
+    allow_tle = true
+[[solutions]]
+    name = "wa_overflow.cpp"
+    wrong = true
     allow_tle = true
 
 [params]

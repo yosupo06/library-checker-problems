@@ -1,13 +1,13 @@
 ## @{keyword.statement}
 
 @{lang.en}
-You are given a formal power series $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ and a positive integer $M$. 
+You are given a formal power series $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ and a non-negative integer $M$. 
 Only $K$ coefficients of $f$ are non-zero, and only such coefficients $a_{i_k}$ are given from input. 
 
 Calculate the first $N$ terms of $(f(x))^M = \sum_{i=0}^{\infty} b_i x^i$.
 
 @{lang.ja}
-形式的冪級数 $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ および正の整数 $M$ が与えられます。
+形式的冪級数 $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ および非負整数 $M$ が与えられます。
 $f$ は $K$ 個の係数のみが非零で、非零であるような係数 $a_{i_k}$ だけが入力で与えられます。
 
 $(f(x))^M = \sum_{i=0}^{\infty} b_i x^i$ の先頭 $N$ 項を求めてください。

@@ -12,7 +12,7 @@ int main(int, char* argv[]) {
   // 次数と M がランダムなので、ほぼ確実に答は 0 埋めになる
   int N = N_MAX;
   int K = K_MAX;
-  int M = gen.uniform<int>(M_MIN, M_MAX);
+  ll M = gen.uniform<ll>(M_MIN, M_MAX);
 
   vector<int> I, A;
   for (int k = 0; k < K; k++) {
@@ -34,7 +34,7 @@ int main(int, char* argv[]) {
   }
   sort(I.begin(), I.end());
 
-  printf("%d %d %d\n", N, K, M);
+  printf("%d %d %lld\n", N, K, M);
   for (int k = 0; k < K; ++k) { printf("%d %d\n", I[k], A[k]); }
   return 0;
 }

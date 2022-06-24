@@ -11,9 +11,9 @@ int main(int, char* argv[]) {
 
   int N = gen.uniform<int>(N_MIN, N_MAX);
   int K = K_MIN;
-  int M = gen.uniform<int>(M_MIN, M_MAX);
+  ll M = gen.uniform<ll>(M_MIN, M_MAX);
 
   assert(K==0);
-  printf("%d %d %d\n", N, K, M);
+  printf("%d %d %lld\n", N, K, M);
   return 0;
 }

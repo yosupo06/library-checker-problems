@@ -16,7 +16,7 @@ std::vector<long long> trim(std::vector<long long> a, int n) {
   return b;
 }
 
-std::vector<long long> shift(std::vector<long long> a, int shift) {
+std::vector<long long> shift(std::vector<long long> a, long long shift) {
   std::vector<long long> b(a.size(), 0);
   for (int i = 0; i < (int)a.size(); ++i)
     b[i] = (0 <= i - shift && i - shift < (int)a.size()) ? a[i - shift] : 0;
@@ -136,8 +136,8 @@ std::vector<long long> exp(std::vector<long long> a) {
   return b;
 }
 
-std::vector<long long> pow(std::vector<long long> a, int n) {
-  assert(n >= 1);
+std::vector<long long> pow(std::vector<long long> a, long long n) {
+  // assert(n >= 1);
   int s = 0;
   while (s < (int)a.size() && a[s] == 0) ++s;
   if (s == (int)a.size()) return a;
@@ -181,8 +181,8 @@ int main() {
 
   int K;
   scanf("%d", &K);
-  int m;
-  scanf("%d", &m);
+  long long m;
+  scanf("%lld", &m);
 
   std::vector<long long> a(n);
   for (int k = 0; k < K; ++k) {

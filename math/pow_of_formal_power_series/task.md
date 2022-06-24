@@ -12,7 +12,7 @@ Calculate the first $N$ terms of $(f(x))^M = \sum_{i=0}^{\infty} b_i x^i$.
 ## @{keyword.constraints}
 
 - $1 \leq N \leq @{param.N_MAX}$
-- $1 \leq M \leq @{param.M_MAX}$
+- $0 \leq M \leq @{param.M_MAX}$
 - $0 \leq a_i < @{param.MOD}$
 
 ## @{keyword.input}
@@ -33,3 +33,5 @@ $b_0$ $b_1$ $\cdots$ $b_{N - 1}$
 @{example.example_00}
 
 @{example.example_01}
+
+@{example.example_02}

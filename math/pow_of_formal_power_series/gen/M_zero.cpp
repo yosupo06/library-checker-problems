@@ -1,5 +1,5 @@
-#include <iostream>
 #include "random.h"
+#include <iostream>
 #include "../params.h"
 
 using namespace std;
@@ -10,22 +10,12 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = N_MAX;
-    ll q = gen.uniform<ll>(1LL, M_MAX);
+    int n = gen.uniform(1LL,N_MAX);
+    ll q = 0;
     
-    vector<int> f(n);
-    for (int i = 0; i < n; i++) {
-        f[i] = gen.uniform(0LL, MOD - 1);
-    }
-    int m = gen.uniform(1, n);
-    for (int i = 0; i < m; i++) {
-        f[i] = 0;
-    }
-
     printf("%d %lld\n", n, q);
-
     for (int i = 0; i < n; i++) {
-        printf("%d", f[i]);
+        printf("%d", gen.uniform(0, (int)(MOD) - 1));
         if (i != n - 1) printf(" ");
     }
     printf("\n");

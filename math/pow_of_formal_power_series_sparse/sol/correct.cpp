@@ -105,11 +105,16 @@ mint fact_inv(int n) {
 template <typename mint>
 vc<mint> fps_pow(const vc<mint> &f, ll k) {
   int n = f.size();
+  if(k==0){
+    vc<mint> g(n);
+    g[0] = mint(1);
+    return g;
+  }
   int d = n;
   for (int i = n - 1; i >= 0; --i)
     if (f[i] != mint(0)) d = i;
   ll off = d * k;
-  if (off >= n) return vc<mint>(n, mint(0));
+  if (k > 0 && d >= (n + k - 1) / k) return vc<mint>(n, mint(0));
   mint c = f[d];
   mint c_inv = mint(1) / mint(c);
   vc<mint> g(n - off);
@@ -144,10 +149,11 @@ vc<mint> fps_pow_1_sparse(const vc<mint> &f, mint K) {
 using mint = modint<998244353>;
 
 int main() {
-  int N, K, M;
+  int N, K;
+  long long M;
   scanf("%d", &N);
   scanf("%d", &K);
-  scanf("%d", &M);
+  scanf("%lld", &M);
 
   vc<mint> f(N);
   for (int k = 0; k < K; ++k) {

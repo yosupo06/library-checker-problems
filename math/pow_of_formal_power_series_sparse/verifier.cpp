@@ -11,7 +11,7 @@ int main() {
   inf.readSpace();
   int K = inf.readInt(K_MIN, K_MAX, "N");
   inf.readSpace();
-  inf.readInt(M_MIN, M_MAX, "M");
+  inf.readLong(M_MIN, M_MAX, "M");
   inf.readChar('\n');
   
   vector<int> I;

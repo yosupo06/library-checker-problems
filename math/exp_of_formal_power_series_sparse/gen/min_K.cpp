@@ -13,6 +13,7 @@ int main(int, char* argv[]) {
   int K = K_MIN;
 
   // K_MIN = 0 なので次で終わり
+  assert(K == 0);
   printf("%d %d\n", N, K);
   return 0;
 }

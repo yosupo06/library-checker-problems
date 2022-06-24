@@ -9,7 +9,7 @@ int main() {
 
   int N = inf.readInt(N_MIN, N_MAX, "N");
   inf.readSpace();
-  int K = inf.readInt(K_MIN, K_MAX, "N");
+  int K = inf.readInt(K_MIN, K_MAX, "K");
   inf.readSpace();
   inf.readLong(M_MIN, M_MAX, "M");
   inf.readChar('\n');

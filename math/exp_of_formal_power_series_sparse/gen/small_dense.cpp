@@ -17,7 +17,6 @@ int main(int, char* argv[]) {
     int i, a;
     i = k;
     a = gen.uniform<int>(1, MOD - 1);
-    if (k == 0) a = 1;
     I.push_back(i);
     A.push_back(a);
   }

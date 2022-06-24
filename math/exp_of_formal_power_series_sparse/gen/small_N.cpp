@@ -17,7 +17,6 @@ int main(int, char* argv[]) {
     while (1) {
       i = gen.uniform<int>(1, N - 1);
       a = gen.uniform<int>(1, MOD - 1);
-      if (k == 0) a = 1;
       // 新しい i になっているか？
       bool ok = [&]() {
         for (auto&& j: I)

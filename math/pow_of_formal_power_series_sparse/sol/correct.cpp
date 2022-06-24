@@ -113,8 +113,8 @@ vc<mint> fps_pow(const vc<mint> &f, ll k) {
   int d = n;
   for (int i = n - 1; i >= 0; --i)
     if (f[i] != mint(0)) d = i;
-  ll off = d * k;
   if (k > 0 && d >= (n + k - 1) / k) return vc<mint>(n, mint(0));
+  ll off = d * k;
   mint c = f[d];
   mint c_inv = mint(1) / mint(c);
   vc<mint> g(n - off);

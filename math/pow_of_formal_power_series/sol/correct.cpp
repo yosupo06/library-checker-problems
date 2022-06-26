@@ -132,19 +132,31 @@ std::vector<long long> exp(std::vector<long long> a) {
   return b;
 }
 
-std::vector<long long> pow(std::vector<long long> a,int n) {
-  assert(n>=1);
-  int s=0;
-  while (s<(int)a.size() && a[s]==0) ++s;
-  if (s==(int)a.size()) return a;
+std::vector<long long> pow(std::vector<long long> a, long long n) {
+  if(n==0){
+    fill(a.begin(), a.end(), 0);
+    a[0] = 1;
+    return a;
+  }
+  long long s=0;
+  long long sz = a.size();
+  while (s<sz && a[s]==0) ++s;
+  if (s==sz) return a;
+
+  // s * n >= a.size()
+  if((n > 0) && (s >= (sz + n - 1) / n)){
+    fill(a.begin(), a.end(), 0);
+    return a;
+  }
+
   a=shift(a,-s);
   long long b=inv(a[0]);
-  for (int i=0;i<(int)a.size();++i) a[i]=b*a[i]%p;
+  for (int i=0;i<sz;++i) a[i]=b*a[i]%p;
   a=log(a);
-  for (int i=0;i<(int)a.size();++i) a[i]=n%p*a[i]%p;
+  for (int i=0;i<sz;++i) a[i]=n%p*a[i]%p;
   a=exp(a);
   b=pow_mod(inv(b),n%(p-1));
-  for (int i=0;i<(int)a.size();++i) a[i]=b*a[i]%p;
+  for (int i=0;i<sz;++i) a[i]=b*a[i]%p;
   a=shift(a,s*n);
   return a;
 }
@@ -173,7 +185,7 @@ void verify() {
 }
 
 int main() {
-  int n,m;
+  long long n,m;
   std::cin >> n >> m;
   std::vector<long long> a(n);
   for (int i=0;i<n;++i) scanf("%lld",&a[i]);

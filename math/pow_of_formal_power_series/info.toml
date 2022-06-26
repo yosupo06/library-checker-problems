@@ -4,7 +4,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/386"
 
 [[tests]]
     name = "example.in"
-    number = 2
+    number = 3
 [[tests]]
     name = "random.cpp"
     number = 3
@@ -26,8 +26,18 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/386"
 [[tests]]
     name = "binary_exp_max.cpp"
     number = 1
+[[tests]]
+    name = "overflow_killer.in"
+    number = 2
+[[tests]]
+    name = "M_zero.cpp"
+    number = 2
 
+[[solutions]]
+    name = "wa_overflow.cpp"
+    wrong = true
+    
 [params]
     N_MAX = 500000
-    M_MAX = 1000000000
+    M_MAX = 1_000_000_000_000_000_000
     MOD = 998244353

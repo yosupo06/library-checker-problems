@@ -21,10 +21,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/767"
     name = "min_K.cpp"
     number = 2
 
-[[solutions]]
-    name = "dense_correct.cpp"
-    wrong = false
-
 [params]
     N_MIN = 1
     N_MAX = 1_000_000

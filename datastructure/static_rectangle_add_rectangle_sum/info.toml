@@ -11,6 +11,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/771"
     number = 3
 
 [[tests]]
+    name = "small_NQ.cpp"
+    number = 3
+
+[[tests]]
     name = "random.cpp"
     number = 3
 
@@ -18,8 +22,14 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/771"
     name = "max_random.cpp"
     number = 3
 
+
 [[solutions]]
-    name = "naive.cpp"
+    name = "tle_1.cpp"
+    wrong = true
+    allow_tle = true
+
+[[solutions]]
+    name = "tle_2.cpp"
     wrong = true
     allow_tle = true
 

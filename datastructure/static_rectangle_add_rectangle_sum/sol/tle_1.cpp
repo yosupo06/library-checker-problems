@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <map>
 
 using namespace std;
 using ll = long long;
@@ -59,7 +60,8 @@ struct modint {
 
 using mint = modint<998244353>;
 
-mint A[111][111];
+using P = pair<int, int>;
+map<P, mint> A;
 
 int main() {
   int N, Q;
@@ -67,9 +69,11 @@ int main() {
   for (int n = 0; n < N; ++n) {
     ll l, d, r, u, w;
     scanf("%lld %lld %lld %lld %lld", &l, &d, &r, &u, &w);
-    assert(max(r, u) < 111);
     for (int x = l; x < r; ++x) {
-      for (int y = d; y < u; ++y) { A[x][y] += mint(w); }
+      for (int y = d; y < u; ++y) {
+        P p = {x, y};
+        A[p] += mint(w);
+      }
     }
   }
 
@@ -77,9 +81,11 @@ int main() {
     mint sm = 0;
     ll l, d, r, u;
     scanf("%lld %lld %lld %lld", &l, &d, &r, &u);
-    assert(max(r, u) < 111);
     for (int x = l; x < r; ++x) {
-      for (int y = d; y < u; ++y) { sm += A[x][y]; }
+      for (int y = d; y < u; ++y) {
+        P p = {x, y};
+        sm += A[p];
+      }
     }
     printf("%d\n", sm.val);
   }

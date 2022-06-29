@@ -1,4 +1,10 @@
 {
+  "almost_sorted_00.in": "921975e136ca037127d128c82a12b413457a02384dfe1922e2d991f0067ebd55",
+  "almost_sorted_00.out": "01b9e118ea909960ff39997a8906d1f4283ffd53a77bcf6c44f7b9641a4e39a5",
+  "almost_sorted_01.in": "5526017b7c6abbcc61aca760f3402c167b8a08a655fab129ec6f811a4e8275bf",
+  "almost_sorted_01.out": "de441e5b5125f1a7699b312e1c4b353d5d2848e1756cdd790ffa0209e394256c",
+  "almost_sorted_02.in": "b9fe678afdda6f8c6688e518434e5ecaf44545d3572842077a9211ee72b1bb5a",
+  "almost_sorted_02.out": "a98908b8c7b38a235699a0058db6ff3c319640b2a866fb1b23f824a307b09dbc",
   "example_00.in": "69096622a8c163be888890e594de45c616fe42e6d82a30d8b4f1a90cf20450b2",
   "example_00.out": "e276bf5020690365b8bdd80561653a99a6dd4a9e65a7c6c894dbd12de4e982fd",
   "max_random_00.in": "694dc2a79252a383396047e7c619b73365d7266e0e24a8f410822425d57fe44c",
@@ -18,5 +24,7 @@
   "small_random_01.in": "5819ebab9c68cfa5f0089239ae3d57fb90617ee0d7ceae5d1ede62016fc0d5d8",
   "small_random_01.out": "0e1c2a204b5b1e03fe642375b133c396669d185e0cc5abc0abfc3b74533ff0bf",
   "small_random_02.in": "9a20f5393ec67d89598722a7146e31a2a131704d003bc697cbee4e4bd3c78952",
-  "small_random_02.out": "c3eed31eba3595ac0e1e8c23cd9295e3a88eb397ef1b700b3eb07a4b22d6ea5d"
+  "small_random_02.out": "c3eed31eba3595ac0e1e8c23cd9295e3a88eb397ef1b700b3eb07a4b22d6ea5d",
+  "sorted_00.in": "38cb00dceacfc52aec8ceeee74cddcd43676a5a3ceb21af176504bd2850116ce",
+  "sorted_00.out": "ec2538edbf81fa1bfcb1c84583cbc96a8b0ec10d1d23cd65bbc0b32616706feb"
 }

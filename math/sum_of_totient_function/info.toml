@@ -20,6 +20,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/384"
 [[tests]]
     name = "boundaryB.cpp"
     number = 10
+[[tests]]
+    name = "handmade.in"
+    number = 4
+
 
 [params]
     N_MAX = 10000000000

@@ -33,7 +33,7 @@ $$f(x) \equiv g(x)^2 \pmod{x^N}$$
 ## @{keyword.input}
 
 ```
-$N$ $K$ $M$
+$N$ $K$
 $i_0$ $a_{i_0}$
 $\vdots$
 $i_{K-1}$ $a_{i_{K-1}}$

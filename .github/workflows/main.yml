@@ -88,7 +88,7 @@ jobs:
           path: /tmp/html
 
   mingw-windows-diffrun:
-    runs-on: windows-2019
+    runs-on: windows-latest
     if: ${{ github.event.inputs.skip-mingw-windows-diffrun != 'true' }}
     steps:
       - uses: actions/checkout@v2

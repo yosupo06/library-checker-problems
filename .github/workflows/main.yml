@@ -92,8 +92,6 @@ jobs:
     if: ${{ github.event.inputs.skip-mingw-windows-diffrun != 'true' }}
     steps:
       - uses: actions/checkout@v2
-      - name: Set up mingw
-        uses: msys2/setup-msys2@v2
       - name: Set up Python 3.x
         uses: actions/setup-python@v2
         with:

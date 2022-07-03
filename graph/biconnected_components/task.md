@@ -35,16 +35,16 @@ $a _ {M-1}$ $b _ {M-1}$
 @{lang.en}
 
 Print the number of biconnected components $K$ in the first line.
-Following $K$ lines, print as follows. $l$ is the number of edges of biconnected components and $e _ i$ is an edge index.
+Following $K$ lines, print as follows. $l$ is the number of vertices of biconnected components and $v _ i$ is an vertex index.
 
 @{lang.ja}
 
-最初の行には $K$ を出力する。その後 $K$ 行では以下のように出力する。$l$ は二重連結成分の辺数であり、$e _ i$ はその辺番号である。
+最初の行には $K$ を出力する。その後 $K$ 行では以下のように出力する。$l$ は二重連結成分の頂点数であり、$v _ i$ はその頂点番号である。
 
 @{lang.end}
 
 ~~~
-$l$ $e _ 0$ $e _ 1$ ... $e _ {l-1}$
+$l$ $v _ 0$ $v _ 1$ ... $v _ {l-1}$
 ~~~
 
 @{lang.en}

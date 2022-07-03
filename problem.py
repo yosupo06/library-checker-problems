@@ -300,6 +300,8 @@ class Problem:
 
     def is_checker_already_generated(self) -> bool:
         checker_bin = self.checker.parent / self.checker.stem
+        if platform.system() == 'Windows':
+            checker_bin = checker_bin.with_suffix('.exe')
         if not checker_bin.exists():
             return False
 
@@ -319,7 +321,7 @@ class Problem:
                 continue
             if not path.is_file():
                 continue  # ignore directories
-            if path.suffix == '':
+            if path.suffix == ('' if platform.system() != 'Windows' else '.exe'):
                 continue  # ignore compiled binaries
             if path.name.endswith('.html'):
                 continue  # ignore generated HTML files

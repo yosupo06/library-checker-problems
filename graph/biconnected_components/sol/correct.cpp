@@ -255,6 +255,7 @@ public:
 
 #include <cstdio>
 #include <cassert>
+#include <algorithm>
 
 int main() {
     int n; scanf("%d", &n);
@@ -274,10 +275,16 @@ int main() {
     for(int i=0; i<n; i++) if(bct[i].size() == 0) bccnt++;
 
     printf("%d\n", bccnt);
-    for(int i=0; i<n; i++) if(bct[i].size() == 0) printf("1 %d\n", i);
-    for(int bcidx=n; bcidx < bct.num_vertices(); bcidx++){
-        printf("%d", (int)bct[bcidx].size());
-        for(auto v : bct[bcidx]) printf(" %d", v);
+
+    std::vector<std::vector<int>> ansbuf(bccnt);
+    int ansbufItr = 0;
+    for(int i=0; i<n; i++) if(bct[i].size() == 0) ansbuf[ansbufItr++] = {i};
+    for(int bcidx=n; bcidx < bct.num_vertices(); bcidx++) ansbuf[ansbufItr++] = std::vector<int>(bct[bcidx].begin(), bct[bcidx].end());
+    std::sort(ansbuf.begin(), ansbuf.end());
+    for(auto& a : ansbuf){
+        std::sort(a.begin(), a.end());
+        printf("%d", (int)a.size());
+        for(auto v : a) printf(" %d", v);
         printf("\n");
     }
     return 0;

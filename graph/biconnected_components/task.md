@@ -5,10 +5,14 @@
 Given a undirected graph with $N$ vertices and $M$ edges. $i$-th edge is $(a _ i, b _ i)$. This graph may not be simple but never has a self-loop.
 Decompose this graph into biconnected components and output their vertex sets.
 
+A biconnected component is a maximal biconnected subgraph.
+
 @{lang.ja}
 
 $N$ 頂点 $M$ 辺の無向グラフが与えられる。 $i$ 番目の辺は $(a _ i, b _ i)$ である。このグラフは単純とは限らないが、自己ループはもたない。
 このグラフを二重連結成分に分解し、各成分の頂点集合を出力せよ。
+
+二重連結成分とは、二重連結である部分グラフのうち極大なものである。
 
 @{lang.end}
 

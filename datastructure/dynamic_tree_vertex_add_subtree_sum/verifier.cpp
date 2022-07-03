@@ -1,5 +1,7 @@
 #include <cassert>
 #include <utility>
+#include <iostream>
+#include "testlib.h"
 #include "params.h"
 using namespace std;
 
@@ -147,10 +149,6 @@ struct LinkCutTree {
     return get_root(x) == get_root(y);
   }
 };
-
-
-#include "testlib.h"
-#include <iostream>
 
 
 struct UnionFind {

@@ -255,6 +255,7 @@ public:
 
 #include <cstdio>
 #include <cassert>
+#include <algorithm>
 
 int main() {
     int n; scanf("%d", &n);
@@ -268,11 +269,22 @@ int main() {
     for(auto [u,v] : edges) if(!(v < n)) return 1;
     for(auto [u,v] : edges) if(!(u != v)) return 1;
 
-    auto bcs = nachia::BiconnectedComponents(n, edges).get_bcs();
-    printf("%d\n", (int)bcs.size());
-    for(auto& bc : bcs){
-        printf("%d", (int)bc.size());
-        for(auto v : bc) printf(" %d", v);
+    auto bct = nachia::BiconnectedComponents(n, edges).get_bct();
+
+    int bccnt = bct.num_vertices() - n;
+    for(int i=0; i<n; i++) if(bct[i].size() == 0) bccnt++;
+
+    printf("%d\n", bccnt);
+
+    std::vector<std::vector<int>> ansbuf(bccnt);
+    int ansbufItr = 0;
+    for(int i=0; i<n; i++) if(bct[i].size() == 0) ansbuf[ansbufItr++] = {i};
+    for(int bcidx=n; bcidx < bct.num_vertices(); bcidx++) ansbuf[ansbufItr++] = std::vector<int>(bct[bcidx].begin(), bct[bcidx].end());
+    for(auto& a : ansbuf) std::sort(a.begin(), a.end());
+    std::sort(ansbuf.begin(), ansbuf.end());
+    for(auto& a : ansbuf){
+        printf("%d", (int)a.size());
+        for(auto v : a) printf(" %d", v);
         printf("\n");
     }
     return 0;

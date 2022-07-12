@@ -9,7 +9,7 @@ Given a size $N$ interger sequence $a_0, a_1, \dots, a_{N - 1}$. Process $Q$ que
 長さ $N$ の整数列 $a_0, a_1, \dots, a_{N - 1}$ が与えられます。$Q$ 個のクエリが飛んできます。処理してください。
 
 - `0 $l$ $r$ $b$ $c$`: 各 $i = l, l+1, \dots, {r - 1}$ について、$a_i \gets b \times a_i + c$
-- `1 $l$ $r$`: $a_i \bmod @{param.MOD}$ を出力する。
+- `1 $i$`: $a_i \bmod @{param.MOD}$ を出力する。
 @{lang.end}
 
 ## @{keyword.constraints}

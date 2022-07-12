@@ -40,13 +40,17 @@ def compile(src: Path, rootdir: Path):
             cxxflags_default += ' -Wl,-stack,{}'.format(hex(STACK_SIZE))
             # avoid using MinGW's "unique" stdio, which doesn't recognize %lld
             cxxflags_default += ' -D__USE_MINGW_ANSI_STDIO'
+            # avoid conflicts in CI
+            # https://github.com/actions/virtual-environments/issues/5459
+            cxxflags_default += ' -static'
         if platform.uname().system == 'Linux' and 'Microsoft' in platform.uname().release:
             # a workaround for the lack of ulimit in Windows Subsystem for Linux
             cxxflags_default += ' -fsplit-stack'
         cxxflags = getenv('CXXFLAGS', cxxflags_default).split()
         cxxflags.extend(['-I', str(rootdir / 'common')])
-        check_call([cxx] + cxxflags +
-                   ['-o', str(src.with_suffix(''))] + [str(src)])
+        args = [cxx] + cxxflags + ['-o', str(src.with_suffix(''))] + [str(src)]
+        logger.debug('compile: %s', args)
+        check_call(args)
     elif src.suffix == '.in':
         pass
     else:
@@ -77,15 +81,16 @@ def execcmd(src: Path, arg: List[str] = []) -> List[str]:
 
 
 def check_call_to_file(command: List[str], outpath: Path, *args, **kwargs):
-    # same as subprocess.check_call(command, stdout=open(outpath, "w"), *args, **kwargs)
-    # but handles CRLF stuff on Windows
+    logger.debug('check_call_to_file: %s', command)
+    check_call(command, stdout=open(outpath, "w"), *args, **kwargs)
     if platform.uname().system == 'Windows':
-        result = run(command, stdout=PIPE, check=True, *args, **kwargs)
-        with open(str(outpath), "w", newline='\n') as out_file:
-            out_file.write(result.stdout.decode(
-                'utf-8').replace(os.linesep, '\n'))
-    else:
-        check_call(command, stdout=open(str(outpath), "w"), *args, **kwargs)
+        # handles CRLF stuff on Windows
+        with TemporaryDirectory() as tmpdir:
+            tmppath = Path(tmpdir).joinpath('file')
+            shutil.move(outpath, tmppath)
+            with open(tmppath, "r") as tmpfile, open(outpath, "w", newline='\n') as outfile:
+                for line in tmpfile:
+                    outfile.write(line)
 
 
 def logging_result(result: str, start: datetime, end: datetime, message: str):
@@ -295,6 +300,8 @@ class Problem:
 
     def is_checker_already_generated(self) -> bool:
         checker_bin = self.checker.parent / self.checker.stem
+        if platform.system() == 'Windows':
+            checker_bin = checker_bin.with_suffix('.exe')
         if not checker_bin.exists():
             return False
 
@@ -314,7 +321,7 @@ class Problem:
                 continue
             if not path.is_file():
                 continue  # ignore directories
-            if path.suffix == '':
+            if path.suffix == ('' if platform.system() != 'Windows' else '.exe'):
                 continue  # ignore compiled binaries
             if path.name.endswith('.html'):
                 continue  # ignore generated HTML files

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <tuple>
 #include "random.h"
 #include "../params.h"
 

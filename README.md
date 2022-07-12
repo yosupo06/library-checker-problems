@@ -17,7 +17,7 @@ Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp). You can get t
 cd /path/to/library-checker-problems
 
 pip3 install -r requirements.txt
-# or pip3 install toml colorlog markdown jinja2
+# or pip3 install colorlog markdown jinja2
 
 ulimit -s unlimited # for linux (doesn't need for OS X and WSL)
 
@@ -83,3 +83,4 @@ We are welcome any issues and PRs! Except minor change (e.g. add test cases, fix
 ## Thanks
 
 We use [testlib](https://github.com/MikeMirzayanov/testlib) for verifier(input-checker) and output-checker.
+We use [toml](https://github.com/uiri/toml) as toml paser.

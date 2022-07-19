@@ -19,8 +19,10 @@ $N$ 頂点からなる木が与えられる。$i$ 番目の辺は $a_i$ と $b_i
 
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
 - $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
-- $0 \leq p_i < i$
-- $0 \leq u < v \leq N - 1$
+- $0 \leq a_i, b_i < N$
+- $a_i \neq b_i$
+- $0 \leq s, t \leq N - 1$
+- $0 \leq i \leq N - 1$
 
 ## @{keyword.input}
 

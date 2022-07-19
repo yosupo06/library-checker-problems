@@ -8,7 +8,7 @@ Given a rooted tree with $N$ vertices. The root is vertex $0$ and a parent of a 
 
 @{lang.ja}
 
-木が与えられる。頂点 $i$ の親は $p_i$ である。$Q$ 個のクエリが飛んできます。処理してください。
+$N$ 頂点からなる根付き木が与えられる。根は頂点 $0$ で、頂点 $i$ の親は $p_i$ である。$Q$ 個のクエリが飛んできます。処理してください。
 
 - `$u$ $v$`: 頂点 $u$, $v$ のLCAを出力する
 
@@ -17,8 +17,8 @@ Given a rooted tree with $N$ vertices. The root is vertex $0$ and a parent of a 
 
 ## @{keyword.constraints}
 
-- $2 \leq N \leq 500,000$
-- $1 \leq Q \leq 500,000$
+- $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
+- $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
 - $0 \leq p_i < i$
 - $0 \leq u < v \leq N - 1$
 

@@ -17,6 +17,7 @@ Given a size $N$ interger sequence $a_0, a_1, \dots, a_{N - 1}$. Process $Q$ que
 - $1 \leq N, Q \leq @{param.N_AND_Q_MAX}$
 - $0 \leq a_i, c < @{param.MOD}$
 - $1 \leq b < @{param.MOD}$
+- $0 \leq l < r\leq N$
 - $0 \leq i < N$
 
 ## @{keyword.input}

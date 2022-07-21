@@ -1,0 +1,37 @@
+title = 'Number of Subsequences '
+timelimit = 5.0
+forum = 'https://github.com/yosupo06/library-checker-problems/issues/811'
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "wide_random.cpp"
+    number = 2
+[[tests]]
+    name = "narrow_random.cpp"
+    number = 2
+[[tests]]
+    name = "wide_max.cpp"
+    number = 2
+[[tests]]
+    name = "narrow_max.cpp"
+    number = 2
+[[tests]]
+    name = "small_random.cpp"
+    number = 3
+[[tests]]
+    name = "mini.cpp"
+    number = 1
+[[tests]]
+    name = "all_same.cpp"
+    number = 2
+
+
+    
+[[solutions]]
+    name = "correct.cpp"
+
+[params]
+    N_MAX = 500_000
+    A_MAX = 1_000_000_000

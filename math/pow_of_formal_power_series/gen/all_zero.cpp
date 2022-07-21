@@ -11,9 +11,9 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     int n = gen.uniform(1LL, N_MAX);
-    int q = gen.uniform(1LL, M_MAX);
+    ll q = gen.uniform<ll>(1LL, M_MAX);
 
-    printf("%d %d\n", n, q);
+    printf("%d %lld\n", n, q);
     for (int i = 0; i < n; i++) {
         printf("%d", 0);
         if (i != n - 1) printf(" ");

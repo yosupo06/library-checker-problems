@@ -5,18 +5,19 @@
 using namespace std;
 
 // check and return tecc
-vector<vector<int>> read_ans(int m, InStream& stream) {
-    int k = stream.readInt(0, m);
+vector<vector<int>> read_ans(int n, InStream& stream) {
+    int k = stream.readInt(0, n);
     vector<vector<int>> teccs(k);
-    vector<int> pos(m, -1);
+    vector<int> pos(n, -1);
     for (int i = 0; i < k; i++) {
-        int l = stream.readInt(1, m);
+        int l = stream.readInt(1, n);
         teccs[i] = vector<int>(l);
         for (int j = 0; j < l; j++) {
-            teccs[i][j] = stream.readInt(0, m - 1);
-            if (pos[teccs[i][j]] != -1) {
-                stream.quitf(_wa, "twice used vertex %d", teccs[i][j]);
-            }
+            teccs[i][j] = stream.readInt(0, n - 1);
+            // a vertex may occur multiple times ...
+            //if (pos[teccs[i][j]] != -1) {
+            //    stream.quitf(_wa, "twice used vertex %d", teccs[i][j]);
+            //}
             pos[teccs[i][j]] = i;
         }
         sort(teccs[i].begin(), teccs[i].end());
@@ -27,12 +28,12 @@ vector<vector<int>> read_ans(int m, InStream& stream) {
 int main(int argc, char *argv[]) {
     registerTestlibCmd(argc, argv);
 
-    [[maybe_unused]] int n = inf.readInt();
+    int n = inf.readInt();
     inf.readChar(' ');
-    int m = inf.readInt();
+    [[maybe_unused]] int m = inf.readInt();
 
-    auto teccs_ans = read_ans(m, ans);
-    auto teccs_ouf = read_ans(m, ouf);
+    auto teccs_ans = read_ans(n, ans);
+    auto teccs_ouf = read_ans(n, ouf);
     int k_ans = int(teccs_ans.size());
     int k_ouf = int(teccs_ouf.size());
     if (k_ans != k_ouf) {

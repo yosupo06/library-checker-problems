@@ -11,10 +11,10 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     int n = N_MAX;
-    int q = M_MAX;
+    ll q = M_MAX;
     int k = gen.uniform(0, (n - 1) / 2) * 2;
     k += seed % 2;
-    printf("%d %d\n", n, q);
+    printf("%d %lld\n", n, q);
     for (int i = 0; i < n; i++) {
         printf("%d", (i == k ? 1 : 0));
         if (i != n - 1) printf(" ");

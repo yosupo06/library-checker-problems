@@ -223,6 +223,7 @@ public:
 
     AdjacencyList get_bct() const {
         int bct_n = mn + mnum_bcs;
+        // pair (bc, edge) as edges (except for a component of single vertex)
         AdjacencyList bc_edgelists; {
             std::vector<int> buf(mnum_bcs+1);
             for(int bci : edgeidx_to_bcidx) ++buf[bci];
@@ -231,20 +232,26 @@ public:
             for(int i=0; i<mm; i++) E[--buf[edgeidx_to_bcidx[i]]] = i;
             bc_edgelists = AdjacencyList::from_raw(std::move(E), std::move(buf));
         }
-        std::vector<std::pair<int, int>> res(bct_n - 1);
+        std::vector<std::pair<int, int>> res(bct_n * 2 - 1);
         int resi = 0;
-        std::vector<int> visited(mn);
-        for(int bci=0; bci<mnum_bcs; bci++){
+        int bci = 0;
+        std::vector<int> visited(mn, 1); // 1 : unvisited , 2 : visited components before , 0 : visited current component
+        // except for a component of single vertex
+        // edge set -> vertex set
+        for(bci=0 ; bci<mnum_bcs; bci++){
             for(int e : bc_edgelists[bci]){
                 auto [u,v] = medges[e];
-                if(!visited[u]){ visited[u] = 1; res[resi++] = {mn+bci,u}; }
-                if(!visited[v]){ visited[v] = 1; res[resi++] = {mn+bci,v}; }
+                if(visited[u] != 0){ visited[u] = 0; res[resi++] = {mn+bci,u}; }
+                if(visited[v] != 0){ visited[v] = 0; res[resi++] = {mn+bci,v}; }
             }
             for(int e : bc_edgelists[bci]){
                 auto [u,v] = medges[e];
-                visited[u] = visited[v] = 0;
+                visited[u] = visited[v] = 2;
             }
         }
+        // single vertex component
+        for(int i=0; i<mn; i++) if(visited[i] == 1) res[resi++] = {bct_n++,i};
+        res.resize(resi);
         return AdjacencyList(bct_n, res, true);
     }
 };
@@ -255,6 +262,7 @@ public:
 
 #include <cstdio>
 #include <cassert>
+#include <algorithm>
 
 int main() {
     int n; scanf("%d", &n);
@@ -268,11 +276,22 @@ int main() {
     for(auto [u,v] : edges) if(!(v < n)) return 1;
     for(auto [u,v] : edges) if(!(u != v)) return 1;
 
-    auto bcs = nachia::BiconnectedComponents(n, edges).get_bcs();
-    printf("%d\n", (int)bcs.size());
-    for(auto& bc : bcs){
-        printf("%d", (int)bc.size());
-        for(auto v : bc) printf(" %d", v);
+    auto bct = nachia::BiconnectedComponents(n, edges).get_bct();
+
+    int bccnt = bct.num_vertices() - n;
+    for(int i=0; i<n; i++) if(bct[i].size() == 0) bccnt++;
+
+    printf("%d\n", bccnt);
+
+    std::vector<std::vector<int>> ansbuf(bccnt);
+    int ansbufItr = 0;
+    // for(int i=0; i<n; i++) if(bct[i].size() == 0) ansbuf[ansbufItr++] = {i};
+    for(int bcidx=n; bcidx < bct.num_vertices(); bcidx++) ansbuf[ansbufItr++] = std::vector<int>(bct[bcidx].begin(), bct[bcidx].end());
+    for(auto& a : ansbuf) std::sort(a.begin(), a.end());
+    std::sort(ansbuf.begin(), ansbuf.end());
+    for(auto& a : ansbuf){
+        printf("%d", (int)a.size());
+        for(auto v : a) printf(" %d", v);
         printf("\n");
     }
     return 0;

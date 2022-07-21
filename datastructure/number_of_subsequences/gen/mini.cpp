@@ -10,10 +10,10 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    long long n = 1ll;
+    long long n = N_MIN;
     printf("%lld\n", n);
     for (int i = 0; i < n; i++) {
-        long long a = gen.uniform(1ll, n);
+        long long a = gen.uniform(A_MIN, n);
         printf("%lld", a);
         if (i != n - 1) printf(" ");
     }

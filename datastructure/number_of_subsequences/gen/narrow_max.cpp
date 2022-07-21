@@ -13,7 +13,7 @@ int main(int, char* argv[]) {
     long long n = N_MAX;
     printf("%lld\n", n);
     for (int i = 0; i < n; i++) {
-        long long a = gen.uniform(1ll, n);
+        long long a = gen.uniform(A_MIN, n);
         printf("%lld", a);
         if (i != n - 1) printf(" ");
     }

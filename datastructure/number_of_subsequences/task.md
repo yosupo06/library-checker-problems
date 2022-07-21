@@ -16,7 +16,7 @@ You are given an array $A$ with length $N$. Find the number of non-empty subsequ
 
 ```
 $N$
-$A_1$ $A_2$ $\vdots$ $A_N$
+$A_0$ $A_1$ $\dots$ $A_{N - 1}$
 ```
 
 ## @{keyword.sample}

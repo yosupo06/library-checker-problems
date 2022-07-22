@@ -43,7 +43,7 @@ Following $K$ lines, print as follows. $l$ is the number of vertices of biconnec
 
 @{lang.ja}
 
-最初の行には $K$ を出力する。その後 $K$ 行では以下のように出力する。$l$ は二重連結成分の頂点数であり、$v _ i$ はその頂点番号である。
+最初の行には成分の個数 $K$ を出力する。その後 $K$ 行では以下のように出力する。$l$ は各二重連結成分の頂点数であり、$v _ i$ はその頂点番号である。
 
 @{lang.end}
 

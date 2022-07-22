@@ -21,6 +21,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/803"
     name = "hand_min.cpp"
     number = 1
 
+[[solutions]]
+    name = "correct.cpp"
+
 [params]
     N_MIN = 1
     A_MIN = 0

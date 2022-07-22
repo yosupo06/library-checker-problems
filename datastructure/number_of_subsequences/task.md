@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-You are given an array $A$ with length $N$. Find the number of non-empty subsequence of $A$ , modulo $998244353$.
+You are given an integer sequence $A$ with length $N$. Count the number of distinct subsequence of $A$ , modulo $998244353$.
 @{lang.ja}
 長さ $N$ の数列 $A$ が与えられます。 $A$ の空でない相異なる部分列の個数を $998244353$ で割ったあまりを求めてください。
 @{lang.end}

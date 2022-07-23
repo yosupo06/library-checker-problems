@@ -12,6 +12,11 @@ pair<int, vector<int>> read_ans(int N, InStream& stream) {
 		int a = stream.readInt(0, N - 1);
 		LIS.push_back(a);
 	}
+	for(int i = 0; i < K - 1; i++){
+		if(LIS[i] >= LIS[i + 1]){
+			quitf(_wa, "an element of LIS is incorrect; the index order is wrong." );
+		}
+	}
 	return {K, LIS};
 }
 
@@ -31,18 +36,19 @@ int main(int argc, char *argv[]) {
 	auto K_submitted = res_submitted.first;
 	auto LIS_submitted = res_submitted.second;
 
-	if(K_correct != K_submitted){
+	if(K_correct > K_submitted){
 		quitf(_wa, "the size of LIS is incorrect : submitted : %d, judge : %d", K_correct, K_submitted);
 	}
 
 	for(int i = 0; i < K_submitted - 1; i++){
-		if(LIS_submitted[i] >= LIS_submitted[i + 1]){
-			quitf(_wa, "an element of LIS is incorrect; the index order is wrong." );
-		}
 		if(A[LIS_submitted[i]] >= A[LIS_submitted[i + 1]]){
 			quitf(_wa, "submitted sequence is not an IS." );
 		}
 	}
-	
+
+	if(K_correct < K_submitted){
+		quitf(_fail, "there is a better solution than judge's. : submitted : %d, judge : %d", K_correct, K_submitted);
+	}
+
 	quitf(_ok, "OK");
 }

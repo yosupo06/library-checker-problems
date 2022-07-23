@@ -4,7 +4,7 @@
 
 Given a tree with $N$ vertices, where the $i$-th edge connects vertex $a_i$ and $b_i$. Process $Q$ queries as follows:
 
-- `$s$ $t$ $i$`: Print $v_i$, where the minimum path on the tree is $(v_0, v_1, \ldots, v_k)$ ($v_0 = s$, $v_k = t$). If $i>k$, print `-1`.
+- `$s$ $t$ $i$`: Print $v_i$, where the shortest path on the tree from $s$ to $t$ is $(v_0, v_1, \ldots, v_k)$ ($v_0 = s$, $v_k = t$). If $i>k$, print `-1`.
 
 @{lang.ja}
 

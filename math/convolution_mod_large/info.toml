@@ -1,0 +1,36 @@
+title = 'Convolution (Large)'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/720"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small.cpp"
+    number = 16
+[[tests]]
+    name = "medium.cpp"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 2
+[[tests]]
+    name = "fft_killer.cpp"
+    number = 2
+[[tests]]
+    name = "medium_all_zero.cpp"
+    number = 1
+[[tests]]
+    name = "max_ans_zero.cpp"
+    number = 1
+
+[[solutions]]
+    name = "naive.cpp"
+    wrong = true
+
+[params]
+    N_AND_M_MAX = 16777216
+    MOD = 998244353

@@ -38,7 +38,7 @@ struct Generator {
         for (auto &p : potential) p = gen_potential(c_max);
         Graph graph(n);
 
-        for (const auto edge : tree) {
+        for (const auto& edge : tree) {
             const auto s = edge.first;
             const auto t = edge.second;
             const auto f_min = std::max({-u_max, -u_max - graph.bs[s], -u_max + graph.bs[t]});

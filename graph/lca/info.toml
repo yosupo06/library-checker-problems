@@ -26,6 +26,14 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/35"
     name = "binary.cpp"
     number = 3
 
+[[tests]]
+    name = "path_graph_root_centroid.cpp"
+    number = 3
+
+[[solutions]]
+  name = "tle.cpp"
+  wrong = true
+
 [params]
     N_MIN = 2
     N_MAX = 500_000

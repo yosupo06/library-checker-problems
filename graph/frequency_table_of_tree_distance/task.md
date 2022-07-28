@@ -13,6 +13,7 @@ $\mathrm{dist}(u, v)$ は頂点 $u, v$ をつなぐパスの辺数です。
 ## @{keyword.constraints}
 
 - $1 \leq N \leq @{param.N_MAX}$
+- $0 \leq a_i, b_i < N$
 - $a_i \neq b_i$
 
 ## @{keyword.input}

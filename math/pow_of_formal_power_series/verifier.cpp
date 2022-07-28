@@ -10,7 +10,7 @@ int main() {
 
     int n=inf.readInt(1, N_MAX);
     inf.readSpace();
-    inf.readInt(1, M_MAX);
+    inf.readLong(0, M_MAX);
 
     inf.readChar('\n');
 

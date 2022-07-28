@@ -8,3 +8,6 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/33'
 [[tests]]
     name = "random.cpp"
     number = 10
+[[tests]]
+    name = "path.cpp"
+    number = 4

@@ -1,0 +1,20 @@
+title = 'Matrix Product'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/654"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "small.cpp"
+    number = 10
+
+[params]
+    N_MAX = 1_024
+    MOD = 998_244_353

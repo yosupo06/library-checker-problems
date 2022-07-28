@@ -5,6 +5,7 @@ import argparse
 from pathlib import Path
 import toml
 import generate
+from problem import Problem
 import json
 from logging import Logger, basicConfig, getLogger
 from os import getenv
@@ -14,7 +15,7 @@ logger = getLogger(__name__)  # type: Logger
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Testcase Generator for Matrix build')
+        description='Testcase generator')
     parser.add_argument('--print-version', action='store_true', help='Print version')
     parser.add_argument('--htmldir', help='Generate HTML', default=None)
     args = parser.parse_args()
@@ -50,15 +51,15 @@ def main():
         Path(args.htmldir).mkdir(exist_ok=True, parents=True)
 
     for x in tomls:
-        problem = generate.Problem(Path.cwd(), x.parent)
+        problem = Problem(Path.cwd(), x.parent)
         problem_name = problem.basedir.name
         problem_version = problem.problem_version()
         if problem_name in generated and generated[problem_name] == problem_version:
             logger.info('Problem {} is already generated, skip'.format(problem_name))
         else:
             logger.info('Generate {}, new version: {}'.format(problem_name, problem_version))
-            generate.generate(problem, force_generate=True, ignore_warning=False, rewrite_hash=False,
-                              verify=True, generate_html=True, html_dir=Path(args.htmldir) if args.htmldir else None)
+            problem.generate(mode=Problem.Mode.TEST, html_dir=Path(args.htmldir) if args.htmldir else None)
+            problem.generate(mode=Problem.Mode.CLEAN, html_dir=None)
         if problem_name not in generated:
             generated[problem_name] = dict()
 

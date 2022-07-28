@@ -11,7 +11,7 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     int n = N_MAX;
-    int q = gen.uniform(1LL, M_MAX);
+    ll q = gen.uniform<ll>(1LL, M_MAX);
     
     vector<int> f(n);
     for (int i = 0; i < n; i++) {
@@ -22,7 +22,7 @@ int main(int, char* argv[]) {
         f[i] = 0;
     }
 
-    printf("%d %d\n", n, q);
+    printf("%d %lld\n", n, q);
 
     for (int i = 0; i < n; i++) {
         printf("%d", f[i]);

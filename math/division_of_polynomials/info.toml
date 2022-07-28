@@ -1,0 +1,29 @@
+title = 'Division of Polynomials'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/658"
+
+[[tests]]
+    name = "example.in"
+    number = 4
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+[[tests]]
+    name = "n_max.cpp"
+    number = 5
+[[tests]]
+    name = "small.cpp"
+    number = 10
+[[tests]]
+    name = "u_eq_0.cpp"
+    number = 1
+[[tests]]
+    name = "v_eq_0.cpp"
+    number = 2
+[[tests]]
+    name = "v_random.cpp"
+    number = 5
+
+[params]
+    N_MAX = 500000
+    MOD = 998244353

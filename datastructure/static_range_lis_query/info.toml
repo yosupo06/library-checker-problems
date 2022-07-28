@@ -1,0 +1,32 @@
+title = 'Static Range LIS Query'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/737"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "small_random.cpp"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "almost_sorted.cpp"
+    number = 3
+[[tests]]
+    name = "sorted.cpp"
+    number = 1
+
+[[solutions]]
+    name = "naive.cpp"
+    allow_tle = true
+
+[params]
+    N_MIN = 1
+    N_MAX = 100_000
+    Q_MIN = 1
+    Q_MAX = 100_000

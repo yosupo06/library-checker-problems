@@ -8,7 +8,7 @@ Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp). You can get t
 ## Requirements
 
 - Linux / OS X / Windows(MinGW-w64)
-- python3.5+
+- python3.6+
 - g++ / clang++ (Needs --std=c++14 and __int128_t)
 
 ## How to Use
@@ -17,7 +17,7 @@ Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp). You can get t
 cd /path/to/library-checker-problems
 
 pip3 install -r requirements.txt
-# or pip3 install toml colorlog markdown jinja2
+# or pip3 install colorlog markdown jinja2
 
 ulimit -s unlimited # for linux (doesn't need for OS X and WSL)
 
@@ -34,7 +34,7 @@ file datastructure/unionfind/checker # binary of output checker
 ```sh
 ./generate.py -p unionfind --dev # developer mode
 ./generate.py -p unionfind --test # test mode (for developer, exec this command before PR)
-cat datastructure/unionfind/unionfind.html # statement
+cat datastructure/unionfind/task.html # statement
 
 ./generate.py $(find . -name "info.toml" -not -path "./test/*") # generate all testcases
 ```
@@ -83,3 +83,4 @@ We are welcome any issues and PRs! Except minor change (e.g. add test cases, fix
 ## Thanks
 
 We use [testlib](https://github.com/MikeMirzayanov/testlib) for verifier(input-checker) and output-checker.
+We use [toml](https://github.com/uiri/toml) as toml paser.

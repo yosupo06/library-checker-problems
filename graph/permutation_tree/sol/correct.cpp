@@ -17,7 +17,7 @@ int main()
     using np = decltype(root);
     vector<tuple<int, int, string>> v;
     auto dfs = [&](auto dfs, np t) -> void {
-        v.emplace_back(t->l, t->r, (t->is_join ? "join" : "cut"));
+        v.emplace_back(t->l, t->r, (t->is_join ? "linear" : "prime"));
         for (auto e : t->ch) {
             dfs(dfs, e);
         }
@@ -25,6 +25,6 @@ int main()
     dfs(dfs, root);
     printf("%zu\n", v.size());
     for (auto [l, r, s] : v) {
-        printf("%d %d %s\n", l, r, s.c_str());
+        printf("%d %d %s\n", l, r-1, s.c_str());
     }
 }

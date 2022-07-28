@@ -1,0 +1,163 @@
+[[categories]]
+name = "Sample"
+problems = [
+  "aplusb",
+  "many_aplusb"
+]
+
+[[categories]]
+name = "Data Structure"
+problems = [
+  "associative_array",
+  "predecessor_problem",
+  "unionfind",
+  "static_range_sum",
+  "staticrmq",
+  "point_add_range_sum",
+  "point_set_range_composite",
+  "range_affine_range_sum",
+  "range_chmin_chmax_add_range_sum",
+  "range_kth_smallest",
+  "vertex_add_path_sum",
+  "vertex_set_path_composite",
+  "vertex_add_subtree_sum",
+  "dynamic_sequence_range_affine_range_sum",
+  "dynamic_tree_vertex_add_path_sum",
+  "dynamic_tree_vertex_set_path_composite",
+  "dynamic_tree_vertex_add_subtree_sum",
+  "dynamic_tree_subtree_add_subtree_sum",
+  "dynamic_graph_vertex_add_component_sum",
+  "set_xor_min",
+  "line_add_get_min",
+  "segment_add_get_min",
+  "queue_operate_all_composite",
+  "static_range_frequency",
+  "static_range_inversions_query",
+  "rectangle_sum",
+  "point_add_rectangle_sum",
+  "persistent_queue",
+  "persistent_unionfind"
+]
+
+[[categories]]
+name = "Graph"
+problems = [
+  "cycle_detection",
+  "shortest_path",
+  "scc",
+  "k_shortest_walk",
+  "two_edge_connected_components",
+  "three_edge_connected_components",
+  "min_cost_b_flow",
+  "bipartitematching",
+  "general_matching",
+  "general_weighted_matching",
+  "bipartite_edge_coloring",
+  "assignment",
+  "directedmst",
+  "manhattanmst",
+  "dominatortree",
+  "maximum_independent_set",
+  "chromatic_number",
+  "enumerate_triangles",
+  "tree_decomposition_width_2",
+  "global_minimum_cut_of_dynamic_star_augmented_graph",
+  "chordal_graph_recognition"
+]
+
+[[categories]]
+name = "Tree"
+problems = [
+  "tree_diameter",
+  "lca",
+  "cartesian_tree",
+  "frequency_table_of_tree_distance"
+]
+
+[[categories]]
+name = "Math"
+problems = [
+  "counting_primes",
+  "enumerate_primes",
+  "factorize",
+  "binomial_coefficient",
+  "stirling_number_of_the_first_kind",
+  "stirling_number_of_the_second_kind",
+  "bernoulli_number",
+  "partition_function",
+  "montmort_number_mod",
+  "sum_of_totient_function",
+  "sum_of_exponential_times_polynomial",
+  "sum_of_exponential_times_polynomial_limit",
+  "find_linear_recurrence",
+  "kth_term_of_linearly_recurrent_sequence",
+  "sum_of_floor_of_linear",
+  "sqrt_mod",
+  "kth_root_mod",
+  "kth_root_integer",
+  "discrete_logarithm_mod",
+  "tetration_mod",
+  "nim_product_64",
+  "sharp_p_subset_sum",
+  "two_sat"
+]
+
+[[categories]]
+name = "Convolution"
+problems = [
+  "convolution_mod",
+  "convolution_mod_1000000007",
+  "convolution_mod_2_64",
+  "convolution_mod_large",
+  "subset_convolution",
+  "bitwise_and_convolution",
+  "bitwise_xor_convolution",
+  "multivariate_convolution",
+  "mul_mod2n_convolution",
+]
+
+[[categories]]
+name = "Polynomial"
+problems = [
+  "inv_of_formal_power_series",
+  "exp_of_formal_power_series",
+  "log_of_formal_power_series",
+  "pow_of_formal_power_series",
+  "sqrt_of_formal_power_series",
+  "composition_of_formal_power_series",
+  "multipoint_evaluation",
+  "polynomial_interpolation",
+  "polynomial_taylor_shift",
+  "shift_of_sampling_points_of_polynomial",
+  "division_of_polynomials",
+  "inv_of_polynomials",
+]
+
+[[categories]]
+name = "Matrix"
+problems = [
+  "matrix_product",
+  "matrix_det",
+  "sparse_matrix_det",
+  "system_of_linear_equations",
+  "inverse_matrix",
+  "characteristic_polynomial",
+  "hafnian_of_matrix"
+]
+
+[[categories]]
+name = "String"
+problems = [
+  "zalgorithm",
+  "enumerate_palindromes",
+  "suffixarray",
+  "number_of_substrings",
+  "runenumerate"
+]
+
+[[categories]]
+name = "Geometry"
+problems = [
+  "sort_points_by_argument",
+  "convex_layers"
+]

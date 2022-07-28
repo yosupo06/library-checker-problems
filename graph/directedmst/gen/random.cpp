@@ -1,5 +1,6 @@
 #include <iostream>
 #include "random.h"
+#include "../params.h"
 
 using namespace std;
 
@@ -13,8 +14,8 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = gen.uniform(1, 200'000);
-    int m = gen.uniform(n - 1, (int)min(200'000LL, (long long)n * (n - 1)));
+    int n = gen.uniform(1LL, N_MAX);
+    int m = gen.uniform(n - 1, (int)min(N_MAX, (long long)n * (n - 1)));
 
     using P = pair<int, int>;
     set<P> used;
@@ -26,7 +27,7 @@ int main(int, char* argv[]) {
         return true;
     };
     for (int i = 1; i < n; i++) {
-        add_edge(gen.uniform(0, i - 1), i, 1'000'000'000);
+        add_edge(gen.uniform(0, i - 1), i, C_MAX);
     }
     for (int i = n - 1; i < m; i++) {
         int a, b;
@@ -34,7 +35,7 @@ int main(int, char* argv[]) {
             a = gen.uniform(0, n - 1);
             b = gen.uniform(0, n - 1);
         } while (a == b || used.count({a, b}));
-        int c = gen.uniform(0, 1'000'000'000);
+        int c = gen.uniform(0LL, C_MAX);
         add_edge(a, b, c);
     }
 

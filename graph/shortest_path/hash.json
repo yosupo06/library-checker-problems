@@ -43,6 +43,8 @@
   "sparse_random_01.out": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28",
   "sparse_random_02.in": "e175334fe70c3dd3a31e4e34388afa996d7bb7051239dc56af87f03caf758255",
   "sparse_random_02.out": "e6e03e75ae2d0aa8da3e1bca2f62bca8c5637a4993fb28f1ffb3b4a4af88ec93",
+  "wrong_dijkstra_handmade_00.in": "c4b803ff9113fa1308dca99ac0c8bd494faa8d3fa3256f24c9b09f2c97d371d2",
+  "wrong_dijkstra_handmade_00.out": "46066aede3e055309cafe3371ccafcfeb8188c598cb5f7c4171d0fd0a3f846aa",
   "wrong_dijkstra_killer_00.in": "e9b1bbcbe57f62b7b9b96ecbd7064c80587a44f476971bd6a5109c0bc87253ad",
   "wrong_dijkstra_killer_00.out": "72cddb1daaa2122527535c381e5c659de149d61fad545e80ef048810a105aa0c"
 }

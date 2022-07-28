@@ -40,5 +40,11 @@
   "small_03.in": "14932b02f5bf32318f44fddb93c0c9e3f9d48dda7c65a10331f3665d01346455",
   "small_03.out": "6e471abacbe0bc38ecf84ae94a7d0950d698b5061679b7a6cd6d7fdbf53d80d0",
   "small_04.in": "f0744b7e10d21be515fbbc1353dc6dd15a7a3c16eb7fcf7fba9094da5c51c5fd",
-  "small_04.out": "29cf24941cd2ac99095799d31b8ef6e026cc4df6345b3f5d3829daea9df2e798"
+  "small_04.out": "29cf24941cd2ac99095799d31b8ef6e026cc4df6345b3f5d3829daea9df2e798",
+  "small_N_large_T_00.in": "4d74d2e31476556c78c7839eb929f6a5f20287c5f99aca0aa6d75940c3bca59a",
+  "small_N_large_T_00.out": "6815be512ceb5568f609eeae2fcefb79c5defcb77cce2d92bedeaa3736ddfb51",
+  "small_N_large_T_01.in": "d8187ef720a6336a96c0f4da2a48c8abfe25ee88c045c38ba5ed93366ba0eb34",
+  "small_N_large_T_01.out": "2ff9af9e0f155c87e2eabbf1cb47065a63bdfd996a74491feba142cbb86bb4b0",
+  "small_N_large_T_02.in": "8c5fe1489ff55d15158a696418e5adc088b4d284922b92b0140bef989ab878cb",
+  "small_N_large_T_02.out": "62ad6a9ce70c31ecdfb27207dd506b521a60fe4ecbebf1605f0aae6f8dfaf721"
 }

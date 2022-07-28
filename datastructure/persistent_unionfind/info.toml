@@ -11,10 +11,16 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/405"
 [[tests]]
     name = "max_random.cpp"
     number = 5
+[[tests]]
+    name = "conchon_filliatre_tle.cpp"
+    number = 2
 
 [[solutions]]
     name = "correct_2.cpp"
     wrong = false
+[[solutions]]
+    name = "conchon_filliatre.cpp"
+    wrong = true
 
 [params]
     MAX_N = 200_000

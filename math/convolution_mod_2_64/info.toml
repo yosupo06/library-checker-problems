@@ -1,0 +1,58 @@
+title = 'Convolution (mod 2^64)'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/664"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small.cpp"
+    number = 16
+[[tests]]
+    name = "medium.cpp"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "gen_131072.cpp"
+    number = 1
+[[tests]]
+    name = "gen_131073.cpp"
+    number = 1
+[[tests]]
+    name = "gen_177147.cpp"
+    number = 1
+[[tests]]
+    name = "gen_177148.cpp"
+    number = 1
+[[tests]]
+    name = "gen_262144.cpp"
+    number = 1
+[[tests]]
+    name = "gen_262145.cpp"
+    number = 1
+[[tests]]
+    name = "gen_265721.cpp"
+    number = 1
+[[tests]]
+    name = "gen_265722.cpp"
+    number = 1
+[[tests]]
+    name = "gen_354294.cpp"
+    number = 1
+[[tests]]
+    name = "gen_354295.cpp"
+    number = 1
+[[tests]]
+    name = "gen_524288.cpp"
+    number = 2
+
+[[solutions]]
+    name = "radix3.cpp"
+[[solutions]]
+    name = "naive.cpp"
+    wrong = true
+
+[params]
+    N_AND_M_MAX = 524288

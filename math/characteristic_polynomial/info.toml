@@ -1,0 +1,28 @@
+title = 'Characteristic Polynomial'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/665"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+[[tests]]
+    name = "max_zero.cpp"
+    number = 1
+[[tests]]
+    name = "max_det_zero_random.cpp"
+    number = 4
+[[tests]]
+    name = "max_random.cpp"
+    number = 4
+[[tests]]
+    name = "small_random.cpp"
+    number = 4
+[[tests]]
+    name = "small_multiple_root.in"
+    number = 2
+[[solutions]]
+    name = "n_4.cpp"
+    wrong = true
+[params]
+    N_MAX = 500
+    MOD = 998244353

@@ -23,7 +23,7 @@ The smallest element becomes the root.
 
 ~~~
 $N$
-$a_0$ $a_1$ $a _ {N - 1}$
+$a_0$ $a_1$ ... $a _ {N - 1}$
 ~~~
 
 ## @{keyword.output}

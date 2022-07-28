@@ -1,20 +1,20 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given formal power series $f(x) = \sum_{i = 0}^{N - 1} a_i x^i$. Calculate first $N$ elements of $\frac{1}{f(x)}$. In other words, print $g(x)$ s.t.
+You are given a formal power series $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ with $a_0 \ne 0$.
+Calculate the first $N$ terms of $\frac{1}{f(x)} = \sum_{i=0}^{\infty} b_i x^i$.
+In other words, find $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ such that
 
-$$1 = f(x)g(x) \bmod (x^N)$$
-
-is satisfied.
+$$f(x) g(x) \equiv 1 \pmod{x^N}.$$
 
 @{lang.ja}
-母関数 $f(x) = \sum_{i = 0}^{N - 1} a_i x^i$ が与えられます。$\frac{1}{f(x)}$ の先頭 $N$ 項を求めてください。つまり
+形式的冪級数 $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ が与えられます ($a_0 \ne 0$)。$\frac{1}{f(x)} = \sum_{i=0}^{\infty} b_i x^i$ の先頭 $N$ 項を求めてください。つまり、
 
-$$1 = f(x)g(x) \bmod (x^N)$$
+$$f(x) g(x) \equiv 1 \pmod{x^N}$$
 
-となる $g(x)$ を出力してください
+となる $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ を求めてください。
+
 @{lang.end}
-
 
 ## @{keyword.constraints}
 
@@ -26,20 +26,14 @@ $$1 = f(x)g(x) \bmod (x^N)$$
 
 ```
 $N$
-$a_0$ $a_1$ ... $a_{N - 1}$
+$a_0$ $a_1$ $\cdots$ $a_{N - 1}$
 ```
 
 ## @{keyword.output}
 
 ```
-$b_0$ $b_1$ ... $b_{N - 1}$
+$b_0$ $b_1$ $\cdots$ $b_{N - 1}$
 ```
-
-@{lang.en}
-If we denote $g(x) = \sum_{i = 0}^{N - 1} b'_i x^i$, $b_i \equiv b'_i (\bmod @{param.MOD})$ is satisfied.
-@{lang.ja}
-ただし $g(x) = \sum_{i = 0}^{N - 1} b'_i x^i$ としたとき, $b_i \equiv b'_i (\bmod @{param.MOD})$ とする
-@{lang.end}
 
 ## @{keyword.sample}
 

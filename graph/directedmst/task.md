@@ -2,9 +2,9 @@
 
 @{lang.en}
 
-Given a simple weighted directed graph with $N$ vertices and $M$ edges. $i$-th edge is $(a_i, b_i)$ and weight of it is $c_i$.
+Given a simple weighted directed graph with $N$ vertices and $M$ edges. $i$-th edge is $(a_i, b_i)$ and has a weight of $c_i$.
 
-Calculate the directed MST whose root is the vertex $S$ (each vertices can be reached from $S$).
+Find the directed minimum spanning tree whose root is the vertex $S$ (it means that all the vertices have to be reachable from $S$).
 
 @{lang.ja}
 
@@ -16,14 +16,14 @@ $N$ 頂点 $M$ 辺の単純な重み付き有向グラフが与えられる。$i
 
 ## @{keyword.constraints}
 
-- $1 \leq N \leq 200,000$
-- $N - 1 \leq M \leq 200,000$
+- $1 \leq N \leq @{param.N_MAX}$
+- $N - 1 \leq M \leq @{param.N_MAX}$
 - $0 \leq S < N$
 - $0 \leq a_i, b_i < N$
 - $a_i \neq b_i$
 - $(a_i, b_i) \neq (a_j, b_j) (i \neq j)$
-- $0 \leq c_i \leq 10^9$
-- @{lang.en} We can reach every vertices from the vertex $S$ @{lang.ja} 頂点 $S$ から全ての頂点へ到達可能 @{lang.end}
+- $0 \leq c_i \leq @{param.C_MAX}$
+- @{lang.en} All the vertices are reachable from the vertex $S$ @{lang.ja} 頂点 $S$ から全ての頂点へ到達可能 @{lang.end}
 
 ## @{keyword.input}
 
@@ -43,9 +43,9 @@ $p_0$ $p_1$ $p_2$ ... $p_{N - 1}$
 ~~~
 
 @{lang.en}
-$X$ is the sum of weight of tree. $p_i$ is the parent of vertex $i$ and $p_S = S$.
+$X$ is the sum of the weights of the edges in the directed MST. $p_i$ is the parent of the vertex $i$ or $p_S = S$.
 
-If there are multiple solutions, print any of them.
+If there are multiple correct output, print any of them.
 
 @{lang.ja}
 

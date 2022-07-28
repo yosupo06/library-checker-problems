@@ -1,0 +1,46 @@
+title = 'Biconnected Components'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/731"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+[[tests]]
+    name = "min.in"
+    number = 3
+[[tests]]
+    name = "small_random_1.cpp"
+    number = 1
+[[tests]]
+    name = "small_random_2.cpp"
+    number = 3
+[[tests]]
+    name = "random_1.cpp"
+    number = 1
+[[tests]]
+    name = "random_2.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 1
+[[tests]]
+    name = "max_random_2.cpp"
+    number = 3
+[[tests]]
+    name = "max_tree.cpp"
+    number = 1
+[[tests]]
+    name = "max_star.cpp"
+    number = 1
+[[tests]]
+    name = "max_line_clique.cpp"
+    number = 1
+[[tests]]
+    name = "large_cycle.cpp"
+    number = 1
+
+[params]
+    N_MIN = 1
+    N_MAX = 500_000
+    M_MIN = 0
+    M_MAX = 500_000

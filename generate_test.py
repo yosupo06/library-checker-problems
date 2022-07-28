@@ -7,7 +7,7 @@ from subprocess import run, check_output
 from shutil import copy
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from generate import Problem
+from problem import Problem
 from typing import List
 logger = getLogger(__name__)
 
@@ -31,21 +31,44 @@ class TestSuccess(unittest.TestCase):
     # select problem by problem id
     def test_success_user(self):
         with create_test_dir('simple_aplusb') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml')])
+            proc = run(
+                ['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml')])
             self.assertEqual(proc.returncode, 0)
 
     def test_success_dev(self):
         with create_test_dir('simple_aplusb') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml'), '--dev'])
+            proc = run(['./generate.py', str(Path(test_dir) /
+                       'simple_aplusb/info.toml'), '--dev'])
             self.assertEqual(proc.returncode, 0)
 
     def test_success_test(self):
         with create_test_dir('simple_aplusb') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml'), '--test'])
+            proc = run(['./generate.py', str(Path(test_dir) /
+                       'simple_aplusb/info.toml'), '--test'])
             self.assertEqual(proc.returncode, 0)
 
 
+class TestClean(unittest.TestCase):
+    # select problem by problem id
+    def test_clean(self):
+        with create_test_dir('simple_aplusb') as test_dir:
+            proc = run(
+                ['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml')])
+            self.assertEqual(proc.returncode, 0)
+            self.assertTrue((Path(test_dir) / 'simple_aplusb' / 'in').exists())
+            proc = run(
+                ['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml'), '--clean'])
+            self.assertEqual(proc.returncode, 0)
+            self.assertFalse(
+                (Path(test_dir) / 'simple_aplusb' / 'in').exists())
+            # it is ok to run twice
+            proc = run(
+                ['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml'), '--clean'])
+            self.assertEqual(proc.returncode, 0)
+
 # warn: --compile-checker is used in other project(e.g. kmyk/online-judge-verify-helper)
+
+
 class TestCompileChecker(unittest.TestCase):
     def test_compile_checker(self):
         with create_test_dir('simple_aplusb') as test_dir:
@@ -69,17 +92,20 @@ class TestCompileChecker(unittest.TestCase):
 class TestVerify(unittest.TestCase):
     def test_no_verify_user(self):
         with create_test_dir('failed_verify') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) / 'failed_verify/info.toml')])
+            proc = run(
+                ['./generate.py', str(Path(test_dir) / 'failed_verify/info.toml')])
             self.assertEqual(proc.returncode, 0)
 
     def test_no_verify_dev(self):
         with create_test_dir('failed_verify') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) / 'failed_verify/info.toml'), '--dev'])
+            proc = run(['./generate.py', str(Path(test_dir) /
+                       'failed_verify/info.toml'), '--dev'])
             self.assertNotEqual(proc.returncode, 0)
 
     def test_no_verify_test(self):
         with create_test_dir('failed_verify') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) / 'failed_verify/info.toml'), '--test'])
+            proc = run(['./generate.py', str(Path(test_dir) /
+                       'failed_verify/info.toml'), '--test'])
             self.assertNotEqual(proc.returncode, 0)
 
 
@@ -99,12 +125,14 @@ class TestUnusedExample(unittest.TestCase):
 
     def test_unused_example_dev(self):
         with create_test_dir('unused_example') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) / 'unused_example/info.toml'), '--dev'])
+            proc = run(['./generate.py', str(Path(test_dir) /
+                       'unused_example/info.toml'), '--dev'])
             self.assertEqual(proc.returncode, 0)
 
     def test_unused_example_test(self):
         with create_test_dir('unused_example') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) / 'unused_example/info.toml'), '--test'])
+            proc = run(['./generate.py', str(Path(test_dir) /
+                       'unused_example/info.toml'), '--test'])
             self.assertNotEqual(proc.returncode, 0)
 
 
@@ -117,12 +145,14 @@ class TestNonExistExample(unittest.TestCase):
 
     def test_non_exist_dev(self):
         with create_test_dir('nonexist_example') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) / 'nonexist_example/info.toml'), '--dev'])
+            proc = run(['./generate.py', str(Path(test_dir) /
+                       'nonexist_example/info.toml'), '--dev'])
             self.assertNotEqual(proc.returncode, 0)
 
     def test_non_exist_test(self):
         with create_test_dir('nonexist_example') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) / 'nonexist_example/info.toml'), '--test'])
+            proc = run(['./generate.py', str(Path(test_dir) /
+                       'nonexist_example/info.toml'), '--test'])
             self.assertNotEqual(proc.returncode, 0)
 
 
@@ -253,14 +283,16 @@ class TestGenerateHtml(unittest.TestCase):
             proc = run(['./generate.py', str(Path(test_dir) /
                                              'simple_aplusb/info.toml'), '--dev'])
             self.assertEqual(proc.returncode, 0)
-            self.assertTrue((Path(test_dir) / 'simple_aplusb' / 'task.html').exists())
+            self.assertTrue(
+                (Path(test_dir) / 'simple_aplusb' / 'task.html').exists())
 
     def test_generate_html_test(self):
         with create_test_dir('simple_aplusb') as test_dir:
             proc = run(['./generate.py', str(Path(test_dir) /
                                              'simple_aplusb/info.toml'), '--test'])
             self.assertEqual(proc.returncode, 0)
-            self.assertTrue((Path(test_dir) / 'simple_aplusb' / 'task.html').exists())
+            self.assertTrue(
+                (Path(test_dir) / 'simple_aplusb' / 'task.html').exists())
 
 
 class TestHtmlDir(unittest.TestCase):
@@ -270,7 +302,8 @@ class TestHtmlDir(unittest.TestCase):
             proc = run(['./generate.py', str(Path(test_dir) /
                                              'simple_aplusb/info.toml'), '--dev', '--htmldir', html_dir.name])
             self.assertEqual(proc.returncode, 0)
-            self.assertTrue((Path(html_dir.name) / 'simple_aplusb.html').exists())
+            self.assertTrue(
+                (Path(html_dir.name) / 'simple_aplusb.html').exists())
 
     def test_generate_html_test(self):
         with create_test_dir('simple_aplusb') as test_dir:
@@ -278,7 +311,8 @@ class TestHtmlDir(unittest.TestCase):
             proc = run(['./generate.py', str(Path(test_dir) /
                                              'simple_aplusb/info.toml'), '--test', '--htmldir', html_dir.name])
             self.assertEqual(proc.returncode, 0)
-            self.assertTrue((Path(html_dir.name) / 'simple_aplusb.html').exists())
+            self.assertTrue(
+                (Path(html_dir.name) / 'simple_aplusb.html').exists())
 
 
 if __name__ == "__main__":

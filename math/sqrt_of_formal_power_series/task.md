@@ -1,20 +1,20 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given formal power series $f(x) = \sum_{i = 0}^{N - 1} a_i x^i$. Calculate first $N$ elements of $\sqrt{f(x)}$. In other words, print $g(x)$ s.t.
+You are given a formal power series $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$.
+Calculate the first $N$ terms of a square root of $f(x)$.
+In other words, find $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ such that
 
-$$f(x) = g(x) \times g(x) \bmod (x^N)$$
-
-is satisfied. We consider everything in $\mathbb{Z}_{@{param.MOD}}$.
+$$f(x) \equiv g(x)^2 \pmod{x^N}.$$
 
 @{lang.ja}
-母関数 $f(x) = \sum_{i = 0}^{N - 1} a_i x^i$ が与えられます。$\sqrt{f(x)}$ の先頭 $N$ 項を求めてください。つまり
+形式的冪級数 $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ が与えられます。$f(x)$ の平方根の $1$ つの先頭 $N$ 項を求めてください。つまり、
 
-$$f(x) = g(x) \times g(x) \bmod (x^N)$$
+$$f(x) \equiv g(x)^2 \pmod{x^N}$$
 
-となる $g(x)$ を出力してください。ただし係数は全て $\mathbb{Z}_{@{param.MOD}}$ とします
+となる $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ を求めてください。
+
 @{lang.end}
-
 
 ## @{keyword.constraints}
 
@@ -25,13 +25,13 @@ $$f(x) = g(x) \times g(x) \bmod (x^N)$$
 
 ```
 $N$
-$a_0$ $a_1$ ... $a_{N - 1}$
+$a_0$ $a_1$ $\cdots$ $a_{N - 1}$
 ```
 
 ## @{keyword.output}
 
 @{lang.en}
-If there are no $g(x)$, print
+If there are no $g(x)$ satisfying the condition, print
 @{lang.ja}
 条件を満たす $g(x)$ が存在しない場合、
 @{lang.end}
@@ -41,27 +41,19 @@ If there are no $g(x)$, print
 ```
 
 @{lang.en}
-
-and if exists, print
-
+and if such $g(x)$ exists, choose any and print
 @{lang.ja}
 と出力してください。
 
-存在する場合、
+存在する場合、どれか $1$ つを選び、
 @{lang.end}
 
 ```
-$b_0$ $b_1$ ... $b_{N - 1}$
+$b_0$ $b_1$ $\cdots$ $b_{N - 1}$
 ```
 
-@{lang.en}
-We denote $g(x) = \sum_{i = 0}^{N - 1} b_i x^i$.
-
-If there are multiple solutions, print any of them.
 @{lang.ja}
-と出力してください。ただし $g(x) = \sum_{i = 0}^{N - 1} b_i x^i$ とします。
-
-なお、条件を満たすものが複数ある場合、どれか 1 つを選び出力してください。
+と出力してください。
 @{lang.end}
 
 ## @{keyword.sample}

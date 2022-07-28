@@ -1,8 +1,16 @@
 ## @{keyword.statement}
+
+@{lang.en}
+There are $N$ straight lines $y = a_i x + b_i$. Process $Q$ queries.
+
+- `0 $a$ $b$`: Add a straight line $y = ax + b$.
+- `1 $p$`: Find the minimal $y$ at $x = p$.
+@{lang.ja}
 $N$ 本の直線 $y = a_i x + b_i$ が存在します。 $Q$ 個のクエリを処理してください。
 
 - `0 $a$ $b$`: 直線 $y = ax + b$ を追加
 - `1 $p$`: $x = p$ での $y$ 座標の最小を求める。
+@{lang.end}
 
 ## @{keyword.constraints}
 

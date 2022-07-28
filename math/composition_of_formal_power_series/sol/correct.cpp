@@ -264,11 +264,9 @@ struct FPS_BASE:vector<T>{
         P tmp6=t2.diff();
         if(tmp6==P()){
             for(int i=0;i<b;++i){
-                if(tmp.size()==0)break;
-                ans+=(tmp2*tmp[0]).pre(deg)/tmp3;
-                tmp=tmp.diff();
+                if(i>=(int)s.size())break;
+                ans+=(tmp2*s[i]).pre(deg);
                 tmp2=(tmp2*(t-t2)).pre(deg);
-                tmp3*=T(i+1);
             }
         }else{
             while(t2[++tmp5]==T());

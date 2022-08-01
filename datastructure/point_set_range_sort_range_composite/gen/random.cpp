@@ -11,7 +11,10 @@ int main(int, char* argv[]) {
   int n = gen.uniform<int>(N_MIN, N_MAX);
   int q = gen.uniform<int>(Q_MIN, Q_MAX);
   printf("%d %d\n", n, q);
-  vector<int> P = gen.perm<int>(n);
+
+  vector<int> P = gen.choice<int>(n + q, P_MIN, P_MAX);
+  gen.shuffle(P.begin(), P.end()); 
+
   for (int i = 0; i < n; i++) {
     int p = P[i];
     int a = gen.uniform<int>(1, MOD - 1);
@@ -21,10 +24,11 @@ int main(int, char* argv[]) {
   for (int i = 0; i < q; i++) {
     int t = gen.uniform(0, 3);
     if (t == 0) {
-      int i = gen.uniform<int>(0, n - 1);
+      int idx = gen.uniform<int>(0, n - 1);
+      int p = P[n + i];
       int a = gen.uniform<int>(1, MOD - 1);
       int b = gen.uniform<int>(0, MOD - 1);
-      printf("%d %d %d %d\n", t, i, a, b);
+      printf("%d %d %d %d %d\n", t, idx, p, a, b);
     }
     if (t == 1) {
       auto p = gen.uniform_pair<int>(0, n);

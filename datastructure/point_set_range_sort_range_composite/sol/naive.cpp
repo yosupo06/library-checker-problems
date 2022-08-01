@@ -22,9 +22,8 @@ int main() {
     int t;
     scanf("%d", &t);
     if (t == 0) {
-      int i, a, b;
-      scanf("%d %d %d", &i, &a, &b);
-      int p = get<0>(dat[i]);
+      int i, p, a, b;
+      scanf("%d %d %d %d", &i, &p, &a, &b);
       dat[i] = {p, a, b};
     }
     if (t == 1) {

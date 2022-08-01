@@ -1,21 +1,19 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given a size $N$ sequence of linear functions $f_0, f_1, ..., f_{N-1}$. 
-For all $i$, $f_i(x) = a_i x + b_i$. 
+A Sequence of triples of integers $\bigl((p_i, a_i, b_i)\bigr)_{0\leq i < N}$ is given. 
 Process $Q$ queries as follows:
 
-- `0 $i$ $a$ $b$`: change $a_i \gets a$ and $b_i\gets b$. 
-- `1 $l$ $r$ $x$`: print $f_{r-1}(f_{r-2}(...f_l(x))) \bmod @{param.MOD}$.
+- `0 $i$ $p$ $a$ $b$`: change $(p_i,a_i,b_i) \gets (p,a,b)$.
+- `1 $l$ $r$ $x$`: print $f_{r-1}(f_{r-2}(...f_l(x))) \bmod @{param.MOD}$, where $f_i(x) := a_ix + b$.
 - `2 $l$ $r$`: Sort $\bigl((p_i, a_i, b_i)\bigr)_{l\leq i < r}$ so that $p_i$ is **increasing**. 
 - `3 $l$ $r$`: Sort $\bigl((p_i, a_i, b_i)\bigr)_{l\leq i < r}$ so that $p_i$ is **decreasing**. 
 
 @{lang.ja}
-非負整数の $3$ つ組の列 $\bigl((p_i, a_i, b_i)\bigr)_{0\leq i < N}$ が与えられます。
-$p_i$ は $0\leq p_i\leq N-1$ を満たす相異なる整数です。
+整数の $3$ つ組の列 $\bigl((p_i, a_i, b_i)\bigr)_{0\leq i < N}$ が与えられます。
 次の $Q$ 個のクエリを処理してください。
 
-- `0 $i$ $a$ $b$`: $a_i$ を $c$ に変更し，$b_i$ を $d$ に変更する。
+- `0 $i$ $p$ $a$ $b$`: $(p_i, a_i, b_i)$ を $(p, a, b)$ に変更する。
 - `1 $l$ $r$ $x$`: $f_i(x) = a_ix + b_i$ とするとき、$f_{r-1}(f_{r-2}(...f_l(x))) \bmod @{param.MOD}$ を出力する。
 - `2 $l$ $r$`：$\bigl((p_i, a_i, b_i)\bigr)_{l\leq i < r}$ を $p_i$ が**昇順**に並ぶようにソートする。
 - `3 $l$ $r$`：$\bigl((p_i, a_i, b_i)\bigr)_{l\leq i < r}$ を $p_i$ が**降順**に並ぶようにソートする。
@@ -26,11 +24,12 @@ $p_i$ は $0\leq p_i\leq N-1$ を満たす相異なる整数です。
 
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
 - $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
-- $0 \leq p_i < N$
-- $p_i\neq p_j (i\neq j)$ 
 - $0 \leq i < N$
+- $@{param.P_MIN} \leq p_i, p \leq @{param.P_MAX}$
+- All values $p_i, p$ (initial values and values given in query 0) are distinct. 
 - $1 \leq a_i, a < @{param.MOD}$
-- $0 \leq b_i, b, x < @{param.MOD}$
+- $0 \leq b_i, b < @{param.MOD}$
+- $0 \leq x < @{param.MOD}$
 - $0 \leq l < r \leq N$
 
 ## @{keyword.input}

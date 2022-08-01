@@ -2,7 +2,7 @@
 template <typename Monoid, int NODES = 4'000'000>
 struct Sortable_SegTree {
   using X = typename Monoid::value_type;
-  const int N;
+  const int N, KEY_MAX;
 
   struct Node {
     X x, rev_x;
@@ -21,40 +21,32 @@ struct Sortable_SegTree {
   // 区間の左端に、dynamic segtree の node を乗せる
   vector<bool> rev;
   vector<Node*> root;
-  Sortable_SegTree(vector<int> key, vector<X> dat)
-      : N(key.size()), pid(0), ss(key.size()), seg(dat) {
-    {
-      // key を座圧
-      auto tmp = key;
-      sort(tmp.begin(), tmp.end());
-      tmp.erase(unique(tmp.begin(), tmp.end()), tmp.end());
-      assert(int(tmp.size()) == N);
-      for (auto&& k: key) {
-        k = lower_bound(tmp.begin(), tmp.end(), k) - tmp.begin();
-      }
-    }
+  Sortable_SegTree(int KEY_MAX, vector<int> key, vector<X> dat)
+      : N(key.size()), KEY_MAX(KEY_MAX), pid(0), ss(key.size()), seg(dat) {
     pool = new Node[NODES];
     init(key, dat);
   }
 
-  void set(int i, const X& x) {
-    int l = ss.prev(i);
-    int r = ss.next(l + 1);
-    i = (rev[l] ? r - 1 - i : i - l);
-    set_rec_idx(root[l], 0, N, i, x);
-    seg.set(l, (rev[l] ? root[l]->rev_x : root[l]->x));
+  void set(int i, int key, const X& x) {
+    assert(key < KEY_MAX);
+    split_at(i);
+    split_at(i + 1);
+    rev[i] = 0;
+    root[i] = new_node();
+    set_rec_key(root[i], 0, KEY_MAX, key, x);
+    seg.set(i, x);
   }
 
   X prod_all() { return seg.prod_all(); }
 
   X prod(int l, int r) {
     if (pid > NODES * 0.9) rebuild();
-    make_border(l), make_border(r);
+    split_at(l), split_at(r);
     return seg.prod(l, r);
   }
 
   void sort_inc(int l, int r) {
-    make_border(l), make_border(r);
+    split_at(l), split_at(r);
     while (1) {
       if (pid > NODES * 0.9) rebuild();
       Node* n = root[l];
@@ -82,10 +74,13 @@ private:
     seg.set_all(dat);
     for (int i = 0; i < N; ++i) ss.insert(i);
     for (int i = 0; i < N; ++i) root.emplace_back(new_node(Monoid::unit()));
-    for (int i = 0; i < N; ++i) { set_rec_key(root[i], 0, N, key[i], dat[i]); }
+    for (int i = 0; i < N; ++i) {
+      assert(key[i] < KEY_MAX);
+      set_rec_key(root[i], 0, KEY_MAX, key[i], dat[i]);
+    }
   }
 
-  void make_border(int x) {
+  void split_at(int x) {
     if (x == N || ss[x]) return;
     int a = ss.prev(x);
     int b = ss.next(a + 1);
@@ -131,7 +126,7 @@ private:
       }
     };
     for (int i = 0; i < N; ++i) {
-      if (ss[i]) dfs(dfs, root[i], 0, N, rev[i]);
+      if (ss[i]) dfs(dfs, root[i], 0, KEY_MAX, rev[i]);
     }
     assert(int(key.size()) == N);
 

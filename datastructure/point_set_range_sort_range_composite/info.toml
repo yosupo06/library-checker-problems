@@ -48,5 +48,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/122"
     MOD = 998_244_353
     N_MIN = 1
     N_MAX = 100_000
+    P_MIN = 0
+    P_MAX = 1_000_000_000
     Q_MIN = 1
     Q_MAX = 100_000

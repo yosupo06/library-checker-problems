@@ -14,7 +14,6 @@ int main() {
 
   set<int> s;
 
-  vector<bool> done(n);
   for (int i = 0; i < n; i++) {
     int p = inf.readInt(P_MIN, P_MAX, "p");
     inf.readSpace();

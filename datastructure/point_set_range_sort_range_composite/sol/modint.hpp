@@ -40,7 +40,7 @@ struct modint {
     }
     return modint(u);
   }
-  modint pow(int64_t n) const {
+  modint pow(long long n) const {
     modint ret(1), mul(val);
     while (n > 0) {
       if (n & 1) ret *= mul;

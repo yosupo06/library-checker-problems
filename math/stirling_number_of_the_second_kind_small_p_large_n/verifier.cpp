@@ -5,15 +5,24 @@
 
 using namespace std;
 
+bool is_prime(int p) {
+  if (p <= 1) return false;
+  for (int i = 2; i < p; ++i)
+    if (p % i == 0) return false;
+  return true;
+}
+
 int main() {
   registerValidation();
 
-  int t = inf.readInt(1, (int)T_MAX);
+  int T = inf.readInt(1, T_MAX);
   inf.readSpace();
-  inf.readInt(1, (int)M_MAX);
+  int p = inf.readInt(1, P_MAX);
   inf.readChar('\n');
 
-  for (int i = 0; i < t; i++) {
+  ensure(is_prime(p));
+
+  for (int t = 0; t < T; t++) {
     long long n = inf.readLong(0LL, N_MAX);
     inf.readSpace();
     long long k = inf.readLong(0LL, N_MAX);

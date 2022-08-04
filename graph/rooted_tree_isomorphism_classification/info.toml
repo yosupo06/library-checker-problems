@@ -24,7 +24,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/796"
 
 [[tests]]
     name = "small_random.cpp"
-    number = 10
+    number = 3
 
 [[tests]]
     name = "sqrt.cpp"

@@ -2,10 +2,10 @@
 
 @{lang.en}
 
-Given a tree with $N$ vertices, where the $i$-th edge connects vertex $u_i$ and $v_i$. Value $a_i$ is written on the vertex $i$. Process the following $Q$ queries in order:
+Given a tree with $N$ vertices, where the $i$-th edge connects vertices $u_i$ and $v_i$. Value $a_i$ is written on the vertex $i$. Process the following $Q$ queries in order:
 
 - `0 $p$ $x$`: $a_p \leftarrow a_p+x$
-- `1 $p$ $l$ $r$`: Print the sum of the values written on the vertices whose distance from vertex $p$ is in $[l,r)$.
+- `1 $p$ $l$ $r$`: Print the sum of the values written on the vertices whose distance from the vertex $p$ is in $[l,r)$.
 
 @{lang.ja}
 
@@ -32,7 +32,7 @@ $N$ $Q$
 $a_0$ $\cdots$ $a_{N-1}$
 $u_0$ $v_0$
 $\vdots$
-$u_{N-1}$ $v_{N-1}$
+$u_{N-2}$ $v_{N-2}$
 $\mathrm{Query}_0$
 $\vdots$
 $\mathrm{Query}_{Q-1}$

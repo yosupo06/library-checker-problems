@@ -1,3 +1,4 @@
+#include <array>
 #include <cassert>
 #include <cstdint>
 #include <deque>
@@ -5,6 +6,7 @@
 #include <map>
 #include <queue>
 #include <tuple>
+#include <utility>
 #include <vector>
 
 template <typename T, T(*op)(T, T), T(*e)()>

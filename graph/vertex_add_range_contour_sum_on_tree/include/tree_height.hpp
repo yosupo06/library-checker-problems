@@ -5,8 +5,14 @@
 #include <deque>
 #include <vector>
 
-std::vector<int> tree_height(const std::vector<std::vector<int>> &g) {
-    const int n = g.size();
+std::vector<int> tree_height(const int n, const std::vector<std::pair<int, int>> &edges) {
+    std::vector<std::vector<int>> g(n);
+    for (auto e : edges) {
+        int u, v;
+        std::tie(u, v) = e;
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
 
     auto dist = [&](int s) {
         std::vector<int> d(n, -1);

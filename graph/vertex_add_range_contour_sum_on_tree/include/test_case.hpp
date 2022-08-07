@@ -4,18 +4,27 @@
 #include <cassert>
 #include <iostream>
 #include <tuple>
+#include <utility>
 #include <vector>
 
+#include "gen_tree.hpp"
+
 struct TestCase {
-    TestCase() : TestCase(0, 0, std::vector<int>{}) {}
-    template <typename T, std::enable_if_t<std::is_constructible_v<int, T>, std::nullptr_t> = nullptr>
-    TestCase(int n, int q, const std::vector<T>& init_a) : n(n), q(q), a(n) {
-        assert(int(init_a.size()) == n);
-        std::copy(init_a.begin(), init_a.end(), a.begin());
+    TestCase(int n = 0, int q = 0) : n(n), q(q), a(n) {}
+
+    void set_random_init_values(Random &gen) {
+        for (auto &e : a) e = gen.uniform(A_MIN, A_MAX);
+    }
+    template <typename T>
+    void set_init_values(const std::vector<T> &init_a) {
+        std::copy(std::begin(init_a), std::end(init_a), std::begin(a));
     }
 
     void add_edge(int u, int v) {
         edges.emplace_back(u, v);
+    }
+    void add_edges(const std::vector<std::pair<int, int>>& edges) {
+        for (const auto& [u, v] : edges) add_edge(u, v);
     }
 
     void add_addquery(int p, int x) {
@@ -23,6 +32,20 @@ struct TestCase {
     }
     void add_sumquery(int p, int l, int r) {
         qs.emplace_back(SUM_QUERY, p, l, r);
+    }
+
+    void add_random_queries(Random& gen, double sum_query_ratio = 0.5, const std::vector<int>& h = {}) {
+        for (int i = 0; i < q; ++i) {
+            int query_type = gen.uniform01() < sum_query_ratio;
+            int p = gen.uniform(0, n - 1);
+            if (query_type == 0) {
+                int x = gen.uniform(X_MIN, X_MAX);
+                add_addquery(p, x);
+            } else {
+                auto dist_range = gen.uniform_pair(0, h.empty() ? n : h[p] + 1);
+                add_sumquery(p, dist_range.first, dist_range.second);
+            }
+        }
     }
 
     friend std::ostream& operator<<(std::ostream& out, const TestCase& tc) {

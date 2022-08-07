@@ -79,7 +79,7 @@ int main() {
         } else {
             int l = inf.readInt(0, n);
             inf.readSpace();
-            inf.readInt(l, n);
+            inf.readInt(l + 1, n);
         }
         inf.readEoln();
     }

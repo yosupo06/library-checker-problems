@@ -1,0 +1,29 @@
+title = 'Stirling Number of the Second Kind (small p, large n)'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/817"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small_n.cpp"
+    number = 6
+[[tests]]
+    name = "random.cpp"
+    number = 6
+[[tests]]
+    name = "small_p.cpp"
+    number = 6
+
+
+[[solutions]]
+    name = "naive.cpp"
+    wrong = false
+    allow_tle = true
+
+[params]
+    T_MAX = 200_000
+    P_MIN = 2
+    P_MAX = 5000
+    N_MIN = 0
+    N_MAX = 1_000_000_000_000_000_000

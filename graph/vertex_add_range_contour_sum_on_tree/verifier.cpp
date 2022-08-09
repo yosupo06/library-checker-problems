@@ -30,7 +30,7 @@
 #include "params.h"
 
 struct UnionFind {
-    UnionFind(int n = 0) : _n(n), _p(n, -1) {}
+    UnionFind(int n = 0) : _p(n, -1) {}
     int leader(int u) {
         return _p[u] >= 0 ? _p[u] = leader(_p[u]) : u;
     }
@@ -42,7 +42,6 @@ struct UnionFind {
         return true;
     }
 private:
-    int _n;
     std::vector<int> _p;
 };
 

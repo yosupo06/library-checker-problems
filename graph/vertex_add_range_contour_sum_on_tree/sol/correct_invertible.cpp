@@ -2,9 +2,9 @@
 #include <array>
 #include <cassert>
 #include <deque>
-#include <iostream>
 #include <queue>
 #include <random>
+#include <stdio.h>
 #include <utility>
 #include <vector>
 
@@ -67,8 +67,8 @@ private:
     };
 public:
     PointAddRangeContourSumOnTree(int n = 0, const value_type& fill_value = _zero()) : PointAddRangeContourSumOnTree(std::vector<value_type>(n, fill_value)) {}
-    PointAddRangeContourSumOnTree(const std::vector<value_type>& dat) : _n(dat.size()), _nodes(_n), _par(2 * _n, -1), _info(_n), _subtrees(2 * _n), _ord(_n) {
-        for (int i = 0; i < _n; ++i) _nodes[i].dat = dat[i], _nodes[i].info_it = _info[i].begin(), _ord[i] = i;
+    PointAddRangeContourSumOnTree(const std::vector<value_type>& dat) : _n(dat.size()), _nodes(_n), _par(2 * _n, -1), _info(_n), _subtrees(2 * _n) {
+        for (int i = 0; i < _n; ++i) _nodes[i].dat = dat[i], _nodes[i].info_it = _info[i].begin();
     }
 
     void add_edge(int u, int v) {
@@ -77,9 +77,6 @@ public:
     }
 
     void build() {
-        std::mt19937 rng{ std::random_device{}() };
-        reorder(std::uniform_int_distribution<int>{ 0, _n - 1 }(rng));
-
         int new_node = _n;
         std::vector<int> sub_size(2 * _n, 0);
         std::vector<int> ctr(2 * _n, -1);
@@ -174,22 +171,18 @@ public:
     }
 
     value_type get(int u) const {
-        u = _ord[u];
         return _nodes[u].dat;
     }
     void add(int u, const value_type& val) {
-        u = _ord[u];
         _nodes[u].dat = _add(_nodes[u].dat, val);
         int v = _par[u];
         const auto it_end = _nodes[u].info_it;
         for (auto it = _info[u].begin(); it != it_end; ++it) _subtrees[std::exchange(v, _par[v])][it->child_index].add(it->dep, val);
     }
     void set(int u, const value_type& new_val) {
-        u = _ord[u];
         add(u, _add(new_val, _neg(get(u))));
     }
     value_type sum(int u, int dl, int dr) const {
-        u = _ord[u];
         value_type res = dl <= 0 and 0 < dr ? _nodes[u].dat : _zero();
         res = _add(res, _subtrees[u][0].sum(dl - 1, dr - 1));
         res = _add(res, _subtrees[u][1].sum(dl - 1, dr - 1));
@@ -209,59 +202,36 @@ private:
     std::vector<int> _par;
     std::vector<std::array<AuxData, 30>> _info;
     std::vector<std::array<sequence_type, 2>> _subtrees;
-    
-    std::vector<int> _ord;
-
-    void reorder(int s) {
-        _ord.assign(_n, -1);
-        int t = 0;
-        std::deque<int> dq { s };
-        while (dq.size()) {
-            int u = dq.front(); dq.pop_front();
-            _ord[u] = t++;
-            for (int v : _nodes[u].adj) if (_ord[v] < 0) dq.push_back(v);
-        }
-        assert(t == _n);
-        std::vector<TreeNode> tmp(_n);
-        for (int i = 0; i < _n; ++i) {
-            for (int &e : _nodes[i].adj) e = _ord[e];
-            _nodes[i].info_it = _info[_ord[i]].begin();
-            tmp[_ord[i]] = std::move(_nodes[i]);
-        }
-        _nodes.swap(tmp);
-    }
 };
 
 int main() {
-    std::ios::sync_with_stdio(false);
-    std::cin.tie(nullptr);
-
     int n, q;
-    std::cin >> n >> q;
+    scanf("%d %d", &n, &q);
 
     std::vector<long long> a(n);
-    for (auto& e : a) std::cin >> e;
+    for (auto &e : a) scanf("%lld", &e);
 
     PointAddRangeContourSumOnTree<long long> g(a);
     for (int i = 0; i < n - 1; ++i) {
         int u, v;
-        std::cin >> u >> v;
+        scanf("%d %d", &u, &v);
         g.add_edge(u, v);
     }
     g.build();
 
     for (int i = 0; i < q; ++i) {
         int query_type;
-        std::cin >> query_type;
+        scanf("%d", &query_type);
 
         if (query_type == 0) {
             int p, x;
-            std::cin >> p >> x;
-            g.add(p, x);
+            scanf("%d %d", &p, &x);
+            g.set(p, g.get(p) + x);
         } else {
             int p, l, r;
-            std::cin >> p >> l >> r;
-            std::cout << g.sum(p, l, r) << '\n';
+            scanf("%d %d %d", &p, &l, &r);
+            long long ans = g.sum(p, l, r);
+            printf("%lld\n", ans);
         }
     }
 

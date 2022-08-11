@@ -2,9 +2,9 @@
 #include <cassert>
 #include <cstdint>
 #include <deque>
-#include <iostream>
 #include <map>
 #include <queue>
+#include <stdio.h>
 #include <tuple>
 #include <utility>
 #include <vector>
@@ -220,35 +220,33 @@ long long e() {
 }
 
 int main() {
-    std::ios::sync_with_stdio(false);
-    std::cin.tie(nullptr);
-
     int n, q;
-    std::cin >> n >> q;
+    scanf("%d %d", &n, &q);
 
     std::vector<long long> a(n);
-    for (auto &e : a) std::cin >> e;
+    for (auto &e : a) scanf("%lld", &e);
 
     PointSetRangeContourSumOnTree<long long, op, e> g(a);
     for (int i = 0; i < n - 1; ++i) {
         int u, v;
-        std::cin >> u >> v;
+        scanf("%d %d", &u, &v);
         g.add_edge(u, v);
     }
     g.build();
 
     for (int i = 0; i < q; ++i) {
         int query_type;
-        std::cin >> query_type;
+        scanf("%d", &query_type);
 
         if (query_type == 0) {
             int p, x;
-            std::cin >> p >> x;
+            scanf("%d %d", &p, &x);
             g.set(p, g.get(p) + x);
         } else {
             int p, l, r;
-            std::cin >> p >> l >> r;
-            std::cout << g.prod(p, l, r) << '\n';
+            scanf("%d %d %d", &p, &l, &r);
+            long long ans = g.prod(p, l, r);
+            printf("%lld\n", ans);
         }
     }
 

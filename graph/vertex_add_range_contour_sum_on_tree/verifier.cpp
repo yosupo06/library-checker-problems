@@ -51,20 +51,20 @@ int main() {
     int n = inf.readInt(N_MIN, N_MAX);
     inf.readSpace();
     int Q = inf.readInt(Q_MIN, Q_MAX);
-    inf.readEoln();
+    inf.readChar('\n');
 
     for (int i = 0; i < n; ++i) {
         inf.readInt(A_MIN, A_MAX);
         if (i + 1 != n) inf.readSpace();
     }
-    inf.readEoln();
+    inf.readChar('\n');
 
     UnionFind uf(n);
     for (int i = 0; i < n - 1; i++) {
         int u = inf.readInt(0, n - 1);
         inf.readSpace();
         int v = inf.readInt(0, n - 1);
-        inf.readEoln();
+        inf.readChar('\n');
         ensure(uf.merge(u, v));
     }
 
@@ -80,7 +80,7 @@ int main() {
             inf.readSpace();
             inf.readInt(l + 1, n);
         }
-        inf.readEoln();
+        inf.readChar('\n');
     }
     inf.readEof();
     return 0;

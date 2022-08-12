@@ -32,6 +32,13 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/744'
 [[tests]]
     name = "killer_straight.cpp"
     number = 1
+
+[[solutions]]
+	name = "other_correct.cpp"
+	wrong = false
+[[solutions]]
+	name = "WA1.cpp"
+	wrong = true
 [params]
     P_MIN = 0
     N_MIN = 1

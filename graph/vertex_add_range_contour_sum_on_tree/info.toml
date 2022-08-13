@@ -1,0 +1,78 @@
+title = 'Vertex Add Range Contour Sum On Tree'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/816"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[tests]]
+    name = "random_small_tree_many_query_1.cpp"
+    number = 5
+[[tests]]
+    name = "random_small_tree_many_query_2.cpp"
+    number = 5
+
+[[tests]]
+    name = "random_medium_1.cpp"
+    number = 2
+[[tests]]
+    name = "random_medium_2.cpp"
+    number = 8
+
+[[tests]]
+    name = "random_large_1.cpp"
+    number = 1
+[[tests]]
+    name = "random_large_2.cpp"
+    number = 1
+
+[[tests]]
+    name = "random_max_1.cpp"
+    number = 1
+[[tests]]
+    name = "random_max_2.cpp"
+    number = 1
+
+[[tests]]
+    name = "random_many_addquery_2.cpp"
+    number = 2
+
+[[tests]]
+    name = "random_many_sumquery_2.cpp"
+    number = 2
+
+[[tests]]
+    name = "uni_2.cpp"
+    number = 2
+
+[[tests]]
+    name = "binary_2.cpp"
+    number = 2
+
+[[tests]]
+    name = "line_1.cpp"
+    number = 1
+[[tests]]
+    name = "line_2.cpp"
+    number = 1
+
+[[solutions]]
+    name = "correct_invertible.cpp"
+    allow_tle = false
+    wrong = false
+
+[[solutions]]
+    name = "tle.cpp"
+    allow_tle = true
+    wrong = false
+
+[params]
+    N_MIN = 1
+    N_MAX = 100_000
+    Q_MIN = 1
+    Q_MAX = 200_000
+    A_MIN = -1_000_000_000
+    A_MAX = 1_000_000_000
+    X_MIN = -1_000_000_000
+    X_MAX = 1_000_000_000

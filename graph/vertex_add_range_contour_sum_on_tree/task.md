@@ -23,6 +23,7 @@ $N$ 頂点からなる木が与えられます。$i$ 番目の辺は $u_i$ と $
 - $@{param.A_MIN} \leq a_i \leq @{param.A_MAX}$
 - $0 \leq u_i, v_i \leq N-1$
 - $0 \leq p \leq N-1$
+- $@{param.X_MIN} \leq x \leq @{param.X_MAX}$
 - $0 \leq l \lt r \leq N$
 
 ## @{keyword.input}

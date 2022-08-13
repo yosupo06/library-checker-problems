@@ -106,6 +106,8 @@ markdown + mathjax形式です。他のtask.mdをコピペして弄ればいい�
 入力が、制約を満たしているかを確認するコードです。
 [https://codeforces.com/blog/entry/18426](https://codeforces.com/blog/entry/18426) や、他の様々な問題の`verifier.cpp`が参考になると思います。よっぽど変な制約じゃ無い場合そんなに難しくないと思います。
 
+- windowsの改行コードの都合で `readEoln()` ではなく `readChar('\n')` を使う 
+
 ## checker.cpp(output checker)
 
 参加者の出力が、条件を満たしているか判定するコードです。

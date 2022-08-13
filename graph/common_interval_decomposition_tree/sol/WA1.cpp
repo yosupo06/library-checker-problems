@@ -19,11 +19,11 @@ int main()
     auto dfs = [&](auto dfs, np t, int par) -> void
     {
         int now = v.size();
-        v.emplace_back(par, t->l, t->r, (t->is_join ? "linear" : "prime"));
         for (auto e : t->ch)
         {
             dfs(dfs, e, now);
         }
+        v.emplace_back(par, t->l, t->r, (t->is_join ? "linear" : "prime"));
     };
     dfs(dfs, root, -1);
     printf("%zu\n", v.size());

@@ -20,6 +20,7 @@ int main()
     {
         int now = v.size();
         v.emplace_back(par, t->l, t->r, (t->is_join ? "linear" : "prime"));
+        reverse(t->ch.begin(), t->ch.end());
         for (auto e : t->ch)
         {
             dfs(dfs, e, now);

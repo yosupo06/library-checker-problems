@@ -2,12 +2,12 @@
 
 @{lang.en}
 
-Given a rooted tree with $N$ vertices. The root of tree is a vertex $0$ . A parent of vertex $i$ is $p _ i$ . You can get $N$ rooted subtrees by choosing a root. Classify them by isomorphism of rooted trees.
+Given a rooted tree with $N$ vertices. The root of tree is the vertex $0$ . A parent of the vertex $i$ is $p _ i$ . You will get $N$ rooted subtrees by choosing a root. Classify them by isomorphism of rooted trees.
 
 Now print a number of distinct subtrees $K$ and an integer seqence $a _ 0 , a _ 1 , \ldots , a _ {N-1}$ that satisfy the following conditions.
 
 - $0 \leq a _ i \lt K$
-- $a _ i = a _ j$ if and only if subtrees whose roots are $i$ and $j$ are isomorphic.
+- $a _ i = a _ j$ if and only if the $2$ subtrees whose roots are $i$ and $j$ are isomorphic.
 
 @{lang.ja}
 
@@ -42,7 +42,7 @@ $a _ 0$ $a _ 1$ $\ldots$ $a _ {N-1}$
 
 
 @{lang.en}
-If there is multiple solutions, print any of them.
+If there are multiple solutions, print any of them.
 @{lang.ja}
 正しい出力が複数存在する場合は、どれを出力しても構わない。
 @{lang.end}

@@ -4,7 +4,7 @@
 
 Given a rooted tree with $N$ vertices. The root of tree is a vertex $0$ . A parent of vertex $i$ is $p _ i$ . You can get $N$ rooted subtrees by choosing a root. Classify them by isomorphism of rooted trees.
 
-Print a number of distinct subtrees $K$ and an integer seqence $a _ 0 , a _ 1 , \ldots , a _ {N-1}$ that satisfy the following conditions.
+Now print a number of distinct subtrees $K$ and an integer seqence $a _ 0 , a _ 1 , \ldots , a _ {N-1}$ that satisfy the following conditions.
 
 - $0 \leq a _ i \lt K$
 - $a _ i = a _ j$ if and only if subtrees whose roots are $i$ and $j$ are isomorphic.
@@ -13,7 +13,7 @@ Print a number of distinct subtrees $K$ and an integer seqence $a _ 0 , a _ 1 , 
 
 $N$ 頂点の根付き木が与えられる。根は頂点 $0$ である。頂点 $i$ の親は $p _ i$ である。ある頂点を根とする部分木（全部で $N$ 個）について、根付き木の同型性で分類せよ。
 
-部分木の種類数 $K$ と、次の条件を満たす整数列 $a _ 0 , a _ 1 , \ldots , a _ {N-1}$ を出力せよ。
+このとき部分木の種類数 $K$ と、次の条件を満たす整数列 $a _ 0 , a _ 1 , \ldots , a _ {N-1}$ を出力せよ。
 
 - $0 \leq a _ i \lt K$
 - 頂点 $i$ , $j$ をそれぞれ根とする部分木が同型であるならば、またその時に限り $a _ i = a _ j$ 。

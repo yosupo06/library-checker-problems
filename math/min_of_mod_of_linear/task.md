@@ -3,20 +3,21 @@
 @{lang.en}
 Each test case consists of $T$ cases.
 
-Given $N, M, A, B$. Print $\sum_{i = 0}^{N - 1} floor((A \times i + B) / M)$.
+Given $N, M, A, B$. Print $\min_{0\leq i < N}\bigl((A\times i + B)\bmod M\bigr)$. 
+
 @{lang.ja}
 この問題は $T$ ケース与えられます。
 
 $N, M, A, B$ が与えられます。
+$\min_{0\leq i < N}\bigl((A\times i + B)\bmod M\bigr)$ を求めてください。
 
-$\sum_{i = 0}^{N - 1} floor((A \times i + B) / M)$ を求めてください。
 @{lang.end}
 
 
 ## @{keyword.constraints}
 
-- $1 \leq T \leq 100,000$
-- $1 \leq N, M \leq 10^9$
+- $@{param.T_MIN} \leq T \leq @{param.T_MAX}$
+- $@{param.NM_MIN} \leq N, M \leq @{param.NM_MAX}$
 - $0 \leq A, B < M$
 
 ## @{keyword.input}

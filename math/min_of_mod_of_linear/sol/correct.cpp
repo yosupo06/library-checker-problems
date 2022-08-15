@@ -1,58 +1,101 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
-using uint = unsigned int;
 using ll = long long;
-using ull = unsigned long long;
-constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }
-template <class T> using V = vector<T>;
-template <class T> using VV = V<V<T>>;
 
-/**
- * a / b, a // b : 小数, 整数としての割り算
- * sum_{i = 0..n-1} (ai + b) // m を求める
- * 
- * 線分 y = (ax + b) / m, (0 <= x <= n)は真下に何個(完全な)正方形を含むか？と同値
- */
-ll sum_of_floor(ll n, ll m, ll a, ll b) {
-    ll ans = 0;
-    if (a >= m) {
-        ans += (n - 1) * n * (a / m) / 2;
-        a %= m;
+template <class T>
+using vc = vector<T>;
+
+int gcd(int a, int b) {
+  while (b) {
+    a %= b;
+    swap(a, b);
+  }
+  return a;
+}
+
+/*
+ax + b (x>=0) が最小となるところの情報を返す。
+prefix min を更新する x 全体が、等差数列の和集合。次を返す。
+・等差数列の境界となる x_0, x_1, ..., x_n
+・各境界の間での交差 dx_0, ..., dx_{n-1}
+*/
+pair<vc<int>, vc<int>> min_of_linear_segments(int a, int b, int mod) {
+  assert(0 <= a && a < mod);
+  assert(0 <= b && b < mod);
+  vc<int> X = {0};
+  vc<int> DX;
+  int g = gcd(a, mod);
+  a /= g, b /= g, mod /= g;
+  // p/q <= (mod-a)/mod <= r/s
+  int p = 0, q = 1, r = 1, s = 1;
+  int det_l = mod - a, det_r = a;
+  int x = 0, y = b;
+
+  while (y) {
+    // upd r/s
+    int k = det_r / det_l;
+    det_r %= det_l;
+    if (det_r == 0) {
+      --k;
+      det_r = det_l;
     }
-    if (b >= m) {
-        ans += n * (b / m);
-        b %= m;
+    r += k * p;
+    s += k * q;
+    while (1) {
+      int k = max(0, (det_l - y + det_r - 1) / det_r);
+      if (det_l - k * det_r <= 0) break;
+      det_l -= k * det_r;
+      p += k * r;
+      q += k * s;
+      // p/q <= a/mod
+      // (aq - pmod) = det_l を y から引く
+      k = y / det_l;
+      y -= k * det_l;
+      x += q * k;
+      X.emplace_back(x);
+      DX.emplace_back(q);
     }
+    k = det_l / det_r;
+    det_l -= k * det_r;
+    p += k * r;
+    q += k * s;
+    assert(min({p, q, r, s}) >= 0);
+  }
+  return {X, DX};
+}
 
-    /**
-     * 線分の端点を、y座標が整数になるようにちょっとずらす -> 90度回転
-     * y座標: (b / m, (an + b) / m) -> (0, y_max)
-     * x座標: (0, n) -> (-b / a, x_max / a)
-     * 
-     * 端点をずらすことで答えは (n - ceil(x_max / a)) * y_max 減る
-     * 
-     * 90度回転する
-     * (m / a) * x + (b2 / a) = y_max
-     */
-
-    ll y_max = (a * n + b) / m, x_max = (y_max * m - b);
-    if (y_max == 0) return ans;
-    ans += (n - (x_max + a - 1) / a) * y_max;
-    ans += sum_of_floor(y_max, a, m, (a - x_max % a) % a);
-    return ans;
+// min_{x in [L, R)} (ax+b mod)
+pair<ll, int> min_of_linear(ll L, ll R, int a, int b, int mod) {
+  ll n = R - L;
+  b = (b + a * L) % mod;
+  if (b < 0) b += mod;
+  auto [X, DX] = min_of_linear_segments(a, b, mod);
+  int x = 0;
+  for (int i = 0; i < int(X.size()) - 1; ++i) {
+    int xl = X[i], xr = X[i + 1];
+    if (xr < n) {
+      x = xr;
+      continue;
+    }
+    x = xl + (n - 1 - x) / DX[i] * DX[i];
+    break;
+  }
+  int y = (ll(a) * x + b) % mod;
+  return {L + x, y};
 }
 
 int main() {
-
-    int t;
-    scanf("%d", &t);
-    for (int i = 0; i < t; i++) {
-        ll n, m, a, b;
-        scanf("%lld %lld %lld %lld", &n, &m, &a, &b);
-        printf("%lld\n", sum_of_floor(n, m, a, b));
-    }
-    return 0;
+  int t;
+  scanf("%d", &t);
+  for (int i = 0; i < t; i++) {
+    ll n, m, a, b;
+    scanf("%lld %lld %lld %lld", &n, &m, &a, &b);
+    auto [x, y] = min_of_linear(0, n, a, b, m);
+    printf("%d\n", y);
+  }
+  return 0;
 }

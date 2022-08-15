@@ -8,10 +8,10 @@ int main(int, char* argv[]) {
   long long seed = atoll(argv[1]);
   auto gen = Random(seed);
 
-  int t = T_MAX;
+  int t = gen.uniform(1, 100'000);
   printf("%d\n", t);
   for (int i = 0; i < t; i++) {
-    int n = gen.uniform<int>(NM_MIN, NM_MAX);
+    int n = gen.uniform<int>(NM_MIN, 1000);
     int m = gen.uniform<int>(NM_MIN, NM_MAX);
     int a = gen.uniform<int>(0, m - 1);
     int b = gen.uniform<int>(0, m - 1);

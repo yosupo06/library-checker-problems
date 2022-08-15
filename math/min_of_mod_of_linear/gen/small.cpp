@@ -4,20 +4,32 @@
 using namespace std;
 
 int main(int, char* argv[]) {
+  long long seed = atoll(argv[1]);
+  seed %= 10;
 
+  int T = 0;
+  int LIM = 40;
 
-    long long seed = atoll(argv[1]);
-    auto gen = Random(seed);
-
-    int t = gen.uniform(1, 100'000);
-    printf("%d\n", t);
-    for (int i = 0; i < t; i++) {
-        int n = gen.uniform(1, 1'000);
-        int m = gen.uniform(1, 1'000);
-        int a = gen.uniform(0, m - 1);
-        int b = gen.uniform(0, m - 1);
-
-        printf("%d %d %d %d\n", n, m, a, b);
+  for (int N = 1; N <= LIM; ++N) {
+    for (int M = 1; M <= LIM; ++M) {
+      for (int A = 0; A < M; ++A) {
+        for (int B = 0; B < M; ++B) {
+          if (N % 10 == seed) { ++T; }
+        }
+      }
     }
-    return 0;
+  }
+
+  printf("%d\n", T);
+  for (int N = 1; N <= LIM; ++N) {
+    for (int M = 1; M <= LIM; ++M) {
+      for (int A = 0; A < M; ++A) {
+        for (int B = 0; B < M; ++B) {
+          if (N % 10 == seed) { printf("%d %d %d %d\n", N, M, A, B); }
+        }
+      }
+    }
+  }
+
+  return 0;
 }

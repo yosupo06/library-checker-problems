@@ -3,13 +3,13 @@
 @{lang.en}
 Each test case consists of $T$ cases.
 
-Given $N, M, A, B$. Print $\min_{0\leq i < N}\bigl((A\times i + B)\bmod M\bigr)$. 
+Given $N, M, A, B$. Print $\min\lbrace (Ax+B)\bmod M\mid 0\leq x < N\rbrace$. 
 
 @{lang.ja}
 この問題は $T$ ケース与えられます。
 
 $N, M, A, B$ が与えられます。
-$\min_{0\leq i < N}\bigl((A\times i + B)\bmod M\bigr)$ を求めてください。
+$\min\lbrace (Ax+B)\bmod M\mid 0\leq x < N\rbrace$ を求めてください。
 
 @{lang.end}
 

@@ -9,7 +9,7 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int q = gen.uniform(1, 5);
+    int q = gen.uniform(10, 50);
     printf("%d\n", 2 * q);
 
     int length = 0;

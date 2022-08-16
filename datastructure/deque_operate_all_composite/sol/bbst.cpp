@@ -289,10 +289,6 @@ namespace nachia{
 
 
 namespace BST{
-    using u32 = unsigned int;
-    using u64 = unsigned long long;
-    const u32 MOD = 998244353;
-
     using S = ::F;
     struct F{};
     S op(S l, S r){ return l + r; }

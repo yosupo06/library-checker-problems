@@ -17,7 +17,7 @@ int main(int, char* argv[]) {
     for (int i = 0; i < q; i++) {
         int t = gen.uniform(0, 2);
         int t2_often = seed % 2;
-        int t2 = t2_often ^ ((gen.uniform(0, 9) == 0) ? 1 : 0);
+        int t2 = (gen.uniform(0, 9) == 0) ? (t2_often^1) : t2_often;
         if ((i / 50000) % 2 == 0) {
             if (t == 1) {
                 t = 0;
@@ -30,7 +30,9 @@ int main(int, char* argv[]) {
         if (length == 0 and t == 1) {
             t = 0;
         }
-        t = t * 2 + t2; if(t == 5) t = 4;
+        if(t == 0){ t = t2; }
+        else if(t == 1){ t = 3 - t2; }
+        else if(t == 2){ t = 4; }
         printf("%d", t);
         if (t == 0 || t == 1) {
             int a = gen.uniform(1, MOD - 1);

@@ -1,0 +1,28 @@
+title = 'Min of Mod of Linear'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/813"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "small.cpp"
+    number = 10
+[[tests]]
+    name = "small_n.cpp"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 5
+
+
+[[solutions]]
+    name = "naive.cpp"
+    wrong = false
+    allow_tle = true
+
+[params]
+    T_MIN = 1
+    T_MAX = 100_000
+    NM_MIN = 1
+    NM_MAX = 1_000_000_000

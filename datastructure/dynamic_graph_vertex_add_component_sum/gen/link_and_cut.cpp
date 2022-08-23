@@ -27,12 +27,10 @@ int main(int, char* argv[]) {
 		set<pair<int,int>> s;
 		int cntq0 = qt1*(BUCKET-1);
 
-		int turn1 = cntq0/10;
-		int turn2 = cntq0/2;
+		int turn1 = cntq0/2;
 		for(int i=0; i<turn1; i++) s.insert(make_pair(i, i+1));
-		for(int i=turn1; i<turn2; i++) s.insert(make_pair(gen.uniform(0,i), i+1));
-		for(int i=turn2; i<cntq0; i++) while(true){
-			auto e = gen.uniform_pair(0, n-1);
+		for(int i=turn1; i<cntq0; i++) while(true){
+			auto e = gen.uniform_pair(0, turn1);
 			if(s.count(e) == 0){ s.insert(e); break; }
 		}
 		edges = vector<pair<int,int>>(s.begin(), s.end());

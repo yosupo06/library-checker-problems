@@ -28,18 +28,11 @@ int main(int, char* argv[]) {
 		}
 		if(t==0){
 			auto v = gen.uniform_pair(0,n-1);
-			bool swap_flag=gen.uniform_bool();
 			if(!s.count(v)){
 				s.insert(v);
-				if(swap_flag){
-					swap(v.first,v.second);
-				}
 				printf("%d %d %d\n",0,v.first,v.second);
 			}else{
 				s.erase(v);
-				if(swap_flag){
-					swap(v.first,v.second);
-				}
 				printf("%d %d %d\n",1,v.first,v.second);
 			}
 		}

@@ -3,7 +3,7 @@
 $\gdef\relmiddle#1{\mathrel{}\middle#1\mathrel{}}$
 
 @{lang.en}
-You are given a graph with $n$ vertices and $m$ edges, amount of supply/demand associated with each vertex, and flow lower/upper bound associated with each edge.
+You are given a directed graph with $n$ vertices and $m$ edges, amount of supply/demand associated with each vertex, and flow lower/upper bound associated with each edge.
 The $v$-th vertex has $b_v$ amount of supply if $b_v$ was positive, and $-b_v$ amount of demand otherwise.
 The $e$-th edge is directed from vertex $s_e$ to $t_e$ and has flow lower bound $l_e$, flow upper bound $u_e$, and cost per a unit of flow $c_e$.
 
@@ -21,7 +21,7 @@ where $\delta^+(v)$ is the set of edges leaving vertex $v$ and $\delta^-(v)$ is 
 If there's no such values, output "infeasible" instead.
 
 @{lang.ja}
-$n$ 頂点 $m$ 辺のグラフ, 頂点に付随する需要/供給量, 辺に付随する流量上下限とコストが与えられます.
+$n$ 頂点 $m$ 辺の有向グラフ, 頂点に付随する需要/供給量, 辺に付随する流量上下限とコストが与えられます.
 $v$ 番目の頂点は, $b_v$ が正のとき $b_v$ の供給点であり, そうでないとき $-b_v$ の需要点です.
 また, $e$ 番目の辺は頂点 $s_e$ から頂点 $t_e$ に張られており, 流量下限 $l_e$, 流量上限 $u_e$, 単位流量あたりのコスト $c_e$ です.
 

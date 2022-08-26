@@ -7,6 +7,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/347"
 	number = 1
 
 [[tests]]
+	name = "link_and_cut.cpp"
+	number = 1
+
+[[tests]]
 	name = "small.cpp"
 	number = 3
 
@@ -22,9 +26,14 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/347"
 	name = "dense.cpp"
 	number = 3
 
+[[tests]]
+	name = "uv_swapped.cpp"
+	number = 3
+
 [[solutions]]
 	name = "naive.cpp"
 	wrong = true
+	
 
 [params]
 	N_AND_Q_MIN = 1

@@ -1,13 +1,13 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given a bipartite graph with $L + R$ vertices and $M$ edges. $i$-th edge is $(a_i, b_i)$.
+Given an undirected bipartite graph with $L + R$ vertices and $M$ edges. $i$-th edge is $(a_i, b_i)$.
 
 Calculate the proper edge coloring which gives the edge chromatic number.
 
 @{lang.ja}
 
-頂点数が $L, R$、辺が $M$ の二部グラフが与えられる。$i$ 番目の辺は $(a_i, b_i)$ である。
+頂点数が $L, R$、辺が $M$ の無向二部グラフが与えられる。$i$ 番目の辺は $(a_i, b_i)$ である。
 辺彩色数を与える辺彩色を構築せよ。
 
 @{lang.end}

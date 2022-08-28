@@ -5,14 +5,14 @@ You are given a simple undirected graph $G$, consisting of $N$ vertices and $M$ 
 The $i$-th edge of $G$ is $\lbrace u_i, v_i \rbrace$.
 Each vertex of $G$ has an integer value, and the value of $i$ th vertex is $x_i$.
 
-Find the sum of $\displaystyle \prod_{i \in C} x_i$ over all cliques $C$ of $G$, and print the sum modulo $@{param.MOD}$ .
+Find the sum of $\displaystyle \prod_{i \in C} x_i$ over all non-empty cliques $C$ of $G$, and print the sum modulo $@{param.MOD}$ .
 
 @{lang.ja}
 $N$ 頂点 $M$ 辺の単純無向グラフ $G$ が与えられます。
 $i$ 番目の辺は $\lbrace u_i, v_i \rbrace$ です。
 $G$ の各頂点 $i$ には整数 $x_i$ が割り当てられています。
 
-$G$ のクリーク $C$ すべてに対する $\displaystyle \prod_{i \in C} x_i$ の総和を $998244353$ で割った余りを求めてください。 
+$G$ の空でないクリーク $C$ すべてに対する $\displaystyle \prod_{i \in C} x_i$ の総和を $998244353$ で割った余りを求めてください。 
 
 @{lang.end}
 

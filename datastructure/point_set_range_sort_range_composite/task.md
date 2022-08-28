@@ -5,7 +5,7 @@ A Sequence of triples of integers $\bigl((p_i, a_i, b_i)\bigr)_{0\leq i < N}$ is
 Process $Q$ queries as follows:
 
 - `0 $i$ $p$ $a$ $b$`: change $(p_i,a_i,b_i) \gets (p,a,b)$.
-- `1 $l$ $r$ $x$`: print $f_{r-1}(f_{r-2}(...f_l(x))) \bmod @{param.MOD}$, where $f_i(x) := a_ix + b$.
+- `1 $l$ $r$ $x$`: print $f_{r-1}(f_{r-2}(...f_l(x))) \bmod @{param.MOD}$, where $f_i(x) := a_ix + b_i$.
 - `2 $l$ $r$`: Sort $\bigl((p_i, a_i, b_i)\bigr)_{l\leq i < r}$ so that $p_i$ is **increasing**. 
 - `3 $l$ $r$`: Sort $\bigl((p_i, a_i, b_i)\bigr)_{l\leq i < r}$ so that $p_i$ is **decreasing**. 
 

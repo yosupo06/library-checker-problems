@@ -2,7 +2,7 @@
 
 @{lang.en}
 
-Given a simple graph with $N$ vertices and $M$ edges. $i$-th edge is $(u_i, v_i)$.
+Given a simple undirected graph with $N$ vertices and $M$ edges. $i$-th edge is $(u_i, v_i)$.
 
 Calculate the maximum matching.
 

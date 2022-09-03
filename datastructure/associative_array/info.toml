@@ -12,6 +12,9 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/376'
     name = "max_random.cpp"
     number = 3
 [[tests]]
+    name = "max_many_updates.cpp"
+    number = 1
+[[tests]]
     name = "unordered_map_killer.cpp"
     number = 3
 [[tests]]

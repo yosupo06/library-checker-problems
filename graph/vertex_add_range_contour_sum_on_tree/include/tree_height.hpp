@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <deque>
+#include <tuple>
 #include <vector>
 
 std::vector<int> tree_height(const int n, const std::vector<std::pair<int, int>> &edges) {

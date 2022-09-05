@@ -20,6 +20,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/366"
 [[tests]]
     name = "max_random.cpp"
     number = 3
+[[tests]]
+    name = "large_cycle.cpp"
+    number = 1
 
 [[solutions]]
     name = "naive.cpp"

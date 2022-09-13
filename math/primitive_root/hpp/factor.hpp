@@ -43,7 +43,6 @@ ll find_prime_factor(ll n) {
     if (primetest(m)) return m;
     n = m;
   }
-  cerr << "failed" << endl;
   assert(false);
   return -1;
 }

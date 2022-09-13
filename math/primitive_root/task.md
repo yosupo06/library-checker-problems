@@ -12,11 +12,13 @@ Given $Q$ cases. For each case, given a prime $p$. Print a primitive root modulo
 
 ## @{keyword.constraints}
 
+@{lang.en}
 - $@{param.MIN_Q} \leq Q \leq @{param.MAX_Q}$
 - $@{param.MIN_P} \leq p \leq @{param.MAX_P}$
-@{lang.en}
 - $p$ is a prime
 @{lang.ja}
+- $@{param.MIN_Q} \leq Q \leq @{param.MAX_Q}$
+- $@{param.MIN_P} \leq p \leq @{param.MAX_P}$
 - $p$ は素数
 @{lang.end}
 ## @{keyword.input}
@@ -41,3 +43,5 @@ $Q$ 行出力する。各行では $p$ の原始根 $r$ ($0\leq r < p$) を出�
 ## @{keyword.sample}
 
 @{example.example_00}
+
+@{example.example_01}

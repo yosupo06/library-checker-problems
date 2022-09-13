@@ -2,40 +2,41 @@
 
 @{lang.en}
 
-Given $Q$ cases. For each case, given integer $a_i$. Please factorize it.
+Given $Q$ cases. For each case, given a prime $p$. Print a primitive root modulo $p$. 
 
 @{lang.ja}
 
-クエリが $Q$ 個与えられます。各クエリでは整数 $a_i$ が与えられるので、これを素因数分解してください。
+クエリが $Q$ 個与えられます。各クエリでは素数 $p$ が与えられるので、その原始根をひとつ出力してください。
 
 @{lang.end}
 
 ## @{keyword.constraints}
 
-- $1 \leq Q \leq @{param.MAX_Q}$
-- $1 \leq a_i \leq @{param.MAX_A}$
-
+- $@{param.MIN_Q} \leq Q \leq @{param.MAX_Q}$
+- $@{param.MIN_P} \leq p \leq @{param.MAX_P}$
+@{lang.en}
+- $p$ is a prime
+@{lang.ja}
+- $p$ は素数
+@{lang.end}
 ## @{keyword.input}
 
 ```
 $Q$
-$a_0$
-$a_1$
+$p_0$
+$p_1$
 :
-$a_{Q - 1}$
+$p_{Q - 1}$
 ```
 
 ## @{keyword.output}
 
 @{lang.en}
-Print $Q$ lines. For each line, print as follows. $k$ is the number of factors and $x_i$ is the factors in __ascending__ order.
+Print $Q$ lines. For each line, print a primitive root $r$ ($0 \leq r < p$) of $p$. 
 @{lang.ja}
-$Q$ 行出力する。各行では以下のように出力する。$k$ は素因数の個数であり、$x_i$ は素因数を __昇順__ に並べたもの。
+$Q$ 行出力する。各行では $p$ の原始根 $r$ ($0\leq r < p$) を出力せよ。
 @{lang.end}
 
-```
-$k$ $x_0$ $x_1$ ... $x_{k - 1}$
-```
 
 ## @{keyword.sample}
 

@@ -2,23 +2,26 @@
 #include "random.h"
 #include "../params.h"
 
+#include <vector>
+#include <cassert>
 using namespace std;
+using ll = long long;
+using pi = pair<ll, ll>;
+#include "../hpp/primetest.hpp"
+#include "../hpp/factor.hpp"
 
 int main(int, char* argv[]) {
+  long long seed = atoll(argv[1]);
+  auto gen = Random(seed);
 
+  int Q = MAX_Q;
+  vector<ll> P;
+  while (int(P.size()) < Q) {
+    ll p = gen.uniform<ll>(MIN_P, MAX_P);
+    if (primetest(p)) P.emplace_back(p);
+  }
 
-    long long seed = atoll(argv[1]);
-    auto gen = Random(seed);
-
-    int q = gen.uniform(1LL, MAX_Q);
-    vector<long long> a(q);
-    for (int i = 0; i < q; i++) {
-        a[i] = gen.uniform(1LL, MAX_A);
-    }
-
-    printf("%d\n", q);
-    for (auto x: a) {
-        printf("%lld\n", x);
-    }
-    return 0;
+  printf("%d\n", Q);
+  for (auto x: P) { printf("%lld\n", x); }
+  return 0;
 }

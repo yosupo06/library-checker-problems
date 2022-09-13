@@ -21,8 +21,7 @@ ll rho(ll n, ll c) {
 
   ll lg = 0;
   while ((1LL << (1 + lg)) <= n) ++lg;
-
-  const ll m = 1LL << lg / 5); // ?
+  const ll m = 1LL << lg / 5;
   for (ll r = 1; g == 1; r <<= 1) {
     x = y;
     for (int i = 0; i < r; ++i) y = f(y);

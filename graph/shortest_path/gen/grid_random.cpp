@@ -1,6 +1,7 @@
-#include <stdio.h>
+#include <vector>
 #include "random.h"
 #include "../params.h"
+#include "../fastio.h"
 
 #define INDEX(i, j) ((i) * len + (j))
 int main(int, char **argv) {
@@ -32,7 +33,7 @@ int main(int, char **argv) {
 	int t;
 	do t = gen.uniform(0, len * len - 1); while (s == t);
 	
-	printf("%d %d %d %d\n", len * len, (int) hens.size(), s, t);
-	for (auto i : hens) printf("%d %d %d\n", i.from, i.to, i.cost);
+	println(len * len, ' ', (int) hens.size(), ' ', s, ' ', t);
+	for (auto i : hens) println(i.from, ' ', i.to, ' ', i.cost);
 	return 0;
 }

@@ -1,6 +1,9 @@
-#include <stdio.h>
+#include <vector>
+#include <set>
+#include <utility>
 #include "random.h"
 #include "../params.h"
+#include "../fastio.h"
 
 int main(int, char **argv) {
 	long long seed = atoll(argv[1]);
@@ -30,17 +33,14 @@ int main(int, char **argv) {
 		int c = gen.uniform(C_MIN, C_MAX);
 		hens.push_back({a, b, c});
 	}
-	// shuffle vertex
-	std::vector<int> perm(n);
-	std::iota(perm.begin(), perm.end(), 0);
-	gen.shuffle(perm.begin(), perm.end());
+	auto perm = gen.perm<int>(n);
 	s = perm[s];
 	t = perm[t];
 	for (auto &i : hens) i.from = perm[i.from], i.to = perm[i.to];
 	
 	gen.shuffle(hens.begin(), hens.end());
 	
-	printf("%d %d %d %d\n", n, m, s, t);
-	for (auto i : hens) printf("%d %d %d\n", i.from, i.to, i.cost);
+	println(n, ' ', m, ' ', s, ' ', t);
+	for (auto i : hens) println(i.from, ' ', i.to, ' ', i.cost);
 	return 0;
 }

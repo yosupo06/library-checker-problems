@@ -1,6 +1,7 @@
-#include <stdio.h>
+#include <vector>
 #include "random.h"
 #include "../params.h"
+#include "../fastio.h"
 
 int main(int, char **argv) {
 	long long seed = atoll(argv[1]);
@@ -10,7 +11,6 @@ int main(int, char **argv) {
 	int n = one * 2 + 3;
 	int m = one * 4;
 	
-	printf("%d %d %d %d\n", n, m, 0, n - 1);
 	struct Hen {
 		int from;
 		int to;
@@ -25,6 +25,7 @@ int main(int, char **argv) {
 	}
 	gen.shuffle(hens.begin(), hens.end());
 	
-	for (auto i : hens) printf("%d %d %d\n", i.from, i.to, i.cost);
+	println(n, ' ', m, ' ', 0, ' ', n - 1);
+	for (auto i : hens) println(i.from, ' ', i.to, ' ', i.cost);
 	return 0;
 }

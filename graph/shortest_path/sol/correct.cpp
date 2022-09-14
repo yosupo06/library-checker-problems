@@ -1,18 +1,11 @@
-#include <stdio.h>
 #include <vector>
 #include <queue>
 #include <utility>
 #include <stdint.h>
-#include <inttypes.h>
 #include <algorithm>
+#include "../fastio.h"
 
 #define INF 1000000000000000000
-
-int ri() {
-	int n;
-	scanf("%d", &n);
-	return n;
-}
 
 template<typename T> using pqueue_inv = std::priority_queue<T, std::vector<T>, std::greater<T> >;
 
@@ -39,13 +32,13 @@ int main() {
 		for (auto j : hen[i.second]) if (dist[j.first] > i.first + j.second) 
 			que.push({dist[j.first] = i.first + j.second, j.first}), from[j.first] = i.second;
 	}
-	if (dist[t] == INF) puts("-1");
+	if (dist[t] == INF) println("-1");
 	else {
 		std::vector<int> path;
 		for (int cur = t; cur != -1; cur = from[cur]) path.push_back(cur);
 		std::reverse(path.begin(), path.end());
-		printf("%lld %d\n", (long long) dist[t], (int) path.size() - 1);
-		for (int i = 0; i + 1 < (int) path.size(); i++) printf("%d %d\n", path[i], path[i + 1]);
+		println(dist[t], ' ', path.size() - 1);
+		for (int i = 0; i + 1 < (int) path.size(); i++) println(path[i], ' ', path[i + 1]);
 	}
 	return 0;
 }

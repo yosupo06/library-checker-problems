@@ -1,19 +1,14 @@
 #include <vector>
 #include <queue>
-#include <algorithm>
-#include <stdio.h>
+#include <utility>
 #include <stdint.h>
-#include <inttypes.h>
+#include <algorithm>
+
+#include "../fastio.h"
 
 #define INF 1000000000000000000
 
-int ri() {
-	int n;
-	scanf("%d", &n);
-	return n;
-}
-
-// SPFA, Shortest Path Fast Algorithm
+// SPFA with SLF(Small Label First)
 // O(NM)
 
 int main() {
@@ -36,27 +31,31 @@ int main() {
 	std::vector<int64_t> dist(n, INF);
 	std::vector<int> from(n, -1);
 	std::vector<bool> inqueue(n, false);
-	std::queue<int> que;
-	que.push(s);
+	std::deque<int> que;
+	que.push_back(s);
 	dist[s] = 0;
 	inqueue[s] = true;
 	while (que.size()) {
 		auto i = que.front();
-		que.pop();
+		que.pop_front();
 		inqueue[i] = false;
 		for (auto j : hen[i]) if (dist[j.first] > dist[i] + j.second) {
 			dist[j.first] = dist[i] + j.second;
 			from[j.first] = i;
-			if (!inqueue[j.first]) inqueue[j.first] = true, que.push(j.first);
+			if (!inqueue[j.first]) {
+				inqueue[j.first] = true;
+				if (que.size() && dist[j.first] <= dist[que.front()]) que.push_front(j.first);
+				else que.push_back(j.first);
+			}
 		}
 	}
-	if (dist[t] == INF) puts("-1");
+	if (dist[t] == INF) println("-1");
 	else {
 		std::vector<int> path;
 		for (int cur = t; cur != -1; cur = from[cur]) path.push_back(cur);
 		std::reverse(path.begin(), path.end());
-		printf("%lld %d\n", (long long) dist[t], (int) path.size() - 1);
-		for (int i = 0; i + 1 < (int) path.size(); i++) printf("%d %d\n", path[i], path[i + 1]);
+		println(dist[t], ' ', path.size() - 1);
+		for (int i = 0; i + 1 < (int) path.size(); i++) println(path[i], ' ', path[i + 1]);
 	}
 	return 0;
 }

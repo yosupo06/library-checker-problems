@@ -15,6 +15,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/173"
 	name = "sparse_random.cpp"
 	number = 3
 [[tests]]
+	name = "max_star.cpp"
+	number = 2
+[[tests]]
 	name = "max_dense_random.cpp"
 	number = 2
 [[tests]]
@@ -25,7 +28,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/173"
 	number = 1
 [[tests]]
 	name = "almost_line.cpp"
-	number = 2
+	number = 3
 [[tests]]
 	name = "line.cpp"
 	number = 1
@@ -37,14 +40,14 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/173"
 	number = 1
 [[tests]]
 	name = "wrong_dijkstra_killer.cpp"
+	number = 2
+[[tests]]
+	name = "spfa_killer.cpp"
 	number = 1
 [[tests]]
 	name = "wrong_dijkstra_handmade.in"
 	number = 1
 
-[[solutions]]
-	name = 'spfa.cpp'
-	wrong = true
 [[solutions]]
 	name = 'wrong_dijkstra_0.cpp'
 	wrong = true
@@ -53,6 +56,15 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/173"
 	wrong = true
 [[solutions]]
 	name = 'wrong_dijkstra_2.cpp'
+	wrong = true
+[[solutions]]
+	name = 'wrong_dijkstra_3.cpp'
+	wrong = true
+[[solutions]]
+	name = 'spfa_slf.cpp'
+	wrong = true
+[[solutions]]
+	name = 'spfa_lll.cpp'
 	wrong = true
 
 [params]

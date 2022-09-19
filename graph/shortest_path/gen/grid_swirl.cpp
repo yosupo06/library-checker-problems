@@ -1,6 +1,7 @@
-#include <stdio.h>
+#include <vector>
 #include "random.h"
 #include "../params.h"
+#include "../fastio.h"
 
 /*
 	a grid graph of len * len vertices
@@ -38,7 +39,7 @@ int main(int, char **argv) {
 	}
 	gen.shuffle(hens.begin(), hens.end());
 	
-	printf("%d %d %d %d\n", len * len, (int) hens.size(), 0, INDEX(len / 2, len / 2 - 1));
-	for (auto i : hens) printf("%d %d %d\n", i.from, i.to, i.cost);
+	println(len * len, ' ', (int) hens.size(), ' ', 0, ' ', INDEX(len / 2, len / 2 - 1));
+	for (auto i : hens) println(i.from, ' ', i.to, ' ', i.cost);
 	return 0;
 }

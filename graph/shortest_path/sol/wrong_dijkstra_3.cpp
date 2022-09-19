@@ -21,16 +21,21 @@ int main() {
 		int c = ri();
 		hen[a].push_back({b, c});
 	}
+	std::vector<bool> inqueue(n, false);
 	std::vector<int64_t> dist(n, INF);
 	std::vector<int> from(n, -1);
 	pqueue_inv<std::pair<int64_t, int> > que;
 	que.push({dist[s] = 0, s});
+	inqueue[s] = true;
 	while (que.size()) {
 		auto i = que.top();
 		que.pop();
-		if (i.first != dist[i.second]) continue;
-		for (auto j : hen[i.second]) if (dist[j.first] > i.first + j.second) 
-			que.push({dist[j.first] = i.first + j.second, j.first}), from[j.first] = i.second;
+		inqueue[i.second] = false;
+		for (auto j : hen[i.second]) if (dist[j.first] > dist[i.second] + j.second) {
+			dist[j.first] = dist[i.second] + j.second;
+			from[j.first] = i.second;
+			if (!inqueue[j.first]) inqueue[j.first] = true, que.push({dist[j.first], j.first});
+		}
 	}
 	if (dist[t] == INF) println("-1");
 	else {

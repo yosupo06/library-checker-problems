@@ -3,6 +3,8 @@
   "almost_line_00.out": "46a253236925af5a56ca1af935ff2abc65b3a4dbe1495f55d5eb8287d590a584",
   "almost_line_01.in": "cee45e304f24a482ad1d29b36a864e862b0bdeafae5bf30b33932d5c5d13790e",
   "almost_line_01.out": "1d47fc7006a6c8ce49872dc7c8a9cf762aadcf29522a50016b370b20bdff9b16",
+  "almost_line_02.in": "9d5c9229f8271d289ad59f1b3177655ff3f4b498f21344c9bdc5d1bbf973a27e",
+  "almost_line_02.out": "7ae2e0ff962b6545b1c4056d126bdf0fcf1f8787b169aad61622c13b41099571",
   "example_00.in": "0868d99aa063f973bc47eb5747fd8873936754f9ab8bf295eaaf930946bed156",
   "example_00.out": "92ef26703823a4c8b2cc311103c1d5f8e6118dd5bf83127307ce077d9f4b65f8",
   "example_01.in": "b1576608937a0946ebbb394d511c701d7c01d8a094e5f6e02eb80ecf5d0283d9",
@@ -27,6 +29,10 @@
   "max_sparse_random_01.out": "901fcb995b5ade65c8e159881c9c575ff3b9af1b25738120f06ae8cf6981acae",
   "max_sparse_random_02.in": "6994f28e61bcad12d5a0d6feaa10df94f36c1eb88c32ac844ce18319c132a4cd",
   "max_sparse_random_02.out": "6c98e7fec768b9fe59965f3b9b5181ae7c35e35ee57edac49c189c578a61ba0d",
+  "max_star_00.in": "095e698480f5ca855e715fea307baa6a6414d384b517cd194dc77fda396ecdff",
+  "max_star_00.out": "8e36190f48f36e4fb918417f71f25170b6c87c8177b90198d26252e00079c18e",
+  "max_star_01.in": "36bdce1c462760d4c4f5c5e76c42bf06d6f134b71bf34eb39c7b994596ce55bc",
+  "max_star_01.out": "9a7b41bbf2d24cd5ce10a32a675acf937cf3df56776d13dd075fc3df252024ae",
   "small_00.in": "57bcca3d9e99a79b2a3e2c560a944dac6f0647461ab51384b2e853179128396d",
   "small_00.out": "1cda3f5e6b776c0087aec2c2482c35162a0d34ee43b5601d192d8c1710d874da",
   "small_01.in": "a4f286748128eddb8f61856d21a22d75c1e3f23bd24120e064df4a98493d4917",
@@ -43,8 +49,12 @@
   "sparse_random_01.out": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28",
   "sparse_random_02.in": "e175334fe70c3dd3a31e4e34388afa996d7bb7051239dc56af87f03caf758255",
   "sparse_random_02.out": "e6e03e75ae2d0aa8da3e1bca2f62bca8c5637a4993fb28f1ffb3b4a4af88ec93",
+  "spfa_killer_00.in": "8da03b49ee73a638e6d3cc4217c0bf644b92cda197e20f60cdf9093d7aeb85e5",
+  "spfa_killer_00.out": "761c118bcfb6e73ebc10b0b2c2be83eae8023889465e3b06986b6e8267e635c5",
   "wrong_dijkstra_handmade_00.in": "c4b803ff9113fa1308dca99ac0c8bd494faa8d3fa3256f24c9b09f2c97d371d2",
   "wrong_dijkstra_handmade_00.out": "46066aede3e055309cafe3371ccafcfeb8188c598cb5f7c4171d0fd0a3f846aa",
   "wrong_dijkstra_killer_00.in": "e9b1bbcbe57f62b7b9b96ecbd7064c80587a44f476971bd6a5109c0bc87253ad",
-  "wrong_dijkstra_killer_00.out": "72cddb1daaa2122527535c381e5c659de149d61fad545e80ef048810a105aa0c"
+  "wrong_dijkstra_killer_00.out": "72cddb1daaa2122527535c381e5c659de149d61fad545e80ef048810a105aa0c",
+  "wrong_dijkstra_killer_01.in": "54ec025cf331683d9c5b72fcec87536564a5303361dfd2013eefddf801ee646e",
+  "wrong_dijkstra_killer_01.out": "2564cd63ffd8c46e7b44b5515c5eded6feecbb5f04dd3cb3bd6bc67da6b4c537"
 }

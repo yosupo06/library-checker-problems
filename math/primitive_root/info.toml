@@ -27,5 +27,5 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/851"
 [params]
     MIN_Q = 1
     MAX_Q = 100
-    MIN_P = 1
+    MIN_P = 2
     MAX_P = 1_000_000_000_000_000_000

@@ -1,0 +1,31 @@
+title = 'Primitive Root'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/851"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small.cpp"
+    number = 3
+[[tests]]
+    name = "less_1000000000.cpp"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "safe_prime.cpp"
+    number = 1
+[[tests]]
+    name = "223092870x_plus_1.cpp"
+    number = 1
+[[tests]]
+    name = "large_least_primitive_root.cpp"
+    number = 1
+
+[params]
+    MIN_Q = 1
+    MAX_Q = 100
+    MIN_P = 2
+    MAX_P = 1_000_000_000_000_000_000

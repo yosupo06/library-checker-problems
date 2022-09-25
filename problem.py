@@ -7,13 +7,14 @@ import platform
 import shutil
 import hashlib
 import json
+import shutil
 from datetime import datetime
 from logging import Logger, basicConfig, getLogger, INFO
 from os import getenv
 from pathlib import Path
 from subprocess import (DEVNULL, PIPE, STDOUT, CalledProcessError,
                         TimeoutExpired, call, check_call, check_output, run)
-from tempfile import TemporaryDirectory
+from tempfile import TemporaryDirectory, tempdir
 from typing import Any, Iterator, List, MutableMapping, Union, Optional
 
 from enum import Enum
@@ -29,6 +30,16 @@ def casename(name: Union[str, Path], i: int) -> str:
     """(random, 1) -> random_01"""
     return Path(name).stem + '_' + str(i).zfill(2)
 
+def param_to_str(key: str, value: object):
+    if isinstance(value, int):
+        return '#define {} (long long){}'.format(key, value)
+    elif isinstance(value, float):
+        return '#define {} {}'.format(key, value)
+    elif isinstance(value, str):
+        # NOTE: this fails if value contains some chars like double quotations
+        return '#define {} "{}"'.format(key, value)
+    else:
+        raise RuntimeError('Unsupported type of params: {}'.format(key))
 
 def compile(src: Path, rootdir: Path):
     if src.suffix == '.cpp':
@@ -157,16 +168,7 @@ class Problem:
         logger.info('generate params.h')
         with open(str(self.basedir / 'params.h'), 'w') as fh:
             for key, value in self.config.get('params', {}).items():
-                if isinstance(value, int):
-                    fh.write('#define {} (long long){}\n'.format(key, value))
-                elif isinstance(value, float):
-                    fh.write('#define {} {}\n'.format(key, value))
-                elif isinstance(value, str):
-                    # NOTE: this fails if value contains some chars like double quotations
-                    fh.write('#define {} "{}"\n'.format(key, value))
-                else:
-                    logger.error('Unsupported type of params: {}'.format(key))
-                    exit(1)
+                fh.write(param_to_str(key, value) + '\n')
 
     def compile_correct(self):
         logger.info('compile solution')

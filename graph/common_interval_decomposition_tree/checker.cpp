@@ -1,4 +1,3 @@
-#include "params.h"
 #include "testlib.h"
 
 #include <iostream>

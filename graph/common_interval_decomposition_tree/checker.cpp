@@ -78,6 +78,9 @@ bool compare(result s, result t)
             dfs(dfs, s.g[now_s][i], t.g[now_t][i]);
         }
     };
+    if(s.g.size() != t.g.size() ){
+        quitf(_wa, "not matched.");
+    }
     dfs(dfs, s.root, t.root);
     quitf(_ok, "OK");
 }

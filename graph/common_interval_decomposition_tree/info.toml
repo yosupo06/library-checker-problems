@@ -39,6 +39,9 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/744'
 [[solutions]]
 	name = "WA1.cpp"
 	wrong = true
+[[solutions]]
+	name = "WA2.cpp"
+	wrong = true
 [params]
     P_MIN = 0
     N_MIN = 1

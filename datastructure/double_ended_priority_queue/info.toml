@@ -1,0 +1,53 @@
+title = 'Double-Ended Priority Queue'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/874"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+
+[[tests]]
+    name = "random_n_max_q_max_only_type01.cpp"
+    number = 2
+
+[[tests]]
+    name = "random_small_only_type01.cpp"
+    number = 4
+
+[[tests]]
+    name = "random_n_max_q_max.cpp"
+    number = 2
+
+[[tests]]
+    name = "random_n_max_q_max_many_pop.cpp"
+    number = 2
+
+[[tests]]
+    name = "random_n_zero_q_max.cpp"
+    number = 1
+
+[[tests]]
+    name = "random_n_max_q_max_small_value.cpp"
+    number = 2
+
+[[tests]]
+    name = "random_small.cpp"
+    number = 4
+
+[[solutions]]
+    name = "double_priority_queue.cpp"
+    allow_tle = false
+    wrong = false
+
+[[solutions]]
+    name = "multiset.cpp"
+    allow_tle = false
+    wrong = false
+
+[params]
+    N_MIN = 0
+    N_MAX = 500_000
+    Q_MIN = 1
+    Q_MAX = 500_000
+    V_MIN = -1_000_000_000
+    V_MAX = 1_000_000_000

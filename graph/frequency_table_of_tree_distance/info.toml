@@ -30,6 +30,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/292"
     name = "line.cpp"
     number = 1
 
+[[tests]]
+    name = "line_star.cpp"
+    number = 3
+
 [[solutions]]
     name = "naive.cpp"
     allow_tle = true

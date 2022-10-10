@@ -2,19 +2,19 @@
 
 @{lang.en}
 
-Given a multiset $S=\{S_1, \ldots, S_N \}$. Process the floowing $Q$ queries in order:
+Given a multiset $S=\lbrace S_1, \ldots, S_N \rbrace$. Process the following $Q$ queries in order:
 
-- `0 x`: Add $x$ to $S$
-- `1`: Output one of the minimum elements in $S$ and remove it from $S$
-- `2`: Output one of the maximum elements in $S$ and remove it from $S$
+- `0 x`: Add $x$ to $S$.
+- `1`: Output one of the minimum elements in $S$ and remove it from $S$.
+- `2`: Output one of the maximum elements in $S$ and remove it from $S$.
 
 It is guaranteed that $S$ is not empty when processing queries of types `1` and `2`.
 
 @{lang.ja}
 
-多重集合 $S=\{S_1, \ldots, S_N \}$ が与えられます。以下の形式のクエリ $Q$ 個を順に処理してください。
+多重集合 $S=\lbrace S_1, \ldots, S_N \rbrace$ が与えられます。以下の形式のクエリ $Q$ 個を順に処理してください。
 
-- `0 x`: $S$ に $x$ を追加する
+- `0 x`: $S$ に $x$ を追加する。
 - `1`: $S$ に含まれる最小の要素を出力して $S$ から除く。最小の要素が複数ある場合は $1$ つだけ除く。
 - `2`: $S$ に含まれる最大の要素を出力して $S$ から除く。最大の要素が複数ある場合は $1$ つだけ除く。
 

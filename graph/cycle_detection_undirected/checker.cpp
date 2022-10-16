@@ -24,7 +24,7 @@ int main(int argc, char* argv[]) {
   }
 
   int L_ans = ans.readInt();
-  int L = ouf.readInt();
+  int L = ouf.readInt(-1, N);
   if (L == -1) {
     if (L_ans == -1) quitf(_ok, "OK");
     quitf(_wa, "cycle exists, but ouf dont find it");

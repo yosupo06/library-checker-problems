@@ -10,12 +10,14 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int N = gen.uniform<int>(1,N_MAX);
+    int N = N_MAX;
     printf("%d\n", N);
     
     for (int i = 0; i < N; i++) {
         auto [L,R]=gen.uniform_pair<int>(0,COORD_MAX);
-        auto [D,U]=gen.uniform_pair<int>(0,COORD_MAX);
+        int width=gen.uniform<int>(1,10000);
+        int D=gen.uniform<int>(0,COORD_MAX-width),U=D+width;
+        if(gen.uniform_bool())swap(L,D),swap(R,U);
         printf("%d %d %d %d\n",L,D,R,U);
     }
     

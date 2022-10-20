@@ -14,12 +14,8 @@ int main(int, char* argv[]) {
     printf("%d\n", N);
     
     for (int i = 0; i < N; i++) {
-        int L=gen.uniform<int>(0,COORD_MAX);
-        if(L==COORD_MAX)L--;
-        int R=gen.uniform<int>(L+1,COORD_MAX);
-        int D=gen.uniform<int>(0,COORD_MAX);
-        if(D==COORD_MAX)D--;
-        int U=gen.uniform<int>(D+1,COORD_MAX);
+        auto [L,R]=gen.uniform_pair<int>(0,COORD_MAX);
+        auto [D,U]=gen.uniform_pair<int>(0,COORD_MAX);
         printf("%d %d %d %d\n",L,D,R,U);
     }
     

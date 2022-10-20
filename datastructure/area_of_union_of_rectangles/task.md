@@ -1,9 +1,9 @@
 ## @{keyword.statement}
 @{lang.en}
-Given $N$ rectangles : the $i$-th rectangle is represented by $\{(x,y):l_i \leq x \leq r_i,d_i \leq y \leq u_i}$. Output the area of the union set of these rectangles.
+Given $N$ rectangles : the $i$-th rectangle is represented by $\lbrace (x,y):l_i \leq x \leq r_i,d_i \leq y \leq u_i \rbrace$. Output the area of the union set of these rectangles.
 
 @{lang.ja}
-$N$ 個の長方形が与えられます。 $i$ 番目の長方形は $\{(x,y):l_i \leq x \leq r_i,d_i \leq y \leq u_i\}$ で表されます。これらの長方形の和集合の面積を出力してください。
+$N$ 個の長方形が与えられます。 $i$ 番目の長方形は $\lbrace (x,y):l_i \leq x \leq r_i,d_i \leq y \leq u_i\rbrace$ で表されます。これらの長方形の和集合の面積を出力してください。
 
 @{lang.end}
 

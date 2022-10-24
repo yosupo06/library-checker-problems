@@ -36,7 +36,6 @@ $G$ がサイクルを含むか否かを判定し、含む場合にはそのひ�
 - $@{param.M_MIN} \leq M \leq @{param.M_MAX}$
 - $0 \leq u_i \lt N$
 - $0 \leq v_i \lt N$
-- $u_i \neq v_i$
 
 
 ## @{keyword.input}

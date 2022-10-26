@@ -1,0 +1,24 @@
+title = 'Product of Polynomial Sequence'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/763"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "small.cpp"
+    number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+[[tests]]
+    name = "all_degree_one.cpp"
+    number = 5
+
+[params]
+    N_MAX = 500000
+    D_MAX = 500000
+    MOD = 998244353

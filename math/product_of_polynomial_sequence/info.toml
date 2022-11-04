@@ -17,6 +17,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/763"
 [[tests]]
     name = "all_degree_one.cpp"
     number = 5
+[[tests]]
+    name = "unbalanced.cpp"
+    number = 3
+[[tests]]
+    name = "max_and_zero.cpp"
+    number = 1
 
 [params]
     N_MAX = 500000

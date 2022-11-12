@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <cstdio>
+#include <cassert>
+#include <algorithm>
 
 using namespace std;
 
@@ -464,11 +467,7 @@ vc<mint> multipoint_eval_on_geom_seq(vc<mint> f, mint a, mint r, int m) {
 }
 
 u64 RNG_64() {
-  static uint64_t x_
-      = uint64_t(chrono::duration_cast<chrono::nanoseconds>(
-                     chrono::high_resolution_clock::now().time_since_epoch())
-                     .count())
-        * 10150724397891781847ULL;
+  static uint64_t x_ = 10150724397891781847ULL;
   x_ ^= x_ << 7;
   return x_ ^= x_ >> 9;
 }
@@ -556,6 +555,14 @@ bool primetest(const uint64_t x) {
     }
   }
   return true;
+}
+
+ll gcd(ll a, ll b) {
+  while (b) {
+    a %= b;
+    swap(a, b);
+  }
+  return a;
 }
 
 ll rho(ll n, ll c) {
@@ -715,11 +722,7 @@ void solve() {
 }
 
 signed main() {
-  cout << fixed << setprecision(15);
-
-  ll T = 1;
-  // LL(T);
-  FOR(T) solve();
+  solve();
 
   return 0;
 }

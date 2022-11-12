@@ -570,13 +570,13 @@ ll rho(ll n, ll c) {
   auto f = [&](m64 x) { return x * x + cc; };
   m64 x = 1, y = 2, z = 1, q = 1;
   ll g = 1;
-  const ll m = 1LL << (__lg(n) / 5); // ?
+  const ll m = 1LL << (topbit(n) / 5); // ?
   for (ll r = 1; g == 1; r <<= 1) {
     x = y;
     FOR(_, r) y = f(y);
     for (ll k = 0; k < r and g == 1; k += m) {
       z = y;
-      FOR(_, min(m, r - k)) y = f(y), q *= x - y;
+      FOR(min(m, r - k)) y = f(y), q *= x - y;
       g = gcd(q.val(), n);
     }
   }

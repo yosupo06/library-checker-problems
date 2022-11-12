@@ -75,7 +75,7 @@ struct modint {
     }
     return modint(u);
   }
-  modint pow(int64_t n) const {
+  modint pow(ll n) const {
     modint ret(1), mul(val);
     while (n > 0) {
       if (n & 1) ret *= mul;
@@ -91,7 +91,7 @@ struct ArbitraryModInt {
   static constexpr bool is_modint = true;
   int val;
   ArbitraryModInt() : val(0) {}
-  ArbitraryModInt(int64_t y)
+  ArbitraryModInt(ll y)
       : val(y >= 0 ? y % get_mod()
                    : (get_mod() - (-y) % get_mod()) % get_mod()) {}
   bool operator<(const ArbitraryModInt &other) const {
@@ -144,7 +144,7 @@ struct ArbitraryModInt {
     }
     return ArbitraryModInt(u);
   }
-  ArbitraryModInt pow(int64_t n) const {
+  ArbitraryModInt pow(ll n) const {
     ArbitraryModInt ret(1), mul(val);
     while (n > 0) {
       if (n & 1) ret *= mul;
@@ -467,7 +467,7 @@ vc<mint> multipoint_eval_on_geom_seq(vc<mint> f, mint a, mint r, int m) {
 }
 
 u64 RNG_64() {
-  static uint64_t x_ = 10150724397891781847ULL;
+  static u64 x_ = 10150724397891781847ULL;
   x_ ^= x_ << 7;
   return x_ ^= x_ >> 9;
 }
@@ -477,8 +477,7 @@ u64 RNG(u64 lim) { return RNG_64() % lim; }
 ll RNG(ll l, ll r) { return l + RNG_64() % (r - l); }
 
 struct m64 {
-  using i64 = int64_t;
-  using u64 = uint64_t;
+  using i64 = ll;
   using u128 = __uint128_t;
 
   inline static u64 m, r, n2; // r * m = -1 (mod 1<<64), n2 = 1<<128 (mod m)
@@ -530,8 +529,7 @@ struct m64 {
   }
 };
 
-bool primetest(const uint64_t x) {
-  using u64 = uint64_t;
+bool primetest(const u64 x) {
   if (x == 2 or x == 3 or x == 5 or x == 7) return true;
   if (x % 2 == 0 or x % 3 == 0 or x % 5 == 0 or x % 7 == 0) return false;
   if (x < 121) return x > 1;

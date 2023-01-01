@@ -39,9 +39,11 @@ $g$
 ```
 
 @{lang.en}
-$f$, $g$ is the integer array of length $\prod N_i$. $i = i_1 + i_2 N_1 + ... + i_K N_1 N_2 ... N_{K-1}$-th element is corresponded to the coefficient of the $(x_1^{i_1}, x_2^{i_2}, ..., x_K^{i_K})$.
+$f$, $g$ is the integer array of length $\prod N_i$ consisting of integers between $0$ and $p-1$.
+$i = i_1 + i_2 N_1 + ... + i_K N_1 N_2 ... N_{K-1}$-th element is corresponded to the coefficient of the $(x_1^{i_1}, x_2^{i_2}, ..., x_K^{i_K})$.
 @{lang.ja}
-ここで、$f$, $g$ は共に長さ $\prod N_i$ の配列であり、$i = i_1 + i_2 N_1 + ... + i_K N_1 N_2 ... N_{K-1}$ 番目の要素が $(x_1^{i_1}, x_2^{i_2}, ..., x_K^{i_K})$ の係数を表す。
+ここで、$f$, $g$ は共に $0$ 以上 $p-1$ 以下の整数からなる長さ $\prod N_i$ の配列である。
+$i = i_1 + i_2 N_1 + ... + i_K N_1 N_2 ... N_{K-1}$ 番目の要素が $(x_1^{i_1}, x_2^{i_2}, ..., x_K^{i_K})$ の係数を表す。
 @{lang.end}
 
 ## @{keyword.output}
@@ -51,9 +53,11 @@ $fg$
 ```
 
 @{lang.en}
-$fg$ is the integer array of length $\prod N_i$. As the same with input format, $i = i_1 + i_2 N_1 + ... + i_K N_1 N_2 ... N_{K-1}$-th element is corresponded to the coefficient of the $(x_1^{i_1}, x_2^{i_2}, ..., x_K^{i_K})$.
+$fg$ is the integer array of length $\prod N_i$ consisting of integers between $0$ and $p-1$. 
+As the same with input format, $i = i_1 + i_2 N_1 + ... + i_K N_1 N_2 ... N_{K-1}$-th element is corresponded to the coefficient of the $(x_1^{i_1}, x_2^{i_2}, ..., x_K^{i_K})$.
 @{lang.ja}
-ここで、$fg$ は $f, g$ の積を表す長さ $\prod N_i$ の配列であり、$i = i_1 + i_2 N_1 + ... + i_K N_1 N_2 ... N_{K-1}$ 番目の要素が $(x_1^{i_1}, x_2^{i_2}, ..., x_K^{i_K})$ の係数を表す。
+ここで、$fg$ は $0$ 以上 $p-1$ 以下の整数からなる長さ $\prod N_i$ の配列である。
+$i = i_1 + i_2 N_1 + ... + i_K N_1 N_2 ... N_{K-1}$ 番目の要素が $(x_1^{i_1}, x_2^{i_2}, ..., x_K^{i_K})$ の係数を表す。
 @{lang.end}
 
 ## @{keyword.sample}

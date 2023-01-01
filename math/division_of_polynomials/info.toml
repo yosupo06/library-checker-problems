@@ -23,6 +23,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/658"
 [[tests]]
     name = "v_random.cpp"
     number = 5
+[[tests]]
+    name = "q0_equals_zero.cpp"
+    number = 3
 
 [params]
     N_MAX = 500000

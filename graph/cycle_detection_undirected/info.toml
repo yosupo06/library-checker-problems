@@ -1,0 +1,34 @@
+title = 'Cycle Detection (Undirected)'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/869"
+
+[[tests]]
+	name = "example.in"
+	number = 5
+
+[[tests]]
+	name = "random.cpp"
+	number = 10
+
+[[tests]]
+	name = "random_dense.cpp"
+	number = 3
+
+[[tests]]
+	name = "tree.cpp"
+	number = 3
+
+[[tests]]
+	name = "unicyclic.cpp"
+	number = 3
+
+[[tests]]
+	name = "long_cycle.cpp"
+	number = 3
+
+[params]
+	N_MIN = 1
+	N_MAX = 500000
+	M_MIN = 0
+	M_MAX = 500000
+

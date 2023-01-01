@@ -1,0 +1,28 @@
+name: UtilTest
+
+on:
+  push:
+    branches: 
+      - master
+  pull_request:
+
+jobs:
+  util-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install --user -r requirements.txt
+      - name: Run problem_test.py
+        run: |
+          ./problem_test.py
+      - name: Run generate_test.py
+        run: |
+          ulimit -s unlimited
+          ./generate_test.py

@@ -1,6 +1,7 @@
 #include "testlib.h"
 
 #include <vector>
+#include <tuple>
 #include <cassert>
 using namespace std;
 using ll = long long;
@@ -207,7 +208,7 @@ int main(int argc, char *argv[]) {
     ll p = inf.readLong();
     ll r = ouf.readLong(0, p - 1);
     if (!check_primitive_root(p, r)) {
-      quitf(_wa, "'%lld' is not a primitive root modulo '%lld'", r, p);
+      quitf(_wa, I64 " is not a primitive root modulo " I64, r, p);
     }
   }
 

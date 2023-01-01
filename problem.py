@@ -54,7 +54,7 @@ def compile(src: Path, rootdir: Path):
             # avoid conflicts in CI
             # https://github.com/actions/virtual-environments/issues/5459
             cxxflags_default += ' -static'
-        if platform.uname().system == 'Linux' and 'Microsoft' in platform.uname().release:
+        if platform.uname().system == 'Linux' and 'microsoft' in platform.uname().release.lower():
             # a workaround for the lack of ulimit in Windows Subsystem for Linux
             cxxflags_default += ' -fsplit-stack'
         cxxflags = getenv('CXXFLAGS', cxxflags_default).split()

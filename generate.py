@@ -77,7 +77,6 @@ def main(args: List[str]):
     problems: List[Problem] = list()
 
     for tomlpath in opts.toml:
-        tomlfile = toml.load(opts.toml)
         problems.append(Problem(rootdir, Path(tomlpath).parent))
 
     for problem_name in opts.problem:

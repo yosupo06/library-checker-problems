@@ -26,6 +26,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/465"
     name = "line.cpp"
     number = 1
 
+[[tests]]
+    name = "hack.in"
+    number = 1
+
 [params]
     N_MIN = 1
     N_MAX = 500_000

@@ -40,7 +40,7 @@ $fg$
 $fg$ is the integer array of length $\prod N_i$ consisting of integers between $0$ and $998244352$. 
 As the same with input format, $i = i_1 + i_2 N_1 + ... + i_K N_1 N_2 ... N_{K-1}$-th element is corresponded to the coefficient of the $(x_1^{i_1}, x_2^{i_2}, ..., x_K^{i_K})$.
 @{lang.ja}
-ここで、$fg$ は $0$ 以上 $998244352$ 以下の整数からなる長さ $\prod N_i$ の配列である。
+ここで、$fg$ は $0$ 以上 $998244352$ 以下の整数からなる長さ $\prod N_i$ の配列であり、
 $i = i_1 + i_2 N_1 + ... + i_K N_1 N_2 ... N_{K-1}$ 番目の要素が $(x_1^{i_1}, x_2^{i_2}, ..., x_K^{i_K})$ の係数を表す。
 @{lang.end}
 

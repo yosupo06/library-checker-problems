@@ -38,6 +38,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/41"
 [[tests]]
     name = "carmichael.cpp"
     number = 1
+[[tests]]
+    name = "4295098369.cpp"
+    number = 1
 
 [params]
     MAX_Q = 100

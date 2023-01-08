@@ -455,7 +455,6 @@ int main(){
     for(int i=0;i<n;++i)cin>>f[i];
     for(int i=0;i<n;++i)cin>>g[i];
     auto p=f.manipulate(g,n);
-    auto q=f.manipulate(g,n);
     p.resize(n,0);
     for(int i=0;i<n;++i)cout<<p[i]<<" \n"[i==n-1];
 }

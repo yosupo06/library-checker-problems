@@ -1,3 +1,4 @@
+// https://github.com/yosupo06/library-checker-problems/blob/276d844a394a51a4526b18e13f92f75f894017e6/math/factorize/sol/correct.cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -68,10 +69,10 @@ bool is_prime(ll n) {
 }
 
 ll pollard_single(ll n) {
+    auto f = [&](ll x) { return (__int128_t(x) * x + 1) % n; };
     if (is_prime(n)) return n;
     if (n % 2 == 0) return 2;
     ll st = 0;
-    auto f = [&](ll x) { return (__int128_t(x) * x + st) % n; };
     while (true) {
         st++;
         ll x = st, y = f(x);

@@ -10,7 +10,7 @@ $$c_k = \sum_{i+j=k} a_i b_j \bmod @{param.MOD}$$
 
 ただし、
 
-$$c_k = \sum_{i+j=k}^i a_ib_j \bmod @{param.MOD}$$
+$$c_k = \sum_{i+j=k} a_ib_j \bmod @{param.MOD}$$
 
 です。
 @{lang.end}

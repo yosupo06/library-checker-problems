@@ -28,6 +28,9 @@ using namespace std;
 
 int main(int argc, char * argv[])
 {
+    ans.maxFileSize = 512 * 1024 * 1024;
+    inf.maxFileSize = 512 * 1024 * 1024;
+    ouf.maxFileSize = 512 * 1024 * 1024;
     setName("compare sequences of tokens");
     registerTestlibCmd(argc, argv);
 

@@ -20,6 +20,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/151"
 [[tests]]
     name = "one_two.cpp"
     number = 1
+[[tests]]
+    name = "many_maximals.cpp"
+    number = 1
 
 [params]
     N_MIN = 1

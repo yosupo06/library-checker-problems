@@ -109,6 +109,14 @@ jobs:
           key: ${{ runner.os }}-cache-${{ hashFiles('versions.json')}}
           restore-keys: |
             ${{ runner.os }}-cache-
+
+      # avoid conflicts in CI
+      # https://github.com/actions/runner-images/issues/6755
+      - name: Add to beginning of PATH
+        shell: pwsh
+        run: |
+          [regex]::Matches($env:PATH, "[^;]+mingw[^;]+") | % Value >> $env:GITHUB_PATH
+
       - name: Run generate.py on gcc
         run: |
           python ci_generate.py --htmldir=D:/tmp/html

@@ -4,43 +4,15 @@ on:
   push:
     branches: 
       - master
+      - test/ci
 
 jobs:
-  deploy:
+  dispatch:  
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/checkout@v3
+      - name: Dispatch Problems Deploy
+        uses: peter-evans/repository-dispatch@v2
         with:
+          token: ${{ secrets.JUDGE_REPO_TOKEN }}
           repository: yosupo06/library-checker-judge
-          path: library-checker-judge
-      - name: Set up Python 3.x
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-      - name: gen protoc
-        run: |
-          cd library-checker-judge/deploy &&
-          ./gen_protoc.sh
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install --user -r requirements.txt
-          pip install --user -r library-checker-judge/deploy/requirements.txt
-      - name: Run deploy.py
-        run: |
-          ulimit -s unlimited
-          PYTHONPATH=. ./library-checker-judge/deploy/problems_deploy.py . \
-            --host=apiv1.yosupo.jp --prod \
-            --api-pass $API_PASS \
-            --minio-host $MINIO_HOST \
-            --minio-access $MINIO_ACCESS_KEY \
-            --minio-secret $MINIO_SECRET_KEY \
-            --minio-bucket $MINIO_BUCKET
-        env:
-          API_PASS: ${{ secrets.API_PASS }}
-          MINIO_HOST: ${{ secrets.MINIO_HOST }}
-          MINIO_ACCESS_KEY: ${{ secrets.MINIO_ACCESS_KEY }}
-          MINIO_SECRET_KEY: ${{ secrets.MINIO_SECRET_KEY }}
-          MINIO_BUCKET: ${{ secrets.MINIO_BUCKET }}
-        if: ${{ env.API_PASS != '' }}  # Don't run on fork repositories by default
+          event-type: prod-problems-deploy

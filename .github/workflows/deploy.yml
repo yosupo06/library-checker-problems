@@ -6,9 +6,6 @@ on:
       - master
       - test/ci
 
-permissions:
-  contents: write
-
 jobs:
   dispatch:  
     runs-on: ubuntu-latest
@@ -16,5 +13,6 @@ jobs:
       - name: Dispatch Problems Deploy
         uses: peter-evans/repository-dispatch@v2
         with:
+          token: ${{ secrets.JUDGE_REPO_TOKEN }}
           repository: yosupo06/library-checker-judge
           event-type: prod-problems-deploy

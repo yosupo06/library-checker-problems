@@ -423,6 +423,11 @@ class Problem:
         with open(str(path), 'w', encoding='utf-8') as f:
             f.write(html.html)
 
+        path = (self.basedir / 'task_body.html') if not htmldir else htmldir / \
+            (self.basedir.resolve().name + '_body.html')
+        with open(str(path), 'w', encoding='utf-8') as f:
+            f.write(html.statement)
+
     def calc_hashes(self) -> MutableMapping[str, str]:
         hashes: MutableMapping[str, str] = dict()
         for name in self.basedir.glob('in/*.in'):
@@ -484,7 +489,7 @@ class Problem:
             return self == self.DEV
 
         def generate_html(self):
-            return self == self.DEV or self == self.TEST
+            return self == self.HTML or self == self.DEV or self == self.TEST
 
     def generate(self, mode: Mode, html_dir: Optional[Path]):
         if mode == self.Mode.DEV:
@@ -520,11 +525,6 @@ class Problem:
 
         if not is_testcases_already_generated or mode.force_generate():
             self.make_outputs(mode.verify())
-
-        if mode == self.Mode.HTML:
-            logger.info('HTML generator Mode, skip judge')
-            self.write_html(html_dir)
-            return
 
         if mode.verify():
             self.compile_solutions()

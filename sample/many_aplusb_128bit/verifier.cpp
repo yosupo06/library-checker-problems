@@ -11,18 +11,21 @@ int main() {
 
   string MAX = i128_to_str(A_AND_B_MAX);
 
-  // check if -MAX <= S <= MAX
+  // check if S is integer and -MAX <= S <= MAX
   auto check = [&](string S) -> bool {
     if (S.empty()) return false;
-    // 0
     if (S == "0") return true;
+
     if (S[0] == '-') S.erase(begin(S));
-    if ((int)S.size() >= (int)MAX.size()) {
-      return S <= MAX;
-    }
     for (int i = 0; i < (int)S.size(); i++) {
       if (i == 0 and S[i] == '0') return false;
       if (!('0' <= S[i] and S[i] <= '9')) return false;
+    }
+    if ((int)S.size() > (int)MAX.size()) {
+      return false;
+    }
+    if ((int)S.size() == (int)MAX.size()) {
+      return S <= MAX;
     }
     return true;
   };

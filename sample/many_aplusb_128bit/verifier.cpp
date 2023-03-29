@@ -17,6 +17,7 @@ int main() {
     if (S == "0") return true;
 
     if (S[0] == '-') S.erase(begin(S));
+    if (S.empty()) return false;
     for (int i = 0; i < (int)S.size(); i++) {
       if (i == 0 and S[i] == '0') return false;
       if (!('0' <= S[i] and S[i] <= '9')) return false;

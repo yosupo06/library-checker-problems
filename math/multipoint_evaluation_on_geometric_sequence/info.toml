@@ -20,6 +20,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/906"
 [[tests]]
     name = "a0_r01.cpp"
     number = 5
+[[tests]]
+    name = "near_pow_of_2.cpp"
+    number = 6
 
 [[solutions]]
     name = "naive.cpp"

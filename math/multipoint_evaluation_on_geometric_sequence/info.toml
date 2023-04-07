@@ -1,0 +1,34 @@
+title = 'Multipoint Evaluation (Geometric Sequence)'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/906"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small_random.cpp"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "nm_1.cpp"
+    number = 3
+[[tests]]
+    name = "a0_r01.cpp"
+    number = 5
+[[tests]]
+    name = "near_pow_of_2.cpp"
+    number = 6
+
+[[solutions]]
+    name = "naive.cpp"
+    wrong = false
+    allow_tle = true
+
+[params]
+    NM_MAX = 524288
+    MOD = 998244353

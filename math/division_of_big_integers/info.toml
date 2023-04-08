@@ -1,0 +1,30 @@
+title = 'Division of Big Integers'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/941"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "small.cpp"
+    number = 1
+[[tests]]
+    name = "medium.cpp"
+    number = 3
+[[tests]]
+    name = "large.cpp"
+    number = 2
+[[tests]]
+    name = "max.cpp"
+    number = 4
+[[tests]]
+    name = "q_nearly_zero.cpp"
+    number = 3
+[[tests]]
+    name = "ratio_integer.cpp"
+    number = 6
+
+[params]
+    T_MAX = 2000000
+    LOG_10_A_AND_B_MAX = 2000000
+    SUM_OF_CHARACTER_LENGTH = 4000004

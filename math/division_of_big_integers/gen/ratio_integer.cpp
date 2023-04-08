@@ -1,5 +1,5 @@
 /**
- * |B| * m = |A|, m : half integer
+ * |B| * m = |A|, m : integer
  */
 
 #include <iostream>

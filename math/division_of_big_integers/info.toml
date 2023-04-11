@@ -16,7 +16,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/941"
     number = 2
 [[tests]]
     name = "max.cpp"
-    number = 4
+    number = 1
 [[tests]]
     name = "q_nearly_zero.cpp"
     number = 3
@@ -27,4 +27,4 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/941"
 [params]
     T_MAX = 2000000
     LOG_10_A_AND_B_MAX = 2000000
-    SUM_OF_CHARACTER_LENGTH = 4000004
+    SUM_OF_CHARACTER_LENGTH = 4000002

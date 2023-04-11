@@ -2,25 +2,22 @@
 
 @{lang.en}
 This problem has $T$ cases.  
-Given integers $A, B$. Output the following $q, r$ :
-
-- The integer part $q$ of the real number $A / B$, and
-- integer $r$ satisfying $A = qB + R$.
+Given a non-negative integer $A$ and a positive integer $B$, print integers $q, r$ satisfying the following equation:
 
 @{lang.ja}
 この問題は $T$ ケースあります。  
-整数 $A, B$ が与えられます。次の $q, r$ を出力してください。
-
-- 実数 $A / B$ の整数部 $q$, および
-- $A = qB + r$ を満たす整数 $r$ 
+非負整数 $A$ と正整数 $B$ が与えられます。次の式を満たす整数 $q, r$ を出力してください。
 
 @{lang.end}
+
+- $q = \left \lfloor \frac{A}{B} \right \rfloor$
+- $A = qB + r$
 
 ## @{keyword.constraints}
 
 - $1 \leq T \leq @{param.T_MAX}$
-- $-10^{@{param.LOG_10_A_AND_B_MAX}} \leq A, B \leq 10^{@{param.LOG_10_A_AND_B_MAX}}$
-- $B \neq 0$
+- $0 \leq A \leq 10^{@{param.LOG_10_A_AND_B_MAX}}$
+- $1 \leq B \leq 10^{@{param.LOG_10_A_AND_B_MAX}}$
 - @{lang.en}The sum of (the number of characters in $A$) $+$ (the number of characters in $B$) over all test cases does not exceed $@{param.SUM_OF_CHARACTER_LENGTH}$.@{lang.ja}全てのテストケースに対する ($A$ の文字数) $+$ ($B$ の文字数) の総和は $@{param.SUM_OF_CHARACTER_LENGTH}$ を超えない。@{lang.end}
 
 ## @{keyword.input}

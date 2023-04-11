@@ -34,10 +34,6 @@ int main(int, char* argv[]) {
       int lower = i == 0 ? 1 : 0;
       sb.push_back('0' + gen.uniform(lower, 9));
     }
-    if (gen.uniform_bool() and sa != "0") sa.insert(begin(sa), '-');
-    if (gen.uniform_bool()) sb.insert(begin(sb), '-');
-    lsum += sa.size() + sb.size();
-    if (lsum > SUM_OF_CHARACTER_LENGTH) break;
 
     bigint x = sa, y = sb;
     x = x / y * y;
@@ -54,8 +50,14 @@ int main(int, char* argv[]) {
     }
     sa = x.to_string();
 
-    A.push_back(sa);
-    B.push_back(sb);
+    lsum += sa.size() + sb.size();
+    if (lsum > SUM_OF_CHARACTER_LENGTH) break;
+    if (x >= 0) {
+      A.push_back(sa);
+      B.push_back(sb);
+    } else {
+      lsum -= sa.size() + sb.size();
+    }
   }
 
   printf("%d\n", (int)A.size());

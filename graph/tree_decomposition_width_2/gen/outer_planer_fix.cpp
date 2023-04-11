@@ -16,7 +16,7 @@ int main(int, char **argv) {
 
 	// l moves 0 -> m
 	// r moves n-1 -> m+1
-	// the graph has 2 lines (0 to m) and (n-1 to m+1) , and bipertite graph between the
+	// the graph has 2 lines (0 to m) and (n-1 to m+1) , and bipertite graph between them
 	int l = 0, r = n - 1;
 	// while (l < r) : NG
 	//     at the final iteration, generates (l,r) twice

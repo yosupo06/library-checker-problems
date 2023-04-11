@@ -35,6 +35,6 @@ int main(int, char **argv) {
 	gen.shuffle(edges.begin(), edges.end());
 	if (int(edges.size()) > M_MAX) edges.resize(M_MAX);
 
-	print_graph(gen, n, edges);
+	shuffle_vertices_and_print_graph(gen, n, edges);
 	return 0;
 }

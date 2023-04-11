@@ -13,22 +13,13 @@ int main(int, char **argv) {
 	auto gen = Random(seed);
 
 	int n = min(N_MAX, M_MAX);
-	int m = n;
 
 	vector<pair<int, int>> edges;
 	for(int i=0; i<n-1; i++) edges.emplace_back(i, i+1);
 	edges.emplace_back(n-1, 0);
+	
+    gen.shuffle(edges.begin(), edges.end());
 
-	vector<int> perm(n);
-	for(int i=0; i<n; i++) perm[i] = i;
-	gen.shuffle(perm.begin(), perm.end());
-	for(int i=0; i<m; i++){
-		edges[i].first = perm[edges[i].first];
-		edges[i].second = perm[edges[i].second];
-	}
-	
-	gen.shuffle(edges.begin(), edges.end());
-	
-	print_graph(gen, n, edges);
+	shuffle_vertices_and_print_graph(gen, n, edges);
 	return 0;
 }

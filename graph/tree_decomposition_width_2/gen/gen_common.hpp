@@ -32,5 +32,19 @@ void print_graph(Random& gen, int n, vector<pair<int, int>> edges) {
         g[p.first].push_back(p.second);
         g[p.second].push_back(p.first);
     }
-    print_graph(gen, g);
+    print_graph(gen, std::move(g));
+}
+
+void shuffle_vertices_and_print_graph(Random& gen, int n, vector<pair<int, int>> edges) {
+    vector<int> idx = gen.perm<int>(n);
+
+    int m = edges.size();
+    printf("p tw %d %d\n", n, m);
+    for (int i = 0; i < m; i++) {
+        int u = edges[i].first;
+        int v = edges[i].second;
+        assert(0 <= u && u < n);
+        assert(0 <= v && v < n);
+        printf("%d %d\n", idx[u] + 1, idx[v] + 1);
+    }
 }

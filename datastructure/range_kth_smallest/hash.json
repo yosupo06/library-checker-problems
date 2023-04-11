@@ -1,4 +1,6 @@
 {
+  "all_zero_00.in": "7fb455624b4b8cb40e3416c8921a1b6831b106dc94429e0a2f7b53ef77be9b93",
+  "all_zero_00.out": "d49ff2372ee85c6b2ca70f1e2ddce4d94690210b64c833054a37e41c73768ce7",
   "dense_large_a_00.in": "943154a15d705182ef72ffd36afdcfb7f5ec14b1a35c5206910fec01766d1284",
   "dense_large_a_00.out": "f90282fb68a8ec10c90d332ff4395d44013f9641e9baaa782a6e3e9ccd98dd1e",
   "dense_small_a_00.in": "403600e78d6b516131ea844c14a36fc3b81ee0cf71e12386dfaf8b88f9b1cf3a",

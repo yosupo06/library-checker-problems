@@ -22,7 +22,7 @@ int main(int, char **argv) {
 		edges.emplace_back(i, ParallelCount + 1);
 	}
 
-    gen.shuffle(edges.begin(), edges.end());
+	gen.shuffle(edges.begin(), edges.end());
 
 	shuffle_vertices_and_print_graph(gen, n, edges);
 	return 0;

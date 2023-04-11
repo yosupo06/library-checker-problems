@@ -18,7 +18,7 @@ int main(int, char **argv) {
 	for(int i=0; i<n-1; i++) edges.emplace_back(i, i+1);
 	edges.emplace_back(n-1, 0);
 	
-    gen.shuffle(edges.begin(), edges.end());
+	gen.shuffle(edges.begin(), edges.end());
 
 	shuffle_vertices_and_print_graph(gen, n, edges);
 	return 0;

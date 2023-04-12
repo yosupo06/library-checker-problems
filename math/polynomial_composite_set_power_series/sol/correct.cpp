@@ -1,9 +1,5 @@
 // Reference : https://codeforces.com/blog/entry/92183
 
-#if defined(__GNUC__) && !defined(__clang__)
-#pragma GCC target("bmi,popcnt")
-#endif
-
 #include <algorithm>
 #include <cassert>
 #include <vector>

@@ -16,12 +16,15 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/941"
     number = 2
 [[tests]]
     name = "max.cpp"
-    number = 1
-[[tests]]
-    name = "q_nearly_zero.cpp"
     number = 3
 [[tests]]
-    name = "ratio_integer.cpp"
+    name = "a_max_b_random.cpp"
+    number = 3
+[[tests]]
+    name = "r_nearly_zero.cpp"
+    number = 3
+[[tests]]
+    name = "length_ratio_integer.cpp"
     number = 6
 
 [params]

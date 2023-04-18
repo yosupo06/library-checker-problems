@@ -9,7 +9,7 @@ using u64 = std::uint_fast64_t;
 using std::move;
 std::mt19937_64 rng(0x1757C90436F3E0B3);
 
-class node;
+struct node;
 using ptr = std::unique_ptr<node>;
 struct node {
   ptr l, r;

@@ -14,10 +14,10 @@ int main(int, char* argv[]) {
   int q = N_AND_Q_MAX;
   printf("%d %d\n", n, q);
   for (int i = 0; i < n; i++) {
-    printf("%d", gen.uniform<int>(0, A_AND_X_MAX));
-    if (i != n - 1) printf(" ");
-  }
-  printf("\n");
+        int a = gen.uniform<int>(1, MOD - 1);
+        int b = gen.uniform<int>(0, MOD - 1);
+        printf("%d %d\n", a, b);
+    }
 
   vector<int> u(n - 1), v(n - 1);
 
@@ -43,7 +43,8 @@ int main(int, char* argv[]) {
 
   for (int i = 0; i < q; i++) {
     printf("1 ");
-    printf("%d %d\n", 0, n-1);
+    int x = gen.uniform<int>(0, MOD - 1);
+    printf("%d %d %d\n", 0, n-1, x);
   }
   return 0;
 }

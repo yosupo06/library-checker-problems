@@ -9,17 +9,22 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = 500'000;
-    int q = 500'000;
+    int n = N_AND_Q_MAX;
+    int q = N_AND_Q_MAX;
     printf("%d %d\n", n, q);
+    
     for (int i = 0; i < n; i++) {
-        printf("%d", gen.uniform<int>(0, A_AND_X_MAX));
-        if (i != n - 1) printf(" ");
+        int a = gen.uniform<int>(1, MOD - 1);
+        int b = gen.uniform<int>(0, MOD - 1);
+        printf("%d %d\n", a, b);
     }
-    printf("\n");
 
     vector<int> u(n - 1), v(n - 1);
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n - 100000; i++) {
+        u[i] = i;
+        v[i] = i + 1;
+    }
+    for (int i = n - 100000; i < n - 1; i++) {
         u[i] = gen.uniform(0, i);
         v[i] = i + 1;
     }
@@ -41,12 +46,14 @@ int main(int, char* argv[]) {
         printf("%d ", t);
         if (t == 0) {
             int p = gen.uniform(0, n - 1);
-            int x = gen.uniform<int>(0, A_AND_X_MAX);
-            printf("%d %d\n", p, x);
+            int c = gen.uniform<int>(1, MOD - 1);
+            int d = gen.uniform<int>(0, MOD - 1);
+            printf("%d %d %d\n", p, c, d);
         } else {
             int u = gen.uniform(0, n - 1);
             int v = gen.uniform(0, n - 1);
-            printf("%d %d\n", u, v);
+            int x = gen.uniform<int>(0, MOD - 1);
+            printf("%d %d %d\n", u, v, x);
         }
     }
     return 0;

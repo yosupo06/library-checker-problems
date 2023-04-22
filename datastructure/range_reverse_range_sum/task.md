@@ -22,7 +22,7 @@ Process $Q$ queries of the following types in order :
 
 - $0 \leq N \leq @{param.N_MAX}$
 - $0 \leq Q \leq @{param.Q_MAX}$
-- $0 \leq a _ i \lt @{param.A_MAX}$
+- $0 \leq a _ i \leq @{param.A_MAX}$
 - $0 \leq l _ j \leq r _ j \leq N$
 
 ## @{keyword.input}

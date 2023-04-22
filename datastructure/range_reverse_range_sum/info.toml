@@ -17,6 +17,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/538"
 [[tests]]
     name = "nq_01.cpp"
     number = 8
+[[tests]]
+    name = "almost_t0.cpp"
+    number = 1
+[[tests]]
+    name = "almost_t1.cpp"
+    number = 1
 
 [[solutions]]
     name = "naive.cpp"

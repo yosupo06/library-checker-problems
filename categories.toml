@@ -10,11 +10,13 @@ name = "Data Structure"
 problems = [
   "associative_array",
   "predecessor_problem",
+  "double_ended_priority_queue",
   "unionfind",
   "static_range_sum",
   "staticrmq",
   "point_add_range_sum",
   "point_set_range_composite",
+  "range_affine_point_get", 
   "range_affine_range_sum",
   "range_chmin_chmax_add_range_sum",
   "range_kth_smallest",
@@ -39,19 +41,23 @@ problems = [
   "static_range_inversions_query",
   "rectangle_sum",
   "point_add_rectangle_sum",
+  "static_rectangle_add_rectangle_sum",
+  "area_of_union_of_rectangles",
   "persistent_queue",
-  "persistent_unionfind"
+  "persistent_unionfind",
 ]
 
 [[categories]]
 name = "Graph"
 problems = [
   "cycle_detection",
+  "cycle_detection_undirected",
   "shortest_path",
   "scc",
   "k_shortest_walk",
   "two_edge_connected_components",
   "three_edge_connected_components",
+  "biconnected_components",
   "min_cost_b_flow",
   "bipartitematching",
   "general_matching",
@@ -67,7 +73,7 @@ problems = [
   "enumerate_cliques",
   "tree_decomposition_width_2",
   "global_minimum_cut_of_dynamic_star_augmented_graph",
-  "chordal_graph_recognition"
+  "chordal_graph_recognition",
 ]
 
 [[categories]]
@@ -77,6 +83,7 @@ problems = [
   "lca",
   "jump_on_tree",
   "cartesian_tree",
+  "common_interval_decomposition_tree",
   "frequency_table_of_tree_distance",
   "rooted_tree_isomorphism_classification",
 ]
@@ -87,6 +94,7 @@ problems = [
   "counting_primes",
   "enumerate_primes",
   "factorize",
+  "primitive_root",
   "binomial_coefficient",
   "stirling_number_of_the_first_kind",
   "stirling_number_of_the_second_kind",
@@ -101,6 +109,7 @@ problems = [
   "find_linear_recurrence",
   "kth_term_of_linearly_recurrent_sequence",
   "sum_of_floor_of_linear",
+  "min_of_mod_of_linear",
   "sqrt_mod",
   "kth_root_mod",
   "kth_root_integer",
@@ -108,7 +117,9 @@ problems = [
   "tetration_mod",
   "nim_product_64",
   "sharp_p_subset_sum",
-  "two_sat"
+  "two_sat",
+  "longest_increasing_subsequence",
+  "number_of_subsequences",
 ]
 
 [[categories]]
@@ -121,7 +132,10 @@ problems = [
   "subset_convolution",
   "bitwise_and_convolution",
   "bitwise_xor_convolution",
+  "gcd_convolution",
+  "lcm_convolution",
   "multivariate_convolution",
+  "multivariate_convolution_cyclic",
   "mul_mod2n_convolution",
 ]
 
@@ -139,6 +153,7 @@ problems = [
   "log_of_formal_power_series_sparse",
   "pow_of_formal_power_series_sparse",
   "sqrt_of_formal_power_series_sparse",
+  "product_of_polynomial_sequence",
   "multipoint_evaluation",
   "polynomial_interpolation",
   "polynomial_taylor_shift",
@@ -152,11 +167,12 @@ name = "Matrix"
 problems = [
   "matrix_product",
   "matrix_det",
+  "matrix_det_arbitrary_mod",
   "sparse_matrix_det",
   "system_of_linear_equations",
   "inverse_matrix",
   "characteristic_polynomial",
-  "hafnian_of_matrix"
+  "hafnian_of_matrix",
 ]
 
 [[categories]]
@@ -166,7 +182,8 @@ problems = [
   "enumerate_palindromes",
   "suffixarray",
   "number_of_substrings",
-  "runenumerate"
+  "runenumerate",
+  "prefix_substring_lcs",
 ]
 
 [[categories]]

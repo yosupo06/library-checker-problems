@@ -10,7 +10,7 @@ First, process following $N$ queries.
 
 Then, process following $Q$ queries. 
 
-- `$l$ $d$ $r$ $u$ $w$`: Calculate sum of entries $A_{xy}$ satistying $l\leq x < r$ and $d\leq y < u$, and print it modulo $@{param.MOD}$. 
+- `$l$ $d$ $r$ $u$`: Calculate sum of entries $A_{xy}$ satistying $l\leq x < r$ and $d\leq y < u$, and print it modulo $@{param.MOD}$. 
 
 @{lang.ja}
 $@{param.X_MAX} \times @{param.Y_MAX}$ 行列 $A = (A_{xy})$ ($0\leq x < @{param.X_MAX}$, $0\leq y < @{param.Y_MAX}$) があります。

@@ -22,7 +22,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/569"
     number = 3
 [[solutions]]
     name = "naive.cpp"
-    wrong = true
+    allow_tle = true
 [[solutions]]
     name = "wa.cpp"
     wrong = true

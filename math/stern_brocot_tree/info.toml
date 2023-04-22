@@ -6,6 +6,27 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/888"
     name = "example.in"
     number = 1
 [[tests]]
+    name = "random_ancestor_no.cpp"
+    number = 1
+[[tests]]
+    name = "random_ancestor_yes.cpp"
+    number = 1
+[[tests]]
+    name = "random_lca.cpp"
+    number = 1
+[[tests]]
+    name = "random_range.cpp"
+    number = 1
+[[tests]]
+    name = "random_child.cpp"
+    number = 1
+[[tests]]
+    name = "random_encode.cpp"
+    number = 1
+[[tests]]
+    name = "random_decode.cpp"
+    number = 1
+[[tests]]
     name = "small_ancestor.cpp"
     number = 1
 [[tests]]

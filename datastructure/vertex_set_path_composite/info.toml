@@ -17,6 +17,18 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/190"
     name = "small.cpp"
     number = 5
 
+[[tests]]
+    name = "long-path-decomposition_killer.cpp"
+    number = 1
+
+[[tests]]
+    name = "almost_line.cpp"
+    number = 2
+    
+[[tests]]
+    name = "line.cpp"
+    number = 2
+    
 [[solutions]]
     name = "naive.cpp"
     wrong = true

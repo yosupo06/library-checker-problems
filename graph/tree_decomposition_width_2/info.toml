@@ -10,6 +10,12 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/479'
 	name = 'small_random.cpp'
 	number = 5
 [[tests]]
+	name = 'max_cycle.cpp'
+	number = 1
+[[tests]]
+	name = 'max_parallel.cpp'
+	number = 1
+[[tests]]
 	name = 'max_sparse_random.cpp'
 	number = 3
 [[tests]]
@@ -17,6 +23,9 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/479'
 	number = 2
 [[tests]]
 	name = 'outer_planer.cpp'
+	number = 2
+[[tests]]
+	name = 'outer_planer_fix.cpp'
 	number = 2
 [[tests]]
 	name = 'series_parallel.cpp'

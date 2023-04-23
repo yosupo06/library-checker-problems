@@ -133,6 +133,6 @@ int main() {
 	for (int i = 1; i < K; i++) {
 		printf("%d %d\n", par[i] + 1, i + 1);
 	}
-    return 0;
+	return 0;
 }
 

@@ -3,7 +3,7 @@
 @{lang.en}
 Given a bipartite graph with $L + R$ vertices and $M$ edges. $i$-th edge is $(a_i, b_i)$.
 
-Calculate the maxmum matching.
+Calculate the maximum matching.
 
 @{lang.ja}
 

@@ -1,18 +1,21 @@
 ## @{keyword.statement}
 
 @{lang.en}
+
 You are given
 
-- an undirected tree with $N$ vertices,
-- $N$ integers $a _ 0 , a _ 1 , \ldots , a _ {N-1}$ ,
-- $N-1$ integers $b _ 0 , b _ 1 , \ldots , b _ {N-1}$ , and
-- $N-1$ integers $c _ 0 , c _ 1 , \ldots , c _ {N-1}$ .
+- a tree with $N$ vertices,
+- $N$ integers $a _ 0, a _ 1, \ldots, a _ {N-1}$ ,
+- $N-1$ integers $b _ 0, b _ 1, \ldots, b _ {N-2}$ , and
+- $N-1$ integers $c _ 0, c _ 1, \ldots, c _ {N-2}$ .
 
-The $i$-th edge bidirectionally connects vertices $u _ i$ and $v _ i$ .
+Edge $i$ connects vertices $u_i$ and $v_i$ bidirectionally.
 
-Let edges on the path from $x$ to $y$ be $e _ 0,e _ 1, \ldots , e _ k$ in order. Define $P(x,y)$ as $P(x,y)=f_{e_0}(f_{e_1}( \ldots f_{e_k}( a_y ) \ldots ))$ .
+For an integer $e$ that satisfies $0 \leq e \leq N-2$ , let $f _ e(x) = b _ e x + c _ e$ .
 
-Find $\sum_{y=0}^{N-1} P(x,y)$ modulo $@{param.MOD}$ for each vertex $x$ .
+Let $e _ 0, e _ 1, \ldots, e _ k$ be the edges on the simple path from vertex $x$ to vertex $y$ in order, and define $P(x, y) = f_{e _ 0}(f _ {e _ 1}(\ldots f _ {e _ k}(a _ y) \ldots ))$ .
+
+Find $\sum _ {y=0} ^ {N-1} P(x, y)$ modulo $@{param.MOD}$ for each vertex $x$ .
 
 @{lang.ja}
 

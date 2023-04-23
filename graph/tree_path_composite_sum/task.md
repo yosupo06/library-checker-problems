@@ -9,11 +9,11 @@ You are given
 - $N-1$ integers $b _ 0, b _ 1, \ldots, b _ {N-2}$ , and
 - $N-1$ integers $c _ 0, c _ 1, \ldots, c _ {N-2}$ .
 
-Edge $i$ connects vertices $u_i$ and $v_i$ bidirectionally.
+Edge $i$ connects vertices $u _ i$ and $v _ i$ bidirectionally.
 
 For an integer $e$ that satisfies $0 \leq e \leq N-2$ , let $f _ e(x) = b _ e x + c _ e$ .
 
-Let $e _ 0, e _ 1, \ldots, e _ k$ be the edges on the simple path from vertex $x$ to vertex $y$ in order, and define $P(x, y) = f_{e _ 0}(f _ {e _ 1}(\ldots f _ {e _ k}(a _ y) \ldots ))$ .
+Let $e _ 0, e _ 1, \ldots, e _ k$ be the edges on the simple path from vertex $x$ to vertex $y$ in order, and define $P(x, y) = f _ {e _ 0}(f _ {e _ 1}(\ldots f _ {e _ k}(a _ y) \ldots ))$ .
 
 Find $\sum _ {y=0} ^ {N-1} P(x, y)$ modulo $@{param.MOD}$ for each vertex $x$ .
 
@@ -28,9 +28,9 @@ Find $\sum _ {y=0} ^ {N-1} P(x, y)$ modulo $@{param.MOD}$ for each vertex $x$ .
 
 $0\leq e \leq N-2$ を満たす整数 $e$ について、 $f _ e (x) = b _ e x + c _ e$ とします。
 
-頂点 $x$ から頂点 $y$ までの単純パスに含まれる辺を順に $e _ 0,e _ 1, \ldots , e _ k$ として、 $P(x,y)=f_{e_0}(f_{e_1}( \ldots f_{e_k}( a_y ) \ldots ))$ とします。
+頂点 $x$ から頂点 $y$ までの単純パスに含まれる辺を順に $e _ 0,e _ 1, \ldots , e _ k$ として、 $P(x, y) = f _ {e _ 0}(f _ {e _ 1}(\ldots f _ {e _ k}(a _ y) \ldots ))$ とします。
 
-各頂点 $x$ について $\sum_{y=0}^{N-1} P(x,y)$ を $@{param.MOD}$ で割ったあまりを求めてください。 
+各頂点 $x$ について $\sum _ {y=0} ^ {N-1} P(x,y)$ を $@{param.MOD}$ で割ったあまりを求めてください。 
 
 @{lang.end}
 

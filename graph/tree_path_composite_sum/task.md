@@ -10,9 +10,9 @@ You are given
 
 The $i$-th edge bidirectionally connects vertices $u _ i$ and $v _ i$ .
 
-頂点 $x$ から頂点 $y$ までの単純パスに含まれる辺を順に $e _ 0,e _ 1, \ldots , e _ k$ として、 $P(x,y)=f_{e_0}(f_{e_1}( \ldots f_{e_k}( a_v ) \ldots ))$ とします。
+Let edges on the path from $x$ to $y$ be $e _ 0,e _ 1, \ldots , e _ k$ in order. Define $P(x,y)$ as $P(x,y)=f_{e_0}(f_{e_1}( \ldots f_{e_k}( a_y ) \ldots ))$ .
 
-Find a pair of vertices $(u, v)$ that are farthest apart, and output the path from $u$ to $v$.
+Find $\sum_{y=0}^{N-1} P(x,y)$ modulo $@{param.MOD}$ for each vertex $x$ .
 
 @{lang.ja}
 
@@ -27,7 +27,7 @@ $0\leq e \leq N-2$ を満たす整数 $e$ について、 $f _ e (x) = b _ e x +
 
 頂点 $x$ から頂点 $y$ までの単純パスに含まれる辺を順に $e _ 0,e _ 1, \ldots , e _ k$ として、 $P(x,y)=f_{e_0}(f_{e_1}( \ldots f_{e_k}( a_y ) \ldots ))$ とします。
 
-各頂点 $x$ について $\sum_{y} P(x,y)$ を $998244353$ で割ったあまりを求めてください。 
+各頂点 $x$ について $\sum_{y=0}^{N-1} P(x,y)$ を $@{param.MOD}$ で割ったあまりを求めてください。 
 
 @{lang.end}
 
@@ -61,7 +61,7 @@ $a _ 0$ $a _ 1$ $\ldots$ $a _ {N-1}$
 $u _ 0$ $v _ 0$ $b _ 0$ $c _ 0$
 $u _ 1$ $v _ 1$ $b _ 1$ $c _ 1$
 $\vdots$
-$u _ {N-2}$ $v _ {N-2}$ $b _ {N-2} $c _ {N-2}$
+$u _ {N-2}$ $v _ {N-2}$ $b _ {N-2}$ $c _ {N-2}$
 ```
 
 ## @{keyword.output}

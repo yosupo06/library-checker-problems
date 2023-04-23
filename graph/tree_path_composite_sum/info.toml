@@ -28,3 +28,4 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/861"
     B_MAX = 998_244_352
     C_MIN = 0
     C_MAX = 998_244_352
+    MOD = 998_244_353

@@ -1,0 +1,13 @@
+title = 'Primarity Test'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/880"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+
+[params]
+    MIN_Q = 1
+    MAX_Q = 100_000
+    MIN_N = 1
+    MAX_N = 1_000_000_000_000_000_000

@@ -5,6 +5,18 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/880"
 [[tests]]
     name = "example.in"
     number = 1
+[[tests]]
+    name = "small.cpp"
+    number = 1
+[[tests]]
+    name = "less_1000000000.cpp"
+    number = 2
+[[tests]]
+    name = "carmichael.in"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 4
 
 [params]
     MIN_Q = 1

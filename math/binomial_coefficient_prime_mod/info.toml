@@ -1,0 +1,44 @@
+title = 'Binomial Coefficient'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/593"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[tests]]
+    name = "mod998244353.cpp"
+    number = 2
+
+[[tests]]
+    name = "mod1000000007.cpp"
+    number = 2
+
+[[tests]]
+    name = "mod2.cpp"
+    number = 2
+
+[[tests]]
+    name = "mod3.cpp"
+    number = 2
+
+[[tests]]
+    name = "small_random.cpp"
+    number = 3
+
+[[tests]]
+    name = "med_random.cpp"
+    number = 3
+
+[[tests]]
+    name = "large_random.cpp"
+    number = 3
+
+[[tests]]
+    name = "random.cpp"
+    number = 3
+
+[params]
+    T_MAX = 1_000_000
+    M_MAX = 1_073_741_824
+    N_MAX = 10_000_000

@@ -3,7 +3,7 @@
 ![CI](https://github.com/yosupo06/library-checker-problems/workflows/Diff/badge.svg)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/yosupo06/library-checker-problems/blob/master/LICENSE)
 
-![Discord Banner](https://discordapp.com/api/guilds/1087310259447681114/widget.png?style=banner2)
+[![Discord Banner](https://discordapp.com/api/guilds/1087310259447681114/widget.png?style=banner2)](https://discordapp.com/channels/1087310259447681114/1087410091730423889/1087411950218129509)
 
 Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp). You can get test cases of problems from this repository.
 

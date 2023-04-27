@@ -36,7 +36,7 @@ $n_{T-1}\ k_{T-1}$
 @{lang.en}
 For each line, print $\binom{n}{k} \bmod m$.
 @{lang.ja}
-$\binom{n}{k} \bmod m$を1行ずつ出力してください。
+$\binom{n}{k} \bmod m$ を1行ずつ出力してください。
 @{lang.end}
 
 ## @{keyword.sample}

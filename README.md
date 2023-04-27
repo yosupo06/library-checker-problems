@@ -1,7 +1,9 @@
 # Library Checker Problems
 
-![CI](https://github.com/yosupo06/library-checker-problems/workflows/CI/badge.svg)
+![CI](https://github.com/yosupo06/library-checker-problems/workflows/Diff/badge.svg)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/yosupo06/library-checker-problems/blob/master/LICENSE)
+
+![Discord Banner](https://discordapp.com/api/guilds/1087310259447681114/widget.png?style=banner2)
 
 Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp). You can get test cases of problems from this repository.
 

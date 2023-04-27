@@ -8,9 +8,9 @@ Each test consists of $T$ cases, and $m$ is fixed in all cases.
 
 @{lang.ja}
 
-$n,k,m$が与えられます。$\binom{n}{k} \bmod m$を計算してください。
+$n,k,m$ が与えられます。$\binom{n}{k} \bmod m$ を計算してください。
 
-この問題は $T$ ケースあります。また、$m$は全てのケースで固定です。
+この問題は $T$ ケースあります。また、$m$ は全てのケースで固定です。
 
 @{lang.end}
 

@@ -10,13 +10,19 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/880"
     number = 1
 [[tests]]
     name = "less_1000000000.cpp"
-    number = 2
+    number = 1
 [[tests]]
     name = "carmichael.in"
     number = 1
 [[tests]]
+    name = "all_prime.cpp"
+    number = 1
+[[tests]]
+    name = "prod_two_prime.cpp"
+    number = 1
+[[tests]]
     name = "random.cpp"
-    number = 4
+    number = 3
 
 [params]
     MIN_Q = 1

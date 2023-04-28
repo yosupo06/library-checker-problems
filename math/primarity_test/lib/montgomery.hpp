@@ -1,3 +1,6 @@
+#ifndef MONTGOMERY_HPP
+#define MONTGOMERY_HPP
+
 #include <utility>
 #include "util.hpp"
 
@@ -13,6 +16,7 @@ class Montgomery {
     u64 INV; // = (-MOD)^(-1) mod 2^64
     u64 v;
 
+    // a * b = res.first * 2^64 + res.second
     std::pair<u64, u64> mul(u64 a, u64 b) const {
         u64 a1  = a >> 32,
             a2  = a & MASK32,
@@ -48,6 +52,10 @@ class Montgomery {
         return res;
     }
 
+    Montgomery make_montgomery(u64 x) {
+        return Montgomery(MOD, INV, x);
+    }
+
     Montgomery(u64 mod, u64 inv, u64 x) : MOD(mod), INV(inv), v(modprod(x, (~MOD) + 1, MOD)) {
         assert(mod < (1ULL << 63));
     }
@@ -56,6 +64,18 @@ class Montgomery {
 
     u64 val() const {
         return reduce(v);
+    }
+
+    Montgomery pow(u64 k) {
+        Montgomery now = *this, ret = make_montgomery(1);
+        while(k) {
+            if(k % 2 == 1) {
+                ret = ret * now;
+            }
+            k /= 2;
+            now = now * now;
+        }
+        return ret;
     }
 
     Montgomery operator*(const Montgomery &lhs) const {
@@ -96,3 +116,5 @@ class MontgomeryGenerator {
         return Montgomery(MOD, INV, x);
     }
 };
+
+#endif // MONTGOMERY_HPP

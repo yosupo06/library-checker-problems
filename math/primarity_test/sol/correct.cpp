@@ -1,13 +1,13 @@
 #include <cinttypes>
 #include <iostream>
-#include "../lib/util.hpp"
+#include "../lib/prime.hpp"
 
 int main() {
     int q;
     scanf("%d\n", &q);
-    for(i64 i = 0; i < q; i++) {
-        i64 n;
-        scanf("%" PRId64 "\n", &n);
+    for(int i = 0; i < q; i++) {
+        u64 n;
+        scanf("%" PRIu64 "\n", &n);
         if(is_prime(n)) {
             printf("Yes\n");
         } else {

@@ -16,6 +16,6 @@ int main() {
     inf.readLong(MIN_N, MAX_N, "N");
     inf.readChar('\n');
   }
-  inf.readEof();
+  inf.readChar('\n');
   return 0;
 }

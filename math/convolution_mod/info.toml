@@ -24,6 +24,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/42"
     name = "medium_all_zero.cpp"
     number = 1
 [[tests]]
+    name = "medium_pre_suf_zero.cpp"
+    number = 5
+[[tests]]
     name = "max_ans_zero.cpp"
     number = 1
 

@@ -44,8 +44,8 @@ int main(int, char* argv[]) {
             int x = gen.uniform<int>(0, A_AND_X_MAX);
             printf("%d %d\n", p, x);
         } else {
-            auto u = gen.uniform(0, n - 1);
-            auto v = gen.uniform(0, n - 1);
+            int u = gen.uniform(0, n - 1);
+            int v = gen.uniform(0, n - 1);
             printf("%d %d\n", u, v);
         }
     }

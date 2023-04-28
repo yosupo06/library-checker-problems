@@ -41,6 +41,7 @@ def param_to_str(key: str, value: object):
     else:
         raise RuntimeError('Unsupported type of params: {}'.format(key))
 
+
 def compile(src: Path, rootdir: Path):
     if src.suffix == '.cpp':
         cxx = getenv('CXX', 'g++')
@@ -51,10 +52,7 @@ def compile(src: Path, rootdir: Path):
             cxxflags_default += ' -Wl,-stack,{}'.format(hex(STACK_SIZE))
             # avoid using MinGW's "unique" stdio, which doesn't recognize %lld
             cxxflags_default += ' -D__USE_MINGW_ANSI_STDIO'
-            # avoid conflicts in CI
-            # https://github.com/actions/virtual-environments/issues/5459
-            cxxflags_default += ' -static'
-        if platform.uname().system == 'Linux' and 'Microsoft' in platform.uname().release:
+        if platform.uname().system == 'Linux' and 'microsoft' in platform.uname().release.lower():
             # a workaround for the lack of ulimit in Windows Subsystem for Linux
             cxxflags_default += ' -fsplit-stack'
         cxxflags = getenv('CXXFLAGS', cxxflags_default).split()
@@ -423,6 +421,11 @@ class Problem:
         with open(str(path), 'w', encoding='utf-8') as f:
             f.write(html.html)
 
+        path = (self.basedir / 'task_body.html') if not htmldir else htmldir / \
+            (self.basedir.resolve().name + '_body.html')
+        with open(str(path), 'w', encoding='utf-8') as f:
+            f.write(html.statement)
+
     def calc_hashes(self) -> MutableMapping[str, str]:
         hashes: MutableMapping[str, str] = dict()
         for name in self.basedir.glob('in/*.in'):
@@ -484,7 +487,7 @@ class Problem:
             return self == self.DEV
 
         def generate_html(self):
-            return self == self.DEV or self == self.TEST
+            return self == self.HTML or self == self.DEV or self == self.TEST
 
     def generate(self, mode: Mode, html_dir: Optional[Path]):
         if mode == self.Mode.DEV:
@@ -520,11 +523,6 @@ class Problem:
 
         if not is_testcases_already_generated or mode.force_generate():
             self.make_outputs(mode.verify())
-
-        if mode == self.Mode.HTML:
-            logger.info('HTML generator Mode, skip judge')
-            self.write_html(html_dir)
-            return
 
         if mode.verify():
             self.compile_solutions()

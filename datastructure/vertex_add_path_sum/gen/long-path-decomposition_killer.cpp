@@ -22,11 +22,13 @@ int main(int, char* argv[]) {
   vector<int> u(n - 1), v(n - 1);
 
   int len=2*sqrtn-1, pr=0, p=0;
-  while (len>0) {
+  while (len>1) {
+    assert(p < n - 1);
     u[p]=pr;
     v[p]=pr+len;
     ++p;
     for (int i=0;i<len-1;++i) {
+      assert(p < n - 1);
       u[p]=pr+i;
       v[p]=pr+i+1;
       ++p;

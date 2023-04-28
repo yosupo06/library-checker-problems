@@ -38,6 +38,16 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/41"
 [[tests]]
     name = "carmichael.cpp"
     number = 1
+[[tests]]
+    name = "4295098369.cpp"
+    number = 1
+[[tests]]
+    name = "fixed_RNG_buster.in"
+    number = 1
+
+[[solutions]]
+    name = "fixed_RNG.cpp"
+    wrong = true
 
 [params]
     MAX_Q = 100

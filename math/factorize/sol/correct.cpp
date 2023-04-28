@@ -68,10 +68,10 @@ bool is_prime(ll n) {
 }
 
 ll pollard_single(ll n) {
-    auto f = [&](ll x) { return (__int128_t(x) * x + 1) % n; };
     if (is_prime(n)) return n;
     if (n % 2 == 0) return 2;
     ll st = 0;
+    auto f = [&](ll x) { return (__int128_t(x) * x + st) % n; };
     while (true) {
         st++;
         ll x = st, y = f(x);

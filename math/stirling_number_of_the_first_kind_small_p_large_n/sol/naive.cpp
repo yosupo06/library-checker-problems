@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <thread>
+#include <chrono>
 
 const int LIM = 5010;
 
@@ -21,7 +23,8 @@ void gen_S(int p) {
 }
 
 void TLE() {
-  while (1) {}
+  std::chrono::milliseconds dura(11111);
+  std::this_thread::sleep_for(dura);
 }
 
 int main() {
@@ -33,7 +36,10 @@ int main() {
   for (int t = 0; t < T; ++t) {
     long long n, k;
     scanf("%lld %lld", &n, &k);
-    if (n >= LIM) { TLE(); }
+    if (n >= LIM) {
+      TLE();
+      return 0;
+    }
     printf("%d\n", S[n][k]);
   }
   return 0;

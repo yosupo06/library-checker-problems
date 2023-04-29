@@ -39,7 +39,7 @@ std::pair<std::vector<long long>, std::vector<long long>> EdgeCoprime(long long 
     long long n = LargestIf([&](long long x){ return (7ll<<x) <= max_count; });
 
     // a + t * b <= upper , c + t * d <= upper
-    auto moveAs = [upper](long long& la, long long& lb, long long& ra, long long& rb, long long x, int n){
+    auto moveAs = [](long long& la, long long& lb, long long& ra, long long& rb, long long x, int n){
         for(long long i=0; i<n; i++){
             if((x >> i) & 1ll){ la += ra; lb += rb; }
             else{ ra += la; rb += lb; }

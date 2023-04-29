@@ -19,6 +19,7 @@ std::vector<Int> EnumerateQuotients(Int N, bool doInsertZero){
 int main() {
     long long N; scanf("%lld", &N);
     std::vector<long long> ans = EnumerateQuotients(N, false);
+    printf("%d\n", (int)ans.size());
     for(std::size_t i=0; i<ans.size(); i++){
         if(i != 0) printf(" ");
         printf("%lld", ans[i]);

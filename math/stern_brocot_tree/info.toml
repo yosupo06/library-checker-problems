@@ -6,6 +6,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/888"
     name = "example.in"
     number = 1
 [[tests]]
+    name = "hand.in"
+    number = 2
+[[tests]]
     name = "random_ancestor_no.cpp"
     number = 1
 [[tests]]
@@ -37,6 +40,18 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/888"
     number = 1
 [[tests]]
     name = "small_decode.cpp"
+    number = 1
+[[tests]]
+    name = "edge_lca.cpp"
+    number = 1
+[[tests]]
+    name = "edge_range.cpp"
+    number = 1
+[[tests]]
+    name = "edge_encode.cpp"
+    number = 1
+[[tests]]
+    name = "edge_decode.cpp"
     number = 1
 
 [params]

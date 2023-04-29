@@ -72,6 +72,7 @@ int main() {
             inf.readChar('\n');
             ensure(is_valid_positive_rational_number(a, b));
         }
+        /*
         else if(q == "CHILD"){
             inf.readChar(' ');
             int a = inf.readInt(1, TARGET_FRAC_MAX, "a_chi");
@@ -80,6 +81,7 @@ int main() {
             inf.readChar('\n');
             ensure(is_valid_positive_rational_number(a, b));
         }
+        */
         else if(q == "RANGE"){
             inf.readChar(' ');
             int a = inf.readInt(1, TARGET_FRAC_MAX, "a_ran");

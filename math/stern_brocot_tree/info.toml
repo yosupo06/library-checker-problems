@@ -18,9 +18,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/888"
     name = "random_range.cpp"
     number = 1
 [[tests]]
-    name = "random_child.cpp"
-    number = 1
-[[tests]]
     name = "random_encode.cpp"
     number = 1
 [[tests]]
@@ -34,9 +31,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/888"
     number = 1
 [[tests]]
     name = "small_range.cpp"
-    number = 1
-[[tests]]
-    name = "small_child.cpp"
     number = 1
 [[tests]]
     name = "small_encode.cpp"

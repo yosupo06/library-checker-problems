@@ -1,33 +1,22 @@
 
 #include "../params.h"
-#include "../lib/lib.hpp"
+#include "../lib/gen_lib.hpp"
+#include <vector>
+#include <cstdio>
 
 int main(int, char*[]) {
-    std::vector<int> A;
-    std::vector<int> B;
+    long long max_ab = LargestIf([](long long x){ return x*x*x*x <= T_MAX; });
 
-    int max_ab = 1;
-    while(max_ab * max_ab * max_ab * max_ab <= T_MAX) max_ab++;
-    max_ab--;
+    auto [A, B] = SmallCoprime(max_ab);
 
-    for(int a=1; a<=max_ab; a++){
-        int b = 1;
-        for(int bi=1; bi<=max_ab; bi++){
-            while(Gcd(a, b) != 1) b++;
-            A.push_back(a);
-            B.push_back(b);
-            b++;
-        }
-    }
-
-    int z = A.size();
+    long long z = A.size();
     
     // output T
-    printf("%d\n", z*z);
+    printf("%lld\n", z*z);
 
-    for(int i=0; i<z; i++){
-        for(int j=0; j<z; j++){
-            printf("LCA %d %d %d %d\n", A[i], B[i], A[j], B[j]);
+    for(long long i=0; i<z; i++){
+        for(long long j=0; j<z; j++){
+            printf("LCA %lld %lld %lld %lld\n", A[i], B[i], A[j], B[j]);
         }
     }
 

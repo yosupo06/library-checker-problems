@@ -1,35 +1,24 @@
 
 #include "../params.h"
-#include "../lib/lib.hpp"
+#include "../lib/gen_lib.hpp"
+#include <vector>
+#include <cstdio>
 
 int main(int, char*[]) {
-    std::vector<int> A;
-    std::vector<int> B;
+    long long max_ab = LargestIf([](long long x){ return x*x*(x+1) <= T_MAX; });
 
-    int max_ab = 1;
-    while(max_ab * max_ab * (max_ab+1) <= T_MAX) max_ab++;
-    max_ab--;
-
-    for(int a=1; a<=max_ab; a++){
-        int b = 1;
-        for(int bi=1; bi<=max_ab; bi++){
-            while(Gcd(a, b) != 1) b++;
-            A.push_back(a);
-            B.push_back(b);
-            b++;
-        }
-    }
+    auto [A, B] = SmallCoprime(max_ab);
     
-    int h = max_ab - K_MIN_ANCESTOR;
+    long long h = max_ab - K_MIN_ANCESTOR;
 
-    int z = A.size();
+    long long z = A.size();
 
     // output T
-    printf("%d\n", z*h);
+    printf("%lld\n", z*h);
 
-    for(int i=0; i<z; i++){
-        for(int k=K_MIN_ANCESTOR; k<=h; k++){
-            printf("ANCESTOR %d %d %d\n", k, A[i], B[i]);
+    for(long long i=0; i<z; i++){
+        for(long long k=K_MIN_ANCESTOR; k<=h; k++){
+            printf("ANCESTOR %lld %lld %lld\n", k, A[i], B[i]);
         }
     }
 

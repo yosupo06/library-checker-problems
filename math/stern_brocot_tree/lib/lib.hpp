@@ -1,31 +1,9 @@
 #pragma once
+#include "gcd.hpp"
 #include <vector>
 #include <algorithm>
 #include <cassert>
 #include <cstdio>
-
-long long Gcd(long long x, long long y){
-    if(x < 0) x *= -1;
-    if(y < 0) y *= -1;
-    if(x < y) std::swap(x, y);
-    while(y != 0){
-        x %= y;
-        std::swap(x, y);
-    }
-    return x;
-}
-
-// test y = start + step, start + step * 2, start + step * 3 , ...
-long long NextCoprime(long long x, long long start, long long step){
-    long long y = start;
-    while(true){
-        y += step;
-        assert(y >= 1);
-        assert(y <= 1'000'000'000'000'000'000);
-        if(Gcd(x, y) == 1) break;
-    }
-    return y;
-}
 
 
 class SbtOperators {
@@ -108,6 +86,13 @@ public:
         auto [l, r] = range(f);
         if(l.a + l.b > r.a + r.b) return l;
         return r;
+    }
+
+    static Int depth(Fraction f){
+        auto path = encode(f);
+        Int res = 0;
+        for(auto c : path) res += c.second;
+        return res;
     }
 };
 

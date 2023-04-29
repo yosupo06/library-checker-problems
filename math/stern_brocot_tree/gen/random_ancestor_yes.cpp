@@ -1,25 +1,22 @@
 #include "random.h"
 #include "../params.h"
+#include "../lib/gen_lib.hpp"
 #include "../lib/lib.hpp"
+#include <vector>
+#include <cstdio>
 
 int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int T = T_MAX;
+    long long T = T_MAX;
     
-    printf("%d\n", T);
+    printf("%lld\n", T);
 
-    for(int i=0; i<T; i++){
-        long long a = gen.uniform<long long>(1, TARGET_FRAC_MAX);
-        long long b = gen.uniform<long long>(1, TARGET_FRAC_MAX);
-        long long g_ab = Gcd(a, b);
-        a /= g_ab; b /= g_ab;
+    for(long long i=0; i<T; i++){
+        auto [a, b] = RandomCoprime(gen, TARGET_FRAC_MAX);
         
-        auto path = SbtOperators::encode({ a, b });
-        long long len = 0;
-        for(auto cn : path) len += cn.second;
-        if(len < K_MIN_ANCESTOR){ i--; continue; }
+        long long len = SbtOperators::depth({ a, b });
         long long k = gen.uniform<long long>(K_MIN_ANCESTOR, std::min<long long>(len, K_MAX_ANCESTOR));
         printf("ANCESTOR %lld %lld %lld\n", k, a, b);
     }

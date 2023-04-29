@@ -1,25 +1,20 @@
 #include "random.h"
 #include "../params.h"
-#include "../lib/lib.hpp"
+#include "../lib/gen_lib.hpp"
+#include <vector>
+#include <cstdio>
 
 int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int T = T_MAX;
+    long long T = T_MAX;
     
-    printf("%d\n", T);
+    printf("%lld\n", T);
 
-    for(int i=0; i<T; i++){
-        long long a = gen.uniform<long long>(1, TARGET_FRAC_MAX);
-        long long b = gen.uniform<long long>(1, TARGET_FRAC_MAX);
-        long long g_ab = Gcd(a, b);
-        a /= g_ab; b /= g_ab;
-        
-        long long c = gen.uniform<long long>(1, TARGET_FRAC_MAX);
-        long long d = gen.uniform<long long>(1, TARGET_FRAC_MAX);
-        long long g_cd = Gcd(c, d);
-        c /= g_cd; d /= g_cd;
+    for(long long i=0; i<T; i++){
+        auto [a, b] = RandomCoprime(gen, TARGET_FRAC_MAX);
+        auto [c, d] = RandomCoprime(gen, TARGET_FRAC_MAX);
         
         printf("LCA %lld %lld %lld %lld\n", a, b, c, d);
     }

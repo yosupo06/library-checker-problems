@@ -14,7 +14,7 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
     PrimeGenerator pgen;
     
-    int Q = 100000;
+    int Q = MAX_Q;
     printf("%d\n", Q);
     for(int i = 0; i < Q; i++) {
         u64 a = pgen.gen(PRIME_UPPER, gen);

@@ -12,7 +12,7 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
     PrimeGenerator pgen;
     
-    int Q = 100000;
+    int Q = MAX_Q;
     printf("%d\n", Q);
     for(int i = 0; i < Q; i++) {
         printf("%" PRIu64 "\n", pgen.gen(MAX_N, gen));

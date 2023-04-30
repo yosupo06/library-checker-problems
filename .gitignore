@@ -18,9 +18,13 @@
 
 !requirements.txt
 !hash.json
+!googletest
+!CMakeLists.txt
 
 params.h
 in/
 
 .venv/
 venv/
+
+CMakeFiles/

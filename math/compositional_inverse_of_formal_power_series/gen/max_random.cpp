@@ -12,7 +12,7 @@ int main(int, char* argv[]) {
     int n = N_MAX;
     printf("%d\n", n);
 
-    printf("0 1");
+    printf("0 %d", gen.uniform(1, int(MOD - 1)));
     for (int i = 2; i < n; i++) {
         printf(" %d", gen.uniform(0, int(MOD - 1)));
     }

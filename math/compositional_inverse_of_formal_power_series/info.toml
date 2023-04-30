@@ -1,9 +1,12 @@
-title = 'Exp of Formal Power Series'
+title = 'Compositional Inverse of Formal Power Series'
 timelimit = 10.0
-forum = "https://github.com/yosupo06/library-checker-problems/issues/65"
+forum = "https://github.com/yosupo06/library-checker-problems/issues/950"
 
 [[tests]]
     name = "example.in"
+    number = 1
+[[tests]]
+    name = "identity.in"
     number = 1
 [[tests]]
     name = "random.cpp"
@@ -12,10 +15,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/65"
     name = "max_random.cpp"
     number = 5
 [[tests]]
-    name = "max_all_zero.cpp"
-    number = 1
-[[tests]]
-    name = "max_ans_zero.cpp"
+    name = "max_identity.cpp"
     number = 1
 [[tests]]
     name = "small_degree.cpp"

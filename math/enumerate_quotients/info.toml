@@ -20,6 +20,15 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/922"
 [[tests]]
     name = "max.cpp"
     number = 1
+[[tests]]
+    name = "polynom_p1p1m1.cpp"
+    number = 2
+[[tests]]
+    name = "polynom_p1p1z.cpp"
+    number = 2
+[[tests]]
+    name = "polynom_p1zm1.cpp"
+    number = 2
 
 [[solutions]]
     name = "semi_naive.cpp"

@@ -92,7 +92,7 @@ template <class Mint> V<Mint> multiply(const V<Mint>& a, const V<Mint>& b) {
     return a2;
 }
 
-std::vector<int> solve(const std::vector<int>& a, const std::vector<int>& b) {
+std::vector<int> solve(std::vector<int> a, std::vector<int> b) {
     int n = int(a.size()), m = int(b.size());
     V<Mint> a2(n), b2(m);
     for (int i = 0; i < n; i++) {

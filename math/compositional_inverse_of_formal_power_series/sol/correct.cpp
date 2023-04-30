@@ -1,7 +1,8 @@
 #include <algorithm>
 #include <array>
-#include <bits/stdc++.h>
 #include <cassert>
+#include <cmath>
+#include <iostream>
 #include <type_traits>
 #include <vector>
 
@@ -936,8 +937,6 @@ namespace atcoder {
 } // namespace atcoder
 
 using mint = atcoder::modint998244353;
-using std::cin;
-using std::cout;
 using std::vector;
 
 std::ostream &operator<<(std::ostream &lhs,
@@ -1073,7 +1072,7 @@ poly composition(const poly &f, const poly &g) {
     int n = f.size(), m = g.size();
     assert(n == m);
     poly res(n);
-    int b = ceil(sqrt(n));
+    int b = std::ceil(std::sqrt(n));
     vector< poly > g_pow(b + 1);
     g_pow[0] = poly{1};
     for (int i = 0; i < b; ++i) {
@@ -1110,9 +1109,17 @@ poly compositional_inverse(poly f) {
 
 int main() {
     int n;
-    cin >> n;
+    scanf("%d", &n);
     vector< mint > f(n);
-    for (int i = 0; i < n; ++i) cin >> f[i];
+    for (int i = 0; i < n; ++i) {
+        unsigned int x;
+        scanf("%u", &x);
+        f[i] = x;
+    }
     auto res = compositional_inverse(f);
-    for (int i = 0; i < n; ++i) cout << res[i] << " \n"[i == n - 1];
+    for (int i = 0; i < n; ++i) {
+        if (i != 0) printf(" ");
+        printf("%u", res[i].val());
+    }
+    puts("");
 }

@@ -2,11 +2,11 @@
 
 @{lang.en}
 
-Consider a set of positive integers :
+Consider the set of positive integers :
 
 $$S=\left\lbrace \left\lfloor \frac{N}{x} \right\rfloor \middle\vert x \in \mathbb{Z} , 1 \leq x \leq N \right\rbrace .$$
 
-Output a sequence $(a _ 0, a _ 1 , \ldots , a _ {k-1})$ where we sort the elements of $S$ in ascending order.
+Output the sequence $(a _ 0, a _ 1 , \ldots , a _ {k-1})$ which is obtained by sorting the elements of $S$ in ascending order.
 
 @{lang.ja}
 
@@ -31,6 +31,7 @@ $N$
 ## @{keyword.output}
 
 ~~~
+$k$
 $a _ 0$ $a _ 1$ $\ldots$ $a _ {k-1}$
 ~~~
 

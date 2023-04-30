@@ -1,5 +1,6 @@
 #include <chrono>
 #include <iostream>
+#include <utility>
 
 #include "fastio.h"
 #include "solve.hpp"
@@ -23,7 +24,7 @@ int main() {
     }
 
     steady_clock::time_point begin = steady_clock::now();
-    auto ans = solve(a, b);
+    auto ans = solve(std::move(a), std::move(b));
     steady_clock::time_point end = steady_clock::now();
 
     auto elapsed_time = duration_cast<milliseconds>(end - begin);

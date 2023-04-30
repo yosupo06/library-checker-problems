@@ -241,7 +241,6 @@ struct Printer {
     template <class U, std::enable_if_t<8 >= sizeof(U)>* = nullptr>
     void write_unsigned_internal(U v) {
         size_t len = to_string_size(v);
-        assert(len == std::to_string(v).size());
         pos += len;
 
         char* ptr = buf.data() + pos;

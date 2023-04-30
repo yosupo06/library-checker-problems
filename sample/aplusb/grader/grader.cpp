@@ -11,7 +11,7 @@ Scanner sc = Scanner(stdin);
 Printer pr = Printer(stdout);
 
 int main() {
-    long long a, b;
+    long long a = 0, b = 0;
     sc.read(a, b);
 
     steady_clock::time_point begin = steady_clock::now();

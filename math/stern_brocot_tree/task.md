@@ -79,7 +79,7 @@ Stern–Brocot Tree に関して、次のリストに含まれる問題が合計
 
   - 入力
     ```
-    ANCESTOR $a$ $b$ $k$
+    ANCESTOR $k$ $a$ $b$
     ```
 
   - 出力

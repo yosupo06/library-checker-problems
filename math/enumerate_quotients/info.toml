@@ -1,0 +1,38 @@
+title = 'Enumerate Quotients'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/922"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "min.cpp"
+    number = 9
+[[tests]]
+    name = "random.cpp"
+    number = 2
+[[tests]]
+    name = "random_small.cpp"
+    number = 5
+[[tests]]
+    name = "square.cpp"
+    number = 2
+[[tests]]
+    name = "max.cpp"
+    number = 1
+[[tests]]
+    name = "polynom_p1p1m1.cpp"
+    number = 2
+[[tests]]
+    name = "polynom_p1p1z.cpp"
+    number = 2
+[[tests]]
+    name = "polynom_p1zm1.cpp"
+    number = 2
+
+[[solutions]]
+    name = "semi_naive.cpp"
+
+[params]
+    N_MIN = 1
+    N_MAX = 1_000_000_000_000

@@ -12,7 +12,7 @@ Scanner sc = Scanner(stdin);
 Printer pr = Printer(stdout);
 
 int main() {
-    int n, m;
+    int n = 0, m = 0;
     sc.read(n, m);
 
     std::vector<int> a(n), b(m);

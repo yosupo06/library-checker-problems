@@ -7,10 +7,10 @@
 using namespace std::chrono;
 using namespace library_checker;
 
-Scanner sc = Scanner(stdin);
-Printer pr = Printer(stdout);
-
 int main() {
+    Scanner sc = Scanner(stdin);
+    Printer pr = Printer(stdout);
+
     long long a = 0, b = 0;
     sc.read(a, b);
 

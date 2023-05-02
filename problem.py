@@ -42,7 +42,7 @@ def param_to_str(key: str, value: object):
         raise RuntimeError('Unsupported type of params: {}'.format(key))
 
 
-def compile(src: Path, rootdir: Path):
+def compile(src: Path, rootdir: Path, opts: [str] = []):
     if src.suffix == '.cpp':
         cxx = getenv('CXX', 'g++')
         cxxflags_default = '-O2 -std=c++17 -Wall -Wextra -Werror -Wno-unused-result'
@@ -57,7 +57,7 @@ def compile(src: Path, rootdir: Path):
             cxxflags_default += ' -fsplit-stack'
         cxxflags = getenv('CXXFLAGS', cxxflags_default).split()
         cxxflags.extend(['-I', str(rootdir / 'common')])
-        args = [cxx] + cxxflags + ['-o', str(src.with_suffix(''))] + [str(src)]
+        args = [cxx] + cxxflags + ['-o', str(src.with_suffix(''))] + opts + [str(src)]
         logger.debug('compile: %s', args)
         check_call(args)
     elif src.suffix == '.in':
@@ -190,7 +190,8 @@ class Problem:
     def compile_solutions(self):
         for sol in self.config.get('solutions', []):
             name = sol['name']
-            compile(self.basedir / 'sol' / name, self.rootdir)
+            opts = [str(self.basedir / 'grader' / 'grader.cpp'), '-I', str(self.basedir / 'grader')] if sol.get('function', False) else []
+            compile(self.basedir / 'sol' / name, self.rootdir, opts)
 
     def check_all_solutions_used(self) -> bool:
         sol_names = []

@@ -10,6 +10,11 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/833"
     name = "mod998244353.cpp"
     number = 2
 
+
+[[tests]]
+    name = "mod998244353_maxi.cpp"
+    number = 1
+
 [[tests]]
     name = "mod1000000007.cpp"
     number = 2
@@ -32,10 +37,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/833"
 
 [[tests]]
     name = "large_random.cpp"
-    number = 3
-
-[[tests]]
-    name = "random.cpp"
     number = 3
 
 [params]

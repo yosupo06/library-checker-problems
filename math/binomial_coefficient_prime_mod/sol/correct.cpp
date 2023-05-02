@@ -40,7 +40,7 @@ void build(long long m) {
 int main() {
   long long t, m;
   scanf("%lld %lld\n", &t, &m);
-  build(std::min(m, N_MAX));
+  build(m);
 
   while (t--) {
     long long n, k;

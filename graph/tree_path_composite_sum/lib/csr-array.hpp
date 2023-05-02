@@ -8,14 +8,6 @@ namespace nachia{
 template<class Elem>
 class CsrArray{
 public:
-    struct ListRange{
-        using iterator = typename std::vector<Elem>::iterator;
-        iterator begi, endi;
-        iterator begin() const { return begi; }
-        iterator end() const { return endi; }
-        int size() const { return (int)std::distance(begi, endi); }
-        Elem& operator[](int i) const { return begi[i]; }
-    };
     struct ConstListRange{
         using iterator = typename std::vector<Elem>::const_iterator;
         iterator begi, endi;
@@ -43,17 +35,8 @@ public:
         res.m_pos = std::move(buf);
         return res;
     }
-    static CsrArray FromRaw(std::vector<Elem> list, std::vector<int> pos){
-        CsrArray res;
-        res.m_n = pos.size() - 1;
-        res.m_list = std::move(list);
-        res.m_pos = std::move(pos);
-        return res;
-    }
-    ListRange operator[](int u) { return ListRange{ m_list.begin() + m_pos[u], m_list.begin() + m_pos[u+1] }; }
     ConstListRange operator[](int u) const { return ConstListRange{ m_list.begin() + m_pos[u], m_list.begin() + m_pos[u+1] }; }
     int size() const { return m_n; }
-    int fullSize() const { return (int)m_list.size(); }
 };
 
 } // namespace nachia

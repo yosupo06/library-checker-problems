@@ -79,10 +79,6 @@ public:
         if(i == 0) return low[i];
         return rake(compress(high[i], P[i], i), low[i]);
     }
-    S getAtEdge(int root, int edge){
-        if(P[root] == edge) return low[root];
-        return high[root ^ XorEdge[edge]];
-    }
 };
 
 } // namespace nachia

@@ -1,0 +1,25 @@
+name: Unittest(C++ lib)
+
+on:
+  push:
+    branches: 
+      - master
+  pull_request:
+
+jobs:
+  util-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: run unittest
+        run: |
+          cd test/cpp_unittest
+          mkdir build
+          cd build
+          cmake .. -DCMAKE_BUILD_TYPE=Debug
+          make
+          ctest -VV
+        env:
+          GTEST_COLOR: "1"

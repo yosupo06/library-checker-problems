@@ -12,6 +12,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/32"
 [[solutions]]
     name = "wa.cpp"
     wrong = true
+[[solutions]]
+    name = "ac_func.cpp"
+    function = true
 
 [params]
     A_AND_B_MAX = 1_000_000_000

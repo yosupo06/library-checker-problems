@@ -33,6 +33,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/42"
 [[solutions]]
     name = "naive.cpp"
     wrong = true
+[[solutions]]
+    name = "ac_func.cpp"
+    function = true
 
 [params]
     N_AND_M_MAX = 524288

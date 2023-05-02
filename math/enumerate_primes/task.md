@@ -12,7 +12,7 @@ and print $p_{Ai+B}$ for nonnegative integers $i$ with $p_{Ai+B} \le N$.
 
 整数 $N$, $A$, $B$ が与えられます。
 $N$ 以下の素数の個数 $\pi(N)$ ( $\pi()$ は素数計数関数 ) と、
-$p_{Ai+B} \le N$ を満たす 非負整数 $i$ によって作る 整数列 $p_{Ai+B}$ を出力してください。
+$p_{Ai+B} \le N$ を満たす各非負整数 $i$ に対して $p_{Ai+B}$ を出力してください。
 
 @{lang.end}
 

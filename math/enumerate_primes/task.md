@@ -1,9 +1,20 @@
 ## @{keyword.statement}
+
+@{lang.en}
 Let the prime numbers be $p_0 < p_1 < p_2 < \cdots$ (i.e. $p_0 = 2$, $p_1 = 3$, $p_2 = 5$, and so on).
 
 You are given integers $N$, $A$ and $B$.
 Find $\pi(N)$ (the number of primes no greater than $N$),
 and print $p_{Ai+B}$ for nonnegative integers $i$ with $p_{Ai+B} \le N$.
+
+@{lang.ja}
+素数列を $p_0 < p_1 < p_2 < \cdots$ とします。 (すなわち、 $p_0 = 2$, $p_1 = 3$, $p_2 = 5$, など)。
+
+整数 $N$, $A$, $B$ が与えられます。
+$N$ 以下の素数の個数 $\pi(N)$ ( $\pi()$ は素数計数関数 ) と、
+$p_{Ai+B} \le N$ を満たす 非負整数 $i$ によって作る 整数列 $p_{Ai+B}$ を出力してください。
+
+@{lang.end}
 
 ## @{keyword.constraints}
 

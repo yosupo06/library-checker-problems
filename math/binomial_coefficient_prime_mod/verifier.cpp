@@ -19,10 +19,11 @@ int main() {
   int m = inf.readInt(1, (int)M_MAX);
   inf.readChar('\n');
   ensure(is_prime(m));
+  const int upper = std::min<int>(m, N_MAX) - 1;
   for (int i = 0; i < t; i++) {
-    inf.readLong(0LL, N_MAX);
+    inf.readInt(0, upper);
     inf.readSpace();
-    inf.readLong(0LL, N_MAX);
+    inf.readInt(0, upper);
     inf.readChar('\n');
   }
 

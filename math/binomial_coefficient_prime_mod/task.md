@@ -8,9 +8,9 @@ Each test consists of $T$ cases, and $m$ is fixed in all cases.
 
 @{lang.ja}
 
-$n,k,m$が与えられます。$\binom{n}{k} \bmod m$を計算してください。
+$n,k,m$ が与えられます。$\binom{n}{k} \bmod m$ を計算してください。
 
-この問題は $T$ ケースあります。また、$m$は全てのケースで固定です。
+この問題は $T$ ケースあります。また、$m$ は全てのケースで固定です。
 
 @{lang.end}
 
@@ -36,7 +36,7 @@ $n_{T-1}\ k_{T-1}$
 @{lang.en}
 For each line, print $\binom{n}{k} \bmod m$.
 @{lang.ja}
-$\binom{n}{k} \bmod m$を1行ずつ出力してください。
+$\binom{n}{k} \bmod m$ を1行ずつ出力してください。
 @{lang.end}
 
 ## @{keyword.sample}

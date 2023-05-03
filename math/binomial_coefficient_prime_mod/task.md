@@ -2,13 +2,13 @@
 
 @{lang.en}
 
-Given $n,k$ and $m$, print $\binom{n}{k} \bmod m$.
+Given integers $n,k$ and a prime $m$, print $\binom{n}{k} \bmod m$.
 
 Each test consists of $T$ cases, and $m$ is fixed in all cases.
 
 @{lang.ja}
 
-$n,k,m$ が与えられます。$\binom{n}{k} \bmod m$ を計算してください。
+整数 $n,k$ と素数 $m$ が与えられます。$\binom{n}{k} \bmod m$ を計算してください。
 
 この問題は $T$ ケースあります。また、$m$ は全てのケースで固定です。
 

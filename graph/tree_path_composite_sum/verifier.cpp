@@ -90,7 +90,7 @@ int main() {
 
     for(int i=0; i<N; i++){
         if(i != 0) inf.readChar(' ');
-        inf.readInt(A_MIN, A_MAX);
+        inf.readInt(A_MIN, MOD - 1);
     }
     inf.readChar('\n');
 
@@ -101,9 +101,9 @@ int main() {
         inf.readChar(' ');
         V[i] = inf.readInt(0, N-1);
         inf.readChar(' ');
-        inf.readInt(B_MIN, B_MAX);
+        inf.readInt(B_MIN, MOD - 1);
         inf.readChar(' ');
-        inf.readInt(C_MIN, C_MAX);
+        inf.readInt(C_MIN, MOD - 1);
         inf.readChar('\n');
     }
 

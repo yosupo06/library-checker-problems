@@ -18,8 +18,13 @@ struct Tree {
             e.second = perm[e.second];
         }
     }
-    void shuffle_edges(Random& rng){
+    void shuffle_edges(Random& rng, bool can_flip = true){
         rng.shuffle(edges.begin(), edges.end());
+        if(can_flip){
+            for(auto& e : edges){
+                if(rng.uniform_bool()) std::swap(e.first, e.second);
+            }
+        }
     }
 
     void push(int u, int v){
@@ -52,9 +57,9 @@ int main(int, char* argv[]) {
     tree.shuffle_nodes(gen);
 
     std::vector<int> A(N), B(N-1), C(N-1);
-    for(int i=0; i<N; i++) A[i] = gen.uniform(A_MIN, A_MAX);
-    for(int i=0; i<N-1; i++) B[i] = gen.uniform(B_MIN, B_MAX);
-    for(int i=0; i<N-1; i++) C[i] = gen.uniform(C_MIN, C_MAX);
+    for(int i=0; i<N; i++) A[i] = gen.uniform(A_MIN, MOD - 1);
+    for(int i=0; i<N-1; i++) B[i] = gen.uniform(B_MIN, MOD - 1);
+    for(int i=0; i<N-1; i++) C[i] = gen.uniform(C_MIN, MOD - 1);
 
     printf("%d\n", N);
 

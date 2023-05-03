@@ -8,9 +8,11 @@
 
 int main(int, char *argv[]) {
   const int case_number = std::atoll(argv[1]);
-  Random rng(case_number ^ 0xCBDA239552CD1593);
+  Random rng(case_number ^ 0x5F07D122A12292CA);
 
-  const int N = rng.uniform<int>(N_MAX / 4, N_MAX / 2);
+  assert(case_number < 2);
+
+  const int N = case_number;
 
   uniform_output(rng, N);
 }

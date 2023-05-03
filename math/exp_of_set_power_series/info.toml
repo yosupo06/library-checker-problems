@@ -1,6 +1,6 @@
-title = 'Polynomial Composite Set Power Series'
+title = 'Exp of Set Power Series'
 timelimit = 10.0
-forum = "https://github.com/yosupo06/library-checker-problems/issues/944"
+forum = "https://github.com/yosupo06/library-checker-problems/issues/974"
 
 [[tests]]
     name = "example.in"
@@ -15,8 +15,8 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/944"
     name = "max_random.cpp"
     number = 3
 [[tests]]
-    name = "nm_01.cpp"
-    number = 8
+    name = "n_01.cpp"
+    number = 2
 
 [[solutions]]
     name = "naive.cpp"
@@ -24,6 +24,5 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/944"
     allow_tle = true
 
 [params]
-    M_MAX = 100000
     N_MAX = 20
     MOD = 998244353

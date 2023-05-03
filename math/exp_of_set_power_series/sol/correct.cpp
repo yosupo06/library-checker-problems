@@ -139,21 +139,16 @@ struct mm {
 using mint = mm;
 
 int main() {
-  int M, N;
-  scanf("%d%d", &M, &N);
-  std::vector<mint> f(M), s(1 << N);
-  for (auto &e : f) {
-    int t;
-    scanf("%d", &t);
-    e = t;
-  }
+  int N;
+  scanf("%d", &N);
+  std::vector<mint> f(N + 1, 1), s(1 << N);
   for (auto &e : s) {
     int t;
     scanf("%d", &t);
     e = t;
   }
 
-  auto ans = noshi91::composition_poly_sps(f, s);
+  auto ans = noshi91::composition_egf_sps(f, s);
   for (int i = 0; i < 1 << N; i++) {
     printf("%d%c", ans[i].x, " \n"[i + 1 == 1 << N]);
   }

@@ -10,8 +10,7 @@ int main(int, char *argv[]) {
   const int case_number = std::atoll(argv[1]);
   Random rng(case_number ^ 0x0D11F6E8AA9D7808);
 
-  const int M = rng.uniform<int>(std::sqrt(M_MAX), M_MAX);
   const int N = rng.uniform<int>(N_MAX / 2, N_MAX);
 
-  uniform_output(rng, M, N);
+  uniform_output(rng, N);
 }

@@ -23,7 +23,7 @@ bool miller_rabin(u64 p) {
     }
     
     for(u64 wt: witnesses) {
-        if(std::gcd(wt, p) != 1) {
+        if(wt % p == 0) {
             continue;
         }
 

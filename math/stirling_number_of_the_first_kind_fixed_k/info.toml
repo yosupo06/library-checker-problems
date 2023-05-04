@@ -34,6 +34,4 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/962"
 [params]
     MOD = 998244353
     K_MIN = 0
-    K_MAX = 500000
-    N_MIN = 0
     N_MAX = 500000

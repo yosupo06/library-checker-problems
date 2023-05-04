@@ -239,7 +239,7 @@ int main(){
     for(int N=k;N<=n;N++){
         mint ans=f[N]*fac[N]*ik;
         if((N+k)&1) ans=-ans;
-        if(N<n) cout<<ans<<' ';
-        else cout<<ans<<'\n';
+        if(N<n) printf("%d ",ans.x);
+        else printf("%d\n",ans.x);
     }
 }

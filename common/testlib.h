@@ -181,7 +181,7 @@ const char *latestFeatures[] = {
 #include <stdarg.h>
 #include <fcntl.h>
 #include <functional>
-#include <cstdint>
+#include <cstdint> // modified for library-checker
 
 #ifdef TESTLIB_THROW_EXIT_EXCEPTION_INSTEAD_OF_EXIT
 #   include <exception>

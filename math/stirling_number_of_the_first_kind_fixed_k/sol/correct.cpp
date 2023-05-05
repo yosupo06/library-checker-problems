@@ -130,7 +130,7 @@ FormalPowerSeries<T> FormalPowerSeries<T>::operator*(const FormalPowerSeries<T> 
 template<typename T>
 FormalPowerSeries<T> FormalPowerSeries<T>::operator*(T c) const {
     FormalPowerSeries<T> res(this->size());
-    for(int i=0;i<this->size();i++) res[i]=(*this)[i]*c;
+    for(int i=0;i<(int)this->size();i++) res[i]=(*this)[i]*c;
     return res;
 }
 template<typename T>

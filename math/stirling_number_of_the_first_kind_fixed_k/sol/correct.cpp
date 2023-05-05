@@ -51,6 +51,9 @@ template<int Mod> struct ModInt{
     friend bool operator==(const ModInt &a, const ModInt &b) {
         return a.x == b.x;
     }
+    friend bool operator!=(const ModInt &a, const ModInt &b) {
+        return a.x != b.x;
+    }
     friend std::ostream &operator<<(std::ostream &os, const ModInt &a) { return os << a.x; }
 };
 template<int Mod,int G,int lg> struct NTT{

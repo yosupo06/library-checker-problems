@@ -137,7 +137,7 @@ template<typename T>
 FormalPowerSeries<T> FormalPowerSeries<T>::operator+(const FormalPowerSeries<T> &b) const {
     FormalPowerSeries<T> res=(*this);
     if(b.size()>this->size()) res.resize(b.size());
-    for(int i=0;i<b.size();i++) res[i]+=b[i];
+    for(int i=0;i<(int)b.size();i++) res[i]+=b[i];
     return res;
 }
 template<typename T>
@@ -150,7 +150,7 @@ template<typename T>
 FormalPowerSeries<T> FormalPowerSeries<T>::operator-(const FormalPowerSeries<T> &b) const {
     FormalPowerSeries<T> res=(*this);
     if(b.size()>this->size()) res.resize(b.size());
-    for(int i=0;i<b.size();i++) res[i]-=b[i];
+    for(int i=0;i<(int)b.size();i++) res[i]-=b[i];
     return res;
 }
 template<typename T>

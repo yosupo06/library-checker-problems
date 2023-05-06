@@ -1,4 +1,10 @@
 {
+  "all_same_00.in": "550ac1479dcaada2baa6eefd6f07c28c3a62a43a7d51ec3622b4f442e62bc1f4",
+  "all_same_00.out": "021b56dc482168f6cce3963c80d11795effc22a0f5c50cca505f6b49c56b8580",
+  "all_same_01.in": "afaed2d6c53d99296df6049d3cd14637df08a5618f7629a68c5e5157af46d4bf",
+  "all_same_01.out": "8cf21f64a2ac92cb475e52de508078956c8cb7eb3b6136c4a568f5958fba2576",
+  "all_same_02.in": "7b87a791cada63595f90371b090a8d07f9645414d0c19b9cbf6e5dcc05d74d6e",
+  "all_same_02.out": "d8a95832a789cd8b255fadc4d3c601b1a1b926dca0bc1fa3bdcd872d66ba7168",
   "example_00.in": "d0d8486f0ec6681b9e48ee9c9fbff227696d8c127d8fbb233a990e740c00f2d2",
   "example_00.out": "92ac6391a2aa1a5bbf9c3fd621a88bb157cc5254f8cbbefca97b3fcea0c06e3d",
   "max_random_00.in": "b258f2e090be006a31077a627c155bf890fc82653b63512d33cbba3db9cbccf2",

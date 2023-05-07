@@ -40,7 +40,6 @@ $0\leq e \leq N-2$ を満たす整数 $e$ について、 $f _ e (x) = b _ e x +
 - All input are integers.
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
 - $0 \leq u _ i, v _ i \leq N - 1$
-- $u _ i \neq v _ i$
 - $@{param.A_MIN} \leq a _ i \lt @{param.MOD}$
 - $@{param.B_MIN} \leq b _ i \lt @{param.MOD}$
 - $@{param.C_MIN} \leq c _ i \lt @{param.MOD}$
@@ -49,7 +48,6 @@ $0\leq e \leq N-2$ を満たす整数 $e$ について、 $f _ e (x) = b _ e x +
 - 入力は全て整数である
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
 - $0 \leq u _ i, v _ i \leq N - 1$
-- $u _ i \neq v _ i$
 - $@{param.A_MIN} \leq a _ i \lt @{param.MOD}$
 - $@{param.B_MIN} \leq b _ i \lt @{param.MOD}$
 - $@{param.C_MIN} \leq c _ i \lt @{param.MOD}$

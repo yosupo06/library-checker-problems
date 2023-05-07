@@ -15,7 +15,7 @@ For an integer $e$ that satisfies $0 \leq e \leq N-2$ , let $f _ e(x) = b _ e x 
 
 Let $e _ 0, e _ 1, \ldots, e _ k$ be the edges on the simple path from vertex $x$ to vertex $y$ in order, and define $P(x, y) = f _ {e _ 0}(f _ {e _ 1}(\ldots f _ {e _ k}(a _ y) \ldots ))$ .
 
-Find $q _ i = \sum _ {y=0} ^ {N-1} P(x, y)$ modulo $@{param.MOD}$ for each vertex $x$ .
+Find $q _ x = \sum _ {y=0} ^ {N-1} P(x, y)$ modulo $@{param.MOD}$ for each vertex $x$ .
 
 @{lang.ja}
 
@@ -30,7 +30,7 @@ $0\leq e \leq N-2$ を満たす整数 $e$ について、 $f _ e (x) = b _ e x +
 
 頂点 $x$ から頂点 $y$ までの単純パスに含まれる辺を順に $e _ 0,e _ 1, \ldots , e _ k$ として、 $P(x, y) = f _ {e _ 0}(f _ {e _ 1}(\ldots f _ {e _ k}(a _ y) \ldots ))$ とします。
 
-各頂点 $x$ について $q _ i = \sum _ {y=0} ^ {N-1} P(x,y)$ を $@{param.MOD}$ で割ったあまりを求めてください。 
+各頂点 $x$ について $q _ x = \sum _ {y=0} ^ {N-1} P(x,y)$ を $@{param.MOD}$ で割ったあまりを求めてください。 
 
 @{lang.end}
 

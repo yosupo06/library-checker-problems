@@ -45,11 +45,7 @@ $a_0$ $a_1$ $\cdots$ $a_{N - 1}$
 ```
 $b_0$ $b_1$ $\cdots$ $b_{N - 1}$
 ```
-@{lang.en}
-Where $b_0=0$ .
-@{lang.ja}
-ただし、 $b_0=0$ 。
-@{lang.end}
+
 ## @{keyword.sample}
 
 @{example.example_00}

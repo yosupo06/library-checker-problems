@@ -2,8 +2,8 @@
 
 @{lang.en}
 You are given a formal power series $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ with $a_0 = 0, a_1 \neq 0$.
-Calculate the first $N$ terms of $f^{\langle -1 \rangle}(x) = \sum_{i=0}^{\infty} b_i x^i$.
-In other words, find $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ with $b_0 = 0$ such that
+Calculate the first $N$ terms of $f^{\langle -1 \rangle}(x) = \sum_{i=0}^{\infty} b_i x^i$ with $b_0 = 0$.
+In other words, find $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ such that
 
 $$
 f(g(x)) \equiv g(f(x)) \equiv x \pmod{x^{N}}
@@ -14,7 +14,7 @@ Print the coefficients modulo $@{param.MOD}$.
 @{lang.ja}
 
 形式的冪級数 $f(x) = \sum_{i=0}^{N-1} a_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ が与えられます ($a_0 = 0, a_1 \neq 0$)。
-$f^{\langle -1 \rangle}(x) = \sum_{i=0}^{\infty} b_i x^i$ の先頭 $N$ 項を求めてください。 
+$f^{\langle -1 \rangle}(x) = \sum_{i=0}^{\infty} b_i x^i$ ($b_0 = 0$) の先頭 $N$ 項を求めてください。 
 
 つまり、
 
@@ -22,7 +22,7 @@ $$
 f(g(x)) \equiv g(f(x)) \equiv x \pmod{x^{N}}
 $$
 
-となる $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ ( $b_0 = 0$ ) を求めてください。係数を $\operatorname{mod} @{param.MOD}$ で出力してください。
+となる $g(x) = \sum_{i=0}^{N-1} b_i x^i \in \mathbb{F}\_{@{param.MOD}}[[x]]$ を求めてください。係数を $\operatorname{mod} @{param.MOD}$ で出力してください。
 
 @{lang.end}
 

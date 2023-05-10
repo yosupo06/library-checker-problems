@@ -1,5 +1,5 @@
 title = 'Polynomial Interpolation (Geometric Sequence)'
-timelimit = 10.0
+timelimit = 5.0
 forum = "https://github.com/yosupo06/library-checker-problems/issues/965"
 
 [[tests]]
@@ -23,6 +23,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/965"
 [[tests]]
     name = "near_pow2.cpp"
     number = 5
+[[tests]]
+    name = "pow_rN_equal_1.cpp"
+    number = 3
 
 [[solutions]]
     name = "arbitrary_interpolation.cpp"

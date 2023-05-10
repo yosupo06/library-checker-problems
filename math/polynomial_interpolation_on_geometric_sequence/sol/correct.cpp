@@ -352,10 +352,11 @@ vc<mint> multipoint_interpolate_on_geom_seq(vc<mint> Y, mint a, mint r) {
   FOR(i, n) iPOW[i + 1] = iPOW[i] * ir, itPOW[i + 1] = itPOW[i] * iPOW[i];
 
   // prod_[1,i] 1-r^k
-  vc<mint> S(n + 1);
+  vc<mint> S(n);
   S[0] = mint(1);
-  FOR(i, 1, n + 1) S[i] = S[i - 1] * (mint(1) - POW[i]);
+  FOR(i, 1, n) S[i] = S[i - 1] * (mint(1) - POW[i]);
   vc<mint> iS = all_inverse<mint>(S);
+  mint Sn = S[n - 1] * (mint(1) - POW[n]);
 
   FOR(i, n) {
     Y[i] = Y[i] * tPOW[n - 1 - i] * itPOW[n - 1] * iS[i] * iS[n - 1 - i];
@@ -369,8 +370,9 @@ vc<mint> multipoint_interpolate_on_geom_seq(vc<mint> Y, mint a, mint r) {
 
   // prod 1-r^ix
   vc<mint> g(n);
-  FOR(i, n) {
-    g[i] = tPOW[i] * S[n] * iS[i] * iS[n - i];
+  g[0] = mint(1);
+  FOR(i, 1, n) {
+    g[i] = tPOW[i] * Sn * iS[i] * iS[n - i];
     if (i % 2 == 1) g[i] = -g[i];
   }
   f = convolution<mint>(f, g);

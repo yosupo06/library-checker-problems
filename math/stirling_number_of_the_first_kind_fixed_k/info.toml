@@ -27,10 +27,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/962"
     name = "random.in"
     number = 3
     
-[[solutions]]
-    name = "correct.cpp"
-    wrong = false
-
 [params]
     MOD = 998244353
     K_MIN = 0

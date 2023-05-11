@@ -22,6 +22,6 @@ int main(int, char* argv[]) {
     tc.add_edges(edges);
     tc.add_random_queries(gen, /* get_query_ratio = */ 0.9, tree_height(n, edges));
 
-    std::cout << tc << std::endl;
+    std::cout << tc;
     return 0;
 }

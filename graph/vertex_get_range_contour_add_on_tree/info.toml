@@ -8,10 +8,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/831"
 
 [[tests]]
     name = "random_small_tree_many_query_1.cpp"
-    number = 5
+    number = 10
 [[tests]]
     name = "random_small_tree_many_query_2.cpp"
-    number = 5
+    number = 10
 
 [[tests]]
     name = "random_medium_1.cpp"

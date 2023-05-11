@@ -14,7 +14,7 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     Random gen(seed);
 
-    const int n = gen.uniform(int(N_MIN), 10), q = Q_MAX;
+    const int n = atoi(argv[1]) + 1, q = Q_MAX;
 
     TestCase tc(n, q);
     tc.set_random_init_values(gen);
@@ -22,6 +22,6 @@ int main(int, char* argv[]) {
     tc.add_edges(edges);
     tc.add_random_queries(gen, /* get_query_ratio = */ 0.5, tree_height(n, edges));
 
-    std::cout << tc << std::endl;
+    std::cout << tc;
     return 0;
 }

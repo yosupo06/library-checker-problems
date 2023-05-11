@@ -2,7 +2,7 @@
 
 @{lang.en}
 
-Given a tree with $N$ vertices, where the $i$-th edge connects vertices $u_i$ and $v_i$. Value $a_i$ is written on the vertex $i$. Process the following $Q$ queries in order:
+Given a tree with $N$ vertices, where the $i$-th edge connects vertices $u_i$ and $v_i$. Initially a value $a_i$ is written on the vertex $i$. Process the following $Q$ queries in order:
 
 - `0 $p$ $l$ $r$ $x$`: $a_i \leftarrow a_i+x$ for all the vertices $i$ whose distance from the vertex $p$ is in $[l,r)$.
 - `1 $p$`: Print $a_p$.

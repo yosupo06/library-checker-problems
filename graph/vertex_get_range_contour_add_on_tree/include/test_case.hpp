@@ -7,6 +7,7 @@
 #include <utility>
 #include <vector>
 
+#include "../params.h"
 #include "gen_tree.hpp"
 
 struct TestCase {
@@ -76,9 +77,7 @@ struct TestCase {
             } else {
                 out << query_type << ' ' << p;
             }
-            if (i + 1 != tc.q) {
-                out << '\n';
-            }
+            out << '\n';
         }
         return out;
     }

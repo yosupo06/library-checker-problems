@@ -1003,6 +1003,7 @@ int main() {
     int n;
     std::cin >> n;
     if (n == 0) {
+        std::cout << '\n';
         return 0;
     }
     Poly f(n);

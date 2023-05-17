@@ -1,0 +1,31 @@
+title = 'Primarity Test'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/880"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "small.cpp"
+    number = 1
+[[tests]]
+    name = "less_1000000000.cpp"
+    number = 1
+[[tests]]
+    name = "carmichael.in"
+    number = 1
+[[tests]]
+    name = "all_prime.cpp"
+    number = 1
+[[tests]]
+    name = "prod_two_prime.cpp"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 3
+
+[params]
+    MIN_Q = 1
+    MAX_Q = 100_000
+    MIN_N = 1
+    MAX_N = 1_000_000_000_000_000_000

@@ -8,7 +8,7 @@ The following are true for all problems.
 - If a node $a/b$ of SBT appears in **input**, $a, b$ satisfies following constraints:
   - $1\leq a \leq @{param.TARGET_FRAC_MAX}$
   - $1\leq b \leq @{param.TARGET_FRAC_MAX}$
-  - $a$ and $b$ are comprime.
+  - $a$ and $b$ are coprime.
 @{lang.ja}
 次の項目は以下のすべての問題で共通します：
 

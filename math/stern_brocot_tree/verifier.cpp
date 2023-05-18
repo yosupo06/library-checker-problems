@@ -45,7 +45,7 @@ int main() {
             inf.readChar(' ');
             int a = inf.readInt(1, TARGET_FRAC_MAX, "a_enc");
             inf.readChar(' ');
-            int b = inf.readInt(1, TARGET_FRAC_MAX, "a_enc");
+            int b = inf.readInt(1, TARGET_FRAC_MAX, "b_enc");
             inf.readChar('\n');
             ensure(is_valid_positive_rational_number(a, b));
         }

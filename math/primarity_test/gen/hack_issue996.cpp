@@ -7,6 +7,8 @@
 using namespace std;
 using ll = long long;
 
+// reference: https://miller-rabin.appspot.com/
+
 // 1 base
 const std::vector<ll> t1{
     341531LL,

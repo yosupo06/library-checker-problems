@@ -23,6 +23,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/880"
 [[tests]]
     name = "random.cpp"
     number = 3
+[[tests]]
+    name = "hack_issue996.cpp"
+    number = 1
 
 [params]
     MIN_Q = 1

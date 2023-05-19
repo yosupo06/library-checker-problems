@@ -1001,25 +1001,29 @@ std::vector<Mint> monomial_to_newton(int n, Poly f, std::vector<Mint> p) {
 int main() {
     using namespace poly;
     int n;
-    std::cin >> n;
+    scanf("%d", &n);
     if (n == 0) {
-        std::cout << '\n';
+        printf("\n");
         return 0;
     }
     Poly f(n);
     for (int i = 0; i < n; ++i) {
         unsigned v;
-        std::cin >> v;
+        scanf("%u", &v);
         f[i] = Mint::raw(v);
     }
     std::vector<Mint> p(n - 1);
     for (int i = 0; i < n - 1; ++i) {
         unsigned v;
-        std::cin >> v;
+        scanf("%u", &v);
         p[i] = Mint::raw(v);
     }
     std::vector<Mint> b = monomial_to_newton(n, f, p);
     for (int i = 0; i < n; ++i) {
-        std::cout << b[i].val() << " \n"[i + 1 == n];
+        printf("%u", b[i].val());
+        if (i != n - 1) {
+            printf(" ");
+        }
     }
+    printf("\n");
 }

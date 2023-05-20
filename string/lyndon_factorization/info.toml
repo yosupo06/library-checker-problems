@@ -26,7 +26,13 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/948"
 [[tests]]
     name = "all_same_plus_one.cpp"
     number = 2
-    
+[[tests]]
+    name = "binary.cpp"
+    number = 1
+[[tests]]
+    name = "various_repetition.cpp"
+    number = 1
+
 [[solutions]]
     name = "solve_and_verify.cpp"
 

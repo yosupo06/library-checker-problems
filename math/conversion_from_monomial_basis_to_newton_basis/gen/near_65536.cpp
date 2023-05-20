@@ -13,8 +13,8 @@ int main(int, char *argv[]) {
     for (int i = 0; i < n; ++i) {
         a[i] = rng.uniform(0ll, MOD - 1);
     }
-    vector<int> p(n - 1);
-    for (int i = 0; i < n - 1; ++i) {
+    vector<int> p(n);
+    for (int i = 0; i < n; ++i) {
         p[i] = rng.uniform(0ll, MOD - 1);
     }
     printf("%d\n", n);
@@ -25,9 +25,9 @@ int main(int, char *argv[]) {
         }
     }
     printf("\n");
-    for (int i = 0; i < n - 1; ++i) {
+    for (int i = 0; i < n; ++i) {
         printf("%d", p[i]);
-        if (i != n - 2) {
+        if (i != n - 1) {
             printf(" ");
         }
     }

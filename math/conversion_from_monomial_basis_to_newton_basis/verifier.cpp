@@ -11,9 +11,9 @@ void validate() {
         }
     }
     inf.readChar('\n');
-    for (int i = 0; i < n - 1; ++i) {
+    for (int i = 0; i < n; ++i) {
         inf.readInt(0, MOD - 1);
-        if (i != n - 2) {
+        if (i != n - 1) {
             inf.readSpace();
         }
     }

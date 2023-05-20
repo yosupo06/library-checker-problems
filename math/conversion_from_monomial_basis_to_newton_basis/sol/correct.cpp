@@ -955,7 +955,7 @@ Poly fps_inv(const Poly &f, int sz = -1) {
 namespace poly {
 
 std::vector<Mint> monomial_to_newton(int n, Poly f, std::vector<Mint> p) {
-    assert(n == (int)f.size() && n - 1 == (int)p.size());
+    assert(n == (int)f.size() && n == (int)p.size());
     int s = 1;
     while (s < n) {
         s *= 2;
@@ -1002,18 +1002,14 @@ int main() {
     using namespace poly;
     int n;
     scanf("%d", &n);
-    if (n == 0) {
-        printf("\n");
-        return 0;
-    }
     Poly f(n);
     for (int i = 0; i < n; ++i) {
         unsigned v;
         scanf("%u", &v);
         f[i] = Mint::raw(v);
     }
-    std::vector<Mint> p(n - 1);
-    for (int i = 0; i < n - 1; ++i) {
+    std::vector<Mint> p(n);
+    for (int i = 0; i < n; ++i) {
         unsigned v;
         scanf("%u", &v);
         p[i] = Mint::raw(v);

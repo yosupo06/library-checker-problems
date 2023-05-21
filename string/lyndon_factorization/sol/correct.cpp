@@ -18,34 +18,34 @@ struct LyndonFactorization {
     ){
         LyndonFactorization res;
         if(first == last) return res;
-        int pos = 1;
-        int sameBeg = 0;
-        int prevBeg = 0;
-        int prevEnd = 1;
+
+        int seekBeg = 0;
         int len = (int)(last - first);
-        while(pos <= len){
-            int i = pos - prevEnd;
-            if(pos == len || comp(first[prevEnd + i], first[prevBeg + i])){
-                int prevLen = prevEnd - prevBeg;
-                for(int t = sameBeg + prevLen; t <= prevEnd; t += prevLen){
-                    res.pos.push_back(t);
+
+        while(seekBeg < len){
+            // find a repetition of the longest lyndon prefix
+
+            int repEndPrev = seekBeg;
+            int repEnd = seekBeg + 1;
+            // factor length = repEnd - repEndPrev
+
+            while(repEnd < len && !comp(first[repEnd], first[repEndPrev])){
+                if(comp(first[repEndPrev], first[repEnd])){
+                    repEndPrev = seekBeg;
+                    repEnd++;
                 }
-                sameBeg = prevEnd;
-                prevBeg = prevEnd;
-                prevEnd = prevEnd + 1;
-                pos = prevEnd;
-                continue;
+                else{
+                    repEndPrev++;
+                    repEnd++;
+                }
             }
-            if(comp(first[prevBeg + i], first[prevEnd + i])){
-                prevEnd = pos + 1;
-                prevBeg = sameBeg;
-            }
-            pos++;
-            if(prevEnd - prevBeg == pos - prevEnd){
-                prevBeg = prevEnd;
-                prevEnd = pos;
+
+            int factorLen = repEnd - repEndPrev;
+            for( ; seekBeg <= repEndPrev; seekBeg += factorLen){
+                res.pos.push_back(seekBeg + factorLen);
             }
         }
+
         return res;
     }
     template<class RandomAccessIter>

@@ -18,7 +18,7 @@ Each test consists of $T$ cases, and $m$ is fixed in all cases.
 
 - $1 \leq T \leq @{param.T_MAX}$
 - $1 \leq m \leq @{param.M_MAX}$
-- $m$ は素数
+- @{lang.en} $m$ is a prime @{lang.ja} $m$ は素数 @{lang.end}
 - $0 \leq n, k \lt \min(m, @{param.N_MAX})$
 
 ## @{keyword.input}

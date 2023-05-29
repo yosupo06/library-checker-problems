@@ -1,0 +1,26 @@
+title = 'Compositional Inverse of Formal Power Series'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/950"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "identity.in"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+[[tests]]
+    name = "max_identity.cpp"
+    number = 1
+[[tests]]
+    name = "small_degree.cpp"
+    number = 10
+
+[params]
+    N_MAX = 8000
+    MOD = 998244353

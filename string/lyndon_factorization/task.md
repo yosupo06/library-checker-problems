@@ -2,11 +2,11 @@
 
 @{lang.en}
 
-Given a string $S$ of length $N$ . Construct an array of integers $0 = a _ 0, a _ 1, a _ 2 , \ldots , a _ k = N$ so that $S[a _ 0 .. a _ 1] , S[a _ 1 .. a _ 2] , S[a _ {k-1} .. a _ k]$ is the Lyndon Factorization of $S$ .
+Given a string $S$ of length $N$ . Construct an array of integers $0 = a _ 0 \lt a _ 1 \lt a _ 2 \lt \ldots \lt a _ k = N$ so that $S[a _ 0 .. a _ 1] , S[a _ 1 .. a _ 2] , S[a _ {k-1} .. a _ k]$ is the Lyndon Factorization of $S$ .
 
 @{lang.ja}
 
-長さ $N$ の文字列 $S$ が与えられます。整数の列 $0 = a _ 0, a _ 1, a _ 2 , \ldots , a _ k = N$ を、 $S[a _ 0 .. a _ 1] , S[a _ 1 .. a _ 2] , S[a _ {k-1} .. a _ k]$ が $S$ の Lyndon Factorization をなすように構築してください。
+長さ $N$ の文字列 $S$ が与えられます。整数の列 $0 = a _ 0 \lt a _ 1 \lt a _ 2 \lt \ldots \lt a _ k = N$ を、 $S[a _ 0 .. a _ 1] , S[a _ 1 .. a _ 2] , S[a _ {k-1} .. a _ k]$ が $S$ の Lyndon Factorization をなすように構築してください。
 
 @{lang.end}
 

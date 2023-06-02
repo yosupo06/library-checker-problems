@@ -21,7 +21,7 @@ $$x (x - 1) \cdots (x - (n - 1)) = \sum_{k=0}^n s(n, k) x^k.$$
 ## @{keyword.input}
 
 ~~~
-$N K$
+$N$ $K$
 ~~~
 
 ## @{keyword.output}

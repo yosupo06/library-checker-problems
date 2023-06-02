@@ -15,7 +15,7 @@ Given a string $S$ of length $N$ . Construct an array of integers $0 = a _ 0, a 
 @{lang.en}
 
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
-- Each character of $S$ is lowercase English letters.
+- Each character of $S$ is a lowercase English letter.
 
 @{lang.ja}
 

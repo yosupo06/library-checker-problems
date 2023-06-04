@@ -16,10 +16,21 @@ Each test consists of $T$ cases, and $m$ is fixed in all cases.
 
 ## @{keyword.constraints}
 
+@{lang.en}
+
 - $1 \leq T \leq @{param.T_MAX}$
 - $1 \leq m \leq @{param.M_MAX}$
-- @{lang.en} $m$ is a prime @{lang.ja} $m$ は素数 @{lang.end}
+- $m$ is a prime
 - $0 \leq n, k \lt \min(m, @{param.N_MAX})$
+
+@{lang.ja}
+
+- $1 \leq T \leq @{param.T_MAX}$
+- $1 \leq m \leq @{param.M_MAX}$
+- $m$ は素数
+- $0 \leq n, k \lt \min(m, @{param.N_MAX})$
+
+@{lang.end}
 
 ## @{keyword.input}
 

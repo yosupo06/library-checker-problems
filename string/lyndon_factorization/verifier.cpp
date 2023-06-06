@@ -1,5 +1,6 @@
 
 #include "testlib.h"
+#include "params.h"
 using namespace std;
 
 int main() {
@@ -9,7 +10,7 @@ int main() {
     inf.readChar('\n');
     inf.readEof();
     int n = int(s.size());
-    ensure(1 <= n && n <= 500'000);
+    ensure(N_MIN <= n && n <= N_MAX);
 
     for (char c: s) {
         ensure(islower(c));

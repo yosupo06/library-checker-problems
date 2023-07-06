@@ -47,7 +47,8 @@ def compile(src: Path, rootdir: Path, opts: [str] = []):
         cxx = getenv('CXX', 'g++')
         cxxflags_default = '-O2 -std=c++17 -Wall -Wextra -Werror -Wno-unused-result'
         if platform.system() == 'Darwin':
-            cxxflags_default += ' -Wl,-stack_size,{}'.format(hex(STACK_SIZE))
+            if platform.processor() != 'arm':
+                cxxflags_default += ' -Wl,-stack_size,{}'.format(hex(STACK_SIZE))
         if platform.system() == 'Windows':
             cxxflags_default += ' -Wl,-stack,{}'.format(hex(STACK_SIZE))
             # avoid using MinGW's "unique" stdio, which doesn't recognize %lld

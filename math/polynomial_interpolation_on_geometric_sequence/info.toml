@@ -1,0 +1,38 @@
+title = 'Polynomial Interpolation (Geometric Sequence)'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/965"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small.cpp"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "y0.cpp"
+    number = 1
+[[tests]]
+    name = "nar_0.cpp"
+    number = 8
+[[tests]]
+    name = "near_pow2.cpp"
+    number = 5
+[[tests]]
+    name = "pow_rN_equal_1.cpp"
+    number = 3
+
+[[solutions]]
+    name = "arbitrary_interpolation.cpp"
+    wrong = false
+    allow_tle = true
+
+[params]
+    MAX_N = 524288
+    MOD = 998244353
+

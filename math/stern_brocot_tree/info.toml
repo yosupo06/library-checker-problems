@@ -1,0 +1,62 @@
+title = 'Stern–Brocot Tree'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/888"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "hand.in"
+    number = 2
+[[tests]]
+    name = "random_ancestor_no.cpp"
+    number = 1
+[[tests]]
+    name = "random_ancestor_yes.cpp"
+    number = 1
+[[tests]]
+    name = "random_lca.cpp"
+    number = 1
+[[tests]]
+    name = "random_range.cpp"
+    number = 1
+[[tests]]
+    name = "random_encode.cpp"
+    number = 1
+[[tests]]
+    name = "random_decode.cpp"
+    number = 1
+[[tests]]
+    name = "small_ancestor.cpp"
+    number = 1
+[[tests]]
+    name = "small_lca.cpp"
+    number = 1
+[[tests]]
+    name = "small_range.cpp"
+    number = 1
+[[tests]]
+    name = "small_encode.cpp"
+    number = 1
+[[tests]]
+    name = "small_decode.cpp"
+    number = 1
+[[tests]]
+    name = "edge_lca.cpp"
+    number = 1
+[[tests]]
+    name = "edge_range.cpp"
+    number = 1
+[[tests]]
+    name = "edge_encode.cpp"
+    number = 1
+[[tests]]
+    name = "edge_decode.cpp"
+    number = 1
+
+[params]
+    T_MIN = 1
+    T_MAX = 100_000
+    TARGET_FRAC_MAX = 1_000_000_000
+    K_MIN_ANCESTOR = 1
+    K_MAX_ANCESTOR = 1_000_000_000

@@ -18,8 +18,8 @@ int main(int, char* argv[]) {
   int lo_2 = (seed & 2 ? -LIM : 0);
   int hi_2 = (seed & 2 ? 0 : LIM);
 
-  vector<ll> A = rand_gen(gen, n, lo_1, hi_1, A_MAX);
-  vector<ll> B = rand_gen(gen, m, lo_2, hi_2, A_MAX);
+  vector<ll> A = rand_gen(gen, n, lo_1, hi_1);
+  vector<ll> B = rand_gen(gen, m, lo_2, hi_2);
 
   for (int i = 0; i < n - 1; ++i) {
     if (!(seed & 1)) assert(A[i] <= A[i + 1]);

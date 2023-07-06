@@ -2,8 +2,7 @@
 using namespace std;
 using ll = long long;
 
-vector<ll> rand_gen(Random& gen, int N, int min_slope, int max_slope,
-                    int MAX_A) {
+vector<ll> rand_gen(Random& gen, int N, int min_slope, int max_slope) {
   vector<ll> A(N);
   while (1) {
     vector<int> slope(N - 1);
@@ -14,10 +13,10 @@ vector<ll> rand_gen(Random& gen, int N, int min_slope, int max_slope,
     for (int i = 0; i < N - 1; ++i) A[i + 1] = A[i] + slope[i];
     ll mi = *(min_element(A.begin(), A.end()));
     ll ma = *(max_element(A.begin(), A.end()));
-    if (ma - mi > MAX_A) continue;
+    if (ma - mi > A_MAX) continue;
     for (int i = 0; i < N; ++i) A[i] -= mi;
     ma -= mi;
-    int add = gen.uniform<int>(0, MAX_A - ma);
+    int add = gen.uniform<int>(0, A_MAX - ma);
     for (int i = 0; i < N; ++i) A[i] += add;
     break;
   }

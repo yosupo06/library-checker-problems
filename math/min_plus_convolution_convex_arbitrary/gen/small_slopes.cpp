@@ -12,7 +12,7 @@ int main(int, char* argv[]) {
   int n = N_MAX;
   int m = N_MAX;
 
-  vector<ll> A = rand_gen(gen, n, -10, +10, A_MAX);
+  vector<ll> A = rand_gen(gen, n, -10, +10);
   vector<ll> B = rand_B(gen, m);
   out(A, B);
 

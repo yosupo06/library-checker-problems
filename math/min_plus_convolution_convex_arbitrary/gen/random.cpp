@@ -14,7 +14,7 @@ int main(int, char* argv[]) {
 
   int LIM_1 = A_MAX / n * 3;
 
-  vector<ll> A = rand_gen(gen, n, -LIM_1, +LIM_1, A_MAX);
+  vector<ll> A = rand_gen(gen, n, -LIM_1, +LIM_1);
   vector<ll> B = rand_B(gen, m);
   out(A, B);
 

@@ -16,7 +16,7 @@ int main(int, char* argv[]) {
   int lo_1 = (seed & 1 ? -LIM : 0);
   int hi_1 = (seed & 1 ? 0 : LIM);
 
-  vector<ll> A = rand_gen(gen, n, lo_1, hi_1, A_MAX);
+  vector<ll> A = rand_gen(gen, n, lo_1, hi_1);
   vector<ll> B = rand_B(gen, m);
   sort(B.begin(), B.end());
   if (seed & 2) reverse(B.begin(), B.end());

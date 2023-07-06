@@ -15,7 +15,7 @@ int main(int, char* argv[]) {
   int n = ns[seed % 9];
   int m = ms[seed % 9];
 
-  vector<ll> A = rand_gen(gen, n, -A_MAX, +A_MAX, A_MAX);
+  vector<ll> A = rand_gen(gen, n, -A_MAX, +A_MAX);
   vector<ll> B = rand_B(gen, m);
   out(A, B);
 

@@ -20,8 +20,8 @@ int main(int, char* argv[]) {
   int LIM_1 = A_MAX / n * 3;
   int LIM_2 = A_MAX / m * 3;
 
-  vector<ll> A = rand_gen(gen, n, -LIM_1, +LIM_1, A_MAX);
-  vector<ll> B = rand_gen(gen, m, -LIM_2, +LIM_2, A_MAX);
+  vector<ll> A = rand_gen(gen, n, -LIM_1, +LIM_1);
+  vector<ll> B = rand_gen(gen, m, -LIM_2, +LIM_2);
   out(A, B);
 
   return 0;

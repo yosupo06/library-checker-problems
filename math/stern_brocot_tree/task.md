@@ -22,6 +22,8 @@ $T$ problems related to SBT in the following list are given.
 Stern–Brocot Tree に関して、次のリストに含まれる問題が合計 $T$ 個与えられます。
 @{lang.end}
 
+----
+
 ### ENCODE_PATH
 
 @{lang.ja}
@@ -52,6 +54,8 @@ ENCODE_PATH $a$ $b$
 ```
 $k$ $c_0$ $n_0$ $c_1$ $n_1$ $\ldots$ $c_{k-1}$ $n_{k-1}$
 ``` 
+
+----
 
 ### DECODE_PATH
 
@@ -86,6 +90,8 @@ DECODE_PATH $k$ $c_0$ $n_0$ $c_1$ $n_1$ $\ldots$ $c_{k-1}$ $n_{k-1}$
 $a$ $b$
 ``` 
 
+----
+
 ### LCA
 @{lang.ja}
 $a/b$ と $c/d$ の LCA $f/g$ を求め、出力してください。
@@ -104,6 +110,8 @@ LCA $a$ $b$ $c$ $d$
 ```
 $f$ $g$
 ``` 
+
+----
 
 ### ANCESTOR
 
@@ -129,6 +137,8 @@ ANCESTOR $k$ $a$ $b$
 $f$ $g$
 ```
 
+----
+
 ### RANGE
 
 @{lang.ja}
@@ -150,6 +160,8 @@ RANGE $a$ $b$
 ```
 $f$ $g$ $h$ $k$
 ```
+
+----
 
 
 ## @{keyword.constraints}

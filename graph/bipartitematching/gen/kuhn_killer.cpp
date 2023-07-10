@@ -42,7 +42,6 @@ int main(int, char* argv[]) {
     }
     
     int m = int(edges.size());
-    gen.shuffle(edges.begin(), edges.end());
 
     printf("%d %d %d\n", n, n, m);
     for (auto edge: edges) {

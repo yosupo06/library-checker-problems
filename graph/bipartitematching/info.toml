@@ -15,6 +15,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/37"
     name = "line.cpp"
     number = 2
 [[tests]]
+    name = "kuhn_killer.cpp"
+    number = 2
+[[tests]]
     name = "many_smalls.cpp"
     number = 2
 [[tests]]

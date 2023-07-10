@@ -7,11 +7,7 @@
 using namespace std;
 
 // https://codeforces.com/blog/entry/58048?#comment-417533
-int main(int, char* argv[]) {
-
-    long long seed = atoll(argv[1]);
-    auto gen = Random(seed);
-
+int main() {
     int n = min(L_MAX, R_MAX);
     int k = n / 8 * 2;
 

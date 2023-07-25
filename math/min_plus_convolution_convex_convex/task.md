@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given integer sequences $a_0, a_1, ..., a_{N - 1}$ and $b_0, b_1, ..., b_{M - 1}$. Here, $a$ and $b$ is convex. Calculate an integer sequence $c_0, c_1, ..., c_{(N - 1) + (M - 1)}$ defined as follows:
+Given integer sequences $a_0, a_1, ..., a_{N - 1}$ and $b_0, b_1, ..., b_{M - 1}$. Here, $a$ and $b$ are convex. Calculate an integer sequence $c_0, c_1, ..., c_{(N - 1) + (M - 1)}$ defined as follows:
 
 $$c_k = \min_{i+j=k} (a_i+b_j)$$
 

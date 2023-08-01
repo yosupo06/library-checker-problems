@@ -1,0 +1,27 @@
+title = 'Multiplication of Big Integers'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/941"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "small.cpp"
+    number = 1
+[[tests]]
+    name = "medium.cpp"
+    number = 3
+[[tests]]
+    name = "large.cpp"
+    number = 3
+[[tests]]
+    name = "max_max.cpp"
+    number = 8
+[[tests]]
+    name = "zero.cpp"
+    number = 1
+
+[params]
+    T_MAX = 2000000
+    LOG_10_A_AND_B_MAX = 2000000
+    SUM_OF_CHARACTER_LENGTH = 4000002

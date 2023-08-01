@@ -46,5 +46,9 @@
   "random_03.in": "65da182beb1d893d5075e13c7ea4eaaeee0b6f4f08c2b3b10dd2c91c0d7feace",
   "random_03.out": "0e3df439392066de90ff3a1f57c125921670111b3a61a5c9aa863fec808b982f",
   "random_04.in": "be5de7ee3630de1e65d3a236644db57e5eafe50479d1a382128ea2bbc9120ac2",
-  "random_04.out": "225dc861e090b1db9fc38a18b3f91664a54ecad91738db9305c8018439a7d7f1"
+  "random_04.out": "225dc861e090b1db9fc38a18b3f91664a54ecad91738db9305c8018439a7d7f1",
+  "signed_overflow_00.in": "31b80c2aff345d32d117c940ec47f05fe808f34be0ca283d50df622ff899c00d",
+  "signed_overflow_00.out": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28",
+  "unsigned_overflow_00.in": "dfd8be53e4f5ae91e215e99136632ea635c710a6e029a296b3faa5a4fd1edfdb",
+  "unsigned_overflow_00.out": "ee3aa64bb94a50845d5024cd4bd20202a4567aed5cd5328c0d97e9920775fc28"
 }

@@ -14,6 +14,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/654"
 [[tests]]
     name = "small.cpp"
     number = 10
+[[tests]]
+    name = "signed_overflow.cpp"
+    number = 1
+[[tests]]
+    name = "unsigned_overflow.cpp"
+    number = 1
 
 [params]
     N_MAX = 1_024

@@ -3049,7 +3049,7 @@ void InStream::xmlSafeWrite(std::FILE *file, const char *msg) {
             std::fprintf(file, "%s", "&quot;");
             continue;
         }
-        if (0 <= msg[i] && msg[i] <= 31) {
+        if (msg[i] <= 31) { // modified for library-checker
             std::fprintf(file, "%c", '.');
             continue;
         }

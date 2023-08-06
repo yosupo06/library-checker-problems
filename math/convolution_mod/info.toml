@@ -29,6 +29,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/42"
 [[tests]]
     name = "max_ans_zero.cpp"
     number = 1
+[[tests]]
+    name = "signed_overflow.cpp"
+    number = 1
+[[tests]]
+    name = "unsigned_overflow.cpp"
+    number = 1
 
 [[solutions]]
     name = "naive.cpp"

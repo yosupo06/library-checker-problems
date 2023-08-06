@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <cassert>
+#include <cstdint>
 #include <iostream>
 #include <vector>
 #define REP(i, n) for (int i = 0; (i) < (int)(n); ++ (i))

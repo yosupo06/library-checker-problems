@@ -23,7 +23,7 @@ import toml
 logger = getLogger(__name__)  # type: Logger
 
 CASENAME_LEN_LIMIT = 40
-STACK_SIZE = 2 ** 31  # 2GB
+STACK_SIZE = 2 ** 28  # 256 MB
 
 
 def casename(name: Union[str, Path], i: int) -> str:

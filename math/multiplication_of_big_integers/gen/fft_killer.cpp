@@ -46,7 +46,7 @@ int main(int, char* argv[]) {
 
   ll X = BASE[seed % 2];
   ll Y = MOD[seed % 2];
-  ll N = LOG_10_A_AND_B_MAX / 10;
+  ll N = floor(LOG_10_A_AND_B_MAX / log10(X));
 
   bigint a = make_num(gen, N, X, Y);
   bigint b = make_num(gen, N, X, Y);

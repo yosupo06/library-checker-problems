@@ -20,8 +20,12 @@ int main(int, char* argv[]) {
   vector<string> A, B;
   int n1 = LOG_10_A_AND_B_MAX / 10 * 9;
   int n2 = LOG_10_A_AND_B_MAX / 10 * 1;
-  A.emplace_back(make_num(gen, n1, n2));
-  B.emplace_back(make_num(gen, n2, n1));
+
+  A.emplace_back(make_num(gen, n1, false));
+  B.emplace_back(make_num(gen, n2, false));
+
+  A.emplace_back(make_num(gen, n2, false));
+  B.emplace_back(make_num(gen, n1, false));
 
   printf("%d\n", (int)A.size());
   for (int i = 0; i < (int)A.size(); i++) {

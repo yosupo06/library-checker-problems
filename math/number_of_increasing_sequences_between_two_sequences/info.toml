@@ -1,0 +1,16 @@
+title = 'Number of Increasing Sequences Between Two Sequences'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1019"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 10
+[[solutions]]
+    name = "solution.cpp"
+    wrong = true
+[params]
+    N_MAX = 2**17
+    MOD = 998244353

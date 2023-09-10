@@ -324,8 +324,6 @@ class Problem:
                 continue  # ignore directories
             if path.suffix == ('' if platform.system() != 'Windows' else '.exe'):
                 continue  # ignore compiled binaries
-            if path.name.endswith('.html'):
-                continue  # ignore generated HTML files
             if path.name == 'params.h':
                 continue  # ignore generated params.h
             yield path
@@ -466,7 +464,7 @@ class Problem:
         def rewrite_hash(self):
             return self == self.DEV
 
-    def generate(self, mode: Mode, html_dir: Optional[Path]):
+    def generate(self, mode: Mode):
         if mode == self.Mode.DEV:
             self.ignore_warning = True
 

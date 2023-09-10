@@ -64,8 +64,8 @@ def main(args: List[str]):
 
     opts = parser.parse_args(args)
 
-    if opts.dev + opts.test + opts.clean + opts.only_html >= 2:
-        raise ValueError('at most one of --dev, --test, --clean, --only-html can be used')
+    if opts.dev + opts.test + opts.clean >= 2:
+        raise ValueError('at most one of --dev, --test, --clean can be used')
 
     if opts.compile_checker:
         logger.warning(
@@ -85,10 +85,6 @@ def main(args: List[str]):
 
     if len(problems) == 0:
         logger.warning('No problems')
-
-    if opts.htmldir:
-        logger.info('Make htmldir')
-        Path(opts.htmldir).mkdir(exist_ok=True, parents=True)
     
     # suppress the annoying dialog appears when an application crashes on Windows
     if platform.uname().system == 'Windows':

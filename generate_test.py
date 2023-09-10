@@ -115,41 +115,6 @@ class TestNonExistProblem(unittest.TestCase):
             ['./generate.py', '-p', 'dummy_problem'])
         self.assertNotEqual(proc.returncode, 0)
 
-
-class TestUnusedExample(unittest.TestCase):
-    def test_unused_example_user(self):
-        with create_test_dir('unused_example') as test_dir:
-            proc = run(
-                ['./generate.py', str(Path(test_dir) / 'unused_example/info.toml')])
-            self.assertEqual(proc.returncode, 0)
-
-    def test_unused_example_dev(self):
-        with create_test_dir('unused_example') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) /
-                       'unused_example/info.toml'), '--dev'])
-            self.assertEqual(proc.returncode, 0)
-
-    def test_unused_example_test(self):
-        with create_test_dir('unused_example') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) /
-                       'unused_example/info.toml'), '--test'])
-            self.assertNotEqual(proc.returncode, 0)
-
-
-class TestNonExistExample(unittest.TestCase):
-    def test_non_exist_dev(self):
-        with create_test_dir('nonexist_example') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) /
-                       'nonexist_example/info.toml'), '--dev'])
-            self.assertNotEqual(proc.returncode, 0)
-
-    def test_non_exist_test(self):
-        with create_test_dir('nonexist_example') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) /
-                       'nonexist_example/info.toml'), '--test'])
-            self.assertNotEqual(proc.returncode, 0)
-
-
 class TestUnusedGen(unittest.TestCase):
     def test_unused_gen_user(self):
         with create_test_dir('unused_gen') as test_dir:

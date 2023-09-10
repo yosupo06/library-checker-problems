@@ -58,11 +58,9 @@ def main(args: List[str]):
     
     parser.add_argument('--dev', action='store_true', help='Developer Mode')
     parser.add_argument('--test', action='store_true', help='CI Mode')
-    parser.add_argument('--htmldir', help='Generate HTML', default=None)
     parser.add_argument('--clean', action='store_true', help='Clean in/out')
     parser.add_argument('--compile-checker',
                         action='store_true', help='Deprecated: Compile Checker')
-    parser.add_argument('--only-html', action='store_true', help='HTML generator Mode')
 
     opts = parser.parse_args(args)
 
@@ -105,11 +103,9 @@ def main(args: List[str]):
         mode = Problem.Mode.TEST
     if opts.clean:
         mode = Problem.Mode.CLEAN
-    if opts.only_html:
-        mode = Problem.Mode.HTML
 
     for problem in problems:
-        problem.generate(mode, Path(opts.htmldir) if opts.htmldir else None)
+        problem.generate(mode)
 
 if __name__ == '__main__':
     main(sys.argv[1:])

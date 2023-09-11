@@ -19,7 +19,7 @@ Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp). You can get t
 cd /path/to/library-checker-problems
 
 pip3 install -r requirements.txt
-# or pip3 install colorlog markdown jinja2
+# or pip3 install colorlog
 
 ulimit -s unlimited # for linux (doesn't need for OS X and WSL)
 
@@ -36,7 +36,6 @@ file datastructure/unionfind/checker # binary of output checker
 ```sh
 ./generate.py -p unionfind --dev # developer mode
 ./generate.py -p unionfind --test # test mode (for developer, exec this command before PR)
-cat datastructure/unionfind/task.html # statement
 
 ./generate.py $(find . -name "info.toml" -not -path "./test/*") # generate all testcases
 ```

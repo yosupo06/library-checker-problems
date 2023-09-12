@@ -51,8 +51,8 @@ int main(int, char* argv[]) {
     int q = MAX_Q;
     printf("%d\n", q);
     for (int i = 0; i < q; i++) {
-        int pos = seed * q;
-        printf("%lld\n", list[pos % int(buf.size())]);
+        int pos = seed * q + i;
+        printf("%lld\n", list[pos % int(list.size())]);
     }
     return 0;
 }

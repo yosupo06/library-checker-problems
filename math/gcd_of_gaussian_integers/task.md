@@ -7,7 +7,7 @@ Given Gaussian integers $a_1+b_1i$ and $a_2+b_2i$, find one of their greatest co
 
 Please refer to the following definitions for Gaussian integers and their greatest common divisors:
 
-- An element of $\mathbb{Z}[i] = \{a+bi\mid a,b\in \mathbb{Z}}$ is called a Gaussian integer.
+- An element of $\mathbb{Z}[i] = \lbrace a+bi\mid a,b\in \mathbb{Z}\rbrace$ is called a Gaussian integer.
 
 - For $x, y \in \mathbb{Z}[i]$, we define $x\mid y$ if there exists a $z$ in $\mathbb{Z}[i]$ such that $y = xz$.
 
@@ -22,7 +22,7 @@ Gauss 整数 $a_1+b_1i, a_2+b_2i$ が与えられるので，その最大公約�
 
 Gauss 整数やその最大公約数については以下の定義を参考にしてください．
 
-- $\mathbb{Z}[i] = \{a+bi\mid a,b\in \mathbb{Z}}$ の元を Gauss 整数という．
+- $\mathbb{Z}[i] = \lbrace a+bi\mid a,b\in \mathbb{Z} \rbrace$ の元を Gauss 整数という．
 - $x,y \in \mathbb{Z}[i]$ に対し，$y=xz$ となる $z \in \mathbb{Z}[i]$ が存在するとき $x\mid y$ であると定義する．
 - $g \in \mathbb{Z}[i]$ が $x,y \mathbb{Z}[i]$ の最大公約数であるとは，任意の $z\in \mathbb{Z}[i]$ に対して $g\mid z \iff x\mid z \text{かつ} y\mid z$ が成り立つことをいう．このような $g$ は，$\pm 1$, $\pm i$ 倍の不定性を除き一意に定まる．
 

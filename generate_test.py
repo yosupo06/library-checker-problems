@@ -115,47 +115,6 @@ class TestNonExistProblem(unittest.TestCase):
             ['./generate.py', '-p', 'dummy_problem'])
         self.assertNotEqual(proc.returncode, 0)
 
-
-class TestUnusedExample(unittest.TestCase):
-    def test_unused_example_user(self):
-        with create_test_dir('unused_example') as test_dir:
-            proc = run(
-                ['./generate.py', str(Path(test_dir) / 'unused_example/info.toml')])
-            self.assertEqual(proc.returncode, 0)
-
-    def test_unused_example_dev(self):
-        with create_test_dir('unused_example') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) /
-                       'unused_example/info.toml'), '--dev'])
-            self.assertEqual(proc.returncode, 0)
-
-    def test_unused_example_test(self):
-        with create_test_dir('unused_example') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) /
-                       'unused_example/info.toml'), '--test'])
-            self.assertNotEqual(proc.returncode, 0)
-
-
-class TestNonExistExample(unittest.TestCase):
-    def test_no_html(self):
-        with create_test_dir('nonexist_example') as test_dir:
-            proc = run(
-                ['./generate.py', str(Path(test_dir) / 'nonexist_example/info.toml')])
-            self.assertEqual(proc.returncode, 0)
-
-    def test_non_exist_dev(self):
-        with create_test_dir('nonexist_example') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) /
-                       'nonexist_example/info.toml'), '--dev'])
-            self.assertNotEqual(proc.returncode, 0)
-
-    def test_non_exist_test(self):
-        with create_test_dir('nonexist_example') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) /
-                       'nonexist_example/info.toml'), '--test'])
-            self.assertNotEqual(proc.returncode, 0)
-
-
 class TestUnusedGen(unittest.TestCase):
     def test_unused_gen_user(self):
         with create_test_dir('unused_gen') as test_dir:
@@ -275,45 +234,6 @@ class TestListDependingFiles(unittest.TestCase):
                 find_verifier = True
         self.assertTrue(find_random)
         self.assertTrue(find_verifier)
-
-
-class TestGenerateHtml(unittest.TestCase):
-    def test_generate_html_dev(self):
-        with create_test_dir('simple_aplusb') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) /
-                                             'simple_aplusb/info.toml'), '--dev'])
-            self.assertEqual(proc.returncode, 0)
-            self.assertTrue(
-                (Path(test_dir) / 'simple_aplusb' / 'task.html').exists())
-
-    def test_generate_html_test(self):
-        with create_test_dir('simple_aplusb') as test_dir:
-            proc = run(['./generate.py', str(Path(test_dir) /
-                                             'simple_aplusb/info.toml'), '--test'])
-            self.assertEqual(proc.returncode, 0)
-            self.assertTrue(
-                (Path(test_dir) / 'simple_aplusb' / 'task.html').exists())
-
-
-class TestHtmlDir(unittest.TestCase):
-    def test_generate_html_dev(self):
-        with create_test_dir('simple_aplusb') as test_dir:
-            html_dir = TemporaryDirectory()
-            proc = run(['./generate.py', str(Path(test_dir) /
-                                             'simple_aplusb/info.toml'), '--dev', '--htmldir', html_dir.name])
-            self.assertEqual(proc.returncode, 0)
-            self.assertTrue(
-                (Path(html_dir.name) / 'simple_aplusb.html').exists())
-
-    def test_generate_html_test(self):
-        with create_test_dir('simple_aplusb') as test_dir:
-            html_dir = TemporaryDirectory()
-            proc = run(['./generate.py', str(Path(test_dir) /
-                                             'simple_aplusb/info.toml'), '--test', '--htmldir', html_dir.name])
-            self.assertEqual(proc.returncode, 0)
-            self.assertTrue(
-                (Path(html_dir.name) / 'simple_aplusb.html').exists())
-
 
 if __name__ == "__main__":
     basicConfig(

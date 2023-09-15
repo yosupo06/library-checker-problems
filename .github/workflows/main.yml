@@ -80,12 +80,7 @@ jobs:
       - name: Run generate.py on gcc
         run: |
           ulimit -s unlimited
-          ./ci_generate.py --htmldir=/tmp/html
-      - name: Archive problem statements
-        uses: actions/upload-artifact@v2
-        with:
-          name: statements
-          path: /tmp/html
+          ./ci_generate.py
 
   mingw-windows-diffrun:
     runs-on: windows-latest
@@ -119,4 +114,4 @@ jobs:
 
       - name: Run generate.py on gcc
         run: |
-          python ci_generate.py --htmldir=D:/tmp/html
+          python ci_generate.py

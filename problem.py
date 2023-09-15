@@ -324,8 +324,6 @@ class Problem:
                 continue  # ignore directories
             if path.suffix == ('' if platform.system() != 'Windows' else '.exe'):
                 continue  # ignore compiled binaries
-            if path.name.endswith('.html'):
-                continue  # ignore generated HTML files
             if path.name == 'params.h':
                 continue  # ignore generated params.h
             yield path
@@ -407,26 +405,6 @@ class Problem:
                 logger.error('fast solution got tle: {}'.format(src))
                 exit(1)
 
-    def gen_html(self):
-        from htmlgen import ToHTMLConverter
-        # convert task
-        return ToHTMLConverter(self.basedir, self.config)
-
-    def write_html(self, htmldir: Optional[Path]):
-        # convert task
-        html = self.gen_html()
-        if not html.check_all_samples_used():
-            self.warning('all samples are not used')
-        path = (self.basedir / 'task.html') if not htmldir else htmldir / \
-            (self.basedir.resolve().name + '.html')
-        with open(str(path), 'w', encoding='utf-8') as f:
-            f.write(html.html)
-
-        path = (self.basedir / 'task_body.html') if not htmldir else htmldir / \
-            (self.basedir.resolve().name + '_body.html')
-        with open(str(path), 'w', encoding='utf-8') as f:
-            f.write(html.statement)
-
     def calc_hashes(self) -> MutableMapping[str, str]:
         hashes: MutableMapping[str, str] = dict()
         for name in self.basedir.glob('in/*.in'):
@@ -475,7 +453,6 @@ class Problem:
         DEFAULT = 1
         DEV = 2
         TEST = 3
-        HTML = 4
         CLEAN = 5
 
         def force_generate(self):
@@ -487,10 +464,7 @@ class Problem:
         def rewrite_hash(self):
             return self == self.DEV
 
-        def generate_html(self):
-            return self == self.HTML or self == self.DEV or self == self.TEST
-
-    def generate(self, mode: Mode, html_dir: Optional[Path]):
+    def generate(self, mode: Mode):
         if mode == self.Mode.DEV:
             self.ignore_warning = True
 
@@ -536,9 +510,6 @@ class Problem:
             self.write_hashes()
         else:
             self.assert_hashes()
-
-        if mode.generate_html():
-            self.write_html(html_dir)
 
 
 def find_problem_dir(rootdir: Path, problem_name: Path) -> Optional[Path]:

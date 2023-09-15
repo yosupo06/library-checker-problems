@@ -3,7 +3,7 @@
 @{lang.en}
 In this problem, $i$ represents the imaginary unit.
 
-Given Gaussian integers $a_1+b_1i$ and $a_2+b_2i, find one of their greatest common divisors.
+Given Gaussian integers $a_1+b_1i$ and $a_2+b_2i$, find one of their greatest common divisors.
 
 Please refer to the following definitions for Gaussian integers and their greatest common divisors:
 

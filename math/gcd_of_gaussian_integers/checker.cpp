@@ -25,6 +25,5 @@ int main(int argc, char* argv[]) {
     if (!ok) { quitf(_wa, "wa, gcd is not correct"); }
   }
   quitf(_ok, "OK");
-
   return 0;
 }

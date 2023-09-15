@@ -11,7 +11,7 @@ Please refer to the following definitions for Gaussian integers and their greate
 
 - For $x, y \in \mathbb{Z}[i]$, we define $x\mid y$ if there exists a $z$ in $\mathbb{Z}[i]$ such that $y = xz$.
 
-- A Gaussian integer $g$ is a greatest common divisor of $x$ and $y$ in $\mathbb{Z}[i]$ if, for any $z$ in $\mathbb{Z}[i]$, the condition $g\mid z$ is equivalent to $x\mid z$ and $y\mid z$. Such a $g$ is uniquely determined except for multiples of $\pm 1$ and $\pm i$.
+- A Gaussian integer $g$ is a greatest common divisor of $x, y\in \mathbb{Z}[i]$ if, for any $z$ in $\mathbb{Z}[i]$, the condition $g\mid z$ is equivalent to $x\mid z$ and $y\mid z$. Such a $g$ is uniquely determined except for multiples of $\pm 1$ and $\pm i$.
 
 You have $T$ test cases to solve.
 
@@ -24,7 +24,7 @@ Gauss 整数やその最大公約数については以下の定義を参考に�
 
 - $\mathbb{Z}[i] = \lbrace a+bi\mid a,b\in \mathbb{Z} \rbrace$ の元を Gauss 整数という．
 - $x,y \in \mathbb{Z}[i]$ に対し，$y=xz$ となる $z \in \mathbb{Z}[i]$ が存在するとき $x\mid y$ であると定義する．
-- $g \in \mathbb{Z}[i]$ が $x,y \mathbb{Z}[i]$ の最大公約数であるとは，任意の $z\in \mathbb{Z}[i]$ に対して $g\mid z \iff x\mid z \text{かつ} y\mid z$ が成り立つことをいう．このような $g$ は，$\pm 1$, $\pm i$ 倍の不定性を除き一意に定まる．
+- $g \in \mathbb{Z}[i]$ が $x,y \in \mathbb{Z}[i]$ の最大公約数であるとは，任意の $z\in \mathbb{Z}[i]$ に対して $g\mid z \iff x\mid z \text{かつ} y\mid z$ が成り立つことをいう．このような $g$ は，$\pm 1$, $\pm i$ 倍の不定性を除き一意に定まる．
 
 $T$ 個のテストケースが与えられるので，それぞれについて答えを求めてください．
 

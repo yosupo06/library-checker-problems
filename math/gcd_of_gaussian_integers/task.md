@@ -24,7 +24,7 @@ Gauss 整数やその最大公約数については以下の定義を参考に�
 
 - $\mathbb{Z}[i] = \lbrace a+bi\mid a,b\in \mathbb{Z} \rbrace$ の元を Gauss 整数という．
 - $x,y \in \mathbb{Z}[i]$ に対し，$y=xz$ となる $z \in \mathbb{Z}[i]$ が存在するとき $x\mid y$ であると定義する．
-- $g \in \mathbb{Z}[i]$ が $x,y \in \mathbb{Z}[i]$ の最大公約数であるとは，任意の $z\in \mathbb{Z}[i]$ に対して，$z\mid g$ であることとと $z\mid x$ かつ $z\mid y$ であることが同値になることをいう．このような $g$ は，$\pm 1$, $\pm i$ 倍の不定性を除き一意に定まる．
+- $g \in \mathbb{Z}[i]$ が $x,y \in \mathbb{Z}[i]$ の最大公約数であるとは，任意の $z\in \mathbb{Z}[i]$ に対して，$z\mid g$ であることと $z\mid x$ かつ $z\mid y$ であることが同値になることをいう．このような $g$ は，$\pm 1$, $\pm i$ 倍の不定性を除き一意に定まる．
 
 $T$ 個のテストケースが与えられるので，それぞれについて答えを求めてください．
 

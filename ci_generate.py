@@ -17,6 +17,7 @@ def main():
     parser = argparse.ArgumentParser(
         description='Testcase generator')
     parser.add_argument('--print-version', action='store_true', help='Print version')
+    parser.add_argument('--force', action='store_true', help='Ignore cache and force execute')
     args = parser.parse_args()
 
     basicConfig(
@@ -49,8 +50,8 @@ def main():
     for x in tomls:
         problem = Problem(Path.cwd(), x.parent)
         problem_name = problem.basedir.name
-        problem_version = problem.problem_version()
-        if problem_name in generated and generated[problem_name] == problem_version:
+        problem_version = problem.problem_version()        
+        if not args.force and problem_name in generated and generated[problem_name] == problem_version:
             logger.info('Problem {} is already generated, skip'.format(problem_name))
         else:
             logger.info('Generate {}, new version: {}'.format(problem_name, problem_version))

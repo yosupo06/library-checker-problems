@@ -231,8 +231,9 @@ class Problem:
             for i in range(num):
                 inname = (casename(name, i) + '.in')
                 inpath = indir / inname
+                infile = open(str(inpath), 'r')
                 result = run(execcmd(self.verifier),
-                             stdin=open(str(inpath), 'r'))
+                             stdin=infile)
                 if result.returncode != 0:
                     logger.error('verify failed: {} {}'.format(result, inname))
                     exit(1)

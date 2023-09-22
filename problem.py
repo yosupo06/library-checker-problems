@@ -234,7 +234,7 @@ class Problem:
                 result = run(execcmd(self.verifier),
                              stdin=open(str(inpath), 'r'))
                 if result.returncode != 0:
-                    logger.error('verify failed: {}'.format(inname))
+                    logger.error('verify failed: {} {}'.format(result, inname))
                     exit(1)
 
     def make_outputs(self, check):

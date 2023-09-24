@@ -8,18 +8,18 @@ on:
         required: false
         default: false
         type: boolean
-      enable-gcc-ubuntu-diffrun:
-        description: Enable gcc-ubuntu-diffrun
+      enable-gcc-ubuntu-generate:
+        description: Enable gcc-ubuntu-generate
         required: false
         default: true
         type: boolean
-      enable-clang-mac-diffrun:
-        description: Enable clang-mac-diffrun
+      enable-clang-mac-generate:
+        description: Enable clang-mac-generate
         required: false
         default: true
         type: boolean
-      enable-mingw-windows-diffrun:
-        description: Enable mingw-windows-diffrun
+      enable-mingw-windows-generate:
+        description: Enable mingw-windows-generate
         required: false
         default: true
         type: boolean
@@ -29,23 +29,23 @@ on:
         required: false
         default: false
         type: boolean
-      enable-gcc-ubuntu-diffrun:
+      enable-gcc-ubuntu-generate:
         required: false
         default: true
         type: boolean
-      enable-clang-mac-diffrun:
+      enable-clang-mac-generate:
         required: false
         default: true
         type: boolean
-      enable-mingw-windows-diffrun:
+      enable-mingw-windows-generate:
         required: false
         default: true
         type: boolean
 
 jobs:
-  gcc-ubuntu-diffrun:
+  gcc-ubuntu-generate:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.enable-gcc-ubuntu-diffrun == 'true' }}
+    if: ${{ github.event.inputs.enable-gcc-ubuntu-generate == 'true' }}
     steps:
       - uses: actions/checkout@v3
 
@@ -79,9 +79,9 @@ jobs:
           path: versions.json
           key: ${{ runner.os }}-versions-cache-${{ hashFiles('versions.json') }}
 
-  clang-mac-diffrun:
+  clang-mac-generate:
     runs-on: macos-latest
-    if: ${{ github.event.inputs.enable-clang-mac-diffrun == 'true' }}
+    if: ${{ github.event.inputs.enable-clang-mac-generate == 'true' }}
     steps:
       - uses: actions/checkout@v3
 
@@ -115,9 +115,9 @@ jobs:
           path: versions.json
           key: ${{ runner.os }}-versions-cache-${{ hashFiles('versions.json') }}
 
-  mingw-windows-diffrun:
+  mingw-windows-generate:
     runs-on: windows-latest
-    if: ${{ github.event.inputs.enable-mingw-windows-diffrun == 'true' }}
+    if: ${{ github.event.inputs.enable-mingw-windows-generate == 'true' }}
     steps:
       - uses: actions/checkout@v3
 

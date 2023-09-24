@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import unittest
+import json
+import colorlog
 from logging import basicConfig, getLogger
 from os import chdir, getenv
 from subprocess import run, check_output
@@ -10,6 +12,33 @@ from tempfile import TemporaryDirectory
 from problem import Problem
 from typing import List
 logger = getLogger(__name__)
+
+@unittest.skipIf(getenv('ENABLE_GENERATE_TEST') == None, "generate test take long time")
+class TestGenerateAll(unittest.TestCase):
+    def test_generate_all(self):
+        tomls = list(filter(lambda p: not p.match('test/**/info.toml'), Path('.').glob('**/info.toml')))
+        tomls = sorted(tomls, key=lambda x: x.parent.name)
+
+        cache_path = Path(getenv('VERSIONS_CACHE_PATH'))
+        versions = json.load(open(cache_path, 'r')) if cache_path.exists() else dict()
+
+        for toml in tomls:
+            problem = Problem(Path.cwd(), toml.parent)
+            name = problem.basedir.name
+            version = problem.problem_version()
+
+            with self.subTest(name=name):
+                if versions.get(name) == version:
+                    logger.info('Skip generated problem: {}'.format(name))
+                else:
+                    logger.info('Generate {}'.format(name))
+                    problem.generate(mode=Problem.Mode.TEST)
+                    problem.generate(mode=Problem.Mode.CLEAN)
+                    versions[name] = version
+
+        with open(cache_path, 'w') as f:
+            json.dump(versions, f)
+        
 
 
 def create_test_dir(problem_name: str) -> TemporaryDirectory:
@@ -236,8 +265,21 @@ class TestListDependingFiles(unittest.TestCase):
         self.assertTrue(find_verifier)
 
 if __name__ == "__main__":
+    handler = colorlog.StreamHandler()
+    formatter = colorlog.ColoredFormatter(
+        "%(log_color)s%(asctime)s [%(levelname)s] %(message)s",
+        datefmt="%H:%M:%S",
+        log_colors={
+            'DEBUG':    'cyan',
+            'INFO':     'white',
+            'WARNING':  'yellow',
+            'ERROR':    'red',
+            'CRITICAL': 'red,bg_white',
+        })
+    handler.setFormatter(formatter)    
     basicConfig(
         level=getenv('LOG_LEVEL', 'DEBUG'),
-        format="%(asctime)s %(levelname)s %(name)s : %(message)s"
+        handlers=[handler]
     )
+
     unittest.main()

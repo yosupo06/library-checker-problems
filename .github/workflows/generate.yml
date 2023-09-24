@@ -15,6 +15,11 @@ on:
         type: boolean
 
 jobs:
+  echo-test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.event.inputs.force-generate }}
+
   gcc-ubuntu-generate:
     runs-on: ubuntu-latest
     steps:

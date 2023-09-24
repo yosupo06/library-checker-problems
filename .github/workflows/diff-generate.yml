@@ -11,4 +11,4 @@ jobs:
   deploy:
     uses: ./.github/workflows/generate.yml
     with:
-      force-generate: false
+      force-generate: true

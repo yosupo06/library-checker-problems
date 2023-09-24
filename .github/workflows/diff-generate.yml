@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - refactor/test
   pull_request:
 
 jobs:

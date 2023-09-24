@@ -26,7 +26,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: versions.json
-          key: ${{ runner.os }}-cache-
+          key: ${{ runner.os }}-versions-cache-
 
       - name: Run generate.py on gcc
         run: |
@@ -34,5 +34,4 @@ jobs:
           ./generate_test.py TestGenerateAll
         env:
           ENABLE_GENERATE_TEST: 1
-          VERSION_CACHE_PATH: version.json
-          
+          VERSIONS_CACHE_PATH: versions.json

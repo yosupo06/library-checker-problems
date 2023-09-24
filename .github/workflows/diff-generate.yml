@@ -9,3 +9,5 @@ on:
 jobs:
   deploy:
     uses: ./.github/workflows/generate.yml
+    with:
+      force-generate: true

@@ -1,33 +1,22 @@
 name: Generate test
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       force-generate:
         description: Ignore cache and force generate
-        required: false
         default: false
         type: boolean
-      enable-gcc-ubuntu-diffrun:
-        description: Enable gcc-ubuntu-diffrun
-        required: false
-        default: true
-        type: boolean
-      enable-clang-mac-diffrun:
-        description: Enable clang-mac-diffrun
-        required: false
-        default: true
-        type: boolean
-      enable-mingw-windows-diffrun:
-        description: Enable mingw-windows-diffrun
-        required: false
-        default: true
+  workflow_call:
+    inputs:
+      force-generate:
+        required: true
+        default: false
         type: boolean
 
 jobs:
-  gcc-ubuntu-diffrun:
+  gcc-ubuntu-generate:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.skip-gcc-ubuntu-diffrun != 'true' }}
     steps:
       - uses: actions/checkout@v3
 
@@ -42,7 +31,7 @@ jobs:
 
       - name: Restore versions.json
         uses: actions/cache/restore@v3
-        if: ${{ github.event.inputs.force-generate != 'true' }}
+        if: ${{ !github.event.inputs.force-generate }}
         with:
           path: versions.json
           key: ${{ runner.os }}-versions-cache-
@@ -61,9 +50,8 @@ jobs:
           path: versions.json
           key: ${{ runner.os }}-versions-cache-${{ hashFiles('versions.json') }}
 
-  clang-mac-diffrun:
+  clang-mac-generate:
     runs-on: macos-latest
-    if: ${{ github.event.inputs.skip-clang-mac-diffrun != 'true' }}
     steps:
       - uses: actions/checkout@v3
 
@@ -78,7 +66,7 @@ jobs:
 
       - name: Restore versions.json
         uses: actions/cache/restore@v3
-        if: ${{ github.event.inputs.force-generate != 'true' }}
+        if: ${{ !github.event.inputs.force-generate }}
         with:
           path: versions.json
           key: ${{ runner.os }}-versions-cache-
@@ -97,9 +85,8 @@ jobs:
           path: versions.json
           key: ${{ runner.os }}-versions-cache-${{ hashFiles('versions.json') }}
 
-  mingw-windows-diffrun:
+  mingw-windows-generate:
     runs-on: windows-latest
-    if: ${{ github.event.inputs.skip-mingw-windows-diffrun != 'true' }}
     steps:
       - uses: actions/checkout@v3
 
@@ -114,7 +101,7 @@ jobs:
 
       - name: Restore versions.json
         uses: actions/cache/restore@v3
-        if: ${{ github.event.inputs.force-generate != 'true' }}
+        if: ${{ !github.event.inputs.force-generate }}
         with:
           path: versions.json
           key: ${{ runner.os }}-versions-cache-

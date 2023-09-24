@@ -35,3 +35,9 @@ jobs:
         env:
           ENABLE_GENERATE_TEST: 1
           VERSIONS_CACHE_PATH: versions.json
+
+      - name: Save versions.json
+        uses: actions/cache/save@v3
+        with:
+          path: versions.json
+          key: ${{ runner.os }}-versions-cache-${{ hashFiles('versions.json') }}

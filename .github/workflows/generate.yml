@@ -45,7 +45,7 @@ on:
 jobs:
   gcc-ubuntu-generate:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.enable-gcc-ubuntu-generate == 'true' }}
+    if: ${{ github.event.inputs.enable-gcc-ubuntu-generate }}
     steps:
       - uses: actions/checkout@v3
 
@@ -60,7 +60,7 @@ jobs:
 
       - name: Restore versions.json
         uses: actions/cache/restore@v3
-        if: ${{ github.event.inputs.force-generate != 'true' }}
+        if: ${{ !github.event.inputs.force-generate }}
         with:
           path: versions.json
           key: ${{ runner.os }}-versions-cache-
@@ -81,7 +81,7 @@ jobs:
 
   clang-mac-generate:
     runs-on: macos-latest
-    if: ${{ github.event.inputs.enable-clang-mac-generate == 'true' }}
+    if: ${{ github.event.inputs.enable-clang-mac-generate }}
     steps:
       - uses: actions/checkout@v3
 
@@ -96,7 +96,7 @@ jobs:
 
       - name: Restore versions.json
         uses: actions/cache/restore@v3
-        if: ${{ github.event.inputs.force-generate != 'true' }}
+        if: ${{ !github.event.inputs.force-generate }}
         with:
           path: versions.json
           key: ${{ runner.os }}-versions-cache-
@@ -117,7 +117,7 @@ jobs:
 
   mingw-windows-generate:
     runs-on: windows-latest
-    if: ${{ github.event.inputs.enable-mingw-windows-generate == 'true' }}
+    if: ${{ github.event.inputs.enable-mingw-windows-generate }}
     steps:
       - uses: actions/checkout@v3
 
@@ -132,7 +132,7 @@ jobs:
 
       - name: Restore versions.json
         uses: actions/cache/restore@v3
-        if: ${{ github.event.inputs.force-generate != 'true' }}
+        if: ${{ !github.event.inputs.force-generate }}
         with:
           path: versions.json
           key: ${{ runner.os }}-versions-cache-

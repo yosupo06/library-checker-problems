@@ -7,6 +7,12 @@ on:
       - refactor/test
   pull_request:
   workflow_dispatch:
+    inputs:
+      force-generate:
+        description: Ignore cache and force generate
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   gcc-ubuntu-diffrun:
@@ -25,6 +31,7 @@ jobs:
 
       - name: Restore versions.json
         uses: actions/cache/restore@v3
+        if: ${{ github.event.inputs.force-generate != 'true' }}
         with:
           path: versions.json
           key: ${{ runner.os }}-versions-cache-

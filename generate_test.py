@@ -2,6 +2,7 @@
 
 import unittest
 import json
+import colorlog
 from logging import basicConfig, getLogger
 from os import chdir, getenv
 from subprocess import run, check_output
@@ -265,8 +266,21 @@ class TestListDependingFiles(unittest.TestCase):
         self.assertTrue(find_verifier)
 
 if __name__ == "__main__":
+    handler = colorlog.StreamHandler()
+    formatter = colorlog.ColoredFormatter(
+        "%(log_color)s%(asctime)s [%(levelname)s] %(message)s",
+        datefmt="%H:%M:%S",
+        log_colors={
+            'DEBUG':    'cyan',
+            'INFO':     'white',
+            'WARNING':  'yellow',
+            'ERROR':    'red',
+            'CRITICAL': 'red,bg_white',
+        })
+    handler.setFormatter(formatter)    
     basicConfig(
         level=getenv('LOG_LEVEL', 'DEBUG'),
-        format="%(asctime)s %(levelname)s %(name)s : %(message)s"
+        handlers=[handler]
     )
+
     unittest.main()

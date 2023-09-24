@@ -5,40 +5,36 @@ on:
     inputs:
       force-generate:
         description: Ignore cache and force generate
-        required: false
         default: false
         type: boolean
       enable-gcc-ubuntu-generate:
         description: Enable gcc-ubuntu-generate
-        required: false
         default: true
         type: boolean
       enable-clang-mac-generate:
         description: Enable clang-mac-generate
-        required: false
         default: true
         type: boolean
       enable-mingw-windows-generate:
         description: Enable mingw-windows-generate
-        required: false
         default: true
         type: boolean
   workflow_call:
     inputs:
       force-generate:
-        required: false
+        required: true
         default: false
         type: boolean
       enable-gcc-ubuntu-generate:
-        required: false
+        required: true
         default: true
         type: boolean
       enable-clang-mac-generate:
-        required: false
+        required: true
         default: true
         type: boolean
       enable-mingw-windows-generate:
-        required: false
+        required: true
         default: true
         type: boolean
 

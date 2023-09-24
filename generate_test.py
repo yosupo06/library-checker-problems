@@ -13,7 +13,7 @@ from problem import Problem
 from typing import List
 logger = getLogger(__name__)
 
-@unittest.skipIf(getenv('ENABLE_GENERATE_TEST') == None, "reason for skipping")
+@unittest.skipIf(getenv('ENABLE_GENERATE_TEST') == None)
 class TestGenerateAll(unittest.TestCase):
     def test_generate_all(self):
         tomls = list(filter(lambda p: not p.match('test/**/info.toml'), Path('.').glob('**/info.toml')))

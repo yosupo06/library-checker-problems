@@ -45,10 +45,11 @@ on:
 jobs:
   gcc-ubuntu-generate:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.enable-gcc-ubuntu-generate == true || github.event.inputs.enable-gcc-ubuntu-generate == 'true' }}
     steps:
       - uses: actions/checkout@v3
 
+      - name: ECHO
+        run: echo ${{ github.event.inputs.enable-gcc-ubuntu-generate }}
       - name: Set up Python 3.x
         uses: actions/setup-python@v4
         with:

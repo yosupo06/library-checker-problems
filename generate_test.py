@@ -17,7 +17,7 @@ class TestGenerateAll(unittest.TestCase):
     def test_generate_all(self):
         tomls = list(filter(lambda p: not p.match('test/**/info.toml'), Path('.').glob('**/info.toml')))
         tomls = sorted(tomls, key=lambda x: x.parent.name)
-        tomls = [Path('sample/aplusb/info.toml'), Path('sample/many_aplusb/info.toml')]
+        tomls = [Path('sample/aplusb/info.toml'), Path('sample/many_aplusb/info.toml'), Path('datastructure/unionfind/info.toml')]
 
         cache_path = Path(getenv('VERSIONS_CACHE_PATH'))
         versions = json.load(open(cache_path, 'r')) if cache_path.exists() else dict()

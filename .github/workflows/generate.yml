@@ -108,7 +108,7 @@ jobs:
           key: ${{ runner.os }}-versions-cache-${{ hashFiles('versions.json') }}
 
   mingw-windows-generate:
-    if: ${{ inputs.enable-enable-mingw-windows-generate }}
+    if: ${{ inputs.enable-mingw-windows-generate }}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3

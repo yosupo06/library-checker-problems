@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  deploy:
+  generate:
     uses: ./.github/workflows/generate.yml
     with:
       force-generate: false

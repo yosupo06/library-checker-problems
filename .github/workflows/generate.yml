@@ -7,20 +7,36 @@ on:
         description: Ignore cache and force generate
         default: false
         type: boolean
+      enable-gcc-ubuntu-generate:
+        description: Enable gcc-ubuntu-generate
+        default: true
+        type: boolean
+      enable-clang-mac-generate:
+        description: Enable clang-mac-generate
+        default: true
+        type: boolean
+      enable-mingw-windows-generate:
+        description: Enable mingw-windows-generate
+        default: true
+        type: boolean
   workflow_call:
     inputs:
       force-generate:
-        required: true
         default: false
+        type: boolean
+      enable-gcc-ubuntu-generate:
+        default: true
+        type: boolean
+      enable-clang-mac-generate:
+        default: true
+        type: boolean
+      enable-mingw-windows-generate:
+        default: true
         type: boolean
 
 jobs:
-  echo-test:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo ${{ github.event.inputs.force-generate }}
-
   gcc-ubuntu-generate:
+    if: ${{ inputs.enable-gcc-ubuntu-generate }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -36,7 +52,7 @@ jobs:
 
       - name: Restore versions.json
         uses: actions/cache/restore@v3
-        if: ${{ !github.event.inputs.force-generate }}
+        if: ${{ !inputs.force-generate }}
         with:
           path: versions.json
           key: ${{ runner.os }}-versions-cache-
@@ -56,6 +72,7 @@ jobs:
           key: ${{ runner.os }}-versions-cache-${{ hashFiles('versions.json') }}
 
   clang-mac-generate:
+    if: ${{ inputs.enable-clang-mac-generate }}
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
@@ -71,7 +88,7 @@ jobs:
 
       - name: Restore versions.json
         uses: actions/cache/restore@v3
-        if: ${{ !github.event.inputs.force-generate }}
+        if: ${{ !inputs.force-generate }}
         with:
           path: versions.json
           key: ${{ runner.os }}-versions-cache-
@@ -91,6 +108,7 @@ jobs:
           key: ${{ runner.os }}-versions-cache-${{ hashFiles('versions.json') }}
 
   mingw-windows-generate:
+    if: ${{ inputs.enable-enable-mingw-windows-generate }}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
@@ -106,7 +124,7 @@ jobs:
 
       - name: Restore versions.json
         uses: actions/cache/restore@v3
-        if: ${{ !github.event.inputs.force-generate }}
+        if: ${{ !inputs.force-generate }}
         with:
           path: versions.json
           key: ${{ runner.os }}-versions-cache-

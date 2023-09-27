@@ -52,6 +52,8 @@ def compile(src: Path, rootdir: Path, opts: [str] = []):
             cxxflags_default += ' -Wl,-stack,{}'.format(hex(STACK_SIZE))
             # avoid using MinGW's "unique" stdio, which doesn't recognize %lld
             cxxflags_default += ' -D__USE_MINGW_ANSI_STDIO'
+            # avoid CI issue, ref https://github.com/yosupo06/library-checker-problems/issues/1031
+            cxxflags_default += ' -static'
         if platform.uname().system == 'Linux' and 'microsoft' in platform.uname().release.lower():
             # a workaround for the lack of ulimit in Windows Subsystem for Linux
             cxxflags_default += ' -fsplit-stack'

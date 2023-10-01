@@ -1,0 +1,11 @@
+name: All generate test
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/generate.yml
+    with:
+      force-generate: true

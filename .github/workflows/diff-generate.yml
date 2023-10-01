@@ -1,0 +1,13 @@
+name: Diff only generate test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  generate:
+    uses: ./.github/workflows/generate.yml
+    with:
+      force-generate: false

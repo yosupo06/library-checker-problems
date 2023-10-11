@@ -201,6 +201,10 @@ int main(){
       Mint add=fact.inv(j)*cnt[k];
       if(j&1)f[k*j]+=add; else f[k*j]-=add;
    } f=f.exp();
-   for(int i=1;i<=t;i++)printf("%d ",f[i].val);
+   for(int i=1;i<=t;i++) {
+      printf("%d",f[i].val);
+      if(i<t)printf(" ");
+   }
+   printf("\n");
    return 0;
 }

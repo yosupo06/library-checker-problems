@@ -2,6 +2,7 @@
 #define FASTIO_H 1
 
 #include <cassert>
+#include <cstdint>
 #include <cstdio>
 #include <cstring>
 #include <iostream>

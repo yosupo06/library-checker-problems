@@ -3,6 +3,7 @@
 
 #include <array>
 #include <cassert>
+#include <cstdint>
 #include <string>
 #include <type_traits>
 using namespace std;

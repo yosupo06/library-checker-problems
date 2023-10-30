@@ -2,6 +2,7 @@
 #include <vector>
 #include <tuple>
 #include <cassert>
+#include <cstdint>
 #include <algorithm>
 
 using namespace std;

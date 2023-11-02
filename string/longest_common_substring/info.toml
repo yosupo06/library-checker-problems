@@ -1,6 +1,6 @@
 title = 'Longest Common Substring'
 timelimit = 5.0
-forum = "https://github.com/yosupo06/library-checker-problems/issues/50"
+forum = "https://github.com/yosupo06/library-checker-problems/issues/889"
 
 [[tests]]
     name = "example.in"

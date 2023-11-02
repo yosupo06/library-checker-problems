@@ -1,0 +1,30 @@
+title = 'Longest Common Substring'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/50"
+
+[[tests]]
+    name = "example.in"
+    number = 4
+[[tests]]
+    name = "small.cpp"
+    number = 8
+[[tests]]
+    name = "random.cpp"
+    number = 4
+[[tests]]
+    name = "max_random.cpp"
+    number = 4
+[[tests]]
+    name = "max_large_ans.cpp"
+    number = 4
+[[tests]]
+    name = "all_same.cpp"
+    number = 4
+
+[[solutions]]
+    name = "naive.cpp"
+    allow_tle = true
+
+
+[params]
+    N_MAX = 500_000

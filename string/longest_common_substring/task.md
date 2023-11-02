@@ -75,6 +75,13 @@ $0$ $0$ $0$ $0$
 
 @{example.example_00}
 
+
+@{lang.en}
+`3 6 4 7` is also accepted. 
+@{lang.ja}
+`3 6 4 7` も正答です．
+@{lang.end}
+
 @{example.example_01}
 
 @{example.example_02}

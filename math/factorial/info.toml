@@ -1,19 +1,19 @@
 title = 'Factorial'
-timelimit = 5.0
+timelimit = 10.0
 forum = "https://github.com/yosupo06/library-checker-problems/issues/128"
 
 [[tests]]
     name = "example.in"
-    number = 3
+    number = 1
 [[tests]]
     name = "random.cpp"
-    number = 8
+    number = 2
 [[tests]]
     name = "near_max.cpp"
-    number = 3
+    number = 2
 [[tests]]
     name = "near_half.cpp"
-    number = 3
+    number = 2
 
 [[solutions]]
     name = "naive.cpp"
@@ -21,4 +21,5 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/128"
 
 
 [params]
+    T_MAX = 5
     MOD = 998244353

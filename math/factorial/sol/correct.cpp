@@ -635,10 +635,12 @@ void solve() {
   scanf("%d", &N);
   vc<mint> f = {1, 1};
   mint b = prefix_product_of_poly(f, N);
-  printf("%d", b.val);
+  printf("%d\n", b.val);
 }
 
 signed main() {
-  solve();
+  int T;
+  scanf("%d", &T);
+  for (int t = 0; t < T; ++t) solve();
   return 0;
 }

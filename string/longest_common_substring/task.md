@@ -17,12 +17,12 @@ Strings $S$ and $T$ is given. Find a longest common substring of $S$ and $T$.
 @{lang.en}
 
 - $1 \leq |S|, |T| \leq @{param.N_MAX}$
-- Each character of $S$ is lowercase English letters.
+- Each character of $S$, $T$ is lowercase English letters.
 
 @{lang.ja}
 
 - $1 \leq |S|, |T| \leq @{param.N_MAX}$
-- $S$ は英小文字からなる。
+- $S$, $T$ は英小文字からなる。
 
 @{lang.end}
 

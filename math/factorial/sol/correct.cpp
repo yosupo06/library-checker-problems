@@ -1,3 +1,4 @@
+#include <cstdio>
 #include <vector>
 #include <cassert>
 #include <array>

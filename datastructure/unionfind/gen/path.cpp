@@ -1,4 +1,5 @@
 #include "random.h"
+#include "../params.h"
 #include <cassert>
 #include <cstdio>
 #include <cstdlib>
@@ -10,8 +11,8 @@ int main(int, char *argv[]) {
   const long long seed = std::atoll(argv[1]);
   Random gen(seed);
 
-  const int N = 200000;
-  const int Q = 200000;
+  const int N = N_MAX;
+  const int Q = Q_MAX;
 
   assert(N == Q);
 

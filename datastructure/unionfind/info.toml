@@ -11,3 +11,7 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/33'
 [[tests]]
     name = "path.cpp"
     number = 4
+
+[params]
+    N_MAX = 200_000
+    Q_MAX = 200_000

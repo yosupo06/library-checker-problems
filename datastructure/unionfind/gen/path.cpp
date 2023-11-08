@@ -1,19 +1,18 @@
 #include "random.h"
+#include "../params.h"
 #include <cassert>
 #include <cstdio>
 #include <cstdlib>
 #include <numeric>
 #include <utility>
 #include <vector>
+#include <algorithm>
 
 int main(int, char *argv[]) {
   const long long seed = std::atoll(argv[1]);
   Random gen(seed);
 
-  const int N = 200000;
-  const int Q = 200000;
-
-  assert(N == Q);
+  const int N_AND_Q = std::min(N_MAX, Q_MAX);
 
   struct query_type {
     int t;
@@ -21,7 +20,7 @@ int main(int, char *argv[]) {
     int v;
   };
 
-  std::vector<query_type> qs(Q);
+  std::vector<query_type> qs(N_AND_Q);
 
   // unused-but-set-variable が誤反応するようなので、抑制する
 #if defined(__GNUC__) && !defined(__llvm__) && !defined(__INTEL_COMPILER)
@@ -30,14 +29,14 @@ int main(int, char *argv[]) {
 #endif
   if (seed == 0 || seed == 1) {
     // parent[v] = u 最悪ケース
-    const int K = 2 * N / 3;
+    const int K = 2 * N_AND_Q / 3;
     for (int i = 0; i != K; i += 1) {
       auto &[t, u, v] = qs[i];
       t = 0;
       u = i + 1;
       v = 0;
     }
-    for (int i = K; i != Q; i += 1) {
+    for (int i = K; i != N_AND_Q; i += 1) {
       auto &[t, u, v] = qs[i];
       t = 1;
       u = 0;
@@ -46,17 +45,17 @@ int main(int, char *argv[]) {
   }
   if (seed == 2 || seed == 3) {
     // parent[v] = u 深さ最大
-    for (int i = 0; i != Q - 1; i += 1) {
+    for (int i = 0; i != N_AND_Q - 1; i += 1) {
       auto &[t, u, v] = qs[i];
       t = 0;
       u = i + 1;
       v = i;
     }
     {
-      auto &[t, u, v] = qs[Q - 1];
+      auto &[t, u, v] = qs[N_AND_Q - 1];
       t = 0;
       u = 0;
-      v = Q - 1;
+      v = N_AND_Q - 1;
     }
   }
   if (seed == 1 || seed == 3) {
@@ -69,10 +68,10 @@ int main(int, char *argv[]) {
 #pragma GCC diagnostic pop
 #endif
 
-  std::vector<int> p(N);
+  std::vector<int> p(N_AND_Q);
   std::iota(p.begin(), p.end(), 0);
   gen.shuffle(p.begin(), p.end());
-  std::printf("%d %d\n", N, Q);
+  std::printf("%d %d\n", N_AND_Q, N_AND_Q);
   for (const auto &[t, u, v] : qs) {
     std::printf("%d %d %d\n", t, p[u], p[v]);
   }

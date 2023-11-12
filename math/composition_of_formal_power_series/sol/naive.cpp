@@ -4,6 +4,8 @@
 #include <assert.h>
 #include <algorithm>
 #include <cstdio>
+#include <cstdint>
+
 #define MOD 998244353LL
 using namespace::std;
 

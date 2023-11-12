@@ -3,41 +3,31 @@ name: Generate test
 on:
   workflow_dispatch:
     inputs:
+      os:
+        type: string
+        required: true
+      cxx:
+        type: string
+        required: true
       force-generate:
         description: Ignore cache and force generate
         default: false
         type: boolean
-      enable-gcc-ubuntu-generate:
-        description: Enable gcc-ubuntu-generate
-        default: true
-        type: boolean
-      enable-clang-mac-generate:
-        description: Enable clang-mac-generate
-        default: true
-        type: boolean
-      enable-mingw-windows-generate:
-        description: Enable mingw-windows-generate
-        default: true
-        type: boolean
   workflow_call:
     inputs:
+      os:
+        type: string
+        required: true
+      cxx:
+        type: string
+        required: true
       force-generate:
         default: false
         type: boolean
-      enable-gcc-ubuntu-generate:
-        default: true
-        type: boolean
-      enable-clang-mac-generate:
-        default: true
-        type: boolean
-      enable-mingw-windows-generate:
-        default: true
-        type: boolean
 
 jobs:
-  gcc-ubuntu-generate:
-    if: ${{ inputs.enable-gcc-ubuntu-generate }}
-    runs-on: ubuntu-latest
+  generate:
+    runs-on: ${{ inputs.os }}
     steps:
       - uses: actions/checkout@v3
 
@@ -55,13 +45,17 @@ jobs:
         if: ${{ !inputs.force-generate }}
         with:
           path: versions.json
-          key: ${{ runner.os }}-versions-cache-
+          key: ${{ runner.os }}-(${{ inputs.cxx }})-versions-cache-
 
       - name: Run generate.py
         run: |
-          ulimit -s unlimited
-          ./generate_test.py TestGenerateAll
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            ulimit -s unlimited
+          fi
+          python3 generate_test.py TestGenerateAll
+        shell: bash
         env:
+          CXX: ${{ inputs.cxx }}
           ENABLE_GENERATE_TEST: 1
           VERSIONS_CACHE_PATH: versions.json
 
@@ -69,75 +63,4 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: versions.json
-          key: ${{ runner.os }}-versions-cache-${{ hashFiles('versions.json') }}
-
-  clang-mac-generate:
-    if: ${{ inputs.enable-clang-mac-generate }}
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up Python 3.x
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install --user -r requirements.txt
-
-      - name: Restore versions.json
-        uses: actions/cache/restore@v3
-        if: ${{ !inputs.force-generate }}
-        with:
-          path: versions.json
-          key: ${{ runner.os }}-versions-cache-
-
-      - name: Run generate.py
-        run: |
-          ./generate_test.py TestGenerateAll
-        env:
-          CXX: clang++
-          ENABLE_GENERATE_TEST: 1
-          VERSIONS_CACHE_PATH: versions.json
-
-      - name: Save versions.json
-        uses: actions/cache/save@v3
-        with:
-          path: versions.json
-          key: ${{ runner.os }}-versions-cache-${{ hashFiles('versions.json') }}
-
-  mingw-windows-generate:
-    if: ${{ inputs.enable-mingw-windows-generate }}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up Python 3.x
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install --user -r requirements.txt
-
-      - name: Restore versions.json
-        uses: actions/cache/restore@v3
-        if: ${{ !inputs.force-generate }}
-        with:
-          path: versions.json
-          key: ${{ runner.os }}-versions-cache-
-
-      - name: Run generate.py
-        run: |
-          python generate_test.py TestGenerateAll
-        env:
-          ENABLE_GENERATE_TEST: 1
-          VERSIONS_CACHE_PATH: versions.json
-
-      - name: Save versions.json
-        uses: actions/cache/save@v3
-        with:
-          path: versions.json
-          key: ${{ runner.os }}-versions-cache-${{ hashFiles('versions.json') }}
+          key: ${{ runner.os }}-(${{ inputs.cxx }})-versions-cache-${{ hashFiles('versions.json') }}

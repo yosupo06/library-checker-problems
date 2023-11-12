@@ -4,7 +4,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/330"
 
 [[tests]]
     name = "example.in"
-    number = 4
+    number = 5
 [[tests]]
     name = "random.cpp"
     number = 4
@@ -14,6 +14,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/330"
 [[tests]]
     name = "zero.cpp"
     number = 2
+[[tests]]
+    name = "suffix_zero.cpp"
+    number = 4
 
 [params]
     MOD = 998244353

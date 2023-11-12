@@ -12,6 +12,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/388"
     name = "small.cpp"
     number = 5
 [[tests]]
+    name = "very_small.cpp"
+    number = 5
+[[tests]]
     name = "random.cpp"
     number = 5
 

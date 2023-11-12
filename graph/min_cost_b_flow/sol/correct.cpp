@@ -7,6 +7,7 @@
 #include <queue>
 #include <tuple>
 #include <vector>
+#include <cstdio>
 
 enum Objective {
     MINIMIZE = 1,

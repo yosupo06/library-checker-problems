@@ -6,6 +6,7 @@
 #include <tuple>
 #include <vector>
 #include <limits>
+#include <cstdio>
 
 enum Objective {
     MINIMIZE = 1,

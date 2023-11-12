@@ -8,6 +8,18 @@ on:
 
 jobs:
   generate:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            cxx: g++-12
+          - os: ubuntu-latest
+            cxx: g++-13
+          - os: macos-latest
+            cxx: clang++
+          - os: windows-latest
+            cxx: g++
     uses: ./.github/workflows/generate.yml
     with:
-      force-generate: false
+      os: ${{ matrix.os }}
+      cxx: ${{ matrix.cxx }}

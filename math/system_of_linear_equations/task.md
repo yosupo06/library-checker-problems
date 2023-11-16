@@ -13,7 +13,7 @@ $N \times M$ 行列 $A$, 長さ $N$ のベクトル $b$ が与えられます。
 ## @{keyword.constraints}
 
 - $1 \leq N, M \leq 500$
-- $0 \leq a_{ij} < 998244353$
+- $0 \leq A_{ij} < 998244353$
 
 ## @{keyword.input}
 

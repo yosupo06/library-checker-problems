@@ -1,0 +1,26 @@
+title = 'System of Linear Equations'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/18"
+
+[[tests]]
+    name = "example.in"
+    number = 4
+[[tests]]
+    name = "random.cpp"
+    number = 6
+[[tests]]
+    name = "lowrank.cpp"
+    number = 6
+[[tests]]
+    name = "hack_of_system_of_linear.cpp"
+   number = 6
+[[tests]]
+    name = "max.cpp"
+    number = 9
+[[tests]]
+    name = "zero.cpp"
+    number = 5
+
+[params]
+    NM_MAX = 250_000
+    MOD = 998244353

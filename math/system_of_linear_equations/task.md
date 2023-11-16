@@ -2,11 +2,11 @@
 
 @{lang.en}
 
-Given $N \times M$ matrix $A$, a size $N$ vector $b$. Please calculate a (size $M$) vector $x$ s.t. $Ax = b$. We consider everything $\mathbb{Z}_{998244353}$.
+Given $N \times M$ matrix $A$, a size $N$ vector $b$. Please calculate a (size $M$) vector $x$ s.t. $Ax = b$. We consider everything $\mathbb{F}_{998244353}$.
 
 @{lang.ja}
 
-$N \times M$ 行列 $A$, 長さ $N$ のベクトル $b$ が与えられます。$Ax = b$ を満たす(長さ $M$ の)ベクトル $x$ を求めてください。ただし全ての要素は $\mathbb{Z}_{998244353}$ で考えることとします。
+$N \times M$ 行列 $A$, 長さ $N$ のベクトル $b$ が与えられます。$Ax = b$ を満たす(長さ $M$ の)ベクトル $x$ を求めてください。ただし全ての要素は $\mathbb{F}_{998244353}$ で考えることとします。
 
 @{lang.end}
 

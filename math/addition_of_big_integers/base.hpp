@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cassert>
+#include <cstdint>
 #include <cmath>
 #include <iostream>
 #include <tuple>

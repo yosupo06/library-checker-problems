@@ -21,6 +21,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/386"
     name = "monomial.cpp"
     number = 4
 [[tests]]
+    name = "monomial_ans_low_deg.cpp"
+    number = 4
+[[tests]]
     name = "lower_deg_zero2.cpp"
     number = 4
 [[tests]]
@@ -32,6 +35,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/386"
 [[tests]]
     name = "M_zero.cpp"
     number = 2
+[[tests]]
+    name = "hack.in"
+    number = 1
 
 [[solutions]]
     name = "wa_overflow.cpp"

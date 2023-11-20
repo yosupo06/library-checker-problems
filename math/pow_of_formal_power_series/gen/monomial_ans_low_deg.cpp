@@ -11,7 +11,6 @@ int main(int, char* argv[]) {
 
   int k = seed % 4;
   int n = gen.uniform<int>(k + 1, N_MAX);
-  // ll q = M_MAX;
   ll q_max = M_MAX;
   if (k != 0) q_max = (n - 1) / k;
   ll q = gen.uniform<ll>(0, q_max);

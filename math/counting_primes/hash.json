@@ -32,5 +32,15 @@
   "small_03.in": "55d2e2440fc4c8958076e1ba6d4655183dbec1aa04aadd897bdc9cccda4558dd",
   "small_03.out": "6771a70676ab80a525ede2a93df8acc8a41a0809cf8290562519929da6f6511d",
   "small_04.in": "d405fe5a8ad4ef5a2467a341bc2d5f5a69f40d534ba5626c8ec61ed8d918d63d",
-  "small_04.out": "0e8ae555cd6bb5a690bca0c53b3caa06d017a96c633f1edfd01273f34a74e2b2"
+  "small_04.out": "0e8ae555cd6bb5a690bca0c53b3caa06d017a96c633f1edfd01273f34a74e2b2",
+  "very_small_00.in": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+  "very_small_00.out": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+  "very_small_01.in": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+  "very_small_01.out": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+  "very_small_02.in": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2",
+  "very_small_02.out": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+  "very_small_03.in": "7de1555df0c2700329e815b93b32c571c3ea54dc967b89e81ab73b9972b72d1d",
+  "very_small_03.out": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+  "very_small_04.in": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06",
+  "very_small_04.out": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2"
 }

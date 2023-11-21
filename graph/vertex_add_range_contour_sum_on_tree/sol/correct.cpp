@@ -16,7 +16,9 @@ struct SegmentTree {
     SegmentTree() : SegmentTree(0) {}
     SegmentTree(int n) : _n(n), _seg(2 * n, e()) {}
     SegmentTree(const std::vector<value_type> &a) : _n(a.size()), _seg(2 * _n) {
-        std::copy(a.begin(), a.end(), _seg.begin() + _n);
+        for (int i = 0; i < _n; i++) {
+            _seg[_n + i] = a[i];
+        }
         for (int i = _n - 1; i > 0; --i) {
             _seg[i] = op(_seg[2 * i + 0], _seg[2 * i + 1]);
         }

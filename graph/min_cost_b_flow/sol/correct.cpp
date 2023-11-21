@@ -1,11 +1,13 @@
 #include <algorithm>
 #include <cassert>
+#include <cstdint>
 #include <iostream>
 #include <numeric>
 #include <limits>
 #include <queue>
 #include <tuple>
 #include <vector>
+#include <cstdio>
 
 enum Objective {
     MINIMIZE = 1,

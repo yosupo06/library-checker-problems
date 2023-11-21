@@ -16,8 +16,8 @@ $N$ 頂点 $0$ 辺の無向グラフに $Q$ 個のクエリが飛んできます
 
 ## @{keyword.constraints}
 
-- $1 \leq N \leq 200,000$
-- $1 \leq Q \leq 200,000$
+- $1 \leq N \leq @{param.N_MAX}$
+- $1 \leq Q \leq @{param.Q_MAX}$
 - $0 \leq u_i, v_i \lt N$
 
 ## @{keyword.input}

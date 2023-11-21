@@ -1,0 +1,36 @@
+title = 'Pow of Matrix'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/567"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+   number = 3
+[[tests]]
+    name = "small.cpp"
+    number = 12
+[[tests]]
+    name = "max_random.cpp"
+    number = 4
+[[tests]]
+    name = "max_random_worst.cpp"
+    number = 4
+[[tests]]
+    name = "lowrank_max_random.cpp"
+    number = 2
+[[tests]]
+    name = "perm_max_random.cpp"
+    number = 2
+[[tests]]
+    name = "signed_overflow.cpp"
+    number = 1
+[[tests]]
+    name = "unsigned_overflow.cpp"
+    number = 1
+
+[params]
+    N_MAX = 200
+    K_MAX = 1_000_000_000_000_000_000
+    MOD = 998244353

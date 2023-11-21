@@ -7,7 +7,6 @@
 #include "random.h"
 
 // |{a_i}| = sigma
-// P(x \in {a_i}) = p
 void generate(Random &gen, const int N, const int Q, const int sigma) {
   std::printf("%d %d\n", N, Q);
 

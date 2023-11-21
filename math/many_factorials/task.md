@@ -15,7 +15,7 @@ Given a non-negative integer $N$. Print $N!$ modulo $@{param.MOD}$.
 
 ## @{keyword.constraints}
 
-- $1\leq T\leq @{param.TMAX}$
+- $1\leq T\leq @{param.T_MAX}$
 - $0 \leq N < @{param.MOD}$
 
 ## @{keyword.input}

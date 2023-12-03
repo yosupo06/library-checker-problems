@@ -2,6 +2,7 @@
 #include <cassert>
 #include <cstdio>
 #include <stdexcept>
+#include <tuple>
 #include <vector>
 
 #include <cassert>

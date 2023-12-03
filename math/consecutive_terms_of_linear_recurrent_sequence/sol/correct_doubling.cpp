@@ -1021,7 +1021,7 @@ std::vector<mint> consecutive_terms_of_rational(const fps& p, const fps& q, cons
     // x^{-k} mod Q
     auto rec = [&](auto rec, uint64_t k) -> fps {
         if (k == 0) {
-            return d > 0 ? fps{ 1 } : fps{};
+            return d > 0 ? fps{ mint(1) } : fps{};
         }
         if (k == 1) {
             //     Q = c + xQ' (c := Q(0))

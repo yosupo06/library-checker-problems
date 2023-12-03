@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <cassert>
 #include <cstdio>
+#include <cstdint>
 #include <stdexcept>
 #include <tuple>
 #include <vector>

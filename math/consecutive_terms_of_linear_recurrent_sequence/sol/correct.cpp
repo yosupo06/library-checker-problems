@@ -1057,7 +1057,7 @@ std::vector<mint> bostan_mori(const fps& p, const fps &q, const uint64_t k, cons
             v[i] = v2[2 * i];
         }
 
-        const uint t = (k - d) & 1;
+        const uint64_t t = (k - d) & 1;
         // k' = ceil((k-d)/2) = (k-d+t)/2
         const uint64_t nxt_k = (k - d + t) / 2; // k > d holds here
 

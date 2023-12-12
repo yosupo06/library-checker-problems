@@ -9,7 +9,7 @@ int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    long long d = 65535 + gen.uniform<int>(0, 2);
+    long long d = 65535 + (seed % 3);
     long long k = gen.uniform<long long>(0, K_MAX);
     long long m = gen.uniform<long long>(1, M_MAX);
 

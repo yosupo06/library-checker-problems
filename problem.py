@@ -395,16 +395,21 @@ class Problem:
                 logging_result(result, start, end,
                                '{} : {}'.format(case, checker_output.decode('utf-8')))
 
+        allow_status = set()
+        allow_status.add('AC')
+        if config.get('wrong', False):
+            allow_status.update(['WA', 'RE', 'TLE'])
+        if config.get('allow_tle', False):
+            allow_status.add('TLE')
+        if config.get('allow_re', False):
+            allow_status.add('RE')
+        
+        if len(results - allow_status) != 0:
+            logger.error('unexpected status was appeared: {} (allowed {})'.format(results, allow_status))
+
         if config.get('wrong', False):
             if results == {'AC'}:
                 logger.error('wrong solution got accept: {}'.format(src))
-                exit(1)
-        else:
-            if 'WA' in results or 'RE' in results:
-                logger.error('correct solution got wa/re: {}'.format(src))
-                exit(1)
-            if not config.get('allow_tle', False) and 'TLE' in results:
-                logger.error('fast solution got tle: {}'.format(src))
                 exit(1)
 
     def calc_hashes(self) -> MutableMapping[str, str]:

@@ -1,0 +1,10 @@
+title = 'Simple AplusB'
+timelimit = 2.0
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[solutions]]
+    name = "naive.cpp"
+    allow_re = true

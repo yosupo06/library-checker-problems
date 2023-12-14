@@ -196,6 +196,13 @@ class TestCallFromOutside(unittest.TestCase):
             chdir(str(cwd))
 
 
+class TestAllowRE(unittest.TestCase):
+    def test_allow_re(self):
+        with create_test_dir('allow_re') as test_dir:
+            proc = run(
+                ['./generate.py', str(Path(test_dir) / 'allow_re/info.toml'), '--test'])
+            self.assertEqual(proc.returncode, 0)
+
 class TestAllowTLE(unittest.TestCase):
     def test_allow_tle(self):
         with create_test_dir('allow_tle') as test_dir:

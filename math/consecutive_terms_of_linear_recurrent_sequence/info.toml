@@ -32,7 +32,7 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/1007'
 
 [[solutions]]
     name = "naive.cpp"
-    wrong = true
+    allow_re = true
 
 [[solutions]]
     name = "correct_doubling.cpp"

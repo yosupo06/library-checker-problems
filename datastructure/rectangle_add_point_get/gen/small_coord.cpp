@@ -8,15 +8,15 @@ using namespace std;
 const int MAX = 50;
 
 tuple<int, int, int, int, int> random_rect(Random& gen) {
-  auto [l, r] = gen.uniform_pair<int>(0, COORD_MAX);
-  auto [d, u] = gen.uniform_pair<int>(0, COORD_MAX);
+  auto [l, r] = gen.uniform_pair<int>(0, MAX);
+  auto [d, u] = gen.uniform_pair<int>(0, MAX);
   int w = gen.uniform<int>(0, WEIGHT_MAX);
   return {l, d, r, u, w};
 }
 
 pair<int, int> random_pt(Random& gen) {
-  int x = gen.uniform<int>(0, COORD_MAX);
-  int y = gen.uniform<int>(0, COORD_MAX);
+  int x = gen.uniform<int>(0, MAX);
+  int y = gen.uniform<int>(0, MAX);
   return {x, y};
 }
 

@@ -1,4 +1,9 @@
-#include <bits/stdc++.h>
+#include <cstdio>
+#include <cassert>
+#include <numeric>
+#include <algorithm>
+#include <tuple>
+#include <vector>
 
 using namespace std;
 
@@ -239,7 +244,7 @@ int main() {
   for (auto &[x1, x2, y1, y2, w]: QUERY) {
     if (x1 == -1) {
       int x = x2, y = y1;
-      ll ans = bit.sum(0, x + 1, 0, y + 1);
+      ll ans = bit.prefix_sum(x + 1, y + 1);
       printf("%lld\n", ans);
     } else {
       bit.add(x1, y1, +w);

@@ -16,10 +16,21 @@ $X^2 \equiv Y (\bmod P)$ なる $X$ を1つ求めてください。
 
 ## @{keyword.constraints}
 
+@{lang.en}
+
 - $1 \leq T \leq 100,000$
 - $2 \leq P \leq 10^9$
 - $0 \leq Y < P$
-- @{lang.en} $P$ is prime @{lang.ja} $P$ は素数 @{lang.end}
+- $P$ is prime.
+
+@{lang.ja}
+
+- $1 \leq T \leq 100,000$
+- $2 \leq P \leq 10^9$
+- $0 \leq Y < P$
+- $P$ は素数
+
+@{lang.end}
 
 ## @{keyword.input}
 

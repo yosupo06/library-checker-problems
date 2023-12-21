@@ -20,11 +20,23 @@ $X^K \equiv Y \pmod{P}$ なる $X$ を1つ求めてください。
 
 ## @{keyword.constraints}
 
+@{lang.en}
+
 - $1 \leq T \leq @{param.T_MAX}$
 - $0 \leq K \leq @{param.K_MAX}$
 - $2 \leq P \leq @{param.P_MAX}$
 - $0 \leq Y  < P$
-- @{lang.en} $P$ is prime @{lang.ja} $P$ は素数 @{lang.end}
+- $P$ is prime.
+
+@{lang.ja}
+
+- $1 \leq T \leq @{param.T_MAX}$
+- $0 \leq K \leq @{param.K_MAX}$
+- $2 \leq P \leq @{param.P_MAX}$
+- $0 \leq Y  < P$
+- $P$ は素数
+
+@{lang.end}
 
 ## @{keyword.input}
 

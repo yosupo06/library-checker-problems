@@ -19,9 +19,19 @@ Given a size $N$ interger sequence $a_0, a_1, \dots, a _ {N - 1}$. Process the f
 
 ## @{keyword.constraints}
 
+@{lang.en}
+
 - $1 \leq N, Q \leq @{param.N_AND_Q_MAX}$
-- @{lang.en} $\vert a_i \vert \leq @{param.A_ABS_MAX}$ is satisfied always while processing queries. @{lang.ja} クエリ処理の過程で常に $\vert a_i \vert \leq @{param.A_ABS_MAX}$ が成り立つ @{lang.end}
+- $\vert a_i \vert \leq @{param.A_ABS_MAX}$ is satisfied always while processing queries. 
 - $0 \leq l < r \leq N$
+
+@{lang.ja}
+
+- $1 \leq N, Q \leq @{param.N_AND_Q_MAX}$
+- クエリ処理の過程で常に $\vert a_i \vert \leq @{param.A_ABS_MAX}$ が成り立つ
+- $0 \leq l < r \leq N$
+
+@{lang.end}
 
 ## @{keyword.input}
 

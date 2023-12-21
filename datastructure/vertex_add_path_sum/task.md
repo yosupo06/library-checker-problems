@@ -21,7 +21,6 @@ $Q$ 個のクエリが飛んでくるので処理。
 - $1 \leq N, Q \leq @{param.N_AND_Q_MAX}$
 - $0 \leq a_i, x \leq @{param.A_AND_X_MAX}$
 - $0 \leq p, u_i, v_i < N$
-- @{lang.en} $(u_i, v_i)$ @{lang.ja} $(u_i, v_i)$ は木 @{lang.end}
 
 ## @{keyword.input}
 

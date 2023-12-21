@@ -12,9 +12,19 @@ Given integers $A$ and $B$, print $AB$.
 
 ## @{keyword.constraints}
 
+@{lang.en}
+
 - $1 \leq T \leq @{param.T_MAX}$
 - $0 \leq |A|, |B| < 10^{@{param.LOG_10_A_AND_B_MAX}}$
-- @{lang.en}The sum of (the number of characters in $A$) $+$ (the number of characters in $B$) over all test cases does not exceed $@{param.SUM_OF_CHARACTER_LENGTH}$.@{lang.ja}全てのテストケースに対する ($A$ の文字数) $+$ ($B$ の文字数) の総和は $@{param.SUM_OF_CHARACTER_LENGTH}$ を超えない。@{lang.end}
+- The sum of (the number of characters in $A$) $+$ (the number of characters in $B$) over all test cases does not exceed $@{param.SUM_OF_CHARACTER_LENGTH}$.
+
+@{lang.ja}
+
+- $1 \leq T \leq @{param.T_MAX}$
+- $0 \leq |A|, |B| < 10^{@{param.LOG_10_A_AND_B_MAX}}$
+- 全てのテストケースに対する ($A$ の文字数) $+$ ($B$ の文字数) の総和は $@{param.SUM_OF_CHARACTER_LENGTH}$ を超えない。
+
+@{lang.end}
 
 ## @{keyword.input}
 

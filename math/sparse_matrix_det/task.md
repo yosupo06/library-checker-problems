@@ -12,11 +12,23 @@ $M$ の行列式を $\bmod @{param.MOD}$ で求めてください。
 
 ## @{keyword.constraints}
 
+@{lang.en}
+
 - $1 \leq N \leq @{param.N_MAX}$
 - $1 \leq K \leq @{param.M_MAX}$
 - $0 \leq a_i, b_i \leq N - 1$
-- $(a_i, b_i)$ @{lang.en} is distinct @{lang.ja} は全て異なる @{lang.end}
+- $(a_i, b_i)$ is distinct.
 - $1 \leq c_i < @{param.MOD}$
+
+@{lang.ja}
+
+- $1 \leq N \leq @{param.N_MAX}$
+- $1 \leq K \leq @{param.M_MAX}$
+- $0 \leq a_i, b_i \leq N - 1$
+- $(a_i, b_i)$ は全て異なる
+- $1 \leq c_i < @{param.MOD}$
+
+@{lang.end}
 
 ## @{keyword.input}
 

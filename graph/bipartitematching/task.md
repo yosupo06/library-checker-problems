@@ -14,11 +14,23 @@ Calculate the maximum matching.
 
 ## @{keyword.constraints}
 
+@{lang.en}
+
 - $1 \leq L, R \leq 100,000$
 - $1 \leq M \leq 200,000$
 - $0 \leq a_i < L$
 - $0 \leq b_i < R$
-- @{lang.en} There is no multiple edges @{lang.ja} 多重辺は存在しない @{lang.end}
+- There is no multiple edges.
+
+@{lang.ja}
+
+- $1 \leq L, R \leq 100,000$
+- $1 \leq M \leq 200,000$
+- $0 \leq a_i < L$
+- $0 \leq b_i < R$
+- 多重辺は存在しない
+
+@{lang.end}
 
 ## @{keyword.input}
 

@@ -3,7 +3,7 @@
 @{lang.en}
 You are given an integer sequence $a_0, a_1, \ldots, a_{N-1}$ with the length $N$. Process the following $Q$ queries in order:
 
-- $l$ $r$ : Print the number of distinct integers occurs in $a_{l}, a_{l+1}, \ldots, a_{r-1}$.
+- $l$ $r$ : Print the number of distinct integers that occur in $a_{l}, a_{l+1}, \ldots, a_{r-1}$.
 @{lang.ja}
 長さ $N$ の整数列 $a_0, a_1, \ldots, a_{N-1}$ が与えられます。以下のクエリを順に $Q$ 個処理してください:
 

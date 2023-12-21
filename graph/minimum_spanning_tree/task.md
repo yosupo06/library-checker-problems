@@ -14,11 +14,23 @@ $N$ 頂点 $M$ 辺の無向グラフが与えられる。$i$ 番目の辺は $(a
 
 ## @{keyword.constraints}
 
+@{lang.en} 
+
 - $1 \leq N \leq @{param.N_MAX}$
 - $N - 1 \leq M \leq @{param.N_MAX}$
 - $0 \leq a_i, b_i < N$
 - $0 \leq c_i \leq @{param.C_MAX}$
-- @{lang.en} The given graph is connected. @{lang.ja} 与えられるグラフは連結 @{lang.end}
+- The given graph is connected. 
+
+@{lang.ja}
+
+- $1 \leq N \leq @{param.N_MAX}$
+- $N - 1 \leq M \leq @{param.N_MAX}$
+- $0 \leq a_i, b_i < N$
+- $0 \leq c_i \leq @{param.C_MAX}$
+- 与えられるグラフは連結
+
+@{lang.end}
 
 ## @{keyword.input}
 

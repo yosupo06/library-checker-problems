@@ -50,7 +50,7 @@ ll read_ans(int n, int m, vector<E> edges, InStream &stream)
     UnionFind uf(n);
     for (int i = 0; i < n - 1; i++)
     {
-        int ei = stream.readInt(0, m);
+        int ei = stream.readInt(0, m - 1);
         auto e = edges[ei];
         if (uf.same(e.a, e.b))
         {

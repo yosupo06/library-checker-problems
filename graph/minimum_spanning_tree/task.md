@@ -2,7 +2,7 @@
 
 @{lang.en}
 
-Given a weighted undirected graph with $N$ vertices and $M$ edges. $i$-th edge is $(a_i, b_i)$ and has a weight of $c_i$. This graph may not be simple.
+Given a weighted undirected graph with $N$ vertices and $M$ edges. The $i$-th edge is $(a_i, b_i)$ and has a weight of $c_i$. This graph may not be simple.
 Find the minimum spanning tree.
 
 @{lang.ja}

@@ -18,6 +18,8 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/908"
 [[solutions]]
     name = "naive.cpp"
     allow_tle = true
+[[solutions]]
+    name = "fast.cpp"
 
 
 [params]

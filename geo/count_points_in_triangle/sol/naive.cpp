@@ -1,5 +1,4 @@
-
-#include <cstdio>
+#include "fastio.hpp"
 #include <vector>
 #include <algorithm>
 using i64 = long long;
@@ -7,22 +6,24 @@ using i64 = long long;
 
 int main(){
     using namespace std;
-    int N; scanf("%d", &N);
+    using nachia::cin;
+    using nachia::cout;
+    int N; cin >> N;
     vector<i64> Ax(N), Ay(N);
-    rep(i,N) scanf("%lld%lld", &Ax[i], &Ay[i]);
-    int M; scanf("%d", &M);
+    rep(i,N) cin >> Ax[i] >> Ay[i];
+    int M; cin >> M;
     vector<i64> Bx(M), By(M);
-    rep(i,M) scanf("%lld%lld", &Bx[i], &By[i]);
+    rep(i,M) cin >> Bx[i] >> By[i];
 
-    int Q; scanf("%d", &Q);
+    int Q; cin >> Q;
     rep(qi, Q){
-        int a,b,c; scanf("%d%d%d", &a, &b, &c);
+        int a,b,c; cin >> a >> b >> c;
         i64 xab = Ax[b] - Ax[a];
         i64 yab = Ay[b] - Ay[a];
         i64 xac = Ax[c] - Ax[a];
         i64 yac = Ay[c] - Ay[a];
         if(xab * yac - yab * xac == 0){
-            printf("0\n");
+            cout << "0\n";
             continue;
         }
         if(xab * yac - yab * xac < 0){
@@ -52,7 +53,7 @@ int main(){
             }
             if(ok) ans++;
         }
-        printf("%d\n", ans);
+        cout << ans << '\n';
     }
     return 0;
 }

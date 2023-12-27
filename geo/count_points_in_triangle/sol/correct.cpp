@@ -1,5 +1,4 @@
-
-#include <cstdio>
+#include "fastio.hpp"
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -25,12 +24,14 @@ using Vec = VecI2<i64>;
 #define rep(i,n) for(int i=0; i<(int)(n); i++)
 
 int main(){
-    int N; scanf("%d", &N);
+    using nachia::cin;
+    using nachia::cout;
+    int N; cin >> N;
     vector<Vec> A(N);
-    rep(i,N) scanf("%lld%lld", &A[i].x, &A[i].y);
-    int M; scanf("%d", &M);
+    rep(i,N) cin >> A[i].x >> A[i].y;
+    int M; cin >> M;
     vector<Vec> B(M);
-    rep(i,M) scanf("%lld%lld", &B[i].x, &B[i].y);
+    rep(i,M) cin >> B[i].x >> B[i].y;
 
     auto pointL = vector<int>(N); // bx < Ax
     auto pointM = vector<int>(N); // bx = Ax
@@ -49,9 +50,9 @@ int main(){
         }
     }
 
-    int Q; scanf("%d", &Q);
+    int Q; cin >> Q;
     rep(qi, Q){
-        int a,b,c; scanf("%d%d%d", &a, &b, &c);
+        int a,b,c; cin >> a >> b >> c;
         if(Vec::compareYX(A[b], A[a])) swap(a, b);
         if(Vec::compareYX(A[c], A[b])) swap(b, c);
         if(Vec::compareYX(A[b], A[a])) swap(a, b);
@@ -92,7 +93,7 @@ int main(){
                 ans -= edgeL[a][c] + edgeM[a][c];
             }
         }
-        printf("%d\n", ans);
+        cout << ans << '\n';
     }
     return 0;
 }

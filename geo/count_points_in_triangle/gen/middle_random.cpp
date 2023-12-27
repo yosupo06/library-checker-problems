@@ -1,4 +1,11 @@
-#include <iostream>
+
+/*
+
+An easier solution ( O( N + M Q ) time ) can pass this testcase.
+
+*/
+
+#include <cstdio>
 #include <vector>
 
 #include "../params.h"

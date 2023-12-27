@@ -1,3 +1,11 @@
+/*
+
+O( N M log( N M ) + Q ) time solution
+
+not so fast at N,M = 1000
+
+*/
+
 #include "fastio.hpp"
 #include <vector>
 #include <algorithm>

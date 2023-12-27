@@ -19,7 +19,7 @@ Given 2D-points $A _ k=(x _ k, y _ k)$ $(k=0,1,\ldots ,N-1)$ and 2D-points $B _ 
 - $|x _ i|, |y _ i| \leq @{param.X_AND_Y_ABS_MAX}$
 - $|p _ i|, |q _ i| \leq @{param.X_AND_Y_ABS_MAX}$
 - $1 \leq Q \leq @{param.Q_MAX}$
-- $0 \leq a,b,c \leq N-1$
+- $0 \leq a,b,c \lt N$
 - They are all integers.
 @{lang.ja}
 - $1 \leq N \leq @{param.N_MAX}$
@@ -27,7 +27,7 @@ Given 2D-points $A _ k=(x _ k, y _ k)$ $(k=0,1,\ldots ,N-1)$ and 2D-points $B _ 
 - $|x _ i|, |y _ i| \leq @{param.X_AND_Y_ABS_MAX}$
 - $|p _ i|, |q _ i| \leq @{param.X_AND_Y_ABS_MAX}$
 - $1 \leq Q \leq @{param.Q_MAX}$
-- $0 \leq a,b,c \leq N-1$
+- $0 \leq a,b,c \lt N$
 - これらはすべて整数
 @{lang.end}
 

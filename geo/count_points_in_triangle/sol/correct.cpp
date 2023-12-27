@@ -1,3 +1,11 @@
+/*
+
+O( N^2 M + Q ) time solution
+
+too slow at N,M = 1000
+
+*/
+
 #include "fastio.hpp"
 #include <vector>
 #include <algorithm>

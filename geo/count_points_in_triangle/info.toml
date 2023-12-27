@@ -12,7 +12,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/908"
     name = "max_random.cpp"
     number = 2
 [[tests]]
-    name = "dence.cpp"
+    name = "dense.cpp"
     number = 2
 
 [[solutions]]

@@ -1,3 +1,11 @@
+/*
+
+O( N + M Q ) time solution
+
+can be accepted at N,M=500 and Q=10**6
+
+*/
+
 #include "fastio.hpp"
 #include <vector>
 #include <algorithm>

@@ -3,24 +3,24 @@
 @{lang.en}
 This problem has $T$ cases. 
 
-You are given an **undirected** graph $G$, consisting of $N$ vertices and $M$ edges. The $i$-th edge connects vertex $u_i$ and $v_i$. This graph may not be simple. 
+You are given a **directed** graph $G$, consisting of $N$ vertices and $M$ edges. The $i$-th edge is directed from $u_i$ to $v_i$. 
 
 An **eulerian trail** of $G$ is a pair of sequence of vertices $(v_0,\ldots,v_M)$ and sequence of edges $(e_0,\ldots,e_{M-1})$ satisfying following conditions. 
 
 - $(e_0,\ldots,e_{M-1})$ is a permutation of $(0, \ldots, M-1)$. 
-- For $0\leq i < M-1$, the edge $e_i$ connects $v_i$ and $v_{i+1}$. 
+- For $0\leq i < M-1$, the edge $e_i$ is directed from $v_i$ to $v_{i+1}$. 
 
 Determine if an eulerian trail of $G$ exists, and output if it exists. 
 
 @{lang.ja}
 この問題は $T$ ケースあります．
 
-$N$ 頂点 $M$ 辺の**無向**グラフ $G$ が与えられます．$i$ 番目の辺は頂点 $u_i$ と頂点 $v_i$ を結んでいます．このグラフは単純とは限りません．
+$N$ 頂点 $M$ 辺の**有向**グラフ $G$ が与えられます．$i$ 番目の辺は頂点 $u_i$ から頂点 $v_i$ に向けて張られています．
 
 $G$ の**オイラー路**とは，頂点の列 $(v_0,\ldots,v_{M})$ と辺の列 $(e_0,\ldots,e_{M-1})$ の組であって以下の条件を満たすもののことをいいます．
 
 - $(e_0,\ldots,e_{M-1})$ は $(0, \ldots, M-1)$ の順列．
-- $0\leq i < M-1$ に対して辺 $e_i$ は $v_i$ と $v_{i+1}$ を結ぶ．
+- $0\leq i < M-1$ に対して辺 $e_i$ は $v_i$ から $v_{i+1}$ に向けて張られている．
 
 $G$ のオイラー路が存在するか否かを判定し，含む場合にはそのひとつを求めてください．
 @{lang.end}

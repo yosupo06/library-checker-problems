@@ -27,7 +27,7 @@ $G$ のオイラー路が存在するか否かを判定し，含む場合には�
 
 
 ## @{keyword.constraints}
-@{lang.ja}
+@{lang.en}
 
 - $@{param.T_MIN} \leq T \leq @{param.T_MAX}$
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
@@ -36,7 +36,7 @@ $G$ のオイラー路が存在するか否かを判定し，含む場合には�
 - The sum of $N$ over all test cases does not exceed $@{param.N_MAX}$. 
 - The sum of $M$ over all test cases does not exceed $@{param.N_MAX}$. 
 
-@{lang.en}
+@{lang.ja}
 
 - $@{param.T_MIN} \leq T \leq @{param.T_MAX}$
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$

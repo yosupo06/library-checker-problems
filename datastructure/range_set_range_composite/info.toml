@@ -21,6 +21,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/829"
 [[solutions]]
     name = "naive.cpp"
     wrong = true
+[[solutions]]
+    name = "lazyseg.cpp"
+    allow_tle = true
 
 [params]
     N_AND_Q_MAX = 500_000

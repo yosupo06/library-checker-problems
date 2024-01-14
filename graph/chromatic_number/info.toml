@@ -11,6 +11,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/628"
 [[tests]]
     name = "big.cpp"
     number = 10
+[[tests]]
+    name = "clique_cycle.cpp"
+    number = 4
 
 [params]
     MIN_N = 1

@@ -12,7 +12,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/628"
     name = "big.cpp"
     number = 10
 [[tests]]
-    name = "clique-cycle.cpp"
+    name = "clique_cycle.cpp"
     number = 4
 
 [params]

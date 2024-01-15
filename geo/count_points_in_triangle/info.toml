@@ -1,0 +1,29 @@
+title = 'Count Points in Triangles'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/908"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "middle_random.cpp"
+    number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 2
+[[tests]]
+    name = "dense.cpp"
+    number = 2
+
+[[solutions]]
+    name = "naive.cpp"
+    allow_tle = true
+[[solutions]]
+    name = "fast.cpp"
+
+
+[params]
+    N_MAX = 500
+    M_MAX = 500
+    Q_MAX = 1_000_000
+    X_AND_Y_ABS_MAX = 1_000_000_000

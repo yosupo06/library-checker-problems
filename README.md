@@ -11,7 +11,7 @@ Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp). You can get t
 
 - Linux / OS X / Windows(MinGW-w64)
 - python3.6+
-- g++ / clang++ (Needs --std=c++14 and __int128_t)
+- g++ / clang++ (Needs --std=c++17 and __int128_t)
 
 ## How to Use
 

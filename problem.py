@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+import sysconfig
 import argparse
 import os
 import platform
@@ -44,7 +45,11 @@ def param_to_str(key: str, value: object):
 
 def compile(src: Path, rootdir: Path, opts: [str] = []):
     if src.suffix == '.cpp':
-        cxx = getenv('CXX', 'g++')
+        # use clang for msys2 clang environment
+        if os.name == 'nt' and sysconfig.get_platform().startswith('mingw') and sysconfig.get_platform().endswith('clang'):
+            cxx = getenv('CXX', 'clang++')
+        else:
+            cxx = getenv('CXX', 'g++')
         cxxflags_default = '-O2 -std=c++17 -Wall -Wextra -Werror -Wno-unused-result'
         if platform.system() == 'Darwin':
             cxxflags_default += ' -Wl,-stack_size,{}'.format(hex(STACK_SIZE))
@@ -81,7 +86,8 @@ def execcmd(src: Path, arg: List[str] = []) -> List[str]:
         return cmd
     elif src.suffix == '.in':
         inpath = src.with_name(casename(src, int(arg[0])) + '.in')
-        if platform.system() == 'Windows':
+        # see https://www.msys2.org/docs/python/ for using msys2
+        if platform.system() == 'Windows' and not (os.name == 'nt' and sysconfig.get_platform().startswith("mingw")):
             # Windows' built-in command
             cmd = ['cmd', '/C', 'type', str(inpath)]
         else:

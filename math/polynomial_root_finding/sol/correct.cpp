@@ -609,7 +609,7 @@ using half_gcd::poly_extgcd;
 using half_gcd::poly_gcd;
 
 u64 RNG_64() {
-  static uint64_t x_ = 10150724397891781847ULL;
+  static u64 x_ = 10150724397891781847ULL;
   x_ ^= x_ << 7;
   return x_ ^= x_ >> 9;
 }

@@ -3,6 +3,7 @@
 #include <cassert>
 #include <tuple>
 #include <algorithm>
+#include <array>
 
 using namespace std;
 

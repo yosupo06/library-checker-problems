@@ -16,7 +16,7 @@ You are given an integer sequence $a_0, a_1, \ldots, a_{N-1}$ with the length $N
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
 - $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
 - $@{param.A_MIN} \leq a_i \leq @{param.A_MAX}$
-- $0 \leq l \lt \leq N$
+- $0 \leq l \lt r \leq N$
 
 ## @{keyword.input}
 

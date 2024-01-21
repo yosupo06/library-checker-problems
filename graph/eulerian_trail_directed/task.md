@@ -59,7 +59,7 @@ $N$ $M$
 $u_0$ $v_0$
 $\vdots$
 $u_{M-1}$ $v_{M-1}$
-$vdots$
+$\vdots$
 ~~~
 
 ## @{keyword.output}

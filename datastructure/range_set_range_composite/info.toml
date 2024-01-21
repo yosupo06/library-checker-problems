@@ -17,6 +17,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/829"
 [[tests]]
     name = "max_random.cpp"
     number = 3
+[[tests]]
+    name = "fragment.cpp"
+    number = 2
+[[tests]]
+    name = "slide_window.cpp"
+    number = 2
 
 [[solutions]]
     name = "naive.cpp"

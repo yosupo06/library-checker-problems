@@ -39,7 +39,7 @@ $a_0$ $\cdots$ $a_{n-1}$
 ```
 
 @{lang.en}
-$a_i$ should be printed as an non-negative integer less than $@{param.MOD}$. 
+$a_i$ should be printed as a non-negative integer less than $@{param.MOD}$. 
 The order in which $a_i$ is output can be arbitrary.
 
 @{lang.ja}

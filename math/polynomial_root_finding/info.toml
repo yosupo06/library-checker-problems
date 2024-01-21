@@ -1,0 +1,38 @@
+title = 'Polynomial Root Finding (Mod 998244353)'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/924"
+
+[[tests]]
+    name = "example.in"
+    number = 4
+
+
+[[tests]]
+    name = "deg0.in"
+    number = 1
+
+[[tests]]
+    name = "small_random.cpp"
+    number = 10
+
+[[tests]]
+    name = "max_random.cpp"
+    number = 10
+
+[[tests]]
+    name = "all_distinct.cpp"
+    number = 10
+    
+[[tests]]
+    name = "all_same.cpp"
+    number = 1
+
+    
+[[solutions]]
+    name = "print_sorted.cpp"
+    number = 1
+    wrong = false
+
+[params]
+    N_MAX = 4000
+    MOD = 998244353

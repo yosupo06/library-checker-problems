@@ -20,7 +20,7 @@ $p_{Ai+B} \le N$ を満たす各非負整数 $i$ に対して $p_{Ai+B}$ を出�
 
 - $@{param.N_MIN} \le N \le @{param.N_MAX}$
 - $0 \le B < A \le N$
-- $@{param.X_MIN} \le X \le @{param.X_MAX}$ where $X = \\#\\{ i \in \mathbb{Z}\_{\ge 0} \mid p_{Ai+B} \le N \\}$
+- $@{param.X_MIN} \le X \le @{param.X_MAX}$ where $X = \\#\lbrace i \in \mathbb{Z}\_{\ge 0} \mid p_{Ai+B} \le N \rbrace$
 
 ## @{keyword.input}
 

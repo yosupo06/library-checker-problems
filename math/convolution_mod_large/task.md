@@ -17,7 +17,7 @@ $$c_k = \sum_{i+j=k} a_ib_j \bmod @{param.MOD}$$
 
 ## @{keyword.constraints}
 
-- $1 \leq N, M \leq @{param.N_AND_M_MAX} = 2^{24}$
+- $1 \leq N, M \leq @{param.N_AND_M_MAX}$
 - $0 \leq a_i, b_i < @{param.MOD}$
 
 ## @{keyword.input}

@@ -85,5 +85,3 @@ $e_0$ $\ldots$ $e_{M-1}$
 @{example.example_00}
 
 @{example.example_01}
-
-@{example.example_02}

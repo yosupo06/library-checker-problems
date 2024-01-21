@@ -2,7 +2,7 @@
 @{lang.en}
 You are given $N$ weighted rectangles on two-dimensional plane.
 The position of $i$-th rectangle is 
-$$[l_i,r_i) \times [d_i,u_i) = \{(x,y)\in \mathbb{R}^2\mid l_i\leq x<r_i, d_i\leq y<u_i\}$$
+$$[l_i,r_i) \times [d_i,u_i) = \lbrace(x,y)\in \mathbb{R}^2\mid l_i\leq x<r_i, d_i\leq y<u_i\rbrace$$
 and has a weight of $w_i$. Process $Q$ queries of the following types.
 
  - `0 $l$ $d$ $r$ $u$ $w$` : Add a new rectangle with weight $w$ at $[l,r) \times [d,u)$. 
@@ -10,7 +10,7 @@ and has a weight of $w_i$. Process $Q$ queries of the following types.
 
 @{lang.ja}
 $2$ 次元平面上に重み付きの長方形が $N$ 個あります．$i$ 個目の長方形の位置は
-$$[l_i,r_i) \times [d_i,u_i) = \{(x,y)\in \mathbb{R}^2\mid l_i\leq x<r_i, d_i\leq y<u_i\}$$
+$$[l_i,r_i) \times [d_i,u_i) = \lbrace(x,y)\in \mathbb{R}^2\mid l_i\leq x<r_i, d_i\leq y<u_i\rbrace$$
 であり，重みは $w_i$ です．以下の $2$ 種類のクエリ $Q$ 個を処理してください．
 
  - `0 $l$ $d$ $r$ $u$ $w$` : 新たに重み $w$ の長方形を $[l,r) \times [d,u)$ に追加する．
@@ -60,3 +60,5 @@ $\mathrm{Query}_{Q - 1}$
 ~~~
 
 @{example.example_00}
+
+@{example.example_01}

@@ -11,8 +11,8 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -26,37 +26,21 @@
 
 using namespace std;
 
-int main(int argc, char * argv[])
-{
-    setName("compare sequences of tokens");
-    registerTestlibCmd(argc, argv);
+int main(int argc, char* argv[]) {
+  setName("polynomial_root_finding");
+  registerTestlibCmd(argc, argv);
 
-    int n = 0;
-    string j, p;
+  int NA = ans.readInt();
+  vector<int> A(NA);
+  for (int i = 0; i < NA; ++i) A[i] = ans.readInt();
 
-    while (!ans.seekEof() && !ouf.seekEof()) 
-    {
-        n++;
+  int NB = ouf.readInt();
+  vector<int> B(NB);
+  for (int i = 0; i < NB; ++i) B[i] = ouf.readInt();
 
-        ans.readWordTo(j);
-        ouf.readWordTo(p);
-        
-        if (j != p)
-            quitf(_wa, "%d%s words differ - expected: '%s', found: '%s'", n, englishEnding(n).c_str(), compress(j).c_str(), compress(p).c_str());
-    }
+  sort(A.begin(), A.end());
+  sort(B.begin(), B.end());
 
-    if (ans.seekEof() && ouf.seekEof())
-    {
-        if (n == 1)
-            quitf(_ok, "\"%s\"", compress(j).c_str());
-        else
-            quitf(_ok, "%d tokens", n);
-    }
-    else
-    {
-        if (ans.seekEof())
-            quitf(_wa, "Participant output contains extra tokens");
-        else
-            quitf(_wa, "Unexpected EOF in the participants output");
-    }
+  if (A != B) { quitf(_wa, "the output is different as a multiset"); }
+  quitf(_ok, "ok");
 }

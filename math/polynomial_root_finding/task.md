@@ -26,11 +26,10 @@ $f_0$ $\cdots$ $f_N$
 ## @{keyword.output}
 
 @{lang.en}
-Let all $a$ satisfying $f(a)=0$ are $a_0, \ldots, a_{n-1}$ ($0\leq a_0 < \cdots < a_{n-1} < @{param.MOD}$). 
-Print them in the following format. 
+Print all $a$ satisfying $f(a)=0$ in the following format. 
 
 @{lang.ja}
-$f(a)=0$ を満たす $a$ 全体を $a_0, \ldots, a_{n-1}$ ($0\leq a_0 < \cdots < a_{n-1} < @{param.MOD}$) とするとき，これらを次の形式で出力してください．
+$f(a)=0$ を満たす $a$ 全体を次の形式で出力してください．
 
 @{lang.end}
 
@@ -38,6 +37,17 @@ $f(a)=0$ を満たす $a$ 全体を $a_0, \ldots, a_{n-1}$ ($0\leq a_0 < \cdots 
 $n$
 $a_0$ $\cdots$ $a_{n-1}$
 ```
+
+@{lang.en}
+$a_i$ should be printed as an non-negative integer less than $@{param.MOD}$. 
+The order in which $a_i$ is output can be arbitrary.
+
+@{lang.ja}
+$a_i$ は $@{param.MOD}$ 未満の非負整数として出力してください．
+$a_i$ はどのような順序で出力してもよいです. 
+
+@{lang.end}
+
 
 ## @{keyword.sample}
 

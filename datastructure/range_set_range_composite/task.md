@@ -3,12 +3,12 @@
 @{lang.en}
 Given a size $N$ sequence of linear functions $f _ 0, f _ 1, ..., f _ {N-1}$. For all $i$, $f _ i(x) = a _ i x + b _ i$. Process $Q$ queries as follows:
 
-- `0 $l$ $r$ $b$ $c$`: For each $i = l, l+1, \dots, {r - 1}$, $f _ i \gets cx + d$.
+- `0 $l$ $r$ $c$ $d$`: For each $i = l, l+1, \dots, {r - 1}$, $f _ i \gets cx + d$.
 - `1 $l$ $r$ $x$`: Print $f _ {r-1}(f _ {r-2}(...f _ l(x))) \bmod @{param.MOD}$.
 @{lang.ja}
 長さ $N$ の(一次)関数列 $f _ 0, f _ 1, ..., f _ {N-1}$ が与えられる。$f _ i(x) = a _ i x + b _ i$ である。 $Q$ 個のクエリが飛んできます。処理してください。
 
-- `0 $l$ $r$ $b$ $c$`: 各 $i = l, l+1, \dots, {r - 1}$ について、$f _ i \gets cx + d$ に変更
+- `0 $l$ $r$ $c$ $d$`: 各 $i = l, l+1, \dots, {r - 1}$ について、$f _ i \gets cx + d$ に変更
 - `1 $l$ $r$ $x$`: $f _ {r-1}(f _ {r-2}(...f _ l(x))) \bmod @{param.MOD}$ を出力する。
 @{lang.end}
 

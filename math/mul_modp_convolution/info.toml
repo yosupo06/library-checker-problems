@@ -27,5 +27,5 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1087"
 
 [params]
     P_MIN = 2
-    P_MAX = 524288
-    MOD = 998244353
+    P_MAX = 524_288
+    MOD = 998_244_353

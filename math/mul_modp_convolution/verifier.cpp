@@ -18,10 +18,10 @@ int main() {
   inf.readChar('\n');
   inf.ensuref(isPrime(P), "P should be a prime");
 
-  inf.readInts(P, 0, MOD);
+  inf.readInts(P, 0, MOD - 1);
   inf.readChar('\n');
 
-  inf.readInts(P, 0, MOD);
+  inf.readInts(P, 0, MOD - 1);
   inf.readChar('\n');
 
   inf.readEof();

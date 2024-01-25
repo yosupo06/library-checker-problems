@@ -16,7 +16,7 @@ $G_{-1}$ を、$N$ 個の頂点からなる、辺がひとつも存在しない�
 
 - $1 \leq N \leq @{param.MAX_N}$
 - $1 \leq Q \leq @{param.MAX_Q}$
-- $t\_{i} \in \left\\{ 0, 1 \right\\}$
+- $t\_{i} \in \left\lbrace 0, 1 \right\rbrace$
 - $-1 \leq k\_{i} < i$
 - for all $k_i$, $k\_i = -1$ or $t\_{k\_{i}} = 0$ holds.
 - $0 \leq u\_{i}, v\_{i} < N$

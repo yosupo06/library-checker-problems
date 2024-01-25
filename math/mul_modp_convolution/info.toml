@@ -1,0 +1,31 @@
+title = 'Convolution on the Multiplicative Monoid of $\mathbb{Z} / P\mathbb{Z}$'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1087"
+
+[[solutions]]
+    name = "naive.cpp"
+    wrong = true
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small.cpp"
+    number = 12
+[[tests]]
+    name = "medium.cpp"
+    number = 12
+[[tests]]
+    name = "large.cpp"
+    number = 6
+[[tests]]
+    name = "p_max.cpp"
+    number = 4
+[[tests]]
+    name = "all_zero.cpp"
+    number = 4
+
+[params]
+    P_MIN = 2
+    P_MAX = 524288
+    MOD = 998244353

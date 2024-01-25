@@ -69,6 +69,10 @@ bool compare(result s, result t)
         {
             quitf(_wa, "not matched.");
         }
+        if (s.s[now_s] != t.s[now_t])
+        {
+            quitf(_wa, "not matched.");
+        }
         sort(s.g[now_s].begin(), s.g[now_s].end(), [&](auto i, int j)
              { return s.interval[i] < s.interval[j]; });
         sort(t.g[now_t].begin(), t.g[now_t].end(), [&](auto i, int j)

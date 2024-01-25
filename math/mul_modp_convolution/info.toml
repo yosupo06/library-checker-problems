@@ -4,7 +4,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1087"
 
 [[solutions]]
     name = "naive.cpp"
-    wrong = true
+    allow_re = true
 
 [[tests]]
     name = "example.in"

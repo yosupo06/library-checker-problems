@@ -6,8 +6,8 @@ Calculate the nim product $A \otimes B$.
 
 The nim sum and the nim product for nonnegative integers are defined recursively as follows:
 
-- $a \oplus b = \operatorname{mex}(\\{ a' \oplus b \mid a' < a \\} \cup \\{ a \oplus b' \mid b' < b \\})$
-- $a \otimes b = \operatorname{mex}\\{ (a' \otimes b) \oplus (a \otimes b') \oplus (a' \otimes b') \mid a' < a,\, b' < b \\}$
+- $a \oplus b = \operatorname{mex}(\lbrace a' \oplus b \mid a' < a \rbrace \cup \lbrace a \oplus b' \mid b' < b \rbrace)$
+- $a \otimes b = \operatorname{mex}\lbrace (a' \otimes b) \oplus (a \otimes b') \oplus (a' \otimes b') \mid a' < a,\, b' < b \rbrace$
 
 ## @{keyword.constraints}
 

@@ -653,7 +653,7 @@ vc<mint> finding_root_of_polynomial(vc<mint> F) {
     dfs(dfs, f1), dfs(dfs, f2);
   };
   dfs(dfs, F);
-  // sort(all(ANS));
+  sort(all(ANS));
   return ANS;
 }
 

@@ -5,7 +5,7 @@ Given a polynomial $f(x) = \sum_{i=0}^Nf _ ix^i\in \mathbb{F} _ {998244353}[x]$ 
 Find all $a\in \mathbb{F} _ {998244353}$ satisfying $f(a)=0$.
 
 @{lang.ja}
-次数 $N$ の多項式 $f(x) \in \mathbb{F} _ {998244353}[x]$ が与えられます．
+次数 $N$ の多項式 $f(x) = \sum_{i=0}^Nf _ ix^i\in \mathbb{F} _ {998244353}[x]$ が与えられます．
 $f(a)=0$ を満たす $a\in \mathbb{F} _ {998244353}$ をすべて求めてください．
 
 @{lang.end}

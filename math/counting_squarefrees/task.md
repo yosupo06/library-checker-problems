@@ -3,7 +3,7 @@
 @{lang.ja}
 $N$ 以下の無平方数の個数を求めてください。
 @{lang.en}
-Count the number of square-free integers no more than $N$.
+Count the number of square-free integers not greater than $N$.
 @{lang.end}
 
 ## @{keyword.constraints}

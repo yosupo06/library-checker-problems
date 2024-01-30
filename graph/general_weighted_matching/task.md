@@ -16,7 +16,7 @@ $N$ 頂点 $M$ 辺からなる単純重み付き無向グラフが与えられ�
 - $1 \leq N \leq 500$
 - $0 \leq M \leq \frac{N(N-1)}{2}$
 - $0 \leq u_i, v_i < N$
-- $1 \leq w_i \leq 1\,000\,000$
+- $1 \leq w_i \leq 1\thinspace 000\thinspace 000$
 
 ## @{keyword.input}
 

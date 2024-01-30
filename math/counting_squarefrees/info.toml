@@ -1,0 +1,22 @@
+title = 'Counting Square-free Integers'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1102"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "max.cpp"
+    number = 5
+[[tests]]
+    name = "small.cpp"
+    number = 5
+[[tests]]
+    name = "very_small.cpp"
+    number = 5
+[[tests]]
+    name = "random.cpp"
+    number = 5
+
+[params]
+    N_MAX = 1_000_000_000_000_000_000

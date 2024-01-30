@@ -1,9 +1,9 @@
 ## @{keyword.statement}
 
 @{lang.ja}
-$N$ 以下の素数の個数を求めてください。
+$N$ 以下の無平方数の個数を求めてください。
 @{lang.en}
-Count the number of primes not greater than $N$.
+Count the number of square-free integers not greater than $N$.
 @{lang.end}
 
 ## @{keyword.constraints}

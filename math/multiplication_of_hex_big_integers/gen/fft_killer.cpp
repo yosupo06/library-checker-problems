@@ -53,7 +53,7 @@ int main(int, char *argv[])
 
   ll X = BASE[seed % 2];
   ll Y = MOD[seed % 2];
-  ll N = floor(LOG_16_A_AND_B_MAX / log2(X) / 4);
+  ll N = floor(LOG_16_A_AND_B_MAX / (log2(X) / 4));
 
   bigint a = make_num(gen, N, X, Y);
   bigint b = make_num(gen, N, X, Y);

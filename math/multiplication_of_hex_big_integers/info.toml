@@ -21,6 +21,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1101"
     name = "zero.cpp"
     number = 1
 [[tests]]
+    name = "power.cpp"
+    number = 2
+[[tests]]
     name = "fft_killer.cpp"
     number = 2
 [[tests]]

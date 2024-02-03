@@ -23,6 +23,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1101"
 [[tests]]
     name = "large_small.cpp"
     number = 1
+[[tests]]
+    name = "power.cpp"
+    number = 2
 
 [[solutions]]
     name = "correct.py"

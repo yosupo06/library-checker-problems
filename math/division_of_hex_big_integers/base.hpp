@@ -795,9 +795,10 @@ private:
       }
       if (i)
         rv.insert(begin(rv), x[i - 1]);
+      _shrink(rv);
     }
 
-    _shrink(qv), _shrink(rv);
+    _shrink(qv);
     _right_shift(rv.begin(), rv.end(), shift);
     _shrink(rv);
 

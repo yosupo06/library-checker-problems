@@ -21,6 +21,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1101"
     name = "a_max_b_random.cpp"
     number = 3
 [[tests]]
+    name = "power.cpp"
+    number = 1
+[[tests]]
     name = "r_nearly_zero.cpp"
     number = 3
 [[tests]]

@@ -21,6 +21,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/41"
     name = "big2_worse.cpp"
     number = 1
 [[tests]]
+    name = "big_semiprime_gen.cpp"
+    number = 2
+[[tests]]
+    name = "big_semiprime_random.cpp"
+    number = 2
+[[tests]]
     name = "pow2.cpp"
     number = 3
 [[tests]]
@@ -48,6 +54,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/41"
 [[solutions]]
     name = "fixed_RNG.cpp"
     wrong = true
+[[solutions]]
+    name = "rho_with_difference_of_square.cpp"
+    wrong = false
 
 [params]
     MAX_Q = 100

@@ -33,7 +33,7 @@ $b_{M1}b_{M2} \cdots b_{MK}$
 ```
 $c_{11}c_{12} \cdots c_{1K}$
 $c_{21}c_{22} \cdots c_{2K}$
-\vdots
+$\vdots$
 $c_{N1}c_{N2} \cdots c_{NK}$
 ```
 

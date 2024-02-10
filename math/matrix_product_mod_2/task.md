@@ -13,7 +13,7 @@ $N \times M$ 行列 $A$ と $M \times K$ 行列 $B$ が与えられます． $C 
 ## @{keyword.constraints}
 
 - $1 \leq N,M,K \leq @{param.N_MAX}$
-- $0 \leq a_{ij},b_{ij} \in \lbrace 0,1\rbrace$
+- $a_{ij},b_{ij} \in \lbrace 0,1\rbrace$
 
 ## @{keyword.input}
 

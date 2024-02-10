@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given $N \times M$ matrix $A$ and $M \times K$ matrix $B$, print $C = AB \bmod @{param.MOD}$.
+Given $N \times M$ matrix $A$ and $M \times K$ matrix $B$, print $C = AB \bmod @{param.MOD}$. When dealing with matrix input and output, please treat each row as a string concatenated with its components ($0$ or $1$).
 @{lang.ja}
 $N \times M$ 行列 $A$ と $M \times K$ 行列 $B$ が与えられます． $C = A B \bmod @{param.MOD}$を求めてください．
 

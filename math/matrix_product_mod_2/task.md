@@ -13,20 +13,20 @@ $N \times M$ 行列 $A$ と $M \times K$ 行列 $B$ が与えられます． $C 
 ## @{keyword.constraints}
 
 - $1 \leq N,M,K \leq @{param.N_MAX}$
-- $0 \leq a_{ij},b_{ij} < @{param.MOD}$
+- $0 \leq a_{ij},b_{ij} \in \lbrace 0,1\rbrace$
 
 ## @{keyword.input}
 
 ```
 $N\ M\ K$
-$a_{11}a_{12} \cdots $a_{1M}$
-$a_{21}a_{22} \cdots $a_{2M}$
+$a_{11}a_{12} \cdots a_{1M}$
+$a_{21}a_{22} \cdots a_{2M}$
 $\vdots$
-$a_{N1} a_{N2} \cdots a_{NM}$
-$b_{11} b_{12} \cdots b_{1K}$
-$b_{21} b_{22} \cdots b_{2K}$
+$a_{N1}a_{N2} \cdots a_{NM}$
+$b_{11}b_{12} \cdots b_{1K}$
+$b_{21}b_{22} \cdots b_{2K}$
 $\vdots$
-$b_{M1} b_{M2} \cdots b_{MK}$
+$b_{M1}b_{M2} \cdots b_{MK}$
 ```
 
 ## @{keyword.output}

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-const int MAX = 4096;
+const int MAX = 4096 + 10;
 
 bool A[MAX][MAX];
 bool B[MAX][MAX];

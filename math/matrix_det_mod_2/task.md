@@ -1,11 +1,11 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given $N \times N$ matrix $M = \lbrace a_{ij} \rbrace$. Print $\mathrm{det}(M) \bmod 2$.
+Given $N \times N$ matrix $M = (a_{ij})$. Print $\mathrm{det}(M) \bmod 2$.
 
 When dealing with matrix input and output, please treat each row as a string concatenated with its components ($0$ or $1$).
 @{lang.ja}
-$N \times N$ 正方行列 $a_{ij}$ が与えられます．行列式を $\mod 2$ で求めてください．
+$N \times N$ 正方行列 $(a_{ij})$ が与えられます．行列式を $\mod 2$ で求めてください．
 
 行列の入力の際は，各行を成分（$0$ または $1$）を結合した文字列として扱ってください．
 @{lang.end}
@@ -30,5 +30,3 @@ $a_{N1}a_{N2} \cdots a_{NN}$
 @{example.example_00}
 
 @{example.example_01}
-
-@{example.example_02}

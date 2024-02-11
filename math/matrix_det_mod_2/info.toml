@@ -1,0 +1,33 @@
+title = 'Determinant of Matrix (Mod 2)'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/896"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small.cpp"
+    number = 6
+[[tests]]
+    name = "middle.cpp"
+    number = 6
+[[tests]]
+    name = "random.cpp"
+    number = 6
+[[tests]]
+    name = "max_random.cpp"
+    number = 6
+[[tests]]
+    name = "lowrank_max_random.cpp"
+    number = 5
+[[tests]]
+    name = "perm_max_random.cpp"
+    number = 5
+
+[[solutions]]
+    name = "naive.cpp"
+    wrong = false
+    allow_re = true
+
+[params]
+    N_MAX = 4096

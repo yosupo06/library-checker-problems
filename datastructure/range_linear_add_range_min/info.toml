@@ -17,6 +17,15 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1081"
 [[tests]]
     name = "max_random.cpp"
     number = 3
+[[tests]]
+    name = "almost_t0.cpp"
+    number = 3
+[[tests]]
+    name = "almost_t1.cpp"
+    number = 3
+[[tests]]
+    name = "width_almost_n.cpp"
+    number = 3
 
 [[solutions]]
     name = "naive.cpp"

@@ -1,0 +1,38 @@
+title = 'Range Linear Add Range Min'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1081"
+[[tests]]
+    name = "example.in"
+    number = 1
+
+[[tests]]
+    name = "small_random.cpp"
+    number = 2
+[[tests]]
+    name = "small.cpp"
+    number = 10
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "almost_t0.cpp"
+    number = 3
+[[tests]]
+    name = "almost_t1.cpp"
+    number = 3
+[[tests]]
+    name = "width_almost_n.cpp"
+    number = 3
+
+[[solutions]]
+    name = "naive.cpp"
+    allow_tle = true
+
+[params]
+    N_AND_Q_MAX = 100_000
+    A_MAX = 1_000_000_000
+    B_MAX = 100 
+    C_MAX = 10_000_000

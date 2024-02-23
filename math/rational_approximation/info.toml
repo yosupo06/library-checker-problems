@@ -1,0 +1,49 @@
+title = 'Rational Approximation'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/960"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "small_all.cpp"
+    number = 10
+[[tests]]
+    name = "boundary.in"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "random_large.cpp"
+    number = 3
+[[tests]]
+    name = "fibonacci.cpp"
+    number = 1
+[[tests]]
+    name = "small_run_length.cpp"
+    number = 5
+[[tests]]
+    name = "large_run_length.cpp"
+    number = 1
+[[tests]]
+    name = "zero_or_inf.cpp"
+    number = 1
+[[tests]]
+    name = "trivial.cpp"
+    number = 1
+[[tests]]
+    name = "input_reducible.cpp"
+    number = 1
+
+[[solutions]]
+    name = "no_binary_search.cpp"
+    allow_tle = true
+    wrong = false
+[[solutions]]
+    name = "use_floating_point_number.cpp"
+    wrong = true
+
+[params]
+    MAX_T = 100_000
+    MAX_N = 1_000_000_000

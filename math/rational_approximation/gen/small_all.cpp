@@ -23,7 +23,7 @@ int main( int, char* argv[] ) {
     }
 
     std::printf( "%zu\n", v.size() );
-    for( const auto [N, x, y] : v ) {
+    for( const auto& [N, x, y] : v ) {
         std::printf( "%d %d %d\n", N, x, y );
     }
 }

@@ -8,9 +8,6 @@ using namespace std;
 using ll = long long;
 using u32 = unsigned int;
 using u64 = unsigned long long;
-using i128 = __int128;
-using u128 = unsigned __int128;
-using f128 = __float128;
 
 template <class T>
 using vc = vector<T>;
@@ -55,34 +52,6 @@ template <typename T>
 T ceil(T x, T y) {
   return floor(x + y - 1, y);
 }
-template <typename T>
-T bmod(T x, T y) {
-  return x - y * floor(x, y);
-}
-template <typename T>
-pair<T, T> divmod(T x, T y) {
-  T q = floor(x, y);
-  return {q, x - q * y};
-}
-
-template <class T, class S>
-inline bool chmax(T &a, const S &b) {
-  return (a < b ? a = b, 1 : 0);
-}
-template <class T, class S>
-inline bool chmin(T &a, const S &b) {
-  return (a > b ? a = b, 1 : 0);
-}
-
-struct has_mod_impl {
-  template <class T>
-  static auto check(T &&x) -> decltype(x.get_mod(), std::true_type{});
-  template <class T>
-  static auto check(...) -> std::false_type;
-};
-
-template <class T>
-class has_mod : public decltype(has_mod_impl::check<T>(std::declval<T>())) {};
 
 template <typename mint>
 mint inv(int n) {
@@ -129,10 +98,8 @@ struct modint {
   constexpr modint() : val(0) {}
   constexpr modint(u32 x) : val(x % umod) {}
   constexpr modint(u64 x) : val(x % umod) {}
-  constexpr modint(u128 x) : val(x % umod) {}
   constexpr modint(int x) : val((x %= mod) < 0 ? x + mod : x){};
   constexpr modint(ll x) : val((x %= mod) < 0 ? x + mod : x){};
-  constexpr modint(i128 x) : val((x %= mod) < 0 ? x + mod : x){};
   bool operator<(const modint &other) const { return val < other.val; }
   modint &operator+=(const modint &p) {
     if ((val += p.val) >= umod) val -= umod;
@@ -178,91 +145,15 @@ struct modint {
   static constexpr int get_mod() { return mod; }
   // (n, r), r は 1 の 2^n 乗根
   static constexpr pair<int, int> ntt_info() {
-    if (mod == 120586241) return {20, 74066978};
-    if (mod == 167772161) return {25, 17};
-    if (mod == 469762049) return {26, 30};
-    if (mod == 754974721) return {24, 362};
-    if (mod == 880803841) return {23, 211};
-    if (mod == 943718401) return {22, 663003469};
     if (mod == 998244353) return {23, 31};
-    if (mod == 1045430273) return {20, 363};
-    if (mod == 1051721729) return {20, 330};
-    if (mod == 1053818881) return {20, 2789};
     return {-1, -1};
   }
   static constexpr bool can_ntt() { return ntt_info().fi != -1; }
 };
 
-#ifdef FASTIO
-template <int mod>
-void rd(modint<mod> &x) {
-  fastio::rd(x.val);
-  x.val %= mod;
-  // assert(0 <= x.val && x.val < mod);
-}
-template <int mod>
-void wt(modint<mod> x) {
-  fastio::wt(x.val);
-}
-#endif
-
-using modint107 = modint<1000000007>;
 using modint998 = modint<998244353>;
-#line 2 "library/poly/composition.hpp"
 
-#line 2 "library/mod/mod_inv.hpp"
-
-// long でも大丈夫
-// (val * x - 1) が mod の倍数になるようにする
-// 特に mod=0 なら x=0 が満たす
-ll mod_inv(ll val, ll mod) {
-  if (mod == 0) return 0;
-  mod = abs(mod);
-  val %= mod;
-  if (val < 0) val += mod;
-  ll a = val, b = mod, u = 1, v = 0, t;
-  while (b > 0) {
-    t = a / b;
-    swap(a -= t * b, b), swap(u -= t * v, v);
-  }
-  if (u < 0) u += mod;
-  return u;
-}
-#line 1 "library/mod/crt3.hpp"
-
-constexpr u32 mod_pow_constexpr(u64 a, u64 n, u32 mod) {
-  a %= mod;
-  u64 res = 1;
-  FOR(32) {
-    if (n & 1) res = res * a % mod;
-    a = a * a % mod, n /= 2;
-  }
-  return res;
-}
-
-template <typename T, u32 p0, u32 p1, u32 p2>
-T CRT3(u64 a0, u64 a1, u64 a2) {
-  static_assert(p0 < p1 && p1 < p2);
-  static constexpr u64 x0_1 = mod_pow_constexpr(p0, p1 - 2, p1);
-  static constexpr u64 x01_2 = mod_pow_constexpr(u64(p0) * p1 % p2, p2 - 2, p2);
-  u64 c = (a1 - a0 + p1) * x0_1 % p1;
-  u64 a = a0 + c * p0;
-  c = (a2 - a % p2 + p2) * x01_2 % p2;
-  return T(a) + T(c) * T(p0) * T(p1);
-}
-#line 2 "library/poly/convolution_naive.hpp"
-
-template <class T, typename enable_if<!has_mod<T>::value>::type * = nullptr>
-vc<T> convolution_naive(const vc<T> &a, const vc<T> &b) {
-  int n = int(a.size()), m = int(b.size());
-  if (n > m) return convolution_naive<T>(b, a);
-  if (n == 0) return {};
-  vector<T> ans(n + m - 1);
-  FOR(i, n) FOR(j, m) ans[i + j] += a[i] * b[j];
-  return ans;
-}
-
-template <class T, typename enable_if<has_mod<T>::value>::type * = nullptr>
+template <class T>
 vc<T> convolution_naive(const vc<T> &a, const vc<T> &b) {
   int n = int(a.size()), m = int(b.size());
   if (n > m) return convolution_naive<T>(b, a);
@@ -277,17 +168,10 @@ vc<T> convolution_naive(const vc<T> &a, const vc<T> &b) {
       ans[k] = sm;
     }
   } else {
-    for (int k = 0; k < n + m - 1; ++k) {
-      int s = max(0, k - m + 1);
-      int t = min(n, k + 1);
-      u128 sm = 0;
-      for (int i = s; i < t; ++i) { sm += u64(a[i].val) * (b[k - i].val); }
-      ans[k] = T::raw(sm % T::get_mod());
-    }
+    FOR(i, n) FOR(j, m) ans[i + j] += a[i] * b[j];
   }
   return ans;
 }
-#line 2 "library/poly/convolution_karatsuba.hpp"
 
 // 任意の環でできる
 template <typename T>
@@ -316,7 +200,6 @@ vc<T> convolution_karatsuba(const vc<T> &f, const vc<T> &g) {
   FOR(i, len(c)) if (c[i] != T(0)) F[m + i] += c[i];
   return F;
 }
-#line 2 "library/poly/ntt.hpp"
 
 template <class mint>
 void ntt(vector<mint> &a, bool inverse) {
@@ -444,8 +327,6 @@ void ntt(vector<mint> &a, bool inverse) {
   }
 }
 
-#line 9 "library/poly/convolution.hpp"
-
 template <class mint>
 vector<mint> convolution_ntt(vector<mint> a, vector<mint> b) {
   if (a.empty() || b.empty()) return {};
@@ -542,51 +423,16 @@ vc<mint> middle_product(vc<mint> &a, vc<mint> &b) {
   if (min(len(b), len(a) - len(b) + 1) <= 60) {
     return middle_product_naive(a, b);
   }
-  if (!(mint::can_ntt())) {
-    return middle_product_garner(a, b);
-  } else {
-    int n = 1 << __lg(2 * len(a) - 1);
-    vc<mint> fa(n), fb(n);
-    copy(a.begin(), a.end(), fa.begin());
-    copy(b.rbegin(), b.rend(), fb.begin());
-    ntt(fa, 0), ntt(fb, 0);
-    FOR(i, n) fa[i] *= fb[i];
-    ntt(fa, 1);
-    fa.resize(len(a));
-    fa.erase(fa.begin(), fa.begin() + len(b) - 1);
-    return fa;
-  }
-}
-
-template <typename mint>
-vc<mint> middle_product_garner(vc<mint> &a, vc<mint> b) {
-  int n = len(a), m = len(b);
-  if (!n || !m) return {};
-  static const long long nttprimes[] = {754974721, 167772161, 469762049};
-  using mint0 = modint<754974721>;
-  using mint1 = modint<167772161>;
-  using mint2 = modint<469762049>;
-  vc<mint0> a0(n), b0(m);
-  vc<mint1> a1(n), b1(m);
-  vc<mint2> a2(n), b2(m);
-  FOR(i, n) a0[i] = a[i].val, a1[i] = a[i].val, a2[i] = a[i].val;
-  FOR(i, m) b0[i] = b[i].val, b1[i] = b[i].val, b2[i] = b[i].val;
-  auto c0 = middle_product<mint0>(a0, b0);
-  auto c1 = middle_product<mint1>(a1, b1);
-  auto c2 = middle_product<mint2>(a2, b2);
-  const long long m01 = 1LL * nttprimes[0] * nttprimes[1];
-  const long long m0_inv_m1 = mint1(nttprimes[0]).inverse().val;
-  const long long m01_inv_m2 = mint2(m01).inverse().val;
-  const int mod = mint::get_mod();
-  auto garner = [&](mint0 x0, mint1 x1, mint2 x2) -> mint {
-    int r0 = x0.val, r1 = x1.val, r2 = x2.val;
-    int v1 = (m0_inv_m1 * (r1 + nttprimes[1] - r0)) % nttprimes[1];
-    auto v2 = (mint2(r2) - r0 - mint2(nttprimes[0]) * v1) * mint2(m01_inv_m2);
-    return mint(r0 + 1LL * nttprimes[0] * v1 + m01 % mod * v2.val);
-  };
-  vc<mint> c(len(c0));
-  FOR(i, len(c)) c[i] = garner(c0[i], c1[i], c2[i]);
-  return c;
+  int n = 1 << __lg(2 * len(a) - 1);
+  vc<mint> fa(n), fb(n);
+  copy(a.begin(), a.end(), fa.begin());
+  copy(b.rbegin(), b.rend(), fb.begin());
+  ntt(fa, 0), ntt(fb, 0);
+  FOR(i, n) fa[i] *= fb[i];
+  ntt(fa, 1);
+  fa.resize(len(a));
+  fa.erase(fa.begin(), fa.begin() + len(b) - 1);
+  return fa;
 }
 
 template <typename mint>
@@ -594,44 +440,6 @@ vc<mint> middle_product_naive(vc<mint> &a, vc<mint> &b) {
   vc<mint> res(len(a) - len(b) + 1);
   FOR(i, len(res)) FOR(j, len(b)) res[i] += b[j] * a[i + j];
   return res;
-}
-#line 7 "library/poly/composition.hpp"
-
-template <typename mint>
-vc<mint> composition_old(vc<mint> &Q, vc<mint> &P) {
-  int n = len(P);
-  assert(len(P) == len(Q));
-  int k = 1;
-  while (k * k < n) ++k;
-  // compute powers of P
-  vv(mint, pow1, k + 1);
-  pow1[0] = {1};
-  pow1[1] = P;
-  FOR3(i, 2, k + 1) {
-    pow1[i] = convolution(pow1[i - 1], pow1[1]);
-    pow1[i].resize(n);
-  }
-  vv(mint, pow2, k + 1);
-  pow2[0] = {1};
-  pow2[1] = pow1[k];
-  FOR3(i, 2, k + 1) {
-    pow2[i] = convolution(pow2[i - 1], pow2[1]);
-    pow2[i].resize(n);
-  }
-  vc<mint> ANS(n);
-  FOR(i, k + 1) {
-    vc<mint> f(n);
-    FOR(j, k) {
-      if (k * i + j < len(Q)) {
-        mint coef = Q[k * i + j];
-        FOR(d, len(pow1[j])) f[d] += pow1[j][d] * coef;
-      }
-    }
-    f = convolution(f, pow2[i]);
-    f.resize(n);
-    FOR(d, n) ANS[d] += f[d];
-  }
-  return ANS;
 }
 
 // https://noshi91.hatenablog.com/entry/2024/03/16/224034

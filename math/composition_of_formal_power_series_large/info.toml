@@ -1,0 +1,40 @@
+title = 'Composition of Formal Power Series (Large)'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1112"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "mid.cpp"
+    number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+[[tests]]
+    name = "small.cpp"
+    number = 10
+[[tests]]
+    name = "hack.cpp"
+    number = 3
+[[tests]]
+    name = "hack2.cpp"
+    number = 3
+[[solutions]]
+    name = "small_correct.cpp"
+    allow_re = true
+[[solutions]]
+    name = "naive.cpp"
+    allow_re = true
+[[solutions]]
+    name = "wa.cpp"
+    wrong = true
+    allow_tle = true
+[params]
+    N_MAX = 131_072
+    N_MID_MAX = 8_000
+    N_SMALL_MAX = 10
+    MOD =998_244_353

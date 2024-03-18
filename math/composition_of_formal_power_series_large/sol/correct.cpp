@@ -2,6 +2,7 @@
 #include <cassert>
 #include <cstdio>
 #include <algorithm>
+#include <array>
 
 using namespace std;
 

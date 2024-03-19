@@ -6,7 +6,7 @@ You are given $T$ test cases. For each case, solve the following problem.
 
 You are given positive integers $N, x, y$.
 Let $S$ be the set of irreducible fractions whose numerator and denominator are both positive integers less than or equal to $N$.
-Determine the maximum value in $S$ that is less than or equal to $x/y$ ($0/1$ if not exist) and the minimum value in $S$ that is greater than $x/y$ ($1/0$ if not exist).
+Determine the maximum value in $S$ that is less than or equal to $x/y$ ($0/1$ if not exist) and the minimum value in $S$ that is greater than or equal to $x/y$ ($1/0$ if not exist).
 
 @{lang.ja}
 
@@ -27,10 +27,10 @@ $S$ に含まれる元のうち、 $x/y$ 以下であるものの最大値（存
 
 ```
 $T$
-$N_0 x_0 y_0$
-$N_1 x_1 y_1$
+$N_0$ $x_0$ $y_0$
+$N_1$ $x_1$ $y_1$
 $\vdots$
-$N_{T-1} x_{T-1} y_{T-1}$
+$N_{T-1}$ $x_{T-1}$ $y_{T-1}$
 ```
 
 ## @{keyword.output}
@@ -42,7 +42,7 @@ $T$ 行出力してください。求めたものが $a/b$ および $c/d$ で�
 @{lang.end}
 
 ```
-$a b c d$
+$a$ $b$ $c$ $d$
 ```
 
 ## @{keyword.sample}

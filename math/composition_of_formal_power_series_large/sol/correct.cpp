@@ -424,7 +424,7 @@ vc<mint> middle_product(vc<mint> &a, vc<mint> &b) {
   if (min(len(b), len(a) - len(b) + 1) <= 60) {
     return middle_product_naive(a, b);
   }
-  int n = 1 << __lg(2 * len(a) - 1);
+  int n = 1 << topbit(2 * len(a) - 1);
   vc<mint> fa(n), fb(n);
   copy(a.begin(), a.end(), fa.begin());
   copy(b.rbegin(), b.rend(), fb.begin());

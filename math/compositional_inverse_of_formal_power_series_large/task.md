@@ -28,7 +28,7 @@ $$
 
 ## @{keyword.constraints}
 
-- $2 \leq N \leq 8000$
+- $2 \leq N \leq @{param.N_MAX}$
 - $0 \leq a_i < 998244353$
 - $a_0 = 0$
 - $a_1  \neq 0$

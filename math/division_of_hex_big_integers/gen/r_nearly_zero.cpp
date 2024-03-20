@@ -1,0 +1,100 @@
+/**
+ *  |A| % |B| nearly equals to 0.
+ */
+
+#include <iostream>
+
+#include "../base.hpp"
+#include "../params.h"
+#include "random.h"
+using namespace std;
+using ll = long long;
+
+char make_hex(int x)
+{
+  assert(0 <= x && x < 16);
+  if (x < 10)
+    return char('0' + x);
+  else
+    return char('A' + x - 10);
+}
+
+string make_num(Random &gen, int n, bool negative)
+{
+  string x;
+  for (int i = 0; i < n; ++i)
+    x += make_hex(gen.uniform<int>(0, 15));
+  if (n >= 2)
+    x[0] = make_hex(gen.uniform<int>(1, 15));
+  if (negative && x != "0")
+    x = "-" + x;
+  return x;
+}
+
+int main(int, char *argv[])
+{
+  long long seed = atoll(argv[1]);
+  auto gen = Random(seed + 12345678);
+
+  int upper = vector{8, 800, 80000}[seed % 3];
+
+  vector<string> A, B;
+  int lsum = 0;
+
+  while (true)
+  {
+    int alen = gen.uniform(1, upper);
+    int blen = gen.uniform(1, upper);
+    // mostly |A| >= |B|
+    if (alen < blen)
+      swap(alen, blen);
+
+    string sa = make_num(gen, alen, false);
+    string sb;
+    do
+    {
+      sb = make_num(gen, alen, false);
+    } while (sb == "0");
+
+    bigint x = sa, y = sb;
+    x = x / y * y;
+    int cmd = gen.uniform(0, 3);
+    if (cmd == 0)
+    {
+      // do nothing
+    }
+    else if (cmd == 1)
+    {
+      x += 1;
+    }
+    else if (cmd == 2)
+    {
+      x -= 1;
+    }
+    else
+    {
+      long long range = upper <= 8 ? 80000LL : 8000000000LL;
+      x += gen.uniform<int64_t>(-range, range);
+    }
+    sa = x.to_string();
+
+    lsum += sa.size() + sb.size();
+    if (lsum > SUM_OF_CHARACTER_LENGTH)
+      break;
+    if (x >= 0)
+    {
+      A.push_back(sa);
+      B.push_back(sb);
+    }
+    else
+    {
+      lsum -= sa.size() + sb.size();
+    }
+  }
+
+  printf("%d\n", (int)A.size());
+  for (int i = 0; i < (int)A.size(); i++)
+  {
+    printf("%s %s\n", A[i].c_str(), B[i].c_str());
+  }
+}

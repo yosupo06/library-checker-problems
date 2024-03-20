@@ -1,0 +1,40 @@
+title = 'Multiplication of Hex Big Integers'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1101"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "small.cpp"
+    number = 1
+[[tests]]
+    name = "medium.cpp"
+    number = 3
+[[tests]]
+    name = "large.cpp"
+    number = 3
+[[tests]]
+    name = "max_max.cpp"
+    number = 8
+[[tests]]
+    name = "zero.cpp"
+    number = 1
+[[tests]]
+    name = "power.cpp"
+    number = 2
+[[tests]]
+    name = "fft_killer.cpp"
+    number = 2
+[[tests]]
+    name = "large_small.cpp"
+    number = 1
+
+[[solutions]]
+    name = "correct.py"
+    allow_tle = true
+
+[params]
+    T_MAX = 160000
+    LOG_16_A_AND_B_MAX = 1600000
+    SUM_OF_CHARACTER_LENGTH = 3200002

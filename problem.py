@@ -69,6 +69,8 @@ def compile(src: Path, rootdir: Path, opts: [str] = []):
         check_call(args)
     elif src.suffix == '.in':
         pass
+    elif src.suffix == '.py':
+        pass
     else:
         logger.error('Unknown type of file {}'.format(src))
         raise RuntimeError('Unknown type of file: {}'.format(src))
@@ -84,6 +86,8 @@ def execcmd(src: Path, arg: List[str] = []) -> List[str]:
                                    != 'Windows' else '.exe').resolve())]
         cmd.extend(arg)
         return cmd
+    elif src.suffix == '.py':
+        return [sys.executable, str(src)]
     elif src.suffix == '.in':
         inpath = src.with_name(casename(src, int(arg[0])) + '.in')
         # see https://www.msys2.org/docs/python/ for using msys2
@@ -202,14 +206,15 @@ class Problem:
             compile(self.basedir / 'sol' / name, self.rootdir, opts)
 
     def check_all_solutions_used(self) -> bool:
-        sol_names = []
-        sol_names.append('correct.cpp')
+        sol_names = set()
+        sol_names.add('correct.cpp')
         for sol in self.config.get('solutions', []):
-            sol_names.append(sol['name'])
-        for file_path in (self.basedir / 'sol').glob('*.cpp'):
-            if file_path.name not in sol_names:
-                return False
-        return True
+            sol_names.add(sol['name'])
+
+        file_names = set()
+        file_names.update(p.name for p in (self.basedir / 'sol').glob('*.cpp'))
+        file_names.update(p.name for p in (self.basedir / 'sol').glob('*.py'))
+        return sol_names == file_names
 
     def make_inputs(self):
         indir = self.basedir / 'in'

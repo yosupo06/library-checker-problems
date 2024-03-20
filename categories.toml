@@ -19,6 +19,7 @@ problems = [
   "point_set_range_composite",
   "range_affine_point_get", 
   "range_affine_range_sum",
+  "range_set_range_composite",
   "range_chmin_chmax_add_range_sum",
   "range_kth_smallest",
   "point_set_range_sort_range_composite",
@@ -40,10 +41,13 @@ problems = [
   "queue_operate_all_composite",
   "deque_operate_all_composite",
   "static_range_frequency",
+  "static_range_count_distinct",
+  "static_range_mode_query",
   "static_range_lis_query",
   "static_range_inversions_query",
   "rectangle_sum",
   "point_add_rectangle_sum",
+  "rectangle_add_point_get",
   "static_rectangle_add_rectangle_sum",
   "area_of_union_of_rectangles",
   "persistent_queue",
@@ -61,12 +65,15 @@ problems = [
   "two_edge_connected_components",
   "three_edge_connected_components",
   "biconnected_components",
+  "eulerian_trail_directed",
+  "eulerian_trail_undirected",
   "min_cost_b_flow",
   "bipartitematching",
   "general_matching",
   "general_weighted_matching",
   "bipartite_edge_coloring",
   "assignment",
+  "minimum_spanning_tree",
   "directedmst",
   "manhattanmst",
   "dominatortree",
@@ -101,21 +108,26 @@ problems = [
   "enumerate_primes",
   "factorize",
   "primitive_root",
+  "factorial", 
+  "many_factorials", 
   "binomial_coefficient",
   "binomial_coefficient_prime_mod",
   "stirling_number_of_the_first_kind",
   "stirling_number_of_the_first_kind_fixed_k",
   "stirling_number_of_the_second_kind",
+  "stirling_number_of_the_second_kind_fixed_k",
   "stirling_number_of_the_first_kind_small_p_large_n",
   "stirling_number_of_the_second_kind_small_p_large_n",
   "bernoulli_number",
   "partition_function",
   "montmort_number_mod",
+  "counting_squarefrees",
   "sum_of_totient_function",
   "sum_of_exponential_times_polynomial",
   "sum_of_exponential_times_polynomial_limit",
   "find_linear_recurrence",
   "kth_term_of_linearly_recurrent_sequence",
+  "consecutive_terms_of_linear_recurrent_sequence",
   "sum_of_floor_of_linear",
   "min_of_mod_of_linear",
   "sqrt_mod",
@@ -134,6 +146,8 @@ problems = [
   "stern_brocot_tree",
   "polynomial_composite_set_power_series",
   "exp_of_set_power_series",
+  "gcd_of_gaussian_integers",
+
 ]
 
 [[categories]]
@@ -150,6 +164,7 @@ problems = [
   "lcm_convolution",
   "multivariate_convolution",
   "multivariate_convolution_cyclic",
+  "mul_modp_convolution",
   "mul_mod2n_convolution",
   "min_plus_convolution_convex_arbitrary",
   "min_plus_convolution_convex_convex",
@@ -180,15 +195,18 @@ problems = [
   "division_of_polynomials",
   "inv_of_polynomials",
   "conversion_from_monomial_basis_to_newton_basis",
+  "polynomial_root_finding",
 ]
 
 [[categories]]
 name = "Matrix"
 problems = [
   "matrix_product",
+  "pow_of_matrix", 
   "matrix_det",
   "matrix_det_arbitrary_mod",
   "sparse_matrix_det",
+  "matrix_rank", 
   "system_of_linear_equations",
   "inverse_matrix",
   "characteristic_polynomial",
@@ -205,11 +223,13 @@ problems = [
   "runenumerate",
   "prefix_substring_lcs",
   "lyndon_factorization",
+  "longest_common_substring",
 ]
 
 [[categories]]
 name = "Geometry"
 problems = [
   "sort_points_by_argument",
-  "convex_layers"
+  "count_points_in_triangle",
+  "convex_layers",
 ]

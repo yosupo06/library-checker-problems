@@ -435,7 +435,7 @@ private:
 
     // A * B = (z2<<(2*shift)) + (z1<<shift) + z0
 
-    const size_t n = (asize) >> 1;
+    const size_t n = (asize + 1) >> 1;
     if (bsize <= n)
     {
       // |  A_hi  |  A_lo  |
@@ -473,9 +473,9 @@ private:
           b + n, b_end,
           c + n + n, c_end);
 
-      vector<uint32_t> a1(asize - n + 1);
+      vector<uint32_t> a1(n + 1);
       vector<uint32_t> b1(n + 1);
-      vector<uint32_t> z1(asize + 2);
+      vector<uint32_t> z1(2 * n + 2);
       _add(
           a, a + n,
           a + n, a_end,
@@ -642,6 +642,7 @@ private:
     assert(asize == 2 * n);
     assert(qsize == n);
     assert(rsize == n + 1);
+    assert(_lt(a + n, a_end, b, b_end));
 
     if (n % 2 != 0 || n <= _div_naive_th)
     {
@@ -685,19 +686,34 @@ private:
     assert(bsize == 2 * n);
     assert(qsize == n);
     assert(rsize == 2 * n + 1);
-    assert(_lt(a + n + n, a_end, b + n, b_end));
-
-    _divmod_d2n1n(
-        a + n, a_end,
-        b + n, b_end,
-        quo, quo_end,
-        rem + n, rem_end);
+    assert(_lt(a + n, a_end, b, b_end));
 
     vector<uint32_t> d(2 * n);
-    _mul(
-        quo, quo_end,
-        b, b + n,
-        d.begin(), d.end());
+
+    if (_lt(a + n + n, a_end, b + n, b_end))
+    {
+      _divmod_d2n1n(
+          a + n, a_end,
+          b + n, b_end,
+          quo, quo_end,
+          rem + n, rem_end);
+      _mul(
+          quo, quo_end,
+          b, b + n,
+          d.begin(), d.end());
+    }
+    else
+    {
+      fill(quo, quo_end, UINT32_MAX);
+
+      _add(
+          a + n, a + n + n,
+          b + n, b_end,
+          rem + n, rem_end);
+      copy(b, b + n, d.begin() + n);
+      _sub(d.begin(), d.end(), b, b + n);
+    }
+
     copy(a, a + n, rem);
 
     while (_lt(rem, rem_end, d.cbegin(), d.cend()))
@@ -783,8 +799,11 @@ private:
         uint64_t rb = rv[rv.size() - 1];
         rb <<= 32;
         rb |= rv[rv.size() - 2];
-        uint32_t q = rb / yb;
-        vector<uint32_t> yq = _mul(y, {q});
+        uint64_t q = rb / yb;
+        if (q > UINT32_MAX)
+          q = UINT32_MAX;
+
+        vector<uint32_t> yq = _mul(y, {(uint32_t)q});
         // 真の商は q-2 以上 q+1 以下だが自信が無いので念のため while を回す
         while (_lt(rv, yq))
           q--, yq = _sub(yq, y);
@@ -959,11 +978,18 @@ private:
 
   static void _dump(const vector<uint32_t> &a, string s = "")
   {
+    _dump(a.cbegin(), a.cend(), s);
+  }
+
+  static void _dump(citer a, citer a_end, string s = "")
+  {
     if (!s.empty())
       cerr << s << " : ";
     cerr << "{ ";
-    for (int i = 0; i < (int)a.size(); i++)
-      cerr << a[i] << ", ";
+    for (citer it = a; it < a_end; ++it)
+    {
+      cerr << *it << ", ";
+    }
     cerr << "}" << endl;
   }
 };

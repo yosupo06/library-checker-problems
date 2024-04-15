@@ -29,6 +29,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/50"
 [[tests]]
     name = "binary_carry.cpp"
     number = 2
+[[tests]]
+    name = "small_random.cpp"
+    number = 10
+[[tests]]
+    name = "hack.in"
+    number = 3
 
 [params]
     N_MAX = 500_000

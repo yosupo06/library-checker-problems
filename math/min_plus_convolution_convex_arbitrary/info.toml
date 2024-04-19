@@ -34,6 +34,18 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/727"
     name = "near_power_of_2.cpp"
     number = 9
 
+[[tests]]
+    name = "hack.in"
+    number = 1
+
+[[tests]]
+    name = "large_small.cpp"
+    number = 4
+
+[[tests]]
+    name = "only_first_small.cpp"
+    number = 2
+
 [[solutions]]
     name = "naive.cpp"
     wrong = false

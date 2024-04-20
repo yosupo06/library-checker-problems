@@ -26,10 +26,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/897"
     name = "near_circle.cpp"
     number = 2
 
-[[tests]]
-    name = "parabola.cpp"
-    number = 1
-
 [[solutions]]
     name = "output_cyclic_shift.cpp"
 

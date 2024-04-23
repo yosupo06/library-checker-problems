@@ -16,11 +16,11 @@ int main() {
         inf.readSpace();
         int b = inf.readInt(0, n - 1);
         inf.readChar('\n');
-        assert(a != b);
+        ensure(a != b);
         if (a > b) {
             swap(a, b);
         }
-        assert(edges.count(make_pair(a, b)) == 0);
+        ensure(edges.count(make_pair(a, b)) == 0);
         edges.insert(make_pair(a, b));
     }
     inf.readEof();

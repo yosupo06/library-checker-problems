@@ -11,8 +11,8 @@ int main(int argc, char* argv[]) {
     int T = inf.readInt();
 
     for (int t = 0; t < T; ++t) {
-        size_t n = inf.readInt();
         BinaryMat uni, x, y;
+        size_t n = inf.readInt();
         std::vector<int> u(n);
         for (size_t i = 0; i < n; ++i) {
             u[i] = inf.readInt();
@@ -38,11 +38,21 @@ int main(int argc, char* argv[]) {
         if (reslen != correct_dim) {
             quitf(_wa, "invalid dimension, expected %d, got %d", static_cast<int>(correct_dim), static_cast<int>(reslen));
         }
-        
+
+        // res is a subset of X \cap Y
         for (int b: res) {
             if (x.is_indep(b) || y.is_indep(b)) {
                 quitf(_wa, "element %d is not in the intersection", b);
             }
+        }
+
+        // res is linearly independent
+        BinaryMat resmat;
+        for (int b: res) {
+            if (!resmat.is_indep(b)) {
+                quitf(_wa, "element %d is not linearly independent", b);
+            }
+            resmat.add(b);
         }
     }
     quitf(_ok, "OK");

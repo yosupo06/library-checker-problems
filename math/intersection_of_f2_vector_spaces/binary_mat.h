@@ -1,4 +1,4 @@
-struct BinaryMat {
+class BinaryMat {
 private:
     std::vector<int> basis_;
 public:

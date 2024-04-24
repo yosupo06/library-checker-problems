@@ -5,8 +5,6 @@
 #include "../params.h"
 #include "../binary_mat.h"
 
-using namespace std;
-
 std::vector<int> gen_indep(Random &gen, size_t n) {
     BinaryMat mat;
     std::vector<int> res;
@@ -21,11 +19,11 @@ std::vector<int> gen_indep(Random &gen, size_t n) {
     return res;
 }
 
-void out(const vector<int> &a) {
+void out(const std::vector<int> &a) {
     size_t n = a.size();
-    printf("%zu", n);
-    for (auto& v: a) printf(" %d", v);
-    printf("\n");
+    std::printf("%zu", n);
+    for (auto& v: a) std::printf(" %d", v);
+    std::printf("\n");
 }
 
 int main(int, char* argv[]) {
@@ -38,11 +36,11 @@ int main(int, char* argv[]) {
 
     for (int t = 0; t < T; ++t) {
         size_t n = gen.uniform(0LL, NM_MAX);
-        vector<int> u = gen_indep(gen, n);
+        std::vector<int> u = gen_indep(gen, n);
         out(u);
 
         size_t m = gen.uniform(0LL, NM_MAX);
-        vector<int> v = gen_indep(gen, m);
+        std::vector<int> v = gen_indep(gen, m);
         out(v);
     }
 

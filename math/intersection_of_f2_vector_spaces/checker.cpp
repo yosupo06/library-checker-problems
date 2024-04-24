@@ -2,6 +2,7 @@
 #include <vector>
 #include <utility>
 
+#include "params.h"
 #include "testlib.h"
 #include "binary_mat.h"
 
@@ -27,10 +28,10 @@ int main(int argc, char* argv[]) {
             y.add(v[i]);
         }
 
-        size_t reslen = ouf.readInt();
+        size_t reslen = ouf.readInt(0, NM_MAX);
         std::vector<int> res(reslen);
         for (size_t i = 0; i < reslen; ++i) {
-            res[i] = ouf.readInt();
+            res[i] = ouf.readInt(0, UV_MAX);
         }
 
         size_t correct_dim = n + m - uni.basis().size();

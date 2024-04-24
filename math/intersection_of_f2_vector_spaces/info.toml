@@ -30,4 +30,4 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/923"
 [params]
     T_MAX = 100_000
     NM_MAX = 30
-    XY_MAX = 1073741823 # 2^{30} - 1
+    UV_MAX = 1073741823 # 2^{30} - 1

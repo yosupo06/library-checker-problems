@@ -24,14 +24,14 @@ int main() {
         std::vector<int> u(n);
         for (int i = 0; i < n; i++) {
             inf.readSpace();
-            u[i] = inf.readInt(0, XY_MAX);
+            u[i] = inf.readInt(0, UV_MAX);
         }
         inf.readChar('\n');
         int m = inf.readInt(0, NM_MAX);
         std::vector<int> v(m);
         for (int i = 0; i < m; i++) {
             inf.readSpace();
-            v[i] = inf.readInt(0, XY_MAX);
+            v[i] = inf.readInt(0, UV_MAX);
         }
         inf.readChar('\n');
         if (!is_indep(u)) {

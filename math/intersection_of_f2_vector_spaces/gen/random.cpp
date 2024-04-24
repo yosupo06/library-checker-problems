@@ -11,7 +11,7 @@ std::vector<int> gen_indep(Random &gen, size_t n) {
     for (size_t i = 0; i < n; ++i) {
         int x;
         do {
-            x = gen.uniform(0LL, XY_MAX);
+            x = gen.uniform(0LL, UV_MAX);
         } while (!mat.is_indep(x));
         mat.add(x);
         res.push_back(x);

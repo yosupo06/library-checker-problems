@@ -34,7 +34,6 @@ int main() {
             v[i] = inf.readInt(0, XY_MAX);
         }
         inf.readChar('\n');
-        // TODO: check if u and v are linearly independent
         if (!is_indep(u)) {
             quitf(_wa, "u is not linearly independent");
         }

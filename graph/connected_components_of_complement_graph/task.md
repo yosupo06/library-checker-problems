@@ -12,9 +12,21 @@ $N$ 頂点 $M$ 辺の単純無向グラフ $G$ が与えられる。$i$ 番目�
 
 ## @{keyword.constraints}
 
+@{lang.en}
+
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
 - $@{param.M_MIN} \leq M \leq @{param.M_MAX}$
 - $0 \leq a_i, b_i < N$
+- The given graph is simple
+
+@{lang.ja}
+
+- $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
+- $@{param.M_MIN} \leq M \leq @{param.M_MAX}$
+- $0 \leq a_i, b_i < N$
+- 与えられるグラフは単純
+
+@{lang.end}
 
 ## @{keyword.input}
 

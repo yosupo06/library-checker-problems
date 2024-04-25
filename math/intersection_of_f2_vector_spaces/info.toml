@@ -18,6 +18,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/923"
     name = "random.cpp"
     number = 5
 
+[[tests]]
+    name = "nmk_all.cpp"
+    number = 1
+
 [[solutions]]
     name = "correct.cpp"
 

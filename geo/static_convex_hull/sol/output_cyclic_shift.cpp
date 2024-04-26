@@ -80,6 +80,7 @@ vector<int> ConvexHull(vector<pair<T, T>> &XY, string mode = "full",
                        bool inclusive = false) {
   assert(mode == "full" || mode == "lower" || mode == "upper");
   ll N = XY.size();
+  if (N == 0) return {};
   if (N == 1) return {0};
   if (N == 2) {
     if (XY[0] < XY[1]) return {0, 1};
@@ -102,6 +103,7 @@ vector<int> ConvexHull(vector<pair<T, T>> &XY, string mode = "full",
   auto calc = [&]() {
     vector<int> P;
     for (auto &&k: I) {
+      if (len(P) && XY[P.back()] == XY[k]) continue;
       while (P.size() > 1) {
         auto i = P[P.size() - 2];
         auto j = P[P.size() - 1];
@@ -125,7 +127,7 @@ vector<int> ConvexHull(vector<pair<T, T>> &XY, string mode = "full",
     P.insert(P.end(), all(Q));
   }
   if (mode == "upper") reverse(all(P));
-  if (len(P) >= 2 && P[0] == P.back()) P.pop_back();
+  if (len(P) >= 2 && XY[P[0]] == XY[P.back()]) P.pop_back();
   return P;
 }
 

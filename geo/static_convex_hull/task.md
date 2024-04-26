@@ -38,17 +38,17 @@ Note:
 @{lang.en}
 
 - $1\leq T\leq 10^5$
-- $0 \leq N \leq @{param.N_MAX}$
+- $0 \leq N \leq @{param.SUM_N_MAX}$
 - $|x_i|, |y_i| \leq @{param.X_AND_Y_ABS_MAX}$
 - $x_i, y_i$ are integers.
-- The sum of $N$ over all test cases does not exceed $5\times 10^5$
+- The sum of $N$ over all test cases does not exceed $@{param.SUM_N_MAX}$
 
 @{lang.ja}
 - $1\leq T\leq 10^5$
-- $0 \leq N \leq @{param.N_MAX}$
+- $0 \leq N \leq @{param.SUM_N_MAX}$
 - $|x_i|, |y_i| \leq @{param.X_AND_Y_ABS_MAX}$
 - $x_i, y_i$ は整数. 
-- 全てのテストケースに対する $N$ の総和は $5\times 10^5$ を超えない．
+- 全てのテストケースに対する $N$ の総和は $@{param.SUM_N_MAX}$．
 
 @{lang.end}
 

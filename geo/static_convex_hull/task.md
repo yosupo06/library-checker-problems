@@ -71,13 +71,13 @@ $\vdots$
 
 ## @{keyword.output}
 
-@{lang.ja}
-
-各テストケースに対して頂点の座標を以下の形式で出力してください．
-
 @{lang.en}
 
 For each testcase, print the coordinates in the following format. 
+
+@{lang.ja}
+
+各テストケースに対して頂点の座標を以下の形式で出力してください．
 
 @{lang.end}
 

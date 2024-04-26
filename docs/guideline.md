@@ -93,7 +93,7 @@ markdown + mathjax形式です。他のtask.mdをコピペして弄ればいい�
 
 - 言語はC++
 - 普段使いのテンプレートとかはOK、でも使ってないテンプレートが100行貼ってあるとかはやめてほしい
-- `cin / cout`ではなく`scanf / printf`を使う(高速入出力でも可)
+- `cin / cout`ではなく`scanf / printf`を使う(高速入出力ライブラリも可、`cin / cout + ios::... + cin.tie` は macOS で非常に低速になるので不可)
 - 警告を無視しない
 - `params.h`など、外部のファイルを(std以外)使わない
 - 環境依存性がない(=Windows, mac, linux全てで同じように動く) これはCIがチェックするのでそれを見ればいいです

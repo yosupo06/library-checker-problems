@@ -10,7 +10,12 @@ using P = pair<int, int>;
 P random_point(Random& gen) {
   long long R = X_AND_Y_ABS_MAX;
   long long x = gen.uniform(-R, R);
-  long long y = sqrtl(R * R - x * x);
+  long long ok = 0, ng = R + 1;
+  while (ok + 1 < ng) {
+    long long mi = (ok + ng) / 2;
+    (x * x + mi * mi <= R * R ? ok : ng) = mi;
+  }
+  long long y = ok;
   if (gen.uniform<int>(0, 1)) y = -y;
   if (gen.uniform<int>(0, 1)) swap(x, y);
   return {x, y};

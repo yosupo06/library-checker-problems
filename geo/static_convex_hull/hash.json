@@ -7,6 +7,8 @@
   "example_00.out": "cf65132621da49bbfe3aadcba3f6fd1a05d5a93cd481e909bcd9fed3f57edbb6",
   "example_01.in": "bbbb8b81b630f7f49a9fa19850ec15db135c87e3b810e16fd64f2bb0bcf75138",
   "example_01.out": "a2e444e80ddcd8302c0cae311f730a89c0fac1983f05d67390f255d344727bbb",
+  "max_ans_00.in": "d9a60c640d44fc44fadf771950c75480fb2ba2ac0ebc2bbe51e99e46301b0644",
+  "max_ans_00.out": "164b2f6eb288fdcf9488d2a533cffa03325a5b9b5c054e97869005ab41ec7faa",
   "max_colinear_00.in": "5d4f28d52e3dd30d222d59841d229d4b80341c93dd913302292a6621672bf2ac",
   "max_colinear_00.out": "260584105867cb16ef78fabd0b30a23a0ee0a6e9136980fdff6842d589276a56",
   "max_colinear_01.in": "395f91f1c4db482a7bc5b8756f10e4edbfd6d619df7cbd452a5602afbd276d02",

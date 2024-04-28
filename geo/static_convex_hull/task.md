@@ -84,10 +84,10 @@ For each testcase, print the coordinates in the following format.
 
 ```
 $M$
-$x_0$ $y_0$
-$x_1$ $y_1$
+$x'_0$ $y'_0$
+$x'_1$ $y'_1$
 :
-$x_{M - 1}$ $y_{M - 1}$
+$x'_{M - 1}$ $y'_{M - 1}$
 ```
 
 ## @{keyword.sample}

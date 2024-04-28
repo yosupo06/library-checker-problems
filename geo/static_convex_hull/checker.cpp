@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
       A.emplace_back(x, y);
     }
 
-    int M2 = ouf.readInt();
+    int M2 = ouf.readInt(M1, M1);
     for (int i = 0; i < M2; ++i) {
       int x = ouf.readInt();
       int y = ouf.readInt();

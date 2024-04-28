@@ -27,7 +27,7 @@ int main(int, char* argv[]) {
   long long seed = atoll(argv[1]);
   auto gen = Random(seed);
 
-  int lims[] = {X_AND_Y_ABS_MAX, 2, 5, 10};
+  int lims[] = {X_AND_Y_ABS_MAX, 10, 1000, 100000};
 
   int LIM = lims[seed % 4];
 

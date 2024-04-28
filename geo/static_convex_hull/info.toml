@@ -1,0 +1,39 @@
+title = 'Static Convex Hull'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/897"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+    
+[[tests]]
+    name = "all_same.cpp"
+    number = 2
+
+[[tests]]
+    name = "small_random.cpp"
+    number = 8
+
+[[tests]]
+    name = "max_random.cpp"
+    number = 8
+
+[[tests]]
+    name = "max_colinear.cpp"
+    number = 2
+
+[[tests]]
+    name = "near_circle.cpp"
+    number = 2
+
+[[tests]]
+    name = "max_ans.cpp"
+    number = 1
+
+[[solutions]]
+    name = "output_cyclic_shift.cpp"
+
+[params]
+    T_MAX = 100_000
+    SUM_N_MAX = 500_000
+    X_AND_Y_ABS_MAX = 1_000_000_000

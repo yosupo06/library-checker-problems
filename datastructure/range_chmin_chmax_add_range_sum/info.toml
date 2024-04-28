@@ -23,6 +23,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/243"
 [[tests]]
     name = "max_random.cpp"
     number = 3
+[[tests]]
+    name = "small_absolute_values.cpp"
+    number = 3
 
 [[solutions]]
     name = "correct_with_assert.cpp"

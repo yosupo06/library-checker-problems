@@ -354,102 +354,6 @@ struct LazyMontgomeryModInt {
 
 using namespace std;
 
-// コンストラクタの MAX に 「C(n, r) や fac(n) でクエリを投げる最大の n 」
-// を入れると倍速くらいになる
-// mod を超えて前計算して 0 割りを踏むバグは対策済み
-template <typename T>
-struct Binomial {
-  vector<T> f, g, h;
-  Binomial(int MAX = 0) {
-    assert(T::get_mod() != 0 && "Binomial<mint>()");
-    f.resize(1, T{1});
-    g.resize(1, T{1});
-    h.resize(1, T{1});
-    if (MAX > 0) extend(MAX + 1);
-  }
-
-  void extend(int m = -1) {
-    int n = f.size();
-    if (m == -1) m = n * 2;
-    m = min<int>(m, T::get_mod());
-    if (n >= m) return;
-    f.resize(m);
-    g.resize(m);
-    h.resize(m);
-    for (int i = n; i < m; i++) f[i] = f[i - 1] * T(i);
-    g[m - 1] = f[m - 1].inverse();
-    h[m - 1] = g[m - 1] * f[m - 2];
-    for (int i = m - 2; i >= n; i--) {
-      g[i] = g[i + 1] * T(i + 1);
-      h[i] = g[i] * f[i - 1];
-    }
-  }
-
-  T fac(int i) {
-    if (i < 0) return T(0);
-    while (i >= (int)f.size()) extend();
-    return f[i];
-  }
-
-  T finv(int i) {
-    if (i < 0) return T(0);
-    while (i >= (int)g.size()) extend();
-    return g[i];
-  }
-
-  T inv(int i) {
-    if (i < 0) return -inv(-i);
-    while (i >= (int)h.size()) extend();
-    return h[i];
-  }
-
-  T C(int n, int r) {
-    if (n < 0 || n < r || r < 0) return T(0);
-    return fac(n) * finv(n - r) * finv(r);
-  }
-
-  inline T operator()(int n, int r) { return C(n, r); }
-
-  template <typename I>
-  T multinomial(const vector<I>& r) {
-    static_assert(is_integral<I>::value == true);
-    int n = 0;
-    for (auto& x : r) {
-      if (x < 0) return T(0);
-      n += x;
-    }
-    T res = fac(n);
-    for (auto& x : r) res *= finv(x);
-    return res;
-  }
-
-  template <typename I>
-  T operator()(const vector<I>& r) {
-    return multinomial(r);
-  }
-
-  T C_naive(int n, int r) {
-    if (n < 0 || n < r || r < 0) return T(0);
-    T ret = T(1);
-    r = min(r, n - r);
-    for (int i = 1; i <= r; ++i) ret *= inv(i) * (n--);
-    return ret;
-  }
-
-  T P(int n, int r) {
-    if (n < 0 || n < r || r < 0) return T(0);
-    return fac(n) * finv(n - r);
-  }
-
-  // [x^r] 1 / (1-x)^n
-  T H(int n, int r) {
-    if (n < 0 || r < 0) return T(0);
-    return r == 0 ? 1 : C(n + r - 1, r);
-  }
-};
-
-using namespace std;
-
 template <typename T>
 struct edge {
   int src, to;
@@ -471,92 +375,10 @@ template <typename T>
 using WeightedGraph = vector<Edges<T>>;
 using UnweightedGraph = vector<vector<int>>;
 
-// Input of (Unweighted) Graph
-UnweightedGraph graph(int N, int M = -1, bool is_directed = false,
-                      bool is_1origin = true) {
-  UnweightedGraph g(N);
-  if (M == -1) M = N - 1;
-  for (int _ = 0; _ < M; _++) {
-    int x, y;
-    cin >> x >> y;
-    if (is_1origin) x--, y--;
-    g[x].push_back(y);
-    if (!is_directed) g[y].push_back(x);
-  }
-  return g;
-}
-
-// Input of Weighted Graph
-template <typename T>
-WeightedGraph<T> wgraph(int N, int M = -1, bool is_directed = false,
-                        bool is_1origin = true) {
-  WeightedGraph<T> g(N);
-  if (M == -1) M = N - 1;
-  for (int _ = 0; _ < M; _++) {
-    int x, y;
-    cin >> x >> y;
-    T c;
-    cin >> c;
-    if (is_1origin) x--, y--;
-    g[x].emplace_back(x, y, c);
-    if (!is_directed) g[y].emplace_back(y, x, c);
-  }
-  return g;
-}
-
-// Input of Adjacency Matrix
-template <typename T>
-vector<vector<T>> adjgraph(int N, int M, T INF, int is_weighted = true,
-                           bool is_directed = false, bool is_1origin = true) {
-  vector<vector<T>> d(N, vector<T>(N, INF));
-  for (int _ = 0; _ < M; _++) {
-    int x, y;
-    cin >> x >> y;
-    T c;
-    if (is_weighted)
-      cin >> c;
-    else
-      c = 1;
-    if (is_1origin) x--, y--;
-    d[x][y] = c;
-    if (!is_directed) d[y][x] = c;
-  }
-  return d;
-}
-
 /**
  * @brief グラフテンプレート
  * @docs docs/graph/graph-template.md
  */
-
-template <typename T>
-struct has_cost {
- private:
-  template <typename U>
-  static auto confirm(U u) -> decltype(u.cost, std::true_type());
-  static auto confirm(...) -> std::false_type;
-
- public:
-  enum : bool { value = decltype(confirm(std::declval<T>()))::value };
-};
-
-template <typename T>
-vector<vector<T>> inverse_tree(const vector<vector<T>>& g) {
-  int N = (int)g.size();
-  vector<vector<T>> rg(N);
-  for (int i = 0; i < N; i++) {
-    for (auto& e : g[i]) {
-      if constexpr (is_same<T, int>::value) {
-        rg[e].push_back(i);
-      } else if constexpr (has_cost<T>::value) {
-        rg[e].emplace_back(e.to, i, e.cost);
-      } else {
-        assert(0);
-      }
-    }
-  }
-  return rg;
-}
 
 template <typename T>
 vector<vector<T>> rooted_tree(const vector<vector<T>>& g, int root = 0) {
@@ -853,33 +675,6 @@ struct DPonStaticTopTreeVertexBased {
 using StaticTopTreeVertexBasedImpl::DPonStaticTopTreeVertexBased;
 using StaticTopTreeVertexBasedImpl::StaticTopTreeVertexBased;
 
-/*
-
-  // template
-  using Path = ;
-  using Point = ;
-  auto vertex = [&](int) -> Path {
-
-  };
-  auto compress = [&](const Path& p, const Path& c) -> Path {
-
-  };
-  auto rake = [&](const Point& l, const Point& r) -> Point {
-
-  };
-  auto add_edge = [&](const Path& d) -> Point {
-
-  };
-  auto add_vertex = [&](const Point& d, int) -> Path {
-
-  };
-  HeavyLightDecomposition hld{g};
-  DPonStaticTopTreeVertexBased<vector<vector<int>>, Path, Point,
-  decltype(vertex), decltype(compress), decltype(rake), decltype(add_edge),
-                    decltype(add_vertex)>
-      dp(hld, vertex, compress, rake, add_edge, add_vertex);
-*/
-
 /**
  * @brief Static Top Tree
  */
@@ -974,50 +769,6 @@ vector<mint> naive(int N, int Q, vector<int> A, vector<int> U, vector<int> V,
   }
   return ans;
 }
-
-/*
-#include "misc/rng.hpp"
-#include "template/util.hpp"
-
-//
-#include "template/debug.hpp"
-
-void test() {
-  int mod = 998244353;
-  int upper = mod - 1;
-  rep(t, 100) {
-    int N = rng(1, 100);
-    int Q = 100;
-    vector<int> A(N);
-    each(x, A) x = rng(0, upper);
-    vector<int> U(N - 1), V(N - 1), B(N - 1), C(N - 1);
-    rep(i, N - 1) {
-      U[i] = rng(0, i);
-      V[i] = i + 1;
-      B[i] = rng(0, upper);
-      C[i] = rng(0, upper);
-    }
-    vector<int> cmd(Q), I(Q), X(Q), Y(Q, -1);
-    rep(i, Q) {
-      cmd[i] = rng(0, 1);
-      if (N == 1) cmd[i] = 0;
-      if (cmd[i] == 0) {
-        I[i] = rng(0, N - 1);
-        X[i] = rng(0, upper);
-      } else {
-        I[i] = rng(0, N - 2);
-        X[i] = rng(0, upper);
-        Y[i] = rng(0, upper);
-      }
-    }
-    auto an = naive(N, Q, A, U, V, B, C, cmd, I, X, Y);
-    auto ac = calc(N, Q, A, U, V, B, C, cmd, I, X, Y);
-    assert(an == ac);
-  }
-  trc2("OK");
-  exit(0);
-}
-*/
 
 int main() {
   // test();

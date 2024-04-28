@@ -47,9 +47,9 @@ $Q$ 個のクエリを与えられる順に処理してください。各クエ�
 - All input are integers.
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
 - $0 \leq u _ i, v _ i \leq N - 1$
-- $@{param.A_MIN} \leq a _ i \lt @{param.MOD}$
-- $@{param.B_MIN} \leq b _ i \lt @{param.MOD}$
-- $@{param.C_MIN} \leq c _ i \lt @{param.MOD}$
+- $@{param.A_MIN} \leq a _ w \lt @{param.MOD}$
+- $@{param.B_MIN} \leq b _ e \lt @{param.MOD}$
+- $@{param.C_MIN} \leq c _ e \lt @{param.MOD}$
 - $0 \leq w \leq N - 1$
 - $0 \leq e \leq N - 2$
 - $@{param.A_MIN} \leq x \lt @{param.MOD}$
@@ -60,9 +60,9 @@ $Q$ 個のクエリを与えられる順に処理してください。各クエ�
 - 入力は全て整数である
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
 - $0 \leq u _ i, v _ i \leq N - 1$
-- $@{param.A_MIN} \leq a _ i \lt @{param.MOD}$
-- $@{param.B_MIN} \leq b _ i \lt @{param.MOD}$
-- $@{param.C_MIN} \leq c _ i \lt @{param.MOD}$
+- $@{param.A_MIN} \leq a _ w \lt @{param.MOD}$
+- $@{param.B_MIN} \leq b _ e \lt @{param.MOD}$
+- $@{param.C_MIN} \leq c _ e \lt @{param.MOD}$
 - $0 \leq w \leq N - 1$
 - $0 \leq e \leq N - 2$
 - $@{param.A_MIN} \leq x \lt @{param.MOD}$
@@ -84,7 +84,7 @@ $\mathrm{Query}_i$ は $i$ 番目のクエリを意味する。
 @{lang.end}
 
 ```
-$N$
+$N$ $Q$
 $a _ 0$ $a _ 1$ $\ldots$ $a _ {N-1}$
 $u _ 0$ $v _ 0$ $b _ 0$ $c _ 0$
 $u _ 1$ $v _ 1$ $b _ 1$ $c _ 1$

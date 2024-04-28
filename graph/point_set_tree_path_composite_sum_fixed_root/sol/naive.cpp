@@ -230,11 +230,11 @@ void wt() {}
 template <typename Head, typename... Tail>
 void wt(const Head& head, const Tail&... tail) {
   single_write(head);
-  wt(forward<const Tail>(tail)...);
+  wt(std::forward<const Tail>(tail)...);
 }
 template <typename... Args>
 void wtn(const Args&... x) {
-  wt(forward<const Args>(x)...);
+  wt(std::forward<const Args>(x)...);
   wt('\n');
 }
 
@@ -502,24 +502,6 @@ WeightedGraph<T> wgraph(int N, int M = -1, bool is_directed = false,
     if (!is_directed) g[y].emplace_back(y, x, c);
   }
   return g;
-}
-
-// Input of Edges
-template <typename T>
-Edges<T> esgraph(int N, int M, int is_weighted = true, bool is_1origin = true) {
-  Edges<T> es;
-  for (int _ = 0; _ < M; _++) {
-    int x, y;
-    cin >> x >> y;
-    T c;
-    if (is_weighted)
-      cin >> c;
-    else
-      c = 1;
-    if (is_1origin) x--, y--;
-    es.emplace_back(x, y, c);
-  }
-  return es;
 }
 
 // Input of Adjacency Matrix

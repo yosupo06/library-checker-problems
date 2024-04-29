@@ -46,6 +46,7 @@ $Q$ 個のクエリを与えられる順に処理してください。各クエ�
 @{lang.en}
 - All input are integers.
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
+- $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
 - $0 \leq u _ i, v _ i \leq N - 1$
 - $@{param.A_MIN} \leq a _ w \lt @{param.MOD}$
 - $@{param.B_MIN} \leq b _ e \lt @{param.MOD}$
@@ -60,6 +61,7 @@ $Q$ 個のクエリを与えられる順に処理してください。各クエ�
 @{lang.ja}
 - 入力は全て整数である
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
+- $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
 - $0 \leq u _ i, v _ i \leq N - 1$
 - $@{param.A_MIN} \leq a _ w \lt @{param.MOD}$
 - $@{param.B_MIN} \leq b _ e \lt @{param.MOD}$

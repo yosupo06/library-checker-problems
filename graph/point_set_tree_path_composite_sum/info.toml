@@ -1,6 +1,6 @@
-title = 'Point Set Tree Path Composite Sum (Fixed Root)'
+title = 'Point Set Tree Path Composite Sum'
 timelimit = 10.0
-forum = "https://github.com/yosupo06/library-checker-problems/issues/1136"
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1142"
 
 [[tests]]
     name = "example.in"

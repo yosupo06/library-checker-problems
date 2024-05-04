@@ -21,5 +21,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/931"
     name = "bruteforce.cpp"
     allow_tle = true
 
+[[solutions]]
+    name = "mod998244353.cpp"
+    allow_wa = true
+
 [params]
     S_LEN_MAX = 524288

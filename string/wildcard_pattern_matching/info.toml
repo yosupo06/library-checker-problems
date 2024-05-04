@@ -14,6 +14,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/931"
     name = "random_ab.cpp"
     number = 5
 
+[[tests]]
+    name = "alternating.cpp"
+    number = 5
+
 [[solutions]]
     name = "correct.cpp"
 

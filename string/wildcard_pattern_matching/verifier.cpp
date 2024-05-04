@@ -7,9 +7,9 @@ int main()
 {
     registerValidation();
 
-    std::string s = inf.readToken(std::format("[a-z\*]{%d, %d}", 1, S_LEN_MAX));
+    std::string s = inf.readToken(format("[a-z*]{%d, %d}", 1, int(S_LEN_MAX)));
     inf.readChar('\n');
-    std::string t = inf.readToken(std::format("[a-z\*]{%d, %d}", 1, s.size()));
+    std::string t = inf.readToken(format("[a-z*]{%d, %d}", 1, int(s.size())));
     inf.readChar('\n');
     inf.readEof();
     return 0;

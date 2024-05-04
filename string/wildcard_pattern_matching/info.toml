@@ -4,29 +4,21 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/931"
 
 [[tests]]
     name = "example.in"
-    number = 4
-
-[[tests]]
-    name = "small.cpp"
-    number = 5
+    number = 1
 
 [[tests]]
     name = "random.cpp"
     number = 5
 
 [[tests]]
-    name = "max_random.cpp"
-    number = 5
-
-[[tests]]
-    name = "all_same.cpp"
+    name = "random_ab.cpp"
     number = 5
 
 [[solutions]]
-    name = "solution_ref.cpp"
+    name = "correct.cpp"
 
 [[solutions]]
-    name = "solution_bruteforce.cpp"
+    name = "bruteforce.cpp"
     allow_tle = true
 
 [params]

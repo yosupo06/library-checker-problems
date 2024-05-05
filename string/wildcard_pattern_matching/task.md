@@ -17,7 +17,7 @@
 ## @{keyword.constraints}
 
 @{lang.ja}
-- $1 \leq |T| \leq |S| < 2^{19}$
+- $1 \leq |T| \leq |S| < @{param.S_LEN_MAX}$
 - $S,T$ は英小文字とアスタリスクからなる。
 @{lang.end}
 

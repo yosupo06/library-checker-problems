@@ -1,12 +1,13 @@
 #include <iostream>
 #include "random.h"
+#include "../params.h"
 
 int main(int, char *argv[])
 {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
 
-    int n = gen.uniform(1, (1 << 19) - 1);
+    int n = gen.uniform(1, int(S_LEN_MAX));
     int m = gen.uniform(1, n);
 
     auto gen_asterisk_string_alternating = [&gen](size_t n, double prob)

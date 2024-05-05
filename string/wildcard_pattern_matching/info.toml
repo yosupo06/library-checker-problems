@@ -18,6 +18,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/931"
     name = "alternating.cpp"
     number = 5
 
+[[tests]]
+    name = "hack_998244353.cpp"
+    number = 3
+
 [[solutions]]
     name = "correct.cpp"
 
@@ -27,7 +31,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/931"
 
 [[solutions]]
     name = "mod998244353.cpp"
-    allow_wa = true
+    wrong = true
 
 [params]
     S_LEN_MAX = 524288

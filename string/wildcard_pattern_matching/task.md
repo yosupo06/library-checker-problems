@@ -11,7 +11,7 @@ We say that strings $S'$ and $T'$ are matched if they satisfy one of:
 
 for each $0\leq i<|S'|$.
 
-For each $0\leq i<|S|-|T|$, find if $S[i,i+|T|)$ and $T$ are matched.
+For each $0\leq i\leq|S|-|T|$, find if $S[i,i+|T|)$ and $T$ are matched.
 @{lang.end}
 @{lang.ja}
 英小文字とアスタリスク（`*`）からなる文字列 $S$, $T$ が与えられます。
@@ -24,7 +24,7 @@ For each $0\leq i<|S|-|T|$, find if $S[i,i+|T|)$ and $T$ are matched.
 
 のいずれかを満たす時，$S'$ と $T'$ はマッチすると呼ぶことにします。
 
-各 $0\leq i<|S|-|T|$ について $S[i,i+|T|)$ と $T$ がマッチしているかを求めてください。
+各 $0\leq i\leq|S|-|T|$ について $S[i,i+|T|)$ と $T$ がマッチしているかを求めてください。
 @{lang.end}
 
 ## @{keyword.constraints}

@@ -3,7 +3,7 @@
 @{lang.en}
 Given strings $S$ and $T$ consisting of lowercase English letters and asterisks (`*`).
 
-We say that strings $S'$ and $T'$ are matched if they satisfy either
+We say that strings $S'$ and $T'$ are matched if they satisfy one of:
 
 * $S'_i$ = $T'_i$
 * $S'_i$ = `*`

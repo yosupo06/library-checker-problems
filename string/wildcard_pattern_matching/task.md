@@ -16,7 +16,7 @@ For each $0\leq i\leq|S|-|T|$, find if $S[i,i+|T|)$ and $T$ are matched.
 @{lang.ja}
 英小文字とアスタリスク（`*`）からなる文字列 $S$, $T$ が与えられます。
 
-文字列 $S'$ と $T'$ が各 $0\leq i<|S'|$ について
+文字列 $S'$ と $T'$ が $|S'|=|T'|$ を満たし、各 $0\leq i<|S'|$ について
 
 * $S'_i$ =$T'_i$
 * $S'_i$ = `*`

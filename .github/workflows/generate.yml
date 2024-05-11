@@ -29,10 +29,10 @@ jobs:
   generate:
     runs-on: ${{ inputs.os }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python 3.x
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
       - name: Install dependencies
@@ -41,7 +41,7 @@ jobs:
           pip install --user -r requirements.txt
 
       - name: Restore versions.json
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         if: ${{ !inputs.force-generate }}
         with:
           path: versions.json
@@ -60,7 +60,7 @@ jobs:
           VERSIONS_CACHE_PATH: versions.json
 
       - name: Save versions.json
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
         with:
           path: versions.json
           key: ${{ runner.os }}-(${{ inputs.cxx }})-versions-cache-${{ hashFiles('versions.json') }}

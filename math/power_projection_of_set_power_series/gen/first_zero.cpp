@@ -12,6 +12,7 @@ void out(Random& gen, int N, int M) {
   for (int i = 0; i < (1 << N); ++i) {
     if (i) printf(" ");
     int x = gen.uniform<int>(0, MOD - 1);
+    if (i == 0) x = 0;
     printf("%d", x);
   }
   printf("\n");
@@ -19,7 +20,6 @@ void out(Random& gen, int N, int M) {
   for (int i = 0; i < (1 << N); ++i) {
     if (i) printf(" ");
     int x = gen.uniform<int>(0, MOD - 1);
-    if (i == 0) x = 0;
     printf("%d", x);
   }
   printf("\n");

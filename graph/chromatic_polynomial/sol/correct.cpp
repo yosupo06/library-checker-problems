@@ -1,30 +1,15 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <cassert>
+#include <numeric>
+#include <cstdio>
+#include <array>
+#include <algorithm>
 
 using namespace std;
 
 using ll = long long;
 using u32 = unsigned int;
 using u64 = unsigned long long;
-using i128 = __int128;
-using u128 = unsigned __int128;
-using f128 = __float128;
-
-template <class T>
-constexpr T infty = 0;
-template <>
-constexpr int infty<int> = 1'000'000'000;
-template <>
-constexpr ll infty<ll> = ll(infty<int>) * infty<int> * 2;
-template <>
-constexpr u32 infty<u32> = infty<int>;
-template <>
-constexpr u64 infty<u64> = infty<ll>;
-template <>
-constexpr i128 infty<i128> = i128(infty<ll>) * infty<ll>;
-template <>
-constexpr double infty<double> = infty<ll>;
-template <>
-constexpr long double infty<long double> = infty<ll>;
 
 using pi = pair<ll, ll>;
 using vi = vector<ll>;
@@ -32,26 +17,6 @@ template <class T>
 using vc = vector<T>;
 template <class T>
 using vvc = vector<vc<T>>;
-template <class T>
-using vvvc = vector<vvc<T>>;
-template <class T>
-using vvvvc = vector<vvvc<T>>;
-template <class T>
-using vvvvvc = vector<vvvvc<T>>;
-template <class T>
-using pq = priority_queue<T>;
-template <class T>
-using pqg = priority_queue<T, vector<T>, greater<T>>;
-
-#define vv(type, name, h, ...) \
-  vector<vector<type>> name(h, vector<type>(__VA_ARGS__))
-#define vvv(type, name, h, w, ...)   \
-  vector<vector<vector<type>>> name( \
-      h, vector<vector<type>>(w, vector<type>(__VA_ARGS__)))
-#define vvvv(type, name, a, b, c, ...)       \
-  vector<vector<vector<vector<type>>>> name( \
-      a, vector<vector<vector<type>>>(       \
-             b, vector<vector<type>>(c, vector<type>(__VA_ARGS__))))
 
 // https://trap.jp/post/1224/
 #define FOR1(a) for (ll _ = 0; _ < ll(a); ++_)
@@ -237,10 +202,8 @@ struct modint {
   constexpr modint() : val(0) {}
   constexpr modint(u32 x) : val(x % umod) {}
   constexpr modint(u64 x) : val(x % umod) {}
-  constexpr modint(u128 x) : val(x % umod) {}
   constexpr modint(int x) : val((x %= mod) < 0 ? x + mod : x){};
   constexpr modint(ll x) : val((x %= mod) < 0 ? x + mod : x){};
-  constexpr modint(i128 x) : val((x %= mod) < 0 ? x + mod : x){};
   bool operator<(const modint& other) const { return val < other.val; }
   modint& operator+=(const modint& p) {
     if ((val += p.val) >= umod) val -= umod;

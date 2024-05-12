@@ -12,7 +12,7 @@ int main(int, char* argv[]) {
   long long seed = atoll(argv[1]);
   auto rnd = Random(seed);
 
-  int N = rnd.uniform(N_MIN, N_MAX);
+  int N = N_MAX;
   int M = N;
 
   vector<int> V(N);
@@ -21,9 +21,8 @@ int main(int, char* argv[]) {
 
   vector<pair<int, int>> edges;
   for (int v = 1; v < N; ++v) { edges.emplace_back(V[v - 1], V[v]); }
-  int u = rnd.uniform<int>(0, N - 1);
-  int v = rnd.uniform<int>(0, N - 1);
-  edges.emplace_back(u, v);
+  auto [i, j] = rnd.uniform_pair<int>(0, N - 1);
+  edges.emplace_back(V[j], V[i]);
 
   rnd.shuffle(edges.begin(), edges.end());
 

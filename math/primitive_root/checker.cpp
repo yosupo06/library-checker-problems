@@ -197,7 +197,7 @@ bool check_primitive_root(ll p, ll r) {
   for (auto &&[q, k]: factor(p - 1)) {
     if (mod_pow_long(r, (p - 1) / q, p) == 1) return false;
   }
-  return true;
+  return r != 0;
 }
 
 int main(int argc, char *argv[]) {

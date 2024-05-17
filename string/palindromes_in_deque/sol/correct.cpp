@@ -153,7 +153,7 @@ public:
 
     void pushFront(Char ch){
         auto par = deq.empty() ? Odd.get() : frontAppendable(ch, deq.front().presurf);
-        auto n = int(deq.size());
+        // auto n = int(deq.size());
         Node* v = nullptr;
         Node* w = Even.get();
         auto vit = par->next.find(ch);
@@ -167,7 +167,7 @@ public:
             v->link = w;
             w->linkcnt += 1;
             deq.push_front(DequeNode{ ch, Even.get(), Even.get() });
-            n += 1;
+            // n += 1;
             if(w->link != Odd.get() && deq[w->len].ch == deq[w->link->len].ch){
                 v->quick = w->quick;
             } else {
@@ -177,7 +177,7 @@ public:
             numNodes += 1;
         } else {
             deq.push_front(DequeNode{ ch, Even.get(), Even.get() });
-            n += 1;
+            // n += 1;
             v = vit->second;
             w = v->link;
         }

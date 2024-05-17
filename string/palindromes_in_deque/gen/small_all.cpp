@@ -28,7 +28,7 @@ int main(int, char* argv[]) {
     int len = 0;
     while (required_query_count(sigma, len + 1) <= Q_MAX) len += 1;
 
-    auto alphabet = gen.choice(3, 'a', 'z');
+    auto alphabet = gen.choice(sigma, 'a', 'z');
     gen.shuffle(alphabet.begin(), alphabet.end());
 
     vector<Query> buf;

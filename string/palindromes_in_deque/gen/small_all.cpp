@@ -4,6 +4,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <vector>
+#include <utility>
 #include "random.h"
 #include "../params.h"
 
@@ -46,7 +47,7 @@ int main(int, char* argv[]) {
             for (auto query : buf) new_buf.push_back(query);
             new_buf.push_back({ 2, '-' });
         }
-        buf = move(new_buf);
+        buf = std::move(new_buf);
     }
 
     printf("%d\n", int(buf.size()));

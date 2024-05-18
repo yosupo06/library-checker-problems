@@ -257,17 +257,17 @@ int main(){
         int t; scanf("%d", &t);
         if(t == 0){
             char c; scanf(" %c", &c);
-            deq.pushBack(c);
+            deq.pushFront(c);
         }
         else if(t == 1){
             char c; scanf(" %c", &c);
-            deq.pushFront(c);
+            deq.pushBack(c);
         }
         else if(t == 2){
-            deq.popBack();
+            deq.popFront();
         }
         else if(t == 3){
-            deq.popFront();
+            deq.popBack();
         }
         printf("%d %d %d\n",
             deq.numDistinctPalindromes(),

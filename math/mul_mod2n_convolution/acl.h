@@ -2,8 +2,6 @@
  *  date : 2021-10-27 01:38:34
  */
 
-#define NDEBUG
-
 #include <algorithm>
 #include <array>
 #include <cassert>

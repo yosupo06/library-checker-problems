@@ -52,7 +52,7 @@ std::pair<ptr, ptr> split(ptr p, int i) {
     return {std::move(l), std::move(p)};
   } else {
     auto [l, r] = split(std::move(p->r), i - s - 1);
-    p->r = move(l);
+    p->r = std::move(l);
     update(p);
     return {std::move(p), std::move(r)};
   }

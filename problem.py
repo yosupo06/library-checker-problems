@@ -494,7 +494,7 @@ class Problem:
         self.generate_params_h()
 
         if mode == self.Mode.CLEAN:
-            logger.info('Clean input & output directry of {}'.format(
+            logger.info('Cleaning input & output directory of {}'.format(
                 self.basedir.name))
             self.clean()
             return
@@ -536,6 +536,6 @@ def find_problem_dir(rootdir: Path, problem_name: Path) -> Optional[Path]:
         logger.error('Cannot find problem: {}'.format(problem_name))
         return None
     if len(tomls) >= 2:
-        logger.error('Find multiple problem dirs: {}'.format(problem_name))
+        logger.error('Found multiple problem dirs: {}'.format(problem_name))
         return None
     return tomls[0].parent

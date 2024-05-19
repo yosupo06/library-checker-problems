@@ -13,7 +13,7 @@ jobs:
         include:
           - os: ubuntu-latest
             cxx: g++-12
-          - os: ubuntu-beta
+          - os: ubuntu-24.04
             cxx: g++-13
           - os: macos-latest
             cxx: clang++

@@ -9,8 +9,6 @@ using namespace std;
 using ll = long long;
 using u32 = unsigned int;
 using u64 = unsigned long long;
-using i128 = __int128;
-using u128 = unsigned __int128;
 
 using pi = pair<ll, ll>;
 using vi = vector<ll>;
@@ -103,23 +101,26 @@ struct Barrett {
   explicit Barrett(u32 m = 1) : m(m), im(u64(-1) / m + 1) {}
   u32 umod() const { return m; }
   u32 modulo(u64 z) {
-    if (m == 1) return 0;
-    u64 x = (u64)(((unsigned __int128)(z)*im) >> 64);
-    u64 y = x * m;
-    return (z - y + (z < y ? m : 0));
+    // if (m == 1) return 0;
+    // u64 x = (u64)(((unsigned __int128)(z)*im) >> 64);
+    // u64 y = x * m;
+    // return (z - y + (z < y ? m : 0));
+    return z % m;
   }
   u64 floor(u64 z) {
-    if (m == 1) return z;
-    u64 x = (u64)(((unsigned __int128)(z)*im) >> 64);
-    u64 y = x * m;
-    return (z < y ? x - 1 : x);
+    // if (m == 1) return z;
+    // u64 x = (u64)(((unsigned __int128)(z)*im) >> 64);
+    // u64 y = x * m;
+    // return (z < y ? x - 1 : x);
+    return z / m;
   }
   pair<u64, u32> divmod(u64 z) {
-    if (m == 1) return {z, 0};
-    u64 x = (u64)(((unsigned __int128)(z)*im) >> 64);
-    u64 y = x * m;
-    if (z < y) return {x - 1, z - y + m};
-    return {x, z - y};
+    // if (m == 1) return {z, 0};
+    // u64 x = (u64)(((unsigned __int128)(z)*im) >> 64);
+    // u64 y = x * m;
+    // if (z < y) return {x - 1, z - y + m};
+    // return {x, z - y};
+    return {z / m, z % m};
   }
   u32 mul(u32 a, u32 b) { return modulo(u64(a) * b); }
 };
@@ -148,7 +149,6 @@ struct Dynamic_Modint {
   Dynamic_Modint(u64 x) : val(bt.modulo(x)) {}
   Dynamic_Modint(int x) : val((x %= get_mod()) < 0 ? x + get_mod() : x) {}
   Dynamic_Modint(ll x) : val((x %= get_mod()) < 0 ? x + get_mod() : x) {}
-  Dynamic_Modint(i128 x) : val((x %= get_mod()) < 0 ? x + get_mod() : x){};
 
   mint& operator+=(const mint& rhs) {
     val = (val += rhs.val) < umod() ? val : val - umod();

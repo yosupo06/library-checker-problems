@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <type_traits>
 #include <vector>
+#include <tuple>
 
 #ifdef _MSC_VER
 #include <intrin.h>

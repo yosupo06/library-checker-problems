@@ -28,7 +28,7 @@ int main(int, char *argv[])
   vector<string> A, B;
   bigint bb = base;
 
-  for (size_t i = 1;; i++)
+  while (true)
   {
     bigint quotient = 2 * bb * bb - 1;
     bigint remainder = (bb - 1) * bb;

@@ -61,6 +61,14 @@
   "small_14.out": "5cff8cd0a73f627b13c0fda14f204eda42d0586452625d9c622e2e8c4cfcbbbf",
   "small_15.in": "ccb7c3695a22c9c1afb1dedbbfcc58c29b8d817dd6c74f015a61c8980b5f98db",
   "small_15.out": "d1973399c877ddaa31ffe3c60b229a56f6eecdbf3f9b9fc1c9e1813b578c1e26",
+  "small_and_large_00.in": "19bc565627f09c6143b49fc10dc517d2326f4de9b87d55ca1ccc08ebd9b20d42",
+  "small_and_large_00.out": "a634b7fd2ea6dd694e65d69aee4d67529bc86235f837eb126dd0c5ebfb28a92f",
+  "small_and_large_01.in": "458106a1bd3db589a85f8c83e1cd26f545ee9b7bda948d8af1a0f86dc908eedf",
+  "small_and_large_01.out": "43ffe97029ee9f49a6e1ca9fd7d7727991ce235a2e4911896e8032af0ea257f4",
+  "small_and_large_02.in": "52a047a76d7b596328fec337a14b49444cfcfcb5d49c32ee3dc39e3f416fd016",
+  "small_and_large_02.out": "19b9117d654fe0990a84a1d0af588596ca3fd197088b10346d2c08e68126e651",
+  "small_and_large_03.in": "693915a28577acea0e5b1736e6b4d12800197af3087d29f986f7159a1fa3b161",
+  "small_and_large_03.out": "9181f04fcbacc7457a77e2a9cfa285fef373c454d9bc6a5103cdcb70c57fcd89",
   "unsigned_overflow_00.in": "3d848cf445935f64c462a92656896e038d5d430be519690f5ed9ee9367478fcc",
   "unsigned_overflow_00.out": "0229b0cd8035b7b20369a57a10deaab40f8d3826b1816b2142731965a4c3274a"
 }

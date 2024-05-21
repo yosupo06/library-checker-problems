@@ -30,9 +30,7 @@ struct ArbitraryModInt {
   }
   ArbitraryModInt &operator*=(const ArbitraryModInt &p) {
     long long a = (long long)val * p.val;
-    int xh = (int)(a >> 32), xl = (int)a, d, m;
-    asm("divl %4; \n\t" : "=a"(d), "=d"(m) : "d"(xh), "a"(xl), "r"(get_mod()));
-    val = m;
+    val = a % get_mod();
     return *this;
   }
   ArbitraryModInt &operator/=(const ArbitraryModInt &p) {

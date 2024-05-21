@@ -47,6 +47,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/664"
 [[tests]]
     name = "gen_524288.cpp"
     number = 2
+[[tests]]
+    name = "small_and_large.cpp"
+    number = 4
 
 [[solutions]]
     name = "radix3.cpp"

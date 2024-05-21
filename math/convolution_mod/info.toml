@@ -35,6 +35,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/42"
 [[tests]]
     name = "unsigned_overflow.cpp"
     number = 1
+[[tests]]
+    name = "small_and_large.cpp"
+    number = 4
 
 [[solutions]]
     name = "naive.cpp"

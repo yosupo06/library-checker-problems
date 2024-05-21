@@ -754,11 +754,11 @@ inline void wt() {}
 template <typename Head, typename... Tail>
 inline void wt(Head &&head, Tail &&...tail) {
   wt(head);
-  wt(forward<Tail>(tail)...);
+  wt(std::forward<Tail>(tail)...);
 }
 template <typename... Args>
 inline void wtn(Args &&...x) {
-  wt(forward<Args>(x)...);
+  wt(std::forward<Args>(x)...);
   wt('\n');
 }
 

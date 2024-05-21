@@ -1,0 +1,30 @@
+title = 'Point Set Tree Path Composite Sum (Fixed Root)'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1136"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "n_hundreds.cpp"
+    number = 2
+[[tests]]
+    name = "tiny.in"
+    number = 2
+[[tests]]
+    name = "typical_tree_max.cpp"
+    number = 10
+    
+[[solutions]]
+    name = "naive.cpp"
+    allow_re = true
+
+[params]
+    N_MIN = 1
+    N_MAX = 200_000
+    Q_MIN = 1
+    Q_MAX = 200_000
+    A_MIN = 0
+    B_MIN = 1
+    C_MIN = 0
+    MOD = 998_244_353

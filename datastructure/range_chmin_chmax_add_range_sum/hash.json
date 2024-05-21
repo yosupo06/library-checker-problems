@@ -50,5 +50,11 @@
   "small_08.in": "de54614c264210e47609898635bcfb6440f059a0895a1a078c2d831ef7a732eb",
   "small_08.out": "f1270aed58f4d85cde341cfcdb81773760f0e9609bc6764bfc2fca05d8d229c3",
   "small_09.in": "9e7e4fe32e402a6a5a928a8ef9531fcebf201f04eac1f222f1aa47d2cf842a70",
-  "small_09.out": "50bac94959608ff81cfdc25cca9b674fd9fe38f1c8bb3ea50c031339f1d6acdc"
+  "small_09.out": "50bac94959608ff81cfdc25cca9b674fd9fe38f1c8bb3ea50c031339f1d6acdc",
+  "small_absolute_values_00.in": "dcc385dff6e3488a4651c94730d3483cf602df333174e99c22018532de717df0",
+  "small_absolute_values_00.out": "4a2b6788fcf71dd2a368f2bbb11b018b3577227f031dcba2b970eaf7d5ab2fec",
+  "small_absolute_values_01.in": "7a1ee8ba0d3eb3ad58bcb54dcc65c0bc6f0ce715c8fd7708ae5eefa1217086c9",
+  "small_absolute_values_01.out": "a3619c7662b614f3b07cca6ab4d753d591a203a78a04a0cc20dc1b002e77f52e",
+  "small_absolute_values_02.in": "8bf67d5d93dac15a5ad7122be83c2545bf5b86d742e46993cb7b9aeca2f9547d",
+  "small_absolute_values_02.out": "101c7f11f2b4ca4d23c5a04ef4235110fa06eadfe03f79ddcff6638e305c9855"
 }

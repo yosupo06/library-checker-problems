@@ -1,0 +1,41 @@
+title = 'Intersection of F_2 vector spaces'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/923"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+
+[[tests]]
+    name = "max_minus_1_random.cpp"
+    number = 5
+
+[[tests]]
+    name = "random.cpp"
+    number = 5
+
+[[tests]]
+    name = "nmk_all.cpp"
+    number = 1
+
+[[solutions]]
+    name = "correct.cpp"
+
+[[solutions]]
+    name = "correct_rev.cpp"
+
+[[solutions]]
+    name = "correct_bitrev.cpp"
+
+[[solutions]]
+    name = "wa_size_only.cpp"
+    wrong = true
+
+[params]
+    T_MAX = 100_000
+    NM_MAX = 30
+    UV_MAX = 1073741823 # 2^{30} - 1

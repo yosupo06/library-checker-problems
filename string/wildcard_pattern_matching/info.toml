@@ -1,0 +1,37 @@
+title = 'Wildcard Pattern Matching'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/931"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+
+[[tests]]
+    name = "random.cpp"
+    number = 5
+
+[[tests]]
+    name = "random_ab.cpp"
+    number = 5
+
+[[tests]]
+    name = "alternating.cpp"
+    number = 5
+
+[[tests]]
+    name = "hack_998244353.cpp"
+    number = 3
+
+[[solutions]]
+    name = "correct.cpp"
+
+[[solutions]]
+    name = "bruteforce.cpp"
+    allow_tle = true
+
+[[solutions]]
+    name = "mod998244353.cpp"
+    wrong = true
+
+[params]
+    S_LEN_MAX = 524288

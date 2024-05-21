@@ -26,7 +26,7 @@ int main(int, char* argv[]) {
 
     const auto pop = [&](auto &v) {
         swap(v.back(), v[gen.uniform<int>(0, v.size() - 1)]);
-        auto res = move(v.back());
+        auto res = std::move(v.back());
         v.pop_back();
         return res;
     };
@@ -82,7 +82,7 @@ int main(int, char* argv[]) {
         for (int i = 0; i != cn; i += 1) {
             add_bb(cycle[i], cycle[(i + 1) % cn]);
         }
-        c.push_back(move(sum));
+        c.push_back(std::move(sum));
     }
 
     const size_t c_lim = pow(c.size(), gen.uniform01()) + 0.5;
@@ -95,10 +95,10 @@ int main(int, char* argv[]) {
             cat(sum, top);
         }
         add_bb(bridge[0], bridge[1]);
-        c.push_back(move(sum));
+        c.push_back(std::move(sum));
     }
 
-    edges = move(edge_buf);
+    edges = std::move(edge_buf);
     edge_buf.clear();
 
     for (int i = 0; i != size; i += 1) {

@@ -6,7 +6,6 @@
 
 using ll = long long;
 using u64 = std::uint_fast64_t;
-using std::move;
 std::mt19937_64 rng(0x1757C90436F3E0B3);
 
 struct node;
@@ -47,15 +46,15 @@ std::pair<ptr, ptr> split(ptr p, int i) {
   push(p);
   const int s = size(p->l);
   if (s >= i) {
-    auto [l, r] = split(move(p->l), i);
-    p->l = move(r);
+    auto [l, r] = split(std::move(p->l), i);
+    p->l = std::move(r);
     update(p);
-    return {move(l), move(p)};
+    return {std::move(l), std::move(p)};
   } else {
-    auto [l, r] = split(move(p->r), i - s - 1);
-    p->r = move(l);
+    auto [l, r] = split(std::move(p->r), i - s - 1);
+    p->r = std::move(l);
     update(p);
-    return {move(p), move(r)};
+    return {std::move(p), std::move(r)};
   }
 }
 
@@ -66,12 +65,12 @@ ptr merge(ptr l, ptr r) {
     return l;
   if (l->pri < r->pri) {
     push(r);
-    r->l = merge(move(l), move(r->l));
+    r->l = merge(std::move(l), std::move(r->l));
     update(r);
     return r;
   } else {
     push(l);
-    l->r = merge(move(l->r), move(r));
+    l->r = merge(std::move(l->r), std::move(r));
     update(l);
     return l;
   }
@@ -84,19 +83,19 @@ int main() {
   for (int i = 0; i < N; i++) {
     int a;
     scanf("%d", &a);
-    root = merge(move(root), std::make_unique<node>(a));
+    root = merge(std::move(root), std::make_unique<node>(a));
   }
   for (int j = 0; j < Q; j++) {
     int t, l, r;
     scanf("%d%d%d", &t, &l, &r);
-    auto [xy, z] = split(move(root), r);
-    auto [x, y] = split(move(xy), l);
+    auto [xy, z] = split(std::move(root), r);
+    auto [x, y] = split(std::move(xy), l);
     if (t == 0) {
       rev(y);
     } else {
       printf("%lld\n", sum(y));
     }
-    xy = merge(move(x), move(y));
-    root = merge(move(xy), move(z));
+    xy = merge(std::move(x), std::move(y));
+    root = merge(std::move(xy), std::move(z));
   }
 }

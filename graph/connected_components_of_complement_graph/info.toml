@@ -1,0 +1,38 @@
+title = 'Connected Components of Complement Graph'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/865"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+[[tests]]
+    name = "no_edge.cpp"
+    number = 1
+[[tests]]
+    name = "complete.cpp"
+    number = 1
+[[tests]]
+    name = "star.cpp"
+    number = 1
+[[tests]]
+    name = "complement_of_sparse.cpp"
+    number = 5
+[[tests]]
+    name = "complement_of_many_paths.cpp"
+    number = 5
+[[tests]]
+    name = "minimum.in"
+    number = 3
+
+[[solutions]]
+    name = "naive.cpp"
+    allow_tle = true
+
+[params]
+    N_MIN = 1
+    N_MAX = 500_000
+    M_MIN = 0
+    M_MAX = 500_000

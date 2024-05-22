@@ -20,7 +20,8 @@ class TestGenerateAll(unittest.TestCase):
         tomls = sorted(tomls, key=lambda x: x.parent.name)
 
         cache_path = Path(getenv('VERSIONS_CACHE_PATH'))
-        versions = json.load(open(cache_path, 'r')) if cache_path.exists() else dict()
+        with open(cache_path, 'r') as cache_file:
+            versions = json.load(cache_file) if cache_path.exists() else dict()
 
         for toml in tomls:
             problem = Problem(Path.cwd(), toml.parent)

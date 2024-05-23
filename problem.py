@@ -103,7 +103,8 @@ def execcmd(src: Path, arg: List[str] = []) -> List[str]:
 
 def check_call_to_file(command: List[str], outpath: Path, *args, **kwargs):
     logger.debug('check_call_to_file: %s', command)
-    check_call(command, stdout=open(outpath, "w"), *args, **kwargs)
+    with open(outpath, "w") as outfile:
+        check_call(command, stdout=outfile, *args, **kwargs)
     if platform.uname().system == 'Windows':
         # handles CRLF stuff on Windows
         with TemporaryDirectory() as tmpdir:
@@ -244,8 +245,9 @@ class Problem:
             for i in range(num):
                 inname = (casename(name, i) + '.in')
                 inpath = indir / inname
-                result = run(execcmd(self.verifier),
-                             stdin=open(str(inpath), 'r'))
+                with open(str(inpath), 'r') as infile:
+                    result = run(execcmd(self.verifier),
+                                 stdin=infile)
                 if result.returncode != 0:
                     logger.error('verify failed: {}'.format(inname))
                     exit(1)
@@ -267,16 +269,17 @@ class Problem:
 
             for i in range(num):
                 case = casename(name, i)
-                infile = indir / (case + '.in')
+                inpath = indir / (case + '.in')
                 expected = outdir / (case + '.out')
                 start = datetime.now()
-                check_call_to_file(execcmd(soldir / 'correct.cpp'),
-                                   expected, stdin=open(str(infile), 'r'))
+                with open(str(inpath), 'r') as infile:
+                    check_call_to_file(execcmd(soldir / 'correct.cpp'),
+                                       expected, stdin=infile)
                 end = datetime.now()
                 checker_output = bytes()
                 if check:
                     process = run(
-                        execcmd(checker, [str(infile), str(expected), str(expected)]), stdout=PIPE, stderr=STDOUT, check=True)
+                        execcmd(checker, [str(inpath), str(expected), str(expected)]), stdout=PIPE, stderr=STDOUT, check=True)
                     checker_output = process.stdout
 
                 logging_result('ANS', start, end,
@@ -355,9 +358,10 @@ class Problem:
     # return "version" of testcase
     def testcase_version(self) -> str:
         all_hash = hashlib.sha256()
-        all_hash.update(hashlib.sha256(
-            open(str(self.checker), 'rb').read()).digest())
-        cases = json.load(open(str(self.basedir / 'hash.json'), 'r'))
+        with open(str(self.checker), 'rb') as f:
+            all_hash.update(hashlib.sha256(f.read()).digest())
+        with open(str(self.basedir / 'hash.json'), 'r') as f:
+            cases = json.load(f)
         for name, sha in sorted(cases.items(), key=lambda x: x[0]):
             all_hash.update(sha.encode('ascii'))
         return all_hash.hexdigest()
@@ -378,7 +382,7 @@ class Problem:
 
             for i in range(num):
                 case = casename(name, i)
-                infile = indir / (case + '.in')
+                inpath = indir / (case + '.in')
                 expected = outdir / (case + '.out')
                 actual = Path(tmpdir) / (case + '.out')
 
@@ -386,15 +390,16 @@ class Problem:
                 result = ''
                 checker_output = bytes()
                 try:
-                    check_call_to_file(execcmd(src), actual,
-                                       stdin=open(str(infile), 'r'), timeout=self.config['timelimit'])
+                    with open(str(inpath), 'r') as infile:
+                        check_call_to_file(execcmd(src), actual,
+                                           stdin=infile, timeout=self.config['timelimit'])
                 except TimeoutExpired:
                     result = 'TLE'
                 except CalledProcessError:
                     result = 'RE'
                 else:
                     process = run(
-                        execcmd(checker, [str(infile), str(actual), str(expected)]), stdout=PIPE, stderr=STDOUT)
+                        execcmd(checker, [str(inpath), str(actual), str(expected)]), stdout=PIPE, stderr=STDOUT)
                     checker_output = process.stdout
                     if process.returncode:
                         result = 'WA'
@@ -406,6 +411,7 @@ class Problem:
                 logging_result(result, start, end,
                                '{} : {}'.format(case, checker_output.decode('utf-8')))
 
+        _tmpdir.cleanup()
         allow_status = set()
         allow_status.add('AC')
         if config.get('wrong', False):
@@ -427,18 +433,21 @@ class Problem:
         hashes: MutableMapping[str, str] = dict()
         for name in self.basedir.glob('in/*.in'):
             m = hashlib.sha256()
-            m.update(open(str(name), 'rb').read())
+            with open(str(name), 'rb') as f:
+                m.update(f.read())
             hashes[name.name] = m.hexdigest()
         for name in self.basedir.glob('out/*.out'):
             m = hashlib.sha256()
-            m.update(open(str(name), 'rb').read())
+            with open(str(name), 'rb') as f:
+                m.update(f.read())
             hashes[name.name] = m.hexdigest()
         return hashes
 
     def assert_hashes(self):
         if not Path(self.basedir, 'hash.json').exists():
             raise RuntimeError("hash.json doesn't exist")
-        expect = json.load(open(str(self.basedir / 'hash.json'), 'r'))
+        with open(str(self.basedir / 'hash.json'), 'r') as f:
+            expect = json.load(f)
         actual = self.calc_hashes()
         if expect != actual:
             logger.error('hashes are different')

@@ -29,6 +29,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/37"
 [[tests]]
     name = "many_paths.cpp"
     number = 3
+[[tests]]
+    name = "issue1124.cpp"
+    number = 2
 
 [params]
     L_MAX = 100_000

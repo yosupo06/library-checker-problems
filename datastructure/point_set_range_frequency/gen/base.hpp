@@ -6,9 +6,9 @@
 #include "../params.h"
 #include "random.h"
 
-// p = prob(query type 0)
-void generate(Random &gen, const int N, const int Q, const int K,
-              const double p) {
+// p = prob(query type 0) * 100 in [0,1,...,100]
+void generate(Random &gen, const int N, const int Q, const int K, const int p) {
+  assert(0 <= p && p <= 100);
   std::printf("%d %d\n", N, Q);
 
   std::vector<int> S;
@@ -33,7 +33,7 @@ void generate(Random &gen, const int N, const int Q, const int K,
   std::printf("\n");
 
   for (int i = 0; i < Q; i++) {
-    int t = (gen.uniform01() < p ? 0 : 1);
+    int t = (gen.uniform<int>(0, 99) < p ? 0 : 1);
     if (N == 0) t = 1;
     if (t == 0) {
       int k = gen.uniform<int>(0, N - 1);

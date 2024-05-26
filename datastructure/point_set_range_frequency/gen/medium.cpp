@@ -13,6 +13,6 @@ int main(int, char *argv[]) {
   int N = gen.uniform<int>(100, 1000);
   int Q = Q_MAX;
   int K = ks[seed % 5];
-  generate(gen, N, Q, K, 0.5);
+  generate(gen, N, Q, K, 50);
   return 0;
 }

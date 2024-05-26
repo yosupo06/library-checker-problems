@@ -9,6 +9,6 @@ int main(int, char *argv[]) {
   Random gen(seed);
 
   const int N = N_MIN + seed;
-  generate(gen, N, Q_MAX, 10, 0.5);
+  generate(gen, N, Q_MAX, 10, 50);
   return 0;
 }

@@ -13,6 +13,6 @@ int main(int, char *argv[]) {
   int N = N_MAX;
   int Q = Q_MAX;
   int K = ks[seed % 4];
-  generate(gen, N, Q, K, 0.01);
+  generate(gen, N, Q, K, 1);
   return 0;
 }

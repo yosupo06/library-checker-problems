@@ -1,0 +1,39 @@
+title = 'Palindromes in Deque'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1099"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[tests]]
+    name = "small_all.cpp"
+    number = 3
+
+[[tests]]
+    name = "short_period.cpp"
+    number = 10
+
+[[tests]]
+    name = "binary.cpp"
+    number = 4
+
+[[tests]]
+    name = "bad_failure_link.cpp"
+    number = 1
+
+[[tests]]
+    name = "random.cpp"
+    number = 2
+
+[[tests]]
+    name = "random_small_sigma.cpp"
+    number = 2
+
+[[solutions]]
+    name = "bad-link.cpp"
+    allow_tle = true
+
+[params]
+    Q_MIN = 1
+    Q_MAX = 500000

@@ -1,7 +1,8 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given an undirected graph $G$ with $N$ vertices and $M$ edges. $i$-th edge is $\lbrace u_i, v_i\rbrace$. 
+Given an undirected graph $G$ with $N$ vertices and $M$ edges. The $i$-th edge is $\lbrace u_i, v_i\rbrace$. 
+
 
 Calculate the chromatic polynomial $P(G,x)=p_0+p_1+\cdots+p_Nx^N$ modulo $@{param.MOD}$.
 

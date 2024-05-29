@@ -25,3 +25,4 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/984"
     MIN_N = 1
     MAX_N = 20
     MAX_M = 500
+    MOD = 998244353

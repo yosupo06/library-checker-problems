@@ -32,7 +32,6 @@ $u_{M - 1}$ $v_{M - 1}$
 
 ~~~
 $p_0$ $p_1$ $\cdots$ $p_N$
-
 ~~~
 
 ## @{keyword.sample}

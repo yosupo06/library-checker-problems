@@ -34,7 +34,7 @@ int main(int, char* argv[]) {
   int r = (B + 2) << B;
   int m = edges.size();
 
-  if (seed % 2 == 0) {
+  if (seed % 3 == 0) {
     // shuffle
     vector<int> new_idx_L(l), new_idx_R(r);
     for (int i = 0; i < l; ++i) new_idx_L[i] = i;
@@ -44,6 +44,7 @@ int main(int, char* argv[]) {
     gen.shuffle(new_idx_R.begin(), new_idx_R.end());
     for (auto& [a, b]: edges) a = new_idx_L[a], b = new_idx_R[b];
   }
+  if (seed % 3 == 2) { reverse(edges.begin(), edges.end()); }
 
   printf("%d %d %d\n", l, r, m);
   for (auto edge: edges) { printf("%d %d\n", edge.first, edge.second); }

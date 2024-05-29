@@ -1,0 +1,28 @@
+title = 'Chromatic Polynomial'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/984"
+
+[[tests]]
+    name = "example.in"
+    number = 4
+[[tests]]
+    name = "random.cpp"
+    number = 10
+[[tests]]
+    name = "big.cpp"
+    number = 10
+[[tests]]
+    name = "clique_cycle.cpp"
+    number = 4
+[[tests]]
+    name = "loop.cpp"
+    number = 2
+[[tests]]
+    name = "multi_edge.cpp"
+    number = 4
+
+[params]
+    MIN_N = 1
+    MAX_N = 20
+    MAX_M = 500
+    MOD = 998244353

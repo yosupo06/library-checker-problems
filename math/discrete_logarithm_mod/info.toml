@@ -20,3 +20,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/28"
 [[tests]]
     name = "even_mod_impossible.cpp"
     number = 2
+[[tests]]
+    name = "max_random_yes.cpp"
+    number = 2
+[[tests]]
+    name = "max_random_yes_prime.cpp"
+    number = 2

@@ -30,7 +30,8 @@ $u_{M - 1}$ $v_{M - 1}$
 ## @{keyword.output}
 
 ~~~
-$p_0$ $p_1$ $\cdots $p_N$
+$p_0$ $p_1$ $\cdots$ $p_N$
+
 ~~~
 
 ## @{keyword.sample}

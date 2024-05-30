@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <numeric>
 #include <string>
+#include <tuple>
 
 using namespace std;
 

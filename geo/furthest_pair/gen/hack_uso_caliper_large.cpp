@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <utility>
+#include <tuple>
 #include "random.h"
 #include "../params.h"
 

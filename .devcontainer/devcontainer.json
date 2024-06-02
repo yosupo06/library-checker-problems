@@ -1,0 +1,29 @@
+{
+	"image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {},
+		"ghcr.io/devcontainers/features/python:1": {}
+	},
+	"postCreateCommand": "./.devcontainer/postCreateCommand.sh",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"C_Cpp.intelliSenseEngine": "disabled",
+				"clangd.path": "clangd-18",
+				"clangd.fallbackFlags": [
+					"-Wall",
+					"-Wextra",
+					"-Wno-unused-result",
+					"-std=c++17",
+					"-I",
+					"${containerWorkspaceFolder}/common"
+				]
+			},
+			"extensions": [
+				"llvm-vs-code-extensions.vscode-clangd",
+				"ms-python.python",
+				"github.vscode-github-actions"
+			]
+		}
+	}
+}

@@ -1,5 +1,6 @@
+#include <cstdlib>
+#include <cstdio>
 #include "random.h"
-#include <iostream>
 
 using namespace std;
 using ll = long long;

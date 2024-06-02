@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <cstdlib>
 #include <utility>
 #include "random.h"
 #include "../params.h"

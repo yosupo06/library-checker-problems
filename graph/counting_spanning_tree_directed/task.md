@@ -7,7 +7,7 @@ You are also given a vertex $r$.
 Find the number of directed spanning tree whose root is the vertex $r$ (it means that all the verties have to be reachable from $r$), modulo $998244353$. 
 
 @{lang.ja}
-$N$ 頂点 $M$ 辺の無向グラフが与えられます．$i$ 番目の辺は頂点 $u_i$ と頂点 $v_i$ を結んでいます．このグラフは単純とは限りません．
+$N$ 頂点 $M$ 辺の有向グラフが与えられます．$i$ 番目の辺は頂点 $u_i$ から頂点 $v_i$ に向けて張られています．このグラフは単純とは限りません．
 
 このグラフの根を $r$ とする（根から全ての頂点に到達できる）有向全域木の個数を $998244353$ で割った余りを求めてください．
 @{lang.end}

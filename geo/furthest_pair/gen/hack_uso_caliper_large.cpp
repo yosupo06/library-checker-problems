@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <cstdlib>
 #include <utility>
 #include <tuple>
 #include "random.h"

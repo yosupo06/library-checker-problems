@@ -17,7 +17,8 @@
 					"-std=c++17",
 					"-I",
 					"${containerWorkspaceFolder}/common"
-				]
+				],
+				"python.analysis.typeCheckingMode": "strict"
 			},
 			"extensions": [
 				"llvm-vs-code-extensions.vscode-clangd",

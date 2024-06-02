@@ -9,8 +9,9 @@ from subprocess import run, check_output
 from shutil import copy
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from problem import Problem
+from generate import Problem, param_to_str
 from typing import List
+
 logger = getLogger(__name__)
 
 @unittest.skipIf(getenv('ENABLE_GENERATE_TEST') == None, "generate test take long time")
@@ -273,6 +274,16 @@ class TestListDependingFiles(unittest.TestCase):
                 find_verifier = True
         self.assertTrue(find_random)
         self.assertTrue(find_verifier)
+
+
+class TestParam(unittest.TestCase):
+    # select problem by problem id
+    def test_convert_integer(self):
+        self.assertEqual(param_to_str('A', 100), "#define A (long long)100")
+        self.assertEqual(param_to_str('A', 1_000_000_007),
+                         "#define A (long long)1000000007")
+        self.assertEqual(param_to_str('A', 998244353),
+                         "#define A (long long)998244353")
 
 if __name__ == "__main__":
     handler = colorlog.StreamHandler()

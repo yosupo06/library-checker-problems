@@ -1,32 +1,8 @@
+# ignore executable (= no extension) file
 *
-
-!.gitignore
-!Dockerfile
-!LICENSE
-
 !*/
-!*.sh
-!*.yml
-!*.yaml
-!*.toml
-!*.cpp
-!*.h
-!*.hpp
-!*.md
-!*.py
-!*.in
+!*.*
 
-!requirements.txt
-!hash.json
-!googletest
-!CMakeLists.txt
-
-params.h
 in/
-
-.venv/
-venv/
-
-CMakeFiles/
-
-!.devcontainer/*
+out/
+params.h

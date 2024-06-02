@@ -3,7 +3,7 @@
 @{lang.en}
 You are given an undirected graph, consisting of $N$ vertices and $M$ edges. The $i$-th edge connects vertex $u_i$ and $v_i$. This graph may not be simple.
 
-Find the number of spanning tree of the graph modulo $998244353$. 
+Find the number of spanning trees of the graph modulo $998244353$. 
 
 @{lang.ja}
 $N$ 頂点 $M$ 辺の無向グラフが与えられます．$i$ 番目の辺は頂点 $u_i$ と頂点 $v_i$ を結んでいます．このグラフは単純とは限りません．

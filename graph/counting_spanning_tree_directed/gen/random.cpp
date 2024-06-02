@@ -5,8 +5,8 @@ int main(int, char* argv[]) {
   long long seed = atoll(argv[1]);
   auto gen = Random(seed);
 
-  int N = gen.uniform<int>(1, N_MAX);
-  int M = gen.uniform<int>(0, M_MAX);
+  int N = gen.uniform<int>(N_MIN, N_MAX);
+  int M = gen.uniform<int>(M_MIN, M_MAX);
   int r = gen.uniform<int>(0, N - 1);
   printf("%d %d %d\n", N, M, r);
   for (int i = 0; i < M; ++i) {

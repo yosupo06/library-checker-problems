@@ -1,5 +1,3 @@
-#include <cstdlib>
-
 #include "../params.h"
 #include "base.hpp"
 #include "random.h"

@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-You are given a rooted directed graph, consisting of $N$ vertices and $M$ edges. The $i$-th edge connects vertex $u_i$ and $v_i$. This graph may not be simple.
+You are given a directed graph, consisting of $N$ vertices and $M$ edges. The $i$-th edge is directed from vertex $u_i$ to vertex $v_i$. This graph may not be simple.
 You are also given a vertex $r$. 
 
 Find the number of directed spanning trees whose root is the vertex $r$ (it means that all the vertices have to be reachable from $r$), modulo $998244353$. 

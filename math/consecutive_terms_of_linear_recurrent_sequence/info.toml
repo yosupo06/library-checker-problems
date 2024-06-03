@@ -36,7 +36,6 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/1007'
 
 [[solutions]]
     name = "correct_doubling.cpp"
-    
     allow_tle = true
 
 [params]

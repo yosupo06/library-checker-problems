@@ -26,7 +26,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1112"
 
 [[solutions]]
     name = "small_correct.cpp"
-    
     allow_re = true
 
 [params]

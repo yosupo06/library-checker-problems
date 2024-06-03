@@ -17,7 +17,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/128"
 
 [[solutions]]
     name = "naive.cpp"
-    
     allow_tle = true
 
 

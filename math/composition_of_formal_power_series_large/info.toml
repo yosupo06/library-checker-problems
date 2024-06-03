@@ -24,7 +24,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1112"
     name = "hack2.cpp"
     number = 3
 
-[solutions]]
+[[solutions]]
     name = "small_correct.cpp"
     allow_re = true
 [[solutions]]

@@ -17,7 +17,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/861"
     
 [[solutions]]
     name = "naive.cpp"
-    wrong = true
+    expect = "WA"
 
 [params]
     N_MIN = 1

@@ -14,7 +14,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/398"
 
 [[solutions]]
     name = "wa.cpp"
-    wrong = true
+    expect = "WA"
 
 [params]
     MAX_N = 500_000

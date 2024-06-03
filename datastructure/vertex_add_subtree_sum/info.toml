@@ -20,4 +20,4 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/167"
 
 [[solutions]]
     name = "naive.cpp"
-    wrong = true
+    expect = "RE"

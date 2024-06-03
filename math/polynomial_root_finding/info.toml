@@ -31,7 +31,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/924"
 [[solutions]]
     name = "print_sorted.cpp"
     number = 1
-    wrong = false
+    
 
 [params]
     N_MAX = 4000

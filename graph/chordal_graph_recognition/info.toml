@@ -40,16 +40,16 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/591"
     number = 5
 [[solutions]]
     name = "bfs.cpp"
-    wrong = true
+    expect = "RE"
 [[solutions]]
     name = "dfs.cpp"
-    wrong = true
+    expect = "RE"
 [[solutions]]
     name = "mcs_wa1.cpp"
-    wrong = true
+    expect = "WA"
 [[solutions]]
     name = "mcs_wa2.cpp"
-    wrong = true
+    expect = "WA"
 
 [params]
     N_MIN = 1

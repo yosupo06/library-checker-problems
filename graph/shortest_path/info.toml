@@ -50,22 +50,22 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/173"
 
 [[solutions]]
 	name = 'wrong_dijkstra_0.cpp'
-	wrong = true
+	expect = "TLE"
 [[solutions]]
 	name = 'wrong_dijkstra_1.cpp'
-	wrong = true
+	expect = "TLE"
 [[solutions]]
 	name = 'wrong_dijkstra_2.cpp'
-	wrong = true
+	expect = "TLE"
 [[solutions]]
 	name = 'wrong_dijkstra_3.cpp'
-	wrong = true
+	expect = "TLE"
 [[solutions]]
 	name = 'spfa_slf.cpp'
-	wrong = true
+	expect = "TLE"
 [[solutions]]
 	name = 'spfa_lll.cpp'
-	wrong = true
+	expect = "TLE"
 
 [params]
 	N_MIN = 2

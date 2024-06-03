@@ -22,7 +22,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/665"
     number = 2
 [[solutions]]
     name = "n_4.cpp"
-    wrong = true
+    expect = "RE"
 [params]
     N_MAX = 500
     MOD = 998244353

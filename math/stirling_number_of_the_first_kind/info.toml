@@ -35,7 +35,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/336"
 
 [[solutions]]
     name = "slow.cpp"
-    wrong = false
+    
 
 [params]
     MOD = 998244353

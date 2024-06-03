@@ -29,13 +29,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/442"
 
 [[solutions]]
 	name = 'naive.cpp'
-	wrong = true
+	expect = "WA"
 [[solutions]]
 	name = 'correct_slow.cpp'
-	wrong = false
 [[solutions]]
 	name = "deg_2.cpp"
-	wrong = true
+	expect = "TLE"
 
 [params]
 	N_MIN = 1

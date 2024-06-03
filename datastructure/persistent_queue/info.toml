@@ -29,10 +29,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/379"
 
 [[solutions]]
     name = "naive.cpp"
-    wrong = true
+    expect = "TLE"
 [[solutions]]
     name = "two_stacks.cpp"
-    wrong = true
+    expect = "TLE"
 
 [params]
     Q_MIN = 1

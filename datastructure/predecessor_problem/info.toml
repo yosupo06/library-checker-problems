@@ -40,12 +40,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/632"
 
 [[solutions]]
     name = "fenwick.cpp"
-    wrong = false
+    
     allow_tle = true
 
 [[solutions]]
     name = "set.cpp"
-    wrong = false
+    
     allow_tle = true
 
 [params]

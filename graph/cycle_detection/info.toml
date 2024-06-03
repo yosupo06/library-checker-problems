@@ -23,7 +23,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/534"
 
 [[solutions]]
 	name = 'source_zero.cpp'
-	wrong = true
+	expect = "TLE"
 
 [params]
 	N_MIN = 2

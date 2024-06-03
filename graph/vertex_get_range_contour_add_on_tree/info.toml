@@ -60,12 +60,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/831"
 [[solutions]]
     name = "correct_invertible.cpp"
     allow_tle = false
-    wrong = false
+    
 
 [[solutions]]
     name = "tle.cpp"
     allow_tle = true
-    wrong = false
+    
 
 [params]
     N_MIN = 1

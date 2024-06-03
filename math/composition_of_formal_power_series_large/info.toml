@@ -23,7 +23,8 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1112"
 [[tests]]
     name = "hack2.cpp"
     number = 3
-[[solutions]]
+
+[solutions]]
     name = "small_correct.cpp"
     allow_re = true
 [[solutions]]
@@ -31,8 +32,8 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1112"
     allow_re = true
 [[solutions]]
     name = "wa.cpp"
-    wrong = true
-    allow_tle = true
+    expect = "WA"
+
 [params]
     N_MAX = 131_072
     N_MID_MAX = 8_000

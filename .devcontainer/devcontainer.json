@@ -23,7 +23,8 @@
 			"extensions": [
 				"llvm-vs-code-extensions.vscode-clangd",
 				"ms-python.python",
-				"github.vscode-github-actions"
+				"github.vscode-github-actions",
+				"tamasfe.even-better-toml"
 			]
 		}
 	}

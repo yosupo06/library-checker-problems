@@ -31,7 +31,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/931"
 
 [[solutions]]
     name = "mod998244353.cpp"
-    wrong = true
+    expect = "WA"
 
 [params]
     S_LEN_MAX = 524288

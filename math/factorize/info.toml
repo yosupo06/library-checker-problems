@@ -53,10 +53,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/41"
 
 [[solutions]]
     name = "fixed_RNG.cpp"
-    wrong = true
+    expect = "TLE"
 [[solutions]]
     name = "rho_with_difference_of_square.cpp"
-    wrong = false
+    
 
 [params]
     MAX_Q = 100

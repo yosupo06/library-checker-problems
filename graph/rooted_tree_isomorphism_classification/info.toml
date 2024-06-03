@@ -33,7 +33,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/796"
 [[solutions]]
     name = "linear-time.cpp"
     allow_tle = false
-    wrong = false
+    
 
 [params]
     N_MIN = 1

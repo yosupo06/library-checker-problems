@@ -9,7 +9,7 @@ from subprocess import run, check_output
 from shutil import copy
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from generate import Problem, param_to_str
+from generate import Problem, param_to_str, casename
 from typing import List
 
 logger = getLogger(__name__)
@@ -275,6 +275,13 @@ class TestListDependingFiles(unittest.TestCase):
         self.assertTrue(find_random)
         self.assertTrue(find_verifier)
 
+
+class TestCasename(unittest.TestCase):
+    # select problem by problem id
+    def test_casename(self):
+        self.assertEqual(casename('example', 0), "example_00")
+        self.assertEqual(casename('example', 1), "example_01")
+        self.assertEqual(casename('random', 10), "random_10")
 
 class TestParam(unittest.TestCase):
     # select problem by problem id

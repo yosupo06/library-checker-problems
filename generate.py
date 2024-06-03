@@ -3,7 +3,7 @@
 import sys
 import argparse
 import platform
-from logging import Logger, basicConfig, getLogger
+from logging import basicConfig, getLogger
 from os import getenv
 from pathlib import Path
 from typing import List
@@ -19,12 +19,10 @@ from pathlib import Path
 from subprocess import (PIPE, STDOUT, CalledProcessError,
                         TimeoutExpired, check_call, run)
 from tempfile import TemporaryDirectory
-from typing import Any, Iterator, List, MutableMapping, Union, Optional
+from typing import Any, Iterator, List, MutableMapping, Optional
 
 from enum import Enum
 import toml
-
-logger: Logger = getLogger(__name__)
 
 logger = getLogger(__name__)
 
@@ -32,7 +30,7 @@ CASENAME_LEN_LIMIT = 40
 STACK_SIZE = 2 ** 28  # 256 MB
 
 
-def casename(name: Union[str, Path], i: int) -> str:
+def casename(name: str | Path, i: int) -> str:
     """(random, 1) -> random_01"""
     return Path(name).stem + '_' + str(i).zfill(2)
 
@@ -47,6 +45,17 @@ def param_to_str(key: str, value: object):
         return '#define {} "{}"'.format(key, value)
     else:
         raise RuntimeError('Unsupported type of params: {}'.format(key))
+
+
+def find_problem_dir(rootdir: Path, problem_name: Path) -> Optional[Path]:
+    tomls = list(rootdir.glob('**/{}/info.toml'.format(problem_name)))
+    if len(tomls) == 0:
+        logger.error('Cannot find problem: {}'.format(problem_name))
+        return None
+    if len(tomls) >= 2:
+        logger.error('Found multiple problem dirs: {}'.format(problem_name))
+        return None
+    return tomls[0].parent
 
 
 def compile(src: Path, rootdir: Path, opts: list[str] = []):
@@ -130,6 +139,24 @@ def logging_result(result: str, start: datetime, end: datetime, message: str):
 
 
 class Problem:
+    class Mode(Enum):
+        DEFAULT = 1
+        DEV = 2
+        TEST = 3
+        CLEAN = 5
+
+        def force_generate(self):
+            return self == self.DEV or self == self.TEST
+
+        def verify(self):
+            return self == self.DEV or self == self.TEST
+
+        def rewrite_hash(self):
+            return self == self.DEV
+
+        def ignore_warning(self):
+            return self == self.DEV
+
     rootdir: Path  # /path/to/librar-checker-problems
     basedir: Path  # /path/to/librar-checker-problems/sample/aplusb
     ignore_warning: bool = False
@@ -142,11 +169,11 @@ class Problem:
         self.rootdir = rootdir
         self.basedir = basedir
         tomlpath = basedir / 'info.toml'
-        self.config = toml.load(tomlpath)
+        self.config = toml.load(tomlpath) # type: ignore
         self.checker = basedir / \
-            self.config.get('checker', 'checker.cpp')
+            self.config.get('checker', 'checker.cpp') # type: ignore
         self.verifier = basedir / \
-            self.config.get('verifier', 'verifier.cpp')
+            self.config.get('verifier', 'verifier.cpp') # type: ignore
 
     def warning(self, message: str):
         logger.warning(message)
@@ -163,7 +190,7 @@ class Problem:
                     self.warning('too long casename: {}'.format(cn))
 
         gendir = self.basedir / 'gen'
-        gens = []
+        gens: list[str] = []
         for test in self.config['tests']:
             gen = gendir / test['name']
             if gen.suffix == '.cpp':
@@ -215,12 +242,12 @@ class Problem:
             compile(self.basedir / 'sol' / name, self.rootdir, opts)
 
     def check_all_solutions_used(self) -> bool:
-        sol_names = set()
+        sol_names: set[str] = set()
         sol_names.add('correct.cpp')
         for sol in self.config.get('solutions', []):
             sol_names.add(sol['name'])
 
-        file_names = set()
+        file_names: set[str] = set()
         file_names.update(p.name for p in (self.basedir / 'sol').glob('*.cpp'))
         file_names.update(p.name for p in (self.basedir / 'sol').glob('*.py'))
         return sol_names == file_names
@@ -260,7 +287,7 @@ class Problem:
                     logger.error('verify failed: {}'.format(inname))
                     exit(1)
 
-    def make_outputs(self, check):
+    def make_outputs(self, check: bool):
         indir = self.basedir / 'in'
         outdir = self.basedir / 'out'
         soldir = self.basedir / 'sol'
@@ -361,17 +388,6 @@ class Problem:
         all_hash = hashlib.sha256()
         for h in sorted(hashes):
             all_hash.update(h)
-        return all_hash.hexdigest()
-
-    # return "version" of testcase
-    def testcase_version(self) -> str:
-        all_hash = hashlib.sha256()
-        with open(str(self.checker), 'rb') as f:
-            all_hash.update(hashlib.sha256(f.read()).digest())
-        with open(str(self.basedir / 'hash.json'), 'r') as f:
-            cases = json.load(f)
-        for name, sha in sorted(cases.items(), key=lambda x: x[0]):
-            all_hash.update(sha.encode('ascii'))
         return all_hash.hexdigest()
 
     def judge(self, src: Path, config: dict):
@@ -485,21 +501,6 @@ class Problem:
         if (self.basedir / 'out').exists():
             shutil.rmtree(self.basedir / 'out')
 
-    class Mode(Enum):
-        DEFAULT = 1
-        DEV = 2
-        TEST = 3
-        CLEAN = 5
-
-        def force_generate(self):
-            return self == self.DEV or self == self.TEST
-
-        def verify(self):
-            return self == self.DEV or self == self.TEST
-
-        def rewrite_hash(self):
-            return self == self.DEV
-
     def generate(self, mode: Mode):
         if mode == self.Mode.DEV:
             self.ignore_warning = True
@@ -546,17 +547,6 @@ class Problem:
             self.write_hashes()
         else:
             self.assert_hashes()
-
-
-def find_problem_dir(rootdir: Path, problem_name: Path) -> Optional[Path]:
-    tomls = list(rootdir.glob('**/{}/info.toml'.format(problem_name)))
-    if len(tomls) == 0:
-        logger.error('Cannot find problem: {}'.format(problem_name))
-        return None
-    if len(tomls) >= 2:
-        logger.error('Found multiple problem dirs: {}'.format(problem_name))
-        return None
-    return tomls[0].parent
 
 
 def main(args: List[str]):

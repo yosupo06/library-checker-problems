@@ -20,7 +20,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/297"
 
 [[solutions]]
     name = "naive.cpp"
-    wrong = true
+    expect = "RE"
 
 [params]
     N_MAX = 20

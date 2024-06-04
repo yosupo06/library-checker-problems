@@ -32,7 +32,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/248"
 
 [[solutions]]
     name = "wa.cpp"
-    wrong = true
+    expect = "WA"
 
 
 [params]

@@ -32,7 +32,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/35"
 
 [[solutions]]
   name = "tle.cpp"
-  wrong = true
+  expect = "TLE"
 
 [params]
     N_MIN = 2

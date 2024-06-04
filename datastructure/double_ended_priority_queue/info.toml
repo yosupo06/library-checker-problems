@@ -37,12 +37,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/874"
 [[solutions]]
     name = "double_priority_queue.cpp"
     allow_tle = false
-    wrong = false
+    
 
 [[solutions]]
     name = "multiset.cpp"
     allow_tle = false
-    wrong = false
+    
 
 [params]
     N_MIN = 0

@@ -24,7 +24,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/958"
 
 [[solutions]]
     name = "random_correct.cpp"
-    wrong = false
+    
     
 [params]
     T_MAX = 100000

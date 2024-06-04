@@ -396,7 +396,7 @@ class Problem:
         _tmpdir = TemporaryDirectory()
         tmpdir = _tmpdir.name
         checker = self.checker
-        results = set()
+        results: set[str] = set()
 
         logger.info('Start {}'.format(src.name))
 
@@ -436,23 +436,24 @@ class Problem:
                                '{} : {}'.format(case, checker_output.decode('utf-8')))
 
         _tmpdir.cleanup()
-        allow_status = set()
+        expect_status: str = config.get('expect', '')  # type: ignore
+        allow_status: set[str] = set()
+        if expect_status != "":
+            allow_status.add(expect_status)
         allow_status.add('AC')
-        if config.get('wrong', False):
-            allow_status.update(['WA', 'RE', 'TLE'])
-        if config.get('allow_tle', False):
-            allow_status.add('TLE')
+        if config.get('allow_wa', False):
+            allow_status.add('WA')
         if config.get('allow_re', False):
             allow_status.add('RE')
+        if config.get('allow_tle', False):
+            allow_status.add('TLE')
 
         if len(results - allow_status) != 0:
             logger.error('unexpected status was appeared: {} (allowed {})'.format(
                 results, allow_status))
-
-        if config.get('wrong', False):
-            if results == {'AC'}:
-                logger.error('wrong solution got accept: {}'.format(src))
-                exit(1)
+        if expect_status != '' and expect_status not in results:
+            logger.error('expected status {} was not appeared: {}'.format(
+                expect_status, results))
 
     def calc_hashes(self) -> MutableMapping[str, str]:
         hashes: MutableMapping[str, str] = dict()

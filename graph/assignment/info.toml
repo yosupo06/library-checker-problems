@@ -24,7 +24,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/38"
 
 [[solutions]]
     name = 'invalid.cpp'
-    wrong = true
+    expect = "WA"
 
 [params]
     N_MIN = 1

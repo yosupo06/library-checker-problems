@@ -26,7 +26,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/896"
 
 [[solutions]]
     name = "naive.cpp"
-    wrong = false
     allow_re = true
 
 [params]

@@ -23,7 +23,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/767"
 
 [[solutions]]
     name = "dense_correct.cpp"
-    wrong = false
+    
 
 [params]
     N_MIN = 1

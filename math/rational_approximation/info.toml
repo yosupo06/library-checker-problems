@@ -39,10 +39,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/960"
 [[solutions]]
     name = "no_binary_search.cpp"
     allow_tle = true
-    wrong = false
+    
 [[solutions]]
     name = "use_floating_point_number.cpp"
-    wrong = true
+    expect = "WA"
 
 [params]
     MAX_T = 100_000

@@ -11,7 +11,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/32"
 
 [[solutions]]
     name = "wa.cpp"
-    wrong = true
+    expect = "WA"
 [[solutions]]
     name = "ac_func.cpp"
     function = true

@@ -33,8 +33,7 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/811'
     name = "correct2.cpp"
 [[solutions]]
     name = "naive.cpp"
-    allow_tle = true
-    wrong = true
+    expect = "WA"
 
 [params]
     N_MIN = 1

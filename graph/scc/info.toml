@@ -17,4 +17,4 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/36"
 
 [[solutions]]
     name = 'reverse_order.cpp'    
-    wrong = true
+    expect = "WA"

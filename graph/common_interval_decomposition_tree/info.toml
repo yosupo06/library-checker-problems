@@ -35,13 +35,14 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/744'
 
 [[solutions]]
 	name = "other_correct.cpp"
-	wrong = false
+	
 [[solutions]]
 	name = "WA1.cpp"
-	wrong = true
+	expect = "WA"
 [[solutions]]
 	name = "WA2.cpp"
-	wrong = true
+	expect = "WA"
+
 [params]
     P_MIN = 0
     N_MIN = 1

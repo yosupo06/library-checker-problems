@@ -14,7 +14,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/99"
 
 [[solutions]]
     name = "eulerian_table.cpp"
-    wrong = true
+    expect = "RE"
 
 [params]
     MOD = 998244353

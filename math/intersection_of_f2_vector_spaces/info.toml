@@ -33,7 +33,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/923"
 
 [[solutions]]
     name = "wa_size_only.cpp"
-    wrong = true
+    expect = "WA"
 
 [params]
     T_MAX = 100_000

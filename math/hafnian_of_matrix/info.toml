@@ -20,10 +20,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/467"
 
 [[solutions]]
     name = "naive.cpp"
-    wrong = true
+    expect = "RE"
 [[solutions]]
     name = "bitdp.cpp"
-    wrong = true
+    expect = "RE"
 
 [params]
     N_MIN = 2

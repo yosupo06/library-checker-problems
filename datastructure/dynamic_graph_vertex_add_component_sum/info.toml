@@ -32,12 +32,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/347"
 
 [[solutions]]
 	name = "naive.cpp"
-	wrong = true
-	
+	expect = "TLE"
+
 
 [params]
-	N_AND_Q_MIN = 1
-	N_AND_Q_MAX = 300_000
-	N_AND_Q_SMALL_MAX = 1_000
-	A_AND_X_MIN = 0
-	A_AND_X_MAX = 1_000_000_000
+N_AND_Q_MIN = 1
+N_AND_Q_MAX = 300_000
+N_AND_Q_SMALL_MAX = 1_000
+A_AND_X_MIN = 0
+A_AND_X_MAX = 1_000_000_000

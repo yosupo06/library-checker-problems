@@ -33,11 +33,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/767"
 
 [[solutions]]
     name = "dense_correct.cpp"
-    wrong = false
     allow_tle = true
 [[solutions]]
     name = "wa_overflow.cpp"
-    wrong = true
+    expect = "TLE"
     allow_tle = true
 
 [params]

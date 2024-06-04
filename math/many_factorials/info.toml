@@ -20,22 +20,18 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1058"
 
 [[solutions]]
     name = "correct_log_time_multieval_faster.cpp"
-    wrong = false
     allow_tle = false
 
 [[solutions]]
     name = "correct_log_time_multieval.cpp"
-    wrong = false
     allow_tle = false
 
 [[solutions]]
     name = "sqrt.cpp"
-    wrong = false
     allow_tle = true
 
 [[solutions]]
     name = "naive.cpp"
-    wrong = false
     allow_tle = true
 
 [params]

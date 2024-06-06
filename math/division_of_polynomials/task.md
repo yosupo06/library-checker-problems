@@ -1,13 +1,13 @@
 ## @{keyword.statement}
 
 @{lang.en}
-You are given polynomials $f(x)=\sum_{i=0}^{N-1} f_ix^i \in \mathbb{F}_{@{param.MOD}}[x]$ and $g(x)=\sum_{i=0}^{M-1}g_ix^i\in \mathbb{F}_{@{param.MOD}}[x]$. Calculate polynomials $q(x)$ and $r(x)$ such that 
+You are given polynomials $f(x) = \sum _ {i = 0} ^ {N - 1} f _ i x^i \in \mathbb{F} _ {@{param.MOD}}[x]$ and $g(x)=\sum _ {i=0}^{M-1}g_ix^i\in \mathbb{F}_{@{param.MOD}}[x]$. Calculate polynomials $q(x)$ and $r(x)$ such that 
 
 - $f(x) = q(x)g(x) + r(x)$ and 
 - $\deg(r) \lt \deg(g)$. 
 
 @{lang.ja}
-多項式 $f(x)=\sum_{i=0}^{N-1} f_ix^i \in \mathbb{F}_{@{param.MOD}}[x], g(x)=\sum_{i=0}^{M-1}g_ix^i \in \mathbb{F}_{@{param.MOD}}[x]$ が与えられます。次の条件を満たす多項式$q(x),r(x)$を求めてください。
+多項式 $f(x)=\sum _ {i=0}^{N-1} f _ ix^i \in \mathbb{F} _ {@{param.MOD}}[x], g(x)=\sum _ {i=0}^{M-1}g_ix^i \in \mathbb{F} _ {@{param.MOD}}[x]$ が与えられます。次の条件を満たす多項式$q(x),r(x)$を求めてください。
 
 - $f(x) = q(x)g(x) + r(x)$
 - $\deg(r) \lt \deg(g)$

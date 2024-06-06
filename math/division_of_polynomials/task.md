@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-You are given polynomials $f(x)=\sum_{i=0}^{N-1} f_ix^i \in \mathbb{F}_{@{param.MOD}}[x]$ and $g(x)=\sum_{i=0}^{M-1}g_ix^i\in \mathbb{F}_{@{param.MOD}}[x]$. Calculate polynomials $q(x)$ and $r(x)$ such that 
+You are given polynomials $f(x)=\sum _ {i=0} ^ {N-1} f _ ix^i \in \mathbb{F} _ {@{param.MOD}}[x]$ and $g(x) = \sum _ {i=0} ^ {M - 1}g _ ix^i \in \mathbb{F} _ {@{param.MOD}}[x]$. Calculate polynomials $q(x)$ and $r(x)$ such that 
 
 - $f(x) = q(x)g(x) + r(x)$ and 
 - $\deg(r) \lt \deg(g)$. 

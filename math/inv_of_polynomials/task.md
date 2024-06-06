@@ -2,7 +2,7 @@
 
 @{lang.en}
 
-We consider polynomials of $\mathbb{Z}/@{param.MOD}\mathbb{Z}$ in this problem.
+We consider polynomials over $\mathbb{F}_{@{param.MOD}}$ in this problem.
 
 Given polynomials $f(x)=\sum_{i=0}^{N-1} a_ix^i$ and $g(x)=\sum_{i=0}^{M-1}b_ix^i$.
 Calculate a polynomial $h(x)=\sum_{i=0}^{T-1}c_ix^i$ s.t.

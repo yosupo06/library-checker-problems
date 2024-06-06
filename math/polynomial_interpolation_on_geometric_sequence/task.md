@@ -4,7 +4,7 @@
 Given integers $N, a, r$ and integer sequence $y_0, y_1, ..., y_{N - 1}$.
 It is guaranteed that $ar^i\not\equiv ar^j\pmod{@{param.MOD}}$ for $0\leq i < j \leq N-1$. 
 
-Calculate a polynomial $f(x) = \sum_{i = 0}^{N - 1} c_i x^i$ s.t. $f(ar^i) \equiv y_i \pmod{@{param.MOD}}$ is satisfied for each $i$.
+Calculate a polynomial $f(x) = \sum_{i = 0}^{N - 1} c_i x^i\in \mathbb{Z}[x]$ s.t. $f(ar^i) \equiv y_i \pmod{@{param.MOD}}$ is satisfied for each $i$.
 
 Also, $0 \leq c_i < @{param.MOD}$ must be satisfied.
 
@@ -12,7 +12,7 @@ Also, $0 \leq c_i < @{param.MOD}$ must be satisfied.
 整数 $N, a, r$ および整数列 $y_0, y_1, \ldots, y_{N-1}$ が与えられます。
 $0\leq i < j \leq N-1$ に対して $ar^i \not\equiv ar^j\pmod{@{param.MOD}}$ であることが保証されます。
 
-全ての $i$ について $f(ar^i) \equiv y_i \pmod{@{param.MOD}}$ を満たす多項式 $f(x) = \sum_{i = 0}^{N - 1} c_i x^i$ を求めてください。
+全ての $i$ について $f(ar^i) \equiv y_i \pmod{@{param.MOD}}$ を満たす多項式 $f(x) = \sum_{i = 0}^{N - 1} c_i x^i \in \mathbb{Z}[x]$ を求めてください。
 ただし $0 \leq c_i < @{param.MOD}$ とします。
 @{lang.end}
 

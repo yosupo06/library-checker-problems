@@ -17,10 +17,12 @@ We can prove $h(x)$ is unique if it exists.
 Print $-1$ if it doesn't exist.
 
 @{lang.ja}
-$\mathbb{Z}/@{param.MOD}\mathbb{Z}$ 係数の多項式 $f(x)=\sum_{i=0}^{N-1} a_ix^i ,g(x)=\sum_{i=0}^{M-1}b_ix^i$ が与えられます。
+この問題では $\mathbb{F}_{@{param.MOD}}$ 係数の多項式を考えます。
+
+多項式 $f(x)=\sum_{i=0}^{N-1} a_ix^i ,g(x)=\sum_{i=0}^{M-1}b_ix^i$ が与えられます。
 $\deg(h) < \deg(g)$ かつ 
 $$f(x)h(x)\equiv1\pmod {g(x)}$$
-を満たす$\mathbb{Z}/@{param.MOD}\mathbb{Z}$ 係数の多項式 $h(x)=\sum_{i=0}^{T-1}c_ix^i$ を求めてください。
+を満たす多項式 $h(x)=\sum_{i=0}^{T-1}c_ix^i$ を求めてください。
 ただし $\deg(0)=-\infty$とします。
 このような $h(x)$ は存在するならば一意に定まることが示せます。
 $h(x)$ が存在しないときは$-1$を出力してください。

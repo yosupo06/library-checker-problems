@@ -1,11 +1,11 @@
 ## @{keyword.statement}
 
 @{lang.en}
-$N$ polynomials $f_i(x) = \sum_{j=0}^{d_j} a_{i,j} x^{j}$ ($i=0,\ldots,N-1$) are given. 
+$N$ polynomials $f_i(x) = \sum_{j=0}^{d_j} a_{i,j} x^{j} \in \mathbb{Z}[x]$ ($i=0,\ldots,N-1$) are given. 
 Compute $f(x) = \prod_{i=0}^{N-1} f_i(x)$ modulo $@{param.MOD}$. 
 
 @{lang.ja}
-$N$ 個の多項式 $f_i(x) = \sum_{j=0}^{d_j} a_{i,j} x^{j}$ ($i=0,\ldots,N-1$) が与えられます。
+$N$ 個の多項式 $f_i(x) = \sum_{j=0}^{d_j} a_{i,j} x^{j} \in \mathbb{Z}[x]$ ($i=0,\ldots,N-1$) が与えられます。
 $f(x) = \prod_{i=0}^{N-1} f_i(x)$ を $\mod @{param.MOD}$ で求めてください。
 @{lang.end}
 

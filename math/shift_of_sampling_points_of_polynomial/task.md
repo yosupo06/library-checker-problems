@@ -1,10 +1,10 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given sampling points $f(0), f(1), \ldots , f(N - 1)$ of polynomial $f(x)$ of degree less than $N$, compute $f(c ＋ i) \bmod @{param.MOD}$ for $i = 0, 1, \ldots , M - 1$.
+Given sampling points $f(0), f(1), \ldots , f(N - 1)$ of polynomial $f(x) \in \mathbb{F}_{@{param.MOD}}[x]$ of degree less than $N$, compute $f(c ＋ i)$ for $i = 0, 1, \ldots , M - 1$.
 @{lang.ja}
-次数 $N$ 未満の多項式 $f(x)$ の標本点 $f(0), f(1), \ldots , f(N - 1)$ が与えられます。
-$i = 0, 1, \ldots , M - 1$ に対して $f(c ＋ i) \bmod @{param.MOD}$ を計算してください。
+次数 $N$ 未満の多項式 $f(x) \in \mathbb{F}_{@{param.MOD}}[x]$ の標本点 $f(0), f(1), \ldots , f(N - 1)$ が与えられます。
+$i = 0, 1, \ldots , M - 1$ に対して $f(c ＋ i)$ を計算してください。
 @{lang.end}
 
 ## @{keyword.constraints}

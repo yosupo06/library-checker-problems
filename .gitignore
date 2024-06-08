@@ -6,3 +6,12 @@
 in/
 out/
 params.h
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv/
+venv/

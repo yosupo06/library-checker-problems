@@ -1,0 +1,45 @@
+title = 'st-Numbering'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/841"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[tests]]
+    name = "small_random.cpp"
+    number = 5
+[[tests]]
+    name = "mid_random.cpp"
+    number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 8
+
+[[tests]]
+    name = "mid_no.cpp"
+    number = 2
+
+[[tests]]
+    name = "complete.cpp"
+    number = 1
+[[tests]]
+    name = "path.cpp"
+    number = 1
+[[tests]]
+    name = "cycle.cpp"
+    number = 2
+[[tests]]
+    name = "star_plus_one.cpp"
+    number = 1
+[[tests]]
+    name = "triangle_path.cpp"
+    number = 1
+
+[params]
+    T_MIN = 1
+    T_MAX = 100_000
+    N_MIN = 1
+    N_MAX = 200_000
+    M_MIN = 0
+    M_MAX = 200_000

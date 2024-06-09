@@ -34,7 +34,7 @@ $G$ のオイラー路が存在するか否かを判定し，含む場合には�
 - $@{param.M_MIN} \leq M \leq @{param.M_MAX}$
 - $0 \leq u_i, v_i \lt N$
 - The sum of $N$ over all test cases does not exceed $@{param.N_MAX}$. 
-- The sum of $M$ over all test cases does not exceed $@{param.N_MAX}$. 
+- The sum of $M$ over all test cases does not exceed $@{param.M_MAX}$. 
 
 @{lang.ja}
 

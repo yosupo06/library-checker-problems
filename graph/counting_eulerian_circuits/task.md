@@ -13,8 +13,6 @@ Note that an Eulerian circuit remains an Eulerian circuit after any cyclic shift
 Find the number of Eulerian circuits of $G$, considered the same if they can be obtained from one another by a cyclic shift (in other words, the number of Eulerian circuits with $e_0 = 0$), and give the result modulo $998244353$.
 
 @{lang.ja}
-この問題は $T$ ケースあります．
-
 $N$ 頂点 $M$ 辺の**有向**グラフ $G$ が与えられます．$i$ 番目の辺は頂点 $u_i$ から頂点 $v_i$ に向けて張られています．
 
 $G$ の**オイラー閉路**とは，頂点の列 $(v_0,\ldots,v_{M-1})$ と辺の列 $(e_0,\ldots,e_{M-1})$ の組であって以下の条件を満たすもののことをいいます．

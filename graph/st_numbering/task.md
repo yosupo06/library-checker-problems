@@ -9,7 +9,7 @@ You are also given two vertices $s$ and $t$ of $G$.
 
 Determine if there exists a permutation $p = (p _ 0,\ldots,p _ {N - 1})$ of the vertices satisfying the following condition, and if so, find such a permutation.
 
-- Orient each edge of $G$ from $u _ i$ to $v _ i$ if $p _ {u _ i} < p _ {v _ i}$, or from $v _ i$ to $u _ i$ if $p _ {v _ i} < $p _ {u _ i}$. Then, for any vertex $v$, there exists a path from $s$ to $t$ that passes through $v$.
+- Orient each edge of $G$ from $u _ i$ to $v _ i$ if $p _ {u _ i} < p _ {v _ i}$, or from $v _ i$ to $u _ i$ if $p _ {v _ i} < p _ {u _ i}$. Then, for any vertex $v$, there exists a path from $s$ to $t$ that passes through $v$.
 
 @{lang.ja}
 この問題は $T$ ケースあります．

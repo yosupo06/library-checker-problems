@@ -1091,7 +1091,7 @@ public:
       // cout<<"# "<<px<<" "<<py<<" "<<qx<<" "<<qy<<endl;
       int sz=now.size();
       per(i,sz-1,1){
-        if(i==1&&px==0&py==0)break;
+        if(i==1&&px==0&&py==0)break;
         now[i]-=now[i-1];
       }
 

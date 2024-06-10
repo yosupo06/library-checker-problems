@@ -29,7 +29,7 @@ int main() {
     }
     inf.readChar('\n');
     for(int i = 0; i < n; i++){
-        assert(a[i] < b[i]);
+        ensure(a[i] < b[i]);
     }
     inf.readEof();
     return 0;

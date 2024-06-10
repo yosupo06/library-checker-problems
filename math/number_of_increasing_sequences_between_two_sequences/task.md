@@ -29,8 +29,6 @@ $A_0$ $A_1$ $\cdots$ $A_{N-1}$
 $B_0$ $B_1$ $\cdots$ $B_{N-1}$
 ```
 
-## @{keyword.output}
-
 ## @{keyword.sample}
 
 @{example.example_00}

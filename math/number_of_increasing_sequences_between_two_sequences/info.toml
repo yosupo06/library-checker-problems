@@ -7,10 +7,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1019"
     number = 3
 [[tests]]
     name = "random.cpp"
-    number = 10
-[[solutions]]
-    name = "solution.cpp"
-    wrong = true
+    number = 3
+[[tests]]
+    name = "maxi.cpp"
+    number = 5
 [params]
-    N_MAX = 2**17
+    N_M_MAX = 131072
     MOD = 998244353

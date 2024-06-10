@@ -18,6 +18,8 @@
 #include <intrin.h>
 #endif
 
+using namespace std;
+
 namespace atcoder {
 
 namespace internal {

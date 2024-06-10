@@ -2,6 +2,7 @@
 #include "params.h"
 
 #include <vector>
+#include <cassert>
 
 using namespace std;
 

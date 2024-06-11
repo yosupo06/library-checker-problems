@@ -18,17 +18,6 @@ int main(int, char* argv[]) {
     for(int i = 0; i < n; i++){
         a[i] = gen.uniform<int>(0, m - 1);
         b[i] = gen.uniform<int>(a[i] + 1, m);
-        if(a[i] == b[i]){
-            if(a[i] != 0){
-                a[i]--;
-            }
-            else{
-                b[i]++;
-            }
-        }
-        if(a[i] > b[i]){
-            swap(a[i], b[i]);
-        }
     }
 
     sort(a.begin(),a.end());

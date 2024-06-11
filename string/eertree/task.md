@@ -64,3 +64,9 @@ $v_1$ $\ldots$ $v_{|S|}$
 ```
 
 ## @{keyword.sample}
+
+@{example.example_00}
+
+@{example.example_01}
+
+@{example.example_02}

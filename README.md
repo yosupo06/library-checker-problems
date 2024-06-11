@@ -10,7 +10,7 @@ Source code of [https://judge.yosupo.jp](https://judge.yosupo.jp). You can get t
 ## Requirements
 
 - Linux / OS X / Windows(MinGW-w64)
-- python3.6+
+- Python 3.8+
 - g++ / clang++ (Needs --std=c++17 and __int128_t)
 
 ## How to Use

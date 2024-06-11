@@ -17,8 +17,8 @@ Find the number of a non-negative integer sequences $x = \left( x_0, x_1, \cdots
 
 ## @{keyword.constraints}
 
-- $1 \leq N \leq 2^{17}$
-- $1 \leq M \leq 2^{17}$
+- $1 \leq N \leq @{param.N_M_MAX}$
+- $1 \leq M \leq @{param.N_M_MAX}$
 - $0 \leq A_i < B_i \leq M$ ($0 \leq i \leq N - 1$)
 
 ## @{keyword.input}

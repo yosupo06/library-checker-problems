@@ -3,7 +3,7 @@
 @{lang.en}
 Given integers $N,M$ and two non-negative integer sequences $A = \left( A_0, A_1, \cdots, A_{N-1} \right), B = \left( B_0, B_1, \cdots, B_{N-1} \right)$.
 
-Find the number of a non-negative integer sequences $x = \left( x_0, x_1, \cdots, x_{N-1} \right)$ which satisfies the following conditions, and print it $\bmod \ 998244353$.
+Find the number of a non-negative integer sequences $x = \left( x_0, x_1, \cdots, x_{N-1} \right)$ which satisfies the following conditions, and print it $\bmod \ @{param.MOD}$.
 
 - $0 \leq x_0 \leq \cdots \leq x_{N-1} < M$
 - $A_i \leq x_i < B_i$

@@ -110,7 +110,7 @@ void solve() {
     scanf("%d", &a);
     x[i] = a;
   }
-  mint ANS = SUM<mint>(x);
+  mint ANS = 0;
 
   auto merge = [&](int i, int j) -> void {
     i = uf[i], j = uf[j];

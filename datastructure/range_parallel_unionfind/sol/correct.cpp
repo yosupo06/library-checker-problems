@@ -159,7 +159,7 @@ void solve() {
     x[i] = a;
   }
 
-  mint ANS = SUM<mint>(x);
+  mint ANS = 0;
   auto f = [&](int i, int j) -> void {
     ANS += x[i] * x[j];
     x[i] += x[j];

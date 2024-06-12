@@ -22,7 +22,7 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/934'
     number = 4
 [[tests]]
     name = "decr_period.cpp"
-    number = 3
+    number = 4
 
 [[solutions]]
     name = "naive.cpp"

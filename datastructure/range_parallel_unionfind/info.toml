@@ -1,0 +1,36 @@
+title = 'Range Parallel Unionfind'
+timelimit = 5.0
+forum = 'https://github.com/yosupo06/library-checker-problems/issues/934'
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small.cpp"
+    number = 10
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "small_k.cpp"
+    number = 3
+[[tests]]
+    name = "large_k.cpp"
+    number = 3
+[[tests]]
+    name = "periodic.cpp"
+    number = 4
+[[tests]]
+    name = "decr_period.cpp"
+    number = 4
+
+[[solutions]]
+    name = "naive.cpp"
+    allow_tle = true
+
+[params]
+    MOD = 998_244_353
+    MIN_N = 1
+    MAX_N = 500_000
+    MIN_Q = 1
+    MAX_Q = 500_000

@@ -5,7 +5,7 @@ There's an undirected graph $G$ with $N$ vertices and $0$ edges, along with a se
 
 - `$k$ $a$ $b$`: Add edge $(a + i, b + i)$ to $G$ for each $i=0,1,\ldots,k-1$.
 
-For each query, output the remainder when $X$ defined below modulo $@{param.MOD}$:
+After processing each query, output the remainder when $X$ defined below modulo $@{param.MOD}$:
 
 - Define $\mathrm{same}(i,j)$ as $1$ if vertices $i$ and $j$ belong to the same connected component in $G$, and $0$ otherwise, for $0\leq i,j \leq N-1$.
 - Define $X = \sum_{0\leq i<j\leq N-1}\mathrm{same}(i,j)x_ix_j$.

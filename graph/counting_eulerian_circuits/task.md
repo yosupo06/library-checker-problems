@@ -5,7 +5,7 @@ You are given a **directed** graph $G$, consisting of $N$ vertices and $M$ edges
 
 An **eulerian circuit** of $G$ is a pair of sequence of vertices $(v_0,\ldots,v_{M-1})$ and sequence of edges $(e_0,\ldots,e_{M-1})$ satisfying following conditions. 
 
-- $(e_0,\ldots,e_{M-1})$ is a permutation of $(0, \ldots, M)$. 
+- $(e_0,\ldots,e_{M-1})$ is a permutation of $(0, \ldots, M-1)$. 
 - For $0\leq i < M-1$, the edge $e_i$ is directed from $v_i$ to $v_{i+1}$. The edge $e_{M-1}$ is directed from $v_{M-1}$ to $v_0$. 
 
 Note that an Eulerian circuit remains an Eulerian circuit after any cyclic shift.

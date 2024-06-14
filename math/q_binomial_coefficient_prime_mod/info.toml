@@ -1,0 +1,52 @@
+title = '$q$-Binomial Coefficient (Prime Mod)'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/980"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+
+[[tests]]
+    name = "mod998244353_q2.cpp"
+    number = 1
+
+[[tests]]
+    name = "mod998244353_q2_maxi.cpp"
+    number = 1
+
+[[tests]]
+    name = "mod1000000007_q2.cpp"
+    number = 1
+
+[[tests]]
+    name = "mod2.cpp"
+    number = 2
+
+[[tests]]
+    name = "mod3.cpp"
+    number = 3
+
+[[tests]]
+    name = "small_random.cpp"
+    number = 5
+
+[[tests]]
+    name = "med_random.cpp"
+    number = 3
+
+[[tests]]
+    name = "large_random.cpp"
+    number = 3
+
+[[tests]]
+    name = "q_01.cpp"
+    number = 2
+
+[[tests]]
+    name = "small_ord.cpp"
+    number = 6
+
+[params]
+    T_MAX = 1_000_000
+    M_MAX = 1_073_741_824
+    N_MAX = 10_000_000

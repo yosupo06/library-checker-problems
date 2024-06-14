@@ -24,17 +24,8 @@ problems = [
   "range_kth_smallest",
   "point_set_range_sort_range_composite",
   "range_reverse_range_sum",
-  "vertex_add_path_sum",
-  "vertex_set_path_composite",
-  "vertex_add_subtree_sum",
-  "vertex_add_range_contour_sum_on_tree",
-  "vertex_get_range_contour_add_on_tree",
   "dynamic_sequence_range_affine_range_sum",
-  "dynamic_tree_vertex_add_path_sum",
-  "dynamic_tree_vertex_set_path_composite",
-  "dynamic_tree_vertex_add_subtree_sum",
-  "dynamic_tree_subtree_add_subtree_sum",
-  "dynamic_graph_vertex_add_component_sum",
+  "range_linear_add_range_min",
   "set_xor_min",
   "line_add_get_min",
   "segment_add_get_min",
@@ -84,6 +75,7 @@ problems = [
   "tree_decomposition_width_2",
   "global_minimum_cut_of_dynamic_star_augmented_graph",
   "chordal_graph_recognition",
+  "dynamic_graph_vertex_add_component_sum",
 ]
 
 [[categories]]
@@ -92,62 +84,22 @@ problems = [
   "tree_diameter",
   "lca",
   "jump_on_tree",
-  "cartesian_tree",
-  "common_interval_decomposition_tree",
   "frequency_table_of_tree_distance",
   "rooted_tree_isomorphism_classification",
   "tree_path_composite_sum",
-]
-
-[[categories]]
-name = "Math"
-problems = [
-  "enumerate_quotients",
-  "primality_test",
-  "counting_primes",
-  "enumerate_primes",
-  "factorize",
-  "primitive_root",
-  "factorial", 
-  "many_factorials", 
-  "binomial_coefficient",
-  "binomial_coefficient_prime_mod",
-  "stirling_number_of_the_first_kind",
-  "stirling_number_of_the_first_kind_fixed_k",
-  "stirling_number_of_the_second_kind",
-  "stirling_number_of_the_second_kind_fixed_k",
-  "stirling_number_of_the_first_kind_small_p_large_n",
-  "stirling_number_of_the_second_kind_small_p_large_n",
-  "bernoulli_number",
-  "partition_function",
-  "montmort_number_mod",
-  "counting_squarefrees",
-  "sum_of_totient_function",
-  "sum_of_exponential_times_polynomial",
-  "sum_of_exponential_times_polynomial_limit",
-  "find_linear_recurrence",
-  "kth_term_of_linearly_recurrent_sequence",
-  "consecutive_terms_of_linear_recurrent_sequence",
-  "sum_of_floor_of_linear",
-  "min_of_mod_of_linear",
-  "sqrt_mod",
-  "kth_root_mod",
-  "kth_root_integer",
-  "discrete_logarithm_mod",
-  "tetration_mod",
-  "nim_product_64",
-  "sharp_p_subset_sum",
-  "two_sat",
-  "longest_increasing_subsequence",
-  "number_of_subsequences",
-  "addition_of_big_integers",
-  "multiplication_of_big_integers",
-  "division_of_big_integers",
-  "stern_brocot_tree",
-  "polynomial_composite_set_power_series",
-  "exp_of_set_power_series",
-  "gcd_of_gaussian_integers",
-
+  "vertex_add_path_sum",
+  "vertex_set_path_composite",
+  "vertex_add_subtree_sum",
+  "vertex_add_range_contour_sum_on_tree",
+  "vertex_get_range_contour_add_on_tree",
+  "point_set_tree_path_composite_sum_fixed_root",
+  "point_set_tree_path_composite_sum",
+  "dynamic_tree_vertex_add_path_sum",
+  "dynamic_tree_vertex_set_path_composite",
+  "dynamic_tree_vertex_add_subtree_sum",
+  "dynamic_tree_subtree_add_subtree_sum",
+  "cartesian_tree",
+  "common_interval_decomposition_tree",
 ]
 
 [[categories]]
@@ -157,7 +109,6 @@ problems = [
   "convolution_mod_1000000007",
   "convolution_mod_2_64",
   "convolution_mod_large",
-  "subset_convolution",
   "bitwise_and_convolution",
   "bitwise_xor_convolution",
   "gcd_convolution",
@@ -168,6 +119,31 @@ problems = [
   "mul_mod2n_convolution",
   "min_plus_convolution_convex_arbitrary",
   "min_plus_convolution_convex_convex",
+]
+
+[[categories]]
+name = "Number Theory"
+problems = [
+  "enumerate_quotients",
+  "primality_test",
+  "counting_primes",
+  "enumerate_primes",
+  "factorize",
+  "primitive_root",
+  "sum_of_floor_of_linear",
+  "min_of_mod_of_linear",
+  "rational_approximation",
+  "stern_brocot_tree",
+  "counting_squarefrees",
+  "sum_of_totient_function",
+  "bernoulli_number",
+  "sqrt_mod",
+  "kth_root_mod",
+  "kth_root_integer",
+  "discrete_logarithm_mod",
+  "tetration_mod",
+  "gcd_of_gaussian_integers",
+  "nim_product_64",
 ]
 
 [[categories]]
@@ -196,21 +172,65 @@ problems = [
   "inv_of_polynomials",
   "conversion_from_monomial_basis_to_newton_basis",
   "polynomial_root_finding",
+  "composition_of_formal_power_series_large",
+  "compositional_inverse_of_formal_power_series_large",
 ]
 
 [[categories]]
-name = "Matrix"
+name = "Set Power Series"
+problems = [
+  "subset_convolution",
+  "power_projection_of_set_power_series",
+  "exp_of_set_power_series",
+  "polynomial_composite_set_power_series",
+]
+
+[[categories]]
+name = "Enumerative Combinatorics"
+problems = [
+  "factorial", 
+  "many_factorials", 
+  "montmort_number_mod",
+  "binomial_coefficient",
+  "binomial_coefficient_prime_mod",
+  "partition_function",
+  "stirling_number_of_the_first_kind",
+  "stirling_number_of_the_first_kind_fixed_k",
+  "stirling_number_of_the_second_kind",
+  "stirling_number_of_the_second_kind_fixed_k",
+  "stirling_number_of_the_first_kind_small_p_large_n",
+  "stirling_number_of_the_second_kind_small_p_large_n",
+  "sharp_p_subset_sum",
+  "number_of_subsequences",
+]
+
+
+[[categories]]
+name = "Linear Algebra"
 problems = [
   "matrix_product",
+  "matrix_product_mod_2",
   "pow_of_matrix", 
   "matrix_det",
   "matrix_det_arbitrary_mod",
+  "matrix_det_mod_2",
   "sparse_matrix_det",
   "matrix_rank", 
   "system_of_linear_equations",
   "inverse_matrix",
   "characteristic_polynomial",
   "hafnian_of_matrix",
+  "intersection_of_f2_vector_spaces",
+]
+
+[[categories]]
+name = "Sequence"
+problems = [
+  "sum_of_exponential_times_polynomial",
+  "sum_of_exponential_times_polynomial_limit",
+  "find_linear_recurrence",
+  "kth_term_of_linearly_recurrent_sequence",
+  "consecutive_terms_of_linear_recurrent_sequence",
 ]
 
 [[categories]]
@@ -230,6 +250,26 @@ problems = [
 name = "Geometry"
 problems = [
   "sort_points_by_argument",
+  "static_convex_hull",
   "count_points_in_triangle",
   "convex_layers",
+]
+
+
+[[categories]]
+name = "Big Integer"
+problems = [
+  "addition_of_big_integers",
+  "multiplication_of_big_integers",
+  "division_of_big_integers",
+  "addition_of_hex_big_integers",
+  "multiplication_of_hex_big_integers",
+  "division_of_hex_big_integers",
+]
+
+[[categories]]
+name = "Other"
+problems = [
+  "two_sat",
+  "longest_increasing_subsequence",
 ]

@@ -42,7 +42,7 @@ Each test consists of $T$ cases, and $q$ and $m$ are fixed in all cases.
 ## @{keyword.input}
 
 ```
-$T\ m$
+$T\ m\ q$
 $n_0\ k_0$
 $n_1\ k_1$
 $\vdots$

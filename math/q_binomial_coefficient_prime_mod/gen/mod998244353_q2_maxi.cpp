@@ -16,7 +16,7 @@ int main(int, char* argv[]) {
   while (t--) {
     long long n, k;
     n = gen.uniform<long long>(0, std::min(m, N_MAX) - 1);
-    k = gen.uniform<long long>(0, n - 1);
+    k = gen.uniform<long long>(0, n);
     printf("%lld %lld\n", n, k);
   }
 

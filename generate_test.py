@@ -10,11 +10,10 @@ from shutil import copy
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from generate import Problem, param_to_str, casename
-from typing import List
 
 logger = getLogger(__name__)
 
-@unittest.skipIf(getenv('ENABLE_GENERATE_TEST') == None, "generate test take long time")
+@unittest.skipIf(getenv('ENABLE_GENERATE_TEST') is None, "generate test take long time")
 class TestGenerateAll(unittest.TestCase):
     def test_generate_all(self):
         tomls = list(filter(lambda p: not p.match('test/**/info.toml'), Path('.').glob('**/info.toml')))
@@ -237,11 +236,11 @@ class TestCacheTest(unittest.TestCase):
             in_path = Path(test_dir) / \
                 'simple_aplusb/in/random_00.in'  # type: Path
             self.assertFalse(in_path.exists())
-            proc = run(
+            run(
                 ['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml')])
             self.assertTrue(in_path.exists())
             time = in_path.stat().st_mtime_ns
-            proc = run(
+            run(
                 ['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml')])
             self.assertTrue(in_path.exists())
             self.assertEqual(time, in_path.stat().st_mtime_ns)
@@ -251,11 +250,11 @@ class TestCacheTest(unittest.TestCase):
             in_path = Path(test_dir) / \
                 'simple_aplusb/in/random_00.in'  # type: Path
             self.assertFalse(in_path.exists())
-            proc = run(
+            run(
                 ['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml'), '--dev'])
             self.assertTrue(in_path.exists())
             time = in_path.stat().st_mtime_ns
-            proc = run(
+            run(
                 ['./generate.py', str(Path(test_dir) / 'simple_aplusb/info.toml'), '--dev'])
             self.assertTrue(in_path.exists())
             self.assertNotEqual(time, in_path.stat().st_mtime_ns)

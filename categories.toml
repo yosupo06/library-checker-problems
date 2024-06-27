@@ -3,7 +3,7 @@ name = "Sample"
 problems = [
   "aplusb",
   "many_aplusb",
-  "many_aplusb_128bit",
+  "many_aplusb_128bit",  
 ]
 
 [[categories]]
@@ -224,16 +224,6 @@ problems = [
 ]
 
 [[categories]]
-name = "Sequence"
-problems = [
-  "sum_of_exponential_times_polynomial",
-  "sum_of_exponential_times_polynomial_limit",
-  "find_linear_recurrence",
-  "kth_term_of_linearly_recurrent_sequence",
-  "consecutive_terms_of_linear_recurrent_sequence",
-]
-
-[[categories]]
 name = "String"
 problems = [
   "zalgorithm",
@@ -272,4 +262,9 @@ name = "Other"
 problems = [
   "two_sat",
   "longest_increasing_subsequence",
+  "sum_of_exponential_times_polynomial",
+  "sum_of_exponential_times_polynomial_limit",
+  "find_linear_recurrence",
+  "kth_term_of_linearly_recurrent_sequence",
+  "consecutive_terms_of_linear_recurrent_sequence",
 ]

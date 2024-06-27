@@ -3,7 +3,7 @@ name = "Sample"
 problems = [
   "aplusb",
   "many_aplusb",
-  "many_aplusb_128bit",  
+  "many_aplusb_128bit",
 ]
 
 [[categories]]

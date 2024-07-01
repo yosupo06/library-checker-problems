@@ -13,9 +13,9 @@ After adding each edge, output the remainder when $X$ defined below modulo $@{pa
 
 @{lang.ja}
 
-$N$ 頂点 $0$ 辺の有向グラフ $G$ および，整数列 $x_0, \ldots, x_{N-1}$ がある．
+$N$ 頂点 $0$ 辺の有向グラフ $G$ および，整数列 $x_0, \ldots, x_{N-1}$ があります．
 
-$G$ に $M$ 辺の有向辺を追加する．$i$ 番目の辺は $a_i$ から $b_i$ に向けて張られている．
+$G$ に $M$ 辺の有向辺を追加します．$i$ 番目の辺は $a_i$ から $b_i$ に向けて張られています．
 
 各辺を追加した後に，次で定義される $X$ を $@{param.MOD}$ で割った余りを出力してください：
 - $0\leq i,j \leq N-1$ に対して，$\mathrm{same}(i,j)$ を，頂点 $i,j$ が $G$ において同一の強連結成分に属するならば $1$，そうでないならば $0$ と定義する．

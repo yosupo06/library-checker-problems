@@ -1,0 +1,30 @@
+title = 'Strongly Connected Components (Incremental)'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1192"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+[[tests]]
+    name = "small_random.cpp"
+    number = 5
+[[tests]]
+    name = "random.cpp"
+    number = 10
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "large_cycle.cpp"
+    number = 2
+
+[[solutions]]
+    name = "naive.cpp"
+    allow_tle = true
+
+[params]
+    MOD = 998_244_353
+    MIN_N = 1
+    MAX_N = 500_000
+    MIN_M = 1
+    MAX_M = 500_000

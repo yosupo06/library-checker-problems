@@ -28,7 +28,7 @@ $G$ に $M$ 辺の有向辺を追加します．$i$ 番目の辺は $a_i$ から
 
 - $@{param.MIN_N} \leq N \leq @{param.MAX_N}$
 - $@{param.MIN_M} \leq M \leq @{param.MAX_M}$
-- $0 \leq x_i \leq @{param.MOD} - 1$
+- $0 \leq x_i < @{param.MOD}$
 - $0 \leq a_i, b_i < N$
 ## @{keyword.input}
 

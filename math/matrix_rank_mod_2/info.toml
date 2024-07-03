@@ -1,0 +1,23 @@
+title = 'Rank of Matrix (Mod 2)'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/896"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+[[tests]]
+    name = "zero.cpp"
+    number = 5
+[[tests]]
+    name = "random.cpp"
+    number = 8
+[[tests]]
+    name = "max.cpp"
+    number = 9
+[[tests]]
+    name = "lowrank.cpp"
+    number = 10
+
+[params]
+    NM_MAX = 16777216
+    MOD = 2

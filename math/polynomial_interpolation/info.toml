@@ -14,3 +14,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/46"
 [[tests]]
     name = "1169.in"
     number = 1
+[[tests]]
+    name = "x_zero.cpp"
+    number = 1

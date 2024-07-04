@@ -25,7 +25,7 @@ int main() {
       }
       ensuref((((x[0][0] * x[1][1] - x[0][1] * x[1][0]) % MOD) + MOD) % MOD == 1, "det(x) should be 1");
     }
-    inf.readEoln();
+    inf.readChar('\n');
   }
 
   inf.readEof();

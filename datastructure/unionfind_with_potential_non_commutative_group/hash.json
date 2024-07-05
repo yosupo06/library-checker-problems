@@ -1,6 +1,12 @@
 {
   "example_00.in": "18bab05e3802e8ea055a05a0c9155b2873119e4eecc7fa498866c29ec0fa1ad4",
   "example_00.out": "9e297f077dde20f461062caf48fb7e5b4cf85d30329a4989c6c34018a23aa6fa",
+  "max_random_00.in": "0bb8def739d513d3370b8b57964261ffb6cf8fff537a7ddd8e1aee618a2120d7",
+  "max_random_00.out": "290701aaa4607a1e294a4c6cbd34a342e3b6be668f568075f2e753344ee348d7",
+  "max_random_01.in": "5da0aa4c062a967dd57dfbd3c3d2aced517247d8ae047de86cde50ffd722c47a",
+  "max_random_01.out": "8a0d031b36d0b50685ea4c2a5eb9ed8c2d69eedbc1a3e30dd7da4b0e5a071d15",
+  "max_random_02.in": "59e21f11aa2ff54f4f239153c654b89c31c58b2bcb6899c0ddd9b3e9be19cfdf",
+  "max_random_02.out": "5306e9c65ac1d556571425c5994b07bd2d5cb36f9f64889f7eedbb29fef8566c",
   "path_00.in": "174a18081d146f7c794f08ac288d778a5552f6240d741ef2c8280f7ba15e9f2a",
   "path_00.out": "7ca969ffb6a38eac0fb839c60f54c47c66f2d631ad19b3e7c60971a5942f62ba",
   "path_01.in": "7a5c080369f59b1cadf6e8f432e1b18651c2bce4de56326412cf1b01d4a294a5",

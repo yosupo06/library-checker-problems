@@ -8,7 +8,7 @@ int main(int, char* argv[]) {
   long long seed = atoll(argv[1]);
   auto gen = Random(seed);
 
-  int n = N_MAX;
+  int n = gen.uniform<int>(1, N_MAX);
   int q = Q_MAX;
   printf("%d %d\n", n, q);
   for (int i = 0; i < q; i++) {

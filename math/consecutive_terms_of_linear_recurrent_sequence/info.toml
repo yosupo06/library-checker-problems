@@ -34,6 +34,10 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/1007'
     name = "some_param_minimum.cpp"
     number = 7
 
+[[tests]]
+    name = "issue_1203.in"
+    number = 1
+
 [[solutions]]
     name = "naive.cpp"
     allow_re = true

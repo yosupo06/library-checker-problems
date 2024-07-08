@@ -24,6 +24,11 @@ void out(vector<vector<P>> ALL) {
   }
 }
 
+/*
+This code is not implemented as intended.
+The correct implementation can be found in fix_near_grid.cpp.
+https://github.com/yosupo06/library-checker-problems/issues/1204
+*/
 int main(int, char* argv[]) {
   long long seed = atoll(argv[1]);
   auto gen = Random(seed);
@@ -38,7 +43,7 @@ int main(int, char* argv[]) {
   x[0],x[1],...,x[N-1]
   */
   int LIM = X_AND_Y_ABS_MAX;
-  int d = LIM / (N - 1);
+  int d = LIM / (N - 1); // this line should be int d = LIM / (n - 1);
 
   auto get = [&](int i) -> int {
     int x = i * d - (LIM / 2);

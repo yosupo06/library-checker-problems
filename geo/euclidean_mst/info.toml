@@ -1,0 +1,47 @@
+title = 'Euclidean MST'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/916"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+    
+[[tests]]
+    name = "all_same.cpp"
+    number = 1
+
+[[tests]]
+    name = "mid_random.cpp"
+    number = 4
+
+[[tests]]
+    name = "max_random.cpp"
+    number = 8
+
+[[tests]]
+    name = "max_colinear.cpp"
+    number = 2
+
+[[tests]]
+    name = "max_slender.cpp"
+    number = 4
+
+[[tests]]
+    name = "near_circle.cpp"
+    number = 2
+
+[[tests]]
+    name = "near_grid.cpp"
+    number = 2
+
+[[tests]]
+    name = "small_chunks.cpp"
+    number = 2
+
+[[solutions]]
+    name = "naive_prim.cpp"
+    expect = "TLE"
+
+[params]
+    N_MAX = 200_000
+    X_AND_Y_ABS_MAX = 10000

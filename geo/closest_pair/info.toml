@@ -34,6 +34,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/836"
     name = "near_grid.cpp"
     number = 2
 
+[[tests]]
+    name = "fix_near_grid.cpp"
+    number = 2
+
 [[solutions]]
     name = "naive.cpp"
     wrong = false

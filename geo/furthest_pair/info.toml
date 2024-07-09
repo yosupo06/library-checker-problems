@@ -35,6 +35,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/837"
     number = 2
 
 [[tests]]
+    name = "fix_near_grid.cpp"
+    number = 2
+
+[[tests]]
     name = "max_convex_hull.cpp"
     number = 1
 

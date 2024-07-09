@@ -327,7 +327,7 @@ private:
 
         std::vector<int> pi(pos.size());
         for(int i=0; i<(int)pi.size(); i++) pi[i] = i;
-        std::sort(
+        std::stable_sort(
             pi.begin(), pi.end(),
             [&](int l, int r){
                 return pos[l].x != pos[r].x ?
@@ -442,7 +442,7 @@ int main(){
         ans.push_back(a);
     }
 
-    sort(ans.begin(), ans.end());
+    stable_sort(ans.begin(), ans.end());
 
     for(auto a : ans){
         printf("%d %d\n", a.first, a.second);

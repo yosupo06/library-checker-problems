@@ -429,7 +429,7 @@ int main(){
     // if coord value bounding is like 0 <= x, y <= 10^9
     //    DelaunayTriangulation<i64, i64, __int128_t>
     auto tri = DelaunayTriangulation(A).getEdges();
-    sort(tri.begin(), tri.end(),
+    stable_sort(tri.begin(), tri.end(),
         [&](pair<int,int> l, pair<int,int> r) -> bool {
             return weight(l) < weight(r); });
 

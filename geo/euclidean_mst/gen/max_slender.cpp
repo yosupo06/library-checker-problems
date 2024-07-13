@@ -46,7 +46,6 @@ int main(int, char* argv[]) {
         }
     }
 
-    gen.shuffle(S.begin(), S.end());
 
     out(S);
     return 0;

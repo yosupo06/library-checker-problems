@@ -1,0 +1,47 @@
+title = "Counting $C _ 4$'s"
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/973"
+
+[[tests]]
+	name = "example.in"
+	number = 2
+[[tests]]
+	name = "minimum.in"
+	number = 1
+[[tests]]
+	name = "small_sparse_simple.cpp"
+	number = 3
+[[tests]]
+	name = "small_dense_simple.cpp"
+	number = 3
+[[tests]]
+	name = "large_random_simple.cpp"
+	number = 3
+[[tests]]
+	name = "max_random_simple.cpp"
+	number = 3
+[[tests]]
+	name = "star.cpp"
+	number = 2
+[[tests]]
+	name = "max_near_k_simple.cpp"
+	number = 4
+[[tests]]
+	name = "max_complete.cpp"
+	number = 1
+[[tests]]
+	name = "multiplied_c4.cpp"
+	number = 2
+[[tests]]
+	name = "dense.cpp"
+	number = 5
+
+[[solutions]]
+	name = "naive.cpp"
+    expect = "TLE"
+
+[params]
+	N_MIN = 1
+	N_MAX = 300000
+	M_MIN = 1
+	M_MAX = 300000

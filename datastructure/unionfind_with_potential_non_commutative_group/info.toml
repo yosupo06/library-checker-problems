@@ -1,0 +1,25 @@
+title = 'Unionfind with Potential (Non-Commutative Group)'
+timelimit = 5.0
+forum = 'https://github.com/yosupo06/library-checker-problems/issues/1194'
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 10
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "path.cpp"
+    number = 4
+
+[[solutions]]
+  name = "naive.cpp"
+  expect = "TLE"
+
+[params]
+    N_MAX = 200_000
+    Q_MAX = 200_000
+    MOD = 998_244_353

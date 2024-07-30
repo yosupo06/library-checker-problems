@@ -4,7 +4,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1208"
 
 [[tests]]
     name = "example.in"
-    number = 3
+    number = 4
 [[tests]]
     name = "random.cpp"
     number = 5

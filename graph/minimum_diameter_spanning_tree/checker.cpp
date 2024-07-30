@@ -27,18 +27,21 @@ u64 read_ans(u32 n, u32 m, const vec<Edge> edges, InStream &stream)
     u64 mdep = 0;
     u32 p = 0;
     u32 cnt = 0;
-    auto dfs = [&](auto &&f, u32 x, u32 fa, u64 dep) -> void
+    vec<bool> vis(n);
+    auto dfs = [&](auto &&f, u32 x, u64 dep) -> void
     {
         cnt++;
-        for (auto [v, w]: g[x]) if (v != fa) {
-            f(f, v, x, dep + w);
+        vis[x] = true;
+        for (auto [v, w]: g[x]) if (!vis[v]) {
+            f(f, v, dep + w);
         }
         if (dep > mdep) mdep = dep, p = x;
     };
-    dfs(dfs, 0, 0, 0);
+    dfs(dfs, 0, 0);
     quitif(cnt != n, _wa, "The output scheme is not a tree.");
     mdep = 0;
-    dfs(dfs, p, p, 0);
+    vis.assign(n, false);
+    dfs(dfs, p, 0);
     quitif(mdep != answer, _wa, "X (which is equal to " U64 ") is not equal to the diameter of the output scheme (which is equal to " U64 ").", answer, mdep);
     return answer;
 }

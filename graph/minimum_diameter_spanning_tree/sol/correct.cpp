@@ -130,15 +130,13 @@ pair<u64, vec<edge>> mdst(u32 n, vec<vec<edge>> g)
 
 signed main() 
 {
-    ios::sync_with_stdio(false);
-    cin.tie(0), cout.tie(0);
     u32 n, m;
-    cin >> n >> m;
+    scanf("%u %u", &n, &m);
     vec<vec<edge>> g(n);
     vec<u32> c(m);
     map<edge, u32> id;
     for (u32 i = 0, u, v, w; i < m; i++) {
-        cin >> u >> v >> w;
+        scanf("%u %u %u", &u, &v, &w);
         edge nw = {min(u, v), max(u, v)};
         if (!id.count(nw) || c[id[nw]] > w) {
             id[nw] = i;
@@ -148,10 +146,10 @@ signed main()
         g[v].emplace_back(u, w);
     }
     auto [ans, sch] = mdst(n, std::move(g));
-    cout << ans << endl;
+    printf("%llu\n", ans);
     for (auto [u, v]: sch) {
-        cout << id[{min(u, v), max(u, v)}] << ' ';
+        printf("%u ", id[{min(u, v), max(u, v)}]);
     }
-    cout << endl;
+    printf("\n");
     return 0;
 }

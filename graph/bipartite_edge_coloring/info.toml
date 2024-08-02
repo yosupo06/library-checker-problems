@@ -6,6 +6,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/393"
     name = "example.in"
     number = 1
 [[tests]]
+    name = "from_issue1124.cpp"
+    number = 3
+[[tests]]
+    name = "large_cycle.cpp"
+    number = 2
+[[tests]]
     name = "random.cpp"
     number = 10
 [[tests]]

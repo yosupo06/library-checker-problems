@@ -20,7 +20,7 @@ $\mathbb{Z}/@{param.MOD}\mathbb{Z}$ 成分の $N \times M$ 正方行列 $A = \lb
 ## @{keyword.input}
 
 ```
-$N$
+$N$ $M$
 $a _ {11} \cdots a _ {1M}$
 $\vdots$
 $a _ {N1} \cdots a _ {NM}$

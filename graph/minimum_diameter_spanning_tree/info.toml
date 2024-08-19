@@ -1,0 +1,27 @@
+title = 'Minimum Diameter Spanning Tree'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1208"
+
+[[tests]]
+    name = "example.in"
+    number = 4
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+[[tests]]
+    name = "small.cpp"
+    number = 5
+[[tests]]
+    name = "small_c01.cpp"
+    number = 5
+[[tests]]
+    name = "star.cpp"
+    number = 1
+
+[params]
+    N_MAX = 2_000
+    M_MAX = 2_000
+    C_MAX = 1_000_000_000

@@ -67,3 +67,5 @@ $X$ は最小直径全域木の直径です。$e_i$ は最小直径全域木に�
 @{example.example_01}
 
 @{example.example_02}
+
+@{example.example_03}

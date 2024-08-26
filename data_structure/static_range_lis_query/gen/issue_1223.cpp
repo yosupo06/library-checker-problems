@@ -2,6 +2,7 @@
 
 #include "../params.h"
 #include "random.h"
+#include <tuple>
 
 int main(int, char *argv[]) {
   const int case_index = std::atoll(argv[1]);

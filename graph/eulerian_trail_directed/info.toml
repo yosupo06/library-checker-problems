@@ -34,6 +34,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/25"
     name = "euler_tour.cpp"
     number = 4
 
+[[tests]]
+    name = "many_same_vertex.cpp"
+    number = 3
+
 [params]
     T_MIN = 1
     T_MAX = 100_000

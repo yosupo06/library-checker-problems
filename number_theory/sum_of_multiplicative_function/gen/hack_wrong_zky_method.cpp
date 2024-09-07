@@ -39,7 +39,6 @@
 #include <stack>
 #include <streambuf>
 #include <string>
-#include <tr2/dynamic_bitset>
 #include <tuple>
 #include <type_traits>
 #include <typeinfo>

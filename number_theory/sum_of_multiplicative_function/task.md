@@ -2,9 +2,11 @@
 
 @{lang.en}
 Given a multiplicative function $f(x)$, satisfying $f(p^e) = ae + bp$. Print $\displaystyle \sum_{i=1}^N f(i) \bmod @{param.MOD}$.  
+($@{param.MOD}$ is used instead of $998244353$ because it's easier to compute very long convolutions.)  
 There are $T$ testcases.
 @{lang.ja}  
 $f(p^e) = ae + bp$ を満たす乗法的関数 $f(x)$ が与えられます。$\displaystyle \sum_{i=1}^N f(i) \bmod @{param.MOD}$ を出力してください。    
+($@{param.MOD}$ が $998244353$ の代わりに使われているのは、非常に長い畳み込みの計算を簡単にするためです。)  
 $T$ 個のテストケースが与えられます。
 @{lang.end}
 
@@ -25,6 +27,12 @@ $N$ $a$ $b$
 ```
 
 ## @{keyword.sample}
+
+@{lang.en}
+We recommend that you make sure the input example runs fast enough before submitting it.
+@{lang.ja}  
+入力例が十分高速に動作することを確認してから提出することをお勧めします。
+@{lang.end}
 
 @{example.example_00}
 @{example.example_01}

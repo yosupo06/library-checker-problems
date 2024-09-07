@@ -24,6 +24,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1118"
     name = "hack_wrong_zky_method.cpp"
     number = 6
 
+[[solutions]]
+    name = "min_25_sieve.cpp"
+    allow_tle = true
+
 [params]
     N_MAX = 10000000000000
     MOD = 469762049

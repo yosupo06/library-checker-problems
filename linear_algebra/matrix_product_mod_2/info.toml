@@ -18,6 +18,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/896"
     name = "middle.cpp"
     number = 5
 
+[[tests]]
+    name = "many_1.cpp"
+    number = 2
+
 [[solutions]]
     name = "naive.cpp"
     allow_tle = true

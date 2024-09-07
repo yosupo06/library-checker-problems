@@ -1,3 +1,6 @@
+// 提案者によるジェネレータを適宜修正したもの
+// https://github.com/yosupo06/library-checker-problems/issues/1118
+
 #include <algorithm>
 #include <array>
 #include <bitset>
@@ -46,6 +49,10 @@
 #include <unordered_set>
 #include <utility>
 #include <vector>
+
+#include "../params.h"
+#include "random.h"
+
 namespace prime {
 using uint128 = __uint128_t;
 using uint64 = unsigned long long;
@@ -392,22 +399,16 @@ struct FastIO {
   }
 } io;
 
-void out(std::vector<long long> &vec) {
-  std::mt19937 engine(19260817);
+Random gen;
 
+void out(std::vector<long long> &vec) {
   std::sort(vec.begin(), vec.end());
   vec.resize(std::unique(vec.begin(), vec.end()) - vec.begin());
-  long long max = vec.back();
-  if (vec.size() != 1)
-    assert(max * vec.size() * vec.size() <= 1000000000000);
-  else
-    assert(max <= 10000000000000);
-  std::shuffle(vec.begin(), vec.end(), engine);
-
+  gen.shuffle(begin(vec), end(vec));
   printf("%d\n", (int)vec.size());
   for (auto x : vec) {
-    int a = std::uniform_int_distribution<int>(3, 469762048)(engine);
-    int b = std::uniform_int_distribution<int>(3, 469762048)(engine);
+    int a = gen.uniform<int>(3, MOD - 1);
+    int b = gen.uniform<int>(3, MOD - 1);
     printf("%lld %d %d\n", x, a, b);
   }
 }
@@ -416,6 +417,7 @@ int delta[9] = {0, 1, -1, 2, -2, 16, -16, 128, -128};
 
 int main(int, char *argv[]) {
   long long seed = atoll(argv[1]);
+  gen = Random(seed);
 
   int remainder = seed % 6;
   if (remainder == 0) {

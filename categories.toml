@@ -13,6 +13,9 @@ problems = [
   "predecessor_problem",
   "double_ended_priority_queue",
   "unionfind",
+  "unionfind_with_potential",
+  "unionfind_with_potential_non_commutative_group",
+  "range_parallel_unionfind",
   "static_range_sum",
   "staticrmq",
   "point_add_range_sum",
@@ -36,6 +39,7 @@ problems = [
   "static_range_mode_query",
   "static_range_lis_query",
   "static_range_inversions_query",
+  "point_set_range_frequency",
   "rectangle_sum",
   "point_add_rectangle_sum",
   "rectangle_add_point_get",
@@ -52,12 +56,15 @@ problems = [
   "cycle_detection_undirected",
   "shortest_path",
   "scc",
+  "incremental_scc",
   "k_shortest_walk",
   "two_edge_connected_components",
   "three_edge_connected_components",
   "biconnected_components",
+  "connected_components_of_complement_graph",
   "eulerian_trail_directed",
   "eulerian_trail_undirected",
+  "st_numbering",
   "min_cost_b_flow",
   "bipartitematching",
   "general_matching",
@@ -66,16 +73,19 @@ problems = [
   "assignment",
   "minimum_spanning_tree",
   "directedmst",
-  "manhattanmst",
   "dominatortree",
   "maximum_independent_set",
   "chromatic_number",
+  "chromatic_polynomial",
   "enumerate_triangles",
   "enumerate_cliques",
   "tree_decomposition_width_2",
   "global_minimum_cut_of_dynamic_star_augmented_graph",
   "chordal_graph_recognition",
   "dynamic_graph_vertex_add_component_sum",
+  "counting_eulerian_circuits",
+  "counting_spanning_tree_undirected",
+  "counting_spanning_tree_directed",
 ]
 
 [[categories]]
@@ -193,6 +203,7 @@ problems = [
   "montmort_number_mod",
   "binomial_coefficient",
   "binomial_coefficient_prime_mod",
+  "q_binomial_coefficient_prime_mod",
   "partition_function",
   "stirling_number_of_the_first_kind",
   "stirling_number_of_the_first_kind_fixed_k",
@@ -202,6 +213,7 @@ problems = [
   "stirling_number_of_the_second_kind_small_p_large_n",
   "sharp_p_subset_sum",
   "number_of_subsequences",
+  "number_of_increasing_sequences_between_two_sequences",
 ]
 
 
@@ -216,8 +228,10 @@ problems = [
   "matrix_det_mod_2",
   "sparse_matrix_det",
   "matrix_rank", 
+  "matrix_rank_mod_2",
   "system_of_linear_equations",
   "inverse_matrix",
+  "inverse_matrix_mod_2",
   "characteristic_polynomial",
   "hafnian_of_matrix",
   "intersection_of_f2_vector_spaces",
@@ -234,6 +248,9 @@ problems = [
   "prefix_substring_lcs",
   "lyndon_factorization",
   "longest_common_substring",
+  "eertree",
+  "palindromes_in_deque",
+  "wildcard_pattern_matching",
 ]
 
 [[categories]]
@@ -242,7 +259,11 @@ problems = [
   "sort_points_by_argument",
   "static_convex_hull",
   "count_points_in_triangle",
+  "closest_pair",
+  "furthest_pair",
   "convex_layers",
+  "manhattanmst",
+  "euclidean_mst",
 ]
 
 

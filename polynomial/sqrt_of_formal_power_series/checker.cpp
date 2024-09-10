@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cassert>
 #include "testlib.h"
+#include "params.h"
 
 using namespace std;
 using uint = unsigned int;
@@ -113,12 +114,12 @@ bool has_sqrt(vector<Mint> pol) {
 
 bool read_ans(InStream& stream, vector<Mint> expect) {
     int n = int(expect.size());
-    int first = stream.readInt();
+    int first = stream.readInt(-1, MOD - 1);
     if (first == -1) return false;    
     vector<Mint> pol(n);
     pol[0] = first;
     for (int i = 1; i < n; i++) {
-        pol[i] = stream.readInt();
+        pol[i] = stream.readInt(0, MOD - 1);
     }
 
 

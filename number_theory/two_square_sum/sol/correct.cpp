@@ -6,6 +6,7 @@
 #include <tuple>
 #include <cassert>
 #include <cstdint>
+#include <limits>
 
 using namespace std;
 

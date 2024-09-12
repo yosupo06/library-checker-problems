@@ -50,6 +50,8 @@ int lowbit(int x) { return (x == 0 ? -1 : __builtin_ctz(x)); }
 int lowbit(u32 x) { return (x == 0 ? -1 : __builtin_ctz(x)); }
 int lowbit(ll x) { return (x == 0 ? -1 : __builtin_ctzll(x)); }
 int lowbit(u64 x) { return (x == 0 ? -1 : __builtin_ctzll(x)); }
+int topbit(ll x) { return (x == 0 ? -1 : 63 - __builtin_clzll(x)); }
+int topbit(u64 x) { return (x == 0 ? -1 : 63 - __builtin_clzll(x)); }
 
 template <typename T>
 T floor(T a, T b) {
@@ -186,7 +188,7 @@ ll rho(ll n, ll c) {
   auto f = [&](mint x) { return x * x + cc; };
   mint x = 1, y = 2, z = 1, q = 1;
   ll g = 1;
-  const ll m = 1LL << (__lg(n) / 5);
+  const ll m = 1LL << (topbit(n) / 5);
   for (ll r = 1; g == 1; r <<= 1) {
     x = y;
     FOR(r) y = f(y);

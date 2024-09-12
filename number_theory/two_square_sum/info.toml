@@ -1,0 +1,48 @@
+title = 'Represent A Number As Two Square Sum'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1241"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "small.cpp"
+    number = 5
+[[tests]]
+    name = "max.cpp"
+    number = 5
+[[tests]]
+    name = "big2.cpp"
+    number = 3
+[[tests]]
+    name = "big_semiprime_random.cpp"
+    number = 2
+[[tests]]
+    name = "fixed_RNG_buster.in"
+    number = 1
+
+[[tests]]
+    name = "num_of_solution_max.in"
+    number = 2
+
+[[tests]]
+    name = "power_of_2_3_5_13.cpp"
+    number = 4
+
+[[tests]]
+   name = "prime_1_mod_4.cpp"
+   number = 3
+[[tests]]
+    name = "prime_3_mod_4.cpp"
+    number = 1
+[[tests]]
+    name = "smooth.cpp"
+    number = 5
+
+
+[params]
+    MAX_Q = 100
+    MAX_A = 1_000_000_000_000_000_000

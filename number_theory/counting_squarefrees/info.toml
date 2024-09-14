@@ -17,6 +17,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1102"
 [[tests]]
     name = "random.cpp"
     number = 5
+[[tests]]
+    name = "issue_1232.in"
+    number = 3
 
 [params]
     N_MAX = 1_000_000_000_000_000_000

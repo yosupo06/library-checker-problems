@@ -14,6 +14,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1136"
 [[tests]]
     name = "typical_tree_max.cpp"
     number = 10
+[[tests]]
+    name = "typical_tree_max_degree.cpp"
+    number = 10
     
 [[solutions]]
     name = "naive.cpp"

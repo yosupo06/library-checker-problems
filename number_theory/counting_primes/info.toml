@@ -23,6 +23,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/388"
 [[tests]]
     name = "small_prime.in"
     number = 2
+[[tests]]
+    name = "boundaryA.cpp"
+    number = 3
+[[tests]]
+    name = "boundaryB.cpp"
+    number = 3
 
 [params]
     N_MAX = 100_000_000_000

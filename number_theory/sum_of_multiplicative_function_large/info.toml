@@ -1,0 +1,35 @@
+title = 'Sum of Multiplicative Function(Large)'
+timelimit = 30.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1118"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+[[tests]]
+    name = "small.cpp"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 2
+[[tests]]
+    name = "max.cpp"
+    number = 2
+[[tests]]
+    name = "boundaryA.cpp"
+    number = 3
+[[tests]]
+    name = "boundaryB.cpp"
+    number = 3
+[[tests]]
+    name = "hack_wrong_zky_method.cpp"
+    number = 6
+
+[[solutions]]
+    name = "min_25_sieve.cpp"
+    allow_tle = true
+
+[params]
+    N_MAX = 10000000000000
+    MOD = 469762049
+    T_MAX = 10000
+    T_sqrtN_MAX = 1000000

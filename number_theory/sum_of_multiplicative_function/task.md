@@ -29,9 +29,9 @@ $N$ $a$ $b$
 ## @{keyword.sample}
 
 @{lang.en}
-We recommend that you make sure the input example runs fast enough before submitting it.
+Please make sure the input example runs fast enough before submitting it.
 @{lang.ja}  
-入力例が十分高速に動作することを確認してから提出することをお勧めします。
+入力例が十分高速に動作することを確認してから提出するようお願いします。
 @{lang.end}
 
 @{example.example_00}

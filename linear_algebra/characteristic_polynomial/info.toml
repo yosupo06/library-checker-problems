@@ -20,6 +20,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/665"
 [[tests]]
     name = "small_multiple_root.in"
     number = 2
+[[tests]]
+    name = "nontrivial_frobenius_form.cpp"
+    number = 10
+
 [[solutions]]
     name = "n_4.cpp"
     expect = "RE"

@@ -9,7 +9,7 @@ int main(int, char* argv[]) {
   long long seed = atoll(argv[1]);
   auto gen = Random(seed);
 
-  int n = gen.uniform<int>(2, N_MAX);
+  int n = N_MAX;
   int m = gen.uniform<int>(2, 10);
   int r = gen.uniform<int>(1, min(n, m) - 1);
   if (seed % 2 == 0) gen_yes(n, m, r, gen);

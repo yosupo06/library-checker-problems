@@ -14,8 +14,8 @@ $N \times M$ 行列 $A$, 長さ $N$ のベクトル $b$ が与えられます。
 
 ## @{keyword.constraints}
 
-- $1 \leq N \leq N_MAX$
-- $1 \leq M \leq M_MAX$
+- $1 \leq N \leq @{param.N_MAX}$
+- $1 \leq M \leq @{param.M_MAX}$
 - $A_{ij} \in \lbrace 0,1\rbrace$
 - $b_{i} \in \lbrace 0,1\rbrace$
 

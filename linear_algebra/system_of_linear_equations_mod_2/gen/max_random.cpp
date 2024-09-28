@@ -9,7 +9,7 @@ int main(int, char* argv[]) {
   auto gen = Random(seed);
 
   int n = N_MAX;
-  int m = N_MAX;
+  int m = M_MAX;
   auto random_01_str = [&](int n) -> string {
     string S(n, '?');
     for (int i = 0; i < n; ++i) S[i] = '0' + gen.uniform(0, 1);

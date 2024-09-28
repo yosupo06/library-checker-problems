@@ -28,7 +28,7 @@ void gen_yes(int n, int m, int r, Random &gen) {
     }
   }
   // shuffle
-  gen.shuffle(a.bgein(), a.end());
+  gen.shuffle(a.begin(), a.end());
 
   BS x;
   for (int i = 0; i < m; ++i) x[i] = gen.uniform_bool();
@@ -61,8 +61,8 @@ void gen_no(int n, int m, int r, Random &gen) {
   // shuffle
   vector<int> new_idx(n);
   for (int i = 0; i < n; ++i) new_idx[i] = i;
-  gen.shuffle(new_idx.bgein(), new_idx.end());
-  vc<BS> new_a(n);
+  gen.shuffle(new_idx.begin(), new_idx.end());
+  vector<BS> new_a(n);
   BS new_y;
   for (int i = 0; i < n; ++i) {
     new_a[new_idx[i]] = a[i];

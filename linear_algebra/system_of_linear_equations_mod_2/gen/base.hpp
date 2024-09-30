@@ -69,5 +69,5 @@ void gen_no(int n, int m, int r, Random &gen) {
     new_y[new_idx[i]] = y[i];
   }
 
-  out(n, m, a, y);
+  out(n, m, new_a, new_y);
 }

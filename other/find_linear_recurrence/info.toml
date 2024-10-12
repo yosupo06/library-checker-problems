@@ -17,6 +17,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/330"
 [[tests]]
     name = "suffix_zero.cpp"
     number = 4
+[[tests]]
+    name = "issue_1253.in"
+    number = 1
 
 [params]
     MOD = 998244353

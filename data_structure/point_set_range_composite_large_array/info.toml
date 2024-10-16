@@ -1,0 +1,45 @@
+title = 'Point Set Range Composite (Large Array)'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/828"
+[[tests]]
+    name = "example.in"
+    number = 1
+
+[[tests]]
+    name = "random.cpp"
+    number = 5
+
+[[tests]]
+    name = "small_N.cpp"
+    number = 5
+
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+
+[[tests]]
+    name = "many_query_0.cpp"
+    number = 2
+
+[[tests]]
+    name = "many_query_1.cpp"
+    number = 2
+
+[[tests]]
+    name = "query_0_then_1.cpp"
+    number = 2
+
+[[tests]]
+    name = "near_0_and_N.cpp"
+    number = 2
+
+[[tests]]
+    name = "dense.cpp"
+    number = 3
+
+
+
+[params]
+    N_MAX = 1_000_000_000
+    Q_MAX = 1_000_000
+    MOD = 998244353

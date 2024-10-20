@@ -5,6 +5,8 @@
   "example_01.out": "bf284252c00be268976cb5f85fe21220797083556c200aa90e9f159123e71873",
   "example_02.in": "679e0c7dd8b57266890588b436e127e6bed407dd7cc92d7eac0b9f0914f3ef1e",
   "example_02.out": "2f8dbf0dd57f04a042edb45647bbe4d0d50862d5086dcc4dacefacf8ea8e7a00",
+  "frobenius_hack_00.in": "8ac2b6025fe0ad0ab76c025f8f6708869c203f0675b4064a28e6417a28c99c1d",
+  "frobenius_hack_00.out": "b82cde340b8649ca5d56025ee2f5082ab1516212c052223bfc10bfacbeeec10e",
   "lowrank_max_random_00.in": "ea3ae3425946931d851a1db4d661468b6fb08fd92b8efe0ac01d60d60a1886ab",
   "lowrank_max_random_00.out": "06f2597a17232e81af8683f6cd9989112e0e4a23fb82143f13ec4dfc753abd6e",
   "lowrank_max_random_01.in": "5e3518e4a510bdb890e411179fa01f8bd41d418a929175a5609ce32c142bf878",

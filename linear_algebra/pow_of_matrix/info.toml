@@ -32,6 +32,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/567"
 [[tests]]
     name = "nontrivial_frobenius_form.cpp"
     number = 10
+[[tests]]
+    name = "frobenius_hack.in"
+    number = 1
 
 [params]
     N_MAX = 200

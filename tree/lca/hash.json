@@ -1,4 +1,8 @@
 {
+  "almost_line_00.in": "ea3f1411571fa29bbaaa70c407c19168382c40a1ea4189823dcd394ed155fd1b",
+  "almost_line_00.out": "bfff4a3ba6228102152ba4c039b139f42b65a78ba15d2c50e2507f565b36eda1",
+  "almost_line_01.in": "8d8360a96a0e1ffefa8c7ed04b09c86c24ffa3d181d29862128bcb45b23420e1",
+  "almost_line_01.out": "4cbd1c40f987819aa0ef69ba778deede4471d30f935eac5af5d4f6ba78cd0b84",
   "binary_00.in": "6e7c16bc8af7a039b1ac60ce46b085b7950381faf413d4006f6e668ca229707a",
   "binary_00.out": "dd71c4b7b1c5dde2bade5e3510230c71b894200f39431c60e6b69454b4ec5155",
   "binary_01.in": "20d7fb5dd98dbef4ba16e080dd80b1b729d9c0044231f2baeb4aaa6c540c41e6",

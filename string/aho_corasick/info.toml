@@ -1,0 +1,30 @@
+title = 'Aho Corasick'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/175"
+
+[[tests]]
+    name = "example.in"
+    number = 4
+
+[[tests]]
+    name = "bfs.cpp"
+    number = 4
+
+[[tests]]
+    name = "random.cpp"
+    number = 24
+
+[[tests]]
+    name = "short_period.cpp"
+    number = 16
+
+
+[[tests]]
+    name = "fibonacci.cpp"
+    number = 16
+
+[params]
+    MIN_N = 1
+    MAX_N = 1000000
+    MIN_S_SUM = 1
+    MAX_S_SUM = 1000000

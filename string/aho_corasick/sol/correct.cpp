@@ -6,6 +6,8 @@
 #include <algorithm>
 #include <numeric>
 #include <cassert>
+#include <tuple>
+#include <cstdlib>
 
 using namespace std;
 

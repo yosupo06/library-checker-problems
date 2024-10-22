@@ -1,4 +1,11 @@
-#include <bits/stdc++.h>
+#include <cstring>
+#include <string>
+#include <cstdio>
+#include <array>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <cassert>
 
 using namespace std;
 

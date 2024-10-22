@@ -23,6 +23,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/175"
     name = "fibonacci.cpp"
     number = 16
 
+[[tests]]
+    name = "almost_single.cpp"
+    number = 8
+
 [params]
     MIN_N = 1
     MAX_N = 1000000

@@ -30,6 +30,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/35"
     name = "path_graph_root_centroid.cpp"
     number = 3
 
+[[tests]]
+    name = "almost_line.cpp"
+    number = 2
+
 [[solutions]]
   name = "tle.cpp"
   expect = "TLE"

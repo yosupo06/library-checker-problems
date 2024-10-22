@@ -2,6 +2,8 @@
 #include <cstdio>
 #include <cstdlib>
 #include <vector>
+#include <tuple>
+
 #include "random.h"
 #include "../params.h"
 

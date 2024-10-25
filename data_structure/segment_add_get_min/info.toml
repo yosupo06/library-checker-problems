@@ -17,6 +17,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/211"
 [[tests]]
     name = "all_twice.cpp"
     number = 1
+[[tests]]
+    name = "no_output.cpp"
+    number = 1
 
 [[solutions]]
     name = "naive.cpp"

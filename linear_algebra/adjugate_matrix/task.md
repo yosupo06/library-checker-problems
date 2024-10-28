@@ -3,7 +3,8 @@
 @{lang.en}
 Given $N \times N$ matrix $A = \lbrace a_{ij} \rbrace$ with entries in $\mathbb{Z}/@{param.MOD}\mathbb{Z}$, print $\operatorname{adj} A = \lbrace (-1)^{i+j}M_{ji} \rbrace$, where $M_{ij}$ is the determinant of the matrix that is obtained from $A$ by removing its $i$-th row and $j$-th column. 
 @{lang.ja}
-
+$\mathbb{Z}/@{param.MOD}\mathbb{Z}$ 成分の $N\times N$ 行列 $A = \lbrace a_{ij} \rbrace$ が与えられます．
+$A$ の余因子行列 $\operatorname{adj} A = \lbrace (-1)^{i+j}M_{ji} \rbrace$ を出力してください．ただし $M_{ij}$ は $A$ から $i$ 行目，$j$ 列目を取り除くことによって得られる行列の行列式です．
 @{lang.end}
 
 ## @{keyword.constraints}
@@ -35,10 +36,6 @@ $b_{21}$ $b_{22}$ ... $b_{2N}$
 :
 $b_{N1}$ $b_{N2}$ ... $b_{NN}$
 ```
-
-@{lang.ja}
-
-@{lang.end}
 
 ## @{keyword.sample}
 

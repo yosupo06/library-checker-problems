@@ -27,7 +27,7 @@ $a_{N1}$ $a_{N2}$ ... $a_{NN}$
 @{lang.en}
 Print $b_{ij} = (-1)^{i+j} M_{ji}$:
 @{lang.ja}
-
+$b_{ij} = (-1)^{i+j} M_{ji}$ を出力してください :
 @{lang.end}
 
 ```

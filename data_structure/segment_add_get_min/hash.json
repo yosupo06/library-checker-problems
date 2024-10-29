@@ -11,6 +11,8 @@
   "max_random_01.out": "14edc814990b0ff1fad4316d8d2e4f4b5affc54227c3d1034e6db6f83b2a6ab5",
   "max_random_02.in": "b8d6df9a3f30f3e428afeb4d58abbec07a403db077fd7f0d445a169c2c67162d",
   "max_random_02.out": "fc693fc9f038ed21026abdf43c6fa614b65ab88a22774cdfa12d58669b79c1b5",
+  "no_output_00.in": "81568951c5ab695f6de61c3d41bf303d38ae537bc00acb554419a418800ae45f",
+  "no_output_00.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "random_00.in": "d63d05b56ba00840c5343054e5ad530604e50cdf6bd9f2c1cc9d6fa3bed3c9f1",
   "random_00.out": "f2aaff082854ca8568cae3ba591cf08752d57b7176f590eccf9f94adb555a4a6",
   "random_01.in": "eece684afeb33f69e823849eaf0b6b09ad2a0c43576c86f74a189641883db6f5",

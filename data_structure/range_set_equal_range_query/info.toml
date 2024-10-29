@@ -1,6 +1,7 @@
-title = 'Range Set Range Composite'
+title = 'Range Set Equal Range Query'
 timelimit = 5.0
-forum = "https://github.com/yosupo06/library-checker-problems/issues/829"
+forum = "https://github.com/yosupo06/library-checker-problems/issues/990"
+
 [[tests]]
     name = "example.in"
     number = 1

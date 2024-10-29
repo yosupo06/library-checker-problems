@@ -22,9 +22,9 @@ $Q$ 個を処理してください.
 ## @{keyword.constraints}
 
 - $1 \leq N, Q \leq @{param.N_AND_Q_MAX}$
-- $1 \leq a _ i, c < @{param.MOD}$
-- $0 \leq b _ i, d, x < @{param.MOD}$
+- $1 \leq a _ i \leq @{param.A_MAX}$
 - $0 \leq l < r \leq N$
+- $0 \leq i < N$
 
 ## @{keyword.input}
 

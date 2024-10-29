@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-You are given an integer sequence $A = (a _ 0, a _ 1, \dots, a _ {n-1})$ of length $N$. Perform $Q$ operations.
+You are given an integer sequence $A = (a _ 0, a _ 1, \dots, a _ {N-1})$ of length $N$. Perform $Q$ operations.
 
 - 0 $l$ $r$ $x$: For each $i = l, l+1, \dots, r-1$, update $a _ i$ to $x$.
 - 1 $i$: Output the value of $a _ i$ and the largest interval $(l, r)$ that satisfies $l \leq i < r$ and $a _ l = \cdots = a _ {r-1}$. Formally, $(l, r)$ is uniquely determined by the following conditions:
@@ -9,7 +9,7 @@ You are given an integer sequence $A = (a _ 0, a _ 1, \dots, a _ {n-1})$ of leng
     - $l = 0$ or $a _ {l-1} \neq a _ i$,
     - $r = N$ or $a _ {r} \neq a _ i$.
 @{lang.ja}
-長さ $N$ の整数列 $A=(a _ 0, a _ 1, ..., a _ {n-1})$ が与えられます．
+長さ $N$ の整数列 $A=(a _ 0, a _ 1, ..., a _ {N-1})$ が与えられます．
 $Q$ 個を処理してください. 
 
 - `0 $l$ $r$ $x$`: 各 $i = l, l+1, \dots, {r - 1}$ について，$a _ i$ を $x$ に変更する．

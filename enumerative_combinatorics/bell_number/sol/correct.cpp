@@ -4,6 +4,7 @@
 #include <tuple>
 #include <cassert>
 #include <cstdint>
+#include <array>
 
 using namespace std;
 

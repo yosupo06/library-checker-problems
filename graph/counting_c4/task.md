@@ -35,7 +35,7 @@ $u _ {M-1}$ $v _ {M-1}$
 ## @{keyword.output}
 
 ```
-$A _ 0$ $A _ 1$ $\cdots$ $A _ {N-1}$
+$A _ 0$ $A _ 1$ $\cdots$ $A _ {M-1}$
 ```
 
 ## @{keyword.sample}

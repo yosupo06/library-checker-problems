@@ -41,7 +41,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/973"
     expect = "TLE"
 
 [params]
-	N_MIN = 1
+	N_MIN = 2
 	N_MAX = 300000
 	M_MIN = 1
 	M_MAX = 300000

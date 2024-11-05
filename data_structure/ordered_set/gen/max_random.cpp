@@ -1,5 +1,9 @@
 #include <iostream>
 #include <string>
+#include <set>
+#include <vector>
+#include <cstdlib>
+#include <cstdio>
 
 #include "../params.h"
 #include "random.h"

@@ -92,7 +92,7 @@ int main(int, char* argv[]) {
 
   for (int i = 0; i < Q; i++) {
     int t = S[gen.uniform<int>(0, sz - 1)];
-    int x;
+    int x = 0;
     if (t == 0) {
       x = kind[gen.uniform<int>(0, K - 1)];
       ANS.insert(x);

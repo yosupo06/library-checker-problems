@@ -46,5 +46,7 @@
   "no_edge_00.in": "5fc37b8e820c7ecfdaf122cdc5a0e1e9174d5d09d0b9c7aae8aeac434ca26aed",
   "no_edge_00.out": "219da5b597741168f705e7eeec1102c50593f23ec03d47fbd8d38d5f54c8b811",
   "star_00.in": "81ee21ae7add6b764b36888d0c9703ab616e634c17260735cf1087f5dd14a962",
-  "star_00.out": "d77af3500c0728e06c0b134a8f2c92ad1c3cc62b97f2f2c44d3b4f1016e6a76a"
+  "star_00.out": "d77af3500c0728e06c0b134a8f2c92ad1c3cc62b97f2f2c44d3b4f1016e6a76a",
+  "star_remove_one_edge_00.in": "bb01449453c118387af9525dcb8ffcefefd3eec0c569c521c854f1556e5bd15b",
+  "star_remove_one_edge_00.out": "219da5b597741168f705e7eeec1102c50593f23ec03d47fbd8d38d5f54c8b811"
 }

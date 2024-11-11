@@ -51,10 +51,10 @@ vector<int> gen_prob(int seed) {
     if (seed == 1 && t != 1) add = 1;
     if (seed == 2 && t == 0) add = 1;
     if (seed == 3 && t == 1) add = 1;
-    if (seed == 4 && t == 1) add = 1;
-    if (seed == 5 && t == 1) add = 1;
-    if (seed == 6 && t == 1) add = 1;
-    if (seed == 7 && t == 1) add = 1;
+    if (seed == 4 && t == 2) add = 1;
+    if (seed == 5 && t == 3) add = 1;
+    if (seed == 6 && t == 4) add = 1;
+    if (seed == 7 && t == 5) add = 1;
     if (add) {
       for (int i = 0; i < 100; ++i) S.emplace_back(t);
     }

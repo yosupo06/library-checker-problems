@@ -18,8 +18,8 @@ Given a size $N$ sequence of linear functions $f_0, f_1, ..., f_{N-1}$. Initiall
 
 - $1 \leq N \leq @{param.N_MAX}$
 - $1 \leq Q \leq @{param.Q_MAX}$
-- $1 \leq a_i, c < @{param.MOD}$
-- $0 \leq b_i, d, x < @{param.MOD}$
+- $1 \leq c < @{param.MOD}$
+- $0 \leq d, x < @{param.MOD}$
 - $0 \leq p < N$
 - $0 \leq l < r \leq N$
 

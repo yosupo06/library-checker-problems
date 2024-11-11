@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-The number of ways to partition a set of n elements into non-empty subsets is called the Bell number $B_n$. 
+The number of ways to partition a set of $n$ elements into non-empty subsets is called the Bell number $B_n$. 
 Given $N$, output the remainders of $B_0, \ldots, B_N$ when divided by $@{param.MOD}$.
 
 @{lang.ja}

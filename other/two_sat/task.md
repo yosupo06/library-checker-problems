@@ -15,9 +15,9 @@ $N$ 変数 $M$ 節の 2 Sat が与えられる。充足可能か判定し、可�
 ## @{keyword.input}
 
 @{lang.en}
-2-Sat is given as [DIMACS format](http://www.domagoj-babic.com/uploads/ResearchProjects/Spear/dimacs-cnf.pdf). Please see the samples.
+2-Sat is given as [DIMACS format](https://www.cs.ubc.ca/~babic/doc/dimacs_cnf.pdf). Please see the samples.
 @{lang.ja}
-[DIMACS 標準形式](http://www.domagoj-babic.com/uploads/ResearchProjects/Spear/dimacs-cnf.pdf) で与えられる。
+[DIMACS 標準形式](https://www.cs.ubc.ca/~babic/doc/dimacs_cnf.pdf) で与えられる。
 サンプルも参考にせよ
 @{lang.end}
 

@@ -12,7 +12,7 @@ int main(int, char* argv[]) {
   int q = Q_MAX;
   printf("%d %d\n", n, q);
 
-  int ws[] = {1, 1000, 1000000};
+  int ws[] = {1, 1000, 500000};
   int w = ws[seed % 3];
 
   int L = gen.uniform<int>(0, n - w);

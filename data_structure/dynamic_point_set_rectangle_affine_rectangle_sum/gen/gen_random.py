@@ -7,9 +7,8 @@ parser = agp.ArgumentParser(description="Generate a random test case.")
 
 parser.add_argument('N_MAX', type=int, help='Number of initial points.')
 parser.add_argument('Q_MAX', type=int, help='Number of queries.')
-parser.add_argument('COORD_MAX', type=int, nargs='?', default=10**9, help='Range of coord x.')
-parser.add_argument('COORD_MAX', type=int, nargs='?', default=10**9, help='Range of coord y.')
-parser.add_argument('MOD - 1', type=int, nargs='?', default=998244352, help='Range of initial weight.')
+parser.add_argument('COORD_MAX', type=int, nargs='?', default=10**9, help='Range of coord.')
+parser.add_argument('MOD', type=int, nargs='?', default=998244352, help='Range of initial weight.')
 parser.add_argument('-OP', nargs='*', default=[0, 1, 2, 3], help='Type of operations.')
 
 args = parser.parse_args()
@@ -17,8 +16,7 @@ args = parser.parse_args()
 N_MAX = args.N_MAX
 Q_MAX = args.Q_MAX
 COORD_MAX = args.COORD_MAX
-COORD_MAX = args.COORD_MAX
-MOD - 1 = args.MOD - 1
+MOD = args.MOD - 1
 OP = list(map(int, args.OP))
 
 assert set(OP).issubset({0, 1, 2, 3})

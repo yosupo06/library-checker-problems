@@ -42,7 +42,16 @@ For each query type:
 
 @{lang.ja}
 
--
+- $1 \leq N \leq @{param.N_MAX}$
+- $1 \leq Q \leq @{param.Q_MAX}$
+- $0 \leq x_i, y_i \leq @{param.COORD_MAX}$
+- $0 \leq w_i < @{param.MOD}$
+
+各クエリについて，
+- Type `0`: $0 \leq x, y \leq @{param.COORD_MAX}$, $0 \leq w < @{param.MOD}$
+- Type `1`: $0\leq x < |P|, 0\leq w < @{param.MOD}$
+- Type `2`: $0 \leq l < r \leq @{param.COORD_MAX}$, $0 \leq d < u \leq @{param.COORD_MAX}$
+- Type `3`: $0 \leq l < r \leq @{param.COORD_MAX}$, $0 \leq d < u \leq @{param.COORD_MAX}$, $0 \leq a, b < @{param.MOD}$
 
 @{lang.end}
 

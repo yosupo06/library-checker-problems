@@ -13,8 +13,17 @@ You are given an initial multiset of $N$ weighted points, $P = (P_0, P_1, \dots,
 
 @{lang.ja}
 
--
+座標平面上の $N$ 個の点 $P = (P_0, P_1, \dots, P_{N - 1})$ が与えられます．各 $P_i$ は $(x_i, y_i)$ にあり，重み $w_i$ が定まっています．点の座標が相異なるとは限りません．
 
+$Q$ 個のクエリを処理してください．$i$ 番目のクエリ（$0\leq i<Q$）は次の形式です．
+
+- `0 $x$ $y$ $w$`: 新たに 点 $P_{i + |P|}$ を追加する．座標は $(x,y)$，重みは $w$ であるとする．
+
+- `1 $x$ $w$`: $P_x$ の重みを $w$ に変更する（つまり $w_x \gets w$）．
+
+- `2 $l$ $d$ $r$ $u$`: $l \leq x_i < r$ かつ $d \leq y_i < u$ を満たすようなすべての点 $P_i$ の重み $w_i$ の和を $@{param.MOD}$ で出力せよ．
+
+- `3 $l$ $d$ $r$ $u$ $a$ $b$`: $l \leq x_i < r$ and $d \leq y_i < u$ を満たすようなすべての点 $P_i$ の重み $w_i$ を $w_i \gets a \cdot w_i + b$ と変更する．
 @{lang.end}
 
 ## @{keyword.constraints}

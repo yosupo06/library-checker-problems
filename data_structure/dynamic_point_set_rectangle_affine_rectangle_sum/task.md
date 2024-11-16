@@ -3,8 +3,7 @@
 
 You are given an initial multiset of $N$ weighted points, $P = (P_0, P_1, \dots, P_{N - 1})$, on a two-dimensional plane. Each point $P_i$ ($0 \leq i < N$) is located at $(x_i, y_i)$ and has an associated weight $w_i$. Process $Q$ queries of the following types. For the $i$-th ($0\leq i < Q$) query:
 
-- `0 $x$ $y$ $w$`: Append a new point $P_{i + |P|}$ with weight $w$ at coordinates $(x, y)$. If a point already exists at these coordinates, add the new point as a separate instance.
-
+- `0 $x$ $y$ $w$`: Append a new point with weight $w$ at coordinates $(x, y)$. Let $k = |P|$ before the addition, then refer to this point as $P_k$. If a point already exists at these coordinates, add the new point as a separate instance.
 - `1 $x$ $w$`: Update the weight of point $P_x$ to $w$. (i.e., $w_x \gets w$)
 
 - `2 $l$ $d$ $r$ $u$`: Calculate the sum of weights modulo $@{param.MOD}$ for all points where $l \leq x_i < r$ and $d \leq y_i < u$.

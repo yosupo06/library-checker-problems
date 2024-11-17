@@ -1,0 +1,53 @@
+title = 'Dynamic Point Rectangle Affine Rectangle Sum'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1279"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "small.cpp"
+    number = 5
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 2
+[[tests]]
+    name = "many_points.cpp"
+    number = 1
+[[tests]]
+    name = "many_updates.cpp"
+    number = 1
+[[tests]]
+    name = "many_random_queries.cpp"
+    number = 1
+[[tests]]
+    name = "many_sum_queries.cpp"
+    number = 1
+[[tests]]
+    name = "many_affine_queries.cpp"
+    number = 1
+[[tests]]
+    name = "xy_concentrate.cpp"
+    number = 3
+[[tests]]
+    name = "power_of_2.cpp"
+    number = 2
+[[tests]]
+    name = "power_of_2_minus_1.cpp"
+    number = 2
+
+[params]
+    N_MAX = 100_000
+    Q_MAX = 100_000
+    COORD_MAX = 1000_000_000
+    MOD = 998_244_353
+
+[[solutions]]
+    name = "online.cpp"
+
+[[solutions]]
+    name = "brute_force.cpp"
+    allow_tle = true

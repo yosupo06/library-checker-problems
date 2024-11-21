@@ -472,7 +472,6 @@ class Problem:
         with open(str(self.basedir / 'hash.json'), 'r') as f:
             expect = json.load(f)
         actual = self.calc_hashes()
-        
         if expect != actual:
             logger.error('Hashes are different')
             

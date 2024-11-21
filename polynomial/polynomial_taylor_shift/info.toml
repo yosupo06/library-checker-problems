@@ -19,7 +19,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/392"
     number = 2
 [[tests]]
     name = "fft_killer.cpp"
-    number = 2
+    number = 4
 [[tests]]
     name = "medium_all_zero.cpp"
     number = 1

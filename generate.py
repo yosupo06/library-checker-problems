@@ -12,6 +12,7 @@ import shutil
 import hashlib
 import json
 from datetime import datetime
+from difflib import unified_diff
 from subprocess import (PIPE, STDOUT, CalledProcessError,
                         TimeoutExpired, check_call, run)
 from tempfile import TemporaryDirectory
@@ -471,11 +472,19 @@ class Problem:
         with open(str(self.basedir / 'hash.json'), 'r') as f:
             expect = json.load(f)
         actual = self.calc_hashes()
+        
         if expect != actual:
-            logger.error('hashes are different')
-            logger.error('your hash: {}'.format(
-                json.dumps(actual, indent=2, sort_keys=True)))
-            raise RuntimeError("hashes are different")
+            logger.error('Hashes are different')
+            
+            # Generate and log a unified diff
+            expect_json = json.dumps(expect, indent=2, sort_keys=True).splitlines()
+            actual_json = json.dumps(actual, indent=2, sort_keys=True).splitlines()
+            diff = unified_diff(expect_json, actual_json, 
+                                fromfile='expected', tofile='actual', lineterm='')
+            diff_text = '\n'.join(diff)
+            
+            logger.error('Diff:\n%s', diff_text)
+            raise RuntimeError("Hashes are different")
 
     def write_hashes(self):
         hashpath: Path = self.basedir / 'hash.json'

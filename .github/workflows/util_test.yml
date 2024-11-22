@@ -20,7 +20,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install --user -r requirements.txt
       - name: Linter
-        uses: chartboost/ruff-action@v1
+        uses: astral-sh/ruff-action@v1
         with:
           args: "check --target-version py38 --select=FA102"
       - name: Run generate_test.py

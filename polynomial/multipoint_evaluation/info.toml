@@ -14,4 +14,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/45"
 [[tests]]
     name = "zero.in"
     number = 1
+[[tests]]
+    name = "issue_1287.in"
+    number = 1
 

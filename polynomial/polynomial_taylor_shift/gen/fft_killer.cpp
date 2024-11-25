@@ -8,14 +8,16 @@ int main(int, char *argv[])
 {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
+    auto sub = (seed <= 1) || ((seed - 2) & 1) ? 1000 : 10;
+    auto div = (seed <= 1) || ((seed - 2) & 2) ? 1 : 2;
 
     int n = N_MAX;
     vector<int> a(n);
-    constexpr int B = 1 << 15;
+    const int B = (seed <= 1) || ((seed - 2) & 4) ? 1<<15 : std::sqrt(MOD);
     for (int i = 0; i < n; i++)
     {
-        int lw = gen.uniform(B - 1000, B - 1);
-        int up = gen.uniform(MOD / B - 1000, MOD / B - 1);
+        int lw = gen.uniform(B - sub, B - 1);
+        int up = gen.uniform(MOD / div / B - sub, MOD / div / B - 1);
         a[i] = up * B + lw;
     }
     int c = gen.uniform(0ll, MOD - 1);

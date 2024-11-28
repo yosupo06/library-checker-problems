@@ -1,4 +1,12 @@
 {
+  "carry_chain_00.in": "bc0e975898aa191e0d871b24a6deb2c206a45e84a3fb87af57bf26d02abe6a00",
+  "carry_chain_00.out": "902cc5362d4ef4f0c4f299845e26f64d0aee5801bd76fb659824dde07b8e3a17",
+  "carry_chain_01.in": "41b8e310334f54af87493fdff8bd6009599449a4df0b6a246cba6aef8fec178a",
+  "carry_chain_01.out": "94dfee512fe1d02d7e1ccc49acb03ed96ef3670e638c50254b61eac381c256cc",
+  "carry_chain_02.in": "490e4a38259d73ee1addc8ea2b0a64bcba65be8ed38b56c8f105ec49f8bc3cd6",
+  "carry_chain_02.out": "f139b324fb4a45bf41fc20e1dbfe6db97ce8e84cb9aa09ca4332a87e5cfc8c80",
+  "carry_chain_03.in": "6fe4c858252c51e6b5d3546698a4ee7766503481164e86f2d34885b8d2d6d7ab",
+  "carry_chain_03.out": "2fb84e651c7a6e0f0b93281f3099480660ba3560fed8891b3be8f02539a69c09",
   "example_00.in": "c100065382d9827eef54b9b75b044448ad265805e1f18c0fb368cb8a9eab879f",
   "example_00.out": "f4192e9c29013224ec885d4ad517ff3e2c9c0e56e2b59294281512bb1c1efaaf",
   "large_00.in": "ca55e283862d764de8ea45838995bfda6174f2afe718ad7a6f0ecdf8c60a00c0",

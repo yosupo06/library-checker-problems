@@ -26,6 +26,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1101"
 [[tests]]
     name = "power.cpp"
     number = 2
+[[tests]]
+    name = "carry_chain.cpp"
+    number = 4
 
 [[solutions]]
     name = "correct.py"

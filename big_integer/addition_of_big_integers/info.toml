@@ -23,6 +23,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/941"
 [[tests]]
     name = "large_small.cpp"
     number = 1
+[[tests]]
+    name = "carry_chain.cpp"
+    number = 4
 
 [params]
     T_MAX = 200000

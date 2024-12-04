@@ -17,7 +17,7 @@ $Q$ 個のクエリが飛んできます。処理してください。
 
 - `0 $k _ i$ $l _ i$ $r _ i$ $b _ i$ $c _ i$`: $A _ {k _ i}$ を複製して $A _ i$ とします。 $A _ i$ において、 各 $j = l, l+1, \dots, {r - 1}$ について、$a _ j \gets b \times a _ j + c$ 。
 - `1 $k _ i$ $s _ i$ $l _ i$ $r _ i$`: $A _ {k _ i}$ を複製して $A _ i$ とします。 $A _ i$ において、 各 $j = l, l+1, \dots, {r - 1}$ について、$a _ j \gets a ^ {\prime} _ j$ (ここで、 $a ^ {\prime} _ j$ は $A _ {s _ i}$ における $a _ j$ とする) 。
-- `2 $l _ i$ $r _ i$`: $A _ {k _ i}$ における $\sum_{j = l} ^ {r - 1} a _ j \bmod @{param.MOD}$ を出力してください。
+- `2 $k _ i$ $l _ i$ $r _ i$`: $A _ {k _ i}$ における $\sum_{j = l} ^ {r - 1} a _ j \bmod @{param.MOD}$ を出力してください。
 @{lang.end}
 
 ## @{keyword.constraints}

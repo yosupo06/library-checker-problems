@@ -1,5 +1,4 @@
-#include <iostream>
-#include <tuple>
+#include <cstdio>
 #include "../params.h"
 #include "random.h"
 
@@ -31,19 +30,18 @@ int main(int, char* argv[]) {
         int k = choose_data();
         printf("%d %d ", t, k);
         if (t == 0) {
-            int l, r;
-            tie(l, r) = gen.uniform_pair(0, n);
+            auto [l, r] = gen.uniform_pair(0, n);
             int b = gen.uniform<int>(1, MOD - 1);
             int c = gen.uniform<int>(0, MOD - 1);
             printf("%d %d %d %d\n", l, r, b, c);
             data_enable.push_back(i);
         } else if(t == 1) {
             int s = choose_data();
-            auto [l,r] = gen.uniform_pair(0, n);
+            auto [l, r] = gen.uniform_pair(0, n);
             printf("%d %d %d\n", s, l, r);
             data_enable.push_back(i);
         } else {
-            auto [l,r] = gen.uniform_pair(0, n);
+            auto [l, r] = gen.uniform_pair(0, n);
             printf("%d %d\n", l, r);
         }
     }

@@ -40,6 +40,8 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/720"
     number = 4
 
 [[solutions]]
+    name = "correct.cpp"
+[[solutions]]
     name = "naive.cpp"
     expect = "RE"
 

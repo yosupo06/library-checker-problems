@@ -34,11 +34,6 @@ class segment_tree_beats {
 
 public:
     segment_tree_beats() = default;
-    segment_tree_beats(int n_) {
-        n = 1; while (n < n_) n *= 2;
-        a.resize(2 * n - 1);
-        tag<UPDATE>(0, 0);
-    }
     template <class InputIterator>
     segment_tree_beats(InputIterator first, InputIterator last) {
         int n_ = std::distance(first, last);

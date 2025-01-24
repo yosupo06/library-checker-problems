@@ -62,7 +62,7 @@ std::vector<int> get_charpoly(const Matrix &M, int mod) {
   Matrix H(to_upper_Hessenberg(M, mod));
   int n = static_cast<int>(H.size());
   std::vector<std::vector<int>> p(n + 1);
-  p[0] = {1};
+  p[0] = std::vector<int> { 1 };
   for (int i = 1; i <= n; ++i) {
     const std::vector<int> &pi_1 = p[i - 1];
     std::vector<int> &pi = p[i];

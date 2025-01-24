@@ -144,7 +144,7 @@ struct PointSetRangeContourSumOnTree {
 
             for (int v : _g[c]) {
                 if (_removed[v]) continue;
-                ch[v] = { v };
+                ch[v] = std::vector<int>{ v };
                 pq.push(v);
             }
 

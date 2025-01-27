@@ -64,3 +64,5 @@ $p _ 0$ $p _ 1$ $\ldots$ $p _ {N-1}$
 ## @{keyword.sample}
 
 @{example.example_00}
+
+@{example.example_01}

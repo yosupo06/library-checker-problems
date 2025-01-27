@@ -30,6 +30,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1263"
     name = "almost_line.cpp"
     number = 2
 
+[[tests]]
+    name = "max_bival.cpp"
+    number = 3
+
 [params]
     N_MIN = 1
     N_MAX = 200_000

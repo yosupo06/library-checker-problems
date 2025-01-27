@@ -37,43 +37,58 @@ public:
 } // namespace nachia
 
 
+// MUST : same output for the same input
 template<class Weight>
 std::vector<int> TreeSearchMinimumInversion(
     int n,
     std::vector<int> par,
-    std::vector<Weight> deltaT,
-    std::vector<Weight> A,
+    std::vector<Weight> D,
+    std::vector<Weight> C,
     int start
 ){
     struct Frac {
-        Weight t;
-        Weight a;
+        Weight d;
+        Weight c;
         int root;
-        int c;
+        int label;
+        bool cmp1(const Frac& r) const {
+            // (0,0) smallest
+            if(r.c == 0 && r.d == 0) return false;
+            if(c == 0 && d == 0) return true;
+
+            // a / t increasing
+            return c * r.d < d * r.c;
+        }
         bool operator<(const Frac& r) const {
-            return a * r.t < t * r.a;
+            bool l_lt_r = cmp1(r);
+            bool r_lt_l = r.cmp1(*this);
+
+            // make fully ordered
+            if(!l_lt_r && !r_lt_l) return std::make_pair(root,label) < std::make_pair(r.root,r.label);
+
+            return l_lt_r;
         }
         Frac& operator+=(const Frac& r){
-            a += r.a; t += r.t; return *this;
+            d += r.d; c += r.c; return *this;
         }
     };
     std::priority_queue<Frac> que;
     nachia::Dsu dsu(n);
     for(int v=0; v<n; v++) if(par[v] != -1){
-        que.push({ deltaT[v], A[v], v, 0 });
+        que.push({ D[v], C[v], v, 0 });
     }
     std::vector<int> linkA(n);
     for(int i=0; i<n; i++) linkA[i] = i;
-    std::vector<int> tag(n, 0);
+    std::vector<int> label(n, 0);
     while(que.size()){
         auto q = que.top(); que.pop();
         int v = q.root;
-        if(tag[v] != q.c) continue;
+        if(label[v] != q.label) continue;
         int w = dsu[par[v]];
-        deltaT[w] = deltaT[w] + deltaT[v];
-        A[w] = A[w] + A[v];
+        D[w] = D[w] + D[v];
+        C[w] = C[w] + C[v];
         dsu.merge(v, w, w);
-        if(par[w] != -1) que.push({ deltaT[w], A[w], w, ++tag[w] });
+        if(par[w] != -1) que.push({ D[w], C[w], w, ++label[w] });
         std::swap(linkA[v], linkA[w]);
     }
     std::vector<int> ans;

@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <queue>
+#include <utility>
 
 namespace nachia {
 
@@ -51,25 +52,20 @@ std::vector<int> TreeSearchMinimumInversion(
         Weight c;
         int root;
         int label;
-        bool cmp1(const Frac& r) const {
+        static bool cmp1(const Frac& l, const Frac& r){
             // (0,0) smallest
             if(r.c == 0 && r.d == 0) return false;
-            if(c == 0 && d == 0) return true;
+            if(l.c == 0 && l.d == 0) return true;
 
-            // a / t increasing
-            return c * r.d < d * r.c;
+            // c / d increasing
+            return l.c * r.d < l.d * r.c;
         }
         bool operator<(const Frac& r) const {
-            bool l_lt_r = cmp1(r);
-            bool r_lt_l = r.cmp1(*this);
+            if(cmp1(*this, r)) return true;
+            if(cmp1(r, *this)) return false;
 
             // make fully ordered
-            if(!l_lt_r && !r_lt_l) return std::make_pair(root,label) < std::make_pair(r.root,r.label);
-
-            return l_lt_r;
-        }
-        Frac& operator+=(const Frac& r){
-            d += r.d; c += r.c; return *this;
+            return std::make_pair(root,label) < std::make_pair(r.root,r.label);
         }
     };
     std::priority_queue<Frac> que;
@@ -88,7 +84,9 @@ std::vector<int> TreeSearchMinimumInversion(
         D[w] = D[w] + D[v];
         C[w] = C[w] + C[v];
         dsu.merge(v, w, w);
-        if(par[w] != -1) que.push({ D[w], C[w], w, ++label[w] });
+        if(par[w] != -1){
+            que.push({ D[w], C[w], w, ++label[w] });
+        }
         std::swap(linkA[v], linkA[w]);
     }
     std::vector<int> ans;

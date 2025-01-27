@@ -33,9 +33,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/865"
 [[solutions]]
     name = "naive.cpp"
     allow_tle = true
-[[solutions]]
-    name = "random_kruskal.cpp"
-    expect = "WA"
 
 [params]
     N_MIN = 1

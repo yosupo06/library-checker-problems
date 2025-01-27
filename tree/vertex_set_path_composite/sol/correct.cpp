@@ -79,7 +79,8 @@ template <class E> struct HLExec : HL {
     V<int> tch;
     int id = 0;
     HLExec(const VV<E>& _g, int r) : HL(_g.size()), g(_g), tch(g.size(), -1) {
-        assert(dfs_sz(r, -1) == int(g.size()));
+        int size = dfs_sz(r, -1);
+        assert(size == int(g.size()));
         dfs(r, -1);
         init_extra();
     }

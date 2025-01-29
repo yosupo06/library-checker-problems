@@ -11,9 +11,11 @@ long long EvalOutput(int N, const vector<int>& P, const vector<int>& C, const ve
     
     for(int i=0; i<N; i++){
         int p = fs.readInt(0,N-1);
-        if(P[p] >= 0 && vis[P[p]]) return -1;
+        if(vis[p] == 1) return -1;
+        if(P[p] >= 0 && vis[P[p]] == 0) return -1;
         x += C[p] * sum_d;
         sum_d += D[p];
+        vis[p] = 1;
     }
 
     if(x != x_out) return -2;

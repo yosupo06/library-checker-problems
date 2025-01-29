@@ -12,8 +12,8 @@ The root of the tree is the vertex $0$ , and the parent of the vertex $i$ is $p 
 
 Find one permutation $p$ of $(0,1,\dots ,N-1)$ which satisfies following condition. If there are multiple candidates, you can choose any of them.
 
-* If the vertex $p _ i$ is an ancestor of the vertex $p _ j$, $i \lt j$ holds.
-* Among one that satisfies the condition above, the value $X=\sum _ {i=0} ^ {N-1} \sum _ {j=0} ^ {i-1} c _ i d _ j$ is minimized.
+* If $i\neq j$ and the vertex $p _ i$ is an ancestor of the vertex $p _ j$, $i \lt j$ holds.
+* Among one that satisfies the condition above, the value $X=\sum _ {i=0} ^ {N-1} \sum _ {j=0} ^ {i-1} c _ {p _ i} d _ {p _ j}$ is minimized.
 
 Output the minimum value of $X$ and a possible permutation $p$ with the value $X$ is minimized.
 
@@ -28,8 +28,8 @@ Output the minimum value of $X$ and a possible permutation $p$ with the value $X
 
 以下の条件を満たす $(0,1,\dots ,N-1)$ の順列 p を $1$ つ求めてください。複数ある場合はそのうちのどれでも構いません。
 
-* 頂点 $p _ i$ が頂点 $p _ j$ の祖先ならば、 $i\lt j$ .
-* 上記の条件を満たす中で、 $X=\sum _ {i=0} ^ {N-1} \sum _ {j=0} ^ {i-1} c _ i d _ j$ の最小値をとる。
+* $i\neq j$ であって、頂点 $p _ i$ が頂点 $p _ j$ の祖先であるならば、 $i\lt j$ .
+* 上記の条件を満たす中で、 $X=\sum _ {i=0} ^ {N-1} \sum _ {j=0} ^ {i-1} c _ {p _ i} d _ {p _ j}$ の最小値をとる。
 
 $X$ の最小値と、 $X$ が最小化されるときの順列 $p$ としてありうるものを出力してください。
 

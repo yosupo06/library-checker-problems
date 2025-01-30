@@ -8,7 +8,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1263"
 
 [[tests]]
     name = "min.in"
-    number = 2
+    number = 3
 
 [[tests]]
     name = "random.cpp"
@@ -33,6 +33,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1263"
 [[tests]]
     name = "max_bival.cpp"
     number = 3
+
+[[tests]]
+    name = "weight_zero.cpp"
+    number = 1
 
 [params]
     N_MIN = 1

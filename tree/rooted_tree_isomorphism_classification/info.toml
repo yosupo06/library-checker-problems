@@ -30,6 +30,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/796"
     name = "sqrt.cpp"
     number = 1
 
+[[tests]]
+    name = "min.in"
+    number = 2
+
 [[solutions]]
     name = "linear-time.cpp"
     allow_tle = false

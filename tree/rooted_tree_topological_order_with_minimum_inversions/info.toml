@@ -1,0 +1,49 @@
+title = 'Rooted Tree Topological Order with Minimum Inversions'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1263"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[tests]]
+    name = "min.in"
+    number = 3
+
+[[tests]]
+    name = "random.cpp"
+    number = 5
+
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+
+[[tests]]
+    name = "max_typical_tree.cpp"
+    number = 4
+
+[[tests]]
+    name = "two_path.cpp"
+    number = 5
+
+[[tests]]
+    name = "almost_line.cpp"
+    number = 2
+
+[[tests]]
+    name = "max_bival.cpp"
+    number = 3
+
+[[tests]]
+    name = "weight_zero.cpp"
+    number = 1
+
+[params]
+    N_MIN = 1
+    N_MAX = 200_000
+    C_MIN = 0
+    C_MAX = 1_000_000_000
+    C_SUM_MAX = 1_000_000_000
+    D_MIN = 0
+    D_MAX = 1_000_000_000
+    D_SUM_MAX = 1_000_000_000

@@ -44,7 +44,6 @@ and if such matrix exists, print
 @{lang.end}
 
 ```
-$N$
 $b _ {11} \cdots b _ {1N}$
 $\vdots$
 $b _ {N1} \cdots b _ {NN}$

@@ -44,8 +44,8 @@ int main(int, char* argv[]) {
     }
 
     for (int i = 0; i < q; i++) {
-        int t = gen.uniform(0, 1);
-        printf("%d ", t);
+        int t = gen.uniform(0, 20);
+        printf("%d ", t != 0);
         if (t == 0) {
             int p = gen.uniform(0, n - 1);
             int c = gen.uniform<int>(1, MOD - 1);

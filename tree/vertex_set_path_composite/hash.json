@@ -34,5 +34,9 @@
   "small_03.in": "4e1ea99ea9b9a8a6910beaec90a0a473937fa5fe4addf8e6636fa28be28f07c4",
   "small_03.out": "35275ef5339007a97141bc7315cc7648764a07236df2376917bb0b1246f768a6",
   "small_04.in": "7ffbaeaa927a8c2bf8140b04d74af6c563ee11c9a6bdf22bc5a0961cda13b194",
-  "small_04.out": "941e7a2c091ec7f071fcd94fa8c224bcebebb373e849c5c1ad2dd2914b833cbd"
+  "small_04.out": "941e7a2c091ec7f071fcd94fa8c224bcebebb373e849c5c1ad2dd2914b833cbd",
+  "wrost_for_heavy_light_00.in": "673c046f7a07659bc23f2d46e50e332821ace907c68a5a74c7dfa2ac93a22e62",
+  "wrost_for_heavy_light_00.out": "ada74372d4146255bead75b0fb2478bc42a20e18246a08077f2fb5b3644585a8",
+  "wrost_for_heavy_light_01.in": "d6b38539ab7584934ea52986b7bcc79d10ff2fa1c12d12e0fc75f0abcc8c7e61",
+  "wrost_for_heavy_light_01.out": "ce9d1db0b1cb5d285bfddf75582a4f29f1d424b059a816dd3d5cd1ece43e7a40"
 }

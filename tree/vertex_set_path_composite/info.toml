@@ -18,7 +18,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/190"
     number = 5
 
 [[tests]]
-    name = "wrost_for_heavy_light.cpp"
+    name = "worst_for_path_decomposition.cpp"
     number = 2
 
 [[tests]]

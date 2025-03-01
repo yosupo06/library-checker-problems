@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
   int n = inf.readInt(1, N_MAX);
   inf.readSpace();
   int m = inf.readInt(1, M_MAX);
-  inf.readEoln();
+  inf.readChar('\n');
   set<int> s;
   for (int i = 0; i < m; i++) {
     inf.readInt(0, n - 1);
@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     inf.readSpace();
     int w = inf.readInt(1, W_MAX);
     s.insert(w);
-    inf.readEoln();
+    inf.readChar('\n');
   }
   inf.readEof();
   ensure((int)s.size() == m);

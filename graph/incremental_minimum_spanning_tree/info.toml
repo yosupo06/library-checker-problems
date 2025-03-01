@@ -1,0 +1,15 @@
+title = 'Incremental Minimum Spanning Tree'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/766"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "random.cpp"
+    number = 5
+
+[params]
+    N_MAX = 500_000
+    M_MAX = 1_000_000
+    W_MAX = 1_000_000_000

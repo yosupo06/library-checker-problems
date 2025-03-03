@@ -4,13 +4,13 @@
 
 Given a connected, undirected graph with $N$ vertices and $M$ edges, where the $i$-th edge $(0 \le i < M)$ connects vertices $U_i$ and $V_i$ and has weight $W_i$.
 
-Additionally, a subset $S = \{X_0, X_1, \ldots, X_{K - 1}\}$ of $V(G)$ is given. Among the subgraphs of $G$ in which the vertices in $S$ are pairwise connected, find one with the minimum sum of edge weights.
+Additionally, a subset $X = \{X_0, X_1, \ldots, X_{K - 1}\}$ of $V(G)$ is given. Among the subgraphs of $G$ in which the vertices in $X$ are pairwise connected, find one with the minimum sum of edge weights.
 
 @{lang.ja}
 
 $N$ 頂点 $M$ 辺の重み付き連結無向グラフ $G$ が与えられる。$i$ $(0 \le i < M)$ 番目の辺は頂点 $U_i$ と $V_i$ を結び、重みは $W_i$ である。
 
-また、 $V(G)$ の部分集合 $S = \{X_0, X_1, \ldots, X_{K-1}\}$ が与えられるので、$G$ の部分グラフで $S$ のどの 2 頂点間も連結であるようなもののうち、辺重みの総和が最小のものを求めよ。
+また、 $V(G)$ の部分集合 $X = \{X_0, X_1, \ldots, X_{K - 1}\}$ が与えられるので、$G$ の部分グラフで $X$ のどの 2 頂点間も連結であるようなもののうち、辺重みの総和が最小のものを求めよ。
 
 @{lang.end}
 
@@ -76,5 +76,4 @@ $Y$ は、選ばれた部分グラフに含まれる辺の重みの総和であ�
 @{example.example_01}
 
 @{example.example_02}
-
 

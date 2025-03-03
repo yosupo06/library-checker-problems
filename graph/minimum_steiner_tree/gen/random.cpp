@@ -47,6 +47,5 @@ int main(int, char *argv[]) {
     else printf("\n");
   }
 
-
   return 0;
 }

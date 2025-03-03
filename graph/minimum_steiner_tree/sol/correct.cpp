@@ -1,8 +1,10 @@
 #include <algorithm>
 #include <array>
 #include <cstdio>
+#include <limits>
 #include <numeric>
 #include <queue>
+#include <tuple>
 #include <vector>
 
 using namespace std;
@@ -88,7 +90,7 @@ int main() {
   int N, M;
   scanf("%d %d", &N, &M);
 
-  vector<tuple<int, int, int64_t>> E(M);
+  vector<tuple<int, int, long long>> E(M);
   for(auto &[u, v, w] : E)
     scanf("%d %d %lld", &u, &v, &w);
 

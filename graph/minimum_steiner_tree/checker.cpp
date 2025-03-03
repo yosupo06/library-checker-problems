@@ -38,10 +38,10 @@ struct DSU {
   }
 };
 
-int64_t read_ans(int N, int M, vector<E> E, int K, vector<int> X, InStream &stream) {
-  int64_t Y = stream.readLong();
+long long read_ans(int N, int M, vector<E> E, int K, vector<int> X, InStream &stream) {
+  long long Y = stream.readLong();
   int Z = stream.readInt(K - 1, N - 1);
-  int64_t sum = 0;
+  long long sum = 0;
   DSU dsu(N);
   for(int i = 0; i < Z; i++) {
     int eid = stream.readInt(0, M - 1);
@@ -79,8 +79,8 @@ int main(int argc, char *argv[]) {
   for(int &x : X)
     x = inf.readInt();
 
-  int64_t Y_ans = read_ans(N, M, E, K, X, ans);
-  int64_t Y_ouf = read_ans(N, M, E, K, X, ouf);
+  long long Y_ans = read_ans(N, M, E, K, X, ans);
+  long long Y_ouf = read_ans(N, M, E, K, X, ouf);
 
   if (Y_ans < Y_ouf)
     quitf(_wa, "There exist better solution.");

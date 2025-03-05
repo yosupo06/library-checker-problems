@@ -34,5 +34,9 @@
   "small_03.in": "4e1ea99ea9b9a8a6910beaec90a0a473937fa5fe4addf8e6636fa28be28f07c4",
   "small_03.out": "35275ef5339007a97141bc7315cc7648764a07236df2376917bb0b1246f768a6",
   "small_04.in": "7ffbaeaa927a8c2bf8140b04d74af6c563ee11c9a6bdf22bc5a0961cda13b194",
-  "small_04.out": "941e7a2c091ec7f071fcd94fa8c224bcebebb373e849c5c1ad2dd2914b833cbd"
+  "small_04.out": "941e7a2c091ec7f071fcd94fa8c224bcebebb373e849c5c1ad2dd2914b833cbd",
+  "worst_for_path_decomposition_00.in": "db9b8caf069bfa8ca841b0578efba673eed9a096f80dc36b29180991ac0bb936",
+  "worst_for_path_decomposition_00.out": "27fc097f0648e11b50c653cbef1062749146674dbea80d0fb50df93ef6a46b6c",
+  "worst_for_path_decomposition_01.in": "f0b935e5934dfdb8db87d00581d04b65bdfcf39377d03a79c6243f7ecda174ac",
+  "worst_for_path_decomposition_01.out": "d045dedec66f8d84314b60640b05d602712e16c94ae0dd785c94c0f375e60fb3"
 }

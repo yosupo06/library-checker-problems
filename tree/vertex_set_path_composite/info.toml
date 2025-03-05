@@ -18,6 +18,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/190"
     number = 5
 
 [[tests]]
+    name = "worst_for_path_decomposition.cpp"
+    number = 2
+
+[[tests]]
     name = "long-path-decomposition_killer.cpp"
     number = 1
 

@@ -213,12 +213,12 @@ struct Info {
   }
 };
 
-struct IncrementalMinimumSpanningTree {
+struct IncrementalMinimumSpanningForest {
   int n;
   LinkCutTree<Info> lct;
   vector<pair<int, int>> edges;
   map<int, int> rec;
-  IncrementalMinimumSpanningTree(int n_) : n(n_), lct(2 * n - 1) {}
+  IncrementalMinimumSpanningForest(int n_) : n(n_), lct(2 * n - 1) {}
 
   int AddEdge(int u, int v, int w, int id) {
     if (lct.GetRoot(u) == lct.GetRoot(v)) {
@@ -257,7 +257,7 @@ struct IncrementalMinimumSpanningTree {
 int main() {
   int n, m;
   scanf("%d%d", &n, &m);
-  IncrementalMinimumSpanningTree T(n);
+  IncrementalMinimumSpanningForest T(n);
   for (int i = 0; i < m; i++) {
     int u, v, w;
     scanf("%d%d%d", &u, &v, &w);

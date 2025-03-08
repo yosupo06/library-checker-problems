@@ -37,7 +37,10 @@ $F_{-1}$ を $0$ 辺からなる森，$F_i$ を $e_i$ を追加した後の MSF 
 
 @{lang.ja}
 
-- TBD
+- $1 \leq N \leq @{param.N_MAX}$
+- $1 \leq M \leq @{param.M_MAX}$
+- $1 \leq w_i \leq @{param.W_MAX}$
+- $w_i$ はすべて異なる
 
 @{lang.end}
 
@@ -54,18 +57,9 @@ $u_{M - 1}$ $v_{M - 1}$ $w_{M - 1}$
 ## @{keyword.output}
 
 ~~~
-$e_0$ $e_1$ $e_2$ ... $e_{M - 1}$
+$ans_0$ $ans_1$ $ans_2$ ... $ans_{M - 1}$
 ~~~
 
-@{lang.en}
-
-$e_i$ is the id of the edge that is removed from the MST after the $i$'th insertion.
-
-@{lang.ja}
-
-TBD
-
-@{lang.end}
 
 ## @{keyword.sample}
 

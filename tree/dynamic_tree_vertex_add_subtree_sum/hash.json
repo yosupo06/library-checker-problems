@@ -1,4 +1,8 @@
 {
+  "almost_line_00.in": "fba03eb47c6d0dfe608dc9a7ea0874c3a05b0ebe84bc65c177f58803942293d6",
+  "almost_line_00.out": "6c95ed0db3135f22e51d41a9eb1d29f0b3531fb1e56e9aac08db766c5b235038",
+  "almost_line_01.in": "3445d72b0f7de45abde6b33c59f4de83204649f91ab9792ee6c91d8f353cff8f",
+  "almost_line_01.out": "53817b37bc0e360df58782ece4e06da0370555cc1a5c18702fea1c8b7d585aef",
   "example_00.in": "b986bf1593cb434b6ee4f9074d755d1cd6220d3cbe25d4a0ec8a87f0c63eeca7",
   "example_00.out": "acabf56f180a7ac281d2269f36741b90e37cdb44dc4f55736b6c0f792a7220ca",
   "max_random_00.in": "d99c4f9cf332be0b2d74be48ba9aa466e79300b2a0d385cad19893a1864be3cf",

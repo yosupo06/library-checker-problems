@@ -68,8 +68,6 @@ using ll = long long int;
 using ull = unsigned long long;
 using i128 = __int128_t;
 using u128 = __uint128_t;
-const int inf = 0x3fffffff;
-const ll INF = 0x1fffffffffffffff;
 
 template <typename T>
 inline bool chmax(T &a, T b)

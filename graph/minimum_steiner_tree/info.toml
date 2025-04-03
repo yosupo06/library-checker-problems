@@ -1,0 +1,30 @@
+title = 'Minimum Steiner Tree'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/890"
+
+[[tests]]
+    name = "example.in"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "random_max.cpp"
+    number = 5
+[[tests]]
+    name = "random_complete.cpp"
+    number = 5
+[[tests]]
+    name = "random_small.cpp"
+    number = 5
+[[tests]]
+    name = "overflow_killer.cpp"
+    number = 1
+
+[params]
+    N_MAX = 100
+    M_MAX = 1000
+    K_MAX = 12
+    W_MIN = 1
+    W_MAX = 1_000_000_000
+    N_SMALL_MAX = 40

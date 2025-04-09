@@ -1,0 +1,23 @@
+title = 'Pfaffian of Matrix'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1303"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+[[tests]]
+    name = "sparse.cpp"
+    number = 10
+[[tests]]
+    name = "small.cpp"
+    number = 5
+
+[params]
+    N_MAX = 300 
+    MOD = 998_244_353

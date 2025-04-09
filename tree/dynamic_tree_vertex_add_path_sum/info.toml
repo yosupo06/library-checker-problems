@@ -7,6 +7,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/223"
     number = 1
 
 [[tests]]
+    name = "almost_line.cpp"
+    number = 2
+
+[[tests]]
     name = "small.cpp"
     number = 3
 

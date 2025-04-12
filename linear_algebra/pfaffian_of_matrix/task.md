@@ -26,5 +26,3 @@ $a_{2N,1}$ $a_{2N,2}$ ... $a_{2N,2N}$
 @{example.example_00}
 
 @{example.example_01}
-
-@{example.example_02}

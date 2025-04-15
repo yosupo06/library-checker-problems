@@ -31,7 +31,7 @@ $N$ 頂点の木が与えられます。$i$ 番目の辺は頂点 $u_i$ と頂�
  - For queries of type `0 $u$ $v$ $w$ $x$` :
     - $0 \le u, v, w, x \lt N$
     - Edge $(u, v)$ exists when processing a query of this type
-    - The grpah remains a tree after processing
+    - The graph remains a tree after processing
  - For queries of type `1 $v$ $p$ $x$` :
     - $0 \le v, p \lt N$
     - $0 \le x \le @{param.VAL_MAX}$

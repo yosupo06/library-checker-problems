@@ -10,8 +10,8 @@ int main(int, char* argv[]) {
     int n = N_AND_M_MAX;
     int m = N_AND_M_MAX;
 
-    int val1 = seed == 0 ? 1 : gen.uniform(0, MOD - 1);
-    int val2 = seed == 0 ? 1 : gen.uniform(0, MOD - 1);
+    int val1 = seed == 0 ? 1 : gen.uniform(0ll, MOD - 1);
+    int val2 = seed == 0 ? 1 : gen.uniform(0ll, MOD - 1);
 
     printf("%d %d\n", n, m);
     for (int i = 0; i < n; i++) {

@@ -10,8 +10,8 @@ int main(int, char* argv[]) {
     int n = N_AND_M_MAX;
     int m = N_AND_M_MAX;
 
-    uint64_t val1 = seed == 0 ? 1ULL : gen.uniform(0ULL, ~0ULL);
-    uint64_t val2 = seed == 0 ? 1ULL : gen.uniform(0ULL, ~0ULL);
+    long long unsigned int val1 = seed == 0 ? 1ULL : gen.uniform(0ULL, ~0ULL);
+    long long unsigned int val2 = seed == 0 ? 1ULL : gen.uniform(0ULL, ~0ULL);
 
     printf("%d %d\n", n, m);
     for (int i = 0; i < n; i++) {

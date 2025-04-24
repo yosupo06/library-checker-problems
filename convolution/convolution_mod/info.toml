@@ -38,6 +38,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/42"
 [[tests]]
     name = "small_and_large.cpp"
     number = 4
+[[tests]]
+    name = "all_same.cpp"
+    number = 4
 
 [[solutions]]
     name = "naive.cpp"
@@ -45,6 +48,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/42"
 [[solutions]]
     name = "ac_func.cpp"
     function = true
+
 
 [params]
     N_AND_M_MAX = 524288

@@ -11,6 +11,7 @@ name = "Data Structure"
 problems = [
   "associative_array",
   "predecessor_problem",
+  "ordered_set",
   "double_ended_priority_queue",
   "unionfind",
   "unionfind_with_potential",
@@ -20,8 +21,11 @@ problems = [
   "staticrmq",
   "point_add_range_sum",
   "point_set_range_composite",
+  "point_set_range_composite_large_array",
   "range_affine_point_get", 
   "range_affine_range_sum",
+  "range_affine_range_sum_large_array",
+  "persistent_range_affine_range_sum",
   "range_set_range_composite",
   "range_chmin_chmax_add_range_sum",
   "range_kth_smallest",
@@ -44,6 +48,7 @@ problems = [
   "point_add_rectangle_sum",
   "rectangle_add_point_get",
   "static_rectangle_add_rectangle_sum",
+  "dynamic_point_set_rectangle_affine_rectangle_sum",
   "area_of_union_of_rectangles",
   "persistent_queue",
   "persistent_unionfind",
@@ -73,12 +78,14 @@ problems = [
   "assignment",
   "minimum_spanning_tree",
   "directedmst",
+  "minimum_diameter_spanning_tree",
   "dominatortree",
   "maximum_independent_set",
   "chromatic_number",
   "chromatic_polynomial",
   "enumerate_triangles",
   "enumerate_cliques",
+  "counting_c4",
   "tree_decomposition_width_2",
   "global_minimum_cut_of_dynamic_star_augmented_graph",
   "chordal_graph_recognition",
@@ -110,6 +117,7 @@ problems = [
   "dynamic_tree_subtree_add_subtree_sum",
   "cartesian_tree",
   "common_interval_decomposition_tree",
+  "rooted_tree_topological_order_with_minimum_inversions",
 ]
 
 [[categories]]
@@ -129,6 +137,7 @@ problems = [
   "mul_mod2n_convolution",
   "min_plus_convolution_convex_arbitrary",
   "min_plus_convolution_convex_convex",
+  "min_plus_convolution_concave_arbitrary",
 ]
 
 [[categories]]
@@ -146,6 +155,7 @@ problems = [
   "stern_brocot_tree",
   "counting_squarefrees",
   "sum_of_totient_function",
+  "sum_of_multiplicative_function_large",
   "bernoulli_number",
   "sqrt_mod",
   "kth_root_mod",
@@ -153,6 +163,7 @@ problems = [
   "discrete_logarithm_mod",
   "tetration_mod",
   "gcd_of_gaussian_integers",
+  "two_square_sum",
   "nim_product_64",
 ]
 
@@ -201,6 +212,7 @@ problems = [
   "factorial", 
   "many_factorials", 
   "montmort_number_mod",
+  "bell_number",
   "binomial_coefficient",
   "binomial_coefficient_prime_mod",
   "q_binomial_coefficient_prime_mod",
@@ -230,8 +242,10 @@ problems = [
   "matrix_rank", 
   "matrix_rank_mod_2",
   "system_of_linear_equations",
+  "system_of_linear_equations_mod_2",
   "inverse_matrix",
   "inverse_matrix_mod_2",
+  "adjugate_matrix",
   "characteristic_polynomial",
   "hafnian_of_matrix",
   "intersection_of_f2_vector_spaces",

@@ -55,40 +55,6 @@ def find_problem_dir(rootdir: Path, problem_name: Path) -> Optional[Path]:
     return tomls[0].parent
 
 
-def compile(src: Path, rootdir: Path, opts: List[str] = []):
-    if src.suffix == '.cpp':
-        # use clang for msys2 clang environment
-        if os.name == 'nt' and sysconfig.get_platform().startswith('mingw') and sysconfig.get_platform().endswith('clang'):
-            cxx = getenv('CXX', 'clang++')
-        else:
-            cxx = getenv('CXX', 'g++')
-        cxxflags_default = '-O2 -std=c++17 -Wall -Wextra -Werror -Wno-unused-result'
-        if platform.system() == 'Darwin':
-            cxxflags_default += ' -Wl,-stack_size,{}'.format(hex(STACK_SIZE))
-        if platform.system() == 'Windows':
-            cxxflags_default += ' -Wl,-stack,{}'.format(hex(STACK_SIZE))
-            # avoid using MinGW's "unique" stdio, which doesn't recognize %lld
-            cxxflags_default += ' -D__USE_MINGW_ANSI_STDIO'
-            # avoid CI issue, ref https://github.com/yosupo06/library-checker-problems/issues/1031
-            cxxflags_default += ' -static'
-        if platform.uname().system == 'Linux' and 'microsoft' in platform.uname().release.lower():
-            # a workaround for the lack of ulimit in Windows Subsystem for Linux
-            cxxflags_default += ' -fsplit-stack'
-        cxxflags = getenv('CXXFLAGS', cxxflags_default).split()
-        cxxflags.extend(['-I', str(rootdir / 'common')])
-        args = [cxx] + cxxflags + \
-            ['-o', str(src.with_suffix(''))] + opts + [str(src)]
-        logger.debug('compile: %s', args)
-        check_call(args)
-    elif src.suffix == '.in':
-        pass
-    elif src.suffix == '.py':
-        pass
-    else:
-        logger.error('Unknown type of file {}'.format(src))
-        raise RuntimeError('Unknown type of file: {}'.format(src))
-
-
 def execcmd(src: Path, arg: List[str] = []) -> List[str]:
     """
     main.cpp -> ['main']
@@ -212,31 +178,88 @@ class Problem:
             for key, value in self.config.get('params', {}).items():
                 fh.write(param_to_str(key, value) + '\n')
 
+    def compile_cpp(self, src: Path, import_relative: bool, import_common: bool, extra_opts: List[str] = []) -> None:
+        output_path = src.with_suffix('')
+
+        cxx_default = 'g++'
+        if os.name == 'nt' and sysconfig.get_platform().startswith('mingw') and sysconfig.get_platform().endswith('clang'):
+            # use clang for msys2 clang environment
+            cxx_default = 'clang++'    
+        cxx = getenv('CXX', cxx_default)
+
+        cxxflags_default = ['-O2', '-std=c++17', '-Wall', '-Wextra', '-Werror', '-Wno-unused-result']
+        if platform.system() == 'Darwin':
+            cxxflags_default += ['-Wl,-stack_size,{}'.format(hex(STACK_SIZE))]
+        if platform.system() == 'Windows':
+            cxxflags_default += ['-Wl,-stack,{}'.format(hex(STACK_SIZE))]
+            # avoid using MinGW's "unique" stdio, which doesn't recognize %lld
+            cxxflags_default += ['-D__USE_MINGW_ANSI_STDIO']
+            # avoid CI issue, ref https://github.com/yosupo06/library-checker-problems/issues/1031
+            cxxflags_default += ['-static']
+        if platform.uname().system == 'Linux' and 'microsoft' in platform.uname().release.lower():
+            # a workaround for the lack of ulimit in Windows Subsystem for Linux
+            cxxflags_default += ['-fsplit-stack']
+        cxxflags = getenv('CXXFLAGS', ' '.join(cxxflags_default)).split()
+
+        if import_common:
+            cxxflags += ["-I", str(self.rootdir / "common")]
+
+        temp_dir = None
+        if not import_relative:
+            # move src to isolated directory
+            temp_dir = TemporaryDirectory()
+            temp_src = Path(temp_dir.name) / src.name
+            shutil.copy(src, temp_src)
+            src = temp_src
+
+        cxxflags += extra_opts
+
+        args = [cxx] + cxxflags + ['-o', str(output_path)] + [str(src)]
+        logger.debug('compile: %s', args)
+        check_call(args)
+
+        if temp_dir:
+            temp_dir.cleanup()
+
     def compile_correct(self):
         logger.info('compile solution')
-        compile(self.basedir / 'sol' / 'correct.cpp', self.rootdir)
+        self.compile_cpp(self.basedir / 'sol' / 'correct.cpp', import_relative=False, import_common=False)
 
     def compile_verifier(self):
         logger.info('compile verifier')
-        compile(self.verifier, self.rootdir)
+        self.compile_cpp(self.verifier, import_relative=False, import_common=True)
+        # compile(self.verifier, self.rootdir)
 
     def compile_gens(self):
         logger.info('compile generators')
         for test in self.config['tests']:
             name = test['name']
             logger.info('compile {}'.format(name))
-            compile(self.basedir / 'gen' / name, self.rootdir)
+            if name.endswith('.cpp'):
+                self.compile_cpp(
+                    self.basedir / "gen" / name,
+                    import_relative=True,
+                    import_common=True,
+                )
+            #compile(self.basedir / 'gen' / name, self.rootdir)
 
     def compile_checker(self):
         logger.info('compile checker')
-        compile(self.checker, self.rootdir)
+        self.compile_cpp(self.checker, import_relative=False, import_common=True)
+        # compile(self.checker, self.rootdir)
 
     def compile_solutions(self):
         for sol in self.config.get('solutions', []):
             name = sol['name']
             opts = [str(self.basedir / 'grader' / 'grader.cpp'), '-I',
                     str(self.basedir / 'grader')] if sol.get('function', False) else []
-            compile(self.basedir / 'sol' / name, self.rootdir, opts)
+            # compile(self.basedir / 'sol' / name, self.rootdir, opts)
+            self.compile_cpp(
+                self.basedir / "sol" / name,
+                import_relative=True,
+                import_common=True,
+                extra_opts=opts,
+            )
 
     def check_all_solutions_used(self) -> bool:
         sol_names: set[str] = set()

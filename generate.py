@@ -201,8 +201,6 @@ class Problem:
             cxxflags_default += ['-fsplit-stack']
         cxxflags = getenv('CXXFLAGS', ' '.join(cxxflags_default)).split()
 
-        if import_common:
-            cxxflags += ["-I", str(self.rootdir / "common")]
 
         temp_dir = None
         if not import_relative:
@@ -210,7 +208,11 @@ class Problem:
             temp_dir = TemporaryDirectory()
             temp_src = Path(temp_dir.name) / src.name
             shutil.copy(src, temp_src)
+            shutil.copy(self.basedir / 'params.h', temp_dir.name)
             src = temp_src
+
+        if import_common:
+            cxxflags += ["-I", str(self.rootdir / "common")]
 
         cxxflags += extra_opts
 

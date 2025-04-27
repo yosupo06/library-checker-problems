@@ -1,4 +1,10 @@
 {
+  "all_same_00.in": "150da5d077344a051529cfd5b4a2be2460fe53580acc97646fb58ebe7e1a66cb",
+  "all_same_00.out": "33c61bd1c31670292938c99a91bcb290299cd18f62ec12cf64c5901131f79e8d",
+  "all_same_01.in": "dd9c2267f1dcf8de48e8af0bde6703d301c0adbca2495e7109da000cd6a1c5ea",
+  "all_same_01.out": "062c1e22641bed191990115233f2bec697d488b37e052b7d3496a0b3886d2ff5",
+  "all_same_02.in": "afd8a1f464cf0c4af5f63227e59bc5a4fa1077a5fb3cf9dd2e2a9f98328bdde6",
+  "all_same_02.out": "70d91e5fad760dbed8f91ee7d7bbbd5b091565acf025108a8bc6c1937278b114",
   "example_00.in": "791ce85d065df0981bec48053b908ae230fd083a23b7e4f15c55bbfc09d5b09e",
   "example_00.out": "bed182fa28059c3a153ceb69a5293edb94f3984e7df500c7d5b0deb991bedfe4",
   "example_01.in": "cb82ca85c390fabfd1c38aa4d97d76071db8fb8ba0e70ba6179f525564e40cd1",

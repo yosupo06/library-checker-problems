@@ -225,7 +225,7 @@ class Problem:
 
     def compile_correct(self):
         logger.info('compile solution')
-        self.compile_cpp(self.basedir / 'sol' / 'correct.cpp', import_relative=False, import_common=False)
+        self.compile_cpp(self.basedir / 'sol' / 'correct.cpp', import_relative=True, import_common=True)
 
     def compile_verifier(self):
         logger.info('compile verifier')

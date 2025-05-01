@@ -11,6 +11,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/242"
     number = 5
 
 [[tests]]
+    name = "max_random.cpp"
+    number = 3
+
+[[tests]]
     name = "max.cpp"
     number = 5
 
@@ -25,6 +29,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/242"
 [[tests]]
     name = "wrong_avl_killer.cpp"
     number = 2
+
+[[tests]]
+    name = "wrong_splay_killer.cpp"
+    number = 4
 
 [[solutions]]
     name = "naive.cpp"

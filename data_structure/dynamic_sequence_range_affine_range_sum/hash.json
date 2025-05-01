@@ -17,6 +17,12 @@
   "max_03.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "max_04.in": "e8dff67eb0b66e133ad67413f4706013c49085962a5b7bf988bad917049d83ef",
   "max_04.out": "aa8841767ae85109a044458b7de58f4a35e12ebf5d3919fee35fa59078dfc966",
+  "max_random_00.in": "14d09eeddfcd31199d9a7bf8c352dea988518d49b31625561afc40b309fb8994",
+  "max_random_00.out": "8bf967f8b39dc73a91a00fdeb5f37e60af38f7e4accd94fb2949422bc73feb14",
+  "max_random_01.in": "5e670ee41297aa3c540f22db2a49012d0f18cac5814c3401ba9a955f74b5f20e",
+  "max_random_01.out": "76a0224fb0dcbfdd5bc0bf220f03635c57d25af582b90b1be6d25d6f34bb2fb7",
+  "max_random_02.in": "ed0bdcb35bfa58167a61a0f4f5c322c2eb62c2365533bd2ad8980077df39e4b8",
+  "max_random_02.out": "c6eb748530e55e9236a3909e40ab758d33a3ab7b422964a9706e77bd3215cd70",
   "random_00.in": "c476856b69b580d3638c67cb0ae0294be0725b21beb29424d3b836bda14bca27",
   "random_00.out": "f03b617a965fa580d5b26add6395aafde2854aa6f2c1b585709553d05b5e7ac0",
   "random_01.in": "bac4c9a1583db366cc94677afa003cde527fe1deb2b75bc85818c3d2c769e890",
@@ -50,5 +56,13 @@
   "wrong_avl_killer_00.in": "250fb4e7da163a37e0571e44785b72907ad72236537ccb85bb02afc5d6e7d100",
   "wrong_avl_killer_00.out": "063b0194b760f30e8c0ad09437471983cc5e9455c3b6a081696e74fea9ff624f",
   "wrong_avl_killer_01.in": "ec9493f2cdb24b217f5bc45bbd091684568faca1197df0a6759405402357d7f8",
-  "wrong_avl_killer_01.out": "d5a6e91d9350200520d669eaaac84d92a25fe20fad83398f90daf57ef7f8979d"
+  "wrong_avl_killer_01.out": "d5a6e91d9350200520d669eaaac84d92a25fe20fad83398f90daf57ef7f8979d",
+  "wrong_splay_killer_00.in": "26eb28a74cfdcb600bc5cea8f821e5d0381b5c7ae1acdb8696ec41e4f13366ee",
+  "wrong_splay_killer_00.out": "04f3047dd89f72df6f51ee77399e3ecdd9a2b4b9ab5e28d01a12197f9e3e9007",
+  "wrong_splay_killer_01.in": "d0dafda64c7260cb1fad57c5cad40a8208c4309d1d89186300823efc7e3ba24a",
+  "wrong_splay_killer_01.out": "7f564cab5434fd2033754514b58dc37d88f789bdb418df0019139a6924bdadca",
+  "wrong_splay_killer_02.in": "bac431269666609fdaab90720dea50206c344dacb175f3c599f6a95dd828b823",
+  "wrong_splay_killer_02.out": "69d8c46a6d845365b6f6416129d5b9344373b30b08795da4db744ec1f022406c",
+  "wrong_splay_killer_03.in": "68e59e92e279089efeafea3b4e88c394e97c2fe52a5fbf2eb5381b4e29b2b47c",
+  "wrong_splay_killer_03.out": "effea7c002da8f771d0c9ae878bad1dacc8f55f2e88b66777163236dd9b122ba"
 }

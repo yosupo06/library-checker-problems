@@ -4,7 +4,7 @@
 You are given strings $S_0, \dots, S_{N-1}$, each consisting of lowercase English letters. Output the information of the Trie constructed from these strings according to the following description.
 
 - Let $P_{i,j}$ denote the prefix of length $j$ of $S_i$ (where $0 \leq j \leq |S_i|$).
-- Define the set $P$ as $P = { P_{i,j} \mid 0 \leq i < N, 0 \leq j \leq |S_i| }$. Let $n = |P|$.
+- Define the set $P$ as $P=\lbrace P_{i,j}\mid 0\leq i<N, 0\leq j\leq |S_i|\rbrace$. Let $n = |P|$.
 - The Trie of $(S_0, \dots, S_{N-1})$ is a tree consisting of $n$ vertices, corresponding to the elements of $P$.
 Each vertex $v$ in the Trie corresponds to some $\mathrm{str}(v) \in P$. 
   - When choosing $(i, j)$ such that $\mathrm{str}(v) = P_{i,j}$, assign a number $0, 1, \dots, n-1$ to the vertices in lexicographical order of $(i, j)$ with $i$ minimized. In particular, $\mathrm{str}(0)$ is the empty string.

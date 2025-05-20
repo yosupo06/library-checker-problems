@@ -13,7 +13,7 @@ int main() {
     string S = inf.readToken();
     inf.readChar('\n');
 
-    ensure(MIN_S_SUM <= int(S.size()) && int(S.size()) <= MAX_S_SUM);
+    ensure(1 <= int(S.size()) && int(S.size()) <= MAX_S_SUM);
     for (char ch: S) ensure('a' <= ch && ch <= 'z');
     s_sum += S.size();
   }

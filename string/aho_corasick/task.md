@@ -16,7 +16,7 @@ Output the value of $n$, and for each vertex $v$ ($1 \leq v < n$), output $p_v$ 
 @{lang.ja}
 英小文字からなる文字列 $S_0,\ldots,S_{N-1}$ が与えられます．これらからなる Trie の情報を以下の説明に従って出力してください．
 
-- $P_{i,j}$ を $S_i$ の長さ $j$ の接頭辞とします（$0\leq j\leq |S_i|）．
+- $P_{i,j}$ を $S_i$ の長さ $j$ の接頭辞とします（$0\leq j\leq |S_i|$）．
 - 集合 $P$ を $P=\lbrace P_{i,j}\mid 0\leq i<N, 0\leq j\leq |S_i|\rbrace$ で定めます．$n = |P|$ とします．
 - $(S_0,\ldots,S_{N-1})$ の Trie とは，$P$ の要素に対応する $n$ 頂点からなる木です．
   - Trie の頂点 $v$ は，ある $\mathrm{str}(v)\in P$ と対応します．$\mathrm{str}(v)=P_{i,j}$ となる $(i,j)$ を $i$ が最小となるようにとったとき，$(i,j)$ について辞書順昇順に頂点に $0, 1, \ldots, n-1$ の番号をつけてください．特に，$\mathrm{str}(0)$ は空文字列です．

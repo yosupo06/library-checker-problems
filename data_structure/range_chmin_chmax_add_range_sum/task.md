@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given a size $N$ interger sequence $a_0, a_1, \dots, a _ {N - 1}$. Process the following $Q$ queries in order:
+Given a size $N$ integer sequence $a_0, a_1, \dots, a _ {N - 1}$. Process the following $Q$ queries in order:
 
 - `0 $l$ $r$ $b$`: For each $i = l, \dots, {r-1}$, $a_i \gets \min(a_i, b)$
 - `1 $l$ $r$ $b$`: For each $i = l, \dots, {r-1}$, $a_i \gets \max(a_i, b)$

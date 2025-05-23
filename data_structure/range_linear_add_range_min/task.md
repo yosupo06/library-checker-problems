@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given a size $N$ interger sequence $a_0, a_1, \dots, a_{N - 1}$. Process $Q$ queries as follows:
+Given a size $N$ integer sequence $a_0, a_1, \dots, a_{N - 1}$. Process $Q$ queries as follows:
 
 - `0 $l$ $r$ $b$ $c$`: For each $i = l, l+1, \dots, {r - 1}$, $a_i \gets a_i+bi+c$.
 - `1 $l$ $r$`: Print $\min_{i \in [l,r)} a_i$.

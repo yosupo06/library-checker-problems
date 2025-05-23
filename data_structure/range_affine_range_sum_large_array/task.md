@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given a size $N$ interger sequence $a_0, a_1, \dots, a_{N - 1}$. Initially, $a_i = 0$ for all $i$. 
+Given a size $N$ integer sequence $a_0, a_1, \dots, a_{N - 1}$. Initially, $a_i = 0$ for all $i$. 
 Process $Q$ queries as follows:
 
 - `0 $l$ $r$ $b$ $c$`: For each $i = l, l+1, \dots, {r - 1}$, $a_i \gets b \times a_i + c$.

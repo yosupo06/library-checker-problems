@@ -14,7 +14,8 @@ int main() {
 
   vector<int> A(N);
   for (int i = 0; i < N; i++) {
-    if (i) inf.readSpace();
+    if (i)
+      inf.readSpace();
     A[i] = inf.readInt(A_MIN, A_MAX);
   }
   inf.readChar('\n');
@@ -24,13 +25,13 @@ int main() {
     inf.readSpace();
 
     if (t == 0) {
-      int p = inf.readInt(0, N - 1);
+      inf.readInt(0, N - 1);
       inf.readSpace();
-      int x = inf.readInt(A_MIN, A_MAX);
+      inf.readInt(A_MIN, A_MAX);
     } else {
       int l = inf.readInt(0, N - 1);
       inf.readSpace();
-      int r = inf.readInt(l + 1, N);
+      inf.readInt(l + 1, N);
     }
     inf.readChar('\n');
   }

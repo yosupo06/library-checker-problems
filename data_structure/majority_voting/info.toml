@@ -9,6 +9,10 @@ timelimit = 5.0
     name = "small.cpp"
     number = 5
 
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+
 [[solutions]]
     name = "naive.cpp"
     allow_tle = true

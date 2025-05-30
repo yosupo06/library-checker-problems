@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-Given a size $N$ interger sequence $a _ 0, a _ 1, \dots, a _ {N - 1}$.
+Given a size $N$ integer sequence $a _ 0, a _ 1, \dots, a _ {N - 1}$.
 Let $A _ {-1}$ be the sequence $(a _ 0, a _ 1, \dots, a _ {N - 1})$.
 
 For $i=0,1,\ldots ,Q-1$ , process a query as follows:

@@ -14,3 +14,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/26"
 [[tests]]
     name = "cycle_unsat.cpp"
     number = 2
+[[tests]]
+    name = "long_chain.cpp"
+    number = 4

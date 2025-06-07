@@ -20,6 +20,7 @@ $i=0,1,\ldots ,Q-1$ についてクエリを処理してください。
 
 - $@{param.N_MIN} \leq N \leq @{param.N_MAX}$
 - $@{param.Q_MIN} \leq Q \leq @{param.Q_MAX}$
+- $@{param.A_MIN} \leq a_i \leq @{param.A_MAX}$
 - $0 \leq p < N$
 - $@{param.A_MIN} \leq x \leq @{param.A_MAX}$
 - $0 \leq l < r \leq N$

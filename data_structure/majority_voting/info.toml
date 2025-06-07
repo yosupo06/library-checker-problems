@@ -17,6 +17,10 @@ timelimit = 5.0
     name = "naive.cpp"
     allow_tle = true
 
+[[solutions]]
+    name = "wa_top2.cpp"
+    wrong = true
+
 [params]
     N_MIN = 1
     N_MAX = 500_000

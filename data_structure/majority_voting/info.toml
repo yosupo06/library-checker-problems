@@ -14,7 +14,7 @@ timelimit = 5.0
     number = 5
 
 [[tests]]
-    name = "killer_top2.cpp"
+    name = "top2_killer.cpp"
     number = 1
 
 [[solutions]]

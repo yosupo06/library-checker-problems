@@ -54,9 +54,16 @@ int main(int, char *argv[]) {
     for (int i = 0; i < q; ++i) {
         printf("1 %d %d\n", i, i + W);
     }
+
     for (int i = 0; i < Q - q; ++i) {
-        auto [l, r] = gen.uniform_pair(0, N);
-        printf("1 %d %d\n", l, r);
+        if (gen.uniform_bool()) {
+            auto [l, r] = gen.uniform_pair(0, N);
+            printf("1 %d %d\n", l, r);
+        } else {
+            int p = gen.uniform(0, N - 1);
+            int x = gen.uniform(0, 1'000'000'000);
+            printf("0 %d %d\n", p, x);
+        }
     }
 
     return 0;

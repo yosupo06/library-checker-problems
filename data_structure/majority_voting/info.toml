@@ -14,9 +14,17 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/885"
     name = "max_random.cpp"
     number = 5
 
+[[tests]]
+    name = "top2_killer.cpp"
+    number = 1
+
 [[solutions]]
     name = "naive.cpp"
     allow_tle = true
+
+[[solutions]]
+    name = "wa_top2.cpp"
+    expect = "WA"
 
 [params]
     N_MIN = 1

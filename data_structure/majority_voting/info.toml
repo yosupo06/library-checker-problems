@@ -13,13 +13,17 @@ timelimit = 5.0
     name = "max_random.cpp"
     number = 5
 
+[[tests]]
+    name = "killer_top2.cpp"
+    number = 1
+
 [[solutions]]
     name = "naive.cpp"
     allow_tle = true
 
 [[solutions]]
     name = "wa_top2.cpp"
-    wrong = true
+    expect = "WA"
 
 [params]
     N_MIN = 1

@@ -19,11 +19,11 @@ int main(){
             }
             printf("%d\n",ans);
         }else{
-            long long ans = 0;
+            long ans = 0;
             for(int i = l;i < r;i++){
                 if(a[i] <= x) ans += a[i];
             }
-            printf("%lld\n",ans);
+            printf("%ld\n",ans);
         }
     }
 

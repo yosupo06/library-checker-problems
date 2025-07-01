@@ -14,13 +14,13 @@ int main(){
         scanf("%d %d %d %d",&t,&l,&r,&x);
         if(t == 0){
             int ans = 0;
-            for(int i = 0;i < n;i++){
+            for(int i = l;i < r;i++){
                 if(a[i] <= x) ans++;
             }
             printf("%d\n",ans);
         }else{
             long long ans = 0;
-            for(int i = 0;i < n;i++){
+            for(int i = l;i < r;i++){
                 if(a[i] <= x) ans += a[i];
             }
             printf("%lld\n",ans);

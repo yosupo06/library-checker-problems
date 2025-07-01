@@ -15,8 +15,8 @@ struct MergeSortTree{
 	{
 		n=1;
 		while(n<(int)v.size())n<<=1;
-		dat.assign(2*n-1,{});
-		if(sum_mode) sum.assign(2*n-1,{});
+		dat.assign(2*n-1,vector<T>{});
+		if(sum_mode) sum.assign(2*n-1,vector<T>{});
 		for(int i=0;i<(int)v.size();i++)
 		{
 			dat[i+n-1].push_back(v[i]);

@@ -75,10 +75,10 @@ int main(){
     int n,q;
     scanf("%d %d",&n,&q);
 
-    vector<int> a(n);
-    for(int i = 0;i < n;i++) scanf("%d",&a[i]);
+    vector<long long> a(n);
+    for(int i = 0;i < n;i++) scanf("%lld",&a[i]);
 
-    MergeSortTree<int> mst(a);
+    MergeSortTree<long long> mst(a);
 
     for(int query = 0;query < q;query++){
         int t,l,r,x;

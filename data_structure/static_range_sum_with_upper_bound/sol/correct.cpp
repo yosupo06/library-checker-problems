@@ -11,7 +11,7 @@ struct MergeSortTree{
 	vector<vector<long> >sum;
 
     // 和がいらない場合 sum_mode : false にするほうがよい
-	MergeSortTree(const vector<T>&v={},bool sum_mode = true)
+	MergeSortTree(const vector<T>&v,bool sum_mode = true)
 	{
 		n=1;
 		while(n<(int)v.size())n<<=1;
@@ -20,10 +20,10 @@ struct MergeSortTree{
 		for(int i=0;i<(int)v.size();i++)
 		{
 			dat[i+n-1].push_back(v[i]);
-      if(sum_mode){
-        sum[i+n-1].push_back(0);
-			  sum[i+n-1].push_back(v[i]);
-      }
+            if(sum_mode){
+                sum[i+n-1].push_back(0);
+                    sum[i+n-1].push_back(v[i]);
+            }
 		}
 		for(int i=n-2;i>=0;i--)
 		{
@@ -32,10 +32,10 @@ struct MergeSortTree{
 				dat[i*2+2].begin(),dat[i*2+2].end(),
 				dat[i].begin()
 			);
-      if(sum_mode){
-        sum[i].resize(dat[i].size()+1,0LL);
-			  for(int j=0;j<(int)dat[i].size();j++)sum[i][j+1]=sum[i][j]+dat[i][j];
-      }
+            if(sum_mode){
+                sum[i].resize(dat[i].size()+1,0LL);
+                    for(int j=0;j<(int)dat[i].size();j++)sum[i][j+1]=sum[i][j]+dat[i][j];
+            }
 		}
 	}
 

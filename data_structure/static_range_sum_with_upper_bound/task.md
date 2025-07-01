@@ -1,0 +1,45 @@
+## @{keyword.statement}
+
+@{lang.en}
+Given a size $N$ sequence $a_0, a_1, \dots, a _ {N - 1}$. Process the following $Q$ queries in order:
+
+- `0 $l$ $r$ $x$`: Print the number of the elements among $a_l,a_{l+1},...,a_{r-1}$ that are not greater than x
+- `1 $l$ $r$ $x$`: Print the sum of the elements among $a_l,a_{l+1},...,a_{r-1}$ that are not greater than x
+@{lang.ja}
+長さ $N$ の数列 $a_0, a_1, \dots, a _ {N - 1}$ が与えられます。以下の $Q$ 個のクエリの答えをそれぞれ出力してください。
+
+- `0 $l$ $r$ $x$`: $a_l,a_{l+1},...,a_{r-1}$ のうち $x$ 以下の要素の個数を出力してください。
+- `1 $l$ $r$ $x$`: $a_l,a_{l+1},...,a_{r-1}$ のうち $x$ 以下の要素の和を出力してください。
+@{lang.end}
+
+
+## @{keyword.constraints}
+
+@{lang.en}
+
+- $1 \leq N, Q \leq @{param.MAX_N_Q}$
+- $0 \leq a_i \leq @{param.MAX_A_X}$
+- $0 \leq l \leq r \leq N$
+- $0 \leq x_i \leq @{param.MAX_A_X}$
+
+@{lang.ja}
+
+- $1 \leq N, Q \leq @{param.MAX_N_Q}$
+- $0 \leq a_i \leq @{param.MAX_A_X}$
+- $0 \leq l \leq r \leq N$
+- $0 \leq x_i \leq @{param.MAX_A_X}$
+
+@{lang.end}
+
+## @{keyword.input}
+
+~~~
+$N$ $Q$
+$a_0$ $a_1$ ... $a_{N - 1}$
+$\textrm{Query}_0$
+$\textrm{Query}_1$
+:
+$\textrm{Query}_{Q - 1}$
+~~~
+
+@{example.example_00}

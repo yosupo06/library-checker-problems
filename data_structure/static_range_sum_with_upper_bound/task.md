@@ -3,8 +3,7 @@
 @{lang.en}
 Given a size $N$ sequence $a_0, a_1, \dots, a _ {N - 1}$. Process the following $Q$ queries in order:
 
-- `0 $l$ $r$ $x$`: Print the number of the elements among $a_l,a_{l+1},...,a_{r-1}$ that are not greater than x
-- `1 $l$ $r$ $x$`: Print the sum of the elements among $a_l,a_{l+1},...,a_{r-1}$ that are not greater than x
+- `$l$ $r$ $x$`: Print the number and the sum of the elements among $a_l,a_{l+1},...,a_{r-1}$ that are not greater than x
 @{lang.ja}
 長さ $N$ の数列 $a_0, a_1, \dots, a _ {N - 1}$ が与えられます。以下の $Q$ 個のクエリの答えをそれぞれ出力してください。
 

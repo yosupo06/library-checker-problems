@@ -1,0 +1,22 @@
+{
+  "example_00.in": "7e20623ac6a6d19290cc9f000336d03a62469a054dce9ae7748ce27751c1cdfa",
+  "example_00.out": "07e748df7dc6a6637a6575de2acb1653e04b5bccdeb1b2e7f53bdcdf38d4da1a",
+  "max_random_00.in": "95548bb8fdd4cbb7e3555cf509bcde0ac6f08a1736fb07c9dbccd061d7a7868c",
+  "max_random_00.out": "ec7a69ab1f90c3a49154fe8cdaed1045f628324d86fd4f54634dce1a37da5661",
+  "max_random_01.in": "7c5a59238d01bd2d674d93cfb19a3eeb6e7bdbcd23d0c063faee1d3e9f8b8e91",
+  "max_random_01.out": "0b9687ec2276d4db58a7be8a3b4d621ed488b688ec4b99724839a3f29bf8b630",
+  "max_random_02.in": "146ce8bc4767af758426cab42af063bf251db1be950882a066b67ff9e1b51a75",
+  "max_random_02.out": "f767d2a375264b02efe91640a8efc32c5ac5ecd92f0279dfa982b49235a52925",
+  "random_00.in": "e8c0df7ca3e37b080cb0591d2dbbd2d34d16bdd2b0a50f577f83a34ad5485b7d",
+  "random_00.out": "6267fd63c22694ad5b30b19284f7bb39ea1e82ca3bf39548a440b52caec1dfd2",
+  "random_01.in": "89cfda5753dc98ac2719d43eb3f808d9f02d97cdb14015f2cbd712d707ffe155",
+  "random_01.out": "e1d487f733171abc453265682dd4b9c10033388175ef6f49b6ff50573abfe8ce",
+  "random_02.in": "9ea18407f8759aa84fb329efb66ff7e8c8aaaa54fd5ca2fd05bf7c60e98d8508",
+  "random_02.out": "9b72d11d3dae1a8156887faecc967fe68e3a2439c1187786ec3f01d3ce0aa3ff",
+  "small_a_x_00.in": "5a246f2f3e35193ac0fcf090c577fe6c3d7235c8b7fbedded6152c936b7ad4c9",
+  "small_a_x_00.out": "3aa4384b09de7f2ca1ca4ed07de39c118e4fb2a0eb20c36eec3388748d7eaf1b",
+  "small_a_x_01.in": "4c5e86568b2bc2e26cba5f0574ed7f03d46eff3b77b6997575a88a76577cb4a3",
+  "small_a_x_01.out": "05c6947e58a6d583a20cfd99d2bb600025888961f5b79f89aaceb454b78b505e",
+  "small_a_x_02.in": "cf4f875caa5bfb2bd684f681a3d1a990b150bac353349f1f928a8c5f5fb50bc1",
+  "small_a_x_02.out": "0d2b70c51edc1d52940df4b26467f9f1522d7a75676e52516fce346a21e0fbe1"
+}

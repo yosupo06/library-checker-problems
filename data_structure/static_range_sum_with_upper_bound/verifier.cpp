@@ -18,8 +18,6 @@ int main() {
   inf.readChar('\n');
 
   for (int i = 0; i < Q; i++) {
-    inf.readInt(0, 1);
-    inf.readSpace();
     const int l = inf.readInt(0, N);
     inf.readSpace();
     inf.readInt(l, N);

@@ -81,15 +81,11 @@ int main(){
     MergeSortTree<long long> mst(a);
 
     for(int query = 0;query < q;query++){
-        int t,l,r,x;
-        scanf("%d %d %d %d",&t,&l,&r,&x);
-        if(t == 0){
-            int ans = mst.lower_cnt(l,r,x);
-            printf("%d\n",ans);
-        }else{
-            long long ans = mst.lower_sum(l,r,x);
-            printf("%lld\n",ans);
-        }
+        int l,r,x;
+        scanf("%d %d %d",&l,&r,&x);
+        int ans_cnt = mst.lower_cnt(l,r,x);
+        long long ans_sum = mst.lower_sum(l,r,x);
+        printf("%d %lld\n",ans_cnt,ans_sum);
     }
 
     return 0;

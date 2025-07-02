@@ -19,11 +19,10 @@ int main(int, char* argv[]) {
     }
 
     for(int i=0; i<Q; i++) {
-        int t, l, r, x;
-        t = gen.uniform<int>(0, MAX_A_X)%2;
+        int l, r, x;
         std::tie(l, r) = gen.uniform_pair<int>(0, N);
         x = gen.uniform<int>(1, 4);
-        printf("%d %d %d %d\n", t, l, r, x);
+        printf("%d %d %d\n", l, r, x);
     }
     
     return 0;

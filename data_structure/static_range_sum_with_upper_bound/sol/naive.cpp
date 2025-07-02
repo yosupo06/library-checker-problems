@@ -10,21 +10,17 @@ int main(){
     for(int i = 0;i < n;i++) scanf("%lld",&a[i]);
 
     for(int query = 0;query < q;query++){
-        int t,l,r,x;
-        scanf("%d %d %d %d",&t,&l,&r,&x);
-        if(t == 0){
-            int ans = 0;
-            for(int i = l;i < r;i++){
-                if(a[i] <= x) ans++;
-            }
-            printf("%d\n",ans);
-        }else{
-            long long ans = 0LL;
-            for(int i = l;i < r;i++){
-                if(a[i] <= x) ans += a[i];
-            }
-            printf("%lld\n",ans);
+        int l,r,x;
+        scanf("%d %d %d",&l,&r,&x);
+        int ans_cnt = 0;
+        for(int i = l;i < r;i++){
+            if(a[i] <= x) ans_cnt++;
         }
+        long long ans_sum = 0LL;
+        for(int i = l;i < r;i++){
+            if(a[i] <= x) ans_sum += a[i];
+        }
+        printf("%d %lld\n",ans_cnt,ans_sum);
     }
 
     return 0;

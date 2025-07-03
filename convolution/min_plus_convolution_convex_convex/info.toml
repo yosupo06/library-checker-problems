@@ -38,6 +38,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/727"
     name = "naive.cpp"
     allow_tle = true
 
+[[solutions]]
+    name = "ac_func.cpp"
+    function = true
+
 [params]
     N_MAX = 524288
     A_MIN = 0

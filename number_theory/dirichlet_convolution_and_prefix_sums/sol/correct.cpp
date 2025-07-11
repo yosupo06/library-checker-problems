@@ -332,12 +332,14 @@ int main()
     {
         a.dat[a.idx(vs[i])] = inp[i];
     }
+    a.pref();
     rep(i, 0, SZ(vs)) scanf("%d", &inp[i].v);
     rrep(i, 0, SZ(vs) - 1) inp[i + 1] -= inp[i];
     rep(i, 0, SZ(vs))
     {
         b.dat[b.idx(vs[i])] = inp[i];
     }
+    b.pref();
 
     auto c = mult(n, a, b);
     rep(i, 0, SZ(vs))

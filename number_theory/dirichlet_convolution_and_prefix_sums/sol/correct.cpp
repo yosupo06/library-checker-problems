@@ -18,56 +18,73 @@ using namespace std;
 #define UB(v, x) int(upper_bound(ALL(v), (x)) - (v).begin())
 
 using ll = long long int;
+using uint = unsigned int;
 using ull = unsigned long long;
 using i128 = __int128_t;
 using u128 = __uint128_t;
 // end
 
-template <typename T> T Inv(ll n) {
+template <typename T>
+T Inv(ll n)
+{
     static int md;
     static vector<T> buf({0, 1});
-    if (md != T::get_mod()) {
+    if (md != T::get_mod())
+    {
         md = T::get_mod();
         buf = vector<T>({0, 1});
     }
     n %= md;
-    while (SZ(buf) <= n) {
+    while (SZ(buf) <= n)
+    {
         int k = SZ(buf), q = (md + k - 1) / k;
         buf.push_back(buf[k * q - md] * q);
     }
     return buf[n];
 }
 
-template <typename T> T Fact(ll n, bool inv = 0) {
+template <typename T>
+T Fact(ll n, bool inv = 0)
+{
     static int md;
     static vector<T> buf({1, 1}), ibuf({1, 1});
-    if (md != T::get_mod()) {
+    if (md != T::get_mod())
+    {
         md = T::get_mod();
         buf = ibuf = vector<T>({1, 1});
     }
-    while (SZ(buf) <= n) {
+    while (SZ(buf) <= n)
+    {
         buf.push_back(buf.back() * SZ(buf));
         ibuf.push_back(ibuf.back() * Inv<T>(SZ(ibuf)));
     }
     return inv ? ibuf[n] : buf[n];
 }
 
-template <typename T> T nPr(int n, int r, bool inv = 0) {
+template <typename T>
+T nPr(int n, int r, bool inv = 0)
+{
     if (n < 0 || n < r || r < 0)
         return 0;
     return Fact<T>(n, inv) * Fact<T>(n - r, inv ^ 1);
 }
-template <typename T> T nCr(int n, int r, bool inv = 0) {
+template <typename T>
+T nCr(int n, int r, bool inv = 0)
+{
     if (n < 0 || n < r || r < 0)
         return 0;
     return Fact<T>(n, inv) * Fact<T>(r, inv ^ 1) * Fact<T>(n - r, inv ^ 1);
 }
 // sum = n, r tuples
-template <typename T> T nHr(int n, int r, bool inv = 0) {
+template <typename T>
+T nHr(int n, int r, bool inv = 0)
+{
     return nCr<T>(n + r - 1, r - 1, inv);
 }
 // sum = n, a nonzero tuples and b tuples
-template <typename T> T choose(int n, int a, int b) {
+template <typename T>
+T choose(int n, int a, int b)
+{
     if (n == 0)
         return !a;
     return nCr<T>(n + b - 1, a + b - 1);
@@ -78,15 +95,20 @@ template <typename T> T choose(int n, int a, int b) {
  */
 // 3 "library/Math/modint.hpp"
 
-template <unsigned mod = 1000000007> struct fp {
+template <unsigned mod = 1000000007>
+struct fp
+{
     static_assert(mod < uint(1) << 31);
     unsigned v;
-    static constexpr int get_mod() {
+    static constexpr int get_mod()
+    {
         return mod;
     }
-    constexpr unsigned inv() const {
+    constexpr unsigned inv() const
+    {
         int x = v, y = mod, p = 1, q = 0, t = 0, tmp = 0;
-        while (y > 0) {
+        while (y > 0)
+        {
             t = x / y;
             x -= t * y, p -= t * q;
             tmp = x, x = y, y = tmp;
@@ -97,12 +119,15 @@ template <unsigned mod = 1000000007> struct fp {
         return p;
     }
     constexpr fp(ll x = 0) : v(x >= 0 ? x % mod : (mod - (-x) % mod) % mod) {}
-    fp operator-() const {
+    fp operator-() const
+    {
         return fp() - *this;
     }
-    fp pow(ull t) {
+    fp pow(ull t)
+    {
         fp res = 1, b = *this;
-        while (t) {
+        while (t)
+        {
             if (t & 1)
                 res *= b;
             b *= b;
@@ -110,49 +135,62 @@ template <unsigned mod = 1000000007> struct fp {
         }
         return res;
     }
-    fp &operator+=(const fp &x) {
+    fp &operator+=(const fp &x)
+    {
         if ((v += x.v) >= mod)
             v -= mod;
         return *this;
     }
-    fp &operator-=(const fp &x) {
+    fp &operator-=(const fp &x)
+    {
         if ((v += mod - x.v) >= mod)
             v -= mod;
         return *this;
     }
-    fp &operator*=(const fp &x) {
+    fp &operator*=(const fp &x)
+    {
         v = ull(v) * x.v % mod;
         return *this;
     }
-    fp &operator/=(const fp &x) {
-        if (x.v < 15000000) {
+    fp &operator/=(const fp &x)
+    {
+        if (x.v < 15000000)
+        {
             return *this *= Inv<fp>(x.v);
         }
         v = ull(v) * x.inv() % mod;
         return *this;
     }
-    fp operator+(const fp &x) const {
+    fp operator+(const fp &x) const
+    {
         return fp(*this) += x;
     }
-    fp operator-(const fp &x) const {
+    fp operator-(const fp &x) const
+    {
         return fp(*this) -= x;
     }
-    fp operator*(const fp &x) const {
+    fp operator*(const fp &x) const
+    {
         return fp(*this) *= x;
     }
-    fp operator/(const fp &x) const {
+    fp operator/(const fp &x) const
+    {
         return fp(*this) /= x;
     }
-    bool operator==(const fp &x) const {
+    bool operator==(const fp &x) const
+    {
         return v == x.v;
     }
-    bool operator!=(const fp &x) const {
+    bool operator!=(const fp &x) const
+    {
         return v != x.v;
     }
-    friend istream &operator>>(istream &is, fp &x) {
+    friend istream &operator>>(istream &is, fp &x)
+    {
         return is >> x.v;
     }
-    friend ostream &operator<<(ostream &os, const fp &x) {
+    friend ostream &operator<<(ostream &os, const fp &x)
+    {
         return os << x.v;
     }
 };
@@ -163,45 +201,57 @@ template <unsigned mod = 1000000007> struct fp {
 // 6 "sol.cpp"
 using Fp = fp<998244353>;
 
-template <typename T> struct Dir {
+template <typename T>
+struct Dir
+{
     ll n;
     int SQ, sz;
     vector<T> dat;
     Dir() {}
     Dir(ll n) : n(n), SQ(sqrtl(n)), sz(SQ + n / (SQ + 1) + 1), dat(sz) {}
-    T &operator[](int i) {
+    T &operator[](int i)
+    {
         return dat[i];
     }
-    void pref() {
+    void pref()
+    {
         rep(i, 0, sz - 1) dat[i + 1] += dat[i];
     }
-    void diff() {
+    void diff()
+    {
         rrep(i, 0, sz - 1) dat[i + 1] -= dat[i];
     }
-    int idx(ll x) const {
+    int idx(ll x) const
+    {
         return (x <= SQ ? x : sz - n / x);
     }
-    ll val(int id) const {
+    ll val(int id) const
+    {
         return (id <= SQ ? id : n / (sz - id));
     }
 };
 
 template <typename F>
-void exec_block(ll n, F &f, vector<int> &xexist, vector<int> &yexist) {
+void exec_block(ll n, F &f, vector<int> &xexist, vector<int> &yexist)
+{
     int SQ = sqrtl(n), sz = SQ + n / (SQ + 1) + 1;
-    auto idx = [&](ll x) -> int { return (x <= SQ ? x : sz - n / x); };
+    auto idx = [&](ll x) -> int
+    { return (x <= SQ ? x : sz - n / x); };
 
     f(1, 1, 1, 1, 1, sz - 1);
-    rep(k, 2, sz) {
+    rep(k, 2, sz)
+    {
         int z = sz - k;
-        for (auto &x : xexist) {
+        for (auto &x : xexist)
+        {
             int ylo = max(idx(x), idx(z)) + 1;
             int yhi = idx(n / x / z);
             if (yhi < ylo)
                 break;
             f(x, x, ylo, yhi, k, k);
         }
-        for (auto &y : yexist) {
+        for (auto &y : yexist)
+        {
             int ylo = max(idx(y), idx(z)) + 1;
             int yhi = idx(n / y / z);
             if (yhi < ylo)
@@ -210,7 +260,8 @@ void exec_block(ll n, F &f, vector<int> &xexist, vector<int> &yexist) {
         }
         f(1, 1, k, k, k, sz - 1);
         f(k, k, 1, 1, k, sz - 1);
-        for (auto &y : yexist) {
+        for (auto &y : yexist)
+        {
             if (y >= k)
                 break;
             int zlo = idx(ll(k) * y);
@@ -219,7 +270,8 @@ void exec_block(ll n, F &f, vector<int> &xexist, vector<int> &yexist) {
                 break;
             f(k, k, y, y, zlo, zhi);
         }
-        for (auto &x : xexist) {
+        for (auto &x : xexist)
+        {
             if (x >= k)
                 break;
             int zlo = idx(ll(k) * x);
@@ -234,16 +286,20 @@ void exec_block(ll n, F &f, vector<int> &xexist, vector<int> &yexist) {
     }
 }
 
-template <typename T> Dir<T> mult(ll n, Dir<T> &a, Dir<T> &b) {
+template <typename T>
+Dir<T> mult(ll n, Dir<T> &a, Dir<T> &b)
+{
     Dir<T> c(n);
     c.dat.push_back(0);
-    auto exec = [&](int x1, int x2, int y1, int y2, int z1, int z2) -> void {
+    auto exec = [&](int x1, int x2, int y1, int y2, int z1, int z2) -> void
+    {
         T add = (a[x2] - a[x1 - 1]) * (b[y2] - b[y1 - 1]);
         c[z1] += add;
         c[z2 + 1] -= add;
     };
     vector<int> xexist, yexist;
-    rep(i, 2, a.sz) {
+    rep(i, 2, a.sz)
+    {
         if (a[i] != a[i - 1])
             xexist.push_back(i);
         if (b[i] != b[i - 1])
@@ -255,7 +311,8 @@ template <typename T> Dir<T> mult(ll n, Dir<T> &a, Dir<T> &b) {
     return c;
 }
 
-int main() {
+int main()
+{
     ll n;
     scanf("%lld", &n);
 
@@ -271,17 +328,20 @@ int main() {
     vector<Fp> inp(SZ(vs));
     rep(i, 0, SZ(vs)) scanf("%d", &inp[i].v);
     rrep(i, 0, SZ(vs) - 1) inp[i + 1] -= inp[i];
-    rep(i, 0, SZ(vs)) {
+    rep(i, 0, SZ(vs))
+    {
         a.dat[a.idx(vs[i])] = inp[i];
     }
     rep(i, 0, SZ(vs)) scanf("%d", &inp[i].v);
     rrep(i, 0, SZ(vs) - 1) inp[i + 1] -= inp[i];
-    rep(i, 0, SZ(vs)) {
+    rep(i, 0, SZ(vs))
+    {
         b.dat[b.idx(vs[i])] = inp[i];
     }
 
     auto c = mult(n, a, b);
-    rep(i, 0, SZ(vs)) {
+    rep(i, 0, SZ(vs))
+    {
         Fp x = c[c.idx(vs[i])];
         if (i == SZ(vs) - 1)
             printf("%d\n", x.v);

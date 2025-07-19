@@ -6,7 +6,7 @@
 using namespace std;
 
 /*
-このコードでMAGICが計算可能 参考: https://kimiyuki.net/blog/2017/03/08/unordered-map-hash-collision/
+このコードでMAGICが計算可能
 
 #include <iostream>
 #include <unordered_map>

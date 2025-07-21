@@ -34,5 +34,7 @@
   "unordered_map_killer_01.in": "96e853bb9efd434e3a11d115a12f5b29ae85fc15e8bf84477995fcc5643756e3",
   "unordered_map_killer_01.out": "8785fe632aaa363af4b99d5ce8ef3638c90fe86f36afba83dedf7c5b5903783b",
   "unordered_map_killer_02.in": "f7d1ae5706bf7db22825738815beb929178482fd50b66fa8bb05cad8da8cf9dd",
-  "unordered_map_killer_02.out": "4e1bf0c0e07f6edbb5822e7b0d19b36d89c45c5e1e8a604ef4bfbb7610a2c7ac"
+  "unordered_map_killer_02.out": "4e1bf0c0e07f6edbb5822e7b0d19b36d89c45c5e1e8a604ef4bfbb7610a2c7ac",
+  "unordered_map_killer_03.in": "faf8312be882a629a1e20949f53533d096ef8a3c5280d211268143306c0f72dc",
+  "unordered_map_killer_03.out": "9ead08f2e504331487339a4c0f6258395c1262ac72dc402f34b8acd01ef6057a"
 }

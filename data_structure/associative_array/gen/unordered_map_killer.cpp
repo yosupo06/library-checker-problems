@@ -7,6 +7,7 @@ using namespace std;
 
 /*
 このコードでMAGICが計算可能
+参考 https://kmyk.github.io/blog/blog/2017/03/08/unordered-map-hash-collision/
 
 #include <iostream>
 #include <unordered_map>

@@ -1,21 +1,23 @@
-#include <bits/stdc++.h>
+#include <deque>
+#include <cassert>
+#include <cstdio>
 
 using namespace std;
 
 void solve() {
   int Q;
-  cin >> Q;
+  scanf("%d", &Q);
 
   deque<int> que;
   for (int q = 0; q < Q; ++q) {
     int t, x;
-    cin >> t;
+    scanf("%d", &t);
     if (t == 0) {
-      cin >> x;
+      scanf("%d", &x);
       que.push_front(x);
     }
     if (t == 1) {
-      cin >> x;
+      scanf("%d", &x);
       que.push_back(x);
     }
     if (t == 2) {
@@ -27,15 +29,11 @@ void solve() {
       que.pop_back();
     }
     if (t == 4) {
-      cin >> x;
+      scanf("%d", &x);
       assert(0 <= x && x < int(que.size()));
-      cout << que[x] << '\n';
+      printf("%d\n", que[x]);
     }
   }
 }
 
-signed main() {
-  ios_base::sync_with_stdio(false);
-  cin.tie(0);
-  solve();
-}
+signed main() { solve(); }

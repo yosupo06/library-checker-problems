@@ -19,7 +19,8 @@ int main(int, char *argv[])
     while (SQ * SQ + SQ <= N)
         SQ++;
     long long sz = N / SQ + SQ - 1;
-    printf("%lld\n", N);
+
+    printf("1\n%lld\n", N);
     for (int i = 0; i < sz; i++)
     {
         int x = gen.uniform<int>(0, MOD - 1);

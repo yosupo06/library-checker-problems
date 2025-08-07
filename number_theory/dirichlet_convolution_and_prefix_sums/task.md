@@ -1,6 +1,8 @@
 ## @{keyword.statement}
 
 @{lang.ja}
+$T$ 個のテストケースが与えられる。
+
 正整数 $N$ に対し、 $Q_N=\lbrace {\lfloor {N \over x} \rfloor \colon x \in \mathbb{Z}, 1 \leq x \leq N} \rbrace$ 、$Q_N$ の要素を昇順に並べた列を $(a_0,a_1,\ldots,a_{k-1})$ と定義する。
 
 数列 $f,g \colon \mathbb{N} \to \mathbb{Z}$ について、各 $x \in Q_N$ までの累積和
@@ -19,6 +21,8 @@ $$
 の値を全て求めよ。
 
 @{lang.en}
+There are $T$ testcases.
+
 Given a positive integer $N$, define $Q_N = \left\{ \left\lfloor \frac{N}{x} \right\rfloor \colon x \in \mathbb{Z},\ 1 \leq x \leq N \right\}$.
 
 Let the elements of $ Q_N $ arranged in ascending order be denoted by the sequence $(a_0,a_1,\ldots,a_{k-1})$ .
@@ -39,8 +43,22 @@ $$
 
 - $1 \leq N \leq @{param.N_MAX}$
 - $1 \leq f_x,g_x < @{param.MOD}$
+- If $T>1$, then $T=10000$ and there is exactly one test case for each $N=1,2,\ldots,10000$.
 
 ## @{keyword.input}
+
+```
+$T$
+$case_1$
+$\vdots$
+$case_T$
+```
+
+@{lang.ja}
+各テストケースは以下の形式で与えられる。
+@{lang.en}
+Each test case is given in the following format.
+@{lang.end}
 
 ```
 $N$

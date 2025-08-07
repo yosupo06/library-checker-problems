@@ -311,7 +311,7 @@ Dir<T> mult(ll n, Dir<T> &a, Dir<T> &b)
     return c;
 }
 
-int main()
+void solve()
 {
     ll n;
     scanf("%lld", &n);
@@ -350,5 +350,13 @@ int main()
         else
             printf("%d ", x.v);
     }
+}
+
+int main()
+{
+    int T;
+    scanf("%d", &T);
+    while (T--)
+        solve();
     return 0;
 }

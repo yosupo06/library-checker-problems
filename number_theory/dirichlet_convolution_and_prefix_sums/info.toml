@@ -17,7 +17,11 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1336"
 [[tests]]
     name = "random.cpp"
     number = 5
+[[tests]]
+    name = "many.cpp"
+    number = 3
 
 [params]
+    T_MAX = 10000
     N_MAX = 1000_000_000_000
     MOD = 998_244_353

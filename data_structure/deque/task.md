@@ -5,9 +5,9 @@ There is an initially empty sequence of integer sequence $a=()$. Process $Q$ que
 
 - `0 $x$`: Add an integer $x$ to the beginning of the sequence $a$.
 - `1 $x$`: Add an integer $x$ to the end of the sequence $a$.
-- `2`: Remove the integer at the beginning of the sequence $f$.
-- `3`: Remove the integer at the end of the sequence $f$.
-- `4 $i$`: Let $a = (a_0, \ldots, a_{n-1})$ at this time. 
+- `2`: Remove the integer at the beginning of the sequence $a$.
+- `3`: Remove the integer at the end of the sequence $a$.
+- `4 $i$`: Let $a = (a_0, \ldots, a_{n-1})$ at this time. Output $a_i$. 
 
 @{lang.ja}
 長さ $0$ の整数列 $a = ()$ があります．$Q$ 個のクエリが飛んできます．処理してください．

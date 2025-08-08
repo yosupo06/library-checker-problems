@@ -49,7 +49,7 @@ int main(int, char *argv[]) {
   } else if (seed == 7) {
     prob[4] = 96;
     prob[0] = prob[1] = prob[2] = prob[3] = 1;
-  } else if (seed == 7) {
+  } else if (seed == 8) {
     prob[0] = prob[1] = prob[4] = 32;
     prob[2] = prob[3] = 2;
   } else {

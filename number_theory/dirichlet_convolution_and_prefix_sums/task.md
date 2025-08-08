@@ -23,7 +23,7 @@ $$
 @{lang.en}
 There are $T$ testcases.
 
-Given a positive integer $N$, define $Q_N = \left\{ \left\lfloor \frac{N}{x} \right\rfloor \colon x \in \mathbb{Z},\ 1 \leq x \leq N \right\}$.
+Given a positive integer $N$, define $Q_N=\lbrace {\lfloor {N \over x} \rfloor \colon x \in \mathbb{Z}, 1 \leq x \leq N} \rbrace$.
 
 Let the elements of $ Q_N $ arranged in ascending order be denoted by the sequence $(a_0,a_1,\ldots,a_{k-1})$ .
 

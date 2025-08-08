@@ -33,7 +33,11 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/376'
 [[tests]]
     name = "py_killer.cpp"
     number = 2
-    
+
+[[tests]]
+    name = "c_sharp_killer.cpp"
+    number = 1
+
 [[solutions]]
     name = "tle_unordered_map.cpp"
     allow_tle = true

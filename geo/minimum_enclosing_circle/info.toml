@@ -1,0 +1,8 @@
+timelimit = 5.0
+
+
+
+
+[params]
+    N_MAX = 100_000
+    X_AND_Y_ABS_MAX = 10_000

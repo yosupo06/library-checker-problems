@@ -31,10 +31,8 @@ int main(int, char* argv[]) {
     }
     assert(d1 > 0 && d2 > 0);
 
-    int n = 0;
     std::vector<std::pair<int, int>> edg;
     for (int i = 0; i < N && edg.size() < M; i++) {
-        n++;
         for (int j = std::max(0, i - d1 + 1); j <= i && edg.size() < M; j++) {
             edg.push_back({i, j});
         }

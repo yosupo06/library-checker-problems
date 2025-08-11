@@ -8,11 +8,24 @@ using namespace std;
 
 using P = pair<int, int>;
 
+static inline uint64_t xs64(uint64_t& st) { st ^= st << 7; st ^= st >> 9; return st; }
+template <class T>
+static void deterministic_shuffle(std::vector<T>& a, uint64_t seed = 0x9E3779B97F4A7C15ULL) {
+    if (a.size() <= 1) return;
+    uint64_t s = seed;
+    for (int i = (int)a.size() - 1; i >= 1; --i) {
+        uint64_t r = xs64(s);
+        int j = (int)(r % (uint64_t)(i + 1));
+        if (i != j) { T tmp = a[i]; a[i] = a[j]; a[j] = tmp; }
+    }
+}
+
+
 void out(vector<P> S, bool shuffle) {
     int n = S.size();
     printf("%d\n", n);
     if (shuffle) {
-        std::random_shuffle(S.begin(), S.end());
+        deterministic_shuffle(S, 0x9E3779B97F4A7C15ULL);
     }
     for (auto& [x, y]: S) { printf("%d %d\n", x, y); }
 }

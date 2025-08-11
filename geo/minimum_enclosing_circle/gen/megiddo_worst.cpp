@@ -3,7 +3,6 @@
 #include <vector>
 #include <cassert>
 #include "../params.h"
-#include "random.h"
 
 using namespace std;
 
@@ -16,10 +15,8 @@ void out(const std::vector<P>& pts) {
     }
 }
 
-int main(int, char* argv[]) {
-    long long seed = atoll(argv[1]);
-    auto gen = Random(seed);
-    int N = gen.uniform<int>(N_MAX*49/50, N_MAX);
+int main() {
+    int N = N_MAX;
 
     const int LIM = X_AND_Y_ABS_MAX;
     const int A = (LIM >= 10) ? (LIM - 5) : LIM;

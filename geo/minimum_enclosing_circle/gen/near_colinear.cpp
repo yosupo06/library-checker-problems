@@ -26,7 +26,6 @@ static void deterministic_shuffle(std::vector<T>& a, uint64_t seed = 0x9E3779B97
     }
 }
 
-
 void out(set<P> S, bool shuffle) {
     int n = S.size();
     printf("%d\n", n);
@@ -42,12 +41,35 @@ int main(int, char* argv[]) {
     auto gen = Random(seed);
 
     int LIM = X_AND_Y_ABS_MAX;
-
+    int dx = gen.uniform<int>(-23, 23);
+    int dy = gen.uniform<int>(0, 23);
+    bool is_colinear = (seed % 2 == 0);
     set<P> S;
-    int n = gen.uniform<int>(N_MAX*49/50, N_MAX);
-    while((int(S.size()) < n)) {
-        P p = random_point(gen, LIM);
-        S.insert(p);
+    for (int t = 1;; t++) {
+        int x = dx * t;
+        int y = dy * t;
+        if (abs(x) > LIM || abs(y) > LIM) break;
+        if (is_colinear) {
+            S.insert({x, y});
+        }
+        else {
+            if (gen.uniform_bool()) {
+                x += gen.uniform<int>(-1, 1);
+                y += gen.uniform<int>(-1, 1);
+                if (abs(x) <= LIM && abs(y) <= LIM) {
+                    S.insert({x, y});
+                }
+            }
+            else {
+                S.insert({x, y});
+            }
+        }
+    }
+    for (int t = 0;; t--) {
+        int x = dx * t;
+        int y = dy * t;
+        if (abs(x) > LIM || abs(y) > LIM) break;
+        S.insert({x, y});
     }
     bool shuffle = gen.uniform_bool();
     out(S, shuffle);

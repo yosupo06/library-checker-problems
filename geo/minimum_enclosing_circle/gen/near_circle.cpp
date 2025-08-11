@@ -37,6 +37,8 @@ void out(set<P> S, bool shuffle) {
     for (auto& [x, y]: V) { printf("%d %d\n", x, y); }
 }
 
+const long double PI = acosl(-1.0L);
+
 int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
@@ -46,12 +48,12 @@ int main(int, char* argv[]) {
     int LIM = lims[seed % 2];
 
     set<P> S;
-
+    
     int n = gen.uniform<int>(100, N_MAX);
     int r = gen.uniform<int>(LIM/2, LIM*3/4);
-    long double phi = gen.uniform<double>(0, 2 * M_PI);
+    long double phi = gen.uniform<double>(0, 2 * PI);
     for (int i = 0; i < n; i++) {
-        long double theta = (long double)(i) * 2 * M_PI / (long double)(n) + phi;
+        long double theta = (long double)(i) * 2 * PI / (long double)(n) + phi;
         long double ldx = r * cos(theta);
         long double ldy = r * sin(theta);
         int x = (int)(ldx);

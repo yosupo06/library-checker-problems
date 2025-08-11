@@ -22,6 +22,8 @@ void out(set<P> S) {
     for (auto& [x, y]: V) { printf("%d %d\n", x, y); }
 }
 
+const long double PI = acosl(-1.0L);
+
 int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
@@ -31,7 +33,7 @@ int main(int, char* argv[]) {
     int n = N_MAX;
     int r = X_AND_Y_ABS_MAX;
     for (int i = 0; i < n; i++) {
-        long double theta = (long double)(i) * 2 * M_PI / (long double)(n);
+        long double theta = (long double)(i) * 2 * PI / (long double)(n);
         long double ldx = r * cos(theta);
         long double ldy = r * sin(theta);
         int x = (int)(ldx);

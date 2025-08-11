@@ -38,6 +38,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/37"
 [[tests]]
     name = "issue1068_large.cpp"
     number = 6
+[[tests]]
+    name = "unique_matching.cpp"
+    number = 5
 
 [params]
     L_MAX = 100_000

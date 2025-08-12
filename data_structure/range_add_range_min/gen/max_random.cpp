@@ -1,4 +1,3 @@
-#include <iostream>
 #include <tuple>
 #include "../params.h"
 #include "random.h"

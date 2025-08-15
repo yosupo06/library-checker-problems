@@ -41,6 +41,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/37"
 [[tests]]
     name = "unique_matching.cpp"
     number = 5
+[[tests]]
+    name = "augmented_cycle.cpp"
+    number = 3
 
 [params]
     L_MAX = 100_000

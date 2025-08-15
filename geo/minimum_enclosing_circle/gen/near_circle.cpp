@@ -46,9 +46,9 @@ int main(int, char* argv[]) {
     int LIM = lims[seed % 2];
 
     set<P> S;
-    
-    int rx = gen.uniform<int>(1, LIM*4/5);
-    int ry = gen.uniform<int>(1, LIM*4/5);
+
+    int rx = gen.uniform<int>(LIM*5/9, LIM*2/3);
+    int ry = gen.uniform<int>(LIM*5/9, LIM*2/3);
     int r_sq = rx*rx + ry*ry;
     int r = (int)sqrt(r_sq);
     int cx = gen.uniform<int>(-X_AND_Y_ABS_MAX + r*11/10, X_AND_Y_ABS_MAX - r*11/10);
@@ -56,18 +56,27 @@ int main(int, char* argv[]) {
     int x = 0, y = r;
     S.insert({x, y});
     S.insert({x, -y});
+    const int dy[] = {-1, 0, 1};
     while (x < r) {
         x++;
         while (y > 0 && x*x + y*y > r_sq) y--;
         int px = x + cx;
-        int py = y + gen.uniform<int>(-1, 1) + cy;
-        if (abs(px) > X_AND_Y_ABS_MAX) px = (px < 0 ? -X_AND_Y_ABS_MAX : X_AND_Y_ABS_MAX);
-        if (abs(py) > X_AND_Y_ABS_MAX) py = (py < 0 ? -X_AND_Y_ABS_MAX : X_AND_Y_ABS_MAX);
-        int insert_flag = gen.uniform(0, 15);
-        if (insert_flag & 1) S.insert({px, py});
-        if (insert_flag & 2) S.insert({-px, py});
-        if (insert_flag & 4) S.insert({px, -py});
-        if (insert_flag & 8) S.insert({-px, -py});
+        int py = y + cy;
+        for (int d = 0; d < 3; d++) {
+            int nx = px;
+            int ny = py + dy[d];
+            if (abs(nx) > X_AND_Y_ABS_MAX) nx = (nx < 0 ? -X_AND_Y_ABS_MAX : X_AND_Y_ABS_MAX);
+            if (abs(ny) > X_AND_Y_ABS_MAX) ny = (ny < 0 ? -X_AND_Y_ABS_MAX : X_AND_Y_ABS_MAX);
+            int insert_flag = gen.uniform(0, 15);
+            if (insert_flag & 1) S.insert({nx, ny});
+            if (insert_flag & 2) S.insert({-nx, ny});
+            if (insert_flag & 4) S.insert({nx, -ny});
+            if (insert_flag & 8) S.insert({-nx, -ny});
+        }
+    }
+    while (int(S.size()) > N_MAX) {
+        auto it = S.begin();
+        S.erase(it);
     }
     bool shuffle = gen.uniform_bool();
     out(S, shuffle);

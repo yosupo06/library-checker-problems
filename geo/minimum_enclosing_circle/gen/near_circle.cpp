@@ -37,8 +37,6 @@ void out(set<P> S, bool shuffle) {
     for (auto& [x, y]: V) { printf("%d %d\n", x, y); }
 }
 
-const long double PI = acosl(-1.0L);
-
 int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
@@ -49,23 +47,28 @@ int main(int, char* argv[]) {
 
     set<P> S;
     
-    int n = gen.uniform<int>(100, N_MAX);
-    int r = gen.uniform<int>(LIM/2, LIM*3/4);
-    long double phi = gen.uniform<double>(0, 2 * PI);
-    for (int i = 0; i < n; i++) {
-        long double theta = (long double)(i) * 2 * PI / (long double)(n) + phi;
-        long double ldx = r * cos(theta);
-        long double ldy = r * sin(theta);
-        int x = (int)(ldx);
-        int y = (int)(ldy);
-        while (y > 0 && x*x + (y+1)*(y+1) <= r*r) y++;
-        while (y < 0 && x*x + (y-1)*(y-1) <= r*r) y--;
-        y += gen.uniform<int>(-1, 1);
-        if (abs(x) > X_AND_Y_ABS_MAX) x = (x < 0 ? -X_AND_Y_ABS_MAX : X_AND_Y_ABS_MAX);
-        if (abs(y) > X_AND_Y_ABS_MAX) y = (y < 0 ? -X_AND_Y_ABS_MAX : X_AND_Y_ABS_MAX);
-        S.insert({(int)x, (int)y});
+    int rx = gen.uniform<int>(1, LIM*4/5);
+    int ry = gen.uniform<int>(1, LIM*4/5);
+    int r_sq = rx*rx + ry*ry;
+    int r = (int)sqrt(r_sq);
+    int cx = gen.uniform<int>(-X_AND_Y_ABS_MAX + r*11/10, X_AND_Y_ABS_MAX - r*11/10);
+    int cy = gen.uniform<int>(-X_AND_Y_ABS_MAX + r*11/10, X_AND_Y_ABS_MAX - r*11/10);
+    int x = 0, y = r;
+    S.insert({x, y});
+    S.insert({x, -y});
+    while (x < r) {
+        x++;
+        while (y > 0 && x*x + y*y > r_sq) y--;
+        int px = x + cx;
+        int py = y + gen.uniform<int>(-1, 1) + cy;
+        if (abs(px) > X_AND_Y_ABS_MAX) px = (px < 0 ? -X_AND_Y_ABS_MAX : X_AND_Y_ABS_MAX);
+        if (abs(py) > X_AND_Y_ABS_MAX) py = (py < 0 ? -X_AND_Y_ABS_MAX : X_AND_Y_ABS_MAX);
+        int insert_flag = gen.uniform(0, 15);
+        if (insert_flag & 1) S.insert({px, py});
+        if (insert_flag & 2) S.insert({-px, py});
+        if (insert_flag & 4) S.insert({px, -py});
+        if (insert_flag & 8) S.insert({-px, -py});
     }
-    
     bool shuffle = gen.uniform_bool();
     out(S, shuffle);
     return 0;

@@ -1,0 +1,39 @@
+title = 'Range Add Range Min'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1341"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+
+[[tests]]
+    name = "small_random.cpp"
+    number = 5
+[[tests]]
+    name = "small.cpp"
+    number = 5
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "max_random.cpp"
+    number = 5
+
+[[tests]]
+    name = "max_lazy.cpp"
+    number = 1
+
+[[tests]]
+    name = "max_update.cpp"
+    number = 1
+
+[[solutions]]
+    name = "correct_treap.cpp"
+
+[[solutions]]
+    name = "naive.cpp"
+    expect = "TLE"
+
+[params]
+    N_AND_Q_MAX = 500_000
+    A_AND_X_ABS_MAX = 1_000_000_000

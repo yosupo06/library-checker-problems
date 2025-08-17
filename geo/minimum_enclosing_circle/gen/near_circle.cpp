@@ -54,24 +54,24 @@ int main(int, char* argv[]) {
     int cx = gen.uniform<int>(-X_AND_Y_ABS_MAX + r*11/10, X_AND_Y_ABS_MAX - r*11/10);
     int cy = gen.uniform<int>(-X_AND_Y_ABS_MAX + r*11/10, X_AND_Y_ABS_MAX - r*11/10);
     int x = 0, y = r;
-    S.insert({x, y});
-    S.insert({x, -y});
+    S.insert({x + cx, y + cy});
+    S.insert({x + cx, -y + cy});
     const int dy[] = {-1, 0, 1};
     while (x < r) {
         x++;
         while (y > 0 && x*x + y*y > r_sq) y--;
-        int px = x + cx;
-        int py = y + cy;
+        int px = x;
+        int py = y;
         for (int d = 0; d < 3; d++) {
             int nx = px;
             int ny = py + dy[d];
             if (abs(nx) > X_AND_Y_ABS_MAX) nx = (nx < 0 ? -X_AND_Y_ABS_MAX : X_AND_Y_ABS_MAX);
             if (abs(ny) > X_AND_Y_ABS_MAX) ny = (ny < 0 ? -X_AND_Y_ABS_MAX : X_AND_Y_ABS_MAX);
             int insert_flag = gen.uniform(0, 15);
-            if (insert_flag & 1) S.insert({nx, ny});
-            if (insert_flag & 2) S.insert({-nx, ny});
-            if (insert_flag & 4) S.insert({nx, -ny});
-            if (insert_flag & 8) S.insert({-nx, -ny});
+            if (insert_flag & 1) S.insert({nx + cx, ny + cy});
+            if (insert_flag & 2) S.insert({-nx + cx, ny + cy});
+            if (insert_flag & 4) S.insert({nx + cx, -ny + cy});
+            if (insert_flag & 8) S.insert({-nx + cx, -ny + cy});
         }
     }
     while (int(S.size()) > N_MAX) {

@@ -42,10 +42,12 @@ int main(int, char* argv[]) {
         S.insert({-x, -y});
     }
 
-    int LIM = X_AND_Y_ABS_MAX*7/10;
+    int LIM = X_AND_Y_ABS_MAX;
     while (int(S.size()) < n) {
         P p = random_point(gen, LIM);
-        S.insert(p);
+        if (p.first * p.first + p.second * p.second <= r * r) {
+            S.insert(p);
+        }
     }
 
     out(S);

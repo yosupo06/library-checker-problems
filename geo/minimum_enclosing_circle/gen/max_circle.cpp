@@ -22,8 +22,6 @@ void out(set<P> S) {
     for (auto& [x, y]: V) { printf("%d %d\n", x, y); }
 }
 
-const long double PI = acosl(-1.0L);
-
 int main(int, char* argv[]) {
     long long seed = atoll(argv[1]);
     auto gen = Random(seed);
@@ -32,23 +30,24 @@ int main(int, char* argv[]) {
 
     int n = N_MAX;
     int r = X_AND_Y_ABS_MAX;
-    for (int i = 0; i < n; i++) {
-        long double theta = (long double)(i) * 2 * PI / (long double)(n);
-        long double ldx = r * cos(theta);
-        long double ldy = r * sin(theta);
-        int x = (int)(ldx);
-        int y = (int)(ldy);
-        while (y > 0 && x*x + (y+1)*(y+1) <= r*r) y++;
-        while (y < 0 && x*x + (y-1)*(y-1) <= r*r) y--;
-        if (abs(x) > X_AND_Y_ABS_MAX) x = (x < 0 ? -X_AND_Y_ABS_MAX : X_AND_Y_ABS_MAX);
-        if (abs(y) > X_AND_Y_ABS_MAX) y = (y < 0 ? -X_AND_Y_ABS_MAX : X_AND_Y_ABS_MAX);
+    int x = 0, y = r;
+    S.insert({x, y});
+    S.insert({x, -y});
+    while (x < r) {
+        x++;
+        while (y > 0 && x*x + y*y > r*r) y--;
         S.insert({x, y});
+        S.insert({-x, y});
+        S.insert({x, -y});
+        S.insert({-x, -y});
     }
 
-    int LIM = X_AND_Y_ABS_MAX*7/10;
+    int LIM = X_AND_Y_ABS_MAX;
     while (int(S.size()) < n) {
         P p = random_point(gen, LIM);
-        S.insert(p);
+        if (p.first * p.first + p.second * p.second <= r * r) {
+            S.insert(p);
+        }
     }
 
     out(S);

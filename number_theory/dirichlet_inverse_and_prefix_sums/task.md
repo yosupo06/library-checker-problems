@@ -26,7 +26,8 @@ Given a positive integer $N$, define $Q_N=\lbrace {\lfloor {N \over x} \rfloor \
 
 Let the elements of $ Q_N $ arranged in ascending order be denoted by the sequence $(a_0,a_1,\ldots,a_{k-1})$ .
 
-For the sequences $f \colon \mathbb{N} \to \mathbb{F} _ {@{param.MOD}}$, define the cumulative sums up to each $ x \in Q_N $ as
+For the sequence $f \colon \mathbb{N} \to \mathbb{F} _ {@{param.MOD}}$, define the cumulative sums up to each $ x \in Q_N $ as
+
 $$
 f_x = \sum_{n=1}^x f(n)
 $$

@@ -303,6 +303,7 @@ std::vector<int> solve(int L,int R,int M,int a[],int b[]) {
 
 std::mt19937 mt;
 
+/*
 void gen() {
   int L=100000;
   int R=100000;
@@ -337,12 +338,15 @@ void verify() {
     printf("time %lf[ms]\n", time);
   }
 }
+*/
+
+const int MAX_M = 100000;
 
 void solve() {
   int L,R,M;
   scanf("%d%d%d",&L,&R,&M);
-  int a[M];
-  int b[M];
+  int a[MAX_M];
+  int b[MAX_M];
   for (int i=0;i<M;++i) {
     scanf("%d%d\n",&a[i],&b[i]);
   }

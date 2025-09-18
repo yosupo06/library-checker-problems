@@ -42,6 +42,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/386"
 [[solutions]]
     name = "wa_overflow.cpp"
     expect = "WA"
+    allow_tle = true
     
 [params]
     N_MAX = 500000

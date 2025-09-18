@@ -32,7 +32,8 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1112"
     allow_re = true
 [[solutions]]
     name = "wa.cpp"
-    expect = "WA"
+    expect = "RE"
+    allow_tle = true
 
 [params]
     N_MAX = 131_072

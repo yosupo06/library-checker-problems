@@ -304,6 +304,8 @@ std::vector<int> solve(int L,int R,int M,int a[],int b[]) {
 std::mt19937 mt;
 
 /*
+// causion : The function below uses variable-length
+//           arrays, which are compiler-dependent.
 void gen() {
   int L=100000;
   int R=100000;

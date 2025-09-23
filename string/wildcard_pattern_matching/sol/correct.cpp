@@ -1065,7 +1065,7 @@ namespace atcoder
 
 using ll = long long;
 
-static char buf[1 << 19];
+static char buf[(1 << 19) + 1];
 std::string scan()
 {
     scanf("%s", buf);

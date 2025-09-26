@@ -32,7 +32,8 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/820"
 
 [[solutions]]
 	name = 'naive.cpp'
-	expect = "TLE"
+	expect = "WA"
+	allow_tle = true
 
 [params]
 	N_MIN = 1

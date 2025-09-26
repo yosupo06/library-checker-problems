@@ -1,0 +1,43 @@
+title = 'Minimum Enclosing Circle'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1333"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+
+[[tests]]
+    name = "small.in"
+    number = 2
+
+[[tests]]
+    name = "small_random.cpp"
+    number = 5
+
+[[tests]]
+    name = "large_random.cpp"
+    number = 5
+
+[[tests]]
+    name = "near_circle.cpp"
+    number = 3
+
+[[tests]]
+    name = "max_circle.cpp"
+    number = 1
+
+[[tests]]
+    name = "near_colinear.cpp"
+    number = 4
+
+[[tests]]
+    name = "large_grid.cpp"
+    number = 3
+
+[[tests]]
+    name = "megiddo_worst.cpp"
+    number = 1
+
+[params]
+    N_MAX = 100_000
+    X_AND_Y_ABS_MAX = 10_000

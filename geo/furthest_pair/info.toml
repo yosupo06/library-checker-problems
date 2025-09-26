@@ -52,7 +52,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/837"
 
 [[solutions]]
     name = "uso_caliper.cpp"
-    wrong = true
+    expect = "WA"
 
 [[solutions]]
     name = "naive.cpp"

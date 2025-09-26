@@ -1,0 +1,27 @@
+title = 'Dirichlet Inverse and Prefix Sums'
+timelimit = 30.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1345"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "max.cpp"
+    number = 5
+[[tests]]
+    name = "small.cpp"
+    number = 5
+[[tests]]
+    name = "very_small.cpp"
+    number = 5
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "many.cpp"
+    number = 3
+
+[params]
+    T_MAX = 10000
+    N_MAX = 1000_000_000_000
+    MOD = 998_244_353

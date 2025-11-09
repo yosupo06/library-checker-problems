@@ -13,6 +13,8 @@
   "less_1000000000_00.out": "ce8e5ede3249f9c0c8f4bf84080d367f166cc44f0dfe982dec9632f19fcfff2c",
   "prod_two_prime_00.in": "21f2a003bf58e2e3ec1794e6d976a0336096e85edf015b6a87ac747701764671",
   "prod_two_prime_00.out": "65ef8393a161495bfef12dc6b481bacd00e7bdbede837da3cffb12da9f933dab",
+  "pseudoprimes_00.in": "11429cd60bf9598a7eb7f819c425628a7c9bdc973dee2e1f7e7f5af05867e99c",
+  "pseudoprimes_00.out": "a084ac2028c170a9b1f838131e99c787dd3ea6c45b61009a048877bd57a15775",
   "random_00.in": "daa273f71ac0969c90aaa248d135ae190af7011b5c5d0e47ddeade9ba115b035",
   "random_00.out": "ab8e4326e35940a11cf3a478faf8142aaaa0feef085ff47d9f63cbd9c4aa5867",
   "random_01.in": "b5fdad5d6bf55dc05a1ed4ea59721cc56e34170870e9232fe3b09179e13ee175",

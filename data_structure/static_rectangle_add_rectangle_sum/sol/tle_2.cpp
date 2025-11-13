@@ -2,6 +2,7 @@
 #include <vector>
 #include <cassert>
 #include <tuple>
+#include <cstdint>
 
 using namespace std;
 using ll = long long;

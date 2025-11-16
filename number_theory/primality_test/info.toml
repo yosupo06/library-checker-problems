@@ -29,6 +29,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/880"
 [[tests]]
     name = "hack_issue1325.in"
     number = 1
+[[tests]]
+    name = "pseudoprimes.in"
+    number = 1
 
 [params]
     MIN_Q = 1

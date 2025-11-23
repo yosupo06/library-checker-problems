@@ -1,6 +1,6 @@
 ---
 name: Problem template / 原案テンプレート
-about: Problem proporsal / 日本語でもいいです
+about: Problem proposal / 日本語でもいいです
 title: "[Problem proposal] (Problem title)"
 labels: ''
 assignees: ''
@@ -14,7 +14,7 @@ Problem name: A + B
 
 Given 2 integers, A and B. Print A + B
 
-##  Constraint
+## Constraints
 
 - $1 \leq A, B \leq 10^9$
 
@@ -37,6 +37,6 @@ Z
 
 Z = A + B
 
-## (Optional) Note / Disucussion
+## (Optional) Note / Discussion
 
 - $10^{18}$ is better than $10^9$ ?

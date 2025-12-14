@@ -11,7 +11,6 @@
 // #include <span>
 #include <type_traits>
 #include <vector>
-
 // #pragma once
 
 namespace my {
@@ -52,7 +51,13 @@ using my::span;
 namespace Field_64 {
 
 using u64 = uint64_t;
+
+#ifdef __x86_64__
+
 using u128 = __uint128_t;
+
+#pragma GCC target("pclmul")
+#include <immintrin.h>
 
 __m128i clmul_vec(u64 a, u64 b) {
     __m128i tmp = _mm_clmulepi64_si128(_mm_cvtsi64_si128(a), _mm_cvtsi64_si128(b), 0);
@@ -65,6 +70,25 @@ u128 clmul(u64 a, u64 b) {
     memcpy(&res, &tmp, 16);
     return res;
 }
+
+#else
+
+// #ifdef __arm__
+
+#include <arm_neon.h>
+
+using u128 = poly128_t;
+
+u128 clmul(u64 a, u64 b) {
+    auto tmp = vmull_p64(a, b);
+    u128 res;
+    memcpy(&res, &tmp, 16);
+    return res;
+}
+
+// #endif
+
+#endif
 
 constexpr u128 clmul_constexpr(u64 a, u64 b) {
     u128 res = 0;

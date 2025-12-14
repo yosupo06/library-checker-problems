@@ -1,12 +1,9 @@
-#include <iostream>
-#pragma GCC target("pclmul")
-#include <immintrin.h>
-
 #include <algorithm>
 #include <array>
 #include <cassert>
 #include <cstdint>
 #include <cstring>
+#include <iostream>
 #include <random>
 #include <type_traits>
 #include <vector>
@@ -52,7 +49,13 @@ using my::span;
 namespace Field_64 {
 
 using u64 = uint64_t;
+
+#ifdef __x86_64__
+
 using u128 = __uint128_t;
+
+#pragma GCC target("pclmul")
+#include <immintrin.h>
 
 __m128i clmul_vec(u64 a, u64 b) {
     __m128i tmp = _mm_clmulepi64_si128(_mm_cvtsi64_si128(a), _mm_cvtsi64_si128(b), 0);
@@ -65,6 +68,25 @@ u128 clmul(u64 a, u64 b) {
     memcpy(&res, &tmp, 16);
     return res;
 }
+
+#else
+
+// #ifdef __arm__
+
+#include <arm_neon.h>
+
+using u128 = poly128_t;
+
+u128 clmul(u64 a, u64 b) {
+    auto tmp = vmull_p64(a, b);
+    u128 res;
+    memcpy(&res, &tmp, 16);
+    return res;
+}
+
+// #endif
+
+#endif
 
 constexpr u128 clmul_constexpr(u64 a, u64 b) {
     u128 res = 0;
@@ -261,32 +283,31 @@ std::vector<R> convolve_naive(const std::vector<R>& a, const std::vector<R>& b) 
         return {};
     }
     using namespace Field_64;
-    if constexpr (std::is_same_v<R, Field>) {
-        size_t sz = a.size() + b.size() - 1;
-        __m128i* ptr = (__m128i*)_mm_malloc(16 * sz, 16);
-        memset(ptr, 0, 16 * sz);
+    // if constexpr (std::is_same_v<R, Field>) {
+    //     size_t sz = a.size() + b.size() - 1;
+    //     __m128i* ptr = (__m128i*)_mm_malloc(16 * sz, 16);
+    //     memset(ptr, 0, 16 * sz);
 
-        for (size_t i = 0; i < a.size(); i++) {
-            for (size_t j = 0; j < b.size(); j++) {
-                ptr[i + j] ^= clmul_vec(a[i].val, b[j].val);
-            }
-        }
+    //     for (size_t i = 0; i < a.size(); i++) {
+    //         for (size_t j = 0; j < b.size(); j++) {
+    //             ptr[i + j] ^= clmul_vec(a[i].val, b[j].val);
+    //         }
+    //     }
 
-        std::vector<R> c(sz);
-        for (size_t i = 0; i < sz; i++) {
-            c[i] = R(R::reduce((u128)ptr[i]), 0);
+    //     std::vector<R> c(sz);
+    //     for (size_t i = 0; i < sz; i++) {
+    //         c[i] = R(R::reduce((u128)ptr[i]), 0);
+    //     }
+    //     _mm_free(ptr);
+    //     return c;
+    // }
+    std::vector<R> c(a.size() + b.size() - 1);
+    for (size_t i = 0; i < a.size(); i++) {
+        for (size_t j = 0; j < b.size(); j++) {
+            c[i + j] += a[i] * b[j];
         }
-        _mm_free(ptr);
-        return c;
-    } else {
-        std::vector<R> c(a.size() + b.size() - 1);
-        for (size_t i = 0; i < a.size(); i++) {
-            for (size_t j = 0; j < b.size(); j++) {
-                c[i + j] += a[i] * b[j];
-            }
-        }
-        return c;
     }
+    return c;
 }
 
 std::vector<F> gen(std::vector<F> bs) {

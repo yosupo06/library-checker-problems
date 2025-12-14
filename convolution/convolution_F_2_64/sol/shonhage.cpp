@@ -280,32 +280,32 @@ std::vector<R> convolve_naive(const std::vector<R>& a, const std::vector<R>& b) 
         return {};
     }
     using namespace Field_64;
-    if constexpr (std::is_same_v<R, Field>) {
-        size_t sz = a.size() + b.size() - 1;
-        __m128i* ptr = (__m128i*)_mm_malloc(16 * sz, 16);
-        memset(ptr, 0, 16 * sz);
+    // if constexpr (std::is_same_v<R, Field>) {
+    //     size_t sz = a.size() + b.size() - 1;
+    //     __m128i* ptr = (__m128i*)_mm_malloc(16 * sz, 16);
+    //     memset(ptr, 0, 16 * sz);
 
-        for (size_t i = 0; i < a.size(); i++) {
-            for (size_t j = 0; j < b.size(); j++) {
-                ptr[i + j] ^= clmul_vec(a[i].val, b[j].val);
-            }
-        }
+    //     for (size_t i = 0; i < a.size(); i++) {
+    //         for (size_t j = 0; j < b.size(); j++) {
+    //             ptr[i + j] ^= clmul_vec(a[i].val, b[j].val);
+    //         }
+    //     }
 
-        std::vector<R> c(sz);
-        for (size_t i = 0; i < sz; i++) {
-            c[i] = R(R::reduce((u128)ptr[i]), 0);
+    //     std::vector<R> c(sz);
+    //     for (size_t i = 0; i < sz; i++) {
+    //         c[i] = R(R::reduce((u128)ptr[i]), 0);
+    //     }
+    //     _mm_free(ptr);
+    //     return c;
+    // } else {
+    std::vector<R> c(a.size() + b.size() - 1);
+    for (size_t i = 0; i < a.size(); i++) {
+        for (size_t j = 0; j < b.size(); j++) {
+            c[i + j] += a[i] * b[j];
         }
-        _mm_free(ptr);
-        return c;
-    } else {
-        std::vector<R> c(a.size() + b.size() - 1);
-        for (size_t i = 0; i < a.size(); i++) {
-            for (size_t j = 0; j < b.size(); j++) {
-                c[i + j] += a[i] * b[j];
-            }
-        }
-        return c;
     }
+    return c;
+    // }
 }
 
 static constexpr size_t pow3(int k) {
@@ -456,7 +456,7 @@ struct Meow {
         if constexpr (std::is_same_v<R, Field_64::Field>) {
             using namespace Field_64;
 
-            alignas(64) __m128i out_x[n], out_y[n];
+            alignas(64) u128 out_x[n], out_y[n];
             memset(out_x, 0, sizeof(out_x));
             memset(out_y, 0, sizeof(out_y));
 
@@ -464,12 +464,12 @@ struct Meow {
                 auto [x1, y1] = a[i];
                 auto [x2, y2] = b[j];
 
-                __m128i xx = clmul_vec(x1.val, x2.val);
-                __m128i yy = clmul_vec(y1.val, y2.val);
-                __m128i xy = clmul_vec(x1.val, y2.val);
-                __m128i yx = clmul_vec(y1.val, x2.val);
+                u128 xx = clmul(x1.val, x2.val);
+                u128 yy = clmul(y1.val, y2.val);
+                u128 xy = clmul(x1.val, y2.val);
+                u128 yx = clmul(y1.val, x2.val);
 
-                __m128i x = xx ^ yy, y = xy ^ yx ^ yy;
+                u128 x = xx ^ yy, y = xy ^ yx ^ yy;
 
                 return std::pair{x, y};
             };

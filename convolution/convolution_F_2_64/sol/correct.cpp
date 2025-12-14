@@ -425,7 +425,7 @@ void fft(span<F> f) {
     size_t n = f.size();
 
     // int lg = std::__lg(n);
-    int lg = std::bit_width(n) - 1;
+    int lg = 31 - __builtin_ctz(n);
 
     const FFT::Data& d = fft_aux.data[lg];
 

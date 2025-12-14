@@ -204,7 +204,7 @@ static constexpr auto pow = [](int exp) {
     return (u64)r;
 };
 
-static constexpr u64 r = pow(64);
+// static constexpr u64 r = pow(64);
 static constexpr u64 r2 = pow(128);
 
 static_assert((u64)clmul_constexpr(u64(mod), inv) == 1);

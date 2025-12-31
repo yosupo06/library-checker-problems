@@ -1,4 +1,4 @@
-title = 'Convolution ($F_{2^{64}})'
+title = 'Convolution ($\mathbb{F}_{2^{64}}$)'
 timelimit = 10.0
 
 [[tests]]

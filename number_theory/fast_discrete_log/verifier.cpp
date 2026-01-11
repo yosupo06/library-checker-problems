@@ -15,10 +15,10 @@ int main(int argc, char **argv) {
 	ensuref(numtheo_n::is_prim_root(g, p), "g is not a primitive root of p");
 	inf.readSpace();
 	u32 n = inf.readInt(1, N, "n");
-	inf.readEoln();
+	inf.readChar('\n');
 	while (n--) {
 		inf.readInt(1, p - 1, "a");
-		inf.readEoln();
+		inf.readChar('\n');
 	}
 	inf.readEof();
 	return 0;

@@ -1,0 +1,18 @@
+timelimit = 10.0
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "small.cpp"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "max.cpp"
+    number = 5
+
+[params]
+    MAX_P = 1000000000
+    MAX_N = 1000000

@@ -9,10 +9,10 @@
 #include "../bsdsdblib/numtheo/prim_root.hpp"
 
 u32 randroot(u32 p) {
-	using MI = numtheo_n::MI<-1>;
+	using MI = numtheo::ModInt32<-1>;
 	MI::set_mod(p);
 	u32 pp = p - 1;
-	u32 mg = numtheo_n::min_prim_root(p).value();
+	u32 mg = numtheo::min_prim_root(p).value();
 	u32 pw;
 	do {
 		pw = rnd.next(1u, pp - 1);

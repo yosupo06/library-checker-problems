@@ -3,8 +3,8 @@
 #include "../basics.hpp"
 #include "pollard_rho.hpp"
 
-namespace numtheo_n {
-	u64 phi(u64 x) {
+namespace numtheo {
+	template<class T> T phi(T x) {
 		auto prf = prime_factors(x);
 		for (auto i : prf) {
 			x = x / i.first * (i.first - 1);

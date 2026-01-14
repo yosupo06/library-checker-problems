@@ -11,10 +11,10 @@
 constexpr u32 N = 1000000, P = 1000000000;
 
 u32 randroot(u32 p) {
-	using MI = numtheo_n::MI<-1>;
+	using MI = numtheo::ModInt32<-1>;
 	MI::set_mod(p);
 	u32 pp = p - 1;
-	u32 mg = numtheo_n::min_prim_root(p).value();
+	u32 mg = numtheo::min_prim_root(p).value();
 	u32 pw;
 	do {
 		pw = rnd.next(1u, pp - 1);
@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
 	u32 p;
 	do {
 		p = rnd.next(2u, P);
-	} while (numtheo_n::miller_rabin(p) == false);
+	} while (numtheo::miller_rabin(p) == false);
 	u32 g = randroot(p);
 	u32 n = rnd.next(1u, N);
 	printf("%u %u %u\n", p, g, n);

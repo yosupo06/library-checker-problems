@@ -1,7 +1,7 @@
 ## @{keyword.statement}
 
 @{lang.en}
-You are given a weighted undirected graph consisting of $N$ vertices and $M$ edges. The $i$-th edge is directed from the vertex $u_i$ to the vertex $v_i$ and has a weight of $c_i$. This graph may not be simple.
+You are given a weighted directed graph consisting of $N$ vertices and $M$ edges. The $i$-th edge is directed from the vertex $u_i$ to the vertex $v_i$ and has a weight of $c_i$. This graph may not be simple.
 
 For $i=1,2,\ldots ,K$, output $x_i$, the length of the $i$-th shortest (simple) path from vertex $s$ to vertex $t$. If such path doesn't exist, let $x_i=-1$ .
 

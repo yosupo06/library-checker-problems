@@ -1,0 +1,58 @@
+title = 'Convolution ($\mathbb{F}_{2^{64}}$)'
+timelimit = 10.0
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "small.cpp"
+    number = 17
+[[tests]]
+    name = "medium.cpp"
+    number = 3
+[[tests]]
+    name = "random.cpp"
+    number = 5
+[[tests]]
+    name = "gen_2_17.cpp"
+    number = 3
+[[tests]]
+    name = "gen_3_11.cpp"
+    number = 3
+[[tests]]
+    name = "gen_2_18.cpp"
+    number = 3
+[[tests]]
+    name = "gen_2_x_3_11.cpp"
+    number = 3
+[[tests]]
+    name = "gen_max.cpp"
+    number = 2
+[[tests]]
+    name = "small_and_large.cpp"
+    number = 4
+[[tests]]
+    name = "all_same.cpp"
+    number = 2
+[[tests]]
+    name = "all_ones.cpp"
+    number = 1
+[[tests]]
+    name = "many_ones.cpp"
+    number = 2
+[[tests]]
+    name = "small_values.cpp"
+    number = 1
+
+
+[[solutions]]
+    name = "shonhage.cpp"
+[[solutions]]
+    name = "naive.cpp"
+    expect = "TLE"
+[[solutions]]
+    name = "naive_faster.cpp"
+    expect = "TLE"
+
+[params]
+    N_AND_M_MAX = 524288

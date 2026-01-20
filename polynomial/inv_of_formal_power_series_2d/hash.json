@@ -52,5 +52,7 @@
   "smallDeg_03.in": "1de0327bf5de4e45314d6c3b7eb513ac8a834223d7d9fdde6e0c9d521d0c048d",
   "smallDeg_03.out": "442e89f5af545de2e0ab73cd0aa9d7e26c4b21b0efb46c32d67b8183db93af05",
   "smallDeg_04.in": "821caca4e4f62af07696cd369a0ee5399886eed88ee4c9839fd63539fb80a701",
-  "smallDeg_04.out": "0c86538746a80fcfe17dc0aeb61ab1365c38ab98660f8c39d7a38c5bec41e2ce"
+  "smallDeg_04.out": "0c86538746a80fcfe17dc0aeb61ab1365c38ab98660f8c39d7a38c5bec41e2ce",
+  "square_00.in": "cdb9ee6316af462479e1059b3fb3e6b09521dd26840a710f50f2ed2f5d2c6fc8",
+  "square_00.out": "6f112fabefd44475b14b7d540d148aaefa230381ec56f289a51204075dc3759a"
 }

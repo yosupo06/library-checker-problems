@@ -41,7 +41,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1145"
 [[tests]]
     name = "degY100.cpp"
     number = 1
-        
+[[tests]]
+    name = "square.cpp"
+    number = 1
 
 [params]
     NM_MAX = 500_000

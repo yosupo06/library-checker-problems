@@ -20,6 +20,28 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1145"
 [[tests]]
     name = "smallDeg.cpp"
     number = 5
+[[tests]]
+    name = "randomSquare.cpp"
+    number = 5
+[[tests]]
+    name = "degX2.cpp"
+    number = 1
+[[tests]]
+    name = "degX10.cpp"
+    number = 1
+[[tests]]
+    name = "degX100.cpp"
+    number = 1
+[[tests]]
+    name = "degY2.cpp"
+    number = 1
+[[tests]]
+    name = "degY10.cpp"
+    number = 1
+[[tests]]
+    name = "degY100.cpp"
+    number = 1
+        
 
 [params]
     NM_MAX = 500_000

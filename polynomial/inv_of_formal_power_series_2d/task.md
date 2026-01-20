@@ -5,12 +5,12 @@ You are given a bivariate formal power series $f(x, y) = \sum_{i=0}^{N-1}\sum_{j
 Calculate the first $N \times M$ terms of $\frac{1}{f(x, y)} = \sum_{i=0}^{\infty} \sum_{j=0}^\infty b_{i,j} x^iy^j$.
 In other words, find $g(x, y) = \sum_{i=0}^{N-1}\sum_{j=0}^{M-1} b_{i,j} x^iy^j \in \mathbb{F}\_{@{param.MOD}}[[x, y]]$ such that
 
-$$f(x,y) g(x,y) \equiv 1 \pmod{x^N, y^M}.$$
+$$f(x,y) g(x,y) \equiv 1 \pmod{(x^N, y^M)}.$$
 
 @{lang.ja}
 2変数の形式的冪級数 $f(x, y) = \sum_{i=0}^{N-1}\sum_{j=0}^{M-1} a_{i,j} x^iy^j \in \mathbb{F}\_{@{param.MOD}}[[x, y]]$ が与えられます ($a_{0,0} \ne 0$)。$\frac{1}{f(x, y)} = \sum_{i=0}^{\infty}\sum_{j=0}^{\infty} b_{i,j} x^iy^j$ の先頭 $N \times M$ 項を求めてください。つまり、
 
-$$f(x,y) g(x,y) \equiv 1 \pmod{x^N, y^M}$$
+$$f(x,y) g(x,y) \equiv 1 \pmod{(x^N, y^M)}$$
 
 となる $g(x, y) = \sum_{i=0}^{N-1}\sum_{j=0}^{M-1} b_{i,j} x^iy^j \in \mathbb{F}\_{@{param.MOD}}[[x, y]]$ を求めてください。
 

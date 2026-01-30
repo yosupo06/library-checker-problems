@@ -20,6 +20,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/953"
 [[tests]]
     name = "star.cpp"
     number = 1
+[[tests]]
+    name = "complete_random.cpp"
+    number = 5
+[[tests]]
+    name = "complete_max.cpp"
+    number = 2
 
 [params]
     N_MAX = 500_000

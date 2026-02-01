@@ -1,5 +1,6 @@
 title = 'Convolution ($\mathbb{F}_{2^{64}}$)'
 timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1367"
 
 [[tests]]
     name = "example.in"

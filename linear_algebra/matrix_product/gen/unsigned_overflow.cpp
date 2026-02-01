@@ -1,5 +1,3 @@
-
-
 #include <iostream>
 #include <set>
 #include <limits>
@@ -11,16 +9,11 @@ using namespace std;
 
 int main() {
     int val = MOD - 2;
+    unsigned long long max_ull = numeric_limits<unsigned long long>::max();
 
-    // Find smallest size n where n * val * val > numeric_limits<unsigned long long>::max()
-    int n = 0;
-    unsigned long long res = 0;
-    long long val2 = (long long) val * val;
-    while (res + val2 >= res) // Check if adding val2 to res will overflow
-    {
-        res += val2;
-        ++n;
-    }
+    // Find smallest size n where n * val * val > max_ull
+    unsigned long long val2 = (unsigned long long) val * val;
+    int n = max_ull / val2 + 1;
 
     cout << n << ' ' << n << ' ' << n << '\n';
    

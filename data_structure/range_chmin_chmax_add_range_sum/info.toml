@@ -26,6 +26,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/243"
 [[tests]]
     name = "small_absolute_values.cpp"
     number = 3
+[[tests]]
+    name = "issue_1369_log2.cpp"
+    number = 4
 
 [[solutions]]
     name = "correct_with_assert.cpp"

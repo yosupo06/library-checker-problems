@@ -22,7 +22,7 @@ problems = [
   "point_add_range_sum",
   "point_set_range_composite",
   "point_set_range_composite_large_array",
-  "range_affine_point_get", 
+  "range_affine_point_get",
   "range_affine_range_sum",
   "range_affine_range_sum_large_array",
   "persistent_range_affine_range_sum",
@@ -210,8 +210,8 @@ problems = [
 [[categories]]
 name = "Enumerative Combinatorics"
 problems = [
-  "factorial", 
-  "many_factorials", 
+  "factorial",
+  "many_factorials",
   "montmort_number_mod",
   "bell_number",
   "binomial_coefficient",
@@ -235,12 +235,12 @@ name = "Linear Algebra"
 problems = [
   "matrix_product",
   "matrix_product_mod_2",
-  "pow_of_matrix", 
+  "pow_of_matrix",
   "matrix_det",
   "matrix_det_arbitrary_mod",
   "matrix_det_mod_2",
   "sparse_matrix_det",
-  "matrix_rank", 
+  "matrix_rank",
   "matrix_rank_mod_2",
   "system_of_linear_equations",
   "system_of_linear_equations_mod_2",

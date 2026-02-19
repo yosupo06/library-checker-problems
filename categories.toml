@@ -203,6 +203,7 @@ problems = [
   "subset_convolution",
   "power_projection_of_set_power_series",
   "exp_of_set_power_series",
+  "log_of_set_power_series",
   "polynomial_composite_set_power_series",
 ]
 

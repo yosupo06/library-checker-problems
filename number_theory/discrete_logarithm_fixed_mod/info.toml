@@ -17,6 +17,9 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/1374'
 [[tests]]
     name = "big_safe_random.cpp"
     number = 5
+[[tests]]
+    name = "big_safe_random_g2.cpp"
+    number = 5
 
 [params]
     MAX_P = 1000000000

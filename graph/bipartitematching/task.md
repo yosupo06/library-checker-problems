@@ -7,7 +7,7 @@ Calculate the maximum matching.
 
 @{lang.ja}
 
-頂点数が $L, R$、辺が $M$ の二部グラフが与えられる。$i$ 番目の辺は $(a_i, b_i)$ である。
+頂点数が $L, R$、辺数が $M$ の二部グラフが与えられる。$i$ 番目の辺は $(a_i, b_i)$ である。
 最大マッチングを求めてください。
 
 @{lang.end}

@@ -16,8 +16,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1395"
 
 [[tests]]
     name = "test.in"
-    number = 13
-
+    number = 6
 
 [params]
     MAX_Q = 10

@@ -4,9 +4,12 @@
 #include <bitset>
 #include <tuple>
 #include <algorithm>
+#include <unordered_map>
 #include <utility>
 #pragma GCC optimize("Ofast,unroll-loops")
+#if defined(__x86_64__) || defined(_M_X64) || defined(__i386__) || defined(_M_IX86)
 #pragma GCC target("avx,avx2,bmi,bmi2,popcnt,lzcnt")
+#endif
 using namespace std;
 #define ll long long int
 #define endl "\n"
@@ -19,8 +22,6 @@ using namespace std;
 #endif
 #endif
 
-#include <ext/pb_ds/assoc_container.hpp>
-using namespace __gnu_pbds;
 struct customHash
 {
     static uint64_t splitmix64(uint64_t x)
@@ -74,7 +75,8 @@ inline void fastWrite(uint128 x) {
 namespace Montgomery128
 {
     using u128 = __uint128_t;
-    // ---------- 64-bit limb helpers (fast) ----------
+    // ---------- 64-bit limb helpers ----------
+#if defined(__x86_64__) || defined(_M_X64) || defined(__i386__) || defined(_M_IX86)
     static inline void mult64(uint64_t a, uint64_t b, uint64_t &lo, uint64_t &hi)
     {
         unsigned long long tHi;
@@ -88,6 +90,21 @@ namespace Montgomery128
                               static_cast<unsigned long long>(b), &tS);
         return tS;
     }
+#else
+    // Portable fallback for non-x86 (ARM, etc.)
+    static inline void mult64(uint64_t a, uint64_t b, uint64_t &lo, uint64_t &hi)
+    {
+        u128 r = (u128)a * b;
+        lo = (uint64_t)r;
+        hi = (uint64_t)(r >> 64);
+    }
+    static inline uint64_t add64(uint64_t a, uint64_t b, uint64_t &carry)
+    {
+        u128 r = (u128)a + b + carry;
+        carry = (uint64_t)(r >> 64);
+        return (uint64_t)r;
+    }
+#endif
     // Fallback generic (slow): kept for setup (e.g., computing R^2 mod N once)
     u128 mult128(u128 a, u128 b, u128 mod)
     {
@@ -894,7 +911,7 @@ bool isBPSWPrime(T n)
     return strongLucasSelfridge(n);
 }
 
-gp_hash_table<u128, vector<u128>, customHash> cache;
+unordered_map<u128, vector<u128>, customHash> cache;
 template <typename T>
 void primeFactorize(T N, vector<T> &primeFactors)
 {

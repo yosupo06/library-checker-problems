@@ -6,9 +6,11 @@
 #include <algorithm>
 #include <unordered_map>
 #include <utility>
+#ifndef __clang__
 #pragma GCC optimize("Ofast,unroll-loops")
 #if defined(__x86_64__) || defined(_M_X64) || defined(__i386__) || defined(_M_IX86)
 #pragma GCC target("avx,avx2,bmi,bmi2,popcnt,lzcnt")
+#endif
 #endif
 using namespace std;
 #define ll long long int

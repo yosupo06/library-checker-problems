@@ -12,11 +12,31 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1395"
 
 [[tests]]
     name = "largeSemiprimes.cpp"
-    number = 20
+    number = 14
 
 [[tests]]
-    name = "test.in"
-    number = 6
+    name = "test_pseudoprimes.in"
+    number = 1
+
+[[tests]]
+    name = "test_semiprimes.in"
+    number = 1
+
+[[tests]]
+    name = "test_Carmichaels.in"
+    number = 1
+
+[[tests]]
+    name = "test_prime_powers.in"
+    number = 1
+
+[[tests]]
+    name = "test_SHCs.in"
+    number = 1
+
+[[tests]]
+    name = "test_mix.in"
+    number = 1
 
 [params]
     MAX_Q = 10

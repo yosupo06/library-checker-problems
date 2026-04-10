@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <chrono>
 #include "testlib.h"
 #include "../params.h"
 
@@ -25,17 +26,28 @@ u128 parseU128(const std::string &s) {
     return res;
 }
 
-u128 rand128() {
-    u128 a = rnd.next(1LL << 62);
-    u128 b = rnd.next(1LL << 62);
-    u128 c = rnd.next(1LL << 4);
-    return (a << 66) | (b << 4) | c;
+static u128 s = std::chrono::steady_clock::now().time_since_epoch().count();
+static inline u128 rand128()
+{
+    /*
+     * LCG formula: X = (a * X + c) mod 2^128
+     * 'a' is a 128-bit multiplier with strong spectral properties.
+     * 'c' is an odd increment, ensuring a full period of 2^128.
+     * Overflow of u128 natively handles the modulo 2^128.
+     */
+    const u128 a = ((u128)0x2360ED051FC65DA4ULL << 64) | 0x4385DF649FCCF645ULL;
+    const u128 c = ((u128)0x5851F42D4C957F2DULL << 64) | 0x14057B7EF767814FULL;
+    
+    s = s * a + c;
+    
+    return s;
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) 
+{
     registerGen(argc, argv, 1);
     
-    u128 max_n = parseU128(MAX_N);
+    u128 maxN = parseU128(MAX_N);
     int q = MAX_Q;
     
     // Sometimes generate fewer cases
@@ -45,7 +57,7 @@ int main(int argc, char* argv[]) {
     
     cout << q << "\n";
     for (int i = 0; i < q; i++) {
-        cout << rand128() % max_n + 1 << "\n";
+        cout << rand128() % maxN + 1 << "\n";
     }
     
     return 0;

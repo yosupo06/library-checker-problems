@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <chrono>
 #include "testlib.h"
 #include "../params.h"
 
@@ -26,7 +25,7 @@ u128 parseU128(const std::string &s) {
     return res;
 }
 
-static u128 s = std::chrono::steady_clock::now().time_since_epoch().count();
+static u128 s = 0;
 static inline u128 rand128()
 {
     /*
@@ -46,6 +45,7 @@ static inline u128 rand128()
 int main(int argc, char* argv[]) 
 {
     registerGen(argc, argv, 1);
+    s = ((u128)rnd.next() << 96) ^ ((u128)rnd.next() << 64) ^ ((u128)rnd.next() << 32) ^ (u128)rnd.next();
     
     u128 maxN = parseU128(MAX_N);
     int q = MAX_Q;

@@ -38,6 +38,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1395"
     name = "test_mix.in"
     number = 1
 
+[[tests]]
+    name = "test_hard.in"
+    number = 1
+
 [params]
     MAX_Q = 10
     MAX_N = "100000000000000000000000000000000000000"

@@ -220,73 +220,6 @@ template<typename Iterator> inline void inv_fft_n(Iterator a, int n) {
 
 template<typename Tp> inline void inv_fft(std::vector<Tp> &a) { inv_fft_n(a.begin(), a.size()); }
 
-// IFFT_n^T: A(x) |-> 1/n FFT_n((x^n A(x^(-1))) mod (x^n - 1))
-template<typename Iterator> inline void transposed_inv_fft_n(Iterator a, int n) {
-    using Tp    = typename std::iterator_traits<Iterator>::value_type;
-    const Tp iv = Tp::mod() - (Tp::mod() - 1) / n;
-    for (int i = 0; i < n; ++i) a[i] *= iv;
-    detail::butterfly_n(a, n, FftInfo<Tp>::get().inv_root(n / 2));
-}
-
-template<typename Tp> inline void transposed_inv_fft(std::vector<Tp> &a) {
-    transposed_inv_fft_n(a.begin(), a.size());
-}
-
-// FFT_n^T : FFT_n((x^n A(x^(-1))) mod (x^n - 1)) |-> n A(x)
-template<typename Iterator> inline void transposed_fft_n(Iterator a, int n) {
-    using Tp = typename std::iterator_traits<Iterator>::value_type;
-    detail::inv_butterfly_n(a, n, FftInfo<Tp>::get().root(n / 2));
-}
-
-template<typename Tp> inline void transposed_fft(std::vector<Tp> &a) {
-    transposed_fft_n(a.begin(), a.size());
-}
-
-template<typename Tp> inline std::vector<Tp> convolution_fft(std::vector<Tp> a, std::vector<Tp> b) {
-    if (a.empty() || b.empty()) return {};
-    const int n   = a.size();
-    const int m   = b.size();
-    const int len = fft_len(n + m - 1);
-    a.resize(len);
-    b.resize(len);
-    fft(a);
-    fft(b);
-    for (int i = 0; i < len; ++i) a[i] *= b[i];
-    inv_fft(a);
-    a.resize(n + m - 1);
-    return a;
-}
-
-template<typename Tp> inline std::vector<Tp> square_fft(std::vector<Tp> a) {
-    if (a.empty()) return {};
-    const int n   = a.size();
-    const int len = fft_len(n * 2 - 1);
-    a.resize(len);
-    fft(a);
-    for (int i = 0; i < len; ++i) a[i] *= a[i];
-    inv_fft(a);
-    a.resize(n * 2 - 1);
-    return a;
-}
-
-template<typename Tp>
-inline std::vector<Tp> convolution_naive(const std::vector<Tp> &a, const std::vector<Tp> &b) {
-    if (a.empty() || b.empty()) return {};
-    const int n = a.size();
-    const int m = b.size();
-    std::vector<Tp> res(n + m - 1);
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < m; ++j) res[i + j] += a[i] * b[j];
-    return res;
-}
-
-template<typename Tp>
-inline std::vector<Tp> convolution(const std::vector<Tp> &a, const std::vector<Tp> &b) {
-    if (std::min(a.size(), b.size()) < 60) return convolution_naive(a, b);
-    if (std::addressof(a) == std::addressof(b)) return square_fft(a);
-    return convolution_fft(a, b);
-}
-
 template<typename Tp> class Binomial {
     std::vector<Tp> factorial_, invfactorial_;
 
@@ -410,7 +343,6 @@ semi_relaxed_convolution(const std::vector<Tp> &A, Closure gen, int n) {
 
     return B;
 }
-#line 8 "fps_basic.hpp"
 
 template<typename Tp> inline int order(const std::vector<Tp> &a) {
     for (int i = 0; i < (int)a.size(); ++i)
@@ -488,14 +420,6 @@ template<typename Tp> inline void shrink(std::vector<Tp> &a) { a.resize(degree(a
 
 template<typename Tp> class SubproductTree {
 public:
-    // LV=0   => T[0..S]  = DFT((x-X_0)..(x-X_(N-1))     mod (x^S     - 1))
-    //        => T[S..2S] = (x-X_0)..(x-X_(N-1))         mod (x^S     + 1)  (*
-    //        SPECIAL CASE)
-    // LV=1   => T[..]    = DFT((x-X_0)..(x-X_(S/2-1))   mod (x^(S/2) - 1))
-    //        => T[..]    = DFT((x-X_(S/2))..(x-X_(N-1)) mod (x^(S/2) - 1)) (*
-    //        GENERAL CASE)
-    // LV=2.. => ..                                                         (*
-    // GENERAL CASE)
     std::vector<Tp> T;
     int N;
     int S;
@@ -548,8 +472,7 @@ public:
         if (degF >= N) res.erase(res.begin(), res.begin() + (degF - N + 1));
         std::reverse(res.begin(), res.end());
         res.resize(N);
-        res.insert(res.begin(), S - N,
-                   Tp(0)); // res[S-1]=[x^(-1)]F/P, res[S-2]=[x^(-2)]F/P, ...
+        res.insert(res.begin(), S - N, Tp(0));
         fft(res);
         for (int lv = 0, len = S; (1 << lv) < S; ++lv, len /= 2) {
             const auto t = FftInfo<Tp>::get().inv_root(len / 2).at(len / 4);

@@ -76,9 +76,9 @@ void InvFFT(uint a[], int n, const uint root[]) {
 
 std::vector<uint> Product(std::vector<uint> a, std::vector<uint> b) {
     if (empty(a) || empty(b)) return {};
-    const int n           = size(a) + size(b) - 1;
-    const int N           = GetFFTSize(n);
-    auto [root, inv_root] = GetFFTRoot(N);
+    const int n                 = size(a) + size(b) - 1;
+    const int N                 = GetFFTSize(n);
+    const auto [root, inv_root] = GetFFTRoot(N);
     a.resize(N);
     b.resize(N);
     FFT(data(a), N, data(root));
@@ -157,7 +157,7 @@ int main() {
     // [n^t] g(n) = 1/t! * Σ[t-1 <= j < n] f[j] * j! * B_(j+1-t)/(j+1-t)!
 
     // Let A(n) := Σ[0 <= j < n] f[j] * j! * n^j,
-    //     B(n) := Σ[j >= 0] B_j/j! n^(-j)
+    //     B(n) := Σ[j >= 0] B_j/j! * n^(-j)
     // Drop the terms of n^(<0)
     // [n^0] AB = Σ[0 <= j < n] f[j] * B_j                 = 1! * [n^1] g(n)
     // [n^1] AB = Σ[1 <= j < n] f[j] * j! * B_(j-1)/(j-1)! = 2! * [n^2] g(n)

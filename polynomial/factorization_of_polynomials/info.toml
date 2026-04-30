@@ -1,0 +1,53 @@
+title = 'Factorization of Polynomials'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/94"
+
+[[tests]]
+    name = "example.in"
+    number = 4
+[[tests]]
+    name = "small_factors.cpp"
+    number = 8
+[[tests]]
+    name = "random_coeff.cpp"
+    number = 5
+[[tests]]
+    name = "irreducible_1.cpp"
+    number = 5
+[[tests]]
+    name = "irreducible_2.cpp"
+    number = 5
+[[tests]]
+    name = "irreducible_3.cpp"
+    number = 5
+[[tests]]
+    name = "same_degree.cpp"
+    number = 5
+[[tests]]
+    name = "square_free.cpp"
+    number = 5
+[[tests]]
+    name = "all_linear.cpp"
+    number = 5
+[[tests]]
+    name = "constant.cpp"
+    number = 1
+[[tests]]
+    name = "square_free_consecutive_degrees.cpp"
+    number = 3
+[[tests]]
+    name = "square_free_sparse_degrees.cpp"
+    number = 3
+[[tests]]
+    name = "large_p2.cpp"
+    number = 3
+[[tests]]
+    name = "zero_derivative.cpp"
+    number = 5
+[[tests]]
+    name = "multiplicity_multiple_of_p.cpp"
+    number = 5
+
+[params]
+    N_MAX = 200
+    P_MAX = 998244353

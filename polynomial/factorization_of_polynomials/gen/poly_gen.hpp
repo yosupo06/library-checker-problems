@@ -16,7 +16,7 @@ using namespace std;
 using ll = long long;
 using Poly = vector<ll>;
 
-const vector<int> SMALL_PRIMES = {2, 3, 5, 7, 11, 17, 101, 998244353};
+const vector<int> PRIME_CANDIDATES = {2, 3, 5, 7, 11, 101, 1013, 10133, 101333,1013377, 10133771, 101337727, 998244341, 998244353};
 
 ll norm(ll x, ll p) {
     x %= p;
@@ -155,6 +155,9 @@ ll radical(int n) {
 
 ll choose_prime(Random& gen);
 
+// For x^n - a to be irreducible with a primitive root a, every prime
+// divisor of n must divide p - 1. If 4 | n, we also need 4 | p - 1.
+// This returns the modulus m such that choosing p = 1 mod m satisfies them.
 ll binomial_prime_requirement(int n) {
     ll m = radical(n);
     if (n % 4 == 0) m = lcm(m, 4LL);
@@ -197,19 +200,38 @@ ll primitive_root(ll p) {
     assert(false);
 }
 
-vector<int> binomial_degrees(int upper) {
+vector<int> binomial_degrees(int upper, ll p) {
     vector<int> res;
     for (int d = 1; d <= upper; d++) {
         ll m = binomial_prime_requirement(d);
-        if ((998244353LL - 1) % m == 0) res.push_back(d);
+        if ((p - 1) % m == 0) res.push_back(d);
     }
     assert(!res.empty());
     return res;
 }
 
-int choose_binomial_degree(Random& gen, int upper) {
-    vector<int> ds = binomial_degrees(upper);
+int choose_binomial_degree(Random& gen, int upper, ll p) {
+    vector<int> ds = binomial_degrees(upper, p);
     return ds[gen.uniform<int>(0, (int)ds.size() - 1)];
+}
+
+int max_binomial_degree(int upper, ll p) {
+    vector<int> ds = binomial_degrees(upper, p);
+    return ds.back();
+}
+
+ll choose_prime_for_large_binomial_degree(Random& gen, int upper) {
+    int best = 0;
+    vector<ll> ps;
+    for (ll p : PRIME_CANDIDATES) {
+        int d = max_binomial_degree(upper, p);
+        if (d > best) {
+            best = d;
+            ps.clear();
+        }
+        if (d == best) ps.push_back(p);
+    }
+    return ps[gen.uniform<int>(0, (int)ps.size() - 1)];
 }
 
 bool is_one(const Poly& a) { return a.size() == 1 && a[0] == 1; }
@@ -231,7 +253,7 @@ bool is_irreducible(const Poly& f, ll p) {
 }
 
 ll choose_prime(Random& gen) {
-    return SMALL_PRIMES[gen.uniform<int>(0, (int)SMALL_PRIMES.size() - 1)];
+    return PRIME_CANDIDATES[gen.uniform<int>(0, (int)PRIME_CANDIDATES.size() - 1)];
 }
 
 Poly random_monic(Random& gen, int d, ll p) {
@@ -250,8 +272,8 @@ Poly random_irreducible(Random& gen, int d, ll p) {
 
 // Constructs (x + b)^d - a, where a is a primitive root modulo p.
 // If every prime divisor of d divides p - 1, and additionally p = 1 mod 4
-// when 4 divides d, then x^d - a is irreducible over F_p.  Equivalently,
-// a has no non-trivial d-th root in F_p for any divisor d of the degree.
+// when 4 divides d, then x^d - a is irreducible over F_p.  
+// See lemma 6 of https://arxiv.org/pdf/1504.01172.
 Poly shifted_binomial_irreducible(Random& gen, int d, ll p) {
     if (d == 1) return random_monic(gen, 1, p);
     ll a = primitive_root(p);

@@ -2,10 +2,10 @@
 
 int main(int, char* argv[]) {
     auto gen = Random(atoll(argv[1]));
-    int d1 = choose_binomial_degree(gen, min(70, (int)N_MAX / 3));
-    int d2 = choose_binomial_degree(gen, min(70, ((int)N_MAX - d1) / 2));
-    int d3 = choose_binomial_degree(gen, min(70, (int)N_MAX - d1 - d2));
-    ll p = 998244353;
+    ll p = choose_prime_for_large_binomial_degree(gen, N_MAX);
+    int d1 = max_binomial_degree(N_MAX / 3, p);
+    int d2 = max_binomial_degree((N_MAX - N_MAX / 3) / 2, p);
+    int d3 = max_binomial_degree(N_MAX - N_MAX / 3 - (N_MAX - N_MAX / 3) / 2, p);
     Poly f = {1};
     f = mul(f, shifted_binomial_irreducible(gen, d1, p), p);
     f = mul(f, shifted_binomial_irreducible(gen, d2, p), p);

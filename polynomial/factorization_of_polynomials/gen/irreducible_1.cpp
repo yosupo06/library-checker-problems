@@ -2,8 +2,8 @@
 
 int main(int, char* argv[]) {
     auto gen = Random(atoll(argv[1]));
-    int n = choose_binomial_degree(gen, (int)N_MAX);
-    ll p = 998244353;
+    ll p = choose_prime_for_large_binomial_degree(gen, N_MAX);
+    int n = max_binomial_degree(N_MAX, p);
     print_case(p, shifted_binomial_irreducible(gen, n, p));
     return 0;
 }

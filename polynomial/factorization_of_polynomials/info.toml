@@ -49,5 +49,5 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/94"
     number = 5
 
 [params]
-    N_MAX = 200
+    N_MAX = 100
     P_MAX = 998244353

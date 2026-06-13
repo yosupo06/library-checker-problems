@@ -29,7 +29,7 @@ $a_0$ $a_1$ ... $a_N$
 
 @{lang.en}
 Print the number of distinct irreducible factors $K$.
-For each factor　$g_i$, print its multiplicity $e_i$, degree $d_i$, and coefficients
+For each factor $g_i$, print its multiplicity $e_i$, degree $d_i$, and coefficients
 $b_{i,0}, b_{i,1}, \ldots, b_{i,d_i}$ of
 
 $$

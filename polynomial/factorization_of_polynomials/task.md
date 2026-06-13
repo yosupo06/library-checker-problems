@@ -77,11 +77,23 @@ $e_K$ $d_K$ $b_{K,0}$ $b_{K,1}$ ... $b_{K,d_K}$
 
 ## @{keyword.constraints}
 
+@{lang.en}
+
 - $2 \leq p \leq @{param.P_MAX}$
-- $p$ is prime
+- $p$ is prime.
 - $0 \leq N \leq @{param.N_MAX}$
 - $0 \leq a_i < p$
 - $a_N=1$
+
+@{lang.ja}
+
+- $2 \leq p \leq @{param.P_MAX}$
+- $p$ は素数
+- $0 \leq N \leq @{param.N_MAX}$
+- $0 \leq a_i < p$
+- $a_N=1$
+
+@{lang.end}
 
 ## @{keyword.sample}
 

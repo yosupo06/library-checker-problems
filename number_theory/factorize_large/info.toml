@@ -1,0 +1,47 @@
+title = 'Factorize (Large)'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1395"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+
+[[tests]]
+    name = "random.cpp"
+    number = 5
+
+[[tests]]
+    name = "largeSemiprimes.cpp"
+    number = 14
+
+[[tests]]
+    name = "test_pseudoprimes.in"
+    number = 1
+
+[[tests]]
+    name = "test_semiprimes.in"
+    number = 1
+
+[[tests]]
+    name = "test_Carmichaels.in"
+    number = 1
+
+[[tests]]
+    name = "test_prime_powers.in"
+    number = 1
+
+[[tests]]
+    name = "test_SHCs.in"
+    number = 1
+
+[[tests]]
+    name = "test_mix.in"
+    number = 1
+
+[[tests]]
+    name = "test_hard.in"
+    number = 1
+
+[params]
+    MAX_Q = 10
+    MAX_N = "100000000000000000000000000000000000000"

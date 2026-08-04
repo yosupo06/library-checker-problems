@@ -200,7 +200,8 @@ int main(){
    for(int k=1;k<=t;k++)for(int j=1;j<=t/k;j++){
       Mint add=fact.inv(j)*cnt[k];
       if(j&1)f[k*j]+=add; else f[k*j]-=add;
-   } f=f.exp();
+   }
+   f=f.exp();
    for(int i=1;i<=t;i++) {
       printf("%d",f[i].val);
       if(i<t)printf(" ");

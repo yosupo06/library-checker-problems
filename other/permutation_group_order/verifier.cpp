@@ -7,7 +7,7 @@ int main() {
     int n = inf.readInt(1, N_MAX, "N");
     inf.readSpace();
     int k = inf.readInt(1, K_MAX, "K");
-    inf.readEoln();
+    inf.readChar('\n');
     for (int i = 0; i < k; ++i) {
         std::vector<bool> seen(n);
         for (int j = 0; j < n; ++j) {
@@ -16,7 +16,7 @@ int main() {
             ensuref(!seen[x], "Each row must be a permutation");
             seen[x] = true;
         }
-        inf.readEoln();
+        inf.readChar('\n');
     }
     inf.readEof();
 }

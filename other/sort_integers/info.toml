@@ -1,0 +1,35 @@
+title = 'Sort Integers'
+timelimit = 5.0
+forum = 'https://github.com/yosupo06/library-checker-problems/issues/1280'
+
+[[solutions]]
+    name = 'std_sort.cpp'
+    function = true
+[[solutions]]
+    name = 'radix.cpp'
+    function = true
+[[solutions]]
+    name = 'signed_order.cpp'
+    function = true
+    expect = 'WA'
+[[solutions]]
+    name = 'low_32_bits.cpp'
+    function = true
+    expect = 'WA'
+
+[[tests]]
+    name = 'example.in'
+    number = 2
+[[tests]]
+    name = 'small.cpp'
+    number = 4
+[[tests]]
+    name = 'patterns.cpp'
+    number = 12
+[[tests]]
+    name = 'batches.cpp'
+    number = 3
+
+[params]
+    N_SUM_MAX = 4194304
+    T_MAX = 200000

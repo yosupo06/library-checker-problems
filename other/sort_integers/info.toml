@@ -31,5 +31,5 @@ forum = 'https://github.com/yosupo06/library-checker-problems/issues/1280'
     number = 3
 
 [params]
-    N_SUM_MAX = 4194304
+    N_SUM_MAX = 10_000_000
     T_MAX = 200000

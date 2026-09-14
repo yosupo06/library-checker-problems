@@ -1,6 +1,8 @@
 #include "testlib.h"
 
 int main(int argc, char** argv) {
+    // Ten million uint64 values require up to about 210 MB of text.
+    inf.maxFileSize = ans.maxFileSize = ouf.maxFileSize = 256 * 1024 * 1024;
     registerTestlibCmd(argc, argv);
     int position = 0;
     while (!ans.seekEof()) {

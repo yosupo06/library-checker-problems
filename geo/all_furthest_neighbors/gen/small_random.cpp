@@ -10,9 +10,9 @@ int main(int, char* argv[]) {
   std::vector<Point> base = primitive_polygon(base_n);
   std::vector<std::vector<Point>> cases;
   int sum_n = 0;
-  while (sum_n < 20'000) {
+  while (sum_n < SUM_N_MAX) {
     int n = gen.uniform<int>(3, 30);
-    if (sum_n + n > 20'000) break;
+    if (sum_n + n > SUM_N_MAX) break;
     std::vector<int> ids(base_n);
     std::iota(ids.begin(), ids.end(), 0);
     gen.shuffle(ids.begin(), ids.end());

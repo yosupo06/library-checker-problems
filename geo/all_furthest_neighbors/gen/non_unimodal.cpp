@@ -13,7 +13,7 @@ int main(int, char* argv[]) {
   };
 
   std::vector<std::vector<Point>> cases;
-  const int case_count = 10'000;
+  const int case_count = 40'000;
   cases.reserve(case_count);
   for (int t = 0; t < case_count; ++t) {
     std::vector<Point> polygon = clockwise;

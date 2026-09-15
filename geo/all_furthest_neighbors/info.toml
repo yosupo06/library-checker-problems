@@ -1,4 +1,5 @@
 title = 'All Furthest Neighbors of a Convex Polygon'
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1187"
 timelimit = 5.0
 
 [[tests]]

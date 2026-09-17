@@ -296,6 +296,7 @@ problems = [
 [[categories]]
 name = "Other"
 problems = [
+  "sort_integers",
   "two_sat",
   "longest_increasing_subsequence",
   "sum_of_exponential_times_polynomial",

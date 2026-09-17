@@ -1,0 +1,95 @@
+title = 'Partially Retroactive Priority Queue'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1213"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+
+[[tests]]
+    name = "small_n_q.cpp"
+    number = 2
+
+[[tests]]
+    name = "small_n.cpp"
+    number = 2
+
+[[tests]]
+    name = "small_q.cpp"
+    number = 2
+
+[[tests]]
+    name = "many_empty_pops.cpp"
+    number = 2
+
+[[tests]]
+    name = "random.cpp"
+    number = 3
+
+[[tests]]
+    name = "min_n_max_q.cpp"
+    number = 1
+
+[[tests]]
+    name = "max_n_q.cpp"
+    number = 3
+
+[[tests]]
+    name = "insert_then_remove.cpp"
+    number = 3
+
+[[tests]]
+    name = "many_similar_x_b_small_n_q.cpp"
+    number = 3
+
+[[tests]]
+    name = "many_similar_x_b.cpp"
+    number = 3
+
+[[tests]]
+    name = "x_sorted.cpp"
+    number = 2
+
+[[tests]]
+    name = "k_near_powers_of_2.cpp"
+    number = 2
+
+[[tests]]
+    name = "t_eq_0.cpp"
+    number = 2
+
+[[tests]]
+    name = "t_eq_1.cpp"
+    number = 2
+
+[[tests]]
+    name = "t_eq_2.cpp"
+    number = 2
+
+[[tests]]
+    name = "a_eq_0.cpp"
+    number = 2
+
+[[tests]]
+    name = "a_eq_1.cpp"
+    number = 2
+
+[[tests]]
+    name = "a_eq_2.cpp"
+    number = 2
+
+[[tests]]
+    name = "hack_tiebreak.in"
+    number = 2
+
+[[solutions]]
+    name = "naive.cpp"
+    allow_tle = true
+
+[params]
+    N_MIN = 1
+    N_MAX = 200_000
+    Q_MIN = 1
+    Q_MAX = 200_000
+    X_MIN = 0
+    X_MAX = 1_000_000_000

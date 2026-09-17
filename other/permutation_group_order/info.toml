@@ -1,0 +1,27 @@
+title = 'Permutation Group Order'
+timelimit = 5.0
+forum = 'https://github.com/yosupo06/library-checker-problems/issues/528'
+
+[[solutions]]
+    name = 'orbit_product.cpp'
+    expect = 'WA'
+
+[[tests]]
+    name = 'example.in'
+    number = 3
+[[tests]]
+    name = 'random.cpp'
+    number = 12
+[[tests]]
+    name = 'structured.cpp'
+    number = 24
+[[tests]]
+    # Hand-written MSU contest cases, converted to zero-based permutations.
+    # Polygon 103440 (groups-copy), revision 16, tests 1-4 and 41-47.
+    name = 'msu.in'
+    number = 11
+
+[params]
+    N_MAX = 50
+    K_MAX = 100
+    MOD = 998244353

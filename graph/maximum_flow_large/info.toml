@@ -1,0 +1,92 @@
+title = 'Maximum Flow / Minimum Cut (Large)'
+timelimit = 10.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/142"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "boundary.cpp"
+    number = 4
+[[tests]]
+    name = "random.cpp"
+    number = 6
+[[tests]]
+    name = "parallel.cpp"
+    number = 3
+[[tests]]
+    name = "layered.cpp"
+    number = 3
+[[tests]]
+    name = "dinic_no_current_arc_killer.cpp"
+    number = 1
+[[tests]]
+    name = "dinic_worst.cpp"
+    number = 5
+[[tests]]
+    name = "dinic_unit_capacity_paths_worst.cpp"
+    number = 1
+[[tests]]
+    name = "dinic_unit_network_worst.cpp"
+    number = 1
+[[tests]]
+    name = "dinic_unit_capacity_worst.cpp"
+    number = 1
+[[tests]]
+    name = "dinic_worst_hubs.cpp"
+    number = 1
+[[tests]]
+    name = "grid_random.cpp"
+    number = 10
+[[tests]]
+    name = "hlpp_worst.cpp"
+    number = 1
+[[tests]]
+    name = "fifo_push_relabel_worst.cpp"
+    number = 1
+[[tests]]
+    name = "push_relabel_worst.cpp"
+    number = 1
+[[tests]]
+    name = "scaling_dinic_worst_nested.cpp"
+    number = 1
+[[tests]]
+    name = "scaling_dinic_worst.cpp"
+    number = 1
+[[tests]]
+    name = "ford_fulkerson_random_killer.cpp"
+    number = 1
+[[tests]]
+    name = "dfs_scaling_worst.cpp"
+    number = 1
+[[tests]]
+    name = "most_improving_path_worst.cpp"
+    number = 1
+
+[[tests]]
+    name = "reverse_required.in"
+    number = 1
+[[tests]]
+    name = "preflow_recovery.in"
+    number = 1
+[[tests]]
+    name = "random_positive.cpp"
+    number = 2
+
+[[solutions]]
+    name = "scaling_dinic.cpp"
+[[solutions]]
+    name = "excess_scaling.cpp"
+[[solutions]]
+    name = "fifo.cpp"
+[[solutions]]
+    name = "acl.cpp"
+    allow_tle = true
+[[solutions]]
+    name = "isap.cpp"
+    allow_tle = true
+
+[params]
+    N_MAX = 5_000
+    M_MAX = 10_000
+    C_MAX = 1_000_000_000

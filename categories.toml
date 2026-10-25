@@ -215,6 +215,7 @@ problems = [
   "montmort_number_mod",
   "bell_number",
   "binomial_coefficient",
+  "prefix_sum_of_binomial_coefficient",
   "binomial_coefficient_prime_mod",
   "q_binomial_coefficient_prime_mod",
   "partition_function",

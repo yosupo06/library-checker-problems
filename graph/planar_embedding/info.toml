@@ -1,0 +1,71 @@
+title = 'Planar Embedding'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/649"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "all_small_graphs.cpp"
+    number = 3
+[[tests]]
+    name = "many_tiny.cpp"
+    number = 1
+[[tests]]
+    name = "simple_max.cpp"
+    number = 3
+[[tests]]
+    name = "classic.cpp"
+    number = 1
+[[tests]]
+    name = "complete.cpp"
+    number = 3
+[[tests]]
+    name = "triangulation.cpp"
+    number = 2
+[[tests]]
+    name = "planar_families.cpp"
+    number = 1
+[[tests]]
+    name = "hidden_subdivision.cpp"
+    number = 2
+[[tests]]
+    name = "random_small.cpp"
+    number = 1
+[[tests]]
+    name = "random_medium.cpp"
+    number = 1
+[[tests]]
+    name = "random_max.cpp"
+    number = 1
+[[tests]]
+    name = "random_planar.cpp"
+    number = 4
+[[tests]]
+    name = "chords.cpp"
+    number = 2
+[[tests]]
+    name = "block_cut.cpp"
+    number = 1
+[[solutions]]
+    name = "networkx_lr_planarity.cpp"
+    allow_tle = true
+[[solutions]]
+    name = "wrong_euler.cpp"
+    expect = "WA"
+[[solutions]]
+    name = "wrong_no_side_flip.cpp"
+    allow_tle = true
+    expect = "WA"
+[[solutions]]
+    name = "wrong_component_of_0.cpp"
+    allow_tle = true
+    expect = "WA"
+
+[params]
+    T_MIN = 1
+    T_MAX = 100_000
+    N_MIN = 1
+    N_MAX = 1_000_000
+    M_MIN = 0
+    M_MAX = 1_000_000

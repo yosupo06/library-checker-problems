@@ -1,0 +1,37 @@
+title = 'Range Set Equal Range Query'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/990"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+
+[[tests]]
+    name = "small_random.cpp"
+    number = 2
+[[tests]]
+    name = "small.cpp"
+    number = 10
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "max_random.cpp"
+    number = 3
+[[tests]]
+    name = "fragment.cpp"
+    number = 2
+[[tests]]
+    name = "slide_window.cpp"
+    number = 2
+[[tests]]
+    name = "small_kind.cpp"
+    number = 9
+
+[[solutions]]
+    name = "naive.cpp"
+    allow_tle = true
+
+[params]
+    N_AND_Q_MAX = 500_000
+    A_MAX=1_000_000_000

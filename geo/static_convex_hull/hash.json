@@ -35,6 +35,8 @@
   "near_circle_01.out": "c8d06e0289ee61bd19997a62dee5011ef8d8b2ee89ed16bc93a3e32e5d98f330",
   "near_collinear_00.in": "8021180d8fee45836cf1bb8a614018af1d86a2a34fd05cf616a3b7c2d92f9c8e",
   "near_collinear_00.out": "f70343c73f0d362068598f5e4b01925cd835bda7898d7b74d423e4a0c6b7b2a7",
+  "small_determinant_00.in": "4610bb5f47b01e5fa959054f2eafbf8d693e91929be87587f3ab091cf187903a",
+  "small_determinant_00.out": "733e080b994bd7e3138755e121fa2cb79712f789bd358cfc4968617ed5fbecbf",
   "small_random_00.in": "9fe922ae59a53443032eaa4b762201344553d53fe6c4edfb8059a1c4dee6b3cd",
   "small_random_00.out": "1fec982a51132de19ece95730c671442afbdc71d5fb481897701c173497fc63a",
   "small_random_01.in": "13c442b25e2c775116e33aae63fddd7629c0b323a3e0482223b40ab7fdfa84a2",

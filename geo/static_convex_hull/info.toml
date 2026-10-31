@@ -34,6 +34,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/897"
     name = "near_collinear.in"
     number = 1
 
+[[tests]]
+    name = "small_determinant.cpp"
+    number = 1
+
 [[solutions]]
     name = "output_cyclic_shift.cpp"
 

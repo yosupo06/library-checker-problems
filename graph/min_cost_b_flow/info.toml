@@ -33,6 +33,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/143"
     name = "anti_ssp.cpp"
     number = 1
 
+[[tests]]
+    name = "large_costs.in"
+    number = 3
+
 [[solutions]]
     name = 'ssp.cpp'
     allow_tle = true

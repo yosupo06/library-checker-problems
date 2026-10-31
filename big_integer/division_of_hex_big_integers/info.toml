@@ -33,10 +33,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1101"
     name = "burnikel_ziegler_bound.cpp"
     number = 4
 
-[[tests]]
-    name = "dense_quotient.cpp"
-    number = 1
-
 [[solutions]]
     name = "correct.py"
     allow_tle = true

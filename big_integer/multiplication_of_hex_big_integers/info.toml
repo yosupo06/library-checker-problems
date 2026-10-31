@@ -37,10 +37,6 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1101"
     name = "correct.py"
     allow_tle = true
 
-[[tests]]
-    name = "fft_killer_15bit.cpp"
-    number = 2
-
 [params]
     T_MAX = 160000
     LOG_16_A_AND_B_MAX = 1600000

@@ -28,8 +28,8 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/941"
     number = 1
 
 [[tests]]
-    name = "fft_killer_base10000.cpp"
-    number = 2
+    name = "max_digit.cpp"
+    number = 1
 
 [params]
     T_MAX = 200000

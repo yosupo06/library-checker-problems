@@ -35,7 +35,7 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/143"
 
 [[tests]]
     name = "large_costs.in"
-    number = 2
+    number = 3
 
 [[solutions]]
     name = 'ssp.cpp'

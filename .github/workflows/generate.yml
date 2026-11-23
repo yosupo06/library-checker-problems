@@ -40,6 +40,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install --user -r requirements.txt
 
+      - name: Install GCC 12
+        if: runner.os == 'Linux' && inputs.cxx == 'g++-12'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends g++-12
+
       - name: Restore versions.json
         uses: actions/cache/restore@v4
         if: ${{ !inputs.force-generate }}

@@ -19,7 +19,7 @@ namespace ds {
 		return x;
 	}
 	template<class T> u64 hash(T x) {
-		if (std::is_same_v<T, __u128>) {
+		if constexpr (std::is_same_v<T, unsigned __int128>) {
 			return hash64(static_cast<u64>(x)) ^ hash64(static_cast<u64>(x >> 64));
 		} else {
 			return hash64(x);

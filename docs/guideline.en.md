@@ -75,7 +75,14 @@ timelimit = 2.0
 
 The easiest way to prepare this file is the copy and modify other problems' `task.md`. You don't need to prepare the Japanese statement (of course, we are welcome if you want to prepare it).
 
-- @{lang.en}, @{lang.ja}, @{lang.end} : Language selector
+Depending on the symbols used in MathJax formulas, some may conflict with Markdown syntax. The following methods are effective. If you have some concerns, please check them using the Statement Viewer (https://judge.yosupo.jp/tool/statementviewer).
+
+* Use symbol-free alternatives, such as `\lbrace` and `\rbrace`, instead of `\{` and `\}`
+* Insert half-width spaces before and after the underscore (`_`)
+
+Markdown is extended as follows:
+
+- @{lang.en}, @{lang.ja}, @{lang.end} : Language selector. Ensure it does not conflict with Markdown syntax. (see [#692 (comment)](https://github.com/yosupo06/library-checker-problems/pull/692#discussion_r698902635))
 - @{example.example_00} : Insert `gen/example_00.in`
 - @{param.A_AND_B_MAX} : Insert `[params]` that specified by info.toml
 
@@ -134,3 +141,7 @@ You can refer [How to create testcases](generator.en.md)
 ```
 
 hash.json will appear if everything is okay. You have to commit this file.
+
+### Notes
+
+Please do not add newly created tasks to `/categories.toml`. (Adding them will prevent the tasks from appearing in the "New" category.)

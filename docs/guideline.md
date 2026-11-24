@@ -77,11 +77,18 @@ timelimit = 2.0
 markdown + mathjax形式です。他のtask.mdをコピペして弄ればいいと思います。
 伝わればいいので、細かいところは気にしないで大丈夫です。
 
+mathjax 数式中で使う記号によっては、markdown の構文と競合します。次のような対策が有効です。不安な点は Statement Viewer (https://judge.yosupo.jp/tool/statementviewer) で確認してください。
+
+* `\{`, `\}` ではなく `\lbrace`,`\rbrace` など、記号を含まないものを利用する
+* アンダースコア (`_`) の前後に半角空白を挿入する
+
 いくつか拡張されています
 
-- @{lang.en}, @{lang.ja}, @{lang.end} : このブロックで囲んだところは対応する言語にしか見えなくなります
+- @{lang.en}, @{lang.ja}, @{lang.end} : このブロックで囲んだところは対応する言語にしか見えなくなります。Markdown の構文と交差しないようにしてください。 (see [#692 (comment)](https://github.com/yosupo06/library-checker-problems/pull/692#discussion_r698902635))
 - @{example.example_00} : `gen/example_00.in`を埋め込みます
 - @{param.A_AND_B_MAX} : info.tomlで指定した`[params]`を埋め込みます
+
+### Statement Viewer の利用
 
 ## sol/correct.cpp(想定解)
 
@@ -151,3 +158,7 @@ markdown + mathjax形式です。他のtask.mdをコピペして弄ればいい�
 ```
 
 無事動かせると上記のようなファイルが生まれているはずです。テストケースのハッシュ(sha256)が保存されていて、これもcommitする必要があります(CIでもテストケースを作って、ハッシュがpushされたものと一致してるか確認する)。
+
+## 注意点
+
+新規作成した問題は `/categories.toml` には追加しないようにしてください。（追加すると "New" カテゴリに表示されなくなります）

@@ -14,6 +14,12 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/628"
 [[tests]]
     name = "clique_cycle.cpp"
     number = 4
+[[tests]]
+    name = "matching_issue1431.cpp"
+    number = 1
+[[tests]]
+    name = "line.cpp"
+    number = 1
 
 [params]
     MIN_N = 1

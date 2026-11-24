@@ -7,6 +7,16 @@
 #include <cassert>
 #include <cctype>
 #include <cstring>
+#include <cstdint>
+#include <cerrno>
+#include <cstdlib>
+#if defined(__unix__) || defined(__APPLE__)
+#include <sys/mman.h>
+#include <sys/stat.h>
+#endif
+#if defined(__SSSE3__)
+#include <tmmintrin.h>
+#endif
 #include <sstream>
 #include <string>
 #include <type_traits>
@@ -34,95 +44,178 @@ struct Scanner {
     Scanner(const Scanner&) = delete;
     Scanner& operator=(const Scanner&) = delete;
 
-    Scanner(FILE* fp) : fd(fileno(fp)) { buf[0] = 127; }
+    Scanner(FILE* fp) : fd(fileno(fp)) {
+#if defined(__unix__) || defined(__APPLE__)
+        struct stat info {};
+        off_t offset = ::lseek(fd, 0, SEEK_CUR);
+        if (offset >= 0 && ::fstat(fd, &info) == 0 && S_ISREG(info.st_mode) &&
+            info.st_size > offset) {
+            mapping_size = size_t(info.st_size);
+            void* address = ::mmap(nullptr, mapping_size, PROT_READ, MAP_PRIVATE, fd, 0);
+            if (address != MAP_FAILED) {
+                mapping = static_cast<const char*>(address);
+                current = mapping + offset;
+                end = mapping + mapping_size;
+                eof = true;
+            }
+        }
+#endif
+    }
+    ~Scanner() {
+#if defined(__unix__) || defined(__APPLE__)
+        if (mapping) ::munmap(const_cast<char*>(mapping), mapping_size);
+#endif
+    }
 
     void read() {}
     template <class H, class... T> void read(H& h, T&... t) {
-        bool f = read_single(h);
-        assert(f);
+        bool ok = read_single(h);
+        assert(ok);
+        (void)ok;
         read(t...);
     }
 
   private:
-    bool read_single(int& v) { return read_signed(v); }
-    bool read_single(long& v) { return read_signed(v); }
-    bool read_single(long long& v) { return read_signed(v); }
-    bool read_single(__int128& v) { return read_signed(v); }
-
-    bool read_single(unsigned int& v) { return read_unsigned(v); }
-    bool read_single(unsigned long& v) { return read_unsigned(v); }
-    bool read_single(unsigned long long& v) { return read_unsigned(v); }
-    bool read_single(unsigned __int128& v) { return read_unsigned(v); }
-
-    static constexpr int BUF_SIZE = 1 << 15;
-
-    int fd;  // file descriptor
-    std::array<char, BUF_SIZE + 1> buf;
-    int st = 0, ed = 0;  // available range of buf. buf[ed] must be 127.
+    static constexpr size_t BUF_SIZE = 1 << 16;
+    int fd;
+    std::array<char, BUF_SIZE + 64> buffer{};
+    const char* current = buffer.data();
+    const char* end = buffer.data();
+    const char* mapping = nullptr;
+    size_t mapping_size = 0;
     bool eof = false;
 
-    template <class T> bool read_signed(T& v) {
-        if (!skip_blanks<50>()) return false;
-
-        bool neg = false;
-        if (buf[st] == '-') {
-            neg = true;
-            st++;
+    // Mapped tails are copied before SIMD reads, including page-aligned EOF.
+    void refill() {
+        size_t remaining = size_t(end - current);
+        std::memmove(buffer.data(), current, remaining);
+#if defined(__unix__) || defined(__APPLE__)
+        // The input is consumed before solve(); do not retain its resident pages.
+        if (mapping) {
+            ::munmap(const_cast<char*>(mapping), mapping_size);
+            mapping = nullptr;
         }
+#endif
+        current = buffer.data();
+        while (remaining < 64 && !eof) {
+            ssize_t count;
+            do {
+                count = ::read(fd, buffer.data() + remaining, BUF_SIZE - remaining);
+            } while (count < 0 && errno == EINTR);
+            if (count < 0) std::abort();
+            remaining += size_t(count);
+            eof = count == 0;
+        }
+        end = buffer.data() + remaining;
+        std::memset(buffer.data() + remaining, 0, 64);
+    }
 
-        make_unsigned_t<T> v2;
-        read_unsigned_internal(v2);
-        v = (neg) ? -v2 : v2;
-
+    bool prepare() {
+        if (end - current < 64) refill();
+        while (*current <= ' ') {
+            if (current == end) return false;
+            ++current;
+            if (end - current < 64) refill();
+        }
         return true;
     }
 
-    template <class T> bool read_unsigned(T& v) {
-        if (!skip_blanks<50>()) return false;
+#if defined(__SSSE3__)
+    alignas(16) inline static constexpr auto align_digits = [] {
+        std::array<std::array<unsigned char, 16>, 16> table{};
+        for (int n = 0; n < 16; ++n)
+            for (int j = 0; j < 16; ++j)
+                table[n][j] = j < 16 - n ? 128 : static_cast<unsigned char>(j - 16 + n);
+        return table;
+    }();
 
-        read_unsigned_internal(v);
-
-        return true;
+    static uint64_t decimal16(__m128i digits) {
+        auto pairs = _mm_maddubs_epi16(digits, _mm_set1_epi16(0x010a));
+        auto quads = _mm_madd_epi16(pairs, _mm_set1_epi32(0x00010064));
+        auto octets = _mm_madd_epi16(_mm_packs_epi32(quads, _mm_setzero_si128()),
+                                   _mm_set1_epi32(0x00012710));
+        return uint64_t(uint32_t(_mm_cvtsi128_si32(octets))) * 100000000 +
+               uint32_t(_mm_cvtsi128_si32(_mm_srli_si128(octets, 4)));
     }
+#endif
 
-    template <class T> void read_unsigned_internal(T& v) {
-        v = 0;
-        do {
-            v = 10 * v + (buf[st++] & 0x0f);
-        } while (is_digit(buf[st]));
-    }
-
-    void read_input() {
-        assert(!eof);
-
-        std::memmove(buf.data(), buf.data() + st, ed - st);
-        ed -= st;
-        st = 0;
-
-        int u = int(::read(fd, buf.data() + ed, BUF_SIZE - ed));
-        if (u == 0) {
-            eof = true;
-            buf[ed] = '\0';
-            ed++;
-        }
-        ed += u;
-
-        buf[ed] = 127;
-    }
-
-    // skip blanks and assume next token is in buffer
-    template <int MAX_TOKEN_LEN> bool skip_blanks() {
+    template <class U> U magnitude() {
+        U value = 0;
+#if defined(__SSSE3__)
         while (true) {
-            while (is_blank(buf[st])) st++;
-            if (ed - st > MAX_TOKEN_LEN) return true;
-            // std::cerr << st << " " << ed << " " << eof << std::endl;
-            if (eof) return (st < ed);
-            read_input();
+            auto digits = _mm_sub_epi8(_mm_loadu_si128(
+                reinterpret_cast<const __m128i*>(current)), _mm_set1_epi8('0'));
+            unsigned mask = unsigned(_mm_movemask_epi8(digits));
+            if (mask) {
+                int length = __builtin_ctz(mask);
+                digits = _mm_shuffle_epi8(digits, _mm_load_si128(
+                    reinterpret_cast<const __m128i*>(align_digits[length].data())));
+                static constexpr auto powers = [] {
+                    std::array<uint64_t, 16> result{};
+                    result[0] = 1;
+                    for (int i = 1; i < 16; ++i) result[i] = result[i - 1] * 10;
+                    return result;
+                }();
+                uint64_t scale = 1;
+                // Only long integers need to append a second/third chunk.
+                if constexpr (sizeof(U) > 4) {
+                    if (value) {
+                        scale = powers[length];
+                        value *= scale;
+                    }
+                }
+                value += U(decimal16(digits));
+                current += length;
+                return value;
+            }
+            value = value * U(10000000000000000ULL) + U(decimal16(digits));
+            current += 16;
+            if constexpr (sizeof(U) <= 8) {
+                while (*current >= '0' && *current <= '9')
+                    value = U(value * 10 + unsigned(*current++ - '0'));
+                return value;
+            }
+        }
+#else
+        while (*current >= '0' && *current <= '9')
+            value = U(value * 10 + unsigned(*current++ - '0'));
+        return value;
+#endif
+    }
+
+    bool read_single(std::string& value) {
+        if (!prepare()) return false;
+        value.clear();
+        while (true) {
+            const char* begin = current;
+            while (current != end && *current > ' ') ++current;
+            value.append(begin, size_t(current - begin));
+            if (current != end) {
+                ++current;
+                if (mapping && end - current < 64) refill();
+                return true;
+            }
+            if (eof) {
+                if (mapping) refill();
+                return true;
+            }
+            refill();
         }
     }
 
-    static bool is_blank(char c) { return c <= ' '; }
-    static bool is_digit(char c) { return c >= '0'; }
+    template <class T> bool read_single(T& value) {
+        if (!prepare()) return false;
+        if constexpr (std::is_signed_v<T> || std::is_same_v<T, __int128>) {
+            bool negative = *current == '-';
+            current += negative;
+            auto x = magnitude<make_unsigned_t<T>>();
+            value = T(negative ? -x : x);
+        } else {
+            value = magnitude<T>();
+        }
+        if (current != end) ++current;
+        return true;
+    }
 };
 
 struct Printer {
@@ -145,21 +238,56 @@ struct Printer {
 
     void flush() {
         if (pos) {
-            auto res = ::write(fd, buf.data(), pos);
-            assert(res != -1);
+            size_t written = 0;
+            while (written < pos) {
+                auto count = ::write(fd, buf.data() + written, pos - written);
+                if (count < 0 && errno == EINTR) continue;
+                if (count <= 0) std::abort();
+                written += size_t(count);
+            }
             pos = 0;
         }
     }
 
   private:
+    static std::array<std::array<char, 4>, 10000> groups;
+    inline static const auto leading = [] {
+        std::array<std::array<char, 4>, 10000> table{};
+        for (int value = 0; value < 10000; ++value) {
+            int length = 1 + (value >= 10) + (value >= 100) + (value >= 1000);
+            int x = value;
+            for (int i = length - 1; i >= 0; --i) {
+                table[value][i] = char('0' + x % 10);
+                x /= 10;
+            }
+        }
+        return table;
+    }();
+    inline static const auto lengths = [] {
+        std::array<unsigned char, 10000> table{};
+        for (int value = 0; value < 10000; ++value)
+            table[value] = static_cast<unsigned char>(1 + (value >= 10) + (value >= 100) + (value >= 1000));
+        return table;
+    }();
     static std::array<std::array<char, 2>, 100>
         small;                                       // small[i] = to_string(i)
     static std::array<unsigned long long, 20> tens;  // tens[i] = 10^i
 
-    static constexpr size_t BUF_SIZE = 1 << 15;
+    static constexpr size_t BUF_SIZE = 1 << 19;
     int fd;
     std::array<char, BUF_SIZE> buf;
     size_t pos = 0;  // buf[0..pos) is used
+
+    void write_single(const std::string& value) {
+        size_t copied = 0;
+        while (copied < value.size()) {
+            size_t count = std::min(value.size() - copied, BUF_SIZE - pos);
+            std::memcpy(buf.data() + pos, value.data() + copied, count);
+            copied += count;
+            pos += count;
+            if (pos == BUF_SIZE) flush();
+        }
+    }
 
     // char
     template <class T, std::enable_if_t<std::is_same_v<char, T>>* = nullptr>
@@ -238,37 +366,62 @@ struct Printer {
         write_unsigned_internal(v);
     }
 
-    template <class U, std::enable_if_t<8 >= sizeof(U)>* = nullptr>
-    void write_unsigned_internal(U v) {
-        size_t len = to_string_size(v);
-        pos += len;
-
-        char* ptr = buf.data() + pos;
-        while (v >= 100) {
-            ptr -= 2;
-            memcpy(ptr, small[v % 100].data(), 2);
-            v /= 100;
-        }
-        if (v >= 10) {
-            memcpy(ptr - 2, small[v].data(), 2);
+    void padded4(uint32_t value) {
+        std::memcpy(buf.data() + pos, groups[value].data(), 4);
+        pos += 4;
+    }
+    void padded8(uint32_t value) {
+        padded4(value / 10000);
+        padded4(value % 10000);
+    }
+    void leading4(uint32_t value) {
+        std::memcpy(buf.data() + pos, leading[value].data(), 4);
+        pos += lengths[value];
+    }
+    void leading8(uint32_t value) {
+        if (value >= 10000) {
+            leading4(value / 10000);
+            padded4(value % 10000);
         } else {
-            *(ptr - 1) = char('0' + v);
+            leading4(value);
         }
     }
-
-    // TODO: optimize
-    template <class U, std::enable_if_t<16 == sizeof(U)>* = nullptr>
-    void write_unsigned_internal(U v) {
-        static std::array<char, 50> buf2;
-
-        size_t len = 0;
-        while (v > 0) {
-            buf2[len++] = char((v % 10) + '0');
-            v /= 10;
+    template <class U, std::enable_if_t<8 >= sizeof(U)>* = nullptr>
+    void write_unsigned_internal(U value) {
+        if constexpr (sizeof(U) > 4) {
+            if (value >= 10000000000000000ULL) {
+                leading8(uint32_t(value / 10000000000000000ULL));
+                padded8(uint32_t(value / 100000000 % 100000000));
+                padded8(uint32_t(value % 100000000));
+                return;
+            }
         }
-        std::reverse(buf2.begin(), buf2.begin() + len);
-        memcpy(buf.data() + pos, buf2.data(), len);
-        pos += len;
+        if (value >= 100000000) {
+            leading8(uint32_t(value / 100000000));
+            padded8(uint32_t(value % 100000000));
+        } else {
+            leading8(uint32_t(value));
+        }
+    }
+    template <class U, std::enable_if_t<16 == sizeof(U)>* = nullptr>
+    void write_unsigned_internal(U value) {
+        if (value <= UINT64_MAX) {
+            write_unsigned_internal(uint64_t(value));
+            return;
+        }
+        constexpr uint64_t base = 10000000000000000ULL;
+        U high = value / base;
+        uint64_t low = uint64_t(value % base);
+        if (high > UINT64_MAX) {
+            write_unsigned_internal(uint64_t(high / base));
+            uint64_t middle = uint64_t(high % base);
+            padded8(uint32_t(middle / 100000000));
+            padded8(uint32_t(middle % 100000000));
+        } else {
+            write_unsigned_internal(uint64_t(high));
+        }
+        padded8(uint32_t(low / 100000000));
+        padded8(uint32_t(low % 100000000));
     }
 
     // to_string_size(v) = to_string(v).size()
@@ -282,6 +435,17 @@ struct Printer {
     }
 };
 
+std::array<std::array<char, 4>, 10000> Printer::groups = [] {
+    std::array<std::array<char, 4>, 10000> table{};
+    for (int i = 0; i < 10000; i++) {
+        int v = i;
+        for (int j = 3; j >= 0; j--) {
+            table[i][j] = char('0' + v % 10);
+            v /= 10;
+        }
+    }
+    return table;
+}();
 std::array<std::array<char, 2>, 100> Printer::small = [] {
     std::array<std::array<char, 2>, 100> table;
     for (int i = 0; i <= 99; i++) {

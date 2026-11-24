@@ -1,0 +1,47 @@
+title = 'Prefix Sum of Binomial Coefficient'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/1429"
+
+[[tests]]
+    name = "example.in"
+    number = 1
+[[tests]]
+    name = "small.cpp"
+    number = 1
+[[tests]]
+    name = "single.cpp"
+    number = 4
+[[tests]]
+    name = "random.cpp"
+    number = 3
+[[tests]]
+    name = "boundary.cpp"
+    number = 2
+[[tests]]
+    name = "repeated.cpp"
+    number = 2
+[[tests]]
+    name = "grid.cpp"
+    number = 1
+[[tests]]
+    name = "mo_worst.cpp"
+    number = 2
+[[tests]]
+    name = "multieval_worst.cpp"
+    number = 1
+[[tests]]
+    name = "sqrt_worst.cpp"
+    number = 2
+
+[[solutions]]
+    name = "mo.cpp"
+[[solutions]]
+    name = "multipoint.cpp"
+[[solutions]]
+    name = "naive.cpp"
+    allow_tle = true
+
+[params]
+    T_MAX = 200_000
+    N_MAX = 200_000
+    MOD = 998_244_353

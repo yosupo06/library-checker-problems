@@ -78,7 +78,7 @@ The easiest way to prepare this file is the copy and modify other problems' `tas
 Depending on the symbols used in MathJax formulas, some may conflict with Markdown syntax. The following methods are effective. If you have some concerns, please check them using the Statement Viewer (https://judge.yosupo.jp/tool/statementviewer).
 
 * Use symbol-free alternatives, such as `\lbrace` and `\rbrace`, instead of `\{` and `\}`
-* Insert half-width spaces before and after the underscore (`_`)
+* Insert spaces before and after the underscore (`_`)
 
 Markdown is extended as follows:
 

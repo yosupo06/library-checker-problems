@@ -17,11 +17,13 @@ $\lbrace 0,1,\ldots,N-1\rbrace$ の置換 $P_0, P_1, \ldots, P_{K-1}$ が与え�
 
 ## @{keyword.constraints}
 
+@{lang.en}
 - $1 \leq N \leq @{param.N_MAX}$
 - $1 \leq K \leq @{param.K_MAX}$
-@{lang.en}
 - Each $P_i$ is a permutation of $\lbrace 0,1,\ldots,N-1\rbrace$.
 @{lang.ja}
+- $1 \leq N \leq @{param.N_MAX}$
+- $1 \leq K \leq @{param.K_MAX}$
 - 各 $P_i$ は $\lbrace 0,1,\ldots,N-1\rbrace$ の置換
 @{lang.end}
 

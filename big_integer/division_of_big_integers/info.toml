@@ -30,6 +30,10 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/941"
     name = "burnikel_ziegler_bound.cpp"
     number = 4
 
+[[tests]]
+    name = "dense_quotient.cpp"
+    number = 1
+
 [params]
     T_MAX = 2000000
     LOG_10_A_AND_B_MAX = 2000000

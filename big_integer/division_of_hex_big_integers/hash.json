@@ -13,6 +13,8 @@
   "burnikel_ziegler_bound_02.out": "1e12d0c137e3804e60e204388abf2ca626b57fdfddca9e63cb8b1b7e369cdd7b",
   "burnikel_ziegler_bound_03.in": "cc95078f5cb233a26ce6c83345e64340cf6a3cddec71cc8bcd6e99ce9c3914c4",
   "burnikel_ziegler_bound_03.out": "a661be73fdc70fc3b610988bd5e854b4316a9e69b75cc2df8e964c9a9c8e2a61",
+  "dense_quotient_00.in": "55daa952e4eca5ee3071a14267815b30daedd751b1a9b519baa30a412a04dbde",
+  "dense_quotient_00.out": "a9e4a2bdd4ea74f7616a434b38efddeb40d3a6c508ba5b06728f93b121e92be5",
   "example_00.in": "f734364905adda25d4cb9ec9761f3e02675d7ffd221e5ca41a85bba1acb82e85",
   "example_00.out": "b591db1aae9bc3890ce0539994259982cf1964d8fcdbfd0d657fd8c37f9cc8d0",
   "large_00.in": "17fd92b0e66bd94798509e0bc7de37c1a837ed3013fcef22a7e6c868a969b5c0",

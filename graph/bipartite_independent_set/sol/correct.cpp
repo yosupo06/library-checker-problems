@@ -41,7 +41,8 @@ vector<int> independent_set(const vector<vector<int>>& adj, int right_count) {
         vector<int> cursor(n);
         for (int start = 0; start < n; ++start) {
             if (left_match[start] != -1) continue;
-            path = {start};
+            path.clear();
+            path.push_back(start);
             while (!path.empty()) {
                 int u = path.back();
                 if (cursor[u] == int(adj[u].size())) {

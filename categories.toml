@@ -81,6 +81,7 @@ problems = [
   "minimum_diameter_spanning_tree",
   "dominatortree",
   "maximum_independent_set",
+  "bipartite_independent_set",
   "chromatic_number",
   "chromatic_polynomial",
   "enumerate_triangles",

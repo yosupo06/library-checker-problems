@@ -1,0 +1,72 @@
+title = 'Maximum Flow / Minimum Cut'
+timelimit = 5.0
+forum = "https://github.com/yosupo06/library-checker-problems/issues/142"
+
+[[tests]]
+    name = "example.in"
+    number = 2
+[[tests]]
+    name = "boundary.cpp"
+    number = 4
+[[tests]]
+    name = "random.cpp"
+    number = 6
+[[tests]]
+    name = "dense.cpp"
+    number = 3
+[[tests]]
+    name = "parallel.cpp"
+    number = 3
+[[tests]]
+    name = "layered.cpp"
+    number = 3
+[[tests]]
+    name = "dinic_no_current_arc_killer.cpp"
+    number = 1
+[[tests]]
+    name = "dinic_worst.cpp"
+    number = 5
+[[tests]]
+    name = "dinic_unit_capacity_paths_worst.cpp"
+    number = 1
+[[tests]]
+    name = "dinic_unit_network_worst.cpp"
+    number = 1
+[[tests]]
+    name = "dinic_unit_capacity_worst.cpp"
+    number = 1
+[[tests]]
+    name = "dinic_worst_hubs.cpp"
+    number = 1
+
+[[tests]]
+    name = "reverse_required.in"
+    number = 1
+[[tests]]
+    name = "preflow_recovery.in"
+    number = 1
+[[tests]]
+    name = "random_positive.cpp"
+    number = 2
+[[tests]]
+    name = "ford_fulkerson_killer.cpp"
+    number = 1
+
+[[solutions]]
+    name = "acl.cpp"
+[[solutions]]
+    name = "ford_fulkerson.cpp"
+    expect = "TLE"
+[[solutions]]
+    name = "edmonds_karp.cpp"
+[[solutions]]
+    name = "tle_no_current_arc.cpp"
+    expect = "TLE"
+[[solutions]]
+    name = "wa_no_reverse.cpp"
+    expect = "WA"
+
+[params]
+    N_MAX = 300
+    M_MAX = 30_000
+    C_MAX = 1_000_000_000

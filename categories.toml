@@ -71,6 +71,8 @@ problems = [
   "eulerian_trail_undirected",
   "st_numbering",
   "min_cost_b_flow",
+  "maximum_flow",
+  "maximum_flow_large",
   "bipartitematching",
   "general_matching",
   "general_weighted_matching",

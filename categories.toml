@@ -89,6 +89,7 @@ problems = [
   "tree_decomposition_width_2",
   "global_minimum_cut_of_dynamic_star_augmented_graph",
   "chordal_graph_recognition",
+  "planar_embedding",
   "dynamic_graph_vertex_add_component_sum",
   "counting_eulerian_circuits",
   "counting_spanning_tree_undirected",

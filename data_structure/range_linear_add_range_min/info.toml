@@ -26,6 +26,9 @@ forum = "https://github.com/yosupo06/library-checker-problems/issues/1081"
 [[tests]]
     name = "width_almost_n.cpp"
     number = 3
+[[tests]]
+    name = "kinetic_segtree_killer.cpp"
+    number = 1
 
 [[solutions]]
     name = "naive.cpp"

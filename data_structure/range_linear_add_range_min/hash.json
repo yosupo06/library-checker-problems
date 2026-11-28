@@ -13,6 +13,8 @@
   "almost_t1_02.out": "25441b9b802fd2891476d94cea268df194b8c175368a77f1d5bddffdc6194d90",
   "example_00.in": "d17630e49e39fae303004eff9740a25b80c68069df9b048f98eb2fa365ce92e2",
   "example_00.out": "c525ca4927f9ac2a391982eec2e5ddfac90376ab3649dcc74704d0bd6e29c206",
+  "kinetic_segtree_killer_00.in": "9010d525f5613459c6b8b847d5dd0aa2131fe4576208a3f13eda7d1b5b0d0345",
+  "kinetic_segtree_killer_00.out": "37b79402abf0ce1a1542a2d63fdddd6894d654a2b4041cddcc7fb02a9b7546f2",
   "max_random_00.in": "464261cca86e757fc5573bca2bdc2a48beff218b63b754715727dc692fabe3d5",
   "max_random_00.out": "7bbf83a74e1ebc6485977086c5a7571be0f07829d230da40697cd68d266cfe74",
   "max_random_01.in": "5874bcc683730ff4efeb33ae0fcb29eea2200c574ba703f880044562963638d3",
